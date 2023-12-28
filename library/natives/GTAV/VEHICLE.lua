@@ -806,6 +806,20 @@ function GetBoatBoomPositionRatio_2(vehicle, p1) end
 function GetBoatBoomPositionRatio_3(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5AA3F878A178C4FC)  
+---Retrieves the agility for a specific boat model, including any vehicle mods. Unlike other vehicles where Rockstar Games typically assess performance based on traction, boats use agility as a measure. This static value is distinct from the traction metrics used for other vehicle types.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param modelHash number | string
+---@return number
+function GetBoatVehicleModelAgility(modelHash) end
+
+---@deprecated
+GetVehicleModelMoveResistance = GetBoatVehicleModelAgility
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9078C0C5EF8C19E9)  
 ---```
 ---Returns true if the vehicle has the FLAG_JUMPING_CAR flag set.
@@ -1164,8 +1178,7 @@ function GetLiveryName(vehicle, liveryIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF7AF4F159FF99F97)  
----Will return a vehicle's manufacturer display label.
----Returns "CARNOTFOUND" if the hash doesn't match a vehicle hash.
+---Retrieves the manufacturer's name for a specified vehicle.
 ---
 ---```
 ---NativeDB Introduced: v1868
@@ -1454,8 +1467,10 @@ function GetTyreWearMultiplier(vehicle, wheelIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5DD35C8D074E57AE)  
+---Retrieves a static value representing the maximum drive force of specific a vehicle, including any vehicle mods. This value does not change dynamically during gameplay. This value provides an approximation and should be considered alongside other performance metrics like top speed for a more comprehensive understanding of the vehicle's capabilities.
+---
 ---```
----static - max acceleration  
+---NativeDB Introduced: v323
 ---```
 ---@param vehicle number
 ---@return number
@@ -1754,7 +1769,11 @@ GetVehiclePaintFade = GetVehicleEnveffScale
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x53AF99BAA671CA47)  
----This native does not have an official description.
+---Retrieves a static value representing the estimated max speed of a specific vehicle, including any vehicle mods. This value does not change dynamically during gameplay.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param vehicle number
 ---@return number
 function GetVehicleEstimatedMaxSpeed(vehicle) end
@@ -2036,16 +2055,6 @@ function GetVehicleModelMaxKnots(modelHash) end
 ---@param modelHash number | string
 ---@return number
 function GetVehicleModelMaxTraction(modelHash) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5AA3F878A178C4FC)  
----```
----GET_VEHICLE_MODEL_*
----called if the vehicle is a boat -- returns vecMoveResistanceX?
----```
----@param modelHash number | string
----@return number
-function GetVehicleModelMoveResistance(modelHash) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2AD93716F184EDA4)  
