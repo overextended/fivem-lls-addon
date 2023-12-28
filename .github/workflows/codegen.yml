@@ -22,8 +22,8 @@ jobs:
           npm install
           npm start
           cd ..
-          rm -rf Lua/natives/*
-          mv -f fivem-lua-natives-master/build/cfx/{CFX-NATIVE,GTAV,RDR3} Lua/natives/
+          rm -rf library/natives/*
+          mv -f fivem-lua-natives-master/build/cfx/{CFX-NATIVE,GTAV,RDR3} library/natives/
           rm -rf fivem-lua-natives-master
           rm repo.zip
 
