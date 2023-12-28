@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
+  "name": "fivem",
+  "settings": {
+    "Lua.runtime.version": "Lua 5.4",
+    "Lua.runtime.nonstandardSymbol": [
+      "/**/",
+      "`",
+      "+=",
+      "-=",
+      "*=",
+      "/=",
+      "<<=",
+      ">>=",
+      "&=",
+      "|=",
+      "^="
+    ],
+    "Lua.workspace.ignoreDir": [
+      ".vscode",
+      ".git",
+      ".github",
+      "node_modules",
+      "web"
+    ],
+    "Lua.runtime.special": {
+      "lib.load": "require"
+    },
+    "Lua.runtime.pathStrict": true
+  }
+}
