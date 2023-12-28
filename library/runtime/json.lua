@@ -62,7 +62,16 @@ json.sentinel = json.null
 ---@class json_encode_state
 ---When set, the created string will contain newlines and indentation. Otherwise it will be one long line.
 ---@field indent? boolean
+---Alias of indent.
+---@field pretty? boolean
+---Set `true` to sort the JSON object keys.
+---@field sort_keys? boolean
 ---The initial level of indentation used when indent is set. For each level two spaces are added; when absent it defaults to 0.
+---Empty tables encoded as array.
+---@field empty_table_as_array? boolean
+---Allow tables to be encoded as arrays iff all keys are positive integers, inserting "nil"s when encoding to satisfy the array type.
+---@field with_hole? boolean
+---Maximum table recursion depth.
 ---@field indent_amt? integer
 ---An array to specify the ordering of keys in the encoded output. If an object has keys which are not in this array they are written after the sorted keys.
 ---@field keyorder? table
