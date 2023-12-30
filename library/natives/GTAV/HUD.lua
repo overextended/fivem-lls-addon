@@ -4296,11 +4296,6 @@ function SetTextColour(red, green, blue, alpha) end
 function SetTextDropshadow(distance, r, g, b, a) end
 
 ---**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1CA3E9EAC9D93E5E)  
----This native does not have an official description.
-function SetTextDropShadow() end
-
----**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x441603240D202FA6)  
 ---**This native does absolutely nothing, just a nullsub**
 ---@param p0 number
