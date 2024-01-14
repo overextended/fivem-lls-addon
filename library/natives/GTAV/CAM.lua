@@ -2132,8 +2132,8 @@ function StopCutsceneCamShaking() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0EF93E9F3D08C178)  
 ---This native does not have an official description.
----@param p0 boolean
-function StopGameplayCamShaking(p0) end
+---@param bStopImmediately boolean
+function StopGameplayCamShaking(bStopImmediately) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF46C581C61718916)  
