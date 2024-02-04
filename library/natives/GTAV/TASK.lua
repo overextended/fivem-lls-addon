@@ -131,8 +131,8 @@ function ClearPedTasksImmediately(ped) end
 ---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3841422E9C488D8C)  
 ---This native does not have an official description.
----@return number
-function ClearSequenceTask() end
+---@param taskSequenceId number
+function ClearSequenceTask(taskSequenceId) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDBBC7A2432524127)  

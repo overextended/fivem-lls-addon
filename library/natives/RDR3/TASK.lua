@@ -159,8 +159,8 @@ function ClearPedTasksImmediately(ped, p1, resetCrouch) end
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3841422E9C488D8C)  
 ---This native does not have an official description.
----@return number
-function ClearSequenceTask() end
+---@param taskSequenceId number
+function ClearSequenceTask(taskSequenceId) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB043ECA801B8CBC1)  
