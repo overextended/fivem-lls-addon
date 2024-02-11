@@ -599,6 +599,14 @@ function DeleteCheckpoint(checkpoint) end
 function DestroyTrackedPoint(point) end
 
 ---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2BF72AD5B41AA739)  
+---Removes any custom moon cycle overrides that have been configured with [ENABLE_MOON_CYCLE_OVERRIDE](#\_0x2C328AF17210F009)
+function DisableMoonCycleOverride() end
+
+---@deprecated
+ResetExtraTimecycleModifierStrength = DisableMoonCycleOverride
+
+---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3669F1B198DCAA4F)  
 ---This native does not have an official description.
 function DisableOcclusionThisFrame() end
@@ -1418,6 +1426,29 @@ function EnableClownBloodVfx(toggle) end
 
 ---@deprecated
 SetCameraEndtime = EnableClownBloodVfx
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2C328AF17210F009)  
+---Enable a custom moon cycle, allowing control of which lunar phase the moon is in.
+---
+---Valid values are from `0.0` to `1.0`, with `0.5` representing a full moon.
+---
+---| Value |   Lunar Phase   |
+---| :---: | :-------------: |
+---| `0.1` | Waxing Crescent |
+---| `0.2` |  First Quarter  |
+---| `0.3` | Waxing Gibbous  |
+---| `0.5` |    Full Moon    |
+---| `0.7` | Waning Gibbous  |
+---| `0.8` |  Third Quarter  |
+---| `0.9` | Waning Crescent |
+---
+---The moon phase can be disabled with [DISABLE_MOON_CYCLE_OVERRIDE](#\_0x2BF72AD5B41AA739)
+---@param phase number
+function EnableMoonCycleOverride(phase) end
+
+---@deprecated
+SetExtraTimecycleModifierStrength = EnableMoonCycleOverride
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x74C180030FDE4B69)  
@@ -2973,11 +3004,6 @@ RequestHudScaleform = RequestScaleformScriptHudMovie
 function RequestStreamedTextureDict(textureDict, p1) end
 
 ---**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2BF72AD5B41AA739)  
----Resets the extra timecycle modifier strength normally set with [`SetExtraTimecycleModifierStrength`](#\_0x2C328AF17210F009)
-function ResetExtraTimecycleModifierStrength() end
-
----**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x89C8553DD3274AAE)  
 ---```
 ---Resets the effect of SET_PARTICLE_FX_OVERRIDE
@@ -3373,12 +3399,6 @@ function SetEntityIconVisibility(entity, toggle) end
 ---This native does not have an official description.
 ---@param modifierName string
 function SetExtraTimecycleModifier(modifierName) end
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2C328AF17210F009)  
----The same as [`SetTimecycleModifierStrength`](#\_0x82E7FFCD5B2326B3) but for the secondary tiemcycle modifier.
----@param strength number
-function SetExtraTimecycleModifierStrength(strength) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0AB84296FED9CFC6)  
