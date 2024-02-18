@@ -268,6 +268,13 @@ function ClearVehicleCustomPrimaryColour(vehicle) end
 function ClearVehicleCustomSecondaryColour(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0A436B8643716D14)  
+---Removes the cargen area of interest and resumes normal cargen spawning.
+---
+---You can set the area of interest with [`SET_VEHICLE_GENERATOR_AREA_OF_INTEREST`](#\_0x9A75585FB2E54FAD)
+function ClearVehicleGeneratorAreaOfInterest() end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA3F739ABDDCF21F)  
 ---This native does not have an official description.
 function ClearVehiclePhoneExplosiveDevice() end
@@ -3166,13 +3173,6 @@ function N_0x063ae2b2cc273588(vehicle, p1) end
 function N_0x065d03a9d6b2c6b5(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0A436B8643716D14)  
----```
----CLEAR_VEHICLE_*
----```
-function N_0x0a436b8643716d14() end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x107A473D7A6647A9)  
 ---```
 ---NativeDB Introduced: v1290
@@ -3695,19 +3695,6 @@ function N_0x99a05839c46ce316(toggle) end
 ---@param p1 number
 ---@param p2 number
 function N_0x99cad8e7afdb60fa(vehicle, p1, p2) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x9A75585FB2E54FAD)  
----```
----Related to car generators & CPlayerSwitchMgrLong
----SET_VEHICLE_*
----SET_VEHICLE_GENERATORS_EXPECTED_GAMEPLAY_PT ?
----```
----@param x number
----@param y number
----@param z number
----@param radius number
-function N_0x9a75585fb2e54fad(x, y, z, radius) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9BDDC73CC6A115D4)  
@@ -6062,6 +6049,17 @@ function SetVehicleFullbeam(vehicle, toggle) end
 function SetVehicleGeneratesEngineShockingEvents(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9A75585FB2E54FAD)  
+---Specifies an area of interest where cargens will focus on spawning vehicles
+---
+---You can clear the area of interest with [`CLEAR_VEHICLE_GENERATOR_AREA_OF_INTEREST`](#\_0x0A436B8643716D14)
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+function SetVehicleGeneratorAreaOfInterest(x, y, z, radius) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x89F149B6131E57DA)  
 ---This native does not have an official description.
 ---@param vehicle number
@@ -6223,10 +6221,13 @@ function SetVehicleIsWanted(vehicle, state) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB8FBC8B1330CA9B4)  
----This native does not have an official description.
+---Calling this native will keep a vehicle's engine running after exiting.
 ---@param vehicle number
 ---@param toggle boolean
-function SetVehicleJetEngineOn(vehicle, toggle) end
+function SetVehicleKeepEngineOnWhenAbandoned(vehicle, toggle) end
+
+---@deprecated
+SetVehicleJetEngineOn = SetVehicleKeepEngineOnWhenAbandoned
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x99C82F8A139F3E4E)  

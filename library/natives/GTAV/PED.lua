@@ -134,17 +134,21 @@ function ApplyPedBloodDamageByZone(ped, p1, p2, p3, p4) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEF0D582CBF2D9B0F)  
----This native does not have an official description.
+---Applies blood damage to a ped with specific parameters for zone, UV offsets, rotation, scale, and initial aging.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param ped number
----@param p1 any
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 any
----@param p7 number
----@return any
-function ApplyPedBloodSpecific(ped, p1, p2, p3, p4, p5, p6, p7) end
+---@param component number
+---@param u number
+---@param v number
+---@param rotation number
+---@param scale number
+---@param forcedFrame number
+---@param preAge number
+---@param bloodName string
+function ApplyPedBloodSpecific(ped, component, u, v, rotation, scale, forcedFrame, preAge, bloodName) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x397C38AA7B4A5F83)  
