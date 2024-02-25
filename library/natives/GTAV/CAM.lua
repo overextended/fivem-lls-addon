@@ -1070,15 +1070,6 @@ function N_0x705a276ebff3133d() end
 function N_0x7295c203dd659dfe() end
 
 ---**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x79C0E43EB9B944E2)  
----```
----NativeDB Introduced: v1734
----```
----@param hash number | string
----@return boolean
-function N_0x79c0e43eb9b944e2(hash) end
-
----**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7B8A361C1813FBEF)  
 ---This native does not have an official description.
 function N_0x7b8a361c1813fbef() end
@@ -2002,6 +1993,24 @@ function SetGameplayVehicleHint(vehicle, offsetX, offsetY, offsetZ, p4, time, ea
 ---@param p0 number
 ---@param p1 number
 function SetInVehicleCamStateThisUpdate(p0, p1) end
+
+---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x79C0E43EB9B944E2)  
+---Override the camera work of the third-person camera to table game for current frame only.
+---
+---|                  HashKey                    |       Hash        |    Game         |
+---| :---------------------------------: | :-----------:| :-------------:  |
+---| `CASINO_LUCKY_WHEEL_CAMERA` |   `5891389`   |  Lucky Wheel    |
+---| `CASINO_SLOT_MACHINE_CAMERA` |  `518572876`  |     Slots       |
+---| `CASINO_ROULETTE_CAMERA` |   `71681063`  |    Roulette     |
+---| `CASINO_BLACKJACK_CAMERA` | `-2124244681` |    Blackjack    |
+---| `CASINO_POKER_CAMERA` | `-1938411241` |   Three Cards   |
+---| `CASINO_INSIDE_TRACK_CAMERA` | `1929822423` |   Inside Track    |
+---| `ARCADE_LOVE_PROFESSOR_P1_CAMERA` | `545868034` |   LoveProfessorP1   |
+---| `ARCADE_LOVE_PROFESSOR_P2_CAMERA` | `935304251` |   LoveProfessorP2   |
+---@param hash number | string
+---@return boolean
+function SetTableGamesCameraThisUpdate(hash) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x42156508606DE65E)  

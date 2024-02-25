@@ -376,6 +376,17 @@ function GetTattooShopDlcItemData(characterType, decorationIndex) end
 GetTattooCollectionData = GetTattooShopDlcItemData
 
 ---**`FILES` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x10144267DD22866C)  
+---```
+---NativeDB Introduced: v2189
+---```
+---@param character number
+---@param collection number
+---@param preset number
+---@return number
+function GetTattooShopDlcItemIndex(character, collection, preset) end
+
+---**`FILES` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6E11F282F11863B6)  
 ---This native does not have an official description.
 ---@param componentHash number | string
@@ -434,28 +445,6 @@ function IsDlcVehicleMod(hash) end
 ---```
 ---@param hash number | string
 function LoadContentChangeSetGroup(hash) end
-
----**`FILES` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x10144267DD22866C)  
----Returns some sort of index/offset for overlays/decorations.
----
----```
----Character types:
----0 = Michael,
----1 = Franklin,
----2 = Trevor,
----3 = MPMale,
----4 = MPFemale
----```
----
----```
----NativeDB Introduced: v2189
----```
----@param overlayHash number | string
----@param p1 any
----@param character number
----@return number
-function N_0x10144267dd22866c(overlayHash, p1, character) end
 
 ---**`FILES` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6CEBE002E58DEE97)  

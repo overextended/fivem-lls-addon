@@ -670,12 +670,6 @@ function DisableHeadBlendPaletteColor(ped) end
 function DisablePedHeatscaleOverride(ped) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xCD9CC7E200A52A6F)  
----This native does not have an official description.
----@param scene number
-function DisposeSynchronizedScene(scene) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7C6B0C22F9F40BBE)  
 ---This native does not have an official description.
 ---@param groupId number
@@ -2361,11 +2355,15 @@ function IsPedComponentVariationValid(ped, componentId, drawableId, textureId) e
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3317DEDB88C95038)  
----Seems to consistently return true if the ped is dead, however, it does not detect the dying phase.
+---Determines if a ped is dead. Contrary to what the name might suggest, it does not always detect when a ped is in the 'dying' phase (transitioning to death). The exception is when `checkMeleeDeathFlags` is set to `true`, which then includes peds in the midst of melee takedown moves as being in a dying state, even if the death task has not yet started.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param ped number
----@param p1 boolean
+---@param checkMeleeDeathFlags boolean
 ---@return boolean
-function IsPedDeadOrDying(ped, p1) end
+function IsPedDeadOrDying(ped, checkMeleeDeathFlags) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA63D9FE45412247)  
@@ -6744,6 +6742,15 @@ function StopAnyPedModelBeingSuppressed() end
 ---This native does not have an official description.
 ---@param ped number
 function StopPedWeaponFiringWhenDropped(ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCD9CC7E200A52A6F)  
+---This native does not have an official description.
+---@param scene number
+function TakeOwnershipOfSynchronizedScene(scene) end
+
+---@deprecated
+DisposeSynchronizedScene = TakeOwnershipOfSynchronizedScene
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x96B1361D9B24C2FF)  
