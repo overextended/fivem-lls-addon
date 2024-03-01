@@ -16,8 +16,9 @@ function EnableWaterLookup() end
 ---@param x number
 ---@param y number
 ---@param z number
----@return boolean, number
-function GetWaterHeight(x, y, z) end
+---@param height number
+---@return boolean, number height
+function GetWaterHeight(x, y, z, height) end
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDCF3690AA262C03F)  
