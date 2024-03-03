@@ -16,15 +16,15 @@ jobs:
 
       - name: Generate natives
         run: |
-          wget https://github.com/thelindat/fivem-lua-natives/archive/master.zip -O repo.zip
+          wget https://github.com/thelindat/rage-lua-natives/archive/master.zip -O repo.zip
           unzip repo.zip
-          cd fivem-lua-natives-master
-          npm install
-          npm start
+          cd rage-lua-natives-master
+          pnpm i
+          pnpm start
           cd ..
           rm -rf library/natives/*
-          mv -f fivem-lua-natives-master/build/cfx/{CFX-NATIVE,GTAV,RDR3} library/natives/
-          rm -rf fivem-lua-natives-master
+          mv -f rage-lua-natives-master/build/cfx/{CFX-NATIVE,GTAV,RDR3} library/natives/
+          rm -rf rage-lua-natives-master
           rm repo.zip
 
       - name: Update repository
