@@ -3,15 +3,15 @@
 ---**`COMPAPP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x29C733459A9011EB)  
 ---nullsub, doesn't do anything
----@param p0 number | string
+---@param p0 integer | string
 ---@param p1 string
 function N_0x29c733459a9011eb(p0, p1) end
 
 ---**`COMPAPP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x74BCCEB233AD95B2)  
 ---nullsub, doesn't do anything
----@param p0 number | string
----@param p1 number | string
+---@param p0 integer | string
+---@param p1 integer | string
 function N_0x74bcceb233ad95b2(p0, p1) end
 
 ---**`COMPAPP` `client`**  
@@ -23,7 +23,7 @@ function N_0x7af1bb4504ea5ed9() end
 ---**`COMPAPP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB6FD96420C0126A1)  
 ---nullsub, doesn't do anything
----@param p0 number | string
+---@param p0 integer | string
 ---@param p1 boolean
 function N_0xb6fd96420c0126a1(p0, p1) end
 

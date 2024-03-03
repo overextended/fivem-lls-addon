@@ -3,7 +3,7 @@
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x153973AB99FE8980)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param groupName string
 ---@param p2 number
 function AddEntityToAudioMixGroup(entity, groupName, p2) end
@@ -12,7 +12,7 @@ function AddEntityToAudioMixGroup(entity, groupName, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x95D9F4BC443956E7)  
 ---This native does not have an official description.
 ---@param convoRoot string
----@param ped number
+---@param ped integer
 ---@param characterName string
 function AddPedToConversation(convoRoot, ped, characterName) end
 
@@ -80,14 +80,14 @@ function CreateNewScriptedConversation(convoRoot) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA9A41C1E940FB0E8)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param toggle boolean
 function DisablePedPainAudio(ped, toggle) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x49B99BF3FDA89A7A)  
 ---Checks if the ped can play the speech or has the speech file, last parameter is usually false.
----@param ped number
+---@param ped integer
 ---@param speechName string
 ---@param unk boolean
 ---@return boolean
@@ -101,7 +101,7 @@ function ForcePedPanicWalla() end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4F0C413926060B38)  
 ---Old name: _FORCE_VEHICLE_ENGINE_AUDIO
----@param vehicle number
+---@param vehicle integer
 ---@param audioName string
 function ForceUseAudioGameObject(vehicle, audioName) end
 
@@ -109,14 +109,14 @@ function ForceUseAudioGameObject(vehicle, audioName) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x480357EE890C295A)  
 ---This native does not have an official description.
 ---@param p0 string
----@return number
+---@return integer
 function GetCurrentScriptedConversationLine(p0) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8B25A18E390F75BF)  
 ---This native does not have an official description.
----@param entity number
----@return number
+---@param entity integer
+---@return integer
 function GetEntityAudioMixGroup(entity) end
 
 ---**`AUDIO` `client`**  
@@ -125,26 +125,26 @@ function GetEntityAudioMixGroup(entity) end
 ---https://github.com/femga/rdr3_discoveries/tree/master/audio/create_stream
 ---@param streamName string
 ---@param soundSet string
----@return number
+---@return integer
 function GetLoadedStreamIdFromCreation(streamName, soundSet) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE7A0D23DC414507B)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetMusicPlaytime() end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2DBBF0C5E19383EE)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@return any
 function GetPedSongIndexHost(ped) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x430386FE9BF80B45)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetSoundId() end
 
 ---**`AUDIO` `client`**  
@@ -158,28 +158,28 @@ function HasSoundAudioNameFinished(audioName, soundsetName) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x84848E1C0FC67DBB)  
 ---This native does not have an official description.
----@param soundId number
+---@param soundId integer
 ---@return boolean
 function HasSoundIdFinished(soundId) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x932C2D096A2C3FFF)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@return boolean
 function IsAmbientSpeechDisabled(ped) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9072C8B49907BFAD)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@return boolean
 function IsAmbientSpeechPlaying(ped) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC265DF9FB44A9FBD)  
 ---This native does not have an official description.
----@param pedHandle number
+---@param pedHandle integer
 ---@return boolean
 function IsAnimalVocalizationPlaying(pedHandle) end
 
@@ -193,7 +193,7 @@ function IsAnyConversationPlaying(p0) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x729072355FA39EC9)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@return boolean
 function IsAnySpeechPlaying(ped) end
 
@@ -207,14 +207,14 @@ function IsAudioSceneActive(scene) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D6BFC12B05C6121)  
 ---Checks whether the horn of a vehicle is currently played.
----@param vehicle number
+---@param vehicle integer
 ---@return boolean
 function IsHornActive(vehicle) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x54B187F111D9C6F8)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param p1 boolean
 ---@return boolean
 function IsPedInAnyConversation(ped, p1) end
@@ -223,7 +223,7 @@ function IsPedInAnyConversation(ped, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x049E937F18F4020C)  
 ---This native does not have an official description.
 ---@param p0 string
----@param ped number
+---@param ped integer
 ---@param p2 any
 ---@return boolean
 function IsPedInCurrentConversation(p0, ped, p2) end
@@ -232,8 +232,8 @@ function IsPedInCurrentConversation(p0, ped, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6DF942C4179BE5AB)  
 ---item: FUSE, value returned from 0x2E1CDC1FF3B8473E
 ---soundSet: HUD_SHOP_SOUNDSET, COMPANIONS_ROBBERIES_SOUNDSET
----@param item number | string
----@param soundSet number | string
+---@param item integer | string
+---@param soundSet integer | string
 ---@return boolean
 function IsScriptedAudioCustom(item, soundSet) end
 
@@ -275,7 +275,7 @@ function IsScriptedSpeechPlaying(p0) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD11FA52EB849D978)  
 ---This native does not have an official description.
----@param streamId number
+---@param streamId integer
 ---@return boolean
 function IsStreamPlaying(streamId) end
 
@@ -332,8 +332,8 @@ function N_0x0cb3d1919e8d7cba(convoRoot) end
 ---speechEventType: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/naSpeechEventType 
 ---p1 is possibly naSpeechAudibility, naSpeechType, or naSpeechEventTypeRequestPriority
 ---SKIP_* - START_*
----@param speechEventType number
----@param p1 number
+---@param speechEventType integer
+---@param p1 integer
 ---@param p2 boolean
 function N_0x0d7fd6a55fd63aef(speechEventType, p1, p2) end
 
@@ -366,8 +366,8 @@ function N_0x139a4b9df2d26cbf(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x152ED1B56E8F1F50)  
 ---This native does not have an official description.
 ---@param p0 string
----@param currentScriptedConvoLine number
----@return number
+---@param currentScriptedConvoLine integer
+---@return integer
 function N_0x152ed1b56e8f1f50(p0, currentScriptedConvoLine) end
 
 ---**`AUDIO` `client`**  
@@ -380,8 +380,8 @@ function N_0x1e6f9a9fe1a99f36(audSpeechEvent) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x254B0241E964B450)  
 ---This native does not have an official description.
 ---@param p0 string
----@param currentScriptedConvoLine number
----@return number
+---@param currentScriptedConvoLine integer
+---@return integer
 function N_0x254b0241e964b450(p0, currentScriptedConvoLine) end
 
 ---**`AUDIO` `client`**  
@@ -394,7 +394,7 @@ function N_0x259acc5b52a2b2d9(p0, p1) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2651DDC0EA269073)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 ---@param p1 number
 function N_0x2651ddc0ea269073(ropeId, p1) end
 
@@ -402,7 +402,7 @@ function N_0x2651ddc0ea269073(ropeId, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x295859EB18F48D82)  
 ---This native does not have an official description.
 ---@param p0 string
----@return number
+---@return integer
 function N_0x295859eb18f48d82(p0) end
 
 ---**`AUDIO` `client`**  
@@ -421,7 +421,7 @@ function N_0x2b9c37c01bf25edb(p0) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2FFF4A78384AFFDF)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return any
 function N_0x2fff4a78384affdf(entity) end
 
@@ -483,7 +483,7 @@ function N_0x3e98ac9d8c56c62c(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x40CA665AB9D8D505)  
 ---This native does not have an official description.
 ---@param convoRoot string
----@param singleLineIndex number
+---@param singleLineIndex integer
 function N_0x40ca665ab9d8d505(convoRoot, singleLineIndex) end
 
 ---**`AUDIO` `client`**  
@@ -572,8 +572,8 @@ function N_0x5e3ccf03995388b5(p0, p1, p2, p3) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x62377977E4F08668)  
 ---This native does not have an official description.
----@param entity number
----@return any
+---@param entity integer
+---@return integer
 function N_0x62377977e4f08668(entity) end
 
 ---**`AUDIO` `client`**  
@@ -586,7 +586,7 @@ function N_0x64b956f4e761df5c(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x660A8F876DF1D4F8)  
 ---speechEventType: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/naSpeechEventType 
 ---SKIP_* - START_*
----@param speechEventType number
+---@param speechEventType integer
 function N_0x660a8f876df1d4f8(speechEventType) end
 
 ---**`AUDIO` `client`**  
@@ -628,7 +628,7 @@ function N_0x6da15746d5cc1a92(p0, p1, p2, p3, p4, p5) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x72E4D1C4639BC465)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@param p1 any
 ---@return any
 function N_0x72e4d1c4639bc465(p0, p1) end
@@ -651,7 +651,7 @@ function N_0x7678fe0455ed1145(p0, p1, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x79F9C57B8D0DFE90)  
 ---Only used in R* SP Script cv_mus_shared
 ---@param convoRoot string
----@param animScene any
+---@param animScene integer
 ---@return boolean
 function N_0x79f9c57b8d0dfe90(convoRoot, animScene) end
 
@@ -689,13 +689,13 @@ function N_0x847748ae5d7b1071(p0) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x864A842B86993851)  
 ---Not implemented.
----@param ped number
+---@param ped integer
 function N_0x864a842b86993851(ped) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x886657C5B3D8EDE3)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return any
 function N_0x886657c5b3d8ede3(entity) end
 
@@ -710,15 +710,15 @@ function N_0x8d29fdf565ded9ae(p0, p1, p2) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8E901B65206C2D3E)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 function N_0x8e901b65206c2d3e(ped) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x935DBD96D4A3DA1F)  
 ---This native does not have an official description.
 ---@param p0 string
----@param currentScriptedConvoLine number
----@return number
+---@param currentScriptedConvoLine integer
+---@return integer
 function N_0x935dbd96d4a3da1f(p0, currentScriptedConvoLine) end
 
 ---**`AUDIO` `client`**  
@@ -741,8 +741,8 @@ function N_0x9eb779765e68c52e(p0, p1) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA2323A2EAE32A290)  
 ---This native does not have an official description.
----@param listeningToPed number
----@param ped number
+---@param listeningToPed integer
+---@param ped integer
 ---@param listenerName string
 function N_0xa2323a2eae32a290(listeningToPed, ped, listenerName) end
 
@@ -767,7 +767,7 @@ function N_0xa6a3a3f96b8b030e() end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xABDB4863D3D72021)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param p1 any
 ---@param p2 any
 ---@param p3 number
@@ -784,8 +784,8 @@ function N_0xb18fec133c7c6c69(p0) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB93A769B8B726950)  
 ---Used in Script Function NET_CAMP_CLIENT_UPDATE_PED_ROLE_STATE_SHOP: hash exists! Playing hash
----@param ped number
----@param p1 number | string
+---@param ped integer
+---@param p1 integer | string
 function N_0xb93a769b8b726950(ped, p1) end
 
 ---**`AUDIO` `client`**  
@@ -798,8 +798,8 @@ function N_0xbc07ca8fd710e7fd(p0, p1) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBE28DB99556FF8D9)  
 ---Checks for MOONSHINE_BAND
----@param entity number
----@return number
+---@param entity integer
+---@return integer
 function N_0xbe28db99556ff8d9(entity) end
 
 ---**`AUDIO` `client`**  
@@ -813,7 +813,7 @@ function N_0xc369e2234e34a0ca(p0, p1) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC4CFCE4C656EF480)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 function N_0xc4cfce4c656ef480(ped) end
 
 ---**`AUDIO` `client`**  
@@ -894,7 +894,7 @@ function N_0xdc93f0948f2c28f4(p0) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDF947FE0D551684E)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param p1 string
 ---@return boolean
 function N_0xdf947fe0d551684e(ped, p1) end
@@ -920,7 +920,7 @@ function N_0xe891504b2f0e2dba(p0, p1) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE9694B2D6CB87B06)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param p1 any
 function N_0xe9694b2d6cb87b06(entity, p1) end
 
@@ -939,7 +939,7 @@ function N_0xeb4d592620b8c209(p0) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF092B6030D6FD49C)  
 ---Name: ROPE_SETTINGS_DEFAULT
----@param ropeId number
+---@param ropeId integer
 ---@param name string
 function N_0xf092b6030d6fd49c(ropeId, name) end
 
@@ -960,7 +960,7 @@ function N_0xf232c2c546ac16d0(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF336E9F989B3518F)  
 ---This native does not have an official description.
 ---@param p0 string
----@return number
+---@return integer
 function N_0xf336e9f989b3518f(p0) end
 
 ---**`AUDIO` `client`**  
@@ -1027,7 +1027,7 @@ function PlayAmbientSpeechFromPositionNative(x, y, z) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEE066C7006C49C0A)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param vocalizationName string
 ---@param p2 boolean
 function PlayAnimalVocalization(ped, vocalizationName, p2) end
@@ -1035,8 +1035,8 @@ function PlayAnimalVocalization(ped, vocalizationName, p2) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0E53530D9B2DB01D)  
 ---This native does not have an official description.
----@param ped number
----@param p1 number | string
+---@param ped integer
+---@param p1 integer | string
 ---@param p2 boolean
 function PlayAnimalVocalizationPheromoneVialResponse(ped, p1, p2) end
 
@@ -1049,8 +1049,8 @@ function PlayEndCreditsMusic(play) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBC9AE166038A5CEC)  
 ---Valid pain IDs: 0..12
----@param ped number
----@param painId number
+---@param ped integer
+---@param painId integer
 ---@param p2 number
 ---@param p3 boolean
 ---@param isNetwork boolean
@@ -1080,7 +1080,7 @@ function PlayPain(ped, painId, p2, p3, isNetwork) end
 ---
 ---Old name: _PLAY_AMBIENT_SPEECH1
 ---https://github.com/femga/rdr3_discoveries/tree/master/audio/audio_banks
----@param speaker number
+---@param speaker integer
 ---@return boolean, any
 function PlayPedAmbientSpeechNative(speaker) end
 
@@ -1099,7 +1099,7 @@ function PlaySound(audioName, audioRef, p2, p3, p4, p5) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6FB1DA3CA9DA7D90)  
 ---This native does not have an official description.
 ---@param audioName string
----@param entity number
+---@param entity integer
 ---@param audioRef string
 ---@param isNetwork boolean
 ---@param p4 any
@@ -1109,9 +1109,9 @@ function PlaySoundFromEntity(audioName, entity, audioRef, isNetwork, p4, p5) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF1C5310FEAA36B48)  
 ---Params: p5 seems to be always 0
----@param soundId number
+---@param soundId integer
 ---@param soundName string
----@param entity number
+---@param entity integer
 ---@param soundsetName string
 ---@param p4 boolean
 ---@param p5 any
@@ -1121,8 +1121,8 @@ function PlaySoundFromEntityWithSet(soundId, soundName, entity, soundsetName, p4
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE8EAFF7B41EDD291)  
 ---item: value returned from 0x2E1CDC1FF3B8473E
 ---soundSet: HUD_SHOP_SOUNDSET, COMPANIONS_ROBBERIES_SOUNDSET
----@param item number | string
----@param soundSet number | string
+---@param item integer | string
+---@param soundSet integer | string
 ---@param p2 any
 function PlaySoundFromItem(item, soundSet, p2) end
 
@@ -1144,14 +1144,14 @@ function PlaySoundFromPosition(audioName, x, y, z, audioRef, isNetwork, p6, p7, 
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDCF5BA95BBF0FABA)  
 ---Starts Audio Loop
 ---_PLAY_SOUND_FROM_ENTITY* - _PLAY_SOUND_FRONTEND*
----@param soundId number
+---@param soundId integer
 ---@param soundName string
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param soundsetName string
 ---@param p6 boolean
----@param p7 number
+---@param p7 integer
 ---@param p8 boolean
 function PlaySoundFromPositionWithId(soundId, soundName, x, y, z, soundsetName, p6, p7, p8) end
 
@@ -1167,7 +1167,7 @@ function PlaySoundFrontend(audioName, audioRef, p2, p3) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE5D0FFE83939AF1)  
 ---This native does not have an official description.
----@param soundId number
+---@param soundId integer
 ---@param name string
 ---@param soundSet string
 ---@param p3 boolean
@@ -1176,8 +1176,8 @@ function PlaySoundFrontendWithSoundId(soundId, name, soundSet, p3) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x89049DD63C08B5D1)  
 ---This native does not have an official description.
----@param ped number
----@param streamId number
+---@param ped integer
+---@param streamId integer
 function PlayStreamFromPed(ped, streamId) end
 
 ---**`AUDIO` `client`**  
@@ -1186,13 +1186,13 @@ function PlayStreamFromPed(ped, streamId) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param streamId number
+---@param streamId integer
 function PlayStreamFromPosition(x, y, z, streamId) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x58FCE43488F9F5F4)  
 ---This native does not have an official description.
----@param streamId number
+---@param streamId integer
 function PlayStreamFrontend(streamId) end
 
 ---**`AUDIO` `client`**  
@@ -1216,7 +1216,7 @@ function PrepareMusicEvent(eventName) end
 ---This native does not have an official description.
 ---@param soundName string
 ---@param soundsetName string
----@param soundId number
+---@param soundId integer
 ---@return boolean
 function PrepareSound(soundName, soundsetName, soundId) end
 
@@ -1232,9 +1232,9 @@ function PrepareSoundset(soundsetName, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4AD019591E94C064)  
 ---This native does not have an official description.
 ---@param soundName string
----@param entity number
+---@param entity integer
 ---@param soundsetName string
----@param soundId number
+---@param soundId integer
 ---@return boolean
 function PrepareSoundWithEntity(soundName, entity, soundsetName, soundId) end
 
@@ -1265,7 +1265,7 @@ function ReleaseShardSounds(soundName, soundsetName) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x353FC880830B88FA)  
 ---This native does not have an official description.
----@param soundId number
+---@param soundId integer
 function ReleaseSoundId(soundId) end
 
 ---**`AUDIO` `client`**  
@@ -1277,7 +1277,7 @@ function ReleaseSoundset(soundsetName) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x18EB48CFC41F2EA0)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param p1 number
 function RemoveEntityFromAudioMixGroup(entity, p1) end
 
@@ -1303,7 +1303,7 @@ function RestartScriptedConversation(p0) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6C8065A3B780185B)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param name string
 function SetAmbientVoiceName(ped, name) end
 
@@ -1352,8 +1352,8 @@ function SetAmbientZoneStatePersistent(ambientZone, p1, p2) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCC97B29285B1DC3B)  
 ---Not implemented.
----@param animal number
----@param mood number
+---@param animal integer
+---@param mood integer
 function SetAnimalMood(animal, mood) end
 
 ---**`AUDIO` `client`**  
@@ -1388,7 +1388,7 @@ function SetAudioSceneVariable(scene, variable, value) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE5564483E407F914)  
 ---This native does not have an official description.
----@param vehicle number
+---@param vehicle integer
 ---@param p1 any
 function SetAudioVehiclePriority(vehicle, p1) end
 
@@ -1401,14 +1401,14 @@ function SetGpsActive(active) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x76D683C108594D0E)  
 ---This native does not have an official description.
----@param vehicle number
+---@param vehicle integer
 ---@param toggle boolean
 function SetHornEnabled(vehicle, toggle) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB2DE3AEBE31150E2)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param disabled boolean
 ---@return any
 function SetIsScriptedSpeechDisabled(ped, disabled) end
@@ -1423,7 +1423,7 @@ function SetPedInteriorWallaDensity(p0, p1) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x95D2D383D5396B8A)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param toggle boolean
 function SetPedIsDrunk(ped, toggle) end
 
@@ -1445,7 +1445,7 @@ function SetPortalSettingsOverride(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2E31ACA7477CF00F)  
 ---p1: Entity.Relationship
 ---p2: Player, Enemy, Teammate, Neutral
----@param ped number
+---@param ped integer
 ---@param p1 string
 ---@param p2 string
 function SetSoundRelationshipOnPed(ped, p1, p2) end
@@ -1460,7 +1460,7 @@ function SetStaticEmitterEnabled(emitterName, toggle) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x503703EC1781B7D6)  
 ---This native does not have an official description.
----@param soundId number
+---@param soundId integer
 ---@param variableName string
 ---@param variableValue number
 function SetVariableOnSoundWithId(soundId, variableName, variableValue) end
@@ -1477,14 +1477,14 @@ function SetVariableOnSoundWithName(variableName, variableValue, audioName, audi
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2703EFB583F0949A)  
 ---Hashes: VOFX_PLAYER_MALE01, VOFX_PLAYER_MALE02, VOFX_PLAYER_MALE03, VOFX_PLAYER_FEMALE01, VOFX_PLAYER_FEMALE02, VOFX_PLAYER_FEMALE03
----@param ped number
----@param voice number | string
+---@param ped integer
+---@param voice integer | string
 function SetVofxPedVoice(ped, voice) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9963681A8BC69BF3)  
 ---whistleConfig: Ped.WhistlePitch (0.0 - 1.0), Ped.WhistleClarity (0.0 - 1.0), Ped.WhistleShape (0.0 - 10.0)
----@param ped number
+---@param ped integer
 ---@param whistleConfig string
 ---@param value number
 function SetWhistleConfigForPed(ped, whistleConfig, value) end
@@ -1558,21 +1558,21 @@ function StopAudioSceneset(sceneset) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB8BEC0CA6F0EDB0F)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param p1 any
 function StopCurrentPlayingAmbientSpeech(ped, p1) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x79D2F0E66F81D90D)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param p1 any
 function StopCurrentPlayingSpeech(ped, p1) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D64D7405520E3D3)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param shaking boolean
 function StopPedSpeaking(ped, shaking) end
 
@@ -1582,13 +1582,13 @@ function StopPedSpeaking(ped, shaking) end
 ---@param p0 string
 ---@param p1 boolean
 ---@param p2 boolean
----@return number
+---@return integer
 function StopScriptedConversation(p0, p1, p2) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3210BCB36AF7621B)  
 ---This native does not have an official description.
----@param soundId number
+---@param soundId integer
 function StopSoundWithId(soundId) end
 
 ---**`AUDIO` `client`**  
@@ -1601,7 +1601,7 @@ function StopSoundWithName(audioName, audioRef) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA4718A1419D18151)  
 ---This native does not have an official description.
----@param streamId number
+---@param streamId integer
 function StopStream(streamId) end
 
 ---**`AUDIO` `client`**  
@@ -1614,7 +1614,7 @@ function TriggerMusicEvent(eventName) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x05D6195FB4D428F4)  
 ---This native does not have an official description.
----@param eventName number | string
+---@param eventName integer | string
 ---@return any
 function TriggerMusicEventWithHash(eventName) end
 
@@ -1632,7 +1632,7 @@ function UnregisterScriptWithAudio() end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0286617C8FC50A53)  
 ---Only used in R* SP Scripts
----@param soundId number
+---@param soundId integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -1641,8 +1641,8 @@ function UpdateSoundPosition(soundId, x, y, z) end
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBF4DC1784BE94DFA)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param p1 boolean
----@param hash number | string
+---@param hash integer | string
 function UseFootstepScriptSweeteners(ped, p1, hash) end
 

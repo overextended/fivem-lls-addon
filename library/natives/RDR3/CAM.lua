@@ -7,30 +7,30 @@
 ---p8 big values ~100 will slow down the camera movement before reaching this node
 ---
 ---p9 != 0 seems to override the rotation/pitch (bool?)
----@param camera number
+---@param camera integer
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param xRot number
 ---@param yRot number
 ---@param zRot number
----@param length number
----@param p8 number
----@param p9 number
+---@param length integer
+---@param p8 integer
+---@param p9 integer
 function AddCamSplineNode(camera, x, y, z, xRot, yRot, zRot, length, p8, p9) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x42ED56B02E05D109)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param p1 boolean
 function AllowMotionBlurDecay(cam, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFDC0DF7F6FB0A592)  
 ---Last param determines if its relative to the Entity
----@param cam number
----@param entity number
+---@param cam integer
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
@@ -40,9 +40,9 @@ function AttachCamToEntity(cam, entity, xOffset, yOffset, zOffset, isRelative) e
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDFC1E4A44C0324CA)  
 ---boneIndex: https://github.com/femga/rdr3_discoveries/tree/master/boneNames
----@param cam number
----@param ped number
----@param boneIndex number
+---@param cam integer
+---@param ped integer
+---@param boneIndex integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -71,7 +71,7 @@ function CamDestroy(cameraDictionary) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0B0F914459731F60)  
 ---Only used in R* Script fm_mission_controller
 ---@param name string
----@param entity number
+---@param entity integer
 function CinematicLocationOverrideTargetEntityThisUpdate(name, entity) end
 
 ---**`CAM` `client`**  
@@ -108,7 +108,7 @@ function CinematicLocationTriggerScriptedShotEvent(dictionary, shotName, cameraN
 ---This native does not have an official description.
 ---@param dictionary string
 ---@param shotName string
----@param duration number
+---@param duration integer
 function CinematicLocationTriggerScriptedShotEvent_2(dictionary, shotName, duration) end
 
 ---**`CAM` `client`**  
@@ -116,21 +116,21 @@ function CinematicLocationTriggerScriptedShotEvent_2(dictionary, shotName, durat
 ---This native does not have an official description.
 ---@param camName string
 ---@param p1 boolean
----@return number
+---@return integer
 function CreateCam(camName, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x57CDF879EA466C46)  
 ---This native does not have an official description.
----@param camHash number | string
+---@param camHash integer | string
 ---@param p1 boolean
----@return number
+---@return integer
 function CreateCamera(camHash, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x98B99B9F27E2D60B)  
 ---This native does not have an official description.
----@param camHash number | string
+---@param camHash integer | string
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -140,7 +140,7 @@ function CreateCamera(camHash, p1) end
 ---@param fov number
 ---@param p8 boolean
 ---@param p9 any
----@return number
+---@return integer
 function CreateCameraWithParams(camHash, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9) end
 
 ---**`CAM` `client`**  
@@ -155,14 +155,14 @@ function CreateCameraWithParams(camHash, posX, posY, posZ, rotX, rotY, rotZ, fov
 ---@param rotZ number
 ---@param fov number
 ---@param p8 boolean
----@param p9 number
----@return number
+---@param p9 integer
+---@return integer
 function CreateCamWithParams(camName, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2F994CC29CAA9D22)  
 ---Creates Kill Cam for specified Ped Handle
----@param ped number
+---@param ped integer
 function CreateKillCam(ped) end
 
 ---**`CAM` `client`**  
@@ -174,20 +174,20 @@ function DestroyAllCams(p0) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4E67E0B6D7FD5145)  
 ---BOOL param indicates whether the cam should be destroyed if it belongs to the calling script.
----@param cam number
+---@param cam integer
 ---@param p1 boolean
 function DestroyCam(cam, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x05B41DDBEB559556)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 function DetachCam(cam) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7E3F546ACFE6C8D9)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function DisableCamCollisionForObject(entity) end
 
 ---**`CAM` `client`**  
@@ -218,7 +218,7 @@ function DisableOnFootFirstPersonViewThisUpdate_2() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x153AD457764FD704)  
 ---Returns whether or not the passed camera handle exists.
----@param cam number
+---@param cam integer
 ---@return boolean
 function DoesCamExist(cam) end
 
@@ -227,7 +227,7 @@ function DoesCamExist(cam) end
 ---Fades the screen in.
 ---
 ---duration: The time the fade should take, in milliseconds.
----@param duration number
+---@param duration integer
 function DoScreenFadeIn(duration) end
 
 ---**`CAM` `client`**  
@@ -235,14 +235,14 @@ function DoScreenFadeIn(duration) end
 ---Fades the screen out.
 ---
 ---duration: The time the fade should take, in milliseconds.
----@param duration number
+---@param duration integer
 function DoScreenFadeOut(duration) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE3639DB78B3B5400)  
 ---Used for DUELING_MANAGE_DEATH_CAMERA - Initializing death camera
 ---Params: targetPed = death cam focuses on it
----@param targetPed number
+---@param targetPed integer
 function ForceCinematicDeathCamOnPed(targetPed) end
 
 ---**`CAM` `client`**  
@@ -280,22 +280,22 @@ function FreezeGameplayCamThisFrame() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6B12F11C2A9F0344)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@return vector3
 function GetCamCoord(cam) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8101D32A0A6B0F60)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@return number
 function GetCamFov(cam) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9BF96B57254E7889)  
 ---rotationOrder: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/eEulerRotationOrder
----@param cam number
----@param rotationOrder number
+---@param cam integer
+---@param rotationOrder integer
 ---@return vector3
 function GetCamRot(cam, rotationOrder) end
 
@@ -304,7 +304,7 @@ function GetCamRot(cam, rotationOrder) end
 ---Can use this with SET_CAM_SPLINE_PHASE to set the float it this native returns.
 ---
 ---(returns 1.0f when no nodes has been added, reached end of non existing spline)
----@param cam number
+---@param cam integer
 ---@return number
 function GetCamSplinePhase(cam) end
 
@@ -323,7 +323,7 @@ function GetFinalRenderedCamFov() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x602685BD85DD26CA)  
 ---This native does not have an official description.
----@param rotationOrder number
+---@param rotationOrder integer
 ---@return vector3
 function GetFinalRenderedCamRot(rotationOrder) end
 
@@ -360,7 +360,7 @@ function GetGameplayCamRelativePitch() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0252D2B5582957A6)  
 ---This native does not have an official description.
----@param rotationOrder number
+---@param rotationOrder integer
 ---@return vector3
 function GetGameplayCamRot(rotationOrder) end
 
@@ -391,7 +391,7 @@ function GetPhotoModeFocusDistance() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x03A8931ECC8015D6)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetRenderingCam() end
 
 ---**`CAM` `client`**  
@@ -420,7 +420,7 @@ function IsAnimSceneCamActive() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63EFCC7E1810B8E6)  
 ---Returns whether or not the passed camera handle is active.
----@param cam number
+---@param cam integer
 ---@return boolean
 function IsCamActive(cam) end
 
@@ -441,7 +441,7 @@ function IsCameraAvailable(cameraDictionary) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x578F8F1CAA17BD2B)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@return boolean
 function IsCamInterpolating(cam) end
 
@@ -454,14 +454,14 @@ function IsCamPhotofxRunning() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4415F8A6C536D39F)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@return boolean
 function IsCamRendering(cam) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2EEB402BD7320159)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@return boolean
 function IsCamShaking(cam) end
 
@@ -782,7 +782,7 @@ function N_0x450769c833d58844() end
 ---This native does not have an official description.
 ---@param dictionary string
 ---@param shotName string
----@param duration number
+---@param duration integer
 ---@return any
 function N_0x465f04f68ad38197(dictionary, shotName, duration) end
 
@@ -939,7 +939,7 @@ function N_0x9ac65a36d3c0c189(p0) end
 ---This native does not have an official description.
 ---@param dictionary string
 ---@param shotName string
----@param duration number
+---@param duration integer
 function N_0xa54d643d0773eb65(dictionary, shotName, duration) end
 
 ---**`CAM` `client`**  
@@ -995,7 +995,7 @@ function N_0xc3742f1fdf0a6824() end
 ---This native does not have an official description.
 ---@param dictionary string
 ---@param shotName string
----@param duration number
+---@param duration integer
 ---@return boolean
 function N_0xc3aebb276825a359(dictionary, shotName, duration) end
 
@@ -1048,7 +1048,7 @@ function N_0xe2bb2d6a9fe2ecde(p0) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE4B7945EF4F1BFB2)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@return any
 function N_0xe4b7945ef4f1bfb2(cam) end
 
@@ -1062,7 +1062,7 @@ function N_0xe6f364de6c2fdefe() end
 ---This native does not have an official description.
 ---@param dictionary string
 ---@param shotName string
----@param duration number
+---@param duration integer
 ---@return any
 function N_0xea113bf9b0c0c5d7(dictionary, shotName, duration) end
 
@@ -1112,14 +1112,14 @@ function N_0xfefddc6e8fdf8a75(shakeName, intensity) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9F97E85EC142255E)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param pause boolean
 function PauseCameraFocus(cam, pause) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA263DDF694D563F6)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param animName string
 ---@param animDictionary string
 ---@param x number
@@ -1128,15 +1128,15 @@ function PauseCameraFocus(cam, pause) end
 ---@param xRot number
 ---@param yRot number
 ---@param zRot number
----@param animFlags number
----@param rotOrder number
+---@param animFlags integer
+---@param rotOrder integer
 ---@return boolean
 function PlayCamAnim(cam, animName, animDictionary, x, y, z, xRot, yRot, zRot, animFlags, rotOrder) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x948B39341C3A40C2)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -1145,8 +1145,8 @@ function PointCamAtCoord(cam, x, y, z) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFC2867E6074D3A61)  
 ---This native does not have an official description.
----@param cam number
----@param entity number
+---@param cam integer
+---@param entity integer
 ---@param p2 number
 ---@param p3 number
 ---@param p4 number
@@ -1157,8 +1157,8 @@ function PointCamAtEntity(cam, entity, p2, p3, p4, p5) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x986F7A51EE3E1F92)  
 ---Used to enable headshot kill replay when you headshot set ped.
 ---Params: p1 seems to be 0 or 1 in R* Scripts
----@param ped number
----@param p1 number
+---@param ped integer
+---@param p1 integer
 function ReactivatePedHeadshotExecuteSlowcam(ped, p1) end
 
 ---**`CAM` `client`**  
@@ -1171,10 +1171,10 @@ function ReactivatePedHeadshotExecuteSlowcam(ped, p1) end
 ---Setting ease to TRUE will smooth the transition.
 ---@param render boolean
 ---@param ease boolean
----@param easeTime number
+---@param easeTime integer
 ---@param p3 boolean
 ---@param p4 boolean
----@param p5 number
+---@param p5 integer
 function RenderScriptCams(render, ease, easeTime, p3, p4, p5) end
 
 ---**`CAM` `client`**  
@@ -1188,10 +1188,10 @@ function RequestLetterBoxNow(p0, p1) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE296208C273BD7F0)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 ---@param p2 boolean
----@param p3 number
+---@param p3 integer
 ---@param p4 boolean
 ---@param p5 boolean
 function RequestLetterBoxOvertime(p0, p1, p2, p3, p4, p5) end
@@ -1199,38 +1199,38 @@ function RequestLetterBoxOvertime(p0, p1, p2, p3, p4, p5) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x87295BCA613800C8)  
 ---Set camera as active/inactive.
----@param cam number
+---@param cam integer
 ---@param active boolean
 function SetCamActive(cam, active) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8B15AE2987C1AC8F)  
 ---This native does not have an official description.
----@param camTo number
----@param camFrom number
----@param duration number
----@param easeLocation number
----@param easeRotation number
+---@param camTo integer
+---@param camFrom integer
+---@param duration integer
+---@param easeLocation integer
+---@param easeRotation integer
 function SetCamActiveWithInterp(camTo, camFrom, duration, easeLocation, easeRotation) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3CB9E8BDE5E76F33)  
 ---Allows you to aim and shoot at the direction the camera is facing.
----@param cam number
+---@param cam integer
 ---@param toggle boolean
 function SetCamAffectsAiming(cam, toggle) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1B8F3CE5A6001298)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param p1 boolean
 function SetCamControlsMiniMapHeading(cam, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF9EE7D419EE49DE6)  
 ---Sets the position of the cam.
----@param cam number
+---@param cam integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -1239,14 +1239,14 @@ function SetCamCoord(cam, posX, posY, posZ) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5E32817BF6302111)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param farClip number
 function SetCamFarClip(cam, farClip) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x11F32BB61B756732)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param distance number
 function SetCamFocusDistance(cam, distance) end
 
@@ -1256,28 +1256,28 @@ function SetCamFocusDistance(cam, distance) end
 ---
 ---Min: 1.0f
 ---Max: 130.0f
----@param cam number
+---@param cam integer
 ---@param fieldOfView number
 function SetCamFov(cam, fieldOfView) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x45FD891364181F9E)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param strength number
 function SetCamMotionBlurStrength(cam, strength) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA924028272A61364)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param nearClip number
 function SetCamNearClip(cam, nearClip) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA47BBFFFB83D4D0A)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -1286,9 +1286,9 @@ function SetCamNearClip(cam, nearClip) end
 ---@param rotZ number
 ---@param fieldOfView number
 ---@param p8 any
----@param p9 number
----@param p10 number
----@param p11 number
+---@param p9 integer
+---@param p10 integer
+---@param p11 integer
 ---@param p12 any
 ---@param p13 any
 function SetCamParams(cam, posX, posY, posZ, rotX, rotY, rotZ, fieldOfView, p8, p9, p10, p11, p12, p13) end
@@ -1296,32 +1296,32 @@ function SetCamParams(cam, posX, posY, posZ, rotX, rotY, rotZ, fieldOfView, p8, 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63DFA6810AD78719)  
 ---Sets the rotation of the cam.
----@param cam number
+---@param cam integer
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param rotationOrder number
+---@param rotationOrder integer
 function SetCamRot(cam, rotX, rotY, rotZ, rotationOrder) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFF6311652CA91015)  
 ---This native does not have an official description.
----@param cam number
----@param timeDuration number
+---@param cam integer
+---@param timeDuration integer
 function SetCamSplineDuration(cam, timeDuration) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF1898A68E7C15636)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param p1 number
 function SetCamSplinePhase(cam, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x84B3645618E726B0)  
 ---This native does not have an official description.
----@param cam number
----@param smoothingStyle number
+---@param cam integer
+---@param smoothingStyle integer
 function SetCamSplineSmoothingStyle(cam, smoothingStyle) end
 
 ---**`CAM` `client`**  
@@ -1353,13 +1353,13 @@ function SetFirstPersonAimCamRelativePitchLimitsThisUpdate(p0, p1) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x82E41D6ADE924FCA)  
 ---Forces gameplay cam to specified ped as if you were the ped or spectating it
----@param ped number
+---@param ped integer
 function SetGameplayCamFollowPedThisUpdate(ped) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD904F75DBD7AB865)  
 ---Old name: _DISABLE_CAM_COLLISION_FOR_ENTITY
----@param entity number
+---@param entity integer
 function SetGameplayCamIgnoreEntityCollisionThisUpdate(entity) end
 
 ---**`CAM` `client`**  
@@ -1418,23 +1418,23 @@ function SetGameplayCamShakeAmplitude(amplitude) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param duration number
----@param blendOutDuration number
----@param blendInDuration number
----@param p6 number | string
+---@param duration integer
+---@param blendOutDuration integer
+---@param blendInDuration integer
+---@param p6 integer | string
 function SetGameplayCoordHint(x, y, z, duration, blendOutDuration, blendInDuration, p6) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD1F7F32640ADFD12)  
 ---p6 & p7 - possibly length or time
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
 ---@param p4 boolean
----@param p5 number
----@param p6 number
----@param p7 number
+---@param p5 integer
+---@param p6 integer
+---@param p7 integer
 ---@param p8 any
 function SetGameplayEntityHint(entity, xOffset, yOffset, zOffset, p4, p5, p6, p7, p8) end
 
@@ -1484,7 +1484,7 @@ function SetGameplayObjectHint(p0, p1, p2, p3, p4, p5, p6, p7) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x90FB951648851733)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@param x1 number
 ---@param y1 number
 ---@param z1 number
@@ -1510,8 +1510,8 @@ function SetGameplayVehicleHint(p0, p1, p2, p3, p4, p5, p6, p7) end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFA1D5E8D1C3CCD67)  
 ---Forces gameplay cam to specified vehicle as if you were in it
----@param vehicle number
----@param p1 number
+---@param vehicle integer
+---@param p1 integer
 function SetInVehicleCamStateThisUpdate(vehicle, p1) end
 
 ---**`CAM` `client`**  
@@ -1566,13 +1566,13 @@ function SetThirdPersonCamRelativePitchLimitsThisUpdate(minimum, maximum) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD7F4D54CF80AFA34)  
 ---This native does not have an official description.
 ---@param p0 boolean
----@param p1 number
+---@param p1 integer
 function SetWidescreenBorders(p0, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF9A7BCF5D050D4E7)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param type string
 ---@param amplitude number
 function ShakeCam(cam, type, amplitude) end
@@ -1594,13 +1594,13 @@ function StartCameraOrbit() end
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCA1B30A3357C71F1)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 function StopCamPointing(cam) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB78CC4B4706614B0)  
 ---This native does not have an official description.
----@param cam number
+---@param cam integer
 ---@param p1 boolean
 function StopCamShaking(cam, p1) end
 
@@ -1637,7 +1637,7 @@ function StopGameplayHint(p0) end
 ---blendBackSmoothingType: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/eBlendBackSmoothing
 ---@param render boolean
 ---@param distance number
----@param blendBackSmoothingType number
+---@param blendBackSmoothingType integer
 ---@param p3 boolean
 ---@param p4 boolean
 ---@param p5 boolean

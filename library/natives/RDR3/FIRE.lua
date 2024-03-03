@@ -48,7 +48,7 @@
 ---@param x number
 ---@param y number
 ---@param z number
----@param explosionType number
+---@param explosionType integer
 ---@param damageScale number
 ---@param isAudible boolean
 ---@param isInvisible boolean
@@ -62,8 +62,8 @@ function AddExplosion(x, y, z, explosionType, damageScale, isAudible, isInvisibl
 ---@param x number
 ---@param y number
 ---@param z number
----@param explosionType number
----@param explosionFx number | string
+---@param explosionType integer
+---@param explosionFx integer | string
 ---@param damageScale number
 ---@param isAudible boolean
 ---@param isInvisible boolean
@@ -73,11 +73,11 @@ function AddExplosionWithUserVfx(x, y, z, explosionType, explosionFx, damageScal
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD84A917A64D4D016)  
 ---explosionType: see ADD_EXPLOSION
----@param ped number
+---@param ped integer
 ---@param x number
 ---@param y number
 ---@param z number
----@param explosionType number
+---@param explosionType integer
 ---@param damageScale number
 ---@param isAudible boolean
 ---@param isInvisible boolean
@@ -100,13 +100,13 @@ function GetClosestFirePos(x, y, z) end
 ---@param y number
 ---@param z number
 ---@param radius number
----@return number
+---@return integer
 function GetNumberOfFiresInRange(x, y, z, radius) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8002DDAB58594D78)  
 ---explosionType: see ADD_EXPLOSION
----@param explosionType number
+---@param explosionType integer
 ---@param x1 number
 ---@param y1 number
 ---@param z1 number
@@ -114,27 +114,27 @@ function GetNumberOfFiresInRange(x, y, z, radius) end
 ---@param y2 number
 ---@param z2 number
 ---@param radius number
----@return number
+---@return integer
 function GetOwnerOfExplosionInAngledArea(explosionType, x1, y1, z1, x2, y2, z2, radius) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCDC25355C0D65963)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function IsEntityConsumedByFire(entity) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1BD7C371CE257C3E)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function IsEntityOnFire(entity) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD96E82AEBFFAAFF0)  
 ---explosionType: see ADD_EXPLOSION
----@param explosionType number
+---@param explosionType integer
 ---@param x1 number
 ---@param y1 number
 ---@param z1 number
@@ -147,7 +147,7 @@ function IsExplosionActiveInArea(explosionType, x1, y1, z1, x2, y2, z2) end
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5AE661ECD18524C9)  
 ---explosionType: see ADD_EXPLOSION
----@param explosionType number
+---@param explosionType integer
 ---@param x1 number
 ---@param y1 number
 ---@param z1 number
@@ -161,7 +161,7 @@ function IsExplosionInAngledArea(explosionType, x1, y1, z1, x2, y2, z2, angle) e
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8391BA4313A25AD3)  
 ---explosionType: see ADD_EXPLOSION
----@param explosionType number
+---@param explosionType integer
 ---@param x1 number
 ---@param y1 number
 ---@param z1 number
@@ -174,7 +174,7 @@ function IsExplosionInArea(explosionType, x1, y1, z1, x2, y2, z2) end
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD62DD846D82CBB90)  
 ---explosionType: see ADD_EXPLOSION
----@param explosionType number
+---@param explosionType integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -185,16 +185,16 @@ function IsExplosionInSphere(explosionType, x, y, z, radius) end
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE24822A4CFC9107A)  
 ---explosionType: see ADD_EXPLOSION
----@param explosionType number
----@param volume any
+---@param explosionType integer
+---@param volume integer
 ---@return boolean
 function IsExplosionInVolume(explosionType, volume) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAB7993BA61A4674F)  
 ---Tested with fire & dynamite. Only returns true using value p1 = 1 and when the ped is affected by fire.
----@param ped number
----@param p1 number
+---@param ped integer
+---@param p1 integer
 ---@return boolean
 function IsPedShockingEventActive(ped, p1) end
 
@@ -277,12 +277,12 @@ function N_0xa4454592dcf7c992(p0) end
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB7DF150605EEDC9B)  
 ---_ADD_EXPLOSION_*(ON ENTITY?)
----@param entity number
----@param p1 number
+---@param entity integer
+---@param p1 integer
 ---@param x number
 ---@param y number
 ---@param z number
----@param explosionType number
+---@param explosionType integer
 ---@param damageScale number
 ---@param isAudible boolean
 ---@param isInvisible boolean
@@ -292,7 +292,7 @@ function N_0xb7df150605eedc9b(entity, p1, x, y, z, explosionType, damageScale, i
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x790125C36E194069)  
 ---This native does not have an official description.
----@param fireHandle number
+---@param fireHandle integer
 function RemoveScriptFire(fireHandle) end
 
 ---**`FIRE` `client`**  
@@ -314,13 +314,13 @@ function StartEntityFire(p0, p1, p2, p3) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param p3 number
+---@param p3 integer
 ---@param p4 number
 ---@param p5 boolean
 ---@param soundsetName string
 ---@param p7 number
----@param p8 number
----@return number
+---@param p8 integer
+---@return integer
 function StartScriptFire(x, y, z, p3, p4, p5, soundsetName, p7, p8) end
 
 ---**`FIRE` `client`**  

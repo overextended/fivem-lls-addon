@@ -11,10 +11,10 @@ function BgDisplayText(text, x, y) end
 ---**`UIDEBUG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x16FA5CE47F184F1E)  
 ---https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/colours
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function BgSetTextColor(red, green, blue, alpha) end
 
 ---**`UIDEBUG` `client`**  

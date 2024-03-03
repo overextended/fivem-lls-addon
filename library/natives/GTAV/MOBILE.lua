@@ -34,7 +34,7 @@ DisablePhoneThisFrame = CellCamDisableThisFrame
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x439E9BC95B7E7FBE)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function CellCamIsCharVisibleNoFaceCheck(entity) end
 
@@ -43,7 +43,7 @@ function CellCamIsCharVisibleNoFaceCheck(entity) end
 ---```
 ---For move the finger of player, the value of int goes 1 at 5.  
 ---```
----@param direction number
+---@param direction integer
 function CellCamMoveFinger(direction) end
 
 ---@deprecated
@@ -114,7 +114,7 @@ function CellCamSetVerticalOffset(p0) end
 ---4 - Prologue phone  
 ---These values represent bit flags, so a value of '3' would toggle Trevor and Franklin's phones together, causing unexpected behavior and most likely crash the game.  
 ---```
----@param phoneType number
+---@param phoneType integer
 function CreateMobilePhone(phoneType) end
 
 ---**`MOBILE` `client`**  
@@ -133,13 +133,13 @@ function GetMobilePhonePosition() end
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB4A53E05F68B6FA1)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetMobilePhoneRenderId() end
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1CEFB61F193070AE)  
 ---This native does not have an official description.
----@param p1 number
+---@param p1 integer
 ---@return vector3
 function GetMobilePhoneRotation(p1) end
 
@@ -158,7 +158,7 @@ function GetMobilePhoneRotation(p1) end
 ---    MOBILE::_0xC273BB4D(1); // TRUE
 ---}
 ---```
----@return number
+---@return integer
 function N_0xa2ccbe62cd4c91a4() end
 
 ---**`MOBILE` `client`**  

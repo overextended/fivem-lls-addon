@@ -36,7 +36,7 @@ function TelemetryAmbientVignette(p0, p1, p2, p3, p4, p5, p6) end
 ---**`TELEMETRY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7581972ADF5D699A)  
 ---This native does not have an official description.
----@param type number | string
+---@param type integer | string
 ---@return any
 function TelemetryAnimalSkinned(type) end
 
@@ -60,8 +60,8 @@ function TelemetryCampCreated(p0) end
 ---@param p2 any
 ---@param p3 any
 ---@param p4 any
----@param slotId number | string
----@param p6 number | string
+---@param slotId integer | string
+---@param p6 integer | string
 ---@param p7 any
 ---@param p8 boolean
 function TelemetryCampDonate(transactionId, p1, p2, p3, p4, slotId, p6, p7, p8) end
@@ -151,7 +151,7 @@ function TelemetryDiscoverable(p0) end
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
----@param emote number | string
+---@param emote integer | string
 function TelemetryEmoteAddCategoryToSave(p0, p1, emote) end
 
 ---**`TELEMETRY` `client`**  
@@ -205,19 +205,19 @@ function TelemetryGunLocker() end
 ---**`TELEMETRY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x317D9C9560529CC2)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 function TelemetryGunLockerWeaponRemoved(p0) end
 
 ---**`TELEMETRY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC3ADF4880784FA9C)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 function TelemetryGunLockerWeaponStored(p0) end
 
 ---**`TELEMETRY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAE693EC3A178F6C2)  
 ---This native does not have an official description.
----@param herbType number | string
+---@param herbType integer | string
 function TelemetryHerbPicked(herbType) end
 
 ---**`TELEMETRY` `client`**  
@@ -334,7 +334,7 @@ function TelemetryMissionCheckpoint(p0, p1, p2) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param reason number
+---@param reason integer
 function TelemetryMissionFailedToLaunch(p0, p1, x, y, z, reason) end
 
 ---**`TELEMETRY` `client`**  
@@ -459,7 +459,7 @@ function TelemetryPlayerMenuPin(p0, p1, p2, p3) end
 ---**`TELEMETRY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5DA4718DF897EB25)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 function TelemetryPlayerSpawned(ped) end
 
 ---**`TELEMETRY` `client`**  
@@ -482,7 +482,7 @@ function TelemetryPokerOver(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 ---This native does not have an official description.
 ---@param transactionId any
 ---@param bountyAmount any
----@param ped number
+---@param ped integer
 ---@param completionType any
 ---@param jailTimeServed any
 ---@param jailTimeLeft any
@@ -492,7 +492,7 @@ function TelemetryPrison(transactionId, bountyAmount, ped, completionType, jailT
 ---**`TELEMETRY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCD6F8A0335D821F9)  
 ---This native does not have an official description.
----@param regionHash number | string
+---@param regionHash integer | string
 function TelemetryRegion(regionHash) end
 
 ---**`TELEMETRY` `client`**  
@@ -578,9 +578,9 @@ function TelemetrySetIsFlow(toggle) end
 ---**`TELEMETRY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCA9E42F437625A85)  
 ---This native does not have an official description.
----@param transactionId number
----@param p1 number | string
----@param p2 number | string
+---@param transactionId integer
+---@param p1 integer | string
+---@param p2 integer | string
 function TelemetrySetShopForTransaction(transactionId, p1, p2) end
 
 ---**`TELEMETRY` `client`**  
@@ -627,7 +627,7 @@ function TelemetryShopPurchase(p0, p1, p2, p3, p4) end
 ---@param p1 any
 ---@param p2 any
 ---@param p3 any
----@param centSalePrice number
+---@param centSalePrice integer
 function TelemetryShopSell(p0, p1, p2, p3, centSalePrice) end
 
 ---**`TELEMETRY` `client`**  

@@ -11,7 +11,7 @@
 ---STREAMING::SET_MODEL_AS_NO_LONGER_NEEDED(vehicleHash);  
 ---ZONE::CLEAR_POPSCHEDULE_OVERRIDE_VEHICLE_MODEL(popSchedules[index]);  
 ---```
----@param scheduleId number
+---@param scheduleId integer
 function ClearPopscheduleOverrideVehicleModel(scheduleId) end
 
 ---**`ZONE` `client`**  
@@ -28,7 +28,7 @@ function ClearPopscheduleOverrideVehicleModel(scheduleId) end
 ---@param x number
 ---@param y number
 ---@param z number
----@return number
+---@return integer
 function GetHashOfMapAreaAtCoords(x, y, z) end
 
 ---**`ZONE` `client`**  
@@ -138,7 +138,7 @@ function GetNameOfZone(x, y, z) end
 ---@param x number
 ---@param y number
 ---@param z number
----@return number
+---@return integer
 function GetZoneAtCoords(x, y, z) end
 
 ---**`ZONE` `client`**  
@@ -236,14 +236,14 @@ function GetZoneAtCoords(x, y, z) end
 ---ZQ_UAR = Davis Quartz  
 ---```
 ---@param zoneName string
----@return number
+---@return integer
 function GetZoneFromNameId(zoneName) end
 
 ---**`ZONE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4334BC40AA0CB4BB)  
 ---This native does not have an official description.
----@param zoneId number
----@return number
+---@param zoneId integer
+---@return integer
 function GetZonePopschedule(zoneId) end
 
 ---**`ZONE` `client`**  
@@ -261,8 +261,8 @@ function GetZonePopschedule(zoneId) end
 ---    SCUMMINESS_SCUM = 5
 ---}
 ---```
----@param zoneId number
----@return number
+---@param zoneId integer
+---@return integer
 function GetZoneScumminess(zoneId) end
 
 ---**`ZONE` `client`**  
@@ -276,14 +276,14 @@ function GetZoneScumminess(zoneId) end
 ---ZONE::OVERRIDE_POPSCHEDULE_VEHICLE_MODEL(popSchedules[index], vehicleHash);  
 ---STREAMING::REQUEST_MODEL(vehicleHash);  
 ---```
----@param scheduleId number
----@param vehicleHash number | string
+---@param scheduleId integer
+---@param vehicleHash integer | string
 function OverridePopscheduleVehicleModel(scheduleId, vehicleHash) end
 
 ---**`ZONE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA5ECEEA120E5611)  
 ---This native does not have an official description.
----@param zoneId number
+---@param zoneId integer
 ---@param toggle boolean
 function SetZoneEnabled(zoneId, toggle) end
 

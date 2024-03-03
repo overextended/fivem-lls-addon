@@ -10,7 +10,7 @@ function DoesStreamedTextureDictExist(textureDict) end
 ---**`TXD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBA0163B277C2D2D0)  
 ---This native does not have an official description.
----@param txdHash number | string
+---@param txdHash integer | string
 ---@return boolean
 function DoesStreamedTxdExist(txdHash) end
 
@@ -24,7 +24,7 @@ function HasStreamedTextureDictLoaded(textureDict) end
 ---**`TXD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBE72591D1509FFE4)  
 ---This native does not have an official description.
----@param txdHash number | string
+---@param txdHash integer | string
 ---@return boolean
 function HasStreamedTxdLoaded(txdHash) end
 
@@ -38,7 +38,7 @@ function RequestStreamedTextureDict(textureDict, p1) end
 ---**`TXD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDB1BD07FB464584D)  
 ---This native does not have an official description.
----@param txdHash number | string
+---@param txdHash integer | string
 ---@param p1 boolean
 function RequestStreamedTxd(txdHash, p1) end
 
@@ -51,6 +51,6 @@ function SetStreamedTextureDictAsNoLongerNeeded(textureDict) end
 ---**`TXD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8232F37DF762ACB2)  
 ---This native does not have an official description.
----@param txdHash number | string
+---@param txdHash integer | string
 function SetStreamedTxdAsNoLongerNeeded(txdHash) end
 

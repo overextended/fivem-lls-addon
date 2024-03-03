@@ -35,8 +35,8 @@ function N_0x72eb7ba9b69bf6ab() end
 ---```
 ---NET_GAMESERVER_*
 ---```
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function N_0x74a0fd0688f1ee45(p0) end
 
 ---**`NETSHOPPING` `client`**  
@@ -48,7 +48,7 @@ function N_0x74a0fd0688f1ee45(p0) end
 ---
 ---NativeDB Introduced: v1365
 ---```
----@param transactionId number
+---@param transactionId integer
 ---@return boolean
 function N_0x79edac677ca62f81(transactionId) end
 
@@ -73,7 +73,7 @@ function N_0xc13c38e47ea5df31() end
 ---
 ---NativeDB Introduced: v1365
 ---```
----@param transactionId number
+---@param transactionId integer
 ---@return boolean
 function N_0xc830417d630a50f9(transactionId) end
 
@@ -86,7 +86,7 @@ function N_0xe3e5a7c64ca2c6ed() end
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF30980718C8ED876)  
 ---This native does not have an official description.
----@param quantity number
+---@param quantity integer
 ---@return boolean, any
 function NetGameserverBasketAddItem(quantity) end
 
@@ -132,10 +132,10 @@ NetworkShopBasketIsFull = NetGameserverBasketIsFull
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x279F08B1A4B29B7E)  
 ---This native does not have an official description.
----@param categoryHash number | string
----@param actionHash number | string
----@param flags number
----@return boolean, number
+---@param categoryHash integer | string
+---@param actionHash integer | string
+---@param flags integer
+---@return boolean, integer
 function NetGameserverBasketStart(categoryHash, actionHash, flags) end
 
 ---@deprecated
@@ -144,12 +144,12 @@ NetworkShopBasketStart = NetGameserverBasketStart
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3C5FD37B5499582E)  
 ---This native does not have an official description.
----@param categoryHash number | string
----@param itemHash number | string
----@param actionTypeHash number | string
----@param value number
----@param flags number
----@return boolean, number
+---@param categoryHash integer | string
+---@param itemHash integer | string
+---@param actionTypeHash integer | string
+---@param value integer
+---@param flags integer
+---@return boolean, integer
 function NetGameserverBeginService(categoryHash, itemHash, actionTypeHash, value, flags) end
 
 ---@deprecated
@@ -176,7 +176,7 @@ NetworkShopDoesItemExist = NetGameserverCatalogItemExists
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x247F0F73A182EA0B)  
 ---This native does not have an official description.
----@param hash number | string
+---@param hash integer | string
 ---@return boolean
 function NetGameserverCatalogItemExistsHash(hash) end
 
@@ -188,7 +188,7 @@ NetworkShopDoesItemExistHash = NetGameserverCatalogItemExistsHash
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x39BE7CEA8D9CC8E6)  
 ---This native does not have an official description.
----@param transactionId number
+---@param transactionId integer
 ---@return boolean
 function NetGameserverCheckoutStart(transactionId) end
 
@@ -198,16 +198,16 @@ NetworkShopCheckoutStart = NetGameserverCheckoutStart
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x51F1A8E48C3D2F6D)  
 ---This native does not have an official description.
----@param slot number
+---@param slot integer
 ---@param transfer boolean
----@param reason number | string
+---@param reason integer | string
 ---@return boolean
 function NetGameserverDeleteCharacterSlot(slot, transfer, reason) end
 
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0A6D923DFFC9BD89)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetGameserverDeleteCharacterSlotGetStatus() end
 
 ---**`NETSHOPPING` `client`**  
@@ -222,7 +222,7 @@ NetworkShopDeleteSetTelemetryNonceSeed = NetGameserverDeleteSetTelemetryNonceSee
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE2A99A9B524BEFFF)  
 ---This native does not have an official description.
----@param transactionId number
+---@param transactionId integer
 ---@return boolean
 function NetGameserverEndService(transactionId) end
 
@@ -244,7 +244,7 @@ function NetGameserverGetBalance(inventory, playerbalance) end
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF38DAFBB49EDE5E)  
 ---This native does not have an official description.
----@return boolean, number
+---@return boolean, integer
 function NetGameserverGetCatalogState() end
 
 ---**`NETSHOPPING` `client`**  
@@ -252,10 +252,10 @@ function NetGameserverGetCatalogState() end
 ---```
 ---bool is always true in game scripts  
 ---```
----@param itemHash number | string
----@param categoryHash number | string
+---@param itemHash integer | string
+---@param categoryHash integer | string
 ---@param p2 boolean
----@return number
+---@return integer
 function NetGameserverGetPrice(itemHash, categoryHash, p2) end
 
 ---@deprecated
@@ -264,7 +264,7 @@ NetworkShopGetPrice = NetGameserverGetPrice
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x897433D292B44130)  
 ---This native does not have an official description.
----@return boolean, number, boolean
+---@return boolean, integer, boolean
 function NetGameserverGetTransactionManagerData() end
 
 ---**`NETSHOPPING` `client`**  
@@ -285,7 +285,7 @@ NetworkShopGetTransactionsDisabled = NetGameserverIsSessionRefreshPending
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB24F0944DA203D9E)  
 ---This native does not have an official description.
----@param charSlot number
+---@param charSlot integer
 ---@return boolean
 function NetGameserverIsSessionValid(charSlot) end
 
@@ -295,7 +295,7 @@ NetworkShopGetTransactionsEnabledForCharacter = NetGameserverIsSessionValid
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2F41D51BA3BCD1F1)  
 ---This native does not have an official description.
----@param charSlot number
+---@param charSlot integer
 ---@return boolean
 function NetGameserverSessionApplyReceivedData(charSlot) end
 
@@ -305,7 +305,7 @@ NetworkShopSessionApplyReceivedData = NetGameserverSessionApplyReceivedData
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9507D4271988E1AE)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function NetGameserverSetTelemetryNonceSeed(p0) end
 
@@ -315,7 +315,7 @@ NetworkShopSetTelemetryNonceSeed = NetGameserverSetTelemetryNonceSeed
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA135AC892A58FC07)  
 ---This native does not have an official description.
----@param charSlot number
+---@param charSlot integer
 ---@return boolean
 function NetGameserverStartSession(charSlot) end
 
@@ -325,8 +325,8 @@ NetworkShopStartSession = NetGameserverStartSession
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD47A2C1BA117471D)  
 ---This native does not have an official description.
----@param charSlot number
----@param amount number
+---@param charSlot integer
+---@param amount integer
 ---@return boolean
 function NetGameserverTransferBankToWallet(charSlot, amount) end
 
@@ -338,7 +338,7 @@ NetworkTransferBankToWallet = NetGameserverTransferBankToWallet
 ---```
 ---Same as 0x350AA5EBC03D3BD2
 ---```
----@return number
+---@return integer
 function NetGameserverTransferCashGetStatus() end
 
 ---**`NETSHOPPING` `client`**  
@@ -346,7 +346,7 @@ function NetGameserverTransferCashGetStatus() end
 ---```
 ---Same as 0x23789E777D14CE44
 ---```
----@return number
+---@return integer
 function NetGameserverTransferCashGetStatus_2() end
 
 ---**`NETSHOPPING` `client`**  
@@ -363,8 +363,8 @@ NetworkShopCashTransferSetTelemetryNonceSeed = NetGameserverTransferCashSetTelem
 ---**`NETSHOPPING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC2F7FE5309181C7D)  
 ---This native does not have an official description.
----@param charSlot number
----@param amount number
+---@param charSlot integer
+---@param amount integer
 ---@return boolean
 function NetGameserverTransferWalletToBank(charSlot, amount) end
 

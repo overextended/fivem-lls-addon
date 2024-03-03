@@ -24,7 +24,7 @@ function GoogleAnalyticsPushPage(pageName) end
 ---@param eventCategory string
 ---@param eventAction string
 ---@param eventLabel string
----@param eventValue number
+---@param eventValue integer
 ---@return boolean
 function GoogleAnalyticsStartEvent(eventCategory, eventAction, eventLabel, eventValue) end
 

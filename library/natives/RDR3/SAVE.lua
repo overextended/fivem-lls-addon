@@ -49,7 +49,7 @@ function N_0x9bb83c4dd7be0802(p0, p1, p2, p3, p4) end
 ---**`SAVE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA7ECEBAFBAF997A5)  
 ---This native does not have an official description.
----@param savegameType number | string
+---@param savegameType integer | string
 ---@return any
 function N_0xa7ecebafbaf997a5(savegameType) end
 
@@ -158,7 +158,7 @@ function SavegameIsSavePending() end
 ---**`SAVE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1840F3B30ED0105F)  
 ---See SAVEGAME_SAVE_SP
----@param savegameType number | string
+---@param savegameType integer | string
 ---@return boolean
 function SavegameSaveMp(savegameType) end
 
@@ -180,7 +180,7 @@ function SavegameSaveMp(savegameType) end
 ---	SAVEGAMETYPE_SP_DEBUG = 0x6A8122FD,
 ---	SAVEGAMETYPE_SP_PROPERTY = 0xAE0AB38E
 ---};
----@param savegameType number | string
+---@param savegameType integer | string
 ---@return boolean
 function SavegameSaveSp(savegameType) end
 

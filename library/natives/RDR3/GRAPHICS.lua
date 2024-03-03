@@ -28,13 +28,13 @@ function AddBloodPool_2(x, y, z, p3, size, p5, permanent, p7, p8) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDFCE8CE9F3EBE93F)  
 ---Creates blood pools for the given ped in some interval for a few seconds.
----@param ped number
+---@param ped integer
 function AddBloodPoolsForPed(ped) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC349EE1E6EFA494B)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param p1 number
 ---@param size number
 ---@param p3 number
@@ -81,21 +81,21 @@ function AddBloodTrailSplat(x, y, z) end
 ---@param p19 any
 ---@param p20 any
 ---@param p21 any
----@return number
+---@return integer
 function AddDecal(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC6F81FCD15350323)  
 ---This native does not have an official description.
----@param entity number
----@param mask number
+---@param entity integer
+---@param mask integer
 function AddEntityToEntityMask(entity, mask) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x958DEBD9353C0935)  
 ---This native does not have an official description.
----@param entity number
----@param mask number
+---@param entity integer
+---@param mask integer
 ---@param intensity number
 function AddEntityToEntityMaskWithIntensity(entity, mask, intensity) end
 
@@ -115,27 +115,27 @@ function AddPetrolTrailDecalInfo(x, y, z, p3) end
 ---@param y number
 ---@param z number
 ---@param radius number
----@param modType number
----@param flags number
----@param p6 number
----@return number
+---@param modType integer
+---@param flags integer
+---@param p6 integer
+---@return integer
 function AddVegModifierSphere(x, y, z, radius, modType, flags, p6) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBD3324281E8B9933)  
 ---Adds Vegetation Blocking Zone, Added Snow Flattening veg mod Zone
 ---Returns veg modifier handle
----@param volume any
----@param p1 number
----@param flags number
----@param p3 number
----@return number
+---@param volume integer
+---@param p1 integer
+---@param flags integer
+---@param p3 integer
+---@return integer
 function AddVegModifierZone(volume, p1, flags, p3) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7C348310A6E2FB91)  
 ---This native does not have an official description.
----@param pickupObject number
+---@param pickupObject integer
 ---@param allow boolean
 function AllowPickupLightSync(pickupObject, allow) end
 
@@ -154,14 +154,14 @@ function AnimpostfxClearEffect(effectName) end
 ---MP_Trans_PhotoToScene
 ---InterrogationHit
 ---@param effectName string
----@return number
+---@return integer
 function AnimpostfxGetStackhash(effectName) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9AB192A9EF980EED)  
 ---This native does not have an official description.
----@param effectNameHash number | string
----@param p1 number
+---@param effectNameHash integer | string
+---@param p1 integer
 ---@param p2 boolean
 ---@return boolean, boolean
 function AnimpostfxHasEventTriggeredByStackhash(effectNameHash, p1, p2) end
@@ -176,7 +176,7 @@ function AnimpostfxHasLoaded(effectName) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x59EA80079B86D8C7)  
 ---This native does not have an official description.
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 ---@return boolean
 function AnimpostfxIsPreloadingByStackhash(effectNameHash) end
 
@@ -190,7 +190,7 @@ function AnimpostfxIsRunning(effectName) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEEF83A759AE06A27)  
 ---This native does not have an official description.
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 ---@return boolean
 function AnimpostfxIsStackhashPlaying(effectNameHash) end
 
@@ -210,14 +210,14 @@ function AnimpostfxPlay(effectName) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9B8D5D4CB8AF58B3)  
 ---This native does not have an official description.
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 function AnimpostfxPlayTag(effectNameHash) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3A9A281FF71249E9)  
 ---This native does not have an official description.
 ---@param effectName string
----@param duration number
+---@param duration integer
 function AnimpostfxPlayTimed(effectName, duration) end
 
 ---**`GRAPHICS` `client`**  
@@ -229,18 +229,18 @@ function AnimpostfxPreloadPostfx(effectName) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF3E039322BFBD4D8)  
 ---This native does not have an official description.
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 function AnimpostfxPreloadPostfxByStackhash(effectNameHash) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63011D0C7C6519E0)  
 ---This native does not have an official description.
 ---@param effectName string
----@param p1 number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param p1 integer
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function AnimpostfxSetPostfxColor(effectName, p1, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -249,7 +249,7 @@ function AnimpostfxSetPostfxColor(effectName, p1, red, green, blue, alpha) end
 ---Stamina Core Effect Filter Potency: p1 = 2
 ---Multiple Core Effect Filter Potency: p1 = 3
 ---@param effectName string
----@param p1 number
+---@param p1 integer
 ---@param potency number
 function AnimpostfxSetPotency(effectName, p1, potency) end
 
@@ -280,7 +280,7 @@ function AnimpostfxStopAll() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEDA5CBECF56E1386)  
 ---This native does not have an official description.
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 function AnimpostfxStopStackhashPostfx(effectNameHash) end
 
 ---**`GRAPHICS` `client`**  
@@ -292,13 +292,13 @@ function AnimpostfxStopTag(effectName) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x40866A418EB8EFDE)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function AttachTvAudioToEntity(entity) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x494A9874F17A7D50)  
 ---Called together with FREE_MEMORY_FOR_LOW_QUALITY_PHOTO
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function BeginCreateLowQualityCopyOfPhoto(p0) end
 
@@ -311,14 +311,14 @@ function BeginTakeHighQualityPhoto() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x50C14328119E1DD1)  
 ---This native does not have an official description.
----@param pickupObject number
+---@param pickupObject integer
 ---@param toggle boolean
 function BlockPickupObjectLight(pickupObject, toggle) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0552AA3FFC5B87AA)  
 ---This native does not have an official description.
----@param pickup number
+---@param pickup integer
 ---@param toggle boolean
 function BlockPickupPlacementLight(pickup, toggle) end
 
@@ -383,7 +383,7 @@ function ClearTimecycleModifier() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x175668836B44CBB0)  
 ---This native does not have an official description.
----@param typeHash number | string
+---@param typeHash integer | string
 ---@param posX1 number
 ---@param posY1 number
 ---@param posZ1 number
@@ -391,31 +391,31 @@ function ClearTimecycleModifier() end
 ---@param posY2 number
 ---@param posZ2 number
 ---@param radius number
----@param red number
----@param green number
----@param blue number
----@param alpha number
----@param reserved number
----@return number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
+---@param reserved integer
+---@return integer
 function CreateCheckpointWithNamehash(typeHash, posX1, posY1, posZ1, posX2, posY2, posZ2, radius, red, green, blue, alpha, reserved) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3D084D5568FB4028)  
 ---This native does not have an official description.
----@param slots number
+---@param slots integer
 ---@return boolean
 function CreateSwatchTextureDict(slots) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFB405CB357C69CB9)  
 ---Creates a tracked point, useful for checking the visibility of a 3D point on screen.
----@return number
+---@return integer
 function CreateTrackedPoint() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0DED5B0C8EBAAE12)  
 ---This native does not have an official description.
----@param checkpoint number
+---@param checkpoint integer
 function DeleteCheckpoint(checkpoint) end
 
 ---**`GRAPHICS` `client`**  
@@ -426,7 +426,7 @@ function DestroySwatchTextureDict() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x37A59922109F8F1C)  
 ---This native does not have an official description.
----@param point number
+---@param point integer
 function DestroyTrackedPoint(point) end
 
 ---**`GRAPHICS` `client`**  
@@ -449,20 +449,20 @@ function DisableHdtexThisFrame() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDD0BC0EDCB2162F6)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 function DisableStaticVegModifier(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4C11CCACB7C02B6E)  
 ---This native does not have an official description.
----@param checkpoint number
+---@param checkpoint integer
 ---@return boolean
 function DoesCheckpointHaveFx(checkpoint) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9DD5AFF561E88F2A)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@return boolean
 function DoesParticleFxLoopedExist(ptfxHandle) end
 
@@ -472,9 +472,9 @@ function DoesParticleFxLoopedExist(ptfxHandle) end
 ---@param posX number
 ---@param posY number
 ---@param posZ number
----@param colorR number
----@param colorG number
----@param colorB number
+---@param colorR integer
+---@param colorG integer
+---@param colorB integer
 ---@param range number
 ---@param intensity number
 function DrawLightWithRange(posX, posY, posZ, colorR, colorG, colorB, range, intensity) end
@@ -483,13 +483,13 @@ function DrawLightWithRange(posX, posY, posZ, colorR, colorG, colorB, range, int
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF1142E5D64B47802)  
 ---nullsub, doesn't do anything (GTA5 leftover, there is no phone in RDR3)
 ---@param p0 boolean
----@param photoRotation number
+---@param photoRotation integer
 function DrawLowQualityPhotoToPhone(p0, photoRotation) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2A32FAA57B937173)  
 ---https://github.com/femga/rdr3_discoveries/blob/master/graphics/markers/marker_types.lua
----@param type number | string
+---@param type integer | string
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -502,13 +502,13 @@ function DrawLowQualityPhotoToPhone(p0, photoRotation) end
 ---@param scaleX number
 ---@param scaleY number
 ---@param scaleZ number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 ---@param bobUpAndDown boolean
 ---@param faceCamera boolean
----@param p19 number
+---@param p19 integer
 ---@param rotate boolean
 ---@param textureDict string
 ---@param textureName string
@@ -538,10 +538,10 @@ function DrawMarker(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, 
 ---@param y number
 ---@param width number
 ---@param height number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 ---@param p8 boolean
 ---@param p9 boolean
 function DrawRect(x, y, width, height, red, green, blue, alpha, p8, p9) end
@@ -572,10 +572,10 @@ function DrawRect(x, y, width, height, red, green, blue, alpha, p8, p9) end
 ---@param width number
 ---@param height number
 ---@param heading number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 ---@param p11 boolean
 function DrawSprite(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, p11) end
 
@@ -587,10 +587,10 @@ function DrawSprite(textureDict, textureName, screenX, screenY, width, height, h
 ---@param xScale number
 ---@param yScale number
 ---@param rotation number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawTvChannel(xPos, yPos, xScale, yScale, rotation, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -613,7 +613,7 @@ function EnableMovieSubtitles(toggle) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDFEA23EC90113657)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 function EnableStaticVegModifier(p0) end
 
 ---**`GRAPHICS` `client`**  
@@ -642,36 +642,36 @@ function FreeMemoryForMissionCreatorPhoto() end
 ---local hash = GetHashKey("CLOTHING_ITEM_M_EYES_001_TINT_001")
 ---_GENERATE_SWATCH_TEXTURE(0, hash, 0, true)
 ---metapedType: see 0xEC9A1261BF0CE510
----@param slotId number
----@param componentHash number | string
----@param metapedType number
+---@param slotId integer
+---@param componentHash integer | string
+---@param metapedType integer
 ---@param p3 boolean
 function GenerateSwatchTexture(slotId, componentHash, metapedType, p3) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x646ED1A1D28487DF)  
 ---Example: https://pastebin.com/tTgpER9A
----@param slot number
+---@param slot integer
 ---@param p1 any
 function GenerateSwatchTextureDirectly(slot, p1) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x78C56B8A7B1D000C)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetCurrentNumberOfLocalPhotos() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE8A8378BF651079C)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean, number, number, number, number
 function GetEntityMaskLayers(entity) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8E587FCD30E05592)  
 ---Always returns 200.
----@return number
+---@return integer
 function GetMaxNumberOfLocalPhotos() end
 
 ---**`GRAPHICS` `client`**  
@@ -695,8 +695,8 @@ function GetPhotoModeExposure() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5D1C5D8E62E8EE1C)  
 ---Returns proxyInteriorIndex
----@param interiorId number
----@return number
+---@param interiorId integer
+---@return integer
 function GetProxyInteriorIndex(interiorId) end
 
 ---**`GRAPHICS` `client`**  
@@ -711,21 +711,21 @@ function GetScreenCoordFromWorldCoord(worldX, worldY, worldZ) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x66773C92835D0909)  
 ---Hardcoded to always set x to 1280 and y to 720.
----@return number, number
+---@return integer, integer
 function GetScreenResolution() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x13430D3D5A45F14B)  
 ---Old name: _GET_STATUS_OF_DRAW_LOW_QUALITY_PHOTO
 ---@param p0 any
----@return number
+---@return integer
 function GetStatusOfCreateLowQualityCopyOfPhoto(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC71B50AE58D07369)  
 ---contentId: returned by NETWORK::_UGC_QUERY_GET_CREATOR_PHOTO(uVar0, 0, sParam3)
 ---@param contentId string
----@return number
+---@return integer
 function GetStatusOfLoadMissionCreatorPhoto(contentId) end
 
 ---**`GRAPHICS` `client`**  
@@ -733,7 +733,7 @@ function GetStatusOfLoadMissionCreatorPhoto(contentId) end
 ---0 = succeeded
 ---1 = getting status
 ---2 = failed
----@return number
+---@return integer
 function GetStatusOfSaveHighQualityPhoto() end
 
 ---**`GRAPHICS` `client`**  
@@ -741,25 +741,25 @@ function GetStatusOfSaveHighQualityPhoto() end
 ---0 = succeeded
 ---1 = getting status
 ---2 = failed
----@return number
+---@return integer
 function GetStatusOfSortedListOperation() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4A3DA74C3CCB1725)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetStatusOfTakeHighQualityPhoto() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA705394293E2B3D3)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetTimecycleModifierIndex() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2DA67BA3C8A6755D)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetTimecycleTransitionModifierIndex() end
 
 ---**`GRAPHICS` `client`**  
@@ -771,13 +771,13 @@ function GetTogglePausedRenderphasesStatus() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF90FBFD68F3C59AE)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetTvChannel() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3E4B4E5CF5D3EEB5)  
 ---This native does not have an official description.
----@param decal number
+---@param decal integer
 ---@return boolean
 function IsDecalAlive(decal) end
 
@@ -790,43 +790,43 @@ function IsPhotoFrame() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x113857D66A9CABE6)  
 ---This native does not have an official description.
----@param proxyInteriorIndex number
+---@param proxyInteriorIndex integer
 ---@return boolean
 function IsProxyInteriorIndexArtificialLightsEnabled(proxyInteriorIndex) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDE9BAD3292AA6D5E)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 ---@return boolean
 function IsStaticVegModifierEnabled(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA2A51869BDED733B)  
 ---This native does not have an official description.
----@param txdHash number | string
----@param dict number | string
+---@param txdHash integer | string
+---@param dict integer | string
 ---@return boolean
 function IsTextureInDict(txdHash, dict) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF2FDDCC8C6BAE1B3)  
 ---This native does not have an official description.
----@param point number
+---@param point integer
 ---@return boolean
 function IsTrackedPointValid(point) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCBB056BA159FB48D)  
 ---This native does not have an official description.
----@param point number
+---@param point integer
 ---@return boolean
 function IsTrackedPointVisible(point) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4D562223E0EB65F3)  
 ---Old name: _IS_TV_PLAYLIST_ITEM_PLAYING
----@param videoCliphash number | string
+---@param videoCliphash integer | string
 ---@return boolean
 function IsTvshowCurrentlyPlaying(videoCliphash) end
 
@@ -919,7 +919,7 @@ function N_0x32de2bffda43e62a() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x38D9D50F2085E9B3)  
 ---ANIMPOSTFX_*
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 function N_0x38d9d50f2085e9b3(effectNameHash) end
 
 ---**`GRAPHICS` `client`**  
@@ -981,7 +981,7 @@ function N_0x4bd66b4e3427689b(p0) end
 ---p1: AMB_ANN_COAL_CHUTE_DIVE, AMB_ANN_COAL_CHUTE
 ---p2: EMIT
 ---p3: either 0.0f or 1.0f
----@param entity number
+---@param entity integer
 ---@param p1 string
 ---@param p2 string
 ---@param p3 number
@@ -1044,7 +1044,7 @@ function N_0x6c03118e9e5c1a14(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x71845905BCCDE781)  
 ---ANIMPOSTFX_*
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 function N_0x71845905bccde781(effectNameHash) end
 
 ---**`GRAPHICS` `client`**  
@@ -1138,7 +1138,7 @@ function N_0xa15ccab8ad038291(p0, p1, p2, p3) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA1A86055792FB249)  
 ---This native does not have an official description.
----@param personaPhotoLocalCacheType number
+---@param personaPhotoLocalCacheType integer
 function N_0xa1a86055792fb249(personaPhotoLocalCacheType) end
 
 ---**`GRAPHICS` `client`**  
@@ -1167,7 +1167,7 @@ function N_0xb958d97a0dfaa0c2(effectName) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC06F2F45A73EABCD)  
 ---Used in NET_CAMP_SPIRIT_ANIMAL_CLEAR_ANIMAL_VISIBILITY
----@param entity number
+---@param entity integer
 function N_0xc06f2f45a73eabcd(entity) end
 
 ---**`GRAPHICS` `client`**  
@@ -1194,7 +1194,7 @@ function N_0xc489fe31ac726512(p0, p1) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC76FC4C2FC5F4405)  
 ---ANIMPOSTFX_*
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 function N_0xc76fc4c2fc5f4405(effectNameHash) end
 
 ---**`GRAPHICS` `client`**  
@@ -1237,8 +1237,8 @@ function N_0xd9bc98b55bcfaa9b(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDFE332A5DA6FE7C9)  
 ---Returns iNumPixels, iPixelsVisible
----@param iTrackedPoint number
----@return number
+---@param iTrackedPoint integer
+---@return integer
 function N_0xdfe332a5da6fe7c9(iTrackedPoint) end
 
 ---**`GRAPHICS` `client`**  
@@ -1257,7 +1257,7 @@ function N_0xe63d68f455ca0b47(p0, p1, p2, p3, p4, p5, p6) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE75CDDEBF618C8FF)  
 ---ANIMPOSTFX_*
----@param effectNameHash number | string
+---@param effectNameHash integer | string
 ---@return boolean
 function N_0xe75cddebf618c8ff(effectNameHash) end
 
@@ -1300,7 +1300,7 @@ function N_0xfb680a9b33d0edbe(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFBF161FCFEC8589E)  
 ---ANIMPOSTFX_*
 ---@param effectName string
----@param p1 number
+---@param p1 integer
 ---@param p2 boolean
 ---@return boolean, boolean
 function N_0xfbf161fcfec8589e(effectName, p1, p2) end
@@ -1341,8 +1341,8 @@ function PedshotFinishCleanupData() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD9C24F53631F2372)  
 ---This native does not have an official description.
 ---@param texture string
----@param ped number
----@param playerSlot number
+---@param ped integer
+---@param playerSlot integer
 ---@return boolean
 function PedshotGeneratePersonaPhoto(texture, ped, playerSlot) end
 
@@ -1365,7 +1365,7 @@ function PedshotPreviousPersonaPhotoDataCleanup() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x196D3ACBEBA4A44B)  
 ---This native does not have an official description.
----@param personaPhotoLocalCacheType number
+---@param personaPhotoLocalCacheType integer
 function PedshotSetPersonaPhotoType(personaPhotoLocalCacheType) end
 
 ---**`GRAPHICS` `client`**  
@@ -1377,13 +1377,13 @@ function QueueOperationToCreateSortedListOfPhotos() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x49A720552EB0BB88)  
 ---This native does not have an official description.
----@param decal number
+---@param decal integer
 function RemoveDecal(decal) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFB8972BAE0013140)  
 ---This native does not have an official description.
----@param obj number
+---@param obj integer
 function RemoveDecalsFromObject(obj) end
 
 ---**`GRAPHICS` `client`**  
@@ -1398,26 +1398,26 @@ function RemoveDecalsInRange(x, y, z, range) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x56A786E87FF53478)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function RemoveEntityFromEntityMask(entity) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAE7BF7CA9E4BA48D)  
 ---This native does not have an official description.
----@param handle number
+---@param handle integer
 function RemoveGrassCullSphere(handle) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x459598F579C98929)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param p1 boolean
 function RemoveParticleFx(ptfxHandle, p1) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x92884B4A49D81325)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function RemoveParticleFxFromEntity(entity) end
 
 ---**`GRAPHICS` `client`**  
@@ -1432,14 +1432,14 @@ function RemoveParticleFxInRange(X, Y, Z, radius) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9CF1836C03FB67A2)  
 ---This native does not have an official description.
----@param vegModifierHandle number
----@param p1 number
+---@param vegModifierHandle integer
+---@param p1 integer
 function RemoveVegModifierSphere(vegModifierHandle, p1) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x297B72E2AF094742)  
 ---Sets an unknown value related to timecycles.
----@param unk number
+---@param unk integer
 function ResetAdaptation(unk) end
 
 ---**`GRAPHICS` `client`**  
@@ -1461,7 +1461,7 @@ function ResetPausedRenderphases() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x57639FD876B68A91)  
 ---This native does not have an official description.
----@param unused number
+---@param unused integer
 ---@return boolean
 function SaveHighQualityPhoto(unused) end
 
@@ -1477,21 +1477,21 @@ function SetArtificialLightsState(state) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCAAFC225E33B1D15)  
 ---Sets the checkpoint color.
----@param checkpoint number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param checkpoint integer
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function SetCheckpointRgba(checkpoint, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x99AFF17222D4DEB4)  
 ---Sets the checkpoint icon color.
----@param checkpoint number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param checkpoint integer
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function SetCheckpointRgba2(checkpoint, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -1505,7 +1505,7 @@ function SetCloudHeight(height) end
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
----@param p2 number
+---@param p2 integer
 function SetCloudLayer(x, y, p2) end
 
 ---**`GRAPHICS` `client`**  
@@ -1548,7 +1548,7 @@ function SetEntityAura(p0, p1, p2) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE92012611461A42A)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return number, number, number, number
 function SetEntityMaskLayers(entity) end
 
@@ -1556,7 +1556,7 @@ function SetEntityMaskLayers(entity) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC38B4952B728397A)  
 ---Only used in guama1 R* SP Script while spawning the ship
 ---_SET_ENTITY_QUATERNION_* - SET_ENTITY_RENDER_*
----@param vehicle number
+---@param vehicle integer
 ---@param toggle boolean
 function SetEntityRenderGuarmaShip(vehicle, toggle) end
 
@@ -1567,8 +1567,8 @@ function SetEntityRenderGuarmaShip(vehicle, toggle) end
 ---@param y number
 ---@param z number
 ---@param p3 number
----@param p4 number
----@return number
+---@param p4 integer
+---@return integer
 function SetGrassCullSphere(x, y, z, p3, p4) end
 
 ---**`GRAPHICS` `client`**  
@@ -1585,31 +1585,31 @@ function SetHidofOverride(p0, p1, p2, p3, p4, p5) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6EC2A67962296F49)  
 ---https://gfycat.com/meagerfaireyra
----@param entity number
----@param red number
----@param green number
----@param blue number
+---@param entity integer
+---@param red integer
+---@param green integer
+---@param blue integer
 function SetLightsColorForEntity(entity, red, green, blue) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x07C0F87AAC57F2E4)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param intensity number
 function SetLightsIntensityForEntity(entity, intensity) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAB72C67163DC4DB4)  
 ---type must be less than or equal to 20
----@param entity number
----@param type number
+---@param entity integer
+---@param type integer
 function SetLightsTypeForEntity(entity, type) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3C61B52B00848C26)  
 ---Related to Campfires.
 ---p1: AMB_BONFIRE_MP, AMB_CAMPFIRE_LRG_MP
----@param entity number
+---@param entity integer
 ---@param p1 string
 ---@param r number
 ---@param g number
@@ -1637,14 +1637,14 @@ function SetParticleFxFootLodrangeScale(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x88786E76234F7054)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param alpha number
 function SetParticleFxLoopedAlpha(ptfxHandle, alpha) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x239879FC61C610CC)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param r number
 ---@param g number
 ---@param b number
@@ -1654,7 +1654,7 @@ function SetParticleFxLoopedColour(ptfxHandle, r, g, b, p4) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3674F389B0FACD80)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param propertyName string
 ---@param amount number
 ---@param noNetwork boolean
@@ -1663,14 +1663,14 @@ function SetParticleFxLoopedEvolution(ptfxHandle, propertyName, amount, noNetwor
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9B04D471DA0AD7AA)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param range number
 function SetParticleFxLoopedFarClipDist(ptfxHandle, range) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD3A4A95FC94FE83B)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -1682,14 +1682,14 @@ function SetParticleFxLoopedOffsets(ptfxHandle, x, y, z, rotX, rotY, rotZ) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1A9E1C0D98D093B7)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param scale number
 function SetParticleFxLoopedScale(ptfxHandle, scale) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9DDC222D85D5AF2A)  
 ---_SET_PARTICLE_FX_LOOPED_FA* - _SET_PARTICLE_FX_LOOPED_OF*
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param scalar number
 function SetParticleFxLoopedUpdateDistantSmoke(ptfxHandle, scalar) end
 
@@ -1725,7 +1725,7 @@ function SetParticleFxOverride(oldAsset, newAsset) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x72E30372E7CC4415)  
 ---Enables/disables a kind of 'shiny' effect on metals.
----@param object number
+---@param object integer
 ---@param toggle boolean
 function SetPearlescentFxEnabled(object, toggle) end
 
@@ -1738,7 +1738,7 @@ function SetPhotoInPhotomodeStat(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8B3296278328B5EB)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function SetPhotoOverlayEffectStat(p0) end
 
 ---**`GRAPHICS` `client`**  
@@ -1750,7 +1750,7 @@ function SetPhotoSelfStat(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8E6AFF353C09652E)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function SetPhotoStudioStat(p0) end
 
 ---**`GRAPHICS` `client`**  
@@ -1758,14 +1758,14 @@ function SetPhotoStudioStat(p0) end
 ---https://imgur.com/a/I2swSDJ
 ---
 ---Old name: _SET_PICKUP_OBJECT_GLOW_ENABLED
----@param object number
+---@param object integer
 ---@param toggle boolean
 function SetPickupLight(object, toggle) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x75D568607909333E)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 function SetPlayerAppearInPhoto(player) end
 
 ---**`GRAPHICS` `client`**  
@@ -1777,7 +1777,7 @@ function SetPosseIdForPhoto(posseId) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBFCB17895BB99E4E)  
 ---state: false disables artificial interior light sources for specific proxyInteriorIndex
----@param proxyInteriorIndex number
+---@param proxyInteriorIndex integer
 ---@param state boolean
 function SetProxyInteriorIndexArtificialLightsState(proxyInteriorIndex, state) end
 
@@ -1796,7 +1796,7 @@ function SetScriptGfxDrawBehindPausemenu(toggle) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCFCC78391C8B3814)  
 ---Sets the draw order for script draw commands.
----@param drawOrder number
+---@param drawOrder integer
 function SetScriptGfxDrawOrder(drawOrder) end
 
 ---**`GRAPHICS` `client`**  
@@ -1814,7 +1814,7 @@ function SetSniperGlintsEnabled(enabled) end
 ---	Xmas,
 ---	XmasSecondary // since b1232
 ---};
----@param type number
+---@param type integer
 function SetSnowCoverageType(type) end
 
 ---**`GRAPHICS` `client`**  
@@ -1838,7 +1838,7 @@ function SetTimecycleModifierStrength(strength) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF6FDA3D4404D4F2C)  
 ---This native does not have an official description.
----@param point number
+---@param point integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -1867,13 +1867,13 @@ function SetTvAudioFrontend(toggle) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x593FAF7FC9401A56)  
 ---This native does not have an official description.
----@param channel number
+---@param channel integer
 function SetTvChannel(channel) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDEC6B25F5DC8925B)  
 ---This native does not have an official description.
----@param tvChannel number
+---@param tvChannel integer
 ---@param playlistName string
 ---@param restart boolean
 function SetTvChannelPlaylist(tvChannel, playlistName, restart) end
@@ -1888,7 +1888,7 @@ function SetTvVolume(volume) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8F90AB32E1944BDE)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
@@ -1899,26 +1899,26 @@ function SetTvVolume(volume) end
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartNetworkedParticleFxLoopedOnEntity(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9C56621462FFE7A6)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
 ---@param xRot number
 ---@param yRot number
 ---@param zRot number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartNetworkedParticleFxLoopedOnEntityBone(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
@@ -1942,7 +1942,7 @@ function StartNetworkedParticleFxNonLoopedAtCoord(effectName, xPos, yPos, zPos, 
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE6CFE43937061143)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
@@ -1971,14 +1971,14 @@ function StartNetworkedParticleFxNonLoopedOnEntity(effectName, entity, offsetX, 
 ---@param yAxis boolean
 ---@param zAxis boolean
 ---@param p11 boolean
----@return number
+---@return integer
 function StartParticleFxLoopedAtCoord(effectName, x, y, z, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis, p11) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBD41E1440CE39800)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
@@ -1989,45 +1989,45 @@ function StartParticleFxLoopedAtCoord(effectName, x, y, z, xRot, yRot, zRot, sca
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartParticleFxLoopedOnEntity(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD3BA6EC7F2FBD5E9)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
 ---@param xRot number
 ---@param yRot number
 ---@param zRot number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartParticleFxLoopedOnEntityBone(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE689C1B1432BB8AF)  
 ---This native does not have an official description.
 ---@param effectName string
----@param ped number
+---@param ped integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
 ---@param xRot number
 ---@param yRot number
 ---@param zRot number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartParticleFxLoopedOnPedBone(effectName, ped, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
@@ -2051,7 +2051,7 @@ function StartParticleFxNonLoopedAtCoord(effectName, xPos, yPos, zPos, xRot, yRo
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFF4C64C513388C12)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
@@ -2069,14 +2069,14 @@ function StartParticleFxNonLoopedOnEntity(effectName, entity, offsetX, offsetY, 
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3FAA72BD940C3AC0)  
 ---This native does not have an official description.
 ---@param effectName string
----@param ped number
+---@param ped integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param axisX boolean
 ---@param axisY boolean
@@ -2088,14 +2088,14 @@ function StartParticleFxNonLoopedOnPedBone(effectName, ped, offsetX, offsetY, of
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC695870B8A149B96)  
 ---This native does not have an official description.
 ---@param effectName string
----@param ped number
+---@param ped integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param axisX boolean
 ---@param axisY boolean
@@ -2113,7 +2113,7 @@ function StartPetrolTrailDecals(p0, p1) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x22970F3A088B133B)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param p1 boolean
 function StopParticleFxLooped(ptfxHandle, p1) end
 
@@ -2126,7 +2126,7 @@ function TogglePausedRenderphases(toggle) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBDBACB52A03CC760)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function UpdateLightsOnEntity(entity) end
 
 ---**`GRAPHICS` `client`**  

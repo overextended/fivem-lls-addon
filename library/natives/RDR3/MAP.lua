@@ -3,7 +3,7 @@
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDEEDE7C41742E011)  
 ---It's unclear what exactly this does, but I assume it marks the blip as "no longer needed"
----@param blip number
+---@param blip integer
 function AbandonBlip(blip) end
 
 ---**`MAP` `client`**  
@@ -18,11 +18,11 @@ function AddPointToGpsMultiRoute(x, y, z, p3) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1392105DA88BBFFB)  
 ---list of minimap props: https://github.com/femga/rdr3_discoveries/tree/master/graphics/minimap/minimapObjects
----@param minimapProp number | string
+---@param minimapProp integer | string
 ---@param x number
 ---@param y number
 ---@param rotation number
----@param p4 number
+---@param p4 integer
 function AddPropToMinimap(minimapProp, x, y, rotation, p4) end
 
 ---**`MAP` `client`**  
@@ -34,68 +34,68 @@ function AllowSonarBlips(toggle) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEC174ADBCB611ECC)  
 ---This native does not have an official description.
----@param blipHash number | string
+---@param blipHash integer | string
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param scaleX number
 ---@param scaleY number
 ---@param scaleZ number
----@param p7 number
----@return number
+---@param p7 integer
+---@return integer
 function BlipAddForArea(blipHash, x, y, z, scaleX, scaleY, scaleZ, p7) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x554D9D53F696D002)  
 ---https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/textures/blips
 ---https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/textures/blips_mp
----@param blipHash number | string
+---@param blipHash integer | string
 ---@param x number
 ---@param y number
 ---@param z number
----@return number
+---@return integer
 function BlipAddForCoords(blipHash, x, y, z) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x23F74C2FDA6E7C61)  
 ---This native does not have an official description.
----@param blipHash number | string
----@param entity number
----@return number
+---@param blipHash integer | string
+---@param entity integer
+---@return integer
 function BlipAddForEntity(blipHash, entity) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA486008892065FB9)  
 ---This native does not have an official description.
----@param blipHash number | string
----@param pickup number
----@return number
+---@param blipHash integer | string
+---@param pickup integer
+---@return integer
 function BlipAddForPickupPlacement(blipHash, pickup) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x45F13B7E0A15C880)  
 ---This native does not have an official description.
----@param blipHash number | string
+---@param blipHash integer | string
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param radius number
----@return number
+---@return integer
 function BlipAddForRadius(blipHash, x, y, z, radius) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3E593DF9C2962EC6)  
 ---This native does not have an official description.
----@param styleHash number | string
----@return number
+---@param styleHash integer | string
+---@return integer
 function BlipAddForStyle(styleHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA6EF0C54A3443E70)  
 ---This native does not have an official description.
----@param blipHash number | string
----@param volume any
----@return number
+---@param blipHash integer | string
+---@param volume integer
+---@return integer
 function BlipAddForVolume(blipHash, volume) end
 
 ---**`MAP` `client`**  
@@ -104,24 +104,24 @@ function BlipAddForVolume(blipHash, volume) end
 ---https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_modifiers
 ---
 ---Old name: _BLIP_SET_MODIFIER
----@param blip number
----@param modifierHash number | string
+---@param blip integer
+---@param modifierHash integer | string
 ---@return boolean
 function BlipAddModifier(blip, modifierHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBD62D98799A3DAF0)  
 ---This native does not have an official description.
----@param blip number
----@param styleHash number | string
+---@param blip integer
+---@param styleHash integer | string
 ---@return boolean
 function BlipAddStyle(blip, styleHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB059D7BD3D78C16F)  
 ---If modifierHash is 0, ALL modifiers will be removed.
----@param blip number
----@param modifierHash number | string
+---@param blip integer
+---@param modifierHash integer | string
 ---@return boolean
 function BlipRemoveModifier(blip, modifierHash) end
 
@@ -129,8 +129,8 @@ function BlipRemoveModifier(blip, modifierHash) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEDD964B7984AC291)  
 ---https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_styles
 ---Removes any existing modifiers and sets the style.
----@param blip number
----@param styleHash number | string
+---@param blip integer
+---@param styleHash integer | string
 ---@return boolean
 function BlipSetStyle(blip, styleHash) end
 
@@ -163,14 +163,14 @@ function DisplayRadar(toggle) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCD82FA174080B3B1)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function DoesBlipExist(blip) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9FA00E2FC134A9D0)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function DoesEntityHaveBlip(entity) end
 
@@ -192,21 +192,21 @@ function ForceSonarBlipsThisFrame() end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x201C319797BDA603)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return vector3
 function GetBlipCoords(blip) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6D2C41A8BD6D6FD0)  
 ---Returns the Blip handle of given Entity.
----@param entity number
----@return number
+---@param entity integer
+---@return integer
 function GetBlipFromEntity(entity) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5CD2889B2B381D45)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetMainPlayerBlipId() end
 
 ---**`MAP` `client`**  
@@ -223,14 +223,14 @@ function HideActivePointsOfInterest() end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE9F676788F8D5E1E)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function IsBlipAttachedToAnyEntity(blip) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x46534526B9CD2D17)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function IsBlipOnMinimap(blip) end
 
@@ -245,46 +245,46 @@ function IsWaypointActive() end
 ---Locks the minimap to the specified angle in integer degrees.
 ---
 ---angle: The angle in whole degrees. If less than 0 or greater than 360, unlocks the angle.
----@param angle number
+---@param angle integer
 function LockMinimapAngle(angle) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6786D7AFAC3162B3)  
 ---This native does not have an official description.
----@param regionHash number | string
+---@param regionHash integer | string
 function MapDisableRegionBlip(regionHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD8C7162AB2E2AF45)  
 ---This native does not have an official description.
----@param discoveryHash number | string
+---@param discoveryHash integer | string
 function MapDiscoverRegion(discoveryHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDA98246C7A3C2189)  
 ---This native does not have an official description.
----@param discoveryHash number | string
+---@param discoveryHash integer | string
 function MapDiscoverySetEnabled(discoveryHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x563FCB6620523917)  
 ---regionHash: https://github.com/femga/rdr3_discoveries/tree/master/graphics/minimap/wanted_regions
----@param regionHash number | string
----@param styleHash number | string
+---@param regionHash integer | string
+---@param styleHash integer | string
 function MapEnableRegionBlip(regionHash, styleHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3F81EA4275D39D6F)  
 ---This native does not have an official description.
----@param discoveryHash number | string
+---@param discoveryHash integer | string
 ---@return boolean
 function MapIsDiscoveryActive(discoveryHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE38450DBCBC70E3D)  
 ---This native does not have an official description.
----@param regionHash number | string
----@param styleHash number | string
+---@param regionHash integer | string
+---@param styleHash integer | string
 ---@return boolean
 function MapIsRegionHighlightedWithStyle(regionHash, styleHash) end
 
@@ -304,7 +304,7 @@ function N_0x1726963e6049db53(p0) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x250C75EB1728CC0D)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 function N_0x250c75eb1728cc0d(blip) end
 
 ---**`MAP` `client`**  
@@ -318,15 +318,15 @@ function N_0x3cb8859f04763c78(p0, p1) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x44813684F72B563C)  
 ---_CLEAR*
----@param entity number
+---@param entity integer
 ---@param p1 any
 function N_0x44813684f72b563c(entity, p1) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7563CBCA99253D1A)  
 ---FM_CLIENT_SETUP_EAGLE_EYE - setting up eagle eye for entity
----@param entity number
----@param blip number | string
+---@param entity integer
+---@param blip integer | string
 function N_0x7563cbca99253d1a(entity, blip) end
 
 ---**`MAP` `client`**  
@@ -337,7 +337,7 @@ function N_0x7c9f4cdf402ca82a() end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x97F6F158CC5B5CA2)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param p1 any
 function N_0x97f6f158cc5b5ca2(entity, p1) end
 
@@ -371,31 +371,31 @@ function N_0xf47a1eb2a538a3a3() end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF2C3C9DA47AAA54A)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 function RemoveBlip(blip) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE057FEA9A22EB3EE)  
 ---This native does not have an official description.
----@param minimapProp number | string
+---@param minimapProp integer | string
 function RemovePropFromMinimap(minimapProp) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEB3CB3386C775D72)  
 ---This native does not have an official description.
----@param hash number | string
+---@param hash integer | string
 function ResetMinimapFow(hash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF8096DF9B87246E3)  
 ---This native does not have an official description.
----@param hash number | string
+---@param hash integer | string
 function RevealMinimapFow(hash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4FF674F5E23D49CE)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -404,58 +404,58 @@ function SetBlipCoords(blip, posX, posY, posZ) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0DF2B55F717DDB10)  
 ---This native does not have an official description.
----@param blip number
----@return boolean, number, number
+---@param blip integer
+---@return boolean, integer, integer
 function SetBlipFlashes(blip) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x02FF4CF43B7209D1)  
 ---This native does not have an official description.
----@param blip number
----@param blipType number
----@param blipHash number | string
+---@param blip integer
+---@param blipType integer
+---@param blipHash integer | string
 function SetBlipFlashTimer(blip, blipType, blipHash) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9CB1A1623062F402)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param name string
 function SetBlipName(blip, name) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0A062D6D7C0B2C2C)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param textLabel string
 function SetBlipNameFromTextFile(blip, textLabel) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x093DD5A31BC2B459)  
 ---This native does not have an official description.
----@param blip number
----@param player number
+---@param blip integer
+---@param player integer
 function SetBlipNameToPlayerName(blip, player) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6049966A94FBE706)  
 ---This native does not have an official description.
----@param blip number
----@param rotation number
+---@param blip integer
+---@param rotation integer
 function SetBlipRotation(blip, rotation) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD38744167B2FA257)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param scale number
 function SetBlipScale(blip, scale) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x74F74D3207ED525C)  
 ---This native does not have an official description.
----@param blip number
----@param hash number | string
+---@param blip integer
+---@param hash integer | string
 ---@param p2 boolean
 function SetBlipSprite(blip, hash, p2) end
 
@@ -464,21 +464,21 @@ function SetBlipSprite(blip, hash, p2) end
 ---Used for GUARMA MODE; Enabled: toggle = false, 0; Disabled: toggle = true, 0
 ---Hash p1 seems to be unused, always 0
 ---@param toggle boolean
----@param p1 number | string
+---@param p1 integer | string
 function SetFowUpdatePlayerOverride(toggle, p1) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF6CEF599FC470B33)  
 ---This native does not have an official description.
 ---@param p0 boolean
----@param p1 number
----@param p2 number
+---@param p1 integer
+---@param p2 integer
 function SetGpsCustomRouteRender(p0, p1, p2) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5DE61C90DDECFA2D)  
 ---https://alloc8or.re/rdr3/doc/enums/rage__eGpsFlags.txt
----@param p0 number
+---@param p0 integer
 ---@param p1 number
 function SetGpsFlags(p0, p1) end
 
@@ -492,7 +492,7 @@ function SetGpsMultiRouteRender(toggle) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE5A7F70B7C0F3271)  
 ---This native does not have an official description.
 ---@param scale number
----@param p1 number | string
+---@param p1 integer | string
 function SetMinimapFowOverrideRevealScale(scale, p1) end
 
 ---**`MAP` `client`**  
@@ -501,21 +501,21 @@ function SetMinimapFowOverrideRevealScale(scale, p1) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param p3 number | string
+---@param p3 integer | string
 function SetMinimapFowRevealCoordinate(x, y, z, p3) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63CBBD6CA6F321F9)  
 ---This native does not have an official description.
----@param volume any
----@param p1 number | string
+---@param volume integer
+---@param p1 integer | string
 function SetMinimapFowRevealVolume(volume, p1) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x632AA10BF7EA53D3)  
 ---This native does not have an official description.
 ---@param toggle boolean
----@param p1 number | string
+---@param p1 integer | string
 function SetMinimapFowShouldUpdate(toggle, p1) end
 
 ---**`MAP` `client`**  
@@ -527,7 +527,7 @@ function SetMinimapHideFow(toggle) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA657EC9DBC6CC900)  
 ---hash can be the hash of "guarma" or "world".
----@param zone number | string
+---@param zone integer | string
 function SetMinimapZone(zone) end
 
 ---**`MAP` `client`**  
@@ -549,14 +549,14 @@ function SetRadarAsExteriorThisFrame() end
 ---https://github.com/femga/rdr3_discoveries/blob/master/graphics/minimap/radar/radar_configs.lua
 ---configHash: -1943724816, 347777538, -117986897, -789269373, -547506804, -1986542417, 2080113112
 ---p1: usually 898171178 or 0 in R* scripts (doesn't seems to have any effect)
----@param configHash number | string
----@param p1 number | string
+---@param configHash integer | string
+---@param p1 integer | string
 function SetRadarConfigType(configHash, p1) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCAF6489DA2C8DD9E)  
 ---This native does not have an official description.
----@param zoomLevel number
+---@param zoomLevel integer
 function SetRadarZoom(zoomLevel) end
 
 ---**`MAP` `client`**  
@@ -573,9 +573,9 @@ function ShowActivePointsOfInterest() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6B44F13D888F770D)  
 ---This native does not have an official description.
 ---@param waypointRecording string
----@param point number
----@param numPoints number
----@param colorNameHash number | string
+---@param point integer
+---@param numPoints integer
+---@param colorNameHash integer | string
 ---@param p4 boolean
 ---@param p5 boolean
 function StartGpsCustomRouteFromWaypointRecordingRoute(waypointRecording, point, numPoints, colorNameHash, p4, p5) end
@@ -583,7 +583,7 @@ function StartGpsCustomRouteFromWaypointRecordingRoute(waypointRecording, point,
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3D3D15AF7BCAAF83)  
 ---This native does not have an official description.
----@param colorNameHash number | string
+---@param colorNameHash integer | string
 ---@param onFoot boolean
 ---@param inVehicle boolean
 function StartGpsMultiRoute(colorNameHash, onFoot, inVehicle) end
@@ -591,7 +591,7 @@ function StartGpsMultiRoute(colorNameHash, onFoot, inVehicle) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x72DD432F3CDFC0EE)  
 ---This native does not have an official description.
----@param typeHash number | string
+---@param typeHash integer | string
 ---@param x number
 ---@param y number
 ---@param z number
@@ -600,8 +600,8 @@ function TriggerSonarBlip(typeHash, x, y, z) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0C7A2289A5C4D7C9)  
 ---This native does not have an official description.
----@param typeHash number | string
----@param entity number
+---@param typeHash integer | string
+---@param entity integer
 function TriggerSonarBlipOnEntity(typeHash, entity) end
 
 ---**`MAP` `client`**  

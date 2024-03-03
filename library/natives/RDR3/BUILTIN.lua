@@ -4,7 +4,7 @@
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x11E019C8F43ACC8A)  
 ---Rounds a float value up to the next whole number
 ---@param value number
----@return number
+---@return integer
 function Ceil(value) end
 
 ---**`BUILTIN` `client`**  
@@ -18,7 +18,7 @@ function Cos(value) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF34EE736CF047844)  
 ---Rounds a float value down to the next whole number
 ---@param value number
----@return number
+---@return integer
 function Floor(value) end
 
 ---**`BUILTIN` `client`**  
@@ -40,7 +40,7 @@ function Pow(base, exponent) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF2DB717A73826179)  
 ---This native does not have an official description.
 ---@param value number
----@return number
+---@return integer
 function Round(value) end
 
 ---**`BUILTIN` `client`**  
@@ -49,35 +49,35 @@ function Round(value) end
 ---THREAD_PRIO_NORMAL = 1
 ---THREAD_PRIO_LOWEST = 2
 ---THREAD_PRIO_MANUAL_UPDATE = 100
----@param priority number
+---@param priority integer
 function SetThisThreadPriority(priority) end
 
 ---**`BUILTIN` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC1B1E9A034A63A62)  
 ---This native does not have an official description.
----@param value number
+---@param value integer
 function Settimera(value) end
 
 ---**`BUILTIN` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5AE11BC36633DE4E)  
 ---This native does not have an official description.
----@param value number
+---@param value integer
 function Settimerb(value) end
 
 ---**`BUILTIN` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEDD95A39E5544DE8)  
 ---This native does not have an official description.
----@param value number
----@param bitShift number
----@return number
+---@param value integer
+---@param bitShift integer
+---@return integer
 function ShiftLeft(value, bitShift) end
 
 ---**`BUILTIN` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x97EF1E5BCE9DC075)  
 ---This native does not have an official description.
----@param value number
----@param bitShift number
----@return number
+---@param value integer
+---@param bitShift integer
+---@return integer
 function ShiftRight(value, bitShift) end
 
 ---**`BUILTIN` `client`**  
@@ -97,13 +97,13 @@ function Sqrt(value) end
 ---**`BUILTIN` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x83666F9FB8FEBD4B)  
 ---Counts up. Every 1000 is 1 real-time second. Use SETTIMERA(int value) to set the timer (e.g.: SETTIMERA(0)).
----@return number
+---@return integer
 function Timera() end
 
 ---**`BUILTIN` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC9D9444186B5A374)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function Timerb() end
 
 ---**`BUILTIN` `client`**  
@@ -115,7 +115,7 @@ function Timestep() end
 ---**`BUILTIN` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBBDA792448DB5A89)  
 ---This native does not have an official description.
----@param value number
+---@param value integer
 ---@return number
 function ToFloat(value) end
 
@@ -166,6 +166,6 @@ function Vmag2(x, y, z) end
 ---**`BUILTIN` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4EDE34FBADD967A6)  
 ---This native does not have an official description.
----@param ms number
+---@param ms integer
 function Wait(ms) end
 

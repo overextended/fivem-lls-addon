@@ -9,7 +9,7 @@
 ---@param xHigh number
 ---@param yHigh number
 ---@param height number
----@return number
+---@return integer
 function AddExtraCalmingQuad(xLow, yLow, xHigh, yHigh, height) end
 
 ---@deprecated
@@ -72,7 +72,7 @@ function N_0x547237aa71ab44de(p0) end
 ---```
 ---p0 is the handle returned from _0xFDBF4CDBC07E1706  
 ---```
----@param p0 number
+---@param p0 integer
 function RemoveCurrentRise(p0) end
 
 ---**`WATER` `client`**  
@@ -110,7 +110,7 @@ SetCurrentIntensity = SetDeepOceanScaler
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param flag number
+---@param flag integer
 ---@return boolean, vector3
 function TestProbeAgainstAllWater(x1, y1, z1, x2, y2, z2, flag) end
 
@@ -132,7 +132,7 @@ function TestProbeAgainstWater(x1, y1, z1, x2, y2, z2) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param flag number
+---@param flag integer
 ---@return boolean, number
 function TestVerticalProbeAgainstAllWater(x, y, z, flag) end
 

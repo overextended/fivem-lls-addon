@@ -3,52 +3,52 @@
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD45B1FFCCD52FF19)  
 ---This native does not have an official description.
----@param netID number
+---@param netID integer
 ---@param toggle boolean
 function ActivateDamageTrackerOnNetworkId(netID, toggle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE0D73CDDEA79DDCD)  
 ---This native does not have an official description.
----@param animScene any
----@return number
+---@param animScene integer
+---@return integer
 function AnimSceneToNet(animScene) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x69778E7564BADE6D)  
 ---This native does not have an official description.
----@param ped_amt number
----@param vehicle_amt number
----@param object_amt number
----@param pickup_amt number
+---@param ped_amt integer
+---@param vehicle_amt integer
+---@param object_amt integer
+---@param pickup_amt integer
 ---@return boolean
 function CanRegisterMissionEntities(ped_amt, vehicle_amt, object_amt, pickup_amt) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x800DD4721A8B008B)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@return boolean
 function CanRegisterMissionObjects(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBCBF4FEF9FA5D781)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@return boolean
 function CanRegisterMissionPeds(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF0460C7BF80011EA)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@return boolean
 function CanRegisterMissionPickups(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7277F1F2E085EE74)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@return boolean
 function CanRegisterMissionVehicles(amount) end
 
@@ -66,14 +66,14 @@ function ClearServiceEventArguments() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3A3D5568AF297CD5)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 ---@return boolean
 function CloudDidRequestSucceed(id) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4C61B39930D045DA)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 ---@return boolean
 function CloudHasRequestCompleted(id) end
 
@@ -108,14 +108,14 @@ function CommerceStoreIsOpen() end
 ---    int second;
 ---    int PADDING6;
 ---};
----@param posixTime number
+---@param posixTime integer
 ---@return any
 function ConvertPosixTime(posixTime) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9A73240B49945C76)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetCloudTimeAsInt() end
 
 ---**`NETWORK` `client`**  
@@ -141,113 +141,113 @@ function GetLaunchParamValue(paramName) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC7BE335216B5EC7C)  
 ---Always returns 60
----@return number
+---@return integer
 function GetMaxNumNetworkObjects() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0C1F7D49C39D2289)  
 ---Always returns 110
----@return number
+---@return integer
 function GetMaxNumNetworkPeds() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA72835064DD63E4C)  
 ---Always returns 80
----@return number
+---@return integer
 function GetMaxNumNetworkPickups() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0AFCE529F69B21FF)  
 ---Always returns 40
----@return number
+---@return integer
 function GetMaxNumNetworkVehicles() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7A5487FE9FAA6B48)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNetworkTime() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x89023FBBF9200E9F)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNetworkTimeAccurate() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x12B6281B6C6706C0)  
 ---This native does not have an official description.
 ---@param p0 boolean
----@return number
+---@return integer
 function GetNumCreatedMissionObjects(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCB215C4B56A7FAE7)  
 ---This native does not have an official description.
 ---@param p0 boolean
----@return number
+---@return integer
 function GetNumCreatedMissionPeds(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD2BA051B94CA9BCC)  
 ---This native does not have an official description.
 ---@param p0 boolean
----@return number
+---@return integer
 function GetNumCreatedMissionPickups(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0CD9AB83489430EA)  
 ---This native does not have an official description.
 ---@param p0 boolean
----@return number
+---@return integer
 function GetNumCreatedMissionVehicles(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4FE932E84FE932E8)  
 ---Note: this native was added in build 1311.16
----@return number
+---@return integer
 function GetNumPeerNegotiationResponses() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAA81B5F10BC43AC2)  
 ---p0 appears to be for MP
 ---@param p0 boolean
----@return number
+---@return integer
 function GetNumReservedMissionObjects(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1F13D5AE5CB17E17)  
 ---p0 appears to be for MP
 ---@param p0 boolean
----@return number
+---@return integer
 function GetNumReservedMissionPeds(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x62BE3ECC79FBD004)  
 ---This native does not have an official description.
 ---@param p0 boolean
----@return number
+---@return integer
 function GetNumReservedMissionPickups(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCF3A965906452031)  
 ---p0 appears to be for MP
 ---@param p0 boolean
----@return number
+---@return integer
 function GetNumReservedMissionVehicles(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDCC4B7F7112E8AB7)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function GetPlayerWaypointIsActive(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x99AAC89C510DEB0D)  
 ---Only used in R* Script net_stable_manager
----@param threadId number
----@return number, number, number, number, number, number
+---@param threadId integer
+---@return integer, integer, integer, integer, integer, integer
 function GetReservedMissionEntitiesForThread(threadId) end
 
 ---**`NETWORK` `client`**  
@@ -260,7 +260,7 @@ function GetReservedMissionEntitiesForThread(threadId) end
 ---@param y number
 ---@param z number
 ---@param p3 boolean
----@return number, number, number, number
+---@return integer, integer, integer, integer
 function GetReservedMissionEntitiesInArea(x, y, z, p3) end
 
 ---**`NETWORK` `client`**  
@@ -274,31 +274,31 @@ function GetSocialMatchmakingAllowed() end
 ---0 = succeeded
 ---1 = pending
 ---2 = failed
----@param textureDownloadId number
----@return number
+---@param textureDownloadId integer
+---@return integer
 function GetStatusOfTextureDownload(textureDownloadId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA2C6FC031D46FFF0)  
 ---Subtracts the second argument from the first.
----@param timeA number
----@param timeB number
----@return number
+---@param timeA integer
+---@param timeB integer
+---@return integer
 function GetTimeDifference(timeA, timeB) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x017008CCDAD48503)  
 ---Adds the first argument to the second.
----@param timeA number
----@param timeB number
----@return number
+---@param timeA integer
+---@param timeB integer
+---@return integer
 function GetTimeOffset(timeA, timeB) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x07F723401B9D921C)  
 ---This native does not have an official description.
----@param player number
----@return number
+---@param player integer
+---@return integer
 function GetUniqueIntForPlayer(player) end
 
 ---**`NETWORK` `client`**  
@@ -310,21 +310,21 @@ function HasNetworkTimeStarted() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6E192E33AD436366)  
 ---This native does not have an official description.
----@param netID number
+---@param netID integer
 ---@return boolean
 function IsDamageTrackerActiveOnNetworkId(netID) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x21D04D7BC538C146)  
 ---Old name: _IS_ENTITY_GHOSTED_TO_LOCAL_PLAYER
----@param entity number
+---@param entity integer
 ---@return boolean
 function IsEntityAGhost(entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA1607996431332DF)  
 ---This native does not have an official description.
----@param netId number
+---@param netId integer
 ---@return boolean
 function IsNetworkIdOwnedByParticipant(netId) end
 
@@ -360,42 +360,42 @@ function IsSphereVisibleToPlayer(p0, p1, p2, p3, p4, p5) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCB2CF5148012C8D0)  
 ---Subtracts the second argument from the first, then returns whether the result is negative.
----@param timeA number
----@param timeB number
+---@param timeA integer
+---@param timeB integer
 ---@return boolean
 function IsTimeLessThan(timeA, timeB) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDE350F8651E4346C)  
 ---Subtracts the first argument from the second, then returns whether the result is negative.
----@param timeA number
----@param timeB number
+---@param timeA integer
+---@param timeB integer
 ---@return boolean
 function IsTimeMoreThan(timeA, timeB) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE1BC73D6815BA361)  
 ---This native does not have an official description.
----@param netId number
+---@param netId integer
 ---@param p1 boolean
----@param p2 number
+---@param p2 integer
 function KeepNetworkIdInFastInstance(netId, p1, p2) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6E2FD8CF7EB10E53)  
 ---This native does not have an official description.
----@param playerSlot number
----@param personaPhotoLocalCacheType number
----@return number
+---@param playerSlot integer
+---@param personaPhotoLocalCacheType integer
+---@return integer
 function LocalPlayerPedshotTextureDownloadRequest(playerSlot, personaPhotoLocalCacheType) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9B5DB6CEAFAA10BB)  
 ---Returns textureDownloadId
----@param p1 number
+---@param p1 integer
 ---@param name string
 ---@param p3 boolean
----@return number, any
+---@return integer, any
 function MugshotTextureDownloadRequest(p1, name, p3) end
 
 ---**`NETWORK` `client`**  
@@ -403,27 +403,27 @@ function MugshotTextureDownloadRequest(p1, name, p3) end
 ---Note: this native was added in build 1311.16
 ---
 ---GET_NUM_*
----@return number
+---@return integer
 function N_0x02b3cdd652b3cdd6() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x02C4C6C2900D84DF)  
 ---Only used in SP R* Script dominoes_sp: p1 = 0
----@param player number
+---@param player integer
 ---@param p1 any
 function N_0x02c4c6c2900d84df(player, p1) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x039AD6B57D5179FF)  
 ---Note: this native was added in build 1311.23
----@return number
+---@return integer
 function N_0x039ad6b57d5179ff() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x039B692B3318FAB6)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0x039b692b3318fab6(p0) end
 
 ---**`NETWORK` `client`**  
@@ -446,14 +446,14 @@ function N_0x0bf90cbb6b72977b() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0CC28C08613BA9E5)  
 ---nullsub, doesn't do anything
----@param p0 number
+---@param p0 integer
 function N_0x0cc28c08613ba9e5(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0D183D8490EE4366)  
 ---Note: this native was added in build 1311.23
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 function N_0x0d183d8490ee4366(p0, p1) end
 
 ---**`NETWORK` `client`**  
@@ -466,13 +466,13 @@ function N_0x0e54d4da6018ff8e() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x106CBDD5077DEDE1)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0x106cbdd5077dede1(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x13F592FC3BF0EA84)  
 ---This native does not have an official description.
----@param volume any
+---@param volume integer
 ---@param p1 boolean
 ---@param originalWeight number
 ---@param p3 any
@@ -482,7 +482,7 @@ function N_0x13f592fc3bf0ea84(volume, p1, originalWeight, p3, p4) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1413B6BF27AB7A95)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function N_0x1413b6bf27ab7a95() end
 
 ---**`NETWORK` `client`**  
@@ -494,7 +494,7 @@ function N_0x160f0ce6d76a39c9() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x16EFB123C4451032)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean, any
 function N_0x16efb123c4451032(p0) end
 
@@ -507,8 +507,8 @@ function N_0x18b94666cf610aeb() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x19447FCAE97704DC)  
 ---Note: this native was added in build 1311.23
----@param ctx number | string
----@param ec number
+---@param ctx integer | string
+---@param ec integer
 ---@param ex boolean
 ---@param ro boolean
 function N_0x19447fcae97704dc(ctx, ec, ex, ro) end
@@ -522,7 +522,7 @@ function N_0x19b52c20b5c4757c() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1E4E097D71D449FB)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0x1e4e097d71d449fb(p0) end
 
 ---**`NETWORK` `client`**  
@@ -534,8 +534,8 @@ function N_0x232e1eb23cdb313c() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x236321F1178A5446)  
 ---_NETWORK_GET_A* - _NETWORK_GET_D*
----@param player number
----@param ped number
+---@param player integer
+---@param ped integer
 ---@return boolean, any
 function N_0x236321f1178a5446(player, ped) end
 
@@ -551,7 +551,7 @@ function N_0x2686bd9566b65eda(x, y, z) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x26A867C0B7A456D1)  
 ---_GET_LAUNCH_PARAM_(RESPOT?)*
 ---Name is probably invalid since this native only reads data from parsed entity.
----@param entity number
+---@param entity integer
 ---@return boolean
 function N_0x26a867c0b7a456d1(entity) end
 
@@ -572,8 +572,8 @@ function N_0x273e04a3a7ad1f2d() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x27B1AE4D8C652F08)  
 ---This native does not have an official description.
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function N_0x27b1ae4d8c652f08(p0) end
 
 ---**`NETWORK` `client`**  
@@ -602,7 +602,7 @@ function N_0x316fd416c432c761() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x335AF56613CA0F49)  
 ---Note: this native was added in build 1311.23
----@param p0 number
+---@param p0 integer
 function N_0x335af56613ca0f49(p0) end
 
 ---**`NETWORK` `client`**  
@@ -614,15 +614,15 @@ function N_0x34bc1e79546ba543(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3AA0CDC63696166D)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function N_0x3aa0cdc63696166d(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3CBD6565D9C3B133)  
 ---Note: this native was added in build 1311.23
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 ---@param p2 number
 function N_0x3cbd6565d9c3b133(p0, p1, p2) end
 
@@ -641,28 +641,28 @@ function N_0x3e74a687a73979c6(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3E8CCE6769DB5F34)  
 ---Stadia only; always returns -1 on other platforms. p0 may be a BOOL.
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function N_0x3e8cce6769db5f34(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3F0ABAE38A0515AD)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 function N_0x3f0abae38a0515ad(p0, p1) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3F2EE18A3E294801)  
 ---This native does not have an official description.
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function N_0x3f2ee18a3e294801(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x405DDEFB1F531B18)  
 ---This native does not have an official description.
----@param volume any
+---@param volume integer
 ---@param p1 boolean
 ---@param p2 any
 ---@param p3 any
@@ -676,13 +676,13 @@ function N_0x40fedb13870042f1() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x41452E8A3B9C0C4B)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function N_0x41452e8a3b9c0c4b() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x422F9D6D6C7BC290)  
 ---Note: this native was added in build 1355.30
----@param p0 number
+---@param p0 integer
 function N_0x422f9d6d6c7bc290(p0) end
 
 ---**`NETWORK` `client`**  
@@ -693,8 +693,8 @@ function N_0x43cf999205084b4b() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4538EE7C321590BC)  
 ---Returns the entity associated with the given network ID.
----@param networkId number
----@return number
+---@param networkId integer
+---@return integer
 function N_0x4538ee7c321590bc(networkId) end
 
 ---**`NETWORK` `client`**  
@@ -707,7 +707,7 @@ function N_0x455156f47dc6b78c(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4835413EA6F9C9CD)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0x4835413ea6f9c9cd(p0) end
 
 ---**`NETWORK` `client`**  
@@ -718,14 +718,14 @@ function N_0x49cf17a564918e8d() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5133CF81924F1129)  
 ---Hardcoded to return zero.
----@return number
+---@return integer
 function N_0x5133cf81924f1129() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x51951DE06C0D1C40)  
 ---This native does not have an official description.
----@param player number
----@param type number
+---@param player integer
+---@param type integer
 function N_0x51951de06c0d1c40(player, type) end
 
 ---**`NETWORK` `client`**  
@@ -743,7 +743,7 @@ function N_0x5759160ac17c13ce(message) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5A91BCEF74944E93)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@param p1 number
 function N_0x5a91bcef74944e93(player, p1) end
 
@@ -767,13 +767,13 @@ function N_0x5cd3aad8ff9ed121(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5D3C528B7A7DF836)  
 ---_NETWORK_SPAWN_CONFIG_*
----@param nsctf number | string
+---@param nsctf integer | string
 function N_0x5d3c528b7a7df836(nsctf) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5ED39DA62BEB1330)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return any
 function N_0x5ed39da62beb1330(p0) end
 
@@ -781,18 +781,18 @@ function N_0x5ed39da62beb1330(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5F0E99071582DECA)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
----@param p2 number
+---@param index integer
+---@param p2 integer
 ---@return any
 function N_0x5f0e99071582deca(p0, index, p2) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5F328FC909F0E0FF)  
 ---Note: this native was added in build 1311.23
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
+---@param p0 integer
+---@param p1 integer
+---@param p2 integer
+---@param p3 integer
 ---@return boolean
 function N_0x5f328fc909f0e0ff(p0, p1, p2, p3) end
 
@@ -833,8 +833,8 @@ function N_0x691e4de5309eaefc(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6C27442A225A241A)  
 ---This native does not have an official description.
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function N_0x6c27442a225a241a(p0) end
 
 ---**`NETWORK` `client`**  
@@ -850,8 +850,8 @@ function N_0x6cee2e30021daec6() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6CF82A7F65A5AD5F)  
 ---_NETWORK_GET_A* - _NETWORK_GET_D*
----@param ped number
----@return number, any
+---@param ped integer
+---@return integer, any
 function N_0x6cf82a7f65a5ad5f(ped) end
 
 ---**`NETWORK` `client`**  
@@ -870,14 +870,14 @@ function N_0x71fa2d1880c48032(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x744BFBB0CA908161)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0x744bfbb0ca908161(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x75FC34A2BA345BD1)  
 ---This native does not have an official description.
----@param entity number
----@param player number
+---@param entity integer
+---@param player integer
 ---@return boolean, any
 function N_0x75fc34a2ba345bd1(entity, player) end
 
@@ -904,8 +904,8 @@ function N_0x780a13f780a13f1b(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x78271BC02AE9AF83)  
 ---Note: this native was added in build 1436.31
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function N_0x78271bc02ae9af83(p0) end
 
 ---**`NETWORK` `client`**  
@@ -920,33 +920,33 @@ function N_0x7a8e8df782b47eb0(p0, p1, p2) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7B3FF2D193628126)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 function N_0x7b3ff2d193628126(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7BCA0A3972708436)  
 ---This native does not have an official description.
----@param p1 number
----@return number, any
+---@param p1 integer
+---@return integer, any
 function N_0x7bca0a3972708436(p1) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7E300B5B86AB1D1A)  
 ---This native does not have an official description.
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 number
----@param p8 number
----@param p9 number
----@param p10 number
----@param p11 number
----@param p12 number
----@param p13 number
----@param p14 number
+---@param p1 integer
+---@param p2 integer
+---@param p3 integer
+---@param p4 integer
+---@param p5 integer
+---@param p6 integer
+---@param p7 integer
+---@param p8 integer
+---@param p9 integer
+---@param p10 integer
+---@param p11 integer
+---@param p12 integer
+---@param p13 integer
+---@param p14 integer
 ---@return any
 function N_0x7e300b5b86ab1d1a(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14) end
 
@@ -958,8 +958,8 @@ function N_0x814729078aed6d30() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x862C5040F4888741)  
 ---This native does not have an official description.
----@param player1 number
----@param player2 number
+---@param player1 integer
+---@param player2 integer
 ---@return boolean
 function N_0x862c5040f4888741(player1, player2) end
 
@@ -977,7 +977,7 @@ function N_0x880a7202301e282b(x, y, z, p5, p6) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x894B5ECAB45D2342)  
 ---This native does not have an official description.
----@param netHandle number
+---@param netHandle integer
 ---@param p1 any
 function N_0x894b5ecab45d2342(netHandle, p1) end
 
@@ -985,7 +985,7 @@ function N_0x894b5ecab45d2342(netHandle, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x917AD74BDCF8B6E9)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0x917ad74bdcf8b6e9(p0) end
 
 ---**`NETWORK` `client`**  
@@ -1005,7 +1005,7 @@ function N_0x950acd8f05b7b9df(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x979765465A6F25FC)  
 ---Must be called from a background script, otherwise it will do nothing.
----@param entity number
+---@param entity integer
 ---@param p1 boolean
 function N_0x979765465a6f25fc(entity, p1) end
 
@@ -1017,7 +1017,7 @@ function N_0x97bce4c4b3191228() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x981146E5C9CE9250)  
 ---This native does not have an official description.
----@param inviteIndex number
+---@param inviteIndex integer
 ---@return boolean
 function N_0x981146e5c9ce9250(inviteIndex) end
 
@@ -1025,7 +1025,7 @@ function N_0x981146e5c9ce9250(inviteIndex) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x982D7AD755B8F62C)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0x982d7ad755b8f62c(p0) end
 
 ---**`NETWORK` `client`**  
@@ -1036,7 +1036,7 @@ function N_0x9b39b0555cc692b5() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9E5A47744C0F0376)  
 ---Note: this native was added in build 1311.23
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function N_0x9e5a47744c0f0376(p0) end
 
@@ -1067,13 +1067,13 @@ function N_0xa6f1baabff6ad7b9() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA7670F7991099680)  
 ---Note: this native was added in build 1311.23
----@param p0 number
+---@param p0 integer
 function N_0xa7670f7991099680(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA94ECE191D90637A)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function N_0xa94ece191d90637a() end
 
 ---**`NETWORK` `client`**  
@@ -1101,20 +1101,20 @@ function N_0xb131e686bd97b3f8() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB389289F031F059A)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function N_0xb389289f031f059a() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBAF7E2979442B29F)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0xbaf7e2979442b29f(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBB1EC8C2EEF33BAA)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function N_0xbb1ec8c2eef33baa(entity) end
 
 ---**`NETWORK` `client`**  
@@ -1133,7 +1133,7 @@ function N_0xbc7d36946d19e60e(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBF8276E51761F9DA)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function N_0xbf8276e51761f9da() end
 
 ---**`NETWORK` `client`**  
@@ -1146,16 +1146,16 @@ function N_0xc028b3f52c707c49(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC0CFFDA87C2C163D)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@param p1 any
----@param p2 number
+---@param p2 integer
 ---@return any
 function N_0xc0cffda87c2c163d(p0, p1, p2) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC1968045EEB563B7)  
 ---Note: this native was added in build 1311.23
----@param p0 number
+---@param p0 integer
 function N_0xc1968045eeb563b7(p0) end
 
 ---**`NETWORK` `client`**  
@@ -1173,7 +1173,7 @@ function N_0xc964fcd3d1720697() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCA58D4FD20D70F24)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function N_0xca58d4fd20d70f24(p0) end
 
 ---**`NETWORK` `client`**  
@@ -1185,7 +1185,7 @@ function N_0xcc4e72c339461ed1() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCD53E6CBF609C012)  
 ---This native does not have an official description.
----@param ugcRequestId number
+---@param ugcRequestId integer
 ---@return boolean
 function N_0xcd53e6cbf609c012(ugcRequestId) end
 
@@ -1198,7 +1198,7 @@ function N_0xcf23ab5bd47b384d(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD1FFB246F4E088AC)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function N_0xd1ffb246f4e088ac(p0) end
 
@@ -1216,15 +1216,15 @@ function N_0xd3a3c8b9f3bdef81() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD3B6EBC6C3D77D44)  
 ---Note: this native was added in build 1311.23
----@param p0 number
+---@param p0 integer
 function N_0xd3b6ebc6c3d77d44(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD4022C7286B0DFA2)  
 ---This native does not have an official description.
 ---@param p0 string
----@param p1 number
----@param p2 number
+---@param p1 integer
+---@param p2 integer
 ---@return any
 function N_0xd4022c7286b0dfa2(p0, p1, p2) end
 
@@ -1237,13 +1237,13 @@ function N_0xd42c543f73233041(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD637D327080CD86E)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function N_0xd637d327080cd86e(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD78A26024BB13E08)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 function N_0xd78a26024bb13e08(player) end
 
 ---**`NETWORK` `client`**  
@@ -1256,7 +1256,7 @@ function N_0xd7bad4062074b9c1(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD7D0DF27CB1765B5)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function N_0xd7d0df27cb1765b5(p0) end
 
@@ -1290,7 +1290,7 @@ function N_0xe10f2d7715ababec(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE31A04513237DC89)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function N_0xe31a04513237dc89(entity) end
 
 ---**`NETWORK` `client`**  
@@ -1304,7 +1304,7 @@ function N_0xe39600e50d608693(p0, p1) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE3AB5EEFCB6671A2)  
 ---This native does not have an official description.
----@param setting number
+---@param setting integer
 function N_0xe3ab5eefcb6671a2(setting) end
 
 ---**`NETWORK` `client`**  
@@ -1316,7 +1316,7 @@ function N_0xe5634491a58c2703(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE59F4924BD3A718D)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return any
 function N_0xe59f4924bd3a718d(p0) end
 
@@ -1328,7 +1328,7 @@ function N_0xe5ff65cff5160752() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE79BA3BC265895DA)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return any
 function N_0xe79ba3bc265895da(p0) end
 
@@ -1336,7 +1336,7 @@ function N_0xe79ba3bc265895da(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE8E633215471BB5D)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function N_0xe8e633215471bb5d(p0) end
 
 ---**`NETWORK` `client`**  
@@ -1354,15 +1354,15 @@ function N_0xf23a6d6c11d8ec15() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF260AF6F43953316)  
 ---Same Native Handler as VEH_TO_NET, PED_TO_NET, OBJ_TO_NET and NETWORK_GET_NETWORK_ID_FROM_ENTITY
----@param handle any
----@return number
+---@param handle integer
+---@return integer
 function N_0xf260af6f43953316(handle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF302AB9D978352EE)  
 ---Returns the entity's network ID.
----@param entity number
----@return number
+---@param entity integer
+---@return integer
 function N_0xf302ab9d978352ee(entity) end
 
 ---**`NETWORK` `client`**  
@@ -1375,13 +1375,13 @@ function N_0xf342f6bd0a8287d5(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF8DC69DC1AD19072)  
 ---Note: this native was added in build 1311.23
 ---@param p0 boolean
----@return number
+---@return integer
 function N_0xf8dc69dc1ad19072(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFB3205788F8AFA3F)  
 ---Note: this native was added in build 1311.23
----@return number
+---@return integer
 function N_0xfb3205788f8afa3f() end
 
 ---**`NETWORK` `client`**  
@@ -1402,9 +1402,9 @@ function N_0xfd8112109a96877c() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFE53B1F8D43F19BF)  
 ---This native does not have an official description.
----@param player1 number
----@param player2 number
----@return number
+---@param player1 integer
+---@param player2 integer
+---@return integer
 function N_0xfe53b1f8d43f19bf(player1, player2) end
 
 ---**`NETWORK` `client`**  
@@ -1416,66 +1416,66 @@ function N_0xff36f36b07e69059(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD7F6781A0ABAF6FB)  
 ---This native does not have an official description.
----@param netId number
----@return any
+---@param netId integer
+---@return integer
 function NetToAnimScene(netId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBFFEAB45A9A9094A)  
 ---gets the entity id of a network id
----@param netHandle number
----@return number
+---@param netHandle integer
+---@return integer
 function NetToEnt(netHandle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD8515F5FEA14CB3F)  
 ---gets the object id of a network id
----@param netHandle number
----@return number
+---@param netHandle integer
+---@return integer
 function NetToObj(netHandle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBDCD95FC216A8B3E)  
 ---gets the ped id of a network id
----@param netHandle number
----@return number
+---@param netHandle integer
+---@return integer
 function NetToPed(netHandle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD08066E00D26C448)  
 ---This native does not have an official description.
----@param netId number
----@return any
+---@param netId integer
+---@return integer
 function NetToPropset(netId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x367B936610BA360C)  
 ---This native does not have an official description.
----@param netHandle number
----@return number
+---@param netHandle integer
+---@return integer
 function NetToVeh(netHandle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB2CEA5105AAC8DDE)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function NetworkAcceptRsInvite(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAA6A47A573ABB75A)  
 ---This native does not have an official description.
----@param tunableContext number | string
----@param tunableName number | string
+---@param tunableContext integer | string
+---@param tunableName integer | string
 ---@return boolean
 function NetworkAccessTunableBool(tunableContext, tunableName) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8BE1146DFD5D4468)  
 ---This native does not have an official description.
----@param tunableContext number | string
----@param tunableName number | string
----@return boolean, number
+---@param tunableContext integer | string
+---@param tunableName integer | string
+---@return boolean, integer
 function NetworkAccessTunableInt(tunableContext, tunableName) end
 
 ---**`NETWORK` `client`**  
@@ -1492,7 +1492,7 @@ function NetworkActivityResetToIdle() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9ADAC065D9F6706F)  
 ---This native does not have an official description.
----@param netPlaylistActivity number
+---@param netPlaylistActivity integer
 function NetworkActivitySetCurrent(netPlaylistActivity) end
 
 ---**`NETWORK` `client`**  
@@ -1505,17 +1505,17 @@ function NetworkAddFriend(message) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x157D8F3DE12B307F)  
 ---This native does not have an official description.
----@param player number
----@param p1 number
+---@param player integer
+---@param p1 integer
 function NetworkAddPlayerToRecentGamersList(player, p1) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1BAA028F52EED310)  
 ---This native does not have an official description.
----@param ctx number | string
----@param lh number | string
----@param ec number
----@param h number
+---@param ctx integer | string
+---@param lh integer | string
+---@param ec integer
+---@param h integer
 function NetworkAlert(ctx, lh, ec, h) end
 
 ---**`NETWORK` `client`**  
@@ -1527,14 +1527,14 @@ function NetworkAllowAllEntityFadingForInstances(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF3354D6CA46F419D)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param toggle boolean
 function NetworkAllowEntityFadingForInstances(entity, toggle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x267C78C60E806B9A)  
 ---Old name: _NETWORK_ALLOW_LOCAL_ENTITY_ATTACHMENT
----@param entity number
+---@param entity integer
 ---@param toggle boolean
 function NetworkAllowRemoteAttachmentModification(entity, toggle) end
 
@@ -1559,15 +1559,15 @@ function NetworkArePlayersInSamePlatformParty() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9DE986FC9A87C474)  
 ---Old name: _NETWORK_IS_PLAYER_EQUAL_TO_INDEX
----@param player number
----@param index number
+---@param player integer
+---@param index integer
 ---@return boolean
 function NetworkArePlayersInSameTutorialSession(player, index) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE404BFF0ABA23CDC)  
 ---This native does not have an official description.
----@return boolean, number
+---@return boolean, integer
 function NetworkAutoSessionCanSplitSession() end
 
 ---**`NETWORK` `client`**  
@@ -1609,7 +1609,7 @@ function NetworkAutoSessionIsProcessingSessionSplit() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63246A24F5747510)  
 ---This native does not have an official description.
 ---@param toggle boolean
----@param p2 number
+---@param p2 integer
 ---@return any
 function NetworkAutoSessionSetAllowedToMerge(toggle, p2) end
 
@@ -1628,10 +1628,10 @@ function NetworkAutoSessionSetAutoWarpEnabled(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC223D299C670413D)  
 ---This native does not have an official description.
----@param playersToTake number
----@param maxInstancePlayers number
----@param sessionFlags number
----@param bucketId number
+---@param playersToTake integer
+---@param maxInstancePlayers integer
+---@param sessionFlags integer
+---@param bucketId integer
 ---@return boolean
 function NetworkAutoSessionSplitSession(playersToTake, maxInstancePlayers, sessionFlags, bucketId) end
 
@@ -1651,7 +1651,7 @@ function NetworkAwardHasReachedMaxclaim(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAF50DA1A3F8B1BA4)  
 ---This native does not have an official description.
----@return boolean, number
+---@return boolean, integer
 function NetworkCanAccessMultiplayer() end
 
 ---**`NETWORK` `client`**  
@@ -1693,21 +1693,21 @@ function NetworkCheckAccessAndAlertIfFail() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x83F28CE49FBBFFBA)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function NetworkCheckCommunicationPrivileges(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x595F028698072DD9)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function NetworkCheckUserContentPrivileges(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x65F040D91001ED4B)  
 ---This native does not have an official description.
----@param milliseconds number
+---@param milliseconds integer
 function NetworkClearClockOverrideOvertime(milliseconds) end
 
 ---**`NETWORK` `client`**  
@@ -1733,20 +1733,20 @@ function NetworkClearPlatformInvite() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x669E223E64B1903C)  
 ---This native does not have an official description.
----@param hour number
----@param minute number
----@param second number
----@param transitionTime number
+---@param hour integer
+---@param minute integer
+---@param second integer
+---@param transitionTime integer
 ---@param pauseClock boolean
 function NetworkClockTimeOverride(hour, minute, second, transitionTime, pauseClock) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE28C13ECC36FF14E)  
 ---This native does not have an official description.
----@param hour number
----@param minute number
----@param second number
----@param transitionTime number
+---@param hour integer
+---@param minute integer
+---@param second integer
+---@param transitionTime integer
 ---@param pauseClock boolean
 ---@param clockwise boolean
 function NetworkClockTimeOverride_2(hour, minute, second, transitionTime, pauseClock, clockwise) end
@@ -1754,7 +1754,7 @@ function NetworkClockTimeOverride_2(hour, minute, second, transitionTime, pauseC
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBBDF066252829606)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@param toggle boolean
 function NetworkConcealPlayer(player, toggle) end
 
@@ -1791,7 +1791,7 @@ function NetworkDisableLeaveRemotePedBehind(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x407091CF6037118E)  
 ---This native does not have an official description.
----@param netID number
+---@param netID integer
 function NetworkDisableProximityMigration(netID) end
 
 ---**`NETWORK` `client`**  
@@ -1803,21 +1803,21 @@ function NetworkDisableRealtimeMultiplayer() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD66C9E72B3CC4982)  
 ---Hardcoded to return -1.
 ---@param p1 any
----@return number, any
+---@return integer, any
 function NetworkDisplaynamesFromHandlesStart(p1) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x38CE16C96BD11344)  
 ---This native does not have an official description.
----@param netID number
+---@param netID integer
 ---@return boolean
 function NetworkDoesNetworkIdExist(netID) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x85E5F8B9B898B20A)  
 ---This native does not have an official description.
----@param tunableContext number | string
----@param tunableName number | string
+---@param tunableContext integer | string
+---@param tunableName integer | string
 ---@return boolean
 function NetworkDoesTunableExist(tunableContext, tunableName) end
 
@@ -1834,22 +1834,22 @@ function NetworkEndTutorialSession() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4CACA84440FA26F6)  
 ---This native does not have an official description.
----@param player number
----@param entity number
----@return boolean, number
+---@param player integer
+---@param entity integer
+---@return boolean, integer
 function NetworkGetAssistedDamageOfEntity(player, entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD414BE129BB81B32)  
 ---Old name: _NETWORK_GET_AVERAGE_LATENCY_FOR_PLAYER
----@param player number
+---@param player integer
 ---@return number
 function NetworkGetAverageLatency(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x350C23949E43686C)  
 ---Old name: _NETWORK_GET_AVERAGE_PACKET_LOSS_FOR_PLAYER
----@param player number
+---@param player integer
 ---@return number
 function NetworkGetAveragePacketLoss(player) end
 
@@ -1858,7 +1858,7 @@ function NetworkGetAveragePacketLoss(player) end
 ---Same as NETWORK_GET_AVERAGE_LATENCY (0xD414BE129BB81B32)
 ---
 ---Old name: _NETWORK_GET_AVERAGE_LATENCY_FOR_PLAYER_2
----@param player number
+---@param player integer
 ---@return number
 function NetworkGetAveragePing(player) end
 
@@ -1871,8 +1871,8 @@ function NetworkGetCurrentFriendPageData() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7A1ADEEF01740A24)  
 ---This native does not have an official description.
----@param netId number
----@return number, number
+---@param netId integer
+---@return integer, integer
 function NetworkGetDestroyerOfNetworkId(netId) end
 
 ---**`NETWORK` `client`**  
@@ -1894,48 +1894,48 @@ function NetworkGetDisplayNameFromHandle(displayName) end
 ---@param p0 any
 ---@param p1 any
 ---@param p2 any
----@return number
+---@return integer
 function NetworkGetDisplaynamesFromHandles(p0, p1, p2) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE4E5D9B0A4FF560)  
 ---This native does not have an official description.
----@param netId number
----@return number
+---@param netId integer
+---@return integer
 function NetworkGetEntityFromNetworkId(netId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC7827959479DCC78)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function NetworkGetEntityIsNetworked(entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x42B2DAA6B596F5F8)  
 ---This native does not have an official description.
----@param player number
----@return number, number
+---@param player integer
+---@return integer, integer
 function NetworkGetEntityKillerOfPlayer(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x225640E09EFFDC3F)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetGameMode() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFBDFE1C1356E12E8)  
 ---This native does not have an official description.
----@param count number
+---@param count integer
 ---@return boolean, any
 function NetworkGetGamerSessionFromHandle(count) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDDAEB478E58F8DEA)  
 ---This native does not have an official description.
----@param p1 number
----@return number, any
+---@param p1 integer
+---@return integer, any
 function NetworkGetGamerStatus(p1) end
 
 ---**`NETWORK` `client`**  
@@ -1953,62 +1953,62 @@ function NetworkGetGamertagFromHandle() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x11A7ADCD629E170F)  
 ---This native does not have an official description.
----@return boolean, number, number, number
+---@return boolean, integer, integer, integer
 function NetworkGetGlobalClock() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDD7806FD0543BC3D)  
 ---This native does not have an official description.
----@param entity number
----@return number
+---@param entity integer
+---@return integer
 function NetworkGetGlobalEntityFlags(entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6D03BFBD643B2A02)  
 ---This native does not have an official description.
----@return number, number, number
+---@return integer, integer, integer
 function NetworkGetGlobalMultiplayerClock() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x52C1EADAF7B10302)  
 ---Old name: _NETWORK_GET_OLDEST_RESEND_COUNT_FOR_PLAYER
----@param player number
----@return number
+---@param player integer
+---@return integer
 function NetworkGetHighestReliableResendCount(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1D6A14F1F9A736FC)  
 ---This native does not have an official description.
 ---@param scriptName string
----@param p1 number
----@param p2 number
----@return number
+---@param p1 integer
+---@param p2 integer
+---@return integer
 function NetworkGetHostOfScript(scriptName, p1, p2) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC7B4D79B01FA7A5C)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetHostOfThisScript() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB4A25351D79B444C)  
 ---This native does not have an official description.
----@param threadId number
----@return number
+---@param threadId integer
+---@return integer
 function NetworkGetHostOfThread(threadId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x638A3A81733086DB)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetInstanceIdOfThisScript() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFB9ECED5B68F3B78)  
 ---This native does not have an official description.
----@param threadId number
----@return number
+---@param threadId integer
+---@return integer
 function NetworkGetInstanceIdOfThread(threadId) end
 
 ---**`NETWORK` `client`**  
@@ -2026,7 +2026,7 @@ function NetworkGetLocalHandle() end
 ---        if (NETWORK::NETWORK_IS_PARTICIPANT_ACTIVE(PLAYER::0x98F3B274(num3)) != 0)
 ---        {
 ---            var num5 = NETWORK::NETWORK_GET_PLAYER_INDEX(PLAYER::0x98F3B274(num3));
----@return number
+---@return integer
 function NetworkGetMaxNumParticipants() end
 
 ---**`NETWORK` `client`**  
@@ -2037,15 +2037,15 @@ function NetworkGetNetStatisticsInfo() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA11700682F3AD45C)  
 ---This native does not have an official description.
----@param entity number
----@return number
+---@param entity integer
+---@return integer
 function NetworkGetNetworkIdFromEntity(entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x42871327315EDAE8)  
 ---This native does not have an official description.
----@param ropeId number
----@return number
+---@param ropeId integer
+---@return integer
 function NetworkGetNetworkIdFromRopeId(ropeId) end
 
 ---**`NETWORK` `client`**  
@@ -2064,124 +2064,124 @@ function NetworkGetNetworkIdFromRopeId(ropeId) end
 --- 5 = REASON_CONNECTION
 ---
 ---=================================
----@return number
+---@return integer
 function NetworkGetNpUnavailableReason() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA4A79DD2D9600654)  
 ---Returns the amount of players connected in the current session. Only works when connected to a session/server.
----@return number
+---@return integer
 function NetworkGetNumConnectedPlayers() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x18D0456E86604654)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetNumParticipants() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x37A834AEC6A4F74A)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetNumRecentGamers() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3658E8CD94FC121A)  
 ---This native does not have an official description.
 ---@param scriptName string
----@param instanceId number
----@param position number | string
----@return number
+---@param instanceId integer
+---@param position integer | string
+---@return integer
 function NetworkGetNumScriptParticipants(scriptName, instanceId, position) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFF8FCF9FFC458A1C)  
 ---Old name: _NETWORK_GET_NUM_UNACKED_FOR_PLAYER
----@param player number
----@return number
+---@param player integer
+---@return integer
 function NetworkGetNumUnackedReliables(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1B84DF6AF2A46938)  
 ---This native does not have an official description.
----@param index number
----@return number
+---@param index integer
+---@return integer
 function NetworkGetParticipantIndex(index) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9BCF28FB5D65A9BE)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetPlatformInviteId() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD9267375834C5EAB)  
 ---This native does not have an official description.
----@param player number
----@return number
+---@param player integer
+---@return integer
 function NetworkGetPlayerFastInstanceId(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE5F689CF5A0A49D)  
 ---This native does not have an official description.
----@return number, any
+---@return integer, any
 function NetworkGetPlayerFromGamerHandle() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x24FB80D107371267)  
 ---This native does not have an official description.
----@param player number
----@return number
+---@param player integer
+---@return integer
 function NetworkGetPlayerIndex(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6C0E2E0125610278)  
 ---Returns the Player associated to a given Ped when in an online session.
----@param ped number
----@return number
+---@param ped integer
+---@return integer
 function NetworkGetPlayerIndexFromPed(ped) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA6C0787443C9583E)  
 ---This native does not have an official description.
----@param netId number
----@return number
+---@param netId integer
+---@return integer
 function NetworkGetPlayerOwnerOfNetworkId(netId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2FB53C631A49BE92)  
 ---Hardcoded to return zero.
----@return number
+---@return integer
 function NetworkGetPromotionDlgSeenCount() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE30CF56F1EFA5F43)  
 ---This native does not have an official description.
----@param rangeStart number
----@param rangeEnd number
----@return number
+---@param rangeStart integer
+---@param rangeEnd integer
+---@return integer
 function NetworkGetRandomIntRanged(rangeStart, rangeEnd) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x32C90CDFAF40514C)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetRank() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFEFCC345CE357453)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
----@param dataSize number
+---@param p0 integer
+---@param p1 integer
+---@param dataSize integer
 ---@return boolean, any
 function NetworkGetRecentGamerNames(p0, p1, dataSize) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEB1A4DD8352EC828)  
 ---This native does not have an official description.
----@param netId number
----@return number
+---@param netId integer
+---@return integer
 function NetworkGetRopeIdFromNetworkId(netId) end
 
 ---**`NETWORK` `client`**  
@@ -2193,25 +2193,25 @@ function NetworkGetRosTitleName() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x57D158647A6BFABF)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetScriptStatus() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8DC9AA3B508B1A85)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetSessionHost() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBA24095EA96DFE17)  
 ---This native does not have an official description.
----@return number, number
+---@return integer, integer
 function NetworkGetSizeOfHostBroadcastDataStorage() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x690806BC83BC8CA2)  
 ---This native does not have an official description.
----@return number, number
+---@return integer, integer
 function NetworkGetSizeOfPlayerBroadcastDataStorage() end
 
 ---**`NETWORK` `client`**  
@@ -2223,51 +2223,51 @@ function NetworkGetThisScriptIsNetworkScript() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5ED0356A0CE3A34F)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetTimeoutTime() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDB7ABDD203FA3704)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetTotalNumFriends() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCF61D4B4702EE9EB)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetTotalNumPlayers() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x10BD227A753B0D84)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetTunableCloudCrc() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3765C3A3E8192E10)  
 ---Old name: _NETWORK_GET_UNRELIABLE_RESEND_COUNT_FOR_PLAYER
----@param player number
----@return number
+---@param player integer
+---@return integer
 function NetworkGetUnreliableResendCount(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDB438CC9BC6F4022)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetXp() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD45CB817D7E177D2)  
 ---This native does not have an official description.
----@param friendIndex number
+---@param friendIndex integer
 ---@return any
 function NetworkHandleFromFriend(friendIndex) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x388EB2B86C73B6B3)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return any
 function NetworkHandleFromPlayer(player) end
 
@@ -2280,28 +2280,28 @@ function NetworkHasCompletedMpIntroFlowOnCurrentSlot() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x26A5C12FACFF8724)  
 ---This native does not have an official description.
----@param animScene any
+---@param animScene integer
 ---@return boolean
 function NetworkHasControlOfAnimScene(animScene) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x01BF60A500E28887)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function NetworkHasControlOfEntity(entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4D36070FE0215186)  
 ---This native does not have an official description.
----@param netId number
+---@param netId integer
 ---@return boolean
 function NetworkHasControlOfNetworkId(netId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5BC9495F0B3B6FA6)  
 ---This native does not have an official description.
----@param pickup number
+---@param pickup integer
 ---@return boolean
 function NetworkHasControlOfPickup(pickup) end
 
@@ -2321,15 +2321,15 @@ function NetworkHasCurrentGetGamerStatusStarted() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB07D3185E11657A5)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function NetworkHasEntityBeenRegisteredWithThisThread(entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBC1D768F2F5D6C05)  
 ---This native does not have an official description.
----@param player number
----@return number
+---@param player integer
+---@return integer
 function NetworkHashFromPlayerHandle(player) end
 
 ---**`NETWORK` `client`**  
@@ -2347,7 +2347,7 @@ function NetworkHasReceivedHostBroadcastData() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA699957E60D80214)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@return boolean
 function NetworkHasRosPrivilege(index) end
 
@@ -2378,7 +2378,7 @@ function NetworkHaveRosBannedPriv() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8E7CE19219669AEB)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsAimCamActive(player) end
 
@@ -2397,7 +2397,7 @@ function NetworkIsCloudAvailable() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x16D3D49902F697BB)  
 ---Old name: _NETWORK_IS_CONNECTION_ENDPOINT_RELAY_SERVER
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsConnectedViaRelay(player) end
 
@@ -2410,7 +2410,7 @@ function NetworkIsCustomUpsellEnabled() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9C725D149622BFDE)  
 ---This native does not have an official description.
----@param featureId number
+---@param featureId integer
 ---@return boolean
 function NetworkIsFeatureSupported(featureId) end
 
@@ -2513,7 +2513,7 @@ function NetworkIsInTutorialSession() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6FF8FF40B6357D45)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function NetworkIsParticipantActive(p0) end
 
@@ -2532,21 +2532,21 @@ function NetworkIsPlatformInvitePending() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB8DFD30D6973E135)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsPlayerActive(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3CA58F6CB7CBD784)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsPlayerAParticipant(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1AD5B71586B94820)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@param p2 any
 ---@return boolean, any
 function NetworkIsPlayerAParticipantOnScript(p0, p2) end
@@ -2554,35 +2554,35 @@ function NetworkIsPlayerAParticipantOnScript(p0, p2) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x919B3C98ED8292F9)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsPlayerConcealed(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x93DC1BE4E1ABE9D1)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsPlayerConnected(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x255A5EF65EDA9167)  
 ---Returns true if the passed value is less than 32.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsPlayerIndexValid(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63F9EE203C3619F2)  
 ---Note: scripts seem to indicate that this was renamed to NETWORK_IS_PLAYER_IN_MP_FAST_INSTANCE
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsPlayerInMpCutscene(player) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5B709519997ECF0F)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsPlayerInSpectatorMode(player) end
 
@@ -2614,19 +2614,19 @@ function NetworkIsResettingPopulation() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D40DF90FAD26098)  
 ---This native does not have an official description.
 ---@param scriptName string
----@param p1 number
+---@param p1 integer
 ---@param p2 boolean
----@param p3 number
+---@param p3 integer
 ---@return boolean
 function NetworkIsScriptActive(scriptName, p1, p2, p3) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1B89BC43B6E69107)  
 ---This native does not have an official description.
----@param scriptHash number | string
----@param p1 number
+---@param scriptHash integer | string
+---@param p1 integer
 ---@param p2 boolean
----@param p3 number
+---@param p3 integer
 ---@return boolean
 function NetworkIsScriptActiveByHash(scriptHash, p1, p2, p3) end
 
@@ -2651,15 +2651,15 @@ function NetworkIsSignedOnline() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x31DAD2CD6D49546E)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 ---@return boolean
 function NetworkIsThreadActive(threadId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE525878A35B9EEBD)  
 ---This native does not have an official description.
----@param player number
----@param trackedPlayer number
+---@param player integer
+---@param trackedPlayer integer
 ---@return boolean
 function NetworkIsTrackedPlayerVisible(player, trackedPlayer) end
 
@@ -2679,9 +2679,9 @@ function NetworkIsTutorialSessionChangePending() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2A48D9567940598F)  
 ---Returns false if pedshot push failed
 ---@param texture string
----@param playerSlot number
----@param p2 number
----@param personaPhotoLocalCacheType number
+---@param playerSlot integer
+---@param p2 integer
+---@param personaPhotoLocalCacheType integer
 ---@return boolean
 function NetworkPersonaPhotoWriteLocal(texture, playerSlot, p2, personaPhotoLocalCacheType) end
 
@@ -2689,8 +2689,8 @@ function NetworkPersonaPhotoWriteLocal(texture, playerSlot, p2, personaPhotoLoca
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB72999D3120599DF)  
 ---Returns false if pedshot push failed
 ---@param texture string
----@param personaPhotoType number
----@param formatIndex number
+---@param personaPhotoType integer
+---@param formatIndex integer
 ---@return boolean
 function NetworkPersonaPhotoWriteScProfile(texture, personaPhotoType, formatIndex) end
 
@@ -2708,7 +2708,7 @@ function NetworkRefreshCurrentFriendPage() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x06FAACD625D80CAA)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function NetworkRegisterEntityAsNetworked(entity) end
 
 ---**`NETWORK` `client`**  
@@ -2741,21 +2741,21 @@ function NetworkRequestCloudTunables() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAAA92B631B13F614)  
 ---This native does not have an official description.
----@param animScene any
+---@param animScene integer
 ---@return boolean
 function NetworkRequestControlOfAnimScene(animScene) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB69317BF5E782347)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function NetworkRequestControlOfEntity(entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA670B3662FAFFBD0)  
 ---This native does not have an official description.
----@param netId number
+---@param netId integer
 ---@return boolean
 function NetworkRequestControlOfNetworkId(netId) end
 
@@ -2770,14 +2770,14 @@ function NetworkRequestControlOfPickupPlacement(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE483BB6BE686F632)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function NetworkRequestJoin(p0) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6D206D383BB5F6B1)  
 ---This native does not have an official description.
----@param p0 number
----@param playerCount number
+---@param p0 integer
+---@param playerCount integer
 ---@return boolean
 function NetworkRequestRecentGamerNames(p0, playerCount) end
 
@@ -2798,8 +2798,8 @@ function NetworkRequestRecentGamerNames(p0, playerCount) end
 ---	SEAMLESS_TYPE_DEV,
 ---	SEAMLESS_TYPE_NO_SEAMLESS
 ---};
----@param flags number
----@param seamlessType number
+---@param flags integer
+---@param seamlessType integer
 ---@return boolean, any
 function NetworkRequestSessionSeamless(flags, seamlessType) end
 
@@ -2807,7 +2807,7 @@ function NetworkRequestSessionSeamless(flags, seamlessType) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x101F538C25ABB39A)  
 ---This native does not have an official description.
 ---@param p0 boolean
----@param p1 number
+---@param p1 integer
 ---@return boolean
 function NetworkResetPopulation(p0, p1) end
 
@@ -2818,7 +2818,7 @@ function NetworkResetPopulation(p0, p1) end
 ---@param y number
 ---@param z number
 ---@param heading number
----@param p4 number
+---@param p4 integer
 ---@param p5 boolean
 ---@param p6 any
 ---@param p7 boolean
@@ -2833,16 +2833,16 @@ function NetworkResurrectLocalPlayer_2() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF1B84178F8674195)  
 ---This native does not have an official description.
----@param seed number
+---@param seed integer
 function NetworkSeedRandomNumberGenerator(seed) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE47001B7CB8B98AE)  
 ---This native does not have an official description.
 ---@param contentId string
----@param dataSize number
----@param p4 number
----@param flags number
+---@param dataSize integer
+---@param p4 integer
+---@param flags integer
 ---@return boolean, any, any
 function NetworkSendSessionInvite(contentId, dataSize, p4, flags) end
 
@@ -2864,7 +2864,7 @@ function NetworkSendSessionInvite(contentId, dataSize, p4, flags) end
 ---	SF_COMPETITIVE = (1 << 10),
 ---	SF_MATCHMAKING_BACKFILL_IS_BLOCKED = (1 << 11)
 ---};
----@param flags number
+---@param flags integer
 ---@return boolean
 function NetworkSessionAddSessionFlags(flags) end
 
@@ -2883,7 +2883,7 @@ function NetworkSessionCancelRequest() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x51F33DBC1A41CBFD)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkSessionGetSessionFlags() end
 
 ---**`NETWORK` `client`**  
@@ -2904,13 +2904,13 @@ function NetworkSessionGetSessionId() end
 ---6 - PLAYER_SET_TOO_LARGE
 ---7 - MATCH_ACCEPTED
 ---8 - OTHER
----@return number, any, number
+---@return integer, any, integer
 function NetworkSessionGetSessionRequestResult() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF0C0C94B404206FA)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkSessionGetSessionType() end
 
 ---**`NETWORK` `client`**  
@@ -2940,7 +2940,7 @@ function NetworkSessionIsRequestInProgress() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9E762A595CF88E4A)  
 ---This native does not have an official description.
----@param queueGroup number
+---@param queueGroup integer
 ---@return boolean
 function NetworkSessionIsRequestInProgressByQueueGroup(queueGroup) end
 
@@ -2987,14 +2987,14 @@ function NetworkSessionPlaylistGoToNextContent() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3215BBE34D3418C5)  
 ---This native does not have an official description.
----@param flags number
+---@param flags integer
 ---@return boolean
 function NetworkSessionRemovePlayerFlags(flags) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x78335E12DB0BF961)  
 ---See _NETWORK_SESSION_ADD_SESSION_FLAGS
----@param flags number
+---@param flags integer
 ---@return boolean
 function NetworkSessionRemoveSessionFlags(flags) end
 
@@ -3010,19 +3010,19 @@ function NetworkSessionRemoveSessionFlags(flags) end
 ---	MATCHTYPE_SEAMLESS,
 ---	MATCHTYPE_PRIVATE_DO_NOT_USE
 ---};
----@param flags number
----@param matchType number
----@param userHash number
----@param p3 number
+---@param flags integer
+---@param matchType integer
+---@param userHash integer
+---@param p3 integer
 ---@return boolean, any
 function NetworkSessionRequestSessionCompetitive(flags, matchType, userHash, p3) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4F4672457FF597D1)  
 ---This native does not have an official description.
----@param flags number
----@param userHash number
----@param p2 number
+---@param flags integer
+---@param userHash integer
+---@param p2 integer
 ---@return boolean, any
 function NetworkSessionRequestSessionNominated(flags, userHash, p2) end
 
@@ -3034,9 +3034,9 @@ function NetworkSessionRequestSessionNominated(flags, userHash, p2) end
 ---	NETWORK_SESSION_REQUEST_ON_CALL_TYPE_STORY = 2,
 ---	NETWORK_SESSION_REQUEST_ON_CALL_TYPE_MATCH = 3
 ---};
----@param flags number
----@param category number
----@param userHash number
+---@param flags integer
+---@param category integer
+---@param userHash integer
 ---@return boolean, any, any
 function NetworkSessionRequestSessionOnCall(flags, category, userHash) end
 
@@ -3044,9 +3044,9 @@ function NetworkSessionRequestSessionOnCall(flags, category, userHash) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x39A8EF7AF29A192C)  
 ---Session flag 'SF_PRIVATE' is set internally
 ---p1 represents max amount of players in private session
----@param flags number
----@param numPlayers number
----@param userHash number
+---@param flags integer
+---@param numPlayers integer
+---@param userHash integer
 ---@return boolean, any
 function NetworkSessionRequestSessionPrivate(flags, numPlayers, userHash) end
 
@@ -3056,16 +3056,16 @@ function NetworkSessionRequestSessionPrivate(flags, numPlayers, userHash) end
 ---Otherwise it is equivalent to NETWORK_SESSION_REQUEST_SESSION_COMPETITIVE(flags, MATCHTYPE_SEAMLESS, userHash, 0, sessionRequestId);
 ---
 ---p1 is unused
----@param flags number
----@param seamlessType number
----@param userHash number
+---@param flags integer
+---@param seamlessType integer
+---@param userHash integer
 ---@return boolean, any
 function NetworkSessionRequestSessionSeamless(flags, seamlessType, userHash) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0AE241A4A9ADEEEC)  
 ---This native does not have an official description.
----@param flags number
+---@param flags integer
 ---@return boolean
 function NetworkSessionSetPlayerFlags(flags) end
 
@@ -3094,14 +3094,14 @@ function NetworkSetCompletedMpIntroFlowOnCurrentSlot(completed) end
 ---^^ last-gen
 ---
 ---Old name: _NETWORK_SET_ENTITY_INVISIBLE_TO_NETWORK
----@param entity number
+---@param entity integer
 ---@param toggle boolean
 function NetworkSetEntityOnlyExistsForParticipants(entity, toggle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD785864798258032)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param toggle boolean
 function NetworkSetEntityRemainsWhenUnnetworked(entity, toggle) end
 
@@ -3116,7 +3116,7 @@ function NetworkSetFriendlyFireOption(toggle) end
 ---This native does not have an official description.
 ---@param p0 boolean
 ---@param p1 boolean
----@param p2 number
+---@param p2 integer
 ---@param p3 boolean
 function NetworkSetInMpCutscene(p0, p1, p2, p3) end
 
@@ -3124,7 +3124,7 @@ function NetworkSetInMpCutscene(p0, p1, p2, p3) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x423DE3854BB50894)  
 ---This native does not have an official description.
 ---@param toggle boolean
----@param playerPed number
+---@param playerPed integer
 function NetworkSetInSpectatorMode(toggle, playerPed) end
 
 ---**`NETWORK` `client`**  
@@ -3139,13 +3139,13 @@ function NetworkSetInStaticSpectatorMode(toggle, x, y, z) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2D95C7E2D7E07307)  
 ---This native does not have an official description.
----@param time number
+---@param time integer
 function NetworkSetLocalPlayerInvincibleTime(time) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x007FF852DCF49DA4)  
 ---This native does not have an official description.
----@param instanceId number
+---@param instanceId integer
 function NetworkSetLocalPlayerPendingFastInstanceId(instanceId) end
 
 ---**`NETWORK` `client`**  
@@ -3163,7 +3163,7 @@ function NetworkSetMissionFinished() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x86FD10251A7118A4)  
 ---This native does not have an official description.
 ---@param enabled boolean
----@param flagIndex number
+---@param flagIndex integer
 ---@return boolean
 function NetworkSetMpMissionFlagOnCurrentSlot(enabled, flagIndex) end
 
@@ -3182,9 +3182,9 @@ function NetworkSetRecentGamersEnabled(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1DCCACDCFC569362)  
 ---This native does not have an official description.
----@param p0 number
----@param p2 number
----@param p3 number
+---@param p0 integer
+---@param p2 integer
+---@param p3 integer
 ---@return any
 function NetworkSetRichPresence(p0, p2, p3) end
 
@@ -3197,9 +3197,9 @@ function NetworkSetScriptReadyForEvents(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1CA59E306ECB80A5)  
 ---This native does not have an official description.
----@param maxNumMissionParticipants number
+---@param maxNumMissionParticipants integer
 ---@param p1 boolean
----@param instanceId number
+---@param instanceId integer
 function NetworkSetThisScriptIsNetworkScript(maxNumMissionParticipants, p1, instanceId) end
 
 ---**`NETWORK` `client`**  
@@ -3216,7 +3216,7 @@ function NetworkShowAccountUpgradeUi() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6BFF5F84102DF80A)  
 ---nullsub, doesn't do anything
----@param player number
+---@param player integer
 function NetworkShowChatRestrictionMsc(player) end
 
 ---**`NETWORK` `client`**  
@@ -3233,13 +3233,13 @@ function NetworkShowPsnUgcRestriction() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEEB7818B1D307212)  
 ---This native does not have an official description.
----@param volume any
+---@param volume integer
 function NetworkSpawnConfigAddExclusionVolume(volume) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEB6027FD1B4600D5)  
 ---This native does not have an official description.
----@param configProperty number
+---@param configProperty integer
 ---@param include boolean
 ---@param weight number
 function NetworkSpawnConfigAddPropertyPreference(configProperty, include, weight) end
@@ -3247,7 +3247,7 @@ function NetworkSpawnConfigAddPropertyPreference(configProperty, include, weight
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x44D59EC597BBF348)  
 ---This native does not have an official description.
----@param configProperty number
+---@param configProperty integer
 ---@param include boolean
 function NetworkSpawnConfigAddPropertyScripted(configProperty, include) end
 
@@ -3263,7 +3263,7 @@ function NetworkSpawnConfigAddSpawnPoint(x, y, z, heading) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA35E7BF20FA269E0)  
 ---This native does not have an official description.
----@param volume any
+---@param volume integer
 function NetworkSpawnConfigRemoveExclusionVolume(volume) end
 
 ---**`NETWORK` `client`**  
@@ -3280,7 +3280,7 @@ function NetworkSpawnConfigSetCancelSearch() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF94A0D5B254375DF)  
 ---This native does not have an official description.
----@param flags number
+---@param flags integer
 function NetworkSpawnConfigSetFlags(flags) end
 
 ---**`NETWORK` `client`**  
@@ -3292,13 +3292,13 @@ function NetworkSpawnConfigSetGroundToRootOffset(offset) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBDCC671B911040F9)  
 ---This native does not have an official description.
----@param waterDepthLevel number
+---@param waterDepthLevel integer
 function NetworkSpawnConfigSetLevelWaterDepth(waterDepthLevel) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0608326F7B98C08D)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 ---@param p1 number
 function NetworkSpawnConfigSetTuningFloat(p0, p1) end
 
@@ -3310,21 +3310,21 @@ function NetworkStartSoloTutorialSession() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDEB2B99A1AF1A2A6)  
 ---Always returns -1. Seems to be XB1 specific.
----@return number, any
+---@return integer, any
 function NetworkStartUserContentPermissionsCheck() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0C8BC052AE87D744)  
 ---Old name: _NETWORK_SET_VEHICLE_WHEELS_DESTRUCTIBLE
----@param entity number
+---@param entity integer
 ---@param p1 boolean
 function NetworkTriggerDamageEventForZeroDamage(entity, p1) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB2AD5D29A99D4B26)  
 ---This native does not have an official description.
----@param tunableContext number | string
----@param tunableName number | string
+---@param tunableContext integer | string
+---@param tunableName integer | string
 ---@param defaultValue boolean
 ---@return boolean
 function NetworkTryAccessTunableBoolHash(tunableContext, tunableName, defaultValue) end
@@ -3332,8 +3332,8 @@ function NetworkTryAccessTunableBoolHash(tunableContext, tunableName, defaultVal
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA18393089C05E49C)  
 ---This native does not have an official description.
----@param tunableContext number | string
----@param tunableName number | string
+---@param tunableContext integer | string
+---@param tunableName integer | string
 ---@param defaultValue number
 ---@return number
 function NetworkTryAccessTunableFloatHash(tunableContext, tunableName, defaultValue) end
@@ -3341,23 +3341,23 @@ function NetworkTryAccessTunableFloatHash(tunableContext, tunableName, defaultVa
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA25E006B36719774)  
 ---This native does not have an official description.
----@param tunableContext number | string
----@param tunableName number | string
----@param defaultValue number
----@return number
+---@param tunableContext integer | string
+---@param tunableName integer | string
+---@param defaultValue integer
+---@return integer
 function NetworkTryAccessTunableIntHash(tunableContext, tunableName, defaultValue) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x99BFDC94A603E541)  
 ---Returns the network ID of the given object.
----@param object number
----@return number
+---@param object integer
+---@return integer
 function ObjToNet(object) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x90986E8876CE0A83)  
 ---Return the local Participant ID
----@return number
+---@return integer
 function ParticipantId() end
 
 ---**`NETWORK` `client`**  
@@ -3365,13 +3365,13 @@ function ParticipantId() end
 ---Return the local Participant ID.
 ---
 ---This native is exactly the same as 'PARTICIPANT_ID' native.
----@return number
+---@return integer
 function ParticipantIdToInt() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCBAC13F065C47596)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function PedmugshotGetStatus() end
 
 ---**`NETWORK` `client`**  
@@ -3389,8 +3389,8 @@ function PedmugshotTake() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0EDEC3C276198689)  
 ---Returns the network ID of the given ped.
----@param ped number
----@return number
+---@param ped integer
+---@return integer
 function PedToNet(ped) end
 
 ---**`NETWORK` `client`**  
@@ -3402,21 +3402,21 @@ function PreventMigrationOfEntitiesInFastInstanceForLocalPlayer(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7182EDDA1EE7DB5A)  
 ---This native does not have an official description.
----@param netId number
+---@param netId integer
 function PreventNetworkIdMigration(netId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x74F99EF7EF503398)  
 ---This native does not have an official description.
----@param propSet any
----@return number
+---@param propSet integer
+---@return integer
 function PropsetToNet(propSet) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA197C35F73AC0F12)  
 ---This native does not have an official description.
----@param player number
----@param reportType number
+---@param player integer
+---@param reportType integer
 ---@param description string
 ---@param horseName string
 function ReportPlayer(player, reportType, description, horseName) end
@@ -3424,65 +3424,65 @@ function ReportPlayer(player, reportType, description, horseName) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x356F9FB0698C1FEB)  
 ---Only used in R* SP Scripts
----@param player number
----@param personaPhotoLocalCacheType number
+---@param player integer
+---@param personaPhotoLocalCacheType integer
 ---@return any
 function RequestPedshotTextureLocalBackupDownload(player, personaPhotoLocalCacheType) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCAF4CA2F87779F8F)  
 ---Only used in R* SP Script map_app_event_handler
----@param p1 number
+---@param p1 integer
 ---@return any, any
 function RequestPedshotTextureLocalDownload(p1) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB5C4B18B12A2AF23)  
 ---This native does not have an official description.
----@param p1 number
+---@param p1 integer
 ---@return any, any
 function RequestPedshotTextureMultiplayerDownload(p1) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE7DDA8BD3BCF751C)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function ReserveNetworkClientMissionObjects(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x807E119F80231732)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function ReserveNetworkClientMissionPeds(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4E5C93BD0C32FBF8)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function ReserveNetworkMissionObjects(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB60FEBA45333D36F)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function ReserveNetworkMissionPeds(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4D40E7D749BC6E6D)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function ReserveNetworkMissionPickups(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x76B02E21ED27A469)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function ReserveNetworkMissionVehicles(amount) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x51D99497ABF3F451)  
 ---This native does not have an official description.
----@param doorHash number | string
+---@param doorHash integer | string
 function SetDoorNetworked(doorHash) end
 
 ---**`NETWORK` `client`**  
@@ -3495,17 +3495,17 @@ function SetDoorUnnetworked(p0, toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEE5AE9956743BA20)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param toggle boolean
 function SetEntityGhostedToLocalPlayer(entity, toggle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE0031D3C8F36AB82)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param p1 boolean
 ---@param p2 boolean
----@param p3 number
+---@param p3 integer
 function SetEntityVisibleInCutscene(entity, p1, p2, p3) end
 
 ---**`NETWORK` `client`**  
@@ -3530,7 +3530,7 @@ function SetLocalPlayerAsGhost(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD041A32992A55F84)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@param damageMultiplier number
 function SetLocalPlayerDamageMultiplierForPlayer(player, damageMultiplier) end
 
@@ -3545,28 +3545,28 @@ function SetLocalPlayerInvisibleLocally(p0) end
 ---This native does not have an official description.
 ---@param _local boolean
 ---@param remote boolean
----@param instanceId number
+---@param instanceId integer
 function SetLocalPlayerVisibleInCutscene(_local, remote, instanceId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA8A024587329F36A)  
 ---This native does not have an official description.
----@param netId number
----@param player number
+---@param netId integer
+---@param player integer
 ---@param toggle boolean
 function SetNetworkIdAlwaysExistsForPlayer(netId, player, toggle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE05E81A888FA63C8)  
 ---This native does not have an official description.
----@param netId number
+---@param netId integer
 ---@param toggle boolean
 function SetNetworkIdExistsOnAllMachines(netId, toggle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9ED3108D6847760A)  
 ---This native does not have an official description.
----@param networkId number
+---@param networkId integer
 ---@param bStopCloning boolean
 function SetNetworkIdStopCloning(networkId, bStopCloning) end
 
@@ -3582,29 +3582,29 @@ function SetNetworkIdVisibleInCutscene(p0, p1, p2, p3) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x442B4347B6EC36E8)  
 ---This native does not have an official description.
----@param entity number
----@param timer number
+---@param entity integer
+---@param timer integer
 ---@param p2 boolean
 function SetNetworkRespotTimer(entity, timer, p2) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x12B37D54667DB0B8)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@param toggle boolean
 function SetPlayerInvisibleLocally(player, toggle) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDCA6ABDB9288FBE4)  
 ---_SET_PLAYER_V* - _SET_S*
----@param player number
+---@param player integer
 ---@param disabled boolean
 function SetPlayerVisibilityToLocalPlayerDisabled(player, disabled) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFAA10F1FAFB11AF2)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@param toggle boolean
 function SetPlayerVisibleLocally(player, toggle) end
 
@@ -3617,14 +3617,14 @@ function SetSocialMatchmakingAllowed(toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3448505B6E35262D)  
 ---This native does not have an official description.
----@param textureDownloadId number
+---@param textureDownloadId integer
 ---@return any
 function TextureDownloadGetName(textureDownloadId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x487EB90B98E9FB19)  
 ---This native does not have an official description.
----@param textureDownloadId number
+---@param textureDownloadId integer
 function TextureDownloadRelease(textureDownloadId) end
 
 ---**`NETWORK` `client`**  
@@ -3639,7 +3639,7 @@ function TextureDownloadReleaseByName(name) end
 ---@param filePath string
 ---@param name string
 ---@param p3 boolean
----@return number, any
+---@return integer, any
 function TextureDownloadRequest(filePath, name, p3) end
 
 ---**`NETWORK` `client`**  
@@ -3652,35 +3652,35 @@ function TextureDownloadTextureNameIsValid(name) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE931354FEA710038)  
 ---This native does not have an official description.
----@param ugcRequestId number
+---@param ugcRequestId integer
 function UgcClearQueryResults(ugcRequestId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x162C23CA83ED0A62)  
 ---This native does not have an official description.
----@param description number | string
+---@param description integer | string
 ---@return boolean
 function UgcDidDescriptionRequestSucceed(description) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0B6009A90B8495F1)  
 ---This native does not have an official description.
----@param ugcRequestId number
+---@param ugcRequestId integer
 ---@return boolean
 function UgcDidRequestSucceed(ugcRequestId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x40F7E66472DF3E5C)  
 ---This native does not have an official description.
----@param description number | string
----@param length number
+---@param description integer | string
+---@param length integer
 ---@return any
 function UgcGetCachedDescription(description, length) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEBFA8D50ADDC54C4)  
 ---This native does not have an official description.
----@param description number | string
+---@param description integer | string
 ---@return boolean
 function UgcHasDescriptionRequestFinished(description) end
 
@@ -3693,7 +3693,7 @@ function UgcHasPrivilege() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA9EB4D606076615D)  
 ---This native does not have an official description.
----@param ugcRequestId number
+---@param ugcRequestId integer
 ---@return boolean
 function UgcHasRequestFinished(ugcRequestId) end
 
@@ -3707,34 +3707,34 @@ function UgcIsBookMarked(contentId) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2D5DC831176D0114)  
 ---This native does not have an official description.
----@param description number | string
+---@param description integer | string
 ---@return boolean
 function UgcIsDescriptionRequestInProgress(description) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF53E48461B71EECB)  
 ---This native does not have an official description.
----@param languageId number
+---@param languageId integer
 ---@return boolean
 function UgcIsLanguageSupported(languageId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF4AC4FA844FD559A)  
 ---This native does not have an official description.
----@param ugcRequestId number
+---@param ugcRequestId integer
 ---@return boolean
 function UgcIsRequestPending(ugcRequestId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8C109958C9BB559D)  
 ---Returns ugcRequestId
----@param categoryType number
----@param p1 number
----@param maxGet number
+---@param categoryType integer
+---@param p1 integer
+---@param maxGet integer
 ---@param contentTypeName string
----@param p4 number
+---@param p4 integer
 ---@param p5 boolean
----@return number
+---@return integer
 function UgcQueryByCategory(categoryType, p1, maxGet, contentTypeName, p4, p5) end
 
 ---**`NETWORK` `client`**  
@@ -3743,26 +3743,26 @@ function UgcQueryByCategory(categoryType, p1, maxGet, contentTypeName, p4, p5) e
 ---@param contentId string
 ---@param latestVersion boolean
 ---@param contentTypeName string
----@return number
+---@return integer
 function UgcQueryByContentId(contentId, latestVersion, contentTypeName) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF40EF49B3099E98E)  
 ---Returns ugcRequestId
----@param p0 number
----@param maxGet number
+---@param p0 integer
+---@param maxGet integer
 ---@param contentTypeName string
----@param p3 number
----@param p4 number
----@param p5 number
----@return number
+---@param p3 integer
+---@param p4 integer
+---@param p5 integer
+---@return integer
 function UgcQueryByContentType(p0, maxGet, contentTypeName, p3, p4, p5) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x98539FC453AEA639)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return boolean
 function UgcQueryGetBookMarked(p0, index) end
 
@@ -3770,22 +3770,22 @@ function UgcQueryGetBookMarked(p0, index) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF794765390A6DCA5)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return boolean
 function UgcQueryGetContentHasPlayerRecord(p0, index) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x76160E0396142765)  
 ---This native does not have an official description.
----@param ugcRequestId number
----@return number
+---@param ugcRequestId integer
+---@return integer
 function UgcQueryGetContentNum(ugcRequestId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xADB56322EEDFBDC9)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return any, any
 function UgcQueryGetCreatorHandle(p0, index) end
 
@@ -3793,7 +3793,7 @@ function UgcQueryGetCreatorHandle(p0, index) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x409FE0CA6A4D1D49)  
 ---Returns string for GET_STATUS_OF_LOAD_MISSION_CREATOR_PHOTO
 ---@param p0 any
----@param p1 number
+---@param p1 integer
 ---@param p2 any
 ---@return any
 function UgcQueryGetCreatorPhoto(p0, p1, p2) end
@@ -3802,7 +3802,7 @@ function UgcQueryGetCreatorPhoto(p0, p1, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE0CB4AB15CB32710)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return any
 function UgcQueryGetDate(p0, index) end
 
@@ -3810,23 +3810,23 @@ function UgcQueryGetDate(p0, index) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x97764E8AC6487A9A)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
----@return number
+---@param index integer
+---@return integer
 function UgcQueryGetLanguage(p0, index) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA6BF569956C60A60)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
----@return number
+---@param index integer
+---@return integer
 function UgcQueryGetMissionDescHash(p0, index) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2D053EA815702DD1)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return any
 function UgcQueryGetName(p0, index) end
 
@@ -3834,7 +3834,7 @@ function UgcQueryGetName(p0, index) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF9F0B3028431967B)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return any
 function UgcQueryGetOwnerId(p0, index) end
 
@@ -3842,7 +3842,7 @@ function UgcQueryGetOwnerId(p0, index) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCAF50048C8D0FBA0)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return any
 function UgcQueryGetPlaylistName(p0, index) end
 
@@ -3851,7 +3851,7 @@ function UgcQueryGetPlaylistName(p0, index) end
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
----@return number
+---@return integer
 function UgcQueryGetPosixPublishedDate(p0, p1) end
 
 ---**`NETWORK` `client`**  
@@ -3859,7 +3859,7 @@ function UgcQueryGetPosixPublishedDate(p0, p1) end
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
----@return number
+---@return integer
 function UgcQueryGetPosixUpdatedDate(p0, p1) end
 
 ---**`NETWORK` `client`**  
@@ -3874,8 +3874,8 @@ function UgcQueryGetPublished(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x24CD8FAEA1368379)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
----@param p2 number
+---@param index integer
+---@param p2 integer
 ---@return number
 function UgcQueryGetRating(p0, index, p2) end
 
@@ -3883,7 +3883,7 @@ function UgcQueryGetRating(p0, index, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x566CEB0542EF5ECF)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return any
 function UgcQueryGetRootContentId(p0, index) end
 
@@ -3891,15 +3891,15 @@ function UgcQueryGetRootContentId(p0, index) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63E9DCBC8B0931ED)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
----@param p2 number
----@return number
+---@param index integer
+---@param p2 integer
+---@return integer
 function UgcQueryGetVersion(p0, index, p2) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF8F0705E77A0E705)  
 ---This native does not have an official description.
----@param ugcRequestId number
+---@param ugcRequestId integer
 ---@return boolean
 function UgcQueryWasForceCancelled(ugcRequestId) end
 
@@ -3911,15 +3911,15 @@ function UgcReleaseAllCachedDescriptions() end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5A34CD9C3C5BEC44)  
 ---This native does not have an official description.
----@param description number | string
+---@param description integer | string
 ---@return boolean
 function UgcReleaseCachedDescription(description) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5E0165278F6339EE)  
 ---This native does not have an official description.
----@param description number | string
----@return number
+---@param description integer | string
+---@return integer
 function UgcRequestCachedDescription(description) end
 
 ---**`NETWORK` `client`**  
@@ -3927,10 +3927,10 @@ function UgcRequestCachedDescription(description) end
 ---This native does not have an official description.
 ---@param contentTypeName string
 ---@param contentId string
----@param fileId number
----@param fileVersion number
----@param languageId number
----@return number
+---@param fileId integer
+---@param fileVersion integer
+---@param languageId integer
+---@return integer
 function UgcRequestContentDataFromParams(contentTypeName, contentId, fileId, fileVersion, languageId) end
 
 ---**`NETWORK` `client`**  
@@ -3946,13 +3946,13 @@ function UgcSetQueryDataFromOffline(p0) end
 ---@param p2 any
 ---@param p3 any
 ---@param p5 boolean
----@return number, any, any
+---@return integer, any, any
 function UgcTextureDownloadRequest(p1, p2, p3, p5) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB4C94523F023419C)  
 ---Returns the network ID of the given vehicle.
----@param vehicle number
----@return number
+---@param vehicle integer
+---@return integer
 function VehToNet(vehicle) end
 

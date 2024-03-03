@@ -41,9 +41,9 @@
 ---*   FE_MENU_VERSION_JOINING_SCREEN
 ---*   FE_MENU_VERSION_LANDING_MENU
 ---*   FE_MENU_VERSION_LANDING_KEYMAPPING_MENU
----@param menuhash number | string
+---@param menuhash integer | string
 ---@param togglePause boolean
----@param component number
+---@param component integer
 function ActivateFrontendMenu(menuhash, togglePause, component) end
 
 ---**`HUD` `client`**  
@@ -64,7 +64,7 @@ function ActivateFrontendMenu(menuhash, togglePause, component) end
 ---@param z number
 ---@param width number
 ---@param height number
----@return number
+---@return integer
 function AddBlipForArea(x, y, z, width, height) end
 
 ---**`HUD` `client`**  
@@ -73,7 +73,7 @@ function AddBlipForArea(x, y, z, width, height) end
 ---@param x number
 ---@param y number
 ---@param z number
----@return number
+---@return integer
 function AddBlipForCoord(x, y, z) end
 
 ---**`HUD` `client`**  
@@ -85,15 +85,15 @@ function AddBlipForCoord(x, y, z) end
 ---![enemy](https://i.imgur.com/fl78svv.png)
 ---Example of friend:
 ---![friend](https://i.imgur.com/Q16ho5d.png)
----@param entity number
----@return number
+---@param entity integer
+---@return integer
 function AddBlipForEntity(entity) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBE339365C863BD36)  
 ---This native does not have an official description.
----@param pickup number
----@return number
+---@param pickup integer
+---@return integer
 function AddBlipForPickup(pickup) end
 
 ---**`HUD` `client`**  
@@ -106,7 +106,7 @@ function AddBlipForPickup(pickup) end
 ---@param posY number
 ---@param posZ number
 ---@param radius number
----@return number
+---@return integer
 function AddBlipForRadius(posX, posY, posZ, radius) end
 
 ---**`HUD` `client`**  
@@ -137,26 +137,26 @@ function AddPointToGpsMultiRoute(x, y, z) end
 ---
 ---![Example output](https://i.imgur.com/jvuQ0II.png)
 ---@param value number
----@param decimalPlaces number
+---@param decimalPlaces integer
 function AddTextComponentFloat(value, decimalPlaces) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0E4C749FF9DE9CC4)  
 ---This native does not have an official description.
----@param value number
+---@param value integer
 ---@param commaSeparated boolean
 function AddTextComponentFormattedInteger(value, commaSeparated) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x03B504CF259931BC)  
 ---This native does not have an official description.
----@param value number
+---@param value integer
 function AddTextComponentInteger(value) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80EAD8E2E1D5D52E)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 function AddTextComponentSubstringBlipName(blip) end
 
 ---**`HUD` `client`**  
@@ -176,7 +176,7 @@ AddTextComponentScaleform = AddTextComponentSubstringKeyboardDisplay
 ---p1 was always -1
 ---```
 ---@param p0 string
----@param p1 number
+---@param p1 integer
 function AddTextComponentSubstringPhoneNumber(p0, p1) end
 
 ---@deprecated
@@ -207,7 +207,7 @@ AddTextComponentItemString = AddTextComponentSubstringTextLabel
 ---```
 ---It adds the localized text of the specified GXT entry name. Eg. if the argument is GET_HASH_KEY("ES_HELP"), adds "Continue". Just uses a text labels hash key  
 ---```
----@param gxtEntryHash number | string
+---@param gxtEntryHash integer | string
 function AddTextComponentSubstringTextLabelHashKey(gxtEntryHash) end
 
 ---**`HUD` `client`**  
@@ -215,8 +215,8 @@ function AddTextComponentSubstringTextLabelHashKey(gxtEntryHash) end
 ---```
 ---Adds a timer (e.g. "00:00:00:000"). The appearance of the timer depends on the flags, which needs more research.  
 ---```
----@param timestamp number
----@param flags number
+---@param timestamp integer
+---@param flags integer
 function AddTextComponentSubstringTime(timestamp, flags) end
 
 ---**`HUD` `client`**  
@@ -459,8 +459,8 @@ RemoveLoadingPrompt = BusyspinnerOff
 ---```
 ---Displays cash change notifications on HUD.  
 ---```
----@param cash number
----@param bank number
+---@param cash integer
+---@param bank integer
 function ChangeFakeMpCash(cash, bank) end
 
 ---@deprecated
@@ -471,7 +471,7 @@ SetPlayerCashChange = ChangeFakeMpCash
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A179DF17CCF04CD)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@param p1 boolean
 function ClearAdditionalText(p0, p1) end
 
@@ -498,7 +498,7 @@ function ClearDynamicPauseMenuErrorMessage() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x50085246ABD3FEFA)  
 ---This native does not have an official description.
----@param hudIndex number
+---@param hudIndex integer
 ---@param p1 boolean
 function ClearFloatingHelp(hudIndex, p1) end
 
@@ -590,13 +590,13 @@ function CloseSocialClubMenu() end
 ---Unlike "real" gamer tags, you cannot set the crew colour of these gamer tags.
 ---
 ---To create gamer tags for actual players and for more gamer tag information, see [CREATE_MP_GAMER_TAG_WITH_CREW_COLOR](#\_0x6DD05E9D83EFA4C9).
----@param ped number
+---@param ped integer
 ---@param username string
 ---@param crewIsPrivate boolean
 ---@param crewIsRockstar boolean
 ---@param crewName string
----@param crewRank number
----@return number
+---@param crewRank integer
+---@return integer
 function CreateFakeMpGamerTag(ped, username, crewIsPrivate, crewIsRockstar, crewName, crewRank) end
 
 ---@deprecated
@@ -609,15 +609,15 @@ CreateMpGamerTag = CreateFakeMpGamerTag
 ---After the gamer tag is created, all components will be set as invisible. Use [SET_MP_GAMER_TAG_VISIBILITY](#\_0x63BB75ABEDC1F6A0) to change the visibility of individual components or [\_SET_MP_GAMER_TAG_VISIBILITY_ALL](#\_0xEE76FF7E6A0166B0) to set all of them at once.
 ---
 ---To create a gamer tag for a ped that is not a player, see [CREATE_FAKE_MP_GAMER_TAG](#\_0xBFEFE3321A3F5015).
----@param player number
+---@param player integer
 ---@param username string
 ---@param crewIsPrivate boolean
 ---@param crewIsRockstar boolean
 ---@param crewName string
----@param crewRank number
----@param crewR number
----@param crewG number
----@param crewB number
+---@param crewRank integer
+---@param crewR integer
+---@param crewG integer
+---@param crewB integer
 function CreateMpGamerTagWithCrewColor(player, username, crewIsPrivate, crewIsRockstar, crewName, crewRank, crewR, crewG, crewB) end
 
 ---@deprecated
@@ -731,14 +731,14 @@ function DisplaySniperScopeThisFrame() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA6DB27D19ECBB7DA)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function DoesBlipExist(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDD2238F57B977751)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function DoesBlipHaveGpsRoute(blip) end
 
@@ -748,7 +748,7 @@ function DoesBlipHaveGpsRoute(blip) end
 ---Returns whether the ped's blip is controlled by the game.   
 ---It's the default blip you can see on enemies during freeroam in singleplayer (the one that fades out quickly).  
 ---```
----@param ped number
+---@param ped integer
 ---@return boolean
 function DoesPedHaveAiBlip(ped) end
 
@@ -790,7 +790,7 @@ CenterPlayerOnRadarThisFrame = DontTiltMinimapThisFrame
 ---	BUSY_SPINNER_RIGHT,
 ---};
 ---```
----@param busySpinnerType number
+---@param busySpinnerType integer
 function EndTextCommandBusyspinnerOn(busySpinnerType) end
 
 ---@deprecated
@@ -806,10 +806,10 @@ function EndTextCommandClearPrint() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x238FFE5C7B0498A6)  
 ---This native does not have an official description.
----@param shape number
+---@param shape integer
 ---@param loop boolean
 ---@param beep boolean
----@param duration number
+---@param duration integer
 function EndTextCommandDisplayHelp(shape, loop, beep, duration) end
 
 ---@deprecated
@@ -863,7 +863,7 @@ function EndTextCommandIsMessageDisplayed() end
 ---    FLOATING_HELP_TEXT_2 = 2,
 ---}
 ---```
----@param hudIndex number
+---@param hudIndex integer
 ---@return boolean
 function EndTextCommandIsThisHelpMessageBeingDisplayed(hudIndex) end
 
@@ -876,7 +876,7 @@ function EndTextCommandIsThisHelpMessageBeingDisplayed(hudIndex) end
 ---```
 ---@param x number
 ---@param y number
----@return number
+---@return integer
 function EndTextCommandLineCount(x, y) end
 
 ---@deprecated
@@ -893,7 +893,7 @@ function EndTextCommandObjective(p0) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA86911979638106F)  
 ---This native does not have an official description.
----@param buttonIndex number
+---@param buttonIndex integer
 function EndTextCommandOverrideButtonText(buttonIndex) end
 
 ---@deprecated
@@ -907,7 +907,7 @@ EndTextCommandTimer = EndTextCommandOverrideButtonText
 ---drawImmediately = If true, the text will be drawn immediately, if false, the text will be drawn after the previous subtitle has finished  
 ---Used to be known as _DRAW_SUBTITLE_TIMED  
 ---```
----@param duration number
+---@param duration integer
 ---@param drawImmediately boolean
 function EndTextCommandPrint(duration, drawImmediately) end
 
@@ -918,7 +918,7 @@ DrawSubtitleTimed = EndTextCommandPrint
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBC38B49BCB83BC9B)  
 ---Finalizes a text command started with [`BEGIN_TEXT_COMMAND_SET_BLIP_NAME`](#\_0xF9113A30DE5C6670), setting the name
 ---of the specified blip.
----@param blip number
+---@param blip integer
 function EndTextCommandSetBlipName(blip) end
 
 ---**`HUD` `client`**  
@@ -936,10 +936,10 @@ function EndTextCommandSetBlipName(blip) end
 ---```
 ---@param textureDict string
 ---@param textureName string
----@param rpBonus number
----@param colorOverlay number
+---@param rpBonus integer
+---@param colorOverlay integer
 ---@param titleLabel string
----@return number
+---@return integer
 function EndTextCommandThefeedPostAward(textureDict, textureName, rpBonus, colorOverlay, titleLabel) end
 
 ---@deprecated
@@ -955,7 +955,7 @@ DrawNotificationAward = EndTextCommandThefeedPostAward
 ---@param clanTxn string
 ---@param isImportant boolean
 ---@param showSubtitle boolean
----@return number
+---@return integer
 function EndTextCommandThefeedPostCrewRankup(chTitle, clanTxd, clanTxn, isImportant, showSubtitle) end
 
 ---**`HUD` `client`**  
@@ -996,14 +996,14 @@ function EndTextCommandThefeedPostCrewRankup(chTitle, clanTxd, clanTxn, isImport
 ---```
 ---@param crewTypeIsPrivate boolean
 ---@param crewTagContainsRockstar boolean
----@param rank number
+---@param rank integer
 ---@param hasFounderStatus boolean
 ---@param isImportant boolean
----@param clanHandle number
----@param r number
----@param g number
----@param b number
----@return number, number
+---@param clanHandle integer
+---@param r integer
+---@param g integer
+---@param b integer
+---@return integer, integer
 function EndTextCommandThefeedPostCrewtag(crewTypeIsPrivate, crewTagContainsRockstar, rank, hasFounderStatus, isImportant, clanHandle, r, g, b) end
 
 ---@deprecated
@@ -1036,15 +1036,15 @@ DrawNotificationApartmentInvite = EndTextCommandThefeedPostCrewtag
 ---```
 ---@param crewTypeIsPrivate boolean
 ---@param crewTagContainsRockstar boolean
----@param rank number
+---@param rank integer
 ---@param isLeader boolean
 ---@param isImportant boolean
----@param clanHandle number
+---@param clanHandle integer
 ---@param gamerStr string
----@param r number
----@param g number
----@param b number
----@return number, number
+---@param r integer
+---@param g integer
+---@param b integer
+---@return integer, integer
 function EndTextCommandThefeedPostCrewtagWithGameName(crewTypeIsPrivate, crewTagContainsRockstar, rank, isLeader, isImportant, clanHandle, gamerStr, r, g, b) end
 
 ---@deprecated
@@ -1083,10 +1083,10 @@ DrawNotificationClanInvite = EndTextCommandThefeedPostCrewtagWithGameName
 ---@param textureDict string
 ---@param textureName string
 ---@param flash boolean
----@param iconType number
+---@param iconType integer
 ---@param sender string
 ---@param subject string
----@return number
+---@return integer
 function EndTextCommandThefeedPostMessagetext(textureDict, textureName, flash, iconType, sender, subject) end
 
 ---@deprecated
@@ -1101,10 +1101,10 @@ SetNotificationMessage = EndTextCommandThefeedPostMessagetext
 ---@param txdName string
 ---@param textureName string
 ---@param flash boolean
----@param iconType number
+---@param iconType integer
 ---@param sender string
 ---@param subject string
----@return number
+---@return integer
 function EndTextCommandThefeedPostMessagetextGxtEntry(txdName, textureName, flash, iconType, sender, subject) end
 
 ---@deprecated
@@ -1125,11 +1125,11 @@ EndTextCommandThefeedPostMessagetextEntry = EndTextCommandThefeedPostMessagetext
 ---@param picTxd string
 ---@param picTxn string
 ---@param flash boolean
----@param iconType number
+---@param iconType integer
 ---@param nameStr string
 ---@param subtitleStr string
 ---@param durationMultiplier number
----@return number
+---@return integer
 function EndTextCommandThefeedPostMessagetextTu(picTxd, picTxn, flash, iconType, nameStr, subtitleStr, durationMultiplier) end
 
 ---@deprecated
@@ -1158,12 +1158,12 @@ SetNotificationMessage_4 = EndTextCommandThefeedPostMessagetextTu
 ---@param picTxd string
 ---@param picTxn string
 ---@param flash boolean
----@param iconType number
+---@param iconType integer
 ---@param nameStr string
 ---@param subtitleStr string
 ---@param duration number
 ---@param crewPackedStr string
----@return number
+---@return integer
 function EndTextCommandThefeedPostMessagetextWithCrewTag(picTxd, picTxn, flash, iconType, nameStr, subtitleStr, duration, crewPackedStr) end
 
 ---@deprecated
@@ -1200,14 +1200,14 @@ SetNotificationMessageClanTag = EndTextCommandThefeedPostMessagetextWithCrewTag
 ---@param picTxd string
 ---@param picTxn string
 ---@param flash boolean
----@param iconType1 number
+---@param iconType1 integer
 ---@param nameStr string
 ---@param subtitleStr string
 ---@param duration number
 ---@param crewPackedStr string
----@param iconType2 number
----@param textColor number
----@return number
+---@param iconType2 integer
+---@param textColor integer
+---@return integer
 function EndTextCommandThefeedPostMessagetextWithCrewTagAndAdditionalIcon(picTxd, picTxn, flash, iconType1, nameStr, subtitleStr, duration, crewPackedStr, iconType2, textColor) end
 
 ---@deprecated
@@ -1218,7 +1218,7 @@ SetNotificationMessageClanTag_2 = EndTextCommandThefeedPostMessagetextWithCrewTa
 ---This native does not have an official description.
 ---@param blink boolean
 ---@param bHasTokens boolean
----@return number
+---@return integer
 function EndTextCommandThefeedPostMpticker(blink, bHasTokens) end
 
 ---@deprecated
@@ -1233,10 +1233,10 @@ DrawNotification_4 = EndTextCommandThefeedPostMpticker
 ---example:   
 ---UI::_0xD202B92CBF1D816F(1, 20, "Who you trynna get crazy with, ese? Don't you know I'm LOCO?!");  
 ---```
----@param eType number
----@param iIcon number
+---@param eType integer
+---@param iIcon integer
 ---@param sTitle string
----@return number
+---@return integer
 function EndTextCommandThefeedPostReplayIcon(eType, iIcon, sTitle) end
 
 ---@deprecated
@@ -1257,10 +1257,10 @@ DrawNotificationWithIcon = EndTextCommandThefeedPostReplayIcon
 ---l_D1[1/*1*/]=HUD::_DD6CB2CCE7C2735C(1,"~INPUT_REPLAY_START_STOP_RECORDING~","");
 ---l_D1[2/*1*/]=HUD::_DD6CB2CCE7C2735C(1,"~INPUT_REPLAY_START_STOP_RECORDING_SECONDARY~","");
 ---```
----@param type number
+---@param type integer
 ---@param button string
 ---@param text string
----@return number
+---@return integer
 function EndTextCommandThefeedPostReplayInput(type, button, text) end
 
 ---@deprecated
@@ -1274,13 +1274,13 @@ DrawNotificationWithButton = EndTextCommandThefeedPostReplayInput
 ---
 ---![](https://i.imgur.com/SdEZ22m.png)
 ---@param statTitle string
----@param iconEnum number
+---@param iconEnum integer
 ---@param stepVal boolean
----@param barValue number
+---@param barValue integer
 ---@param isImportant boolean
 ---@param picTxd string
 ---@param picTxn string
----@return number
+---@return integer
 function EndTextCommandThefeedPostStats(statTitle, iconEnum, stepVal, barValue, isImportant, picTxd, picTxn) end
 
 ---@deprecated
@@ -1293,7 +1293,7 @@ SetNotificationMessage_2 = EndTextCommandThefeedPostStats
 ---![](https://i.imgur.com/TJvqkYq.png)
 ---@param isImportant boolean
 ---@param bHasTokens boolean
----@return number
+---@return integer
 function EndTextCommandThefeedPostTicker(isImportant, bHasTokens) end
 
 ---@deprecated
@@ -1304,7 +1304,7 @@ DrawNotification = EndTextCommandThefeedPostTicker
 ---This native does not have an official description.
 ---@param blink boolean
 ---@param bHasTokens boolean
----@return number
+---@return integer
 function EndTextCommandThefeedPostTickerForced(blink, bHasTokens) end
 
 ---@deprecated
@@ -1315,7 +1315,7 @@ DrawNotification_2 = EndTextCommandThefeedPostTickerForced
 ---This native does not have an official description.
 ---@param isImportant boolean
 ---@param bHasTokens boolean
----@return number
+---@return integer
 function EndTextCommandThefeedPostTickerWithTokens(isImportant, bHasTokens) end
 
 ---@deprecated
@@ -1325,7 +1325,7 @@ DrawNotification_3 = EndTextCommandThefeedPostTickerWithTokens
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x33EE12743CCD6343)  
 ---This native does not have an official description.
 ---@param chTitle string
----@param iconType number
+---@param iconType integer
 ---@param chSubtitle string
 ---@return any
 function EndTextCommandThefeedPostUnlock(chTitle, iconType, chSubtitle) end
@@ -1334,7 +1334,7 @@ function EndTextCommandThefeedPostUnlock(chTitle, iconType, chSubtitle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC8F3AAF93D0600BF)  
 ---This native does not have an official description.
 ---@param chTitle string
----@param iconType number
+---@param iconType integer
 ---@param chSubtitle string
 ---@param isImportant boolean
 ---@return any
@@ -1344,10 +1344,10 @@ function EndTextCommandThefeedPostUnlockTu(chTitle, iconType, chSubtitle, isImpo
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7AE0589093A2E088)  
 ---This native does not have an official description.
 ---@param chTitle string
----@param iconType number
+---@param iconType integer
 ---@param chSubtitle string
 ---@param isImportant boolean
----@param titleColor number
+---@param titleColor integer
 ---@param p5 boolean
 ---@return any
 function EndTextCommandThefeedPostUnlockTuWithColor(chTitle, iconType, chSubtitle, isImportant, titleColor, p5) end
@@ -1360,11 +1360,11 @@ function EndTextCommandThefeedPostUnlockTuWithColor(chTitle, iconType, chSubtitl
 ---```
 ---@param ch1TXD string
 ---@param ch1TXN string
----@param val1 number
+---@param val1 integer
 ---@param ch2TXD string
 ---@param ch2TXN string
----@param val2 number
----@return number
+---@param val2 integer
+---@return integer
 function EndTextCommandThefeedPostVersusTu(ch1TXD, ch1TXN, val1, ch2TXD, ch2TXN, val2) end
 
 ---**`HUD` `client`**  
@@ -1379,7 +1379,7 @@ SetIsInTournament = FlagPlayerContextInTournament
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x02CFBA0C9E9275CE)  
 ---This native does not have an official description.
----@param millisecondsToFlash number
+---@param millisecondsToFlash integer
 function FlashAbilityBar(millisecondsToFlash) end
 
 ---**`HUD` `client`**  
@@ -1393,7 +1393,7 @@ function FlashMinimapDisplay() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6B1DE27EE78E6A19)  
 ---This native does not have an official description.
----@param hudColorIndex number
+---@param hudColorIndex integer
 function FlashMinimapDisplayWithColor(hudColorIndex) end
 
 ---**`HUD` `client`**  
@@ -1425,35 +1425,35 @@ function ForceSonarBlipsThisFrame() end
 ---```
 ---Returns the current AI BLIP for the specified ped  
 ---```
----@param ped number
----@return number
+---@param ped integer
+---@return integer
 function GetAiBlip(ped) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7CD934010E115C2C)  
 ---This native does not have an official description.
----@param ped number
----@return number
+---@param ped integer
+---@return integer
 function GetAiBlip_2(ped) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x970F608F0EE6C885)  
 ---This native does not have an official description.
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipAlpha(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDF729E8D20CF7327)  
 ---This native does not have an official description.
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipColour(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x586AFE3FF72D996E)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return vector3
 function GetBlipCoords(blip) end
 
@@ -1462,36 +1462,36 @@ function GetBlipCoords(blip) end
 ---```
 ---Returns the Blip handle of given Entity.  
 ---```
----@param entity number
----@return number
+---@param entity integer
+---@return integer
 function GetBlipFromEntity(entity) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x729B5F1EFBC0AAEE)  
 ---This native does not have an official description.
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipHudColour(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFA7C7F0AADF25D09)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return vector3
 function GetBlipInfoIdCoord(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1E314167F701DC3B)  
 ---This native does not have an official description.
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipInfoIdDisplay(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4BA4E2553AFEDC2C)  
 ---This native does not have an official description.
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipInfoIdEntityIndex(blip) end
 
 ---**`HUD` `client`**  
@@ -1499,8 +1499,8 @@ function GetBlipInfoIdEntityIndex(blip) end
 ---```
 ---This function is hard-coded to always return 0.  
 ---```
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipInfoIdPickupIndex(blip) end
 
 ---**`HUD` `client`**  
@@ -1515,8 +1515,8 @@ function GetBlipInfoIdPickupIndex(blip) end
 ---6 - Pickup
 ---7 - Radius
 ---```
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipInfoIdType(blip) end
 
 ---**`HUD` `client`**  
@@ -1524,15 +1524,15 @@ function GetBlipInfoIdType(blip) end
 ---```
 ---NativeDB Introduced: v2060
 ---```
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipRotation(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1FC877464A04FC4F)  
 ---Gets the sprite id of the specified blip. Blip sprite ids and images can be found [here](https://docs.fivem.net/docs/game-references/blips/).
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function GetBlipSprite(blip) end
 
 ---**`HUD` `client`**  
@@ -1540,8 +1540,8 @@ function GetBlipSprite(blip) end
 ---```
 ---NativeDB Introduced: v1180
 ---```
----@param blipSprite number
----@return number
+---@param blipSprite integer
+---@return integer
 function GetClosestBlipOfType(blipSprite) end
 
 ---**`HUD` `client`**  
@@ -1549,7 +1549,7 @@ function GetClosestBlipOfType(blipSprite) end
 ---```
 ---if (HUD::GET_CURRENT_FRONTEND_MENU_VERSION() == joaat("fe_menu_version_empty_no_background"))
 ---```
----@return number
+---@return integer
 function GetCurrentFrontendMenuVersion() end
 
 ---@deprecated
@@ -1558,7 +1558,7 @@ GetCurrentFrontendMenu = GetCurrentFrontendMenuVersion
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01A358D9128B7A86)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetCurrentWebpageId() end
 
 ---@deprecated
@@ -1567,7 +1567,7 @@ GetActiveWebsiteId = GetCurrentWebpageId
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x97D47996FC48CBAD)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetCurrentWebsiteId() end
 
 ---**`HUD` `client`**  
@@ -1575,14 +1575,14 @@ function GetCurrentWebsiteId() end
 ---```
 ---This function is hard-coded to always return 1.  
 ---```
----@return number
+---@return integer
 function GetDefaultScriptRendertargetRenderId() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1BEDE233E6CD2A1F)  
 ---This native does not have an official description.
----@param blipSprite number
----@return number
+---@param blipSprite integer
+---@return integer
 function GetFirstBlipInfoId(blipSprite) end
 
 ---**`HUD` `client`**  
@@ -1597,8 +1597,8 @@ function GetFirstBlipInfoId(blipSprite) end
 ---9: Returns the current selection on the mobile phone scaleform
 ---There are 20 flags in total.
 ---```
----@param flagIndex number
----@return number
+---@param flagIndex integer
+---@return integer
 function GetGlobalActionscriptFlag(flagIndex) end
 
 ---**`HUD` `client`**  
@@ -1606,14 +1606,14 @@ function GetGlobalActionscriptFlag(flagIndex) end
 ---Gets hud color RGBA parameter values by passing a hud color index (hudColorIndex).
 ---
 ---HUD colors can be found [here](https://docs.fivem.net/docs/game-references/hud-colors/)
----@param hudColorIndex number
----@return number, number, number, number
+---@param hudColorIndex integer
+---@return integer, integer, integer, integer
 function GetHudColour(hudColorIndex) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x223CA69A8C4417FD)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 ---@return vector3
 function GetHudComponentPosition(id) end
 
@@ -1648,14 +1648,14 @@ function GetLabelText(labelName) end
 ---Returns the length of the string passed (much like strlen).  
 ---```
 ---@param string string
----@return number
+---@return integer
 function GetLengthOfLiteralString(string) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x43E4111189E54F0E)  
 ---This native does not have an official description.
 ---@param string string
----@return number
+---@return integer
 function GetLengthOfLiteralStringInBytes(string) end
 
 ---@deprecated
@@ -1667,13 +1667,13 @@ GetLengthOfString = GetLengthOfLiteralStringInBytes
 ---Returns the string length of the string from the gxt string .  
 ---```
 ---@param gxt string
----@return number
+---@return integer
 function GetLengthOfStringWithThisTextLabel(gxt) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDCD4EC3F419D02FA)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetMainPlayerBlipId() end
 
 ---**`HUD` `client`**  
@@ -1681,7 +1681,7 @@ function GetMainPlayerBlipId() end
 ---```
 ---p0 was always 0xAE2602A3.
 ---```
----@param p0 number | string
+---@param p0 integer | string
 ---@return boolean, any
 function GetMenuPedBoolStat(p0) end
 
@@ -1736,13 +1736,13 @@ GetMinimapRevealPercentage = GetMinimapFowDiscoveryRatio
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1A6478B61C6BDC3B)  
 ---This native does not have an official description.
 ---@param name string
----@return number
+---@return integer
 function GetNamedRendertargetRenderId(name) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5C90988E7C8E1AF4)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNewSelectedMissionCreatorBlip() end
 
 ---@deprecated
@@ -1751,20 +1751,20 @@ DisableBlipNameForVar = GetNewSelectedMissionCreatorBlip
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x14F96AA50D6FBEA7)  
 ---This native does not have an official description.
----@param blipSprite number
----@return number
+---@param blipSprite integer
+---@return integer
 function GetNextBlipInfoId(blipSprite) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3F0CF9CB7E589B88)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNorthRadarBlip() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9A3FF3DE163034E8)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNumberOfActiveBlips() end
 
 ---**`HUD` `client`**  
@@ -1776,7 +1776,7 @@ function GetPauseMenuCursorPosition() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x36C1451A88A09630)  
 ---This native does not have an official description.
----@return number, number
+---@return integer, integer
 function GetPauseMenuSelection() end
 
 ---**`HUD` `client`**  
@@ -1798,7 +1798,7 @@ function GetPauseMenuSelection() end
 ---selectedItemMenuId = -1
 ---selectedItemUniqueId updates as normal
 ---```
----@return number, number, number
+---@return integer, integer, integer
 function GetPauseMenuSelectionData() end
 
 ---**`HUD` `client`**  
@@ -1814,7 +1814,7 @@ function GetPauseMenuSelectionData() end
 ---30
 ---35
 ---```
----@return number
+---@return integer
 function GetPauseMenuState() end
 
 ---**`HUD` `client`**  
@@ -1824,7 +1824,7 @@ function GetPauseMenuState() end
 ---Old name: _GET_TEXT_SCALE_HEIGHT
 ---```
 ---@param size number
----@param font number
+---@param font integer
 ---@return number
 function GetRenderedCharacterHeight(size, font) end
 
@@ -1858,14 +1858,14 @@ GetTextScaleHeight = GetRenderedCharacterHeight
 ---    Probably works with other scaleforms, needs more research.
 ---    In order to use this Native you MUST have controls 239, 240, 237, 238 enabled!
 ---    This native, due to its erroneous redundancy of the returned boolean value, works differently in C#: shifting the parameters (where `received` becomes `selectionType` and so on making the fourth parameter unused and always 0).
----@param scaleformHandle number
----@return boolean, boolean, number, number, number
+---@param scaleformHandle integer
+---@return boolean, boolean, integer, integer, integer
 function GetScaleformMovieCursorSelection(scaleformHandle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4A9923385BDB9DAD)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetStandardBlipEnumId() end
 
 ---@deprecated
@@ -1874,7 +1874,7 @@ GetLevelBlipSprite = GetStandardBlipEnumId
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD0EF8A959B8A4CB9)  
 ---Converts the hash of a street name into a readable string. To retrieve a hash for a given (street) coordinate, see [`GET_STREET_NAME_AT_COORD`](#\_0x2EB41072B4C1E4C0).
----@param hash number | string
+---@param hash integer | string
 ---@return string
 function GetStreetNameFromHashKey(hash) end
 
@@ -1887,8 +1887,8 @@ function GetStreetNameFromHashKey(hash) end
 ---subStr = HUD::_GET_TEXT_SUBSTRING("MY_STRING", 3, 6);
 ---```
 ---@param text string
----@param position number
----@param length number
+---@param position integer
+---@param length integer
 ---@return string
 function GetTextSubstring(text, position, length) end
 
@@ -1914,9 +1914,9 @@ function GetTextSubstring(text, position, length) end
 ---}
 ---```
 ---@param text string
----@param position number
----@param length number
----@param maxLength number
+---@param position integer
+---@param length integer
+---@param maxLength integer
 ---@return string
 function GetTextSubstringSafe(text, position, length, maxLength) end
 
@@ -1931,8 +1931,8 @@ function GetTextSubstringSafe(text, position, length, maxLength) end
 ---subStr = HUD::_GET_TEXT_SUBSTRING_SLICE("MY_STRING", 3, 10); // "STRING_"?
 ---```
 ---@param text string
----@param startPosition number
----@param endPosition number
+---@param startPosition integer
+---@param endPosition integer
 ---@return string
 function GetTextSubstringSlice(text, startPosition, endPosition) end
 
@@ -1941,13 +1941,13 @@ function GetTextSubstringSlice(text, startPosition, endPosition) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@return number
+---@return integer
 function GetWarningMessageTitleHash() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x186E5D252FA50E7D)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetWaypointBlipEnumId() end
 
 ---@deprecated
@@ -1960,14 +1960,14 @@ GetBlipInfoIdIterator = GetWaypointBlipEnumId
 ---```
 ---
 ---This native is used to "give"/duplicate a player ped to a frontend menu as configured via the `ACTIVATE_FRONTEND_MENU` native, you first must utilize the [CLONE_PED](#\_0xEF29A16337FACADB) to clone said ped.
----@param ped number
----@param p1 number
+---@param ped integer
+---@param p1 integer
 function GivePedToPauseMenu(ped, p1) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x02245FE4BED318B8)  
 ---This native does not have an official description.
----@param slot number
+---@param slot integer
 ---@return boolean
 function HasAdditionalTextLoaded(slot) end
 
@@ -1985,7 +1985,7 @@ function HasDirectorModeBeenTriggered() end
 ---Checks if the specified gxt has loaded into the passed slot.  
 ---```
 ---@param gxt string
----@param slot number
+---@param slot integer
 ---@return boolean
 function HasThisAdditionalTextLoaded(gxt, slot) end
 
@@ -2040,7 +2040,7 @@ function HideHudAndRadarThisFrame() end
 ---*   22 : HUD_WEAPONS
 ---
 ---These integers also work for the [`SHOW_HUD_COMPONENT_THIS_FRAME`](#\_0x0B4DF1FA60C0E664) native, but instead shows the HUD Component.
----@param id number
+---@param id integer
 function HideHudComponentThisFrame(id) end
 
 ---**`HUD` `client`**  
@@ -2064,13 +2064,13 @@ function HideMinimapInteriorMapThisFrame() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x532CFF637EF80148)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 function HideNumberOnBlip(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE374C498D8BADC14)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 function HideScriptedHudComponentThisFrame(id) end
 
 ---**`HUD` `client`**  
@@ -2094,7 +2094,7 @@ ShowWeaponWheel = HudForceWeaponWheel
 ---```
 ---Set the active slotIndex in the wheel weapon to the slot associated with the provided Weapon hash
 ---```
----@param weaponHash number | string
+---@param weaponHash integer | string
 function HudSetWeaponWheelTopSlot(weaponHash) end
 
 ---@deprecated
@@ -2105,7 +2105,7 @@ HudWeaponWheelSetSlotHash = HudSetWeaponWheelTopSlot
 ---```
 ---Returns the weapon hash to the selected/highlighted weapon in the wheel
 ---```
----@return number
+---@return integer
 function HudWeaponWheelGetSelectedHash() end
 
 ---**`HUD` `client`**  
@@ -2113,8 +2113,8 @@ function HudWeaponWheelGetSelectedHash() end
 ---```
 ---Returns the weapon hash active in a specific weapon wheel slotList
 ---```
----@param weaponTypeIndex number
----@return number
+---@param weaponTypeIndex integer
+---@return integer
 function HudWeaponWheelGetSlotHash(weaponTypeIndex) end
 
 ---**`HUD` `client`**  
@@ -2138,28 +2138,28 @@ BlockWeaponWheelThisFrame = HudWeaponWheelIgnoreSelection
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA5E41FD83AD6CEF0)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function IsBlipFlashing(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE41CA53051197A27)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function IsBlipOnMinimap(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDA5F8727EB75B926)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function IsBlipShortRange(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2432784ACA090DA4)  
 ---This native does not have an official description.
----@param hudIndex number
+---@param hudIndex integer
 ---@return boolean
 function IsFloatingHelpTextOnScreen(hudIndex) end
 
@@ -2222,7 +2222,7 @@ function IsHoveringOverMissionCreatorBlip() end
 ---MAX_HUD_WEAPONS = 22;  
 ---MAX_SCRIPTED_HUD_COMPONENTS = 141;  
 ---```
----@param id number
+---@param id integer
 ---@return boolean
 function IsHudComponentActive(id) end
 
@@ -2262,7 +2262,7 @@ IsRadarEnabled = IsMinimapRendering
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26F49BF3381D933D)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@return boolean
 function IsMissionCreatorBlip(blip) end
 
@@ -2276,14 +2276,14 @@ function IsMouseCursorAboveInstructionalButtons() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4E929E7A5796FD26)  
 ---This native does not have an official description.
----@param gamerTagId number
+---@param gamerTagId integer
 ---@return boolean
 function IsMpGamerTagActive(gamerTagId) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x595B5178E412E199)  
 ---This native does not have an official description.
----@param gamerTagId number
+---@param gamerTagId integer
 ---@return boolean
 function IsMpGamerTagFree(gamerTagId) end
 
@@ -2313,7 +2313,7 @@ IsTextChatActive = IsMultiplayerChatActive
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x113750538FA31298)  
 ---This native does not have an official description.
----@param modelHash number | string
+---@param modelHash integer | string
 ---@return boolean
 function IsNamedRendertargetLinked(modelHash) end
 
@@ -2369,14 +2369,14 @@ function IsReportugcMenuOpen() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDD100EB17A94FF65)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 ---@return boolean
 function IsScriptedHudComponentActive(id) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x09C0403ED9A751C2)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 ---@return boolean
 function IsScriptedHudComponentHiddenThisFrame(id) end
 
@@ -2389,7 +2389,7 @@ function IsSocialClubActive() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8B6817B71B85EBF0)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function IsStreamingAdditionalText(p0) end
 
@@ -2404,7 +2404,7 @@ function IsSubtitlePreferenceSwitchedOn() end
 ---```
 ---IS_*
 ---```
----@param gamerTagId number
+---@param gamerTagId integer
 ---@return boolean
 function IsValidMpGamerTagMovie(gamerTagId) end
 
@@ -2439,7 +2439,7 @@ function IsWaypointActive() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF6C09E276AEB3F2D)  
 ---This native does not have an official description.
----@param modelHash number | string
+---@param modelHash integer | string
 function LinkNamedRendertarget(modelHash) end
 
 ---**`HUD` `client`**  
@@ -2448,7 +2448,7 @@ function LinkNamedRendertarget(modelHash) end
 ---Locks the minimap to the specified angle in integer degrees.  
 ---angle: The angle in whole degrees. If less than 0 or greater than 360, unlocks the angle.  
 ---```
----@param angle number
+---@param angle integer
 function LockMinimapAngle(angle) end
 
 ---**`HUD` `client`**  
@@ -2541,14 +2541,14 @@ function N_0x2790f4b17d098e26(toggle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C173AE2BDB9385E)  
 ---GET_BLIP_\*
 ---Seems to always return 0 from what I can tell. I've tried a lot of different blip related natives and it always seems to return 0. Decompiled scripts always pass a blip handle as p0.
----@param blip number
----@return number
+---@param blip integer
+---@return integer
 function N_0x2c173ae2bdb9385e(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C9F302398E13141)  
 ---Correct native name lies between SET_BLIP_SPRITE and SET_RADIUS_BLIP_EDGE alphabetically.
----@param blip number
+---@param blip integer
 ---@param p1 any
 function N_0x2c9f302398e13141(blip, p1) end
 
@@ -2577,7 +2577,7 @@ function N_0x2f057596f2bd0061() end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param blip number
+---@param blip integer
 function N_0x35a3cd97b2c0a6d2(blip) end
 
 ---**`HUD` `client`**  
@@ -2611,7 +2611,7 @@ function N_0x577599cced639ca2(p0) end
 ---```
 ---FORCE_*
 ---```
----@param p0 number
+---@param p0 integer
 function N_0x57d760d55f54e071(p0) end
 
 ---**`HUD` `client`**  
@@ -2676,7 +2676,7 @@ function N_0x8f08017f9d7c47bd(p0, p2) end
 ---GET_F*
 ---```
 ---@param string string
----@param length number
+---@param length integer
 ---@return string
 function N_0x98c3cf913d895111(string, length) end
 
@@ -2687,7 +2687,7 @@ function N_0x98c3cf913d895111(string, length) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param p0 number
+---@param p0 integer
 ---@param p1 number
 function N_0x9fcb3cbfb3ead69a(p0, p1) end
 
@@ -2702,7 +2702,7 @@ function N_0xa17784fca9548d15(p0, p1, p2) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA238192F33110615)  
 ---This native does not have an official description.
----@return boolean, number, number, number
+---@return boolean, integer, integer, integer
 function N_0xa238192f33110615() end
 
 ---**`HUD` `client`**  
@@ -2747,7 +2747,7 @@ function N_0xc2d2ad9eaae265b8() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC594B315EDF2D4AF)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 function N_0xc594b315edf2d4af(ped) end
 
 ---**`HUD` `client`**  
@@ -2873,14 +2873,14 @@ function OpenSocialClubMenu() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF47E567B3630DD12)  
 ---This native does not have an official description.
----@param p0 number
----@param hudColor number
+---@param p0 integer
+---@param hudColor integer
 function OverrideMultiplayerChatColour(p0, hudColor) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6A1738B4323FE2D9)  
 ---This native does not have an official description.
----@param gxtEntryHash number | string
+---@param gxtEntryHash integer | string
 function OverrideMultiplayerChatPrefix(gxtEntryHash) end
 
 ---**`HUD` `client`**  
@@ -2919,7 +2919,7 @@ function OverrideMultiplayerChatPrefix(gxtEntryHash) end
 ---> OBJECT_DECAL_TOGGLE seems to remove a context, It also has a hash collision
 ---> // Old
 ---> Scripts do not make this native's purpose clear. However, this native most likely has something to do with decals since in nearly every instance, "OBJECT_DECAL_TOGGLE" is called prior.
----@param hash number | string
+---@param hash integer | string
 function PauseMenuActivateContext(hash) end
 
 ---@deprecated
@@ -2929,7 +2929,7 @@ AddFrontendMenuContext = PauseMenuActivateContext
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x77F16B447824DA6C)  
 ---Sets current pause menu page/component to the specified value.
 ---Available page IDs: https://pastebin.com/qxuhwjPT
----@param pageId number
+---@param pageId integer
 function PauseMenuceptionGoDeeper(pageId) end
 
 ---**`HUD` `client`**  
@@ -2940,7 +2940,7 @@ function PauseMenuceptionTheKick() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x444D8CF241EC25C5)  
 ---This native does not have an official description.
----@param contextHash number | string
+---@param contextHash integer | string
 function PauseMenuDeactivateContext(contextHash) end
 
 ---@deprecated
@@ -2955,19 +2955,19 @@ function PauseMenuDisableBusyspinner(toggle) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x359AF31A4B52F5ED)  
 ---If mouse is hovering on a slot, it returns the slot's index, else it returns -1.
----@return number
+---@return integer
 function PauseMenuGetIndexOfMouseHoveredSlot() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x13C4B962653A5280)  
 ---If mouse is hovering on a slot, it returns uniqueid of that slot, else it returns -1.
----@return number
+---@return integer
 function PauseMenuGetUniqueIdOfMouseHoveredSlot() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84698AB38D0C6636)  
 ---This native does not have an official description.
----@param contextHash number | string
+---@param contextHash integer | string
 ---@return boolean
 function PauseMenuIsContextActive(contextHash) end
 
@@ -2980,7 +2980,7 @@ function PauseMenuIsContextMenuActive() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4895BDEA16E7C080)  
 ---Updates instructional buttons in Pause Menu after menu contexts have been toggled. p0 purpose is currently unknown, only 0 is used in scripts.
----@param p0 number
+---@param p0 integer
 function PauseMenuRedrawInstructionalButtons(p0) end
 
 ---@deprecated
@@ -3008,7 +3008,7 @@ function PreloadBusyspinner() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x742D6FD43115AF73)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 function PulseBlip(blip) end
 
 ---**`HUD` `client`**  
@@ -3039,7 +3039,7 @@ SetMapFullScreen = RaceGalleryFullscreen
 ---```
 ---Sets the sprite of the next BLIP_GALLERY blip, values used in the native scripts: 143 (ObjectiveBlue), 144 (ObjectiveGreen), 145 (ObjectiveRed), 146 (ObjectiveYellow).
 ---```
----@param spriteId number
+---@param spriteId integer
 function RaceGalleryNextBlipSprite(spriteId) end
 
 ---**`HUD` `client`**  
@@ -3077,13 +3077,13 @@ function ReloadMapMenu() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x86A652570E5F25DD)  
 ---Removes the blip from your map.
----@param blip number
+---@param blip integer
 function RemoveBlip(blip) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x31698AA80E0223F8)  
 ---Removes the gamer tag associated with the provided ID. This does not happen instantly. Use [IS_MP_GAMER_TAG_FREE](#\_0x595B5178E412E199) to determine when the ID is free for reuse.
----@param gamerTagId number
+---@param gamerTagId integer
 function RemoveMpGamerTag(gamerTagId) end
 
 ---**`HUD` `client`**  
@@ -3113,8 +3113,8 @@ function RemoveWarningMessageListItems() end
 ---Changes the hud color at a given index (hudColorIndex) by another one (hudColorIndex2).
 ---
 ---HUD colors can be found [here](https://docs.fivem.net/docs/game-references/hud-colors/)
----@param hudColorIndex number
----@param hudColorIndex2 number
+---@param hudColorIndex integer
+---@param hudColorIndex2 integer
 function ReplaceHudColour(hudColorIndex, hudColorIndex2) end
 
 ---@deprecated
@@ -3123,11 +3123,11 @@ SetHudColoursSwitch = ReplaceHudColour
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF314CF4F0211894E)  
 ---Hud colors can be found [here](https://docs.fivem.net/docs/game-references/hud-colors/)
----@param hudColorIndex number
----@param r number
----@param g number
----@param b number
----@param a number
+---@param hudColorIndex integer
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function ReplaceHudColourWithRgba(hudColorIndex, r, g, b, a) end
 
 ---@deprecated
@@ -3139,14 +3139,14 @@ SetHudColour = ReplaceHudColourWithRgba
 ---Request a gxt into the passed slot.  
 ---```
 ---@param gxt string
----@param slot number
+---@param slot integer
 function RequestAdditionalText(gxt, slot) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6009F9F1AE90D8A6)  
 ---This native does not have an official description.
 ---@param gxt string
----@param slot number
+---@param slot integer
 function RequestAdditionalTextForDlc(gxt, slot) end
 
 ---@deprecated
@@ -3155,13 +3155,13 @@ RequestAdditionalText_2 = RequestAdditionalTextForDlc
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB99C4E4D9499DF29)  
 ---This native does not have an official description.
----@param flagIndex number
+---@param flagIndex integer
 function ResetGlobalActionscriptFlag(flagIndex) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x450930E616475D0D)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 function ResetHudComponentValues(id) end
 
 ---**`HUD` `client`**  
@@ -3181,8 +3181,8 @@ function ResetReticuleValues() end
 ---p1 = Hash of Menu  
 ---p2 = Unknown but always works with -1.  
 ---```
----@param menuHash number | string
----@param p1 number
+---@param menuHash integer | string
+---@param p1 integer
 function RestartFrontendMenu(menuHash, p1) end
 
 ---**`HUD` `client`**  
@@ -3229,35 +3229,35 @@ SetRadarBigmapEnabled = SetBigmapActive
 ---HUD::SET_BLIP_COLOUR(blip , 3);
 ---HUD::SET_BLIP_ALPHA(blip , 64);
 ---```
----@param blip number
----@param alpha number
+---@param blip integer
+---@param alpha integer
 function SetBlipAlpha(blip, alpha) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6F6F290102C02AB4)  
 ---Allows the user to set a blip as friendly or enemy based on the toggle.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipAsFriendly(blip, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x24AC0137444F9FD5)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipAsMissionCreatorBlip(blip, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBE8BE4FE60E27B72)  
 ---Sets whether or not the specified blip should only be displayed when nearby, or on the minimap.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipAsShortRange(blip, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB203913733F27884)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipBright(blip, toggle) end
 
@@ -3288,21 +3288,21 @@ function SetBlipBright(blip, toggle) end
 ---| 7 | Other Players | `BLIP_OTHPLYR` |
 ---| 10 | Property | `BLIP_PROPCAT` |
 ---| 11 | Owned Property | `BLIP_APARTCAT` |
----@param blip number
----@param index number
+---@param blip integer
+---@param index integer
 function SetBlipCategory(blip, index) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x03D7FB09E75D6B7E)  
 ---This native does not have an official description.
----@param blip number
----@param color number
+---@param blip integer
+---@param color integer
 function SetBlipColour(blip, color) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAE2AF67E9D9AF65D)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -3329,8 +3329,8 @@ function SetBlipCoords(blip, posX, posY, posZ) end
 ---Anything higher than 10 seems to be exactly the same as 10.
 ---
 ---Rockstar seem to only use 0, 2, 3, 4, 5 and 8 in the decompiled scripts.
----@param blip number
----@param displayId number
+---@param blip integer
+---@param displayId integer
 function SetBlipDisplay(blip, displayId) end
 
 ---**`HUD` `client`**  
@@ -3338,57 +3338,57 @@ function SetBlipDisplay(blip, displayId) end
 ---```
 ---Must be toggled before being queued for animation
 ---```
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipDisplayIndicatorOnBlip(blip, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2AEE8F8390D2298C)  
 ---This native does not have an official description.
----@param blip number
----@param opacity number
----@param duration number
+---@param blip integer
+---@param opacity integer
+---@param duration integer
 function SetBlipFade(blip, opacity, duration) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB14552383D39CE3E)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipFlashes(blip, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2E8D9498C56DD0D1)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipFlashesAlternate(blip, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA51DB313C010A7E)  
 ---Sets the interval in milliseconds before flashing the blip.
----@param blip number
----@param interval number
+---@param blip integer
+---@param interval integer
 function SetBlipFlashInterval(blip, interval) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD3CD6FD297AE87CC)  
 ---Flashes blip for time in milliseconds before stopping.
----@param blip number
----@param duration number
+---@param blip integer
+---@param duration integer
 function SetBlipFlashTimer(blip, duration) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54318C915D27E4CE)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipHiddenOnLegend(blip, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE2590BC29220CEBB)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipHighDetail(blip, toggle) end
 
@@ -3397,15 +3397,15 @@ function SetBlipHighDetail(blip, toggle) end
 ---```
 ---Doesn't work if the label text of gxtEntry is >= 80.  
 ---```
----@param blip number
+---@param blip integer
 ---@param gxtEntry string
 function SetBlipNameFromTextFile(blip, gxtEntry) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x127DE7B20C60A6A3)  
 ---This native does not have an official description.
----@param blip number
----@param player number
+---@param blip integer
+---@param player integer
 function SetBlipNameToPlayerName(blip, player) end
 
 ---**`HUD` `client`**  
@@ -3413,8 +3413,8 @@ function SetBlipNameToPlayerName(blip, player) end
 ---```
 ---See this topic for more details : gtaforums.com/topic/717612-v-scriptnative-documentation-and-research/page-35?p=1069477935  
 ---```
----@param blip number
----@param priority number
+---@param blip integer
+---@param priority integer
 function SetBlipPriority(blip, priority) end
 
 ---**`HUD` `client`**  
@@ -3422,8 +3422,8 @@ function SetBlipPriority(blip, priority) end
 ---```
 ---After some testing, looks like you need to use CEIL() on the rotation (vehicle/ped heading) before using it there.
 ---```
----@param blip number
----@param rotation number
+---@param blip integer
+---@param rotation integer
 function SetBlipRotation(blip, rotation) end
 
 ---**`HUD` `client`**  
@@ -3431,21 +3431,21 @@ function SetBlipRotation(blip, rotation) end
 ---```
 ---Enable / disable showing route for the Blip-object.  
 ---```
----@param blip number
+---@param blip integer
 ---@param enabled boolean
 function SetBlipRoute(blip, enabled) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x837155CD2F63DA09)  
 ---This native does not have an official description.
----@param blip number
----@param colour number
+---@param blip integer
+---@param colour integer
 function SetBlipRouteColour(blip, colour) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD38744167B2FA257)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param scale number
 function SetBlipScale(blip, scale) end
 
@@ -3456,7 +3456,7 @@ function SetBlipScale(blip, scale) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param blip number
+---@param blip integer
 ---@param xScale number
 ---@param yScale number
 function SetBlipScaleTransformation(blip, xScale, yScale) end
@@ -3464,10 +3464,10 @@ function SetBlipScaleTransformation(blip, xScale, yScale) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x14892474891E09EB)  
 ---This native does not have an official description.
----@param blip number
----@param r number
----@param g number
----@param b number
+---@param blip integer
+---@param r integer
+---@param g integer
+---@param b integer
 function SetBlipSecondaryColour(blip, r, g, b) end
 
 ---**`HUD` `client`**  
@@ -3475,7 +3475,7 @@ function SetBlipSecondaryColour(blip, r, g, b) end
 ---```
 ---NativeDB Added Parameter 3: Any p2
 ---```
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipShowCone(blip, toggle) end
 
@@ -3485,7 +3485,7 @@ function SetBlipShowCone(blip, toggle) end
 ---Makes a blip go small when off the minimap.
 ---SET_BLIP_AS_*
 ---```
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetBlipShrink(blip, toggle) end
 
@@ -3494,8 +3494,8 @@ function SetBlipShrink(blip, toggle) end
 ---Sets the displayed sprite for a specific blip.
 ---
 ---There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
----@param blip number
----@param spriteId number
+---@param blip integer
+---@param spriteId integer
 function SetBlipSprite(blip, spriteId) end
 
 ---**`HUD` `client`**  
@@ -3503,14 +3503,14 @@ function SetBlipSprite(blip, spriteId) end
 ---```
 ---Does not require whole number/integer rotations.
 ---```
----@param blip number
+---@param blip integer
 ---@param heading number
 function SetBlipSquaredRotation(blip, heading) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x39BBF623FC803EAC)  
 ---This native does not have an official description.
----@param hudColor number
+---@param hudColor integer
 function SetColourOfNextTextComponent(hudColor) end
 
 ---@deprecated
@@ -3526,7 +3526,7 @@ function SetDirectorModeClearTriggeredFlag() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7679CC1BCEBE3D4C)  
 ---This native does not have an official description.
----@param hudIndex number
+---@param hudIndex integer
 ---@param x number
 ---@param y number
 function SetFloatingHelpTextScreenPosition(hudIndex, x, y) end
@@ -3550,19 +3550,19 @@ function SetFloatingHelpTextScreenPosition(hudIndex, x, y) end
 ---Needs to be called every frame
 ---
 ---![Preview of the provided example code](https://forum.cfx.re/uploads/default/original/4X/7/f/3/7f319bc93c3a00b8829bd4ac8dddc235fbf3a9ef.png)
----@param hudIndex number
----@param style number
----@param hudColor number
----@param alpha number
----@param arrowPosition number
----@param boxOffset number
+---@param hudIndex integer
+---@param style integer
+---@param hudColor integer
+---@param alpha integer
+---@param arrowPosition integer
+---@param boxOffset integer
 function SetFloatingHelpTextStyle(hudIndex, style, hudColor, alpha, arrowPosition, boxOffset) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB094BC1DB4018240)  
 ---This native does not have an official description.
----@param hudIndex number
----@param entity number
+---@param hudIndex integer
+---@param entity integer
 ---@param offsetX number
 ---@param offsetY number
 function SetFloatingHelpTextToEntity(hudIndex, entity, offsetX, offsetY) end
@@ -3570,7 +3570,7 @@ function SetFloatingHelpTextToEntity(hudIndex, entity, offsetX, offsetY) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x784BA7E0ECEB4178)  
 ---This native does not have an official description.
----@param hudIndex number
+---@param hudIndex integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -3586,8 +3586,8 @@ function SetFrontendActive(active) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x900086F371220B6F)  
 ---This native does not have an official description.
 ---@param toggle boolean
----@param radarThickness number
----@param mapThickness number
+---@param radarThickness integer
+---@param mapThickness integer
 function SetGpsCustomRouteRender(toggle, radarThickness, mapThickness) end
 
 ---**`HUD` `client`**  
@@ -3596,7 +3596,7 @@ function SetGpsCustomRouteRender(toggle, radarThickness, mapThickness) end
 ---Only the script that originally called SET_GPS_FLAGS can set them again. Another script cannot set the flags, until the first script that called it has called CLEAR_GPS_FLAGS.
 ---Doesn't seem like the flags are actually read by the game at all.
 ---```
----@param p0 number
+---@param p0 integer
 ---@param p1 number
 function SetGpsFlags(p0, p1) end
 
@@ -3615,25 +3615,25 @@ function SetGpsMultiRouteRender(toggle) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3F5CC444DCAAA8F2)  
 ---This native does not have an official description.
----@param health number
----@param capacity number
+---@param health integer
+---@param capacity integer
 ---@param wasAdded boolean
 function SetHealthHudDisplayValues(health, capacity, wasAdded) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB9C362BABECDDC7A)  
 ---This native does not have an official description.
----@param style number
----@param hudColor number
----@param alpha number
----@param p3 number
----@param p4 number
+---@param style integer
+---@param hudColor integer
+---@param alpha integer
+---@param p3 integer
+---@param p4 integer
 function SetHelpMessageTextStyle(style, hudColor, alpha, p3, p4) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAABB1F56E2A17CED)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 ---@param x number
 ---@param y number
 function SetHudComponentPosition(id, x, y) end
@@ -3657,19 +3657,19 @@ function SetInteriorZoomLevelIncreased(toggle) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7B21E0BB01E8224A)  
 ---This native does not have an official description.
----@param color number
+---@param color integer
 function SetMainPlayerBlipColour(color) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x06A320535F5F0248)  
 ---This native does not have an official description.
----@param maximumValue number
+---@param maximumValue integer
 function SetMaxArmourHudDisplay(maximumValue) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x975D66A0BC17064C)  
 ---This native does not have an official description.
----@param maximumValue number
+---@param maximumValue integer
 function SetMaxHealthHudDisplay(maximumValue) end
 
 ---**`HUD` `client`**  
@@ -3715,10 +3715,10 @@ function SetMinimapBlockWaypoint(toggle) end
 ---*   **13** Richman Mansion grotto
 ---*   **14** 2 Alien Camp (Hippy Camp) circles
 ---*   **15** Fort Zancudo
----@param componentID number
+---@param componentID integer
 ---@param toggle boolean
----@param hudColor number
----@return number
+---@param hudColor integer
+---@return integer
 function SetMinimapComponent(componentID, toggle, hudColor) end
 
 ---**`HUD` `client`**  
@@ -3738,7 +3738,7 @@ function SetMinimapFowRevealCoordinate(x, y, z) end
 ---You'll also need to use the `GOLF` scaleform in order to get the correct minmap border to show up.
 ---
 ---Use [`SET_MINIMAP_GOLF_COURSE_OFF()`](#\_0x35EDD5B2E3FF01C0) to reset the map when you no longer want to display any golf holes (you still need to unlock zoom, position and angle of the radar manually after calling this).
----@param hole number
+---@param hole integer
 function SetMinimapGolfCourse(hole) end
 
 ---**`HUD` `client`**  
@@ -3774,7 +3774,7 @@ SetNorthYanktonMap = SetMinimapInPrologue
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1A5CD7752DD28CD3)  
 ---This native does not have an official description.
 ---@param toggle boolean
----@param ped number
+---@param ped integer
 function SetMinimapInSpectatorMode(toggle, ped) end
 
 ---@deprecated
@@ -3838,7 +3838,7 @@ ShowCursorThisFrame = SetMouseCursorActiveThisFrame
 ---    Remove = 12,  
 ---}  
 ---```
----@param spriteId number
+---@param spriteId integer
 function SetMouseCursorSprite(spriteId) end
 
 ---@deprecated
@@ -3856,15 +3856,15 @@ function SetMouseCursorVisibleInMenus(enable) end
 ---```
 ---Sets flag's sprite transparency. 0-255.  
 ---```
----@param gamerTagId number
----@param component number
----@param alpha number
+---@param gamerTagId integer
+---@param component integer
+---@param alpha integer
 function SetMpGamerTagAlpha(gamerTagId, component, alpha) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7B7723747CCB55B6)  
 ---This native does not have an official description.
----@param gamerTagId number
+---@param gamerTagId integer
 ---@param string string
 function SetMpGamerTagBigText(gamerTagId, string) end
 
@@ -3874,16 +3874,16 @@ SetMpGamerTagChatting = SetMpGamerTagBigText
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x613ED644950626AE)  
 ---Sets a gamer tag's component colour
----@param gamerTagId number
----@param component number
----@param hudColorIndex number
+---@param gamerTagId integer
+---@param component integer
+---@param hudColorIndex integer
 function SetMpGamerTagColour(gamerTagId, component, hudColorIndex) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD29EC58C2F6B5014)  
 ---By default, the player health value shown by a gamer tag's health bar is synchronised with the health of the ped it is attached to.
 ---This native disables that behaviour, allowing [`_SET_MP_GAMER_TAG_OVERRIDE_PLAYER_HEALTH`](#\_0x1563FE35E9928E67) to have an effect.
----@param gamerTagId number
+---@param gamerTagId integer
 ---@param toggle boolean
 function SetMpGamerTagDisablePlayerHealthSync(gamerTagId, toggle) end
 
@@ -3893,8 +3893,8 @@ SetMpGamerHealthBarDisplay = SetMpGamerTagDisablePlayerHealthSync
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3158C77A7E888AB4)  
 ---Should be enabled as component (2). Has 0 alpha by default.
----@param gamerTagId number
----@param hudColorIndex number
+---@param gamerTagId integer
+---@param hudColorIndex integer
 function SetMpGamerTagHealthBarColour(gamerTagId, hudColorIndex) end
 
 ---@deprecated
@@ -3905,8 +3905,8 @@ SetMpGamerTagHealthBarColor = SetMpGamerTagHealthBarColour
 ---```
 ---displays wanted star above head  
 ---```
----@param gamerTagId number
----@param count number
+---@param gamerTagId integer
+---@param count integer
 function SetMpGamerTagMpBagLargeCount(gamerTagId, count) end
 
 ---@deprecated
@@ -3915,7 +3915,7 @@ SetMpGamerTagUnk = SetMpGamerTagMpBagLargeCount
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDEA2B8283BAA3944)  
 ---This native does not have an official description.
----@param gamerTagId number
+---@param gamerTagId integer
 ---@param string string
 function SetMpGamerTagName(gamerTagId, string) end
 
@@ -3923,9 +3923,9 @@ function SetMpGamerTagName(gamerTagId, string) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1563FE35E9928E67)  
 ---Manually sets the player health value for a gamer tag, using the maximum health to calculate what percentage of the bar should be filled.
 ---Has no effect unless [\_SET_MP_GAMER_TAG_DISABLE_PLAYER_HEALTH_SYNC](#\_0xD29EC58C2F6B5014) has been called prior to disable synchronisation with the attached ped.
----@param gamerTagId number
----@param health number
----@param maximumHealth number
+---@param gamerTagId integer
+---@param health integer
+---@param maximumHealth integer
 function SetMpGamerTagOverridePlayerHealth(gamerTagId, health, maximumHealth) end
 
 ---@deprecated
@@ -3935,7 +3935,7 @@ SetMpGamerHealthBarMax = SetMpGamerTagOverridePlayerHealth
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA67F9C46D612B6F1)  
 ---Sets the health bar of a gamer tag to show the health of the last (or current) vehicle of the ped the gamer tag is attached to.
 ---The vehicle health value is stored separate from the player health and using it won't clear any player health overrides.
----@param gamerTagId number
+---@param gamerTagId integer
 ---@param toggle boolean
 function SetMpGamerTagUseVehicleHealth(gamerTagId, toggle) end
 
@@ -3983,15 +3983,15 @@ SetMpGamerTagIcons = SetMpGamerTagUseVehicleHealth
 ---```
 ---NativeDB Added Parameter 4: Any p3
 ---```
----@param gamerTagId number
----@param component number
+---@param gamerTagId integer
+---@param component integer
 ---@param toggle boolean
 function SetMpGamerTagVisibility(gamerTagId, component, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEE76FF7E6A0166B0)  
 ---Sets the visibility of all components of the gamer tag to the specified value.
----@param gamerTagId number
+---@param gamerTagId integer
 ---@param toggle boolean
 function SetMpGamerTagVisibilityAll(gamerTagId, toggle) end
 
@@ -4007,8 +4007,8 @@ SetMpGamerTagEnabled = SetMpGamerTagVisibilityAll
 ---```
 ---displays wanted star above head  
 ---```
----@param gamerTagId number
----@param wantedlvl number
+---@param gamerTagId integer
+---@param wantedlvl integer
 function SetMpGamerTagWantedLevel(gamerTagId, wantedlvl) end
 
 ---**`HUD` `client`**  
@@ -4023,8 +4023,8 @@ function SetMultiplayerBankCash() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFD1D220394BCB824)  
 ---**This native does absolutely nothing, just a nullsub**
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 function SetMultiplayerHudCash(p0, p1) end
 
 ---**`HUD` `client`**  
@@ -4075,7 +4075,7 @@ function SetPauseMenuPedSleepState(state) end
 ---if "flag" is true, the AI blip will always be displayed for the specified ped, if it has an AI blip  
 ---If "flag" is false, the AI blip will only be displayed when the player is in combat with the specified ped, if it has an AI blip  
 ---```
----@param ped number
+---@param ped integer
 ---@param toggle boolean
 function SetPedAiBlipForcedOn(ped, toggle) end
 
@@ -4085,8 +4085,8 @@ IsAiBlipAlwaysShown = SetPedAiBlipForcedOn
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE52B8E7F85D39A08)  
 ---This native does not have an official description.
----@param ped number
----@param gangId number
+---@param ped integer
+---@param gangId integer
 function SetPedAiBlipGangId(ped, gangId) end
 
 ---@deprecated
@@ -4095,7 +4095,7 @@ SetAiBlipType = SetPedAiBlipGangId
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3EED80DFF7325CAA)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param toggle boolean
 function SetPedAiBlipHasCone(ped, toggle) end
 
@@ -4105,7 +4105,7 @@ HideSpecialAbilityLockonOperation = SetPedAiBlipHasCone
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x97C65887D4B37FA9)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param range number
 function SetPedAiBlipNoticeRange(ped, range) end
 
@@ -4115,8 +4115,8 @@ SetAiBlipMaxDistance = SetPedAiBlipNoticeRange
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFCFACD0DB9D7A57D)  
 ---This native does not have an official description.
----@param ped number
----@param spriteId number
+---@param ped integer
+---@param spriteId integer
 function SetPedAiBlipSprite(ped, spriteId) end
 
 ---**`HUD` `client`**  
@@ -4125,7 +4125,7 @@ function SetPedAiBlipSprite(ped, spriteId) end
 ---This native turns on the AI blip on the specified ped. It also disappears automatically when the ped is too far or if the ped is dead. You don't need to control it with other natives.
 ---See gtaforums.com/topic/884370-native-research-ai-blips for further information.
 ---```
----@param ped number
+---@param ped integer
 ---@param hasCone boolean
 function SetPedHasAiBlip(ped, hasCone) end
 
@@ -4137,9 +4137,9 @@ SetPedAiBlip = SetPedHasAiBlip
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB13DCB4C6FAAD238)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param hasCone boolean
----@param color number
+---@param color integer
 function SetPedHasAiBlipWithColor(ped, hasCone, color) end
 
 ---**`HUD` `client`**  
@@ -4182,11 +4182,11 @@ function SetRadarAsExteriorThisFrame() end
 ---List of interior hashes: pastebin.com/1FUyXNqY  
 ---Not for every interior zoom > 0 available.  
 ---```
----@param interior number | string
+---@param interior integer | string
 ---@param x number
 ---@param y number
----@param heading number
----@param zoom number
+---@param heading integer
+---@param zoom integer
 function SetRadarAsInteriorThisFrame(interior, x, y, heading, zoom) end
 
 ---**`HUD` `client`**  
@@ -4194,7 +4194,7 @@ function SetRadarAsInteriorThisFrame(interior, x, y, heading, zoom) end
 ---```
 ---zoomLevel ranges from 0 to 200  
 ---```
----@param zoomLevel number
+---@param zoomLevel integer
 function SetRadarZoom(zoomLevel) end
 
 ---**`HUD` `client`**  
@@ -4209,7 +4209,7 @@ RespondingAsTemp = SetRadarZoomPrecise
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF98E4B3E56AFC7B1)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param zoom number
 function SetRadarZoomToBlip(blip, zoom) end
 
@@ -4229,7 +4229,7 @@ SetRadarZoomLevelThisFrame = SetRadarZoomToDistance
 ---
 ---**Example result:**\
 ---![example-image](https://i.imgur.com/hS6ki7p.png)
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function SetRadiusBlipEdge(blip, toggle) end
 
@@ -4238,10 +4238,10 @@ function SetRadiusBlipEdge(blip, toggle) end
 ---```
 ---Sets the color of HUD_COLOUR_SCRIPT_VARIABLE_2
 ---```
----@param r number
----@param g number
----@param b number
----@param a number
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function SetScriptVariable_2HudColour(r, g, b, a) end
 
 ---**`HUD` `client`**  
@@ -4249,10 +4249,10 @@ function SetScriptVariable_2HudColour(r, g, b, a) end
 ---```
 ---Sets the color of HUD_COLOUR_SCRIPT_VARIABLE
 ---```
----@param r number
----@param g number
----@param b number
----@param a number
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function SetScriptVariableHudColour(r, g, b, a) end
 
 ---**`HUD` `client`**  
@@ -4278,21 +4278,21 @@ function SetTextCentre(align) end
 ---colors you input not same as you think?
 ---A: for some reason its R B G A
 ---```
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function SetTextColour(red, green, blue, alpha) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x465C84BC39F1C351)  
 ---distance - shadow distance in pixels, both horizontal and vertical
 ---r, g, b, a - color
----@param distance number
----@param r number
----@param g number
----@param b number
----@param a number
+---@param distance integer
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function SetTextDropshadow(distance, r, g, b, a) end
 
 ---**`HUD` `client`**  
@@ -4303,11 +4303,11 @@ function SetTextDropShadow() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x441603240D202FA6)  
 ---**This native does absolutely nothing, just a nullsub**
----@param p0 number
----@param r number
----@param g number
----@param b number
----@param a number
+---@param p0 integer
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function SetTextEdge(p0, r, g, b, a) end
 
 ---**`HUD` `client`**  
@@ -4315,7 +4315,7 @@ function SetTextEdge(p0, r, g, b, a) end
 ---```
 ---fonts that mess up your text where made for number values/misc stuff  
 ---```
----@param fontType number
+---@param fontType integer
 function SetTextFont(fontType) end
 
 ---**`HUD` `client`**  
@@ -4327,13 +4327,13 @@ function SetTextFont(fontType) end
 ---2: Right-Justify  
 ---Right-Justify requires SET_TEXT_WRAP, otherwise it will draw to the far right of the screen  
 ---```
----@param justifyType number
+---@param justifyType integer
 function SetTextJustification(justifyType) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA50ABC31E3CDFAFF)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function SetTextLeading(p0) end
 
 ---**`HUD` `client`**  
@@ -4350,7 +4350,7 @@ function SetTextProportional(p0) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F15302936E07111)  
 ---This native does not have an official description.
----@param renderId number
+---@param renderId integer
 function SetTextRenderId(renderId) end
 
 ---**`HUD` `client`**  
@@ -4478,14 +4478,14 @@ function SetUseWaypointAsDestination(toggle) end
 ---**Result of the example code:**
 ---<https://i.imgur.com/imwoimm.png>
 ---@param entryLine1 string
----@param instructionalKey number
+---@param instructionalKey integer
 ---@param entryLine2 string
 ---@param p3 boolean
----@param p4 number
+---@param p4 integer
 ---@param background string
 ---@param p6 string
 ---@param showBg boolean
----@param errorCode number
+---@param errorCode integer
 function SetWarningMessage(entryLine1, instructionalKey, entryLine2, p3, p4, background, p6, showBg, errorCode) end
 
 ---**`HUD` `client`**  
@@ -4493,12 +4493,12 @@ function SetWarningMessage(entryLine1, instructionalKey, entryLine2, p3, p4, bac
 ---```
 ---Param names copied from the corresponding scaleform function "SET_LIST_ROW"
 ---```
----@param index number
+---@param index integer
 ---@param name string
----@param cash number
----@param rp number
----@param lvl number
----@param colour number
+---@param cash integer
+---@param rp integer
+---@param lvl integer
+---@param colour integer
 ---@return boolean
 function SetWarningMessageListRow(index, name, cash, rp, lvl, colour) end
 
@@ -4554,16 +4554,16 @@ function SetWarningMessageListRow(index, name, cash, rp, lvl, colour) end
 ---**Result of the example code:** <https://i.imgur.com/TvmNF4k.png>
 ---@param labelTitle string
 ---@param labelMsg string
----@param p2 number
----@param p3 number
+---@param p2 integer
+---@param p3 integer
 ---@param labelMsg2 string
 ---@param p5 boolean
----@param p6 number
----@param p7 number
+---@param p6 integer
+---@param p7 integer
 ---@param p8 string
 ---@param p9 string
 ---@param background boolean
----@param errorCode number
+---@param errorCode integer
 function SetWarningMessageWithAlert(labelTitle, labelMsg, p2, p3, labelMsg2, p5, p6, p7, p8, p9, background, errorCode) end
 
 ---@deprecated
@@ -4585,7 +4585,7 @@ DrawFrontendAlert = SetWarningMessageWithAlert
 ---```
 ---@param titleMsg string
 ---@param entryLine1 string
----@param flags number
+---@param flags integer
 ---@param promptMsg string
 ---@param p4 boolean
 ---@param p5 any
@@ -4627,7 +4627,7 @@ SetWarningMessage_3 = SetWarningMessageWithHeaderAndSubstringFlags
 ---```
 ---@param entryHeader string
 ---@param entryLine1 string
----@param flags number
+---@param flags integer
 ---@param entryLine2 string
 ---@param p4 boolean
 ---@param p5 any
@@ -4663,7 +4663,7 @@ function SetWidescreenFormat(p0) end
 ---
 ---Example code result:
 ---![](https://i.imgur.com/iZ9tNWl.png)
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function ShowCrewIndicatorOnBlip(blip, toggle) end
 
@@ -4675,7 +4675,7 @@ SetBlipCrew = ShowCrewIndicatorOnBlip
 ---Highlights a blip by a half cyan circle on the right side of the blip. ![](https://i.imgur.com/FrV9M4e.png) Indicating that that player is a friend (in GTA:O). This color can not be changed.
 ---
 ---To toggle the left side (crew member indicator) of the half circle around the blip, use: [`SHOW_CREW_INDICATOR_ON_BLIP`](#\_0xDCFB5D4DB8BF367E).
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function ShowFriendIndicatorOnBlip(blip, toggle) end
 
@@ -4692,7 +4692,7 @@ SetBlipFriend = ShowFriendIndicatorOnBlip
 ---```
 ---NativeDB Introduced: v2699
 ---```
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function ShowHasCompletedIndicatorOnBlip(blip, toggle) end
 
@@ -4701,14 +4701,14 @@ function ShowHasCompletedIndicatorOnBlip(blip, toggle) end
 ---```
 ---Adds the GTA: Online player heading indicator to a blip.  
 ---```
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function ShowHeadingIndicatorOnBlip(blip, toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x75A16C3DA34F1245)  
 ---This native does not have an official description.
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function ShowHeightOnBlip(blip, toggle) end
 
@@ -4742,14 +4742,14 @@ function ShowHeightOnBlip(blip, toggle) end
 ---*   22 : HUD_WEAPONS
 ---
 ---These integers also work for the [`HIDE_HUD_COMPONENT_THIS_FRAME`](#\_0x6806C51AD12B83B8) native, but instead hides the HUD component.
----@param id number
+---@param id integer
 function ShowHudComponentThisFrame(id) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA3C0B359DCB848B6)  
 ---This native does not have an official description.
----@param blip number
----@param number number
+---@param blip integer
+---@param number integer
 function ShowNumberOnBlip(blip, number) end
 
 ---**`HUD` `client`**  
@@ -4757,7 +4757,7 @@ function ShowNumberOnBlip(blip, number) end
 ---Toggles a cyan outline around the blip.
 ---
 ---Color can be changed with [`SET_BLIP_SECONDARY_COLOUR`](#\_0x14892474891E09EB). Enabling this circle will override the "crew" and "friend" half-circles (see [`SHOW_CREW_INDICATOR_ON_BLIP`](#\_0xDCFB5D4DB8BF367E) and [`SHOW_FRIEND_INDICATOR_ON_BLIP`](#\_0x23C3EB807312F01A)).
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function ShowOutlineIndicatorOnBlip(blip, toggle) end
 
@@ -4771,7 +4771,7 @@ SetBlipFriendly = ShowOutlineIndicatorOnBlip
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param id number
+---@param id integer
 function ShowScriptedHudComponentThisFrame(id) end
 
 ---**`HUD` `client`**  
@@ -4790,7 +4790,7 @@ function ShowStartMissionInstructionalButton(p0) end
 ---```
 ---Adds a green checkmark on top of a blip.  
 ---```
----@param blip number
+---@param blip integer
 ---@param toggle boolean
 function ShowTickOnBlip(blip, toggle) end
 
@@ -4806,7 +4806,7 @@ SetBlipChecked = ShowTickOnBlip
 ---**Example result:**
 ---
 ---![](https://i.imgur.com/BDm5pzt.png)
----@param hudColor number
+---@param hudColor integer
 ---@param displayOnFoot boolean
 ---@param followPlayer boolean
 function StartGpsCustomRoute(hudColor, displayOnFoot, followPlayer) end
@@ -4822,7 +4822,7 @@ function StartGpsCustomRoute(hudColor, displayOnFoot, followPlayer) end
 ---**Example result:**
 ---
 ---![](https://i.imgur.com/ZZHQatX.png)
----@param hudColor number
+---@param hudColor integer
 ---@param routeFromPlayer boolean
 ---@param displayOnFoot boolean
 function StartGpsMultiRoute(hudColor, routeFromPlayer, displayOnFoot) end
@@ -4913,7 +4913,7 @@ ThefeedSetNextPostPersistent = ThefeedFreezeNextPost
 ---```
 ---Returns the handle for the notification currently displayed on the screen. Name may be a hash collision, but describes the function accurately.
 ---```
----@return number
+---@return integer
 function ThefeedGetFirstVisibleDeleteRemaining() end
 
 ---@deprecated
@@ -4951,7 +4951,7 @@ function ThefeedPause() end
 ---```
 ---Removes a notification instantly instead of waiting for it to disappear  
 ---```
----@param notificationId number
+---@param notificationId integer
 function ThefeedRemoveItem(notificationId) end
 
 ---@deprecated
@@ -4973,10 +4973,10 @@ function ThefeedResume() end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x17430B918701C342)  
 ---This native does not have an official description.
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function ThefeedSetAnimpostfxColor(red, green, blue, alpha) end
 
 ---@deprecated
@@ -4985,7 +4985,7 @@ SetNotificationFlashColor = ThefeedSetAnimpostfxColor
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x17AD8C9706BDD88A)  
 ---Related to notification color flashing, setting p0 to 0 invalidates a `_SET_NOTIFICATION_FLASH_COLOR` call for the target notification.
----@param count number
+---@param count integer
 function ThefeedSetAnimpostfxCount(count) end
 
 ---**`HUD` `client`**  
@@ -5017,7 +5017,7 @@ function ThefeedSetFlushAnimpostfx(toggle) end
 ---190 = yellow
 ---Here is a list of some colors that can be used: gyazo.com/68bd384455fceb0a85a8729e48216e15
 ---```
----@param hudColorIndex number
+---@param hudColorIndex integer
 function ThefeedSetNextPostBackgroundColor(hudColorIndex) end
 
 ---@deprecated
@@ -5079,7 +5079,7 @@ function ToggleStealthRadar(toggle) end
 ---@param posY number
 ---@param posZ number
 ---@param radius number
----@param p4 number
+---@param p4 integer
 function TriggerSonarBlip(posX, posY, posZ, radius, p4) end
 
 ---**`HUD` `client`**  

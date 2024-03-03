@@ -50,7 +50,7 @@ IsInLoadingScreen = LoadingscreenSetLoadFreemodeWithEventName
 ---**`LOADINGSCREEN` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF2CA003F167E21D2)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function N_0xf2ca003f167e21d2() end
 
 ---@deprecated

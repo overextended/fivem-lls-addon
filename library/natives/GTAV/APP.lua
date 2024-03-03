@@ -31,7 +31,7 @@ function AppDeleteAppData(appName) end
 ---**`APP` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC9853A2BE3DED1A6)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function AppGetDeletedFileStatus() end
 
 ---**`APP` `client`**  
@@ -45,7 +45,7 @@ function AppGetFloat(property) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD3A58A12C77D9D4B)  
 ---This native does not have an official description.
 ---@param property string
----@return number
+---@return integer
 function AppGetInt(property) end
 
 ---**`APP` `client`**  
@@ -100,7 +100,7 @@ function AppSetFloat(property, value) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x607E8E3D3E4F9611)  
 ---This native does not have an official description.
 ---@param property string
----@param value number
+---@param value integer
 function AppSetInt(property, value) end
 
 ---**`APP` `client`**  

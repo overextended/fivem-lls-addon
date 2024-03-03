@@ -4,20 +4,20 @@
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x933E5D31A7D13069)  
 ---This native does not have an official description.
 ---@param p0 any
----@param ped number
+---@param ped integer
 function AddPedToFlock(p0, ped) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCB4EF7EDAE2E16F1)  
 ---This native does not have an official description.
----@return any
+---@return integer
 function CreateHerd() end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3B005FF0538ED2A9)  
 ---Ped (horse) will run away from players and mounting will trigger them to buck until disabled.
 ---Used for: REL_DOMESTICATED_ANIMAL
----@param ped number
+---@param ped integer
 ---@return boolean
 function GetAnimalIsWild(ped) end
 
@@ -30,16 +30,16 @@ function GetAnimalIsWild(ped) end
 ---	ARL_LEGENDARY,
 ---	ARL_NUMRARITYLEVELS
 ---};
----@param ped number
----@return number
+---@param ped integer
+---@return integer
 function GetAnimalRarity(ped) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1C1993824A396603)  
 ---index: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/eAnimalTuningBools
 ---https://github.com/femga/rdr3_discoveries/tree/master/AI/ANIMAL_TUNING_BOOL_PARAMS
----@param animal number
----@param index number
+---@param animal integer
+---@param index integer
 ---@return boolean
 function GetAnimalTuningBoolParam(animal, index) end
 
@@ -47,24 +47,24 @@ function GetAnimalTuningBoolParam(animal, index) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4BC3ECFDA0297E27)  
 ---index: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/eAnimalTuningFloats
 ---https://github.com/femga/rdr3_discoveries/tree/master/AI/ANIMAL_TUNING_FLOAT_PARAMS
----@param animal number
----@param index number
+---@param animal integer
+---@param index integer
 ---@return number
 function GetAnimalTuningFloatParam(animal, index) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE108489621422F91)  
 ---This native does not have an official description.
----@param p0 number | string
----@param p1 number
----@param p2 number
+---@param p0 integer | string
+---@param p1 integer
+---@param p2 integer
 ---@return number
 function GetSpeciesTuningFloatParam(p0, p1, p2) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8D913E493BAFE0A3)  
 ---This native does not have an official description.
----@param herdHandle any
+---@param herdHandle integer
 ---@return boolean
 function IsHerdValid(herdHandle) end
 
@@ -279,7 +279,7 @@ function N_0xe93415b3307208e5(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF2CCA7B68CFAB2B9)  
 ---species: SPECIES_BIRD_CROW
----@param species number | string
+---@param species integer | string
 ---@param x1 number
 ---@param y1 number
 ---@param z1 number
@@ -327,62 +327,62 @@ function N_0xff1e339ce40eaaaf(p0, p1) end
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x96AA1304D30E6BC3)  
 ---This native does not have an official description.
----@param animal number
----@param index number
+---@param animal integer
+---@param index integer
 function ResetAnimalTuningBoolParam(animal, index) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE776A195488FC520)  
 ---This native does not have an official description.
----@param animal number
----@param index number
+---@param animal integer
+---@param index integer
 function ResetAnimalTuningFloatParam(animal, index) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAEB97D84CDF3C00B)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param toggle boolean
 function SetAnimalIsWild(ped, toggle) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8B6F0F59B1B99801)  
 ---rarityLevel: see _GET_ANIMAL_RARITY
----@param ped number
----@param rarityLevel number
+---@param ped integer
+---@param rarityLevel integer
 function SetAnimalRarity(ped, rarityLevel) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9FF1E042FA597187)  
 ---This native does not have an official description.
----@param animal number
----@param index number
+---@param animal integer
+---@param index integer
 ---@param value boolean
 function SetAnimalTuningBoolParam(animal, index, value) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCBDA22C87977244F)  
 ---This native does not have an official description.
----@param animal number
----@param index number
+---@param animal integer
+---@param index integer
 ---@param value number
 function SetAnimalTuningFloatParam(animal, index, value) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6D1D94C2459B42EE)  
 ---This native does not have an official description.
----@param p0 number | string
----@param p1 number
----@param p2 number
+---@param p0 integer | string
+---@param p1 integer
+---@param p2 integer
 ---@param p3 boolean
 function SetSpeciesTuningBoolParam(p0, p1, p2, p3) end
 
 ---**`FLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x963240B6C252BA49)  
 ---This native does not have an official description.
----@param p0 number | string
----@param p1 number
----@param p2 number
+---@param p0 integer | string
+---@param p1 integer
+---@param p2 integer
 ---@param p3 number
 function SetSpeciesTuningFloatParam(p0, p1, p2, p3) end
 

@@ -5,32 +5,32 @@
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
----@param slotId number | string
+---@param slotId integer | string
 ---@return boolean
 function ItemdatabaseCanEquipItemOnCategory(p0, p1, slotId) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x71EFA7999AE79408)  
 ---Returns collectionId to be used with 0x8750F69A720C2E41 (p0) and 0xCBB7B6EDFA933ADE (p0)
----@param comparisonType number
----@return number, any, number
+---@param comparisonType integer
+---@return integer, any, integer
 function ItemdatabaseCreateItemCollection(comparisonType) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x99C6EA66DFE73757)  
 ---Params: tag = TAG_ITEM_PROPERTY (tagType(?))
----@param bundle number | string
----@param tag number | string
----@param tagType number | string
+---@param bundle integer | string
+---@param tag integer | string
+---@param tagType integer | string
 ---@return boolean
 function ItemdatabaseDoesBundleHaveTag(bundle, tag, tagType) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFF5FB5605AD56856)  
 ---This native does not have an official description.
----@param item number | string
----@param tag number | string
----@param tagType number | string
+---@param item integer | string
+---@param tag integer | string
+---@param tagType integer | string
 ---@return boolean
 function ItemdatabaseDoesItemHaveTag(item, tag, tagType) end
 
@@ -46,9 +46,9 @@ function ItemdatabaseFilloutAcquireCost(p0, p1, p2) end
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x121D2005DD64496B)  
 ---This native does not have an official description.
----@param award number | string
----@param index number
----@return boolean, number
+---@param award integer | string
+---@param index integer
+---@return boolean, integer
 function ItemdatabaseFilloutAwardItemInfo(award, index) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -74,9 +74,9 @@ function ItemdatabaseFilloutBuyAwardAcquireCosts(p0, p1, p2, p3) end
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAD73B614DF26CF8A)  
 ---This native does not have an official description.
----@param p0 number | string
----@param costShop number | string
----@param fillOutIndex number
+---@param p0 integer | string
+---@param costShop integer | string
+---@param fillOutIndex integer
 ---@param p3 any
 ---@return boolean
 function ItemdatabaseFilloutItem(p0, costShop, fillOutIndex, p3) end
@@ -109,7 +109,7 @@ function ItemdatabaseFilloutItemEffectIds(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFE90ABBCBFDC13B2)  
 ---p0 can be a weapon hash, component item
 ---p1 is a struct containing WEAPON_MOD and WEAPON_DECORATION
----@param p0 number | string
+---@param p0 integer | string
 ---@return boolean, any
 function ItemdatabaseFilloutItemInfo(p0) end
 
@@ -178,14 +178,14 @@ function ItemdatabaseGetAcquireCost(p0, p1, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x01FDDAD392D04144)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseGetAcquireCostsCount(p0) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x12DF9C58201DD19A)  
 ---_ITEMDATABASE_GET_(A)* - _ITEMDATABASE_GET_(B)*
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseGetAwardAcquireCostType(p0) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -199,15 +199,15 @@ function ItemdatabaseGetAwardCostModifiers(p0, p1) end
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3FAA928A79591761)  
 ---Returns iAwardItemCount
----@param award number | string
----@return number
+---@param award integer | string
+---@return integer
 function ItemdatabaseGetAwardItemCount(award) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x891A45960B6B768A)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseGetBundleId(p0) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -215,7 +215,7 @@ function ItemdatabaseGetBundleId(p0) end
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
----@return number
+---@return integer
 function ItemdatabaseGetBundleItemCount(p0, p1) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -232,23 +232,23 @@ function ItemdatabaseGetBundleItemInfo(p0, p1, p2, p3) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD389A2549C4EFB30)  
 ---Returns (collection?) size/index (?)
 ---_ITEMDATABASE_GET_(A)* - _ITEMDATABASE_GET_(B)*
----@param collectionId number
----@return number
+---@param collectionId integer
+---@return integer
 function ItemdatabaseGetCollectionSize(collectionId) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8750F69A720C2E41)  
 ---Params: p2 can be a component item hash
----@param collectionId number
----@param index number
----@return boolean, number
+---@param collectionId integer
+---@param index integer
+---@return boolean, integer
 function ItemdatabaseGetComponentItem(collectionId, index) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2970D1D6BFCF9B46)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseGetFitsSlotCount(p0) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -264,7 +264,7 @@ function ItemdatabaseGetFitsSlotInfo(p0, p1, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x44915068579D7710)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseGetHasSlotCount(p0) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -279,9 +279,9 @@ function ItemdatabaseGetHasSlotInfo(p0, p1, p2) end
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF4452CE83118C738)  
 ---This native does not have an official description.
----@param item number
----@param p1 number
----@return number
+---@param item integer
+---@param p1 integer
+---@return integer
 function ItemdatabaseGetItemPathset(item, p1) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -295,9 +295,9 @@ function ItemdatabaseGetItemPriceModifiers(p0, p1) end
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6111B8F9413F413A)  
 ---This native does not have an official description.
----@param item number | string
----@param tag number | string
----@return number
+---@param item integer | string
+---@param tag integer | string
+---@return integer
 function ItemdatabaseGetItemTagType(item, tag) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -305,27 +305,27 @@ function ItemdatabaseGetItemTagType(item, tag) end
 ---Returns an alternative cost hash to COST_SHOP_DEFAULT
 ---@param p0 any
 ---@param p1 any
----@return number
+---@return integer
 function ItemdatabaseGetModifiedPrice(p0, p1) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5AAAF40E9B224F5E)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseGetNumberOfModifiedPrices(p0) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1289D8315235856D)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseGetNumberOfModifiers(p0) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEF254F1A4C08B7E6)  
 ---_ITEMDATABASE_GET_* - _ITEMDATABASE_IS_*
----@param award number | string
+---@param award integer | string
 ---@return boolean
 function ItemdatabaseGetPriorityAccessAward(award) end
 
@@ -351,7 +351,7 @@ function ItemdatabaseGetShopInventoriesItemInfoByKey(p0, p1, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC568B1A0F17C7025)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseGetShopInventoriesItemsCount(p0) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -497,7 +497,7 @@ function ItemdatabaseIsShopLayoutKeyValid(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCEC6A41E8910486A)  
 ---Returns docData.iNumTotalLabelTypes
 ---@param p0 any
----@return number
+---@return integer
 function ItemdatabaseLocalizationGetNumLabelTypes(p0) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -505,7 +505,7 @@ function ItemdatabaseLocalizationGetNumLabelTypes(p0) end
 ---Returns iNumValuesForType
 ---@param p0 any
 ---@param p1 any
----@return number
+---@return integer
 function ItemdatabaseLocalizationGetNumValues(p0, p1) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -520,15 +520,15 @@ function ItemdatabaseLocalizationGetType(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9AE5610FDCED6EA7)  
 ---This native does not have an official description.
 ---@param p0 any
----@param label number | string
+---@param label integer | string
 ---@param p2 any
----@return number
+---@return integer
 function ItemdatabaseLocalizationGetValue(p0, label, p2) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCBB7B6EDFA933ADE)  
 ---This native does not have an official description.
----@param collectionId number
+---@param collectionId integer
 ---@return boolean
 function ItemdatabaseReleaseItemCollection(collectionId) end
 
@@ -545,7 +545,7 @@ function N_0x17721003a66c72bf(p0, p1, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1FC25AEB5F76B38D)  
 ---_ITEMDATABASE_GET_(A)* - _ITEMDATABASE_GET_(B)*
 ---@param p0 any
----@param index number
+---@param index integer
 ---@return boolean, any
 function N_0x1fc25aeb5f76b38d(p0, index) end
 
@@ -554,7 +554,7 @@ function N_0x1fc25aeb5f76b38d(p0, index) end
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
----@return number
+---@return integer
 function N_0x388088bff3681189(p0, p1) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -569,14 +569,14 @@ function N_0x3a0b667abff87f6e(p0, p1, p2) end
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x48229CE0C7938237)  
 ---_ITEMDATABASE_GET_(A)* - _ITEMDATABASE_GET_(B)*
----@param award number | string
----@return number
+---@param award integer | string
+---@return integer
 function N_0x48229ce0c7938237(award) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x537A0555F62CA01A)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 ---@param p1 any
 ---@return boolean
 function N_0x537a0555f62ca01a(p0, p1) end
@@ -594,29 +594,29 @@ function N_0x74c3b1093728d263(p0, p1) end
 ---Returns Item Count
 ---@param bundle any
 ---@param p1 any
----@return number
+---@return integer
 function N_0x799fcd53358ed5fa(bundle, p1) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7A35A72A692BE9DB)  
 ---This native does not have an official description.
 ---@param p0 any
----@return number
+---@return integer
 function N_0x7a35a72a692be9db(p0) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8870895BA5ED9385)  
 ---This native does not have an official description.
 ---@param p0 any
----@param tagType number | string
+---@param tagType integer | string
 ---@param p2 any
----@return number
+---@return integer
 function N_0x8870895ba5ed9385(p0, tagType, p2) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8D029948CA29409B)  
 ---_ITEMDATABASE_FILLOUT_(A)* - _ITEMDATABASE_FILLOUT_(B)*
----@param award number | string
+---@param award integer | string
 ---@param p1 any
 ---@param p2 any
 ---@return boolean
@@ -634,8 +634,8 @@ function N_0xa97ee5e4589fcf5a(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAA29A5F13B2C20B2)  
 ---Returns Pathset Hash
 ---@param p0 any
----@param p1 number | string
----@return number
+---@param p1 integer | string
+---@return integer
 function N_0xaa29a5f13b2c20b2(p0, p1) end
 
 ---**`ITEMDATABASE` `client`**  
@@ -643,7 +643,7 @@ function N_0xaa29a5f13b2c20b2(p0, p1) end
 ---This native does not have an official description.
 ---@param bundle any
 ---@param p1 any
----@param index number
+---@param index integer
 ---@param p3 any
 ---@return boolean
 function N_0xc4146375d8a0b374(bundle, p1, index, p3) end
@@ -660,7 +660,7 @@ function N_0xd076db9b96faadf1(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDBEADA0DF5F9AB9F)  
 ---This native does not have an official description.
 ---@param p0 any
----@param index number
+---@param index integer
 ---@param menuKey any
 ---@return boolean
 function N_0xdbeada0df5f9ab9f(p0, index, menuKey) end
@@ -669,17 +669,17 @@ function N_0xdbeada0df5f9ab9f(p0, index, menuKey) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDEE7B3C76ED664BE)  
 ---Returns fillOutIndex (?)
 ---_ITEMDATABASE_GET_(A)* - _ITEMDATABASE_GET_(B)*
----@param p0 number | string
----@param costShop number | string
----@return number
+---@param p0 integer | string
+---@param costShop integer | string
+---@return integer
 function N_0xdee7b3c76ed664be(p0, costShop) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF27F01BBF5ACD3F3)  
 ---_ITEMDATABASE_FILLOUT_(A)* - _ITEMDATABASE_FILLOUT_(B)*
 ---@param award any
----@param cost number | string
----@param index number
+---@param cost integer | string
+---@param index integer
 ---@param p3 any
 ---@return boolean
 function N_0xf27f01bbf5acd3f3(award, cost, index, p3) end
@@ -689,8 +689,8 @@ function N_0xf27f01bbf5acd3f3(award, cost, index, p3) end
 ---Returns itemCount (?)
 ---_ITEMDATABASE_GET_(A)* - _ITEMDATABASE_GET_(B)*
 ---@param award any
----@param cost number | string
----@return number
+---@param cost integer | string
+---@return integer
 function N_0xf540239f9937033b(award, cost) end
 
 ---**`ITEMDATABASE` `client`**  

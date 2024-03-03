@@ -3,15 +3,15 @@
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE555EC27D65EDE80)  
 ---This native does not have an official description.
----@param appNameHash number | string
+---@param appNameHash integer | string
 ---@return boolean
 function CanLaunchUiappByHash(appNameHash) end
 
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x16F47D434B6086BF)  
 ---This native does not have an official description.
----@param appNameHash number | string
----@param entryHash number | string
+---@param appNameHash integer | string
+---@param entryHash integer | string
 ---@return boolean
 function CanLaunchUiappByHashWithEntry(appNameHash, entryHash) end
 
@@ -34,13 +34,13 @@ function CloseUiapp(appName) end
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2FF10C9C3F92277E)  
 ---This native does not have an official description.
----@param appNameHash number | string
+---@param appNameHash integer | string
 function CloseUiappByHash(appNameHash) end
 
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x04428420A248A354)  
 ---This native does not have an official description.
----@param appNameHash number | string
+---@param appNameHash integer | string
 function CloseUiappByHashImmediate(appNameHash) end
 
 ---**`UIAPPS` `client`**  
@@ -52,8 +52,8 @@ function CloseUiappImmediate(appName) end
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x96FD694FE5BE55DC)  
 ---This native does not have an official description.
----@param appNameHash number | string
----@return number
+---@param appNameHash integer | string
+---@return integer
 function GetUiappCurrentActivityByHash(appNameHash) end
 
 ---**`UIAPPS` `client`**  
@@ -71,7 +71,7 @@ function IsAnyUiappRunning() end
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x25B7A0206BDFAC76)  
 ---This native does not have an official description.
----@param appNameHash number | string
+---@param appNameHash integer | string
 ---@return boolean
 function IsUiappActiveByHash(appNameHash) end
 
@@ -85,30 +85,30 @@ function IsUiappRunning(appName) end
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4E511D093A86AD49)  
 ---This native does not have an official description.
----@param appNameHash number | string
+---@param appNameHash integer | string
 ---@return boolean
 function IsUiappRunningByHash(appNameHash) end
 
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x42095B886D30DE66)  
 ---This native does not have an official description.
----@param appNameHash number | string
+---@param appNameHash integer | string
 ---@return boolean
 function IsUiappTransitioningByHash(appNameHash) end
 
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC8FC7F4E4CF4F581)  
 ---This native does not have an official description.
----@param appNameHash number | string
----@return number
+---@param appNameHash integer | string
+---@return integer
 function LaunchUiappByHash(appNameHash) end
 
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC1BCF31E975B3195)  
 ---This native does not have an official description.
----@param appNameHash number | string
----@param entryHash number | string
----@return number
+---@param appNameHash integer | string
+---@param entryHash integer | string
+---@return integer
 function LaunchUiappByHashWithEntry(appNameHash, entryHash) end
 
 ---**`UIAPPS` `client`**  
@@ -116,14 +116,14 @@ function LaunchUiappByHashWithEntry(appNameHash, entryHash) end
 ---This native does not have an official description.
 ---@param appName string
 ---@param entry string
----@return number
+---@return integer
 function LaunchUiappWithEntry(appName, entry) end
 
 ---**`UIAPPS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7689CD255655BFD7)  
 ---This native does not have an official description.
----@param appNameHash number | string
----@param transitionHash number | string
+---@param appNameHash integer | string
+---@param transitionHash integer | string
 ---@return boolean
 function RequestUiappTransitionByHash(appNameHash, transitionHash) end
 

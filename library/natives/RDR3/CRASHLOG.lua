@@ -77,7 +77,7 @@ function N_0xda05310ea94dc8c6(p0, p1) end
 ---**`CRASHLOG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE72E234B30DA7B7A)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function N_0xe72e234b30da7b7a(p0) end
 

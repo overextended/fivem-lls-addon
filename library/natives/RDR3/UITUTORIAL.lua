@@ -37,7 +37,7 @@ function UitutorialGetIsThreatIndicatorOn() end
 ---	ICON_VISIBILITY_ALWAYS_HIDE,
 ---	ICON_VISIBILITY_ALWAYS_BLINK
 ---};
----@param rpgIcon number
----@param visibility number
+---@param rpgIcon integer
+---@param visibility integer
 function UitutorialSetRpgIconVisibility(rpgIcon, visibility) end
 

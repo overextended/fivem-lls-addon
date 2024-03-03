@@ -3,7 +3,7 @@
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x608AD36A644A97FE)  
 ---Models used in the scripts: P_REGISTER05X, P_REGISTER06X, P_REGISTER03X, PLAYER_ZERO, PLAYER_THREE, A_C_HORSE_MORGAN_FLAXENCHESTNUT
----@param model number | string
+---@param model integer | string
 ---@param p1 boolean
 ---@param p2 boolean
 function AddModelToEventMonitor(model, p1, p2) end
@@ -12,7 +12,7 @@ function AddModelToEventMonitor(model, p1, p2) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD9F8455409B525E9)  
 ---eventType: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
 ---https://github.com/femga/rdr3_discoveries/blob/master/AI/EVENTS
----@param eventType number | string
+---@param eventType integer | string
 ---@param x number
 ---@param y number
 ---@param z number
@@ -21,16 +21,16 @@ function AddModelToEventMonitor(model, p1, p2) end
 ---@param p6 number
 ---@param p7 number
 ---@param p8 number
----@param p9 number
----@param p10 number
----@return any
+---@param p9 integer
+---@param p10 integer
+---@return integer
 function AddShockingEventAtPosition(eventType, x, y, z, p4, p5, p6, p7, p8, p9, p10) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7FD8F3BE76F89422)  
 ---eventType: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
----@param eventType number | string
----@param entity number
+---@param eventType integer | string
+---@param entity integer
 ---@param p2 number
 ---@param p3 number
 ---@param p4 number
@@ -39,74 +39,74 @@ function AddShockingEventAtPosition(eventType, x, y, z, p4, p5, p6, p7, p8, p9, 
 ---@param p7 number
 ---@param p8 boolean
 ---@param p9 boolean
----@param p10 number
----@param p11 number
----@return any
+---@param p10 integer
+---@param p11 integer
+---@return integer
 function AddShockingEventForEntity(eventType, entity, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCA1315C33B9A2847)  
 ---This native does not have an official description.
----@return any, any
+---@return integer, any
 function CreateShockingEvent() end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAD8F2424C6E1E3A8)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 function EventFlushAllEventTrackers(ped) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x796EECFF0C6D39BE)  
 ---Returns eventType
----@param entity number
----@param p1 number
----@param p2 number
----@return number
+---@param entity integer
+---@param p1 integer
+---@param p2 integer
+---@return integer
 function EventGetRecentEvent(entity, p1, p2) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x822A001BCEA5BD81)  
 ---This native does not have an official description.
----@param entity number
----@param eventType number | string
----@param p2 number
----@param p3 number
----@return number
+---@param entity integer
+---@param eventType integer | string
+---@param p2 integer
+---@param p3 integer
+---@return integer
 function EventGetSourceEntityFromEvent(entity, eventType, p2, p3) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x38497F139981C5C9)  
 ---This native does not have an official description.
----@param entity number
----@param eventType number | string
----@param p2 number
----@param p3 number
----@return number
+---@param entity integer
+---@param eventType integer | string
+---@param p2 integer
+---@param p3 integer
+---@return integer
 function EventGetTargetEntityFromEvent(entity, eventType, p2, p3) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC6A7DC546E94FED5)  
 ---This native does not have an official description.
----@param entity number
----@param eventType number | string
----@param p2 number
----@param p3 number
----@return number
+---@param entity integer
+---@param eventType integer | string
+---@param p2 integer
+---@param p3 integer
+---@return integer
 function EventGetTimeSinceEvent(entity, eventType, p2, p3) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x797B3D4D92E56094)  
 ---This native does not have an official description.
 ---@param eventName string
----@param shockingEvent number | string
+---@param shockingEvent integer | string
 ---@return boolean
 function IsEventTrackerActive(eventName, shockingEvent) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9DB47E16060D6354)  
 ---eventType: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
----@param eventType number | string
+---@param eventType integer | string
 ---@param x number
 ---@param y number
 ---@param z number
@@ -117,7 +117,7 @@ function IsShockingEventInSphere(eventType, x, y, z, radius) end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x18E93EBFC1FCFA48)  
 ---Only used in R* SP Script beat_rat_infestation and homeinvasion
----@param volume any
+---@param volume integer
 ---@param p1 boolean
 ---@param p2 boolean
 ---@return any
@@ -126,28 +126,28 @@ function N_0x18e93ebfc1fcfa48(volume, p1, p2) end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1A5C5D350068A673)  
 ---AGGRO_CHECK_PROPERTY_DAMAGE: Property damage found with event
----@param ped number
----@param p1 number
+---@param ped integer
+---@param p1 integer
 function N_0x1a5c5d350068a673(ped, p1) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1D1B448D719415AB)  
 ---_GET*
----@param ped number
+---@param ped integer
 ---@return any
 function N_0x1d1b448d719415ab(ped) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x26054EB81AC0893B)  
 ---This native does not have an official description.
----@param object number
+---@param object integer
 ---@return boolean
 function N_0x26054eb81ac0893b(object) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2DD42FAD06E6F19E)  
 ---This native does not have an official description.
----@param object number
+---@param object integer
 ---@param p1 boolean
 ---@param p2 boolean
 ---@return any
@@ -156,15 +156,15 @@ function N_0x2dd42fad06e6f19e(object, p1, p2) end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x36D0F2BA2C0D9BDE)  
 ---_ADD* (_ADD_SHOCKING_EVENT_* ?)
----@param entity number
----@param p1 number
+---@param entity integer
+---@param p1 integer
 ---@return any
 function N_0x36d0f2ba2c0d9bde(entity, p1) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4465C3D1475BD3FD)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 function N_0x4465c3d1475bd3fd(model) end
 
 ---**`EVENT` `client`**  
@@ -186,40 +186,40 @@ function N_0x56b3410626a473e7(p0) end
 ---Only used in R* SP Scripts
 ---Hash only used in R* Script mob3.ysc: ROBBERY
 ---_ADD_PED*
----@param ped1 number
----@param ped2 number
----@param p2 number
----@param p3 number | string
+---@param ped1 integer
+---@param ped2 integer
+---@param p2 integer
+---@param p3 integer | string
 function N_0x7c511e91738a0828(ped1, ped2, p2, p3) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x83D43F0FD5276E4D)  
 ---_GET*
----@param entity number
----@param p1 number
+---@param entity integer
+---@param p1 integer
 ---@return any
 function N_0x83d43f0fd5276e4d(entity, p1) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9520175B35E2268D)  
 ---_SET_P*
----@param ped number
+---@param ped integer
 ---@param p1 boolean
 function N_0x9520175b35e2268d(ped, p1) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA86B0EE9B39D15D6)  
 ---This native does not have an official description.
----@param object number
+---@param object integer
 function N_0xa86b0ee9b39d15d6(object) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAD17A18215DD23D6)  
 ---Might return time since some (?) event.
----@param entity number
----@param p1 number
----@param p2 number
----@return number
+---@param entity integer
+---@param p1 integer
+---@param p2 integer
+---@return integer
 function N_0xad17a18215dd23d6(entity, p1, p2) end
 
 ---**`EVENT` `client`**  
@@ -230,9 +230,9 @@ function N_0xb6f4825153920582() end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE28D7FC9FD32ABEB)  
 ---HAS_ACTOR_RECEIVED_TRACKED_EVENT_THAT_SHOULD_ALERT - iTimeSinceEvent >= iTimeLimitMS
----@param entity number
----@param eventType number | string
----@param p2 number
+---@param entity integer
+---@param eventType integer | string
+---@param p2 integer
 function N_0xe28d7fc9fd32abeb(entity, eventType, p2) end
 
 ---**`EVENT` `client`**  
@@ -259,14 +259,14 @@ function RemoveAllShockingEventsInArea(x, y, z, radius, p4) end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x118873DD538490B4)  
 ---eventType: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
----@param eventType number | string
+---@param eventType integer | string
 ---@param p1 boolean
 function RemoveAllShockingEventsOfType(eventType, p1) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6A648D42BF271DC7)  
 ---eventType: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
----@param eventType number | string
+---@param eventType integer | string
 ---@param x number
 ---@param y number
 ---@param z number
@@ -277,7 +277,7 @@ function RemoveAllShockingEventsOfTypeInArea(eventType, x, y, z, radius, p5) end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE8BB3CC253A34559)  
 ---This native does not have an official description.
----@param event any
+---@param event integer
 ---@return boolean
 function RemoveShockingEvent(event) end
 
@@ -289,22 +289,22 @@ function RemoveShockingEventSpawnBlockingAreas() end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8AE2F981CDDB8FA4)  
 ---This native does not have an official description.
----@param ped number
----@param name number | string
+---@param ped integer
+---@param name integer | string
 function SetDecisionMaker(ped, name) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6B9C5C38838FB6E6)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 function SetDecisionMakerToDefault(ped) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBB1E41DD3D3C6250)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param eventName string
----@param p2 number
+---@param p2 integer
 function SetEventTrackerForPed(ped, eventName, p2) end
 
 ---**`EVENT` `client`**  

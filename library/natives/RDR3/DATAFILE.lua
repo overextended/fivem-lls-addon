@@ -3,41 +3,41 @@
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAB1231D2DE52F2D3)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return boolean, any
 function DataarrayGetBool(arrayIndex) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6A885BF69239E539)  
 ---This native does not have an official description.
----@return number, any
+---@return integer, any
 function DataarrayGetCount() end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA010655985853485)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return any, any
 function DataarrayGetDict(arrayIndex) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA9D003CF419CB81E)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return number, any
 function DataarrayGetFloat(arrayIndex) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x96DEA500B6EBBE53)  
 ---This native does not have an official description.
----@param arrayIndex number
----@return number, any
+---@param arrayIndex integer
+---@return integer, any
 function DataarrayGetInt(arrayIndex) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB6790A8FF80F889F)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return any, any
 function DataarrayGetString(arrayIndex) end
 
@@ -51,14 +51,14 @@ function DataarrayGetString(arrayIndex) end
 ---5 = Vector3
 ---6 = Object
 ---7 = Array
----@param arrayIndex number
----@return number, any
+---@param arrayIndex integer
+---@return integer, any
 function DataarrayGetType(arrayIndex) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x850DA2750DA14E9A)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return vector3, any
 function DataarrayGetVector(arrayIndex) end
 
@@ -94,7 +94,7 @@ function DatadictGetFloat(key) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D896A3B87D96E2B)  
 ---This native does not have an official description.
 ---@param key string
----@return number, any
+---@return integer, any
 function DatadictGetInt(key) end
 
 ---**`DATAFILE` `client`**  
@@ -115,7 +115,7 @@ function DatadictGetString(key) end
 ---6 = Object
 ---7 = Array
 ---@param key string
----@return number, any
+---@return integer, any
 function DatadictGetType(key) end
 
 ---**`DATAFILE` `client`**  
@@ -141,20 +141,20 @@ function DatadictIsDictValid() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x26FDF5E99AA2F3E9)  
 ---This native does not have an official description.
 ---@param key string
----@param value number
+---@param value integer
 ---@return any
 function DatadictSetInt(key, value) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x56B7291FB953DD51)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 function DatafileCreate(index) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9FB90EEDEA9F2D5C)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 function DatafileDelete(index) end
 
 ---**`DATAFILE` `client`**  
@@ -167,7 +167,7 @@ function DatafileDeleteRequestedFile(p0) end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBBD8CF823CAE557C)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@return any
 function DatafileGetFileDict(index) end
 
@@ -197,7 +197,7 @@ function DatafileSelectActiveFile(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x790EC421078F5C4E)  
 ---Reloops value returned by UGC_QUERY_GET_CONTENT_NUM
 ---@param ugcRequestId any
----@param index number
+---@param index integer
 ---@param p2 any
 ---@return any
 function DatafileUgcSelectData(ugcRequestId, index, p2) end
@@ -205,7 +205,7 @@ function DatafileUgcSelectData(ugcRequestId, index, p2) end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA5834834CA8FD7FC)  
 ---Adds the given request ID to the watch list.
----@param id number
+---@param id integer
 function DatafileWatchRequestId(id) end
 
 ---**`DATAFILE` `client`**  
@@ -272,15 +272,15 @@ function N_0xca56dd6ab7a39f64(p0) end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE13634BB6BAF0734)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
----@return number
+---@param p0 integer
+---@param p1 integer
+---@return integer
 function N_0xe13634bb6baf0734(p0, p1) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA63CD20F19B961AB)  
 ---This native does not have an official description.
----@param p2 number | string
+---@param p2 integer | string
 ---@return boolean, boolean, any
 function ParseddataGetBool(p2) end
 
@@ -299,14 +299,14 @@ function ParseddataGetFile() end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB2B42607F7867576)  
 ---This native does not have an official description.
----@param p2 number | string
+---@param p2 integer | string
 ---@return boolean, any, any
 function ParseddataGetFloat(p2) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x52FC26D2D2FC2987)  
 ---This native does not have an official description.
----@param p2 number | string
+---@param p2 integer | string
 ---@return boolean, any, any
 function ParseddataGetInt(p2) end
 
@@ -321,21 +321,21 @@ function ParseddataGetNumChildren(p0, p1) end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x44B3A36933AC009C)  
 ---This native does not have an official description.
----@param section number | string
+---@param section integer | string
 ---@return boolean, any, any
 function ParseddataGetSection(section) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x603AC35FD4602C76)  
 ---This native does not have an official description.
----@param fileHandle number
+---@param fileHandle integer
 ---@return boolean
 function ParseddataIsFileLoaded(fileHandle) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7907969497EA92F5)  
 ---This native does not have an official description.
----@param fileHandle number
+---@param fileHandle integer
 ---@return boolean
 function ParseddataIsFileValid(fileHandle) end
 
@@ -343,8 +343,8 @@ function ParseddataIsFileValid(fileHandle) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD97D8D905F1562F2)  
 ---LOAD_PARSEDDATA_FILE_FAILSAFE_HASH
 ---Returns parseddata script fileHandle
----@param p0 number | string
----@return number
+---@param p0 integer | string
+---@return integer
 function ParseddataLoadFileHash(p0) end
 
 ---**`DATAFILE` `client`**  
@@ -371,19 +371,19 @@ function ParseddataRqFilloutFloat() end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFBFF3FF2F5E80C0B)  
 ---Old name: _DATAFILE_GET_HASH
----@return boolean, number, any
+---@return boolean, integer, any
 function ParseddataRqFilloutHash() end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEF44ACC657352A35)  
 ---Old name: _DATAFILE_GET_INT
----@return boolean, number, any
+---@return boolean, integer, any
 function ParseddataRqFilloutInt() end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x83C3ED532B6E5D07)  
 ---Old name: _DATAFILE_GET_DATA_NODE_INDEX
----@return boolean, number, any
+---@return boolean, integer, any
 function ParseddataRqFilloutNode() end
 
 ---**`DATAFILE` `client`**  
@@ -416,7 +416,7 @@ function ParseddataRqGetNumNodes(p0) end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x129567F0C05F81B9)  
 ---This native does not have an official description.
----@param fileHandle number
+---@param fileHandle integer
 function ParseddataUnloadFile(fileHandle) end
 
 ---**`DATAFILE` `client`**  

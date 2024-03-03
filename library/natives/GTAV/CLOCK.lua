@@ -3,23 +3,23 @@
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD716F30D8C8980E2)  
 ---This native does not have an official description.
----@param hours number
----@param minutes number
----@param seconds number
+---@param hours integer
+---@param minutes integer
+---@param seconds integer
 function AddToClockTime(hours, minutes, seconds) end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC8CA9670B9D83B3B)  
 ---This native does not have an official description.
----@param hour number
----@param minute number
----@param second number
+---@param hour integer
+---@param minute integer
+---@param second integer
 function AdvanceClockTimeTo(hour, minute, second) end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3D10BC92A4DB1D35)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetClockDayOfMonth() end
 
 ---**`CLOCK` `client`**  
@@ -34,7 +34,7 @@ function GetClockDayOfMonth() end
 ---5: Friday  
 ---6: Saturday  
 ---```
----@return number
+---@return integer
 function GetClockDayOfWeek() end
 
 ---**`CLOCK` `client`**  
@@ -42,7 +42,7 @@ function GetClockDayOfWeek() end
 ---```
 ---Gets the current ingame hour, expressed without zeros. (09:34 will be represented as 9)  
 ---```
----@return number
+---@return integer
 function GetClockHours() end
 
 ---**`CLOCK` `client`**  
@@ -50,13 +50,13 @@ function GetClockHours() end
 ---```
 ---Gets the current ingame clock minute.  
 ---```
----@return number
+---@return integer
 function GetClockMinutes() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBBC72712E80257A1)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetClockMonth() end
 
 ---**`CLOCK` `client`**  
@@ -64,13 +64,13 @@ function GetClockMonth() end
 ---```
 ---Gets the current ingame clock second. Note that ingame clock seconds change really fast since a day in GTA is only 48 minutes in real life.  
 ---```
----@return number
+---@return integer
 function GetClockSeconds() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x961777E64BDAF717)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetClockYear() end
 
 ---**`CLOCK` `client`**  
@@ -87,14 +87,14 @@ function GetClockYear() end
 ---or use std::tm struct  
 ---TIME::GET_LOCAL_TIME(&year, &month, &day, &hour, &minute, &second);  
 ---```
----@return number, number, number, number, number, number
+---@return integer, integer, integer, integer, integer, integer
 function GetLocalTime() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2F8B4D1C595B11DB)  
 ---Returns how many real ms are equal to one game minute.
 ---A getter for [`SetMillisecondsPerGameMinute`](#\_0x36CA2554).
----@return number
+---@return integer
 function GetMillisecondsPerGameMinute() end
 
 ---**`CLOCK` `client`**  
@@ -110,7 +110,7 @@ function GetMillisecondsPerGameMinute() end
 ---	int second;  
 ---	TIME::GET_POSIX_TIME(&year, &month, &day, &hour, &minute, &second);  
 ---```
----@return number, number, number, number, number, number
+---@return integer, integer, integer, integer, integer, integer
 function GetPosixTime() end
 
 ---**`CLOCK` `client`**  
@@ -118,7 +118,7 @@ function GetPosixTime() end
 ---```
 ---Gets current UTC time
 ---```
----@return number, number, number, number, number, number
+---@return integer, integer, integer, integer, integer, integer
 function GetUtcTime() end
 
 ---**`CLOCK` `client`**  
@@ -130,9 +130,9 @@ function PauseClock(toggle) end
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB096419DF0D06CE7)  
 ---This native does not have an official description.
----@param day number
----@param month number
----@param year number
+---@param day integer
+---@param month integer
+---@param year integer
 function SetClockDate(day, month, year) end
 
 ---**`CLOCK` `client`**  
@@ -140,8 +140,8 @@ function SetClockDate(day, month, year) end
 ---```
 ---SET_CLOCK_TIME(12, 34, 56);  
 ---```
----@param hour number
----@param minute number
----@param second number
+---@param hour integer
+---@param minute integer
+---@param second integer
 function SetClockTime(hour, minute, second) end
 

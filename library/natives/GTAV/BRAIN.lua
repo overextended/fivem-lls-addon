@@ -9,7 +9,7 @@
 ---Hardcoded to not work in Multiplayer.
 ---```
 ---@param name string
----@param model number | string
+---@param model integer | string
 ---@param p2 number
 ---@param p3 number
 function AddScriptToRandomPed(name, model, p2, p3) end
@@ -17,19 +17,19 @@ function AddScriptToRandomPed(name, model, p2, p3) end
 ---**`BRAIN` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x14D8518E9760F08F)  
 ---This native does not have an official description.
----@param brainSet number
+---@param brainSet integer
 function DisableScriptBrainSet(brainSet) end
 
 ---**`BRAIN` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x67AA4D73F0CFA86B)  
 ---This native does not have an official description.
----@param brainSet number
+---@param brainSet integer
 function EnableScriptBrainSet(brainSet) end
 
 ---**`BRAIN` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCCBA154209823057)  
 ---This native does not have an official description.
----@param object number
+---@param object integer
 ---@return boolean
 function IsObjectWithinBrainActivationRange(object) end
 
@@ -106,11 +106,11 @@ function N_0x6e91b04e08773030(action) end
 ---BRAIN::REGISTER_OBJECT_SCRIPT_BRAIN("ob_telescope", ${prop_telescope_01}, 100, 4.0, -1, 9);
 ---```
 ---@param scriptName string
----@param modelHash number | string
----@param p2 number
+---@param modelHash integer | string
+---@param p2 integer
 ---@param activationRange number
----@param p4 number
----@param p5 number
+---@param p4 integer
+---@param p5 integer
 function RegisterObjectScriptBrain(scriptName, modelHash, p2, activationRange, p4, p5) end
 
 ---**`BRAIN` `client`**  
@@ -118,6 +118,6 @@ function RegisterObjectScriptBrain(scriptName, modelHash, p2, activationRange, p
 ---This native does not have an official description.
 ---@param scriptName string
 ---@param activationRange number
----@param p2 number
+---@param p2 integer
 function RegisterWorldPointScriptBrain(scriptName, activationRange, p2) end
 

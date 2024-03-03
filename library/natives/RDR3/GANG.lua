@@ -52,7 +52,7 @@ function N_0x53a94294fddcf98c(p0, p1) end
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6102830F764B3DE1)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function N_0x6102830f764b3de1(player) end
 
@@ -67,7 +67,7 @@ function N_0x644e02f24f9d4e98(p0, p1) end
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7933754F260B428A)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return any
 function N_0x7933754f260b428a(player) end
 
@@ -117,14 +117,14 @@ function N_0xc81a9e2c8efd28d5(p0) end
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDA801F7F6A5278D3)  
 ---_NETWORK_GET_* or _NETWORK_IS_*
----@param player number
+---@param player integer
 ---@return boolean
 function N_0xda801f7f6a5278d3(player) end
 
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE4C64CD37CB176AA)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return any
 function N_0xe4c64cd37cb176aa(p0) end
 
@@ -142,7 +142,7 @@ function N_0xfa7c5b7e087a4ceb() end
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x901E0DC25080C8B9)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return any
 function NetworkGetGangId(player) end
 
@@ -150,7 +150,7 @@ function NetworkGetGangId(player) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4BE6C13A45CCA8EC)  
 ---This native does not have an official description.
 ---@param gangId any
----@return number
+---@return integer
 function NetworkGetGangLeader(gangId) end
 
 ---**`GANG` `client`**  
@@ -164,27 +164,27 @@ function NetworkGetGangLeaderHandle(gangId) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD1BF325C8252A982)  
 ---This native does not have an official description.
 ---@param gangId any
----@return number, any
+---@return integer, any
 function NetworkGetGangMembers(gangId) end
 
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9970AE8C3D706139)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetGangPrivacy() end
 
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x853B0FA4D8732C57)  
 ---This native does not have an official description.
 ---@param gangId any
----@return number
+---@return integer
 function NetworkGetGangSize(gangId) end
 
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x149A2751AB66AC02)  
 ---This native does not have an official description.
 ---@param gangId any
----@return number
+---@return integer
 function NetworkGetNumGangMembers(gangId) end
 
 ---**`GANG` `client`**  
@@ -211,7 +211,7 @@ function NetworkIsGangInSession(gangId) end
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x424B17A7DC5C90BC)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsGangLeader(player) end
 
@@ -219,7 +219,7 @@ function NetworkIsGangLeader(player) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9BE7DCB22D32CCBE)  
 ---This native does not have an official description.
 ---@param gangId any
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsGangMember(gangId, player) end
 
@@ -233,23 +233,23 @@ function NetworkIsGangOpen(gangId) end
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x81FB74C83C2ED69F)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 ---@return boolean
 function NetworkIsInMyGang(player) end
 
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3F59FE6F37869576)  
 ---This native does not have an official description.
----@param player1 number
----@param player2 number
+---@param player1 integer
+---@param player2 integer
 ---@return boolean
 function NetworkIsInSameGang(player1, player2) end
 
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCD9E2D9BC52FD80F)  
 ---banTimeSeconds is 120 in R* Scripts
----@param player number
----@param banTimeSeconds number
+---@param player integer
+---@param banTimeSeconds integer
 function NetworkKickGangMember(player, banTimeSeconds) end
 
 ---**`GANG` `client`**  
@@ -268,14 +268,14 @@ function NetworkRequestGangJoin(gangId) end
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC5BF29F4035277C2)  
 ---This native does not have an official description.
----@param privacyType number
+---@param privacyType integer
 ---@return boolean
 function NetworkSetGangPrivacy(privacyType) end
 
 ---**`GANG` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x833D8268D51B4522)  
 ---This native does not have an official description.
----@param size number
+---@param size integer
 ---@return boolean
 function NetworkSetGangSize(size) end
 
@@ -286,6 +286,6 @@ function NetworkSetGangSize(size) end
 ---
 ---campSize: NET_CAMP_SIZE_SMALLEST = 4, NET_CAMP_SIZE_LARGEST = 7
 ---@param openStatus boolean
----@param campSize number
+---@param campSize integer
 function NetworkStartGang(openStatus, campSize) end
 

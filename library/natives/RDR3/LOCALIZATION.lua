@@ -22,7 +22,7 @@ function DoesCurrentLanguageSupportCondensedStyle() end
 ---10 = japanese (ja-JP)
 ---11 = mexican (es-MX)
 ---12 = chinesesimp (zh-CN)
----@return number
+---@return integer
 function GetCurrentLanguage() end
 
 ---**`LOCALIZATION` `client`**  
@@ -32,12 +32,12 @@ function GetCurrentLanguage() end
 ---2 = DATE_FORMAT_YMD
 ---
 ---Old name: _LOCALIZATION_GET_SYSTEM_DATE_FORMAT
----@return number
+---@return integer
 function LocalizationGetSystemDateType() end
 
 ---**`LOCALIZATION` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3C1A05F86AE6ACB5)  
 ---Same return values as GET_CURRENT_LANGUAGE
----@return number
+---@return integer
 function LocalizationGetSystemLanguage() end
 

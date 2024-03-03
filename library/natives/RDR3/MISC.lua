@@ -10,8 +10,8 @@ function Absf(value) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0C214D5B8A38C828)  
 ---This native does not have an official description.
----@param value number
----@return number
+---@param value integer
+---@return integer
 function Absi(value) end
 
 ---**`MISC` `client`**  
@@ -24,14 +24,14 @@ function Acos(p0) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7ACF124C12A2B045)  
 ---Appears to remove stealth kill action from memory (?)
----@param hash number | string
+---@param hash integer | string
 ---@param enable boolean
 function ActionManagerEnableAction(hash, enable) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFD0759658268FD8E)  
 ---This native does not have an official description.
----@param hash number | string
+---@param hash integer | string
 ---@return boolean
 function ActionManagerIsActionEnabled(hash) end
 
@@ -69,7 +69,7 @@ function ActivityFeedPost() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA2D5A26208421426)  
 ---This native does not have an official description.
----@param volume any
+---@param volume integer
 ---@return any
 function AddDispatchSpawnBlockingArea(volume) end
 
@@ -86,19 +86,19 @@ function AddDispatchSpawnBlockingArea(volume) end
 ---@param trafficDensity number
 ---@param p8 boolean
 ---@param p9 boolean
----@return number
+---@return integer
 function AddPopMultiplierArea(x1, y1, z1, x2, y2, z2, pedDensity, trafficDensity, p8, p9) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3233C4EC0514C7EC)  
 ---Only used in script function PROCESS_ZONE_CREATION
 ---Returns Pop multiplier volume ID
----@param volume any
+---@param volume integer
 ---@param pedDensity number
 ---@param vehicleDensity number
 ---@param p3 boolean
 ---@param p4 boolean
----@return number
+---@return integer
 function AddPopMultiplierVolume(volume, pedDensity, vehicleDensity, p3, p4) end
 
 ---**`MISC` `client`**  
@@ -107,7 +107,7 @@ function AddPopMultiplierVolume(volume, pedDensity, vehicleDensity, p3, p4) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param p3 number
+---@param p3 integer
 function AddTacticalNavMeshPoint(x, y, z, p3) end
 
 ---**`MISC` `client`**  
@@ -143,7 +143,7 @@ function Atan2(p0, p1) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x66947E61A44DE2C6)  
 ---dispatchService: see ENABLE_DISPATCH_SERVICE
----@param dispatchService number
+---@param dispatchService integer
 ---@param toggle boolean
 function BlockDispatchServiceResourceCreation(dispatchService, toggle) end
 
@@ -179,20 +179,20 @@ function ClearAngledAreaOfVehicles(p0, p1, p2, p3, p4, p5, p6, p7) end
 ---@param y number
 ---@param z number
 ---@param radius number
----@param flag number
+---@param flag integer
 function ClearArea(x, y, z, radius, flag) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7D1D4A3602B6AD4E)  
 ---This native does not have an official description.
----@param address number
----@param offset number
+---@param address integer
+---@param offset integer
 function ClearBit(address, offset) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB909149F2BB5F6DA)  
 ---This native does not have an official description.
----@param flag number
+---@param flag integer
 ---@return any
 function ClearBitFlag(flag) end
 
@@ -209,8 +209,8 @@ function ClearTacticalNavMeshPoints() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2FCD528A397E5C88)  
 ---This native does not have an official description.
----@param volume any
----@param flag number
+---@param volume integer
+---@param flag integer
 function ClearVolumeArea(volume, flag) end
 
 ---**`MISC` `client`**  
@@ -221,7 +221,7 @@ function ClearWeatherTypePersist() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE7690C0A0D1C36D)  
 ---This native does not have an official description.
----@param milliseconds number
+---@param milliseconds integer
 function ClearWeatherTypePersistOvertime(milliseconds) end
 
 ---**`MISC` `client`**  
@@ -237,49 +237,49 @@ function ClearWeatherVariation(weatherType, p1) end
 ---@param str1 string
 ---@param str2 string
 ---@param matchCase boolean
----@param maxLength number
----@return number
+---@param maxLength integer
+---@return integer
 function CompareStrings(str1, str2, matchCase, maxLength) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF7AC7DC0DEE7C9BE)  
 ---Old name: _COPY_MEMORY
----@param size number
+---@param size integer
 ---@return any, any
 function CopyScriptStruct(size) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE704838F36F93B7B)  
 ---This native does not have an official description.
----@return number, any
+---@return integer, any
 function CountBitFlags() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x88BC5F4AEF77FC4E)  
 ---aiMemoryType: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/_CREATE_AI_MEMORY
----@param aiMemoryType number
+---@param aiMemoryType integer
 ---@return any
 function CreateAiMemory(aiMemoryType) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBCC2CFADEA1AEA6C)  
 ---Returns a formatted string (0x%x)
----@param rgb number
+---@param rgb integer
 ---@return any
 function CreateColorString(rgb) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3F892CAF67444AE7)  
 ---dispatchService: see ENABLE_DISPATCH_SERVICE
----@param dispatchService number
+---@param dispatchService integer
 ---@param x number
 ---@param y number
 ---@param z number
----@param numUnits number
+---@param numUnits integer
 ---@param radius number
 ---@param p7 any
 ---@param p8 any
----@return boolean, number
+---@return boolean, integer
 function CreateIncident(dispatchService, x, y, z, numUnits, radius, p7, p8) end
 
 ---**`MISC` `client`**  
@@ -287,25 +287,25 @@ function CreateIncident(dispatchService, x, y, z, numUnits, radius, p7, p8) end
 ---dispatchService: see ENABLE_DISPATCH_SERVICE
 ---
 ---The entities must be added to itemSet.
----@param dispatchService number
+---@param dispatchService integer
 ---@param x number
 ---@param y number
 ---@param z number
----@param itemSet any
+---@param itemSet integer
 ---@param radius number
----@return boolean, number
+---@return boolean, integer
 function CreateIncidentWithEntities(dispatchService, x, y, z, itemSet, radius) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5CFD0F0D6AAE0AEE)  
 ---Delete an incident with a given id.
----@param incidentId number
+---@param incidentId integer
 function DeleteIncident(incidentId) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x40D72189F46D2E15)  
 ---This native does not have an official description.
----@param compositeId number
+---@param compositeId integer
 ---@param p1 boolean
 function DisableLootingCompositeLootableThisFrame(compositeId, p1) end
 
@@ -323,34 +323,34 @@ function DisableLootingCompositeLootableThisFrame(compositeId, p1) end
 ---	KTEXTTYPE_FILENAME,
 ---	KTEXTTYPE_COUNT
 ---};
----@param textType number
+---@param textType integer
 ---@param windowTitle string
 ---@param p2 string
 ---@param defaultText string
 ---@param defaultConcat1 string
 ---@param defaultConcat2 string
 ---@param defaultConcat3 string
----@param maxInputLength number
+---@param maxInputLength integer
 function DisplayOnscreenKeyboard(textType, windowTitle, p2, defaultText, defaultConcat1, defaultConcat2, defaultConcat3, maxInputLength) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBDC6E364C9C78178)  
 ---This native does not have an official description.
----@param item any
+---@param item integer
 ---@return boolean
 function DoesItemHaveValidBase(item) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x03BA619C81A646B3)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 ---@return boolean
 function DoesPopMultiplierAreaExist(id) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x39D6DACE323A20B6)  
 ---This native does not have an official description.
----@param volume any
+---@param volume integer
 ---@return boolean
 function DoesPopMultiplierAreaExistForVolume(volume) end
 
@@ -384,7 +384,7 @@ function DoesStringExistInString(string1, string2) end
 ---	DT_OnFoot,
 ---	DT_PoliceDogs
 ---};
----@param dispatchService number
+---@param dispatchService integer
 ---@param toggle boolean
 function EnableDispatchService(dispatchService, toggle) end
 
@@ -411,13 +411,13 @@ function ForceLightningFlashAtCoords(x, y, z, p3) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFAED234C7F53ABEB)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GameFrameworkManagerGetMode() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4CABE596D632E4B0)  
 ---This native does not have an official description.
----@param transitionMode number | string
+---@param transitionMode integer | string
 ---@return boolean
 function GameFrameworkManagerInit(transitionMode) end
 
@@ -429,7 +429,7 @@ function GameFrameworkManagerShutdown() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFDF38E2B711BF78E)  
 ---This native does not have an official description.
----@param p1 number
+---@param p1 integer
 ---@return boolean, any
 function GetAiPedDoesHaveEventMemory(p1) end
 
@@ -448,7 +448,7 @@ function GetAngleBetween_2dVectors(x1, y1, x2, y2) end
 ---Returns value of the '-benchmarkIterations' command line option.
 ---
 ---Old name: _GET_BENCHMARK_ITERATIONS_FROM_COMMAND_LINE
----@return number
+---@return integer
 function GetBenchmarkIterations() end
 
 ---**`MISC` `client`**  
@@ -456,16 +456,16 @@ function GetBenchmarkIterations() end
 ---Returns value of the '-benchmarkPass' command line option.
 ---
 ---Old name: _GET_BENCHMARK_PASS_FROM_COMMAND_LINE
----@return number
+---@return integer
 function GetBenchmarkPass() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x68E1352AF48F905D)  
 ---This native does not have an official description.
----@param var number
----@param rangeStart number
----@param rangeEnd number
----@return number
+---@param var integer
+---@param rangeStart integer
+---@param rangeEnd integer
+---@return integer
 function GetBitsInRange(var, rangeStart, rangeEnd) end
 
 ---**`MISC` `client`**  
@@ -487,8 +487,8 @@ function GetClosestPointOnLine(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD73C960A681052DF)  
 ---This native does not have an official description.
----@param ped number
----@param weaponHash number | string
+---@param ped integer
+---@param weaponHash integer | string
 ---@param distance number
 ---@param p4 boolean
 ---@param mustBeOwnedByThisPed boolean
@@ -500,7 +500,7 @@ function GetCoordsOfProjectileTypeWithinDistance(ped, weaponHash, distance, p4, 
 ---Params: percentWeather2: 0f - 0.75f in R* Scripts
 ---
 ---Old name: _GET_WEATHER_TYPE_TRANSITION
----@return number, number, number
+---@return integer, integer, number
 function GetCurrWeatherState() end
 
 ---**`MISC` `client`**  
@@ -554,27 +554,27 @@ function GetDistanceBetweenCoords(x1, y1, z1, x2, y2, z2, useZ) end
 ---@param t number
 ---@param b number
 ---@param d number
----@param easingCurveType number
+---@param easingCurveType integer
 ---@return number
 function GetEasingCurveValue(t, b, d, easingCurveType) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEE04C0AFD4EFAF0E)  
 ---This native does not have an official description.
----@param item any
----@return number
+---@param item integer
+---@return integer
 function GetEntityFromItem(item) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDD560ABEF5D3784C)  
 ---Returns the weather type that has been set by a script
----@return number, number
+---@return integer, integer
 function GetForcedWeather() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x77DFA958FCF100C1)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetFrameCount() end
 
 ---**`MISC` `client`**  
@@ -586,13 +586,13 @@ function GetFrameTime() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4F67E8ECA7D3F667)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetGameTimer() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x483B8C542103AD72)  
 ---Returns rage::fwTimer::sm_nonScaledClippedTime
----@return number
+---@return integer
 function GetGameTimerNonScaledClipped() end
 
 ---**`MISC` `client`**  
@@ -619,7 +619,7 @@ function GetGroundZFor_3dCoord(x, y, z, p4) end
 ---Computes a hash for the given string. It is hashed using Jenkins' One-at-a-Time hash algorithm (https://en.wikipedia.org/wiki/Jenkins_hash_function)
 ---Note: this implementation is case-insensitive.
 ---@param string string
----@return number
+---@return integer
 function GetHashKey(string) end
 
 ---**`MISC` `client`**  
@@ -647,8 +647,8 @@ function GetHeadingFromVector_2d(dx, dy) end
 ---11 = CObject
 ---12 = CItemSet
 ---13 = CPersistentCharacter
----@param handle any
----@return number
+---@param handle integer
+---@return integer
 function GetItemType(handle) end
 
 ---**`MISC` `client`**  
@@ -672,7 +672,7 @@ function GetLinePlaneIntersection(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF9B91C5129EABC08)  
 ---Event names in the scripts: MGBegin, MGEnd, ReadyForCut
----@param ped number
+---@param ped integer
 ---@param eventName string
 ---@return boolean
 function GetLootingEventHasFired(ped, eventName) end
@@ -680,7 +680,7 @@ function GetLootingEventHasFired(ped, eventName) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC43CD2668B204419)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetMaxNumInstructions() end
 
 ---**`MISC` `client`**  
@@ -692,40 +692,40 @@ function GetMissionFlag() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDCB8DDD5D054A7E7)  
 ---This native does not have an official description.
----@param modelHash number | string
+---@param modelHash integer | string
 ---@return vector3, vector3
 function GetModelDimensions(modelHash) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x51021D36F62AAA83)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNextWeatherTypeHashName() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x40DC2907A9697EF7)  
 ---This native does not have an official description.
----@param stackSize number
----@return number
+---@param stackSize integer
+---@return integer
 function GetNumberOfFreeStacksOfThisSize(stackSize) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x72904D3D62AF5839)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNumberOfInstructions() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB0CE5E5ED8BB3581)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNumberOfMicrosecondsSinceLastCall() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x18013392501CE5DC)  
 ---This native does not have an official description.
----@param item any
----@return number
+---@param item integer
+---@return integer
 function GetObjectFromIndexedItem(item) end
 
 ---**`MISC` `client`**  
@@ -737,25 +737,25 @@ function GetOnscreenKeyboardResult() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3FFB15534067DCD4)  
 ---This native does not have an official description.
----@param item any
----@return number
+---@param item integer
+---@return integer
 function GetPedFromIndexedItem(item) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4BEB42AEBCA732E9)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetPrevWeatherTypeHashName() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9578986A6105A6AD)  
 ---This native does not have an official description.
----@param ped number
----@param weaponHash number | string
+---@param ped integer
+---@param weaponHash integer | string
 ---@param distance number
 ---@param p5 boolean
 ---@param mustBeOwnedByThisPed boolean
----@return boolean, vector3, number
+---@return boolean, vector3, integer
 function GetProjectileOfProjectileTypeWithinDistance(ped, weaponHash, distance, p5, mustBeOwnedByThisPed) end
 
 ---**`MISC` `client`**  
@@ -781,34 +781,34 @@ function GetRandomFloatInRange(startRange, endRange) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD53343AA4FB7DD28)  
 ---This native does not have an official description.
----@param startRange number
----@param endRange number
----@return number
+---@param startRange integer
+---@param endRange integer
+---@return integer
 function GetRandomIntInRange(startRange, endRange) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1359C181BC625503)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetRandomWeatherType() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7F4CE164D9A11DFE)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetRandomWeatherTypeIndex() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2E036F0480B8BF02)  
 ---Returns GET_GAME_TIMER() / 1000
 ---Only used in rcm_pearson1.ysc
----@return number
+---@return integer
 function GetRealWorldTime() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63219768C586667C)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetScriptTimeWithinFrameInMicroseconds() end
 
 ---**`MISC` `client`**  
@@ -820,8 +820,8 @@ function GetSnowLevel() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1B065A2BF7953815)  
 ---Only 0 and 1 are valid for p0, higher values causes the native to return 2.
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function GetStatusOfSavegameOperation(p0) end
 
 ---**`MISC` `client`**  
@@ -835,7 +835,7 @@ function GetStringFromBool(value) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2B6846401D68E563)  
 ---This native does not have an official description.
 ---@param value number
----@param digits number
+---@param digits integer
 ---@return any
 function GetStringFromFloat(value, digits) end
 
@@ -851,7 +851,7 @@ function GetStringFromVector(x, y, z) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBE7F225417E35A7C)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetSystemTime() end
 
 ---**`MISC` `client`**  
@@ -872,15 +872,15 @@ function GetTemperatureAtCoords(x, y, z) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE578C8AE173719B3)  
 ---This native does not have an official description.
----@param item any
----@return number
+---@param item integer
+---@return integer
 function GetVehicleFromIndexedItem(item) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF18AF483DF70BBDE)  
 ---This native does not have an official description.
----@param item any
----@return any
+---@param item integer
+---@return integer
 function GetVolumeFromIndexedItem(item) end
 
 ---**`MISC` `client`**  
@@ -936,7 +936,7 @@ function InformCodeOfContentIdOfCurrentUgcMission(p0) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCF11C0CEB40C401B)  
 ---Note: the buffer should be exactly 32 bytes long
----@param value number
+---@param value integer
 ---@param format string
 ---@param buffer string
 function IntToString(value, format, buffer) end
@@ -950,29 +950,29 @@ function IsAnyBitFlagSet() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFEC1D4B5C82C176F)  
 ---This native does not have an official description.
----@param handle any
+---@param handle integer
 ---@return boolean
 function IsBaseACoverPoint(handle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x716F17F8A0419F95)  
 ---This native does not have an official description.
----@param handle any
+---@param handle integer
 ---@return boolean
 function IsBaseAPersistentCharacter(handle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8F4F050054005C27)  
 ---This native does not have an official description.
----@param flag number
+---@param flag integer
 ---@return boolean, any
 function IsBitFlagSet(flag) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4ED6CFDFE8D4131A)  
 ---This native does not have an official description.
----@param address number
----@param offset number
+---@param address integer
+---@param offset integer
 ---@return boolean
 function IsBitSet(address, offset) end
 
@@ -1030,14 +1030,14 @@ function IsGameSessionStateMachineIdle() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xACB7E1418A8B6E32)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@return boolean
 function IsGlobalBlockValid(index) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x39F2B1BAD412246A)  
 ---This native does not have an official description.
----@param incidentId number
+---@param incidentId integer
 ---@return boolean
 function IsIncidentValid(incidentId) end
 
@@ -1076,7 +1076,7 @@ function IsPcVersion() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5170DDA6D63ACAAA)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@return boolean
 function IsPedDecomposed(ped) end
 
@@ -1142,7 +1142,7 @@ function IsProjectileTypeInAngledArea(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
 ---@param xMax number
 ---@param yMax number
 ---@param zMax number
----@param weaponType number | string
+---@param weaponType integer | string
 ---@param isPlayer boolean
 ---@return boolean
 function IsProjectileTypeInArea(xMin, yMin, zMin, xMax, yMax, zMax, weaponType, isPlayer) end
@@ -1189,10 +1189,10 @@ function IsStringNullOrEmptyOrSpaces(string) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x48E4D50F87A96AA5)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param p1 boolean
 ---@param p2 boolean
----@param lootTableKey number | string
+---@param lootTableKey integer | string
 ---@param p5 any
 ---@return any
 function LootTablesGetInfo(ped, p1, p2, lootTableKey, p5) end
@@ -1216,7 +1216,7 @@ function N_0x0730e518486deec3(p0) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x082C043C7AFC3747)  
 ---This native does not have an official description.
----@param compositeId number
+---@param compositeId integer
 ---@param p1 boolean
 function N_0x082c043c7afc3747(compositeId, p1) end
 
@@ -1229,7 +1229,7 @@ function N_0x0a487cc74a517fb5(p0) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0D0AE5081F88CFE1)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 ---@return boolean
 function N_0x0d0ae5081f88cfe1(p0) end
 
@@ -1259,7 +1259,7 @@ function N_0x243cede8f916b994() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2916B30DC6C41179)  
 ---This native does not have an official description.
----@param weatherType number | string
+---@param weatherType integer | string
 function N_0x2916b30dc6c41179(weatherType) end
 
 ---**`MISC` `client`**  
@@ -1284,7 +1284,7 @@ function N_0x35165c658077cd0b() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x38C0C9CAE1544500)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 function N_0x38c0c9cae1544500(p0) end
 
 ---**`MISC` `client`**  
@@ -1323,7 +1323,7 @@ function N_0x49c44fe78a135a1d(p0) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x49F3241C28EBBFBC)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function N_0x49f3241c28ebbfbc(p0) end
 
 ---**`MISC` `client`**  
@@ -1334,7 +1334,7 @@ function N_0x4b0501a468b749f8() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4B101DBCC9482F2D)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@return boolean
 function N_0x4b101dbcc9482f2d(ped) end
 
@@ -1347,7 +1347,7 @@ function N_0x4d5c9cc7e7e23e09() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x553D67295DDD2309)  
 ---UPDATE_PICKUP_COLLECTIBLE: set Eagle Eye fountain
 ---_J*, _K*, _L*
----@param entity number
+---@param entity integer
 function N_0x553d67295ddd2309(entity) end
 
 ---**`MISC` `client`**  
@@ -1421,9 +1421,9 @@ function N_0x74aca66484cebaf0(p0) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7A76104CC2CC69E8)  
 ---This native does not have an official description.
----@param entity number
----@param p1 number
----@param p2 number
+---@param entity integer
+---@param p1 integer
+---@param p2 integer
 ---@return any
 function N_0x7a76104cc2cc69e8(entity, p1, p2) end
 
@@ -1610,13 +1610,13 @@ function N_0xcc1baf72d571db8d(p0, p1, p2) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCC3EDC5614B03F61)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function N_0xcc3edc5614b03f61(p0) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD3F943B88F55376A)  
 ---This native does not have an official description.
----@param weatherType number | string
+---@param weatherType integer | string
 function N_0xd3f943b88f55376a(weatherType) end
 
 ---**`MISC` `client`**  
@@ -1658,7 +1658,7 @@ function N_0xde2c3b74d2b3705c(p0, p1) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEB946B9E579729AD)  
 ---Not implemented.
----@param ped number
+---@param ped integer
 ---@param p1 any
 function N_0xeb946b9e579729ad(ped, p1) end
 
@@ -1705,7 +1705,7 @@ function NetworkSetScriptIsSafeForNetworkGame() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5CB71EAA1429A358)  
 ---This native does not have an official description.
----@param fontBitField number
+---@param fontBitField integer
 function NextOnscreenKeyboardResultWillDisplayUsingTheseFonts(fontBitField) end
 
 ---**`MISC` `client`**  
@@ -1734,7 +1734,7 @@ function PopulateNow() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x279B0696DA4657EB)  
 ---p0 must be < 2
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function QueueSavegameOperation(p0) end
 
@@ -1742,7 +1742,7 @@ function QueueSavegameOperation(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD2C9126410DFA1B2)  
 ---Reads the passed value as floating point value and returns it.
 ---Example: _READ_INT_AS_FLOAT(0x3F800000) returns 1.0f because 0x3F800000 is the hexadecimal representation of 1.0f.
----@param value number
+---@param value integer
 ---@return number
 function ReadIntAsFloat(value) end
 
@@ -1750,16 +1750,16 @@ function ReadIntAsFloat(value) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x870708A6E147A9AD)  
 ---p3 is usually the same value of radius
 ---p8 determines whether the ILO prompt is a lock on prompt with RMB
----@param entity number
+---@param entity integer
 ---@param text string
 ---@param radius number
 ---@param p3 number
----@param flag number
+---@param flag integer
 ---@param p5 number
 ---@param p6 number
----@param prompt any
+---@param prompt integer
 ---@param p8 boolean
----@param p9 number
+---@param p9 integer
 ---@return boolean
 function RegisterInteractionLockonPrompt(entity, text, radius, p3, flag, p5, p6, prompt, p8, p9) end
 
@@ -1772,15 +1772,15 @@ function RemoveDispatchSpawnBlockingArea(p0) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x88CB484364EFB37A)  
 ---This native does not have an official description.
----@param id number
+---@param id integer
 ---@param p1 boolean
 function RemovePopMultiplierArea(id, p1) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBD090F5B1DB82189)  
 ---This native does not have an official description.
----@param volume any
----@param p1 number
+---@param volume integer
+---@param p1 integer
 function RemovePopMultiplierAreaForVolume(volume, p1) end
 
 ---**`MISC` `client`**  
@@ -1832,19 +1832,19 @@ function ScriptRaceGetPlayerSplitTime(p0) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8AE059F47158417E)  
 ---This native does not have an official description.
----@param numCheckpoints number
----@param numLaps number
----@param numPlayers number
+---@param numCheckpoints integer
+---@param numLaps integer
+---@param numPlayers integer
 ---@param p3 any
 function ScriptRaceInit(numCheckpoints, numLaps, numPlayers, p3) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBA62B4D80FA66BD6)  
 ---This native does not have an official description.
----@param part number
----@param checkpoint number
----@param lap number
----@param time number
+---@param part integer
+---@param checkpoint integer
+---@param lap integer
+---@param time integer
 function ScriptRacePlayerHitCheckpoint(part, checkpoint, lap, time) end
 
 ---**`MISC` `client`**  
@@ -1861,8 +1861,8 @@ function SetAiMemoryReactionsEnabled(enabled) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF73FBE4845C43B5B)  
 ---This native does not have an official description.
----@param address number
----@param offset number
+---@param address integer
+---@param offset integer
 function SetBit(address, offset) end
 
 ---**`MISC` `client`**  
@@ -1870,17 +1870,17 @@ function SetBit(address, offset) end
 ---Similar to SET_BIT but specifically designed for large (>32 flags) bit flag sets.
 ---The flags are stored in an int array where each int has the ability to hold 32 flags.
 ---Flags 0-31 would be stored in the first int, flags 32-63 in the second int, etc.
----@param flag number
+---@param flag integer
 ---@return any
 function SetBitFlag(flag) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x324DC1CEF57F31E6)  
 ---This native does not have an official description.
----@param rangeStart number
----@param rangeEnd number
----@param p3 number
----@return number
+---@param rangeStart integer
+---@param rangeEnd integer
+---@param p3 integer
+---@return integer
 function SetBitsInRange(rangeStart, rangeEnd, p3) end
 
 ---**`MISC` `client`**  
@@ -1905,7 +1905,7 @@ function SetBitsInRange(rangeStart, rangeEnd, p3) end
 ---15 = Spawn Sanchez
 ---
 ---Initially used in Max Payne 3, that's why we know the name.
----@param cheatId number
+---@param cheatId integer
 function SetCheatActive(cheatId) end
 
 ---**`MISC` `client`**  
@@ -1919,8 +1919,8 @@ function SetCreditsActive(toggle) end
 ---Params: BOOL p3 is always true
 ---
 ---Old name: _SET_WEATHER_TYPE_TRANSITION
----@param weatherType1 number | string
----@param weatherType2 number | string
+---@param weatherType1 integer | string
+---@param weatherType2 integer | string
 ---@param percentWeather2 number
 ---@param enabled boolean
 function SetCurrWeatherState(weatherType1, weatherType2, percentWeather2, enabled) end
@@ -1969,20 +1969,20 @@ function SetGamePaused(toggle) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE97240065406CB80)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@param toggle boolean
 function SetGlobalBlockIsLoaded(index, toggle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9617B6E5F6537B63)  
 ---This native does not have an official description.
----@param incidentId number
+---@param incidentId integer
 function SetIncidentUnk(incidentId) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9B47971234169990)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param item any
 function SetLootPeltSatchelItem(ped, item) end
 
@@ -1995,13 +1995,13 @@ function SetMissionFlag(toggle) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBE83CAE8ED77A94F)  
 ---This native does not have an official description.
----@param weatherType number | string
+---@param weatherType integer | string
 function SetOverrideWeather(weatherType) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x674B90BE1115846D)  
 ---This native does not have an official description.
----@param ped number
+---@param ped integer
 ---@param toggle boolean
 function SetPedDecomposed(ped, toggle) end
 
@@ -2021,7 +2021,7 @@ function SetRandomEventFlag(toggle) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5CD7A49104AFCB6B)  
 ---This native does not have an official description.
----@param seed number
+---@param seed integer
 function SetRandomSeed(seed) end
 
 ---**`MISC` `client`**  
@@ -2040,7 +2040,7 @@ function SetSnowLevel(level) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB3E9BE963F10C445)  
 ---This native does not have an official description.
----@param player number
+---@param player integer
 function SetSuperJumpThisFrame(player) end
 
 ---**`MISC` `client`**  
@@ -2065,7 +2065,7 @@ function SetTimeScale(timeScale) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x59174F1AFE095B5A)  
 ---https://github.com/femga/rdr3_discoveries/blob/master/weather/weather_types.lua
----@param weatherType number | string
+---@param weatherType integer | string
 ---@param p1 boolean
 ---@param p2 boolean
 ---@param transition boolean
@@ -2076,10 +2076,10 @@ function SetWeatherType(weatherType, p1, p2, transition, transitionTime, p5) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2C6A07AF9AEDABD8)  
 ---This native does not have an official description.
----@param weatherType number | string
----@param p1 number
----@param p2 number
----@param p3 number
+---@param weatherType integer | string
+---@param p1 integer
+---@param p2 integer
+---@param p3 integer
 ---@param p4 boolean
 function SetWeatherType_2(weatherType, p1, p2, p3, p4) end
 
@@ -2117,10 +2117,10 @@ function SetWindSpeed(speed) end
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param damage number
+---@param damage integer
 ---@param p7 boolean
----@param weaponHash number | string
----@param ownerPed number
+---@param weaponHash integer | string
+---@param ownerPed integer
 ---@param isAudible boolean
 ---@param isInvisible boolean
 ---@param speed number
@@ -2180,7 +2180,7 @@ function StopEndUserBenchmark() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF2DD2298B3AF23E2)  
 ---Returns false if it's a null or empty string or if the string is too long. outInteger will be set to -999 in that case.
 ---@param string string
----@return boolean, number
+---@return boolean, integer
 function StringToInt(string) end
 
 ---**`MISC` `client`**  
@@ -2201,7 +2201,7 @@ function UiStartedEndUserBenchmark() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE98D55C5983F2509)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function UnregisterInteractionLockonPrompt(entity) end
 
@@ -2215,7 +2215,7 @@ function UnregisterInteractionLockonPrompt(entity) end
 ---1 - User has finished editing
 ---2 - User has canceled editing
 ---3 - Keyboard isn't active
----@return number
+---@return integer
 function UpdateOnscreenKeyboard() end
 
 ---**`MISC` `client`**  
@@ -2223,7 +2223,7 @@ function UpdateOnscreenKeyboard() end
 ---Note: The first bit in 'flags' must not be set.
 ---It is also required to pass at least one extra argument (this must be a text label string or hash).
 ---When passing a hash, flags should be 0.
----@param flags number
+---@param flags integer
 ---@param ... any
 ---@return any
 function VarString(flags, ...) end

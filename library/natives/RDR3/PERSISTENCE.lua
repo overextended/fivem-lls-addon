@@ -118,13 +118,13 @@ function N_0xfc9806da9a460093(x1, y1, z1, x2, y2, z2) end
 ---**`PERSISTENCE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8245C1F3262F4AC2)  
 ---This native does not have an official description.
----@param scenario number
+---@param scenario integer
 function PersistenceAddScenarioLooted(scenario) end
 
 ---**`PERSISTENCE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFB7CF1DE938A3E22)  
 ---This native does not have an official description.
----@param scenario number
+---@param scenario integer
 ---@return boolean
 function PersistenceIsScenarioMarkedAsLooted(scenario) end
 
@@ -143,14 +143,14 @@ function PersistenceIsScenarioMarkedAsLootedAtCoords(x, y, z) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function PersistenceIsScenarioMarkedAsLootedAtCoordsWithModel(x, y, z, model) end
 
 ---**`PERSISTENCE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEFB5F34CC0953B27)  
 ---Only used in R* script long_update.ysc in script function REFRESH_CLOSEST_TOWN
----@param volume any
+---@param volume integer
 function PersistenceRefreshTownVolume(volume) end
 
 ---**`PERSISTENCE` `client`**  

@@ -224,6 +224,6 @@ function N_0xc684ff658b2e55da(p0) end
 ---**`POSSE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC088FF658B2E51DA)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function PosseGetPosseMembershipCount() end
 

@@ -5,12 +5,12 @@
 ---```
 ---eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
 ---```
----@param eventType number
+---@param eventType integer
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param duration number
----@return any
+---@return integer
 function AddShockingEventAtPosition(eventType, x, y, z, duration) end
 
 ---**`EVENT` `client`**  
@@ -18,10 +18,10 @@ function AddShockingEventAtPosition(eventType, x, y, z, duration) end
 ---```
 ---eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
 ---```
----@param eventType number
----@param entity number
+---@param eventType integer
+---@param entity integer
 ---@param duration number
----@return any
+---@return integer
 function AddShockingEventForEntity(eventType, entity, duration) end
 
 ---**`EVENT` `client`**  
@@ -30,8 +30,8 @@ function AddShockingEventForEntity(eventType, entity, duration) end
 ---eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
 ---This is limited to 4 blocked events at a time.
 ---```
----@param name number | string
----@param eventType number
+---@param name integer | string
+---@param eventType integer
 function BlockDecisionMakerEvent(name, eventType) end
 
 ---**`EVENT` `client`**  
@@ -39,8 +39,8 @@ function BlockDecisionMakerEvent(name, eventType) end
 ---```
 ---eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
 ---```
----@param name number | string
----@param eventType number
+---@param name integer | string
+---@param eventType integer
 function ClearDecisionMakerEventResponse(name, eventType) end
 
 ---**`EVENT` `client`**  
@@ -48,7 +48,7 @@ function ClearDecisionMakerEventResponse(name, eventType) end
 ---```
 ---eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
 ---```
----@param eventType number
+---@param eventType integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -65,7 +65,7 @@ function RemoveAllShockingEvents(p0) end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2CDA538C44C6CCE5)  
 ---This native does not have an official description.
----@param event any
+---@param event integer
 ---@return boolean
 function RemoveShockingEvent(event) end
 
@@ -77,8 +77,8 @@ function RemoveShockingEventSpawnBlockingAreas() end
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB604A2942ADED0EE)  
 ---This native does not have an official description.
----@param ped number
----@param name number | string
+---@param ped integer
+---@param name integer | string
 function SetDecisionMaker(ped, name) end
 
 ---**`EVENT` `client`**  
@@ -96,7 +96,7 @@ function SuppressShockingEventsNextFrame() end
 ---```
 ---eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
 ---```
----@param eventType number
+---@param eventType integer
 function SuppressShockingEventTypeNextFrame(eventType) end
 
 ---**`EVENT` `client`**  
@@ -104,7 +104,7 @@ function SuppressShockingEventTypeNextFrame(eventType) end
 ---```
 ---eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
 ---```
----@param name number | string
----@param eventType number
+---@param name integer | string
+---@param eventType integer
 function UnblockDecisionMakerEvent(name, eventType) end
 

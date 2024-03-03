@@ -17,7 +17,7 @@ function BgEndContext(contextName) end
 ---
 ---NativeDB Introduced: v323
 ---```
----@param contextHash number | string
+---@param contextHash integer | string
 function BgEndContextHash(contextHash) end
 
 ---**`SCRIPT` `client`**  
@@ -37,7 +37,7 @@ function BgStartContext(contextName) end
 ---
 ---NativeDB Introduced: v323
 ---```
----@param contextHash number | string
+---@param contextHash integer | string
 function BgStartContextHash(contextHash) end
 
 ---**`SCRIPT` `client`**  
@@ -50,7 +50,7 @@ function DoesScriptExist(scriptName) end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF86AA3C56BA31381)  
 ---This native does not have an official description.
----@param scriptHash number | string
+---@param scriptHash integer | string
 ---@return boolean
 function DoesScriptWithNameHashExist(scriptHash) end
 
@@ -59,9 +59,9 @@ function DoesScriptWithNameHashExist(scriptHash) end
 ---```
 ---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
 ---```
----@param eventGroup number
----@param eventIndex number
----@return number
+---@param eventGroup integer
+---@param eventIndex integer
+---@return integer
 function GetEventAtIndex(eventGroup, eventIndex) end
 
 ---**`SCRIPT` `client`**  
@@ -70,10 +70,10 @@ function GetEventAtIndex(eventGroup, eventIndex) end
 ---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
 ---Note: eventDataSize is NOT the size in bytes, it is the size determined by the SIZE_OF operator (RAGE Script operator, not C/C++ sizeof). That is, the size in bytes divided by 8 (script variables are always 8-byte aligned!).
 ---```
----@param eventGroup number
----@param eventIndex number
----@param eventDataSize number
----@return boolean, number
+---@param eventGroup integer
+---@param eventIndex integer
+---@param eventDataSize integer
+---@return boolean, integer
 function GetEventData(eventGroup, eventIndex, eventDataSize) end
 
 ---**`SCRIPT` `client`**  
@@ -81,15 +81,15 @@ function GetEventData(eventGroup, eventIndex, eventDataSize) end
 ---```
 ---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
 ---```
----@param eventGroup number
----@param eventIndex number
+---@param eventGroup integer
+---@param eventIndex integer
 ---@return boolean
 function GetEventExists(eventGroup, eventIndex) end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8A1C8B1738FFE87E)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetHashOfThisScriptName() end
 
 ---@deprecated
@@ -98,13 +98,13 @@ GetThisScriptHash = GetHashOfThisScriptName
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC30338E8088E2E21)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetIdOfThisThread() end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x05A42BA9FC8DA96B)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 ---@return string
 function GetNameOfThread(threadId) end
 
@@ -122,8 +122,8 @@ function GetNoLoadingScreen() end
 ---```
 ---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
 ---```
----@param eventGroup number
----@return number
+---@param eventGroup integer
+---@return integer
 function GetNumberOfEvents(eventGroup) end
 
 ---**`SCRIPT` `client`**  
@@ -135,8 +135,8 @@ function GetNumberOfEvents(eventGroup) end
 ---	v3 = rage::scrProgram::GetNumRefs(program) - 1;
 ---return v3;
 ---```
----@param scriptHash number | string
----@return number
+---@param scriptHash integer | string
+---@return integer
 function GetNumberOfReferencesOfScriptWithNameHash(scriptHash) end
 
 ---@deprecated
@@ -160,7 +160,7 @@ function HasScriptLoaded(scriptName) end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F0F0C783EB16C04)  
 ---This native does not have an official description.
----@param scriptHash number | string
+---@param scriptHash integer | string
 ---@return boolean
 function HasScriptWithNameHashLoaded(scriptHash) end
 
@@ -170,7 +170,7 @@ HasStreamedScriptLoaded = HasScriptWithNameHashLoaded
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x46E9AE36D8FA6417)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 ---@return boolean
 function IsThreadActive(threadId) end
 
@@ -186,7 +186,7 @@ function LockLoadingScreenButtons() end
 ---
 ---NativeDB Introduced: v323
 ---```
----@param scriptIndex number
+---@param scriptIndex integer
 ---@param p1 string
 ---@return boolean
 function N_0x0f6f1ebbc4e1d5e6(scriptIndex, p1) end
@@ -198,9 +198,9 @@ function N_0x0f6f1ebbc4e1d5e6(scriptIndex, p1) end
 ---
 ---NativeDB Introduced: v323
 ---```
----@param scriptIndex number
+---@param scriptIndex integer
 ---@param p1 string
----@return number
+---@return integer
 function N_0x22e21fbcfc88c149(scriptIndex, p1) end
 
 ---**`SCRIPT` `client`**  
@@ -221,8 +221,8 @@ function N_0x760910b49d2b98ea() end
 ---
 ---NativeDB Introduced: v323
 ---```
----@param p0 number | string
----@return number
+---@param p0 integer | string
+---@return integer
 function N_0x829cd22e043a2577(p0) end
 
 ---**`SCRIPT` `client`**  
@@ -248,7 +248,7 @@ function RequestScript(scriptName) end
 ---```
 ---formerly _REQUEST_STREAMED_SCRIPT  
 ---```
----@param scriptHash number | string
+---@param scriptHash integer | string
 function RequestScriptWithNameHash(scriptHash) end
 
 ---@deprecated
@@ -259,7 +259,7 @@ RequestStreamedScript = RequestScriptWithNameHash
 ---```
 ---If the function returns 0, the end of the iteration has been reached.
 ---```
----@return number
+---@return integer
 function ScriptThreadIteratorGetNextThreadId() end
 
 ---@deprecated
@@ -289,7 +289,7 @@ function SetScriptAsNoLongerNeeded(scriptName) end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC5BC038960E9DB27)  
 ---This native does not have an official description.
----@param scriptHash number | string
+---@param scriptHash integer | string
 function SetScriptWithNameHashAsNoLongerNeeded(scriptHash) end
 
 ---@deprecated
@@ -308,7 +308,7 @@ function TerminateThisThread() end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC8B189ED9138BCD4)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 function TerminateThread(threadId) end
 
 ---**`SCRIPT` `client`**  
@@ -318,10 +318,10 @@ function TerminateThread(threadId) end
 ---Note: eventDataSize is NOT the size in bytes, it is the size determined by the SIZE_OF operator (RAGE Script operator, not C/C++ sizeof). That is, the size in bytes divided by 8 (script variables are always 8-byte aligned!).
 ---playerBits (also known as playersToBroadcastTo) is a bitset that indicates which players this event should be sent to. In order to send the event to specific players only, use (1 << playerIndex). Set all bits if it should be broadcast to all players.
 ---```
----@param eventGroup number
----@param eventDataSize number
----@param playerBits number
----@return number
+---@param eventGroup integer
+---@param eventDataSize integer
+---@param playerBits integer
+---@return integer
 function TriggerScriptEvent(eventGroup, eventDataSize, playerBits) end
 
 ---**`SCRIPT` `client`**  
@@ -329,9 +329,9 @@ function TriggerScriptEvent(eventGroup, eventDataSize, playerBits) end
 ---```
 ---See TRIGGER_SCRIPT_EVENT
 ---```
----@param eventGroup number
----@param eventDataSize number
----@param playerBits number
----@return number
+---@param eventGroup integer
+---@param eventDataSize integer
+---@param playerBits integer
+---@return integer
 function TriggerScriptEvent_2(eventGroup, eventDataSize, playerBits) end
 

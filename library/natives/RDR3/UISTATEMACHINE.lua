@@ -65,7 +65,7 @@ function UiStateMachineExists(p0) end
 ---**`UISTATEMACHINE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x11E73195E735B25B)  
 ---This native does not have an official description.
----@param p0 number | string
+---@param p0 integer | string
 ---@return boolean
 function UiStateMachineIsExited(p0) end
 

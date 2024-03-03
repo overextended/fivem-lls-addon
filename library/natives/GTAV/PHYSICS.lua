@@ -3,7 +3,7 @@
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x710311ADF0E20730)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function ActivatePhysics(entity) end
 
 ---**`PHYSICS` `client`**  
@@ -21,7 +21,7 @@ function ActivatePhysics(entity) end
 ---@param rotY number
 ---@param rotZ number
 ---@param maxLength number
----@param ropeType number
+---@param ropeType integer
 ---@param initLength number
 ---@param minLength number
 ---@param lengthChangeRate number
@@ -30,7 +30,7 @@ function ActivatePhysics(entity) end
 ---@param lockFromFront boolean
 ---@param timeMultiplier number
 ---@param breakable boolean
----@return number, any
+---@return integer, any
 function AddRope(x, y, z, rotX, rotY, rotZ, maxLength, ropeType, initLength, minLength, lengthChangeRate, onlyPPU, collisionOn, lockFromFront, timeMultiplier, breakable) end
 
 ---**`PHYSICS` `client`**  
@@ -50,9 +50,9 @@ function ApplyImpulseToCloth(posX, posY, posZ, vecX, vecY, vecZ, impulse) end
 ---```
 ---Attaches entity 1 to entity 2.  
 ---```
----@param ropeId number
----@param ent1 number
----@param ent2 number
+---@param ropeId integer
+---@param ent1 integer
+---@param ent2 integer
 ---@param ent1_x number
 ---@param ent1_y number
 ---@param ent1_z number
@@ -71,8 +71,8 @@ function AttachEntitiesToRope(ropeId, ent1, ent2, ent1_x, ent1_y, ent1_z, ent2_x
 ---```
 ---The position supplied can be anywhere, and the entity should anchor relative to that point from it's origin.  
 ---```
----@param ropeId number
----@param entity number
+---@param ropeId integer
+---@param entity integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -82,7 +82,7 @@ function AttachRopeToEntity(ropeId, entity, x, y, z, p5) end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2E648D16F6E308F3)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param p1 number
 ---@param p2 number
 ---@param p3 number
@@ -98,40 +98,40 @@ function BreakEntityGlass(entity, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA5D6B1888E4DB20)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 function DeleteChildRope(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x52B4829281364649)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 function DeleteRope(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBCF3026912A8647D)  
 ---This native does not have an official description.
----@param ropeId number
----@param entity number
+---@param ropeId integer
+---@param entity integer
 function DetachRopeFromEntity(ropeId, entity) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x271C9D3ACA5D6409)  
 ---Return if the rope was generated or not by the script where the native is called.
----@param ropeId number
+---@param ropeId integer
 ---@return boolean
 function DoesRopeBelongToThisScript(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFD5448BE3111ED96)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 ---@return boolean
 function DoesRopeExist(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8214A4B5A7A33612)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return vector3
 function GetCgoffset(entity) end
 
@@ -140,7 +140,7 @@ function GetCgoffset(entity) end
 ---```
 ---GET_*
 ---```
----@param object number
+---@param object integer
 ---@return boolean
 function GetHasObjectFragInst(object) end
 
@@ -150,23 +150,23 @@ DoesEntityHaveFragInst = GetHasObjectFragInst
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x21BB0FBD3E217C2D)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 ---@return vector3
 function GetRopeLastVertexCoord(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEA61CA8E80F09E4D)  
 ---This native does not have an official description.
----@param ropeId number
----@param vertex number
+---@param ropeId integer
+---@param vertex integer
 ---@return vector3
 function GetRopeVertexCoord(ropeId, vertex) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3655F544CD30F0B5)  
 ---This native does not have an official description.
----@param ropeId number
----@return number
+---@param ropeId integer
+---@return integer
 function GetRopeVertexCount(ropeId) end
 
 ---**`PHYSICS` `client`**  
@@ -174,7 +174,7 @@ function GetRopeVertexCount(ropeId) end
 ---```
 ---Rope presets can be found in the gamefiles. One example is "ropeFamily3", it is NOT a hash but rather a string.
 ---```
----@param ropeId number
+---@param ropeId integer
 ---@param rope_preset string
 function LoadRopeData(ropeId, rope_preset) end
 
@@ -183,14 +183,14 @@ function LoadRopeData(ropeId, rope_preset) end
 ---```
 ---ROPE_*
 ---```
----@param ropeId number
+---@param ropeId integer
 ---@param p1 boolean
 function N_0x36ccb9be67b970fd(ropeId, p1) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84DE3B5FB3E666F0)  
 ---This native does not have an official description.
----@return boolean, number
+---@return boolean, integer
 function N_0x84de3b5fb3e666f0() end
 
 ---**`PHYSICS` `client`**  
@@ -209,7 +209,7 @@ function N_0x9ebd751e5787baf2(p0) end
 ---NativeDB Introduced: v1868
 ---```
 ---@param p1 boolean
----@return number
+---@return integer
 function N_0xa1ae736541b0fca3(p1) end
 
 ---**`PHYSICS` `client`**  
@@ -225,8 +225,8 @@ function N_0xb1b6216ca2e7b55e(p0, p1, p2) end
 ---```
 ---ROPE_*
 ---```
----@param ropeId number
----@param p1 number
+---@param ropeId integer
+---@param p1 integer
 function N_0xb743f735c03d7810(ropeId, p1) end
 
 ---**`PHYSICS` `client`**  
@@ -234,8 +234,8 @@ function N_0xb743f735c03d7810(ropeId, p1) end
 ---```
 ---Most likely ROPE_ATTACH_*  
 ---```
----@param ropeId number
----@param p1 number
+---@param ropeId integer
+---@param p1 integer
 ---@param p2 number
 ---@param p3 number
 ---@param p4 number
@@ -255,14 +255,14 @@ function N_0xbc0ce682d4d05650(ropeId, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p
 ---```
 ---RESET_*  
 ---```
----@param object number
+---@param object integer
 function N_0xcc6e963682533882(object) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B320CF14146B69A)  
 ---This native does not have an official description.
----@param ropeId number
----@param vertex number
+---@param ropeId integer
+---@param vertex integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -277,14 +277,14 @@ function RopeAreTexturesLoaded() end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5389D48EFA2F079A)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 function RopeConvertToSimple(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF159A63806BB5BA8)  
 ---This native does not have an official description.
 ---@param toggle boolean
----@return number
+---@return integer
 function RopeDrawShadowEnabled(toggle) end
 
 ---**`PHYSICS` `client`**  
@@ -292,14 +292,14 @@ function RopeDrawShadowEnabled(toggle) end
 ---```
 ---Forces a rope to a certain length.
 ---```
----@param ropeId number
+---@param ropeId integer
 ---@param length number
 function RopeForceLength(ropeId, length) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x73040398DFF9A4A6)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 ---@return number
 function RopeGetDistanceBetweenEnds(ropeId) end
 
@@ -318,21 +318,21 @@ function RopeLoadTextures() end
 ---```
 ---Reset a rope to a certain length.  
 ---```
----@param ropeId number
+---@param ropeId integer
 ---@param length number
 function RopeResetLength(ropeId, length) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDC57A637A20006ED)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 ---@param p1 any
 function RopeSetUpdateOrder(ropeId, p1) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC8D667EE52114ABA)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 function RopeSetUpdatePinverts(ropeId) end
 
 ---**`PHYSICS` `client`**  
@@ -345,13 +345,13 @@ function RopeUnloadTextures() end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBE520D9761FF811F)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function SetCgAtBoundcenter(entity) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD8FA3908D7B86904)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -360,29 +360,29 @@ function SetCgoffset(entity, x, y, z) end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEEA3B200A6FEB65B)  
 ---This native does not have an official description.
----@param entity number
----@param vertex number
+---@param entity integer
+---@param vertex integer
 ---@param value number
 function SetDamping(entity, vertex, value) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5CEC1A84620E7D5B)  
 ---This native does not have an official description.
----@param object number
+---@param object integer
 ---@param toggle boolean
 function SetDisableBreaking(object, toggle) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01BA3AED21C16CFB)  
 ---This native does not have an official description.
----@param object number
+---@param object integer
 ---@param toggle boolean
 function SetDisableFragDamage(object, toggle) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x15F944730C832252)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param toggle boolean
 function SetEntityProofUnk(entity, toggle) end
 
@@ -399,31 +399,31 @@ function SetLaunchControlEnabled(toggle) end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x538D1179EC1AA9A9)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 function StartRopeUnwindingFront(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1461C72C889E343E)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 function StartRopeWinding(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFFF3A50779EFBBB3)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 function StopRopeUnwindingFront(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCB2D4AB84A19AA7C)  
 ---This native does not have an official description.
----@param ropeId number
+---@param ropeId integer
 function StopRopeWinding(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4B5AE2EEE4A8F180)  
 ---This native does not have an official description.
----@param ropeId number
----@param vertex number
+---@param ropeId integer
+---@param vertex integer
 function UnpinRopeVertex(ropeId, vertex) end
 

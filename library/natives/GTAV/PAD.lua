@@ -3,7 +3,7 @@
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F4B6931816E599B)  
 ---This native does not have an official description.
----@param padIndex number
+---@param padIndex integer
 function DisableAllControlActions(padIndex) end
 
 ---**`PAD` `client`**  
@@ -12,15 +12,15 @@ function DisableAllControlActions(padIndex) end
 ---
 ---Example: `CONTROLS::DISABLE_CONTROL_ACTION(2, 19, true)` disables the switching UI from appearing both when using a keyboard and Xbox 360 controller. Needs to be executed each frame.
 ---Control group 1 and 0 gives the same results as 2. Same results for all players.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@param disable boolean
 function DisableControlAction(padIndex, control, disable) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7F4724035FDCA1DD)  
 ---This native does not have an official description.
----@param padIndex number
+---@param padIndex integer
 function DisableInputGroup(padIndex) end
 
 ---**`PAD` `client`**  
@@ -31,7 +31,7 @@ function DisableInputGroup(padIndex) end
 ---1 - Unknown 
 ---2 - FRONTEND_CONTROL
 ---```
----@param padIndex number
+---@param padIndex integer
 function EnableAllControlActions(padIndex) end
 
 ---**`PAD` `client`**  
@@ -82,8 +82,8 @@ function EnableAllControlActions(padIndex) end
 ---INPUTGROUP_VEH_HYDRAULICS_CONTROL  
 ---Took those in IDA Pro.Not sure in which order they go  
 ---```
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@param enable boolean
 function EnableControlAction(padIndex, control, enable) end
 
@@ -98,8 +98,8 @@ function GetAllowMovementWhileZoomed() end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80C2FD58D720C801)  
 ---This native does not have an official description.
----@param padIndex number
----@param controlGroup number
+---@param padIndex integer
+---@param controlGroup integer
 ---@param p2 boolean
 ---@return string
 function GetControlGroupInstructionalButton(padIndex, controlGroup, p2) end
@@ -117,8 +117,8 @@ function GetControlGroupInstructionalButton(padIndex, controlGroup, p2) end
 ---gtaforums.com/topic/819070-c-draw-instructional-buttons-scaleform-movie/#entry1068197378  
 ---0, 1 and 2 used in the scripts. 0 is by far the most common of them.  
 ---```
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@param p2 boolean
 ---@return string
 function GetControlInstructionalButton(padIndex, control, p2) end
@@ -126,8 +126,8 @@ function GetControlInstructionalButton(padIndex, control, p2) end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEC3C9B8D5327B563)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return number
 function GetControlNormal(padIndex, control) end
 
@@ -136,32 +136,32 @@ function GetControlNormal(padIndex, control) end
 ---```
 ---Seems to return values between -1 and 1 for controls like gas and steering.
 ---```
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return number
 function GetControlUnboundNormal(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD95E79E8686D2C27)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
----@return number
+---@param padIndex integer
+---@param control integer
+---@return integer
 function GetControlValue(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x11E65974A982637C)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return number
 function GetDisabledControlNormal(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4F8A26A890FD62FB)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return number
 function GetDisabledControlUnboundNormal(padIndex, control) end
 
@@ -176,7 +176,7 @@ function GetIsUsingAlternateDriveby() end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBB41AFBBBC0A0287)  
 ---Returns the local player's targeting mode. See [`SET_PLAYER_TARGETING_MODE`](#\_0xB1906895227793F3).
----@return number
+---@return integer
 function GetLocalPlayerAimState() end
 
 ---**`PAD` `client`**  
@@ -184,7 +184,7 @@ function GetLocalPlayerAimState() end
 ---```
 ---Same behavior as GET_LOCAL_PLAYER_AIM_STATE but only used on the PC version.  
 ---```
----@return number
+---@return integer
 function GetLocalPlayerAimState_2() end
 
 ---**`PAD` `client`**  
@@ -192,79 +192,79 @@ function GetLocalPlayerAimState_2() end
 ---```
 ---The number of milliseconds since last padIndex registered pressed
 ---```
----@param padIndex number
----@return number
+---@param padIndex integer
+---@return integer
 function GetTimeSinceLastInput(padIndex) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1CEA6BFDF248E5D9)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsControlEnabled(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x580417101DDB492F)  
 ---Returns whether a control was newly pressed since the last check.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsControlJustPressed(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x50F940259D3841E6)  
 ---Returns whether a control was newly released since the last check.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsControlJustReleased(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF3A21BCD95725A4A)  
 ---Returns whether a control is currently pressed.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsControlPressed(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x648EE3E7F38877DD)  
 ---Returns whether a control is currently *not* pressed.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsControlReleased(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x91AEF906BCA88877)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsDisabledControlJustPressed(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x305C8DCD79DA8B0F)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsDisabledControlJustReleased(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE2587F8CBBD87B1D)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsDisabledControlPressed(padIndex, control) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFB6C4072E9A32E92)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@return boolean
 function IsDisabledControlReleased(padIndex, control) end
 
@@ -277,7 +277,7 @@ function IsLookInverted() end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA571D46727E2B718)  
 ---This native does not have an official description.
----@param padIndex number
+---@param padIndex integer
 ---@return boolean
 function IsUsingKeyboard(padIndex) end
 
@@ -289,7 +289,7 @@ IsInputDisabled = IsUsingKeyboard
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x13337B38DB572509)  
 ---This native does not have an official description.
----@param padIndex number
+---@param padIndex integer
 ---@return boolean
 function IsUsingKeyboard_2(padIndex) end
 
@@ -309,7 +309,7 @@ function N_0x14d29bb12d47f68c(p0, p1, p2, p3, p4) end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x23F09EADC01449D6)  
 ---Hardcoded to return false.
----@param padIndex number
+---@param padIndex integer
 ---@return boolean
 function N_0x23f09eadc01449d6(padIndex) end
 
@@ -330,7 +330,7 @@ function N_0x5b73c77d9eb66e24(p0) end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6CD79468A1E595C6)  
 ---This native does not have an official description.
----@param padIndex number
+---@param padIndex integer
 ---@return boolean
 function N_0x6cd79468a1e595c6(padIndex) end
 
@@ -343,7 +343,7 @@ function N_0xa0cefcea390aab9b(p0) end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCB0360EFEFB2580D)  
 ---This native does not have an official description.
----@param padIndex number
+---@param padIndex integer
 function N_0xcb0360efefb2580d(padIndex) end
 
 ---**`PAD` `client`**  
@@ -369,8 +369,8 @@ function N_0xe1615ec03b3bb4fd() end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF239400E16C23E08)  
 ---This native does not have an official description.
----@param padIndex number
----@param p1 number
+---@param padIndex integer
+---@param p1 integer
 function N_0xf239400e16c23e08(padIndex, p1) end
 
 ---**`PAD` `client`**  
@@ -383,10 +383,10 @@ function ResetInputMappingScheme() end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8290252FFF36ACB5)  
 ---This native does not have an official description.
----@param padIndex number
----@param red number
----@param green number
----@param blue number
+---@param padIndex integer
+---@param red integer
+---@param green integer
+---@param blue integer
 function SetControlLightEffectColor(padIndex, red, green, blue) end
 
 ---@deprecated
@@ -395,8 +395,8 @@ SetControlGroupColor = SetControlLightEffectColor
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE8A25867FBA3B05E)  
 ---This is for simulating player input.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 ---@param amount number
 ---@return boolean
 function SetControlNormal(padIndex, control, amount) end
@@ -412,8 +412,8 @@ function SetCursorLocation(x, y) end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEDE476E5EE29EDB1)  
 ---This native does not have an official description.
----@param padIndex number
----@param control number
+---@param padIndex integer
+---@param control integer
 function SetInputExclusive(padIndex, control) end
 
 ---**`PAD` `client`**  
@@ -425,9 +425,9 @@ function SetInputExclusive(padIndex, control) end
 ---example:  
 ---SET_PAD_SHAKE(0, 100, 200);  
 ---```
----@param padIndex number
----@param duration number
----@param frequency number
+---@param padIndex integer
+---@param duration integer
+---@param frequency integer
 function SetPadShake(padIndex, duration, frequency) end
 
 ---**`PAD` `client`**  
@@ -439,7 +439,7 @@ function SetPlayerpadShakesWhenControllerDisabled(toggle) end
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x38C16A305E8CDC8D)  
 ---This native does not have an official description.
----@param padIndex number
+---@param padIndex integer
 function StopPadShake(padIndex) end
 
 ---**`PAD` `client`**  

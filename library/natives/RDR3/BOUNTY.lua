@@ -42,8 +42,8 @@ function BountyGetLegendaryTarget(p0) end
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB395A44A0C7CA615)  
 ---This native does not have an official description.
----@param p0 number | string
----@param p1 number | string
+---@param p0 integer | string
+---@param p1 integer | string
 ---@return boolean, any
 function BountyGetWantedPosterSlot(p0, p1) end
 
@@ -62,37 +62,37 @@ function BountyRequestBecomeTargetOfCharacterBountyHunt() end
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFC81D7C7A151CFAA)  
 ---This native does not have an official description.
----@param p1 number
----@param p2 number
+---@param p1 integer
+---@param p2 integer
 ---@return boolean, any
 function BountyRequestBeginLegendaryMission(p1, p2) end
 
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x48E4E23F1739E197)  
 ---This native does not have an official description.
----@param p1 number
----@param p2 number
+---@param p1 integer
+---@param p2 integer
 ---@return boolean, any
 function BountyRequestBeginLegendaryMissionForPosse(p1, p2) end
 
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFFA13742E43507E3)  
 ---This native does not have an official description.
----@param p1 number
+---@param p1 integer
 ---@return boolean, any
 function BountyRequestBeginWantedPoster(p1) end
 
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x28717806D3BDD0D0)  
 ---This native does not have an official description.
----@param p1 number
+---@param p1 integer
 ---@return boolean, any
 function BountyRequestBribeJailGuard(p1) end
 
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA9C3B0F746375162)  
 ---This native does not have an official description.
----@param p1 number
+---@param p1 integer
 ---@return boolean, any, any
 function BountyRequestClaimCharacterBounty(p1) end
 
@@ -129,15 +129,15 @@ function BountyRequestPayOffBounty() end
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x587BCEC31D64F382)  
 ---This native does not have an official description.
----@param p1 number | string
----@param costType number | string
+---@param p1 integer | string
+---@param costType integer | string
 ---@return boolean, any
 function BountyRequestPayOffBountyEx(p1, costType) end
 
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5B53CA0E2AC3FF45)  
 ---This native does not have an official description.
----@param p1 number
+---@param p1 integer
 ---@return boolean, any, any
 function BountyRequestPosseLeaderClaimCharacterBounty(p1) end
 
@@ -162,7 +162,7 @@ function BountyRequestPosseMemberEscapedCharacterBountyHunt() end
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x188B748861B5BA17)  
 ---crimeType: see _REPORT_CRIME
----@param crimeType number | string
+---@param crimeType integer | string
 ---@param p2 boolean
 ---@return boolean, any
 function BountyRequestSelfReportCrime(crimeType, p2) end
@@ -200,13 +200,13 @@ function N_0x86ec5f83867c4b70() end
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD6A67E2FF373D0E3)  
 ---_BOUNTY_GET_*
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function N_0xd6a67e2ff373d0e3(p0) end
 
 ---**`BOUNTY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF8BCC5ECA33AC9C1)  
 ---_BOUNTY_GET_*
----@return number
+---@return integer
 function N_0xf8bcc5eca33ac9c1() end
 

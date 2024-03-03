@@ -31,14 +31,14 @@ function EndSrl() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9C77964B0E07B633)  
 ---Outputs IPL position and radius (previously wrongly named heading)
 ---https://github.com/femga/rdr3_discoveries/blob/master/imaps/imaps_with_coords_and_heading.lua
----@param iplHash number | string
+---@param iplHash integer | string
 ---@return boolean, vector3, number
 function GetIplBoundingSphere(iplHash) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x30CCCC4D88E654CA)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNumberOfStreamingRequests() end
 
 ---**`STREAMING` `client`**  
@@ -64,7 +64,7 @@ function HasClipSetLoaded(clipSet) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x210A79C9EC89778F)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function HasCollisionForModelLoaded(model) end
 
@@ -80,7 +80,7 @@ function HasCollisionLoadedAtCoord(x, y, z) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1283B8B89DD5D1B6)  
 ---Checks if the specified model has loaded into memory.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function HasModelLoaded(model) end
 
@@ -94,7 +94,7 @@ function HasMoveNetworkDefLoaded(name) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x65BB72F29138F5D6)  
 ---This native does not have an official description.
----@param fxNameHash number | string
+---@param fxNameHash integer | string
 ---@return boolean
 function HasNamedPtfxAssetLoaded(fxNameHash) end
 
@@ -107,7 +107,7 @@ function HasPtfxAssetLoaded() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9427C94D2E4094A4)  
 ---This native does not have an official description.
----@param scenarioType number | string
+---@param scenarioType integer | string
 ---@param p1 boolean
 ---@return boolean
 function HasScenarioTypeLoaded(scenarioType, p1) end
@@ -144,21 +144,21 @@ function IplGroupSwapStart(iplName1, iplName2) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF87DE697E9A06EC6)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function IsEntityFocus(entity) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x93AC1B91CB6D9913)  
 ---Old name: _IS_IMAP_ACTIVE_2
----@param iplHash number | string
+---@param iplHash integer | string
 ---@return boolean
 function IsIplActiveByHash(iplHash) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD779B9B910BD3B7C)  
 ---Old name: _IS_IMAP_ACTIVE
----@param iplHash number | string
+---@param iplHash integer | string
 ---@return boolean
 function IsIplActiveHash(iplHash) end
 
@@ -177,35 +177,35 @@ function IsLoadSceneLoaded() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x274EE1B90CFA669E)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelAnObject(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC3F09DE9D6D17DDA)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelAPed(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x354F62672DE7DB0A)  
 ---Returns whether the specified model represents a vehicle.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelAVehicle(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD6F3B6D7716CFF8E)  
 ---Returns whether the specified model exists in the game.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelInCdimage(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x392C8D8E07B70EFC)  
 ---Returns whether the specified model is valid
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelValid(model) end
 
@@ -218,7 +218,7 @@ function IsPlayerSwitchInProgress() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x73B40D97D7BAAD77)  
 ---Returns true if IPL is streamed in (?)
----@param iplHash number | string
+---@param iplHash integer | string
 ---@param x number
 ---@param y number
 ---@param z number
@@ -247,7 +247,7 @@ function IsSrlLoaded() end
 ---@param offsetY number
 ---@param offsetZ number
 ---@param radius number
----@param p7 number
+---@param p7 integer
 ---@return boolean
 function LoadSceneStart(posX, posY, posZ, offsetX, offsetY, offsetZ, radius, p7) end
 
@@ -270,7 +270,7 @@ function LoadSceneStop() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x032A14D082A9B269)  
 ---_SET_E* or _SET_F*
----@param p0 number | string
+---@param p0 integer | string
 function N_0x032a14d082a9b269(p0) end
 
 ---**`STREAMING` `client`**  
@@ -542,13 +542,13 @@ function RemoveClipSet(clipSet) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x431E3AB760629B34)  
 ---Old name: _REMOVE_IMAP_2
----@param iplHash number | string
+---@param iplHash integer | string
 function RemoveIplByHash(iplHash) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5A3E5CF7B4014B96)  
 ---Old name: _REMOVE_IMAP
----@param iplHash number | string
+---@param iplHash integer | string
 function RemoveIplHash(iplHash) end
 
 ---**`STREAMING` `client`**  
@@ -560,7 +560,7 @@ function RemoveMoveNetworkDef(name) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF20866829E1C81A2)  
 ---This native does not have an official description.
----@param fxNameHash number | string
+---@param fxNameHash integer | string
 function RemoveNamedPtfxAsset(fxNameHash) end
 
 ---**`STREAMING` `client`**  
@@ -571,7 +571,7 @@ function RemovePtfxAsset() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4EDDD9E9CA5AF985)  
 ---This native does not have an official description.
----@param scenarioType number | string
+---@param scenarioType integer | string
 ---@return any
 function RemoveScenarioAsset(scenarioType) end
 
@@ -598,7 +598,7 @@ function RequestClipSet(clipSet) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAC37644A538F7524)  
 ---This native does not have an official description.
----@param clipSetHash number | string
+---@param clipSetHash integer | string
 function RequestClipSetByHash(clipSetHash) end
 
 ---**`STREAMING` `client`**  
@@ -612,19 +612,19 @@ function RequestCollisionAtCoord(x, y, z) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF1767BE37F661551)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 function RequestCollisionForModel(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9E211A378F95C97C)  
 ---Old name: _REQUEST_IMAP_2
----@param iplHash number | string
+---@param iplHash integer | string
 function RequestIplByHash(iplHash) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x59767C5A7A9AE6DA)  
 ---Old name: _REQUEST_IMAP
----@param iplHash number | string
+---@param iplHash integer | string
 function RequestIplHash(iplHash) end
 
 ---**`STREAMING` `client`**  
@@ -638,7 +638,7 @@ function RequestMetadataAtCoord(x, y, z) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFA28FE3A6246FC30)  
 ---Request a model to be loaded into memory.
----@param model number | string
+---@param model integer | string
 ---@param p1 boolean
 function RequestModel(model, p1) end
 
@@ -651,7 +651,7 @@ function RequestMoveNetworkDef(name) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF2B2353BBC0D4E8F)  
 ---This native does not have an official description.
----@param fxNameHash number | string
+---@param fxNameHash integer | string
 function RequestNamedPtfxAsset(fxNameHash) end
 
 ---**`STREAMING` `client`**  
@@ -662,11 +662,11 @@ function RequestPtfxAsset() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x19A6BE7D9C6884D3)  
 ---This native does not have an official description.
----@param scenarioType number | string
----@param p1 number
+---@param scenarioType integer | string
+---@param p1 integer
 ---@param p2 any
 ---@param p3 any
----@return number
+---@return integer
 function RequestScenarioType(scenarioType, p1, p2, p3) end
 
 ---**`STREAMING` `client`**  
@@ -678,7 +678,7 @@ function SetAllMapdataCulled(p0) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x955AEDD58F4BD309)  
 ---It seems to make the entity's coords mark the point from which LOD-distances are measured. In my testing, setting a vehicle as the focus entity and moving that vehicle more than 300 distance units away from the player will make the level of detail around the player go down drastically (shadows disappear, textures go extremely low res, etc). The player seems to be the default focus entity.
----@param entity number
+---@param entity integer
 function SetFocusEntity(entity) end
 
 ---**`STREAMING` `client`**  
@@ -723,7 +723,7 @@ function SetMapdatacullboxEnabled(name, toggle) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4AD96EF928BD4F9A)  
 ---Marks the model as no longer needed.
----@param model number | string
+---@param model integer | string
 function SetModelAsNoLongerNeeded(model) end
 
 ---**`STREAMING` `client`**  
@@ -746,10 +746,10 @@ function SetSrlLongJumpMode(p0) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD346248C1DCE0D76)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
+---@param p0 integer
+---@param p1 integer
+---@param p2 integer
+---@param p3 integer
 function SetSrlReadaheadTimes(p0, p1, p2, p3) end
 
 ---**`STREAMING` `client`**  

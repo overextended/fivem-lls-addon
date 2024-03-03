@@ -17,7 +17,7 @@
 ---11 = mexican (es-MX)
 ---12 = chinesesimp (zh-CN)
 ---```
----@return number
+---@return integer
 function GetCurrentLanguage() end
 
 ---@deprecated
@@ -30,7 +30,7 @@ GetCurrentLanguageId = GetCurrentLanguage
 ---```
 ---Possible return values: 0, 1, 2
 ---```
----@return number
+---@return integer
 function LocalizationGetSystemDateFormat() end
 
 ---@deprecated
@@ -41,6 +41,6 @@ GetUserLanguageId = LocalizationGetSystemDateFormat
 ---```
 ---Same return values as GET_CURRENT_LANGUAGE
 ---```
----@return number
+---@return integer
 function LocalizationGetSystemLanguage() end
 

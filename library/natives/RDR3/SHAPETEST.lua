@@ -12,8 +12,8 @@
 ---	SHAPETEST_STATUS_RESULTS_NOTREADY,
 ---	SHAPETEST_STATUS_RESULTS_READY
 ---};
----@param shapeTestHandle any
----@return number, boolean, vector3, vector3, number
+---@param shapeTestHandle integer
+---@return integer, boolean, vector3, vector3, integer
 function GetShapeTestResult(shapeTestHandle) end
 
 ---**`SHAPETEST` `client`**  
@@ -33,10 +33,10 @@ function N_0x04aa59ca40571c2e(p0, p1) end
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param flags number
----@param entityToIgnore number
----@param p8 number
----@return any
+---@param flags integer
+---@param entityToIgnore integer
+---@param p8 integer
+---@return integer
 function StartExpensiveSynchronousShapeTestLosProbe(x1, y1, z1, x2, y2, z2, flags, entityToIgnore, p8) end
 
 ---**`SHAPETEST` `client`**  
@@ -51,11 +51,11 @@ function StartExpensiveSynchronousShapeTestLosProbe(x1, y1, z1, x2, y2, z2, flag
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param rotationOrder number
----@param flags number
----@param entityToIgnore number
----@param options number
----@return any
+---@param rotationOrder integer
+---@param flags integer
+---@param entityToIgnore integer
+---@param options integer
+---@return integer
 function StartShapeTestBox(posX, posY, posZ, dimensionsX, dimensionsY, dimensionsZ, rotX, rotY, rotZ, rotationOrder, flags, entityToIgnore, options) end
 
 ---**`SHAPETEST` `client`**  
@@ -68,10 +68,10 @@ function StartShapeTestBox(posX, posY, posZ, dimensionsX, dimensionsY, dimension
 ---@param y2 number
 ---@param z2 number
 ---@param radius number
----@param flags number
----@param entityToIgnore number
----@param p9 number
----@return any
+---@param flags integer
+---@param entityToIgnore integer
+---@param p9 integer
+---@return integer
 function StartShapeTestCapsule(x1, y1, z1, x2, y2, z2, radius, flags, entityToIgnore, p9) end
 
 ---**`SHAPETEST` `client`**  
@@ -87,19 +87,19 @@ function StartShapeTestCapsule(x1, y1, z1, x2, y2, z2, radius, flags, entityToIg
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param flags number
----@param entity number
----@param p8 number
----@return any
+---@param flags integer
+---@param entity integer
+---@param p8 integer
+---@return integer
 function StartShapeTestLosProbe(x1, y1, z1, x2, y2, z2, flags, entity, p8) end
 
 ---**`SHAPETEST` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9839013D8B6014F1)  
 ---Old name: _START_SHAPE_TEST_SURROUNDING_COORDS
----@param flag number
----@param entity number
----@param flag2 number
----@return any, vector3, vector3
+---@param flag integer
+---@param entity integer
+---@param flag2 integer
+---@return integer, vector3, vector3
 function StartShapeTestMouseCursorLosProbe(flag, entity, flag2) end
 
 ---**`SHAPETEST` `client`**  
@@ -112,9 +112,9 @@ function StartShapeTestMouseCursorLosProbe(flag, entity, flag2) end
 ---@param y2 number
 ---@param z2 number
 ---@param radius number
----@param flags number
----@param entity number
+---@param flags integer
+---@param entity integer
 ---@param p9 any
----@return any
+---@return integer
 function StartShapeTestSweptSphere(x1, y1, z1, x2, y2, z2, radius, flags, entity, p9) end
 

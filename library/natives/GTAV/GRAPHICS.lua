@@ -60,7 +60,7 @@
 ---    liquidTrail_water = 9050  
 ---}  
 ---```
----@param decalType number
+---@param decalType integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -80,7 +80,7 @@
 ---@param p17 boolean
 ---@param p18 boolean
 ---@param p19 boolean
----@return number
+---@return integer
 function AddDecal(decalType, posX, posY, posZ, p4, p5, p6, p7, p8, p9, width, height, rCoef, gCoef, bCoef, opacity, timeout, p17, p18, p19) end
 
 ---**`GRAPHICS` `client`**  
@@ -90,7 +90,7 @@ function AddDecal(decalType, posX, posY, posZ, p4, p5, p6, p7, p8, p9, width, he
 ---GRAPHICS::ADD_ENTITY_ICON(a_0, "MP_Arrow");  
 ---I tried this and nothing happened...  
 ---```
----@param entity number
+---@param entity integer
 ---@param icon string
 ---@return any
 function AddEntityIcon(entity, icon) end
@@ -106,7 +106,7 @@ function AddEntityIcon(entity, icon) end
 ---@param groundLvl number
 ---@param width number
 ---@param transparency number
----@return number
+---@return integer
 function AddOilDecal(x, y, z, groundLvl, width, transparency) end
 
 ---**`GRAPHICS` `client`**  
@@ -118,7 +118,7 @@ function AddOilDecal(x, y, z, groundLvl, width, transparency) end
 ---@param groundLvl number
 ---@param width number
 ---@param transparency number
----@return number
+---@return integer
 function AddPetrolDecal(x, y, z, groundLvl, width, transparency) end
 
 ---**`GRAPHICS` `client`**  
@@ -142,9 +142,9 @@ function AddTcmodifierOverride(modifierName1, modifierName2) end
 ---```
 ---boneIndex is always chassis_dummy in the scripts. The x/y/z params are location relative to the chassis bone.
 ---```
----@param vehicle number
----@param ped number
----@param boneIndex number
+---@param vehicle integer
+---@param ped integer
+---@param boneIndex integer
 ---@param x1 number
 ---@param x2 number
 ---@param x3 number
@@ -156,7 +156,7 @@ function AddTcmodifierOverride(modifierName1, modifierName2) end
 ---@param z3 number
 ---@param scale number
 ---@param p13 any
----@param alpha number
+---@param alpha integer
 ---@return boolean
 function AddVehicleCrewEmblem(vehicle, ped, boneIndex, x1, x2, x3, y1, y2, y3, z1, z2, z3, scale, p13, alpha) end
 
@@ -187,7 +187,7 @@ GetScreenEffectIsActive = AnimpostfxIsRunning
 ---if loop is true, the effect won't stop until you call ANIMPOSTFX_STOP on it. (only loopable effects)
 ---```
 ---@param effectName string
----@param duration number
+---@param duration integer
 ---@param looped boolean
 function AnimpostfxPlay(effectName, duration, looped) end
 
@@ -222,7 +222,7 @@ function AnimpostfxStopAndDoUnk(effectName) end
 ---```
 ---Might be more appropriate in AUDIO?  
 ---```
----@param entity number
+---@param entity integer
 function AttachTvAudioToEntity(entity) end
 
 ---**`GRAPHICS` `client`**  
@@ -230,7 +230,7 @@ function AttachTvAudioToEntity(entity) end
 ---```
 ---Push a function from the Scaleform onto the stack  
 ---```
----@param scaleform number
+---@param scaleform integer
 ---@param methodName string
 ---@return boolean
 function BeginScaleformMovieMethod(scaleform, methodName) end
@@ -274,7 +274,7 @@ BeginScaleformMovieMethodV = BeginScaleformMovieMethodOnFrontendHeader
 ---20 - HUD_DIRECTOR_MODE
 ---This native requires more research - all information can be found inside of 'hud.gfx'. Using a decompiler, the different components are located under "scripts\__Packages\com\rockstargames\gtav\hud\hudComponents" and "scripts\__Packages\com\rockstargames\gtav\Multiplayer".
 ---```
----@param hudComponent number
+---@param hudComponent integer
 ---@param methodName string
 ---@return boolean
 function BeginScaleformScriptHudMovieMethod(hudComponent, methodName) end
@@ -326,7 +326,7 @@ BeginTextComponent = BeginTextCommandScaleformString
 ---```
 ---Calls the Scaleform function.  
 ---```
----@param scaleform number
+---@param scaleform integer
 ---@param method string
 function CallScaleformMovieMethod(scaleform, method) end
 
@@ -339,7 +339,7 @@ CallScaleformMovieFunctionVoid = CallScaleformMovieMethod
 ---Calls the Scaleform function and passes the parameters as floats.  
 ---The number of parameters passed to the function varies, so the end of the parameter list is represented by -1.0.  
 ---```
----@param scaleform number
+---@param scaleform integer
 ---@param methodName string
 ---@param param1 number
 ---@param param2 number
@@ -363,7 +363,7 @@ CallScaleformMovieFunctionFloatParams = CallScaleformMovieMethodWithNumber
 ---// function MY_FUNCTION_2(floatParam, stringParam1, stringParam2)  
 ---GRAPHICS::_CALL_SCALEFORM_MOVIE_FUNCTION_MIXED_PARAMS(scaleform, "MY_FUNCTION_2", 10.0, -1.0, -1.0, -1.0, -1.0, "String param #1", "String param #2", 0, 0, 0);  
 ---```
----@param scaleform number
+---@param scaleform integer
 ---@param methodName string
 ---@param floatParam1 number
 ---@param floatParam2 number
@@ -386,7 +386,7 @@ CallScaleformMovieFunctionMixedParams = CallScaleformMovieMethodWithNumberAndStr
 ---Calls the Scaleform function and passes the parameters as strings.  
 ---The number of parameters passed to the function varies, so the end of the parameter list is represented by 0 (NULL).  
 ---```
----@param scaleform number
+---@param scaleform integer
 ---@param methodName string
 ---@param param1 string
 ---@param param2 string
@@ -517,7 +517,7 @@ function ClearTimecycleModifier() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBEB3D46BB7F043C0)  
 ---This native does not have an official description.
----@param tvChannel number
+---@param tvChannel integer
 function ClearTvChannelPlaylist(tvChannel) end
 
 ---**`GRAPHICS` `client`**  
@@ -560,7 +560,7 @@ function ClearTvChannelPlaylist(tvChannel) end
 ---```
 ---
 ---[Checkpoint Types](https://docs.fivem.net/docs/game-references/checkpoints/) as of game build 2189
----@param type number
+---@param type integer
 ---@param posX1 number
 ---@param posY1 number
 ---@param posZ1 number
@@ -568,12 +568,12 @@ function ClearTvChannelPlaylist(tvChannel) end
 ---@param posY2 number
 ---@param posZ2 number
 ---@param diameter number
----@param red number
----@param green number
----@param blue number
----@param alpha number
----@param reserved number
----@return number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
+---@param reserved integer
+---@return integer
 function CreateCheckpoint(type, posX1, posY1, posZ1, posX2, posY2, posZ2, diameter, red, green, blue, alpha, reserved) end
 
 ---**`GRAPHICS` `client`**  
@@ -583,19 +583,19 @@ function CreateCheckpoint(type, posX1, posY1, posZ1, posX2, posY2, posZ2, diamet
 ---Tracked points must be manually managed and will not be destroyed on resource stop (they are not an instance of CScriptResource). See [`DESTROY_TRACKED_POINT`](#\_0xB25DC90BAD56CA42) and [onResourceStop](https://docs.fivem.net/docs/scripting-reference/events/list/onResourceStop/).
 ---
 ---Only 64 points may be tracked at a given time.
----@return number
+---@return integer
 function CreateTrackedPoint() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF5ED37F54CD4D52E)  
 ---This native does not have an official description.
----@param checkpoint number
+---@param checkpoint integer
 function DeleteCheckpoint(checkpoint) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB25DC90BAD56CA42)  
 ---This native does not have an official description.
----@param point number
+---@param point integer
 function DestroyTrackedPoint(point) end
 
 ---**`GRAPHICS` `client`**  
@@ -638,22 +638,22 @@ function DisableVehicleDistantlights(toggle) end
 ---0 - Dialogue brief
 ---1 - Help text brief
 ---2 - Mission Objective brief
----@param briefValue number
+---@param briefValue integer
 ---@return boolean
 function DoesLatestBriefStringExist(briefValue) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x74AFEF0D2E1E409B)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@return boolean
 function DoesParticleFxLoopedExist(ptfxHandle) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x060D935D3981A275)  
 ---This native does not have an official description.
----@param vehicle number
----@param p1 number
+---@param vehicle integer
+---@param p1 integer
 ---@return boolean
 function DoesVehicleHaveCrewEmblem(vehicle, p1) end
 
@@ -671,16 +671,16 @@ function DontRenderInGameUi(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7118E83EEB9F7238)  
 ---Must be called each frame, will play at specified position on screen when called with [`_PLAY_BINK_MOVIE`](#\_0x70D2CC8A542A973C)
----@param binkMovie number
+---@param binkMovie integer
 ---@param posX number
 ---@param posY number
 ---@param scaleX number
 ---@param scaleY number
 ---@param rotation number
----@param r number
----@param g number
----@param b number
----@param a number
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function DrawBinkMovie(binkMovie, posX, posY, scaleX, scaleY, rotation, r, g, b, a) end
 
 ---**`GRAPHICS` `client`**  
@@ -708,10 +708,10 @@ function DrawBinkMovie(binkMovie, posX, posY, scaleX, scaleY, rotation, r, g, b,
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawBox(x1, y1, z1, x2, y2, z2, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -725,10 +725,10 @@ function DrawBox(x1, y1, z1, x2, y2, z2, red, green, blue, alpha) end
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param r number
----@param g number
----@param b number
----@param a number
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function DrawDebugBox(x1, y1, z1, x2, y2, z2, r, g, b, a) end
 
 ---**`GRAPHICS` `client`**  
@@ -740,10 +740,10 @@ function DrawDebugBox(x1, y1, z1, x2, y2, z2, r, g, b, a) end
 ---@param y number
 ---@param z number
 ---@param size number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawDebugCross(x, y, z, size, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -757,10 +757,10 @@ function DrawDebugCross(x, y, z, size, red, green, blue, alpha) end
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param r number
----@param g number
----@param b number
----@param a number
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function DrawDebugLine(x1, y1, z1, x2, y2, z2, r, g, b, a) end
 
 ---**`GRAPHICS` `client`**  
@@ -774,14 +774,14 @@ function DrawDebugLine(x1, y1, z1, x2, y2, z2, r, g, b, a) end
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param r1 number
----@param g1 number
----@param b1 number
----@param r2 number
----@param g2 number
----@param b2 number
----@param alpha1 number
----@param alpha2 number
+---@param r1 integer
+---@param g1 integer
+---@param b1 integer
+---@param r2 integer
+---@param g2 integer
+---@param b2 integer
+---@param alpha1 integer
+---@param alpha2 integer
 function DrawDebugLineWithTwoColours(x1, y1, z1, x2, y2, z2, r1, g1, b1, r2, g2, b2, alpha1, alpha2) end
 
 ---**`GRAPHICS` `client`**  
@@ -793,10 +793,10 @@ function DrawDebugLineWithTwoColours(x1, y1, z1, x2, y2, z2, r1, g1, b1, r2, g2,
 ---@param y number
 ---@param z number
 ---@param radius number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawDebugSphere(x, y, z, radius, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -808,10 +808,10 @@ function DrawDebugSphere(x, y, z, radius, red, green, blue, alpha) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawDebugText(text, x, y, z, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -823,10 +823,10 @@ function DrawDebugText(text, x, y, z, red, green, blue, alpha) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawDebugText_2d(text, x, y, z, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -853,10 +853,10 @@ function DrawDebugText_2d(text, x, y, z, red, green, blue, alpha) end
 ---@param width number
 ---@param height number
 ---@param heading number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawInteractiveSprite(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -865,9 +865,9 @@ function DrawInteractiveSprite(textureDict, textureName, screenX, screenY, width
 ---@param posX number
 ---@param posY number
 ---@param posZ number
----@param colorR number
----@param colorG number
----@param colorB number
+---@param colorR integer
+---@param colorG integer
+---@param colorB integer
 ---@param range number
 ---@param intensity number
 function DrawLightWithRange(posX, posY, posZ, colorR, colorG, colorB, range, intensity) end
@@ -878,9 +878,9 @@ function DrawLightWithRange(posX, posY, posZ, colorR, colorG, colorB, range, int
 ---@param x number
 ---@param y number
 ---@param z number
----@param r number
----@param g number
----@param b number
+---@param r integer
+---@param g integer
+---@param b integer
 ---@param range number
 ---@param intensity number
 ---@param shadow number
@@ -914,10 +914,10 @@ DrawLightWithRangeWithShadow = DrawLightWithRangeAndShadow
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawLine(x1, y1, z1, x2, y2, z2, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -932,7 +932,7 @@ function DrawLowQualityPhotoToPhone(p0, p1) end
 ---Draws a marker with the specified appearance at the target location. This has to be called every frame, e.g. in a `Wait(0)` loop.
 ---
 ---There's a [list of markers](https://docs.fivem.net/game-references/markers/) on the FiveM documentation site.
----@param type number
+---@param type integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -945,13 +945,13 @@ function DrawLowQualityPhotoToPhone(p0, p1) end
 ---@param scaleX number
 ---@param scaleY number
 ---@param scaleZ number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 ---@param bobUpAndDown boolean
 ---@param faceCamera boolean
----@param p19 number
+---@param p19 integer
 ---@param rotate boolean
 ---@param textureDict string
 ---@param textureName string
@@ -963,7 +963,7 @@ function DrawMarker(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, 
 ---```
 ---NativeDB Added Parameter 26: BOOL p25
 ---```
----@param type number
+---@param type integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -976,13 +976,13 @@ function DrawMarker(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, 
 ---@param scaleX number
 ---@param scaleY number
 ---@param scaleZ number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 ---@param bobUpAndDown boolean
 ---@param faceCamera boolean
----@param p19 number
+---@param p19 integer
 ---@param rotate boolean
 ---@param textureDict string
 ---@param textureName string
@@ -1022,10 +1022,10 @@ function DrawMarker_2(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ
 ---@param x3 number
 ---@param y3 number
 ---@param z3 number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawPoly(x1, y1, z1, x2, y2, z2, x3, y3, z3, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -1050,31 +1050,31 @@ function DrawPoly(x1, y1, z1, x2, y2, z2, x3, y3, z3, red, green, blue, alpha) e
 ---@param y number
 ---@param width number
 ---@param height number
----@param r number
----@param g number
----@param b number
----@param a number
+---@param r integer
+---@param g integer
+---@param b integer
+---@param a integer
 function DrawRect(x, y, width, height, r, g, b, a) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54972ADAF0294A93)  
 ---This native does not have an official description.
----@param scaleformHandle number
+---@param scaleformHandle integer
 ---@param x number
 ---@param y number
 ---@param width number
 ---@param height number
----@param red number
----@param green number
----@param blue number
----@param alpha number
----@param unk number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
+---@param unk integer
 function DrawScaleformMovie(scaleformHandle, x, y, width, height, red, green, blue, alpha, unk) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x87D51D72255D4E78)  
 ---This native does not have an official description.
----@param scaleform number
+---@param scaleform integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -1093,7 +1093,7 @@ function DrawScaleformMovie_3d(scaleform, posX, posY, posZ, rotX, rotY, rotZ, p7
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1CE592FDC749D6F5)  
 ---This native does not have an official description.
----@param scaleform number
+---@param scaleform integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -1117,23 +1117,23 @@ DrawScaleformMovie_3dNonAdditive = DrawScaleformMovie_3dSolid
 ---```
 ---unk is not used so no need  
 ---```
----@param scaleform number
----@param red number
----@param green number
----@param blue number
----@param alpha number
----@param unk number
+---@param scaleform integer
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
+---@param unk integer
 function DrawScaleformMovieFullscreen(scaleform, red, green, blue, alpha, unk) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF537FDE4FBD4CE5)  
 ---This native does not have an official description.
----@param scaleform1 number
----@param scaleform2 number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param scaleform1 integer
+---@param scaleform2 integer
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawScaleformMovieFullscreenMasked(scaleform1, scaleform2, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -1143,8 +1143,8 @@ function DrawScaleformMovieFullscreenMasked(scaleform1, scaleform2, red, green, 
 ---p0 was always "CELEBRATION_WINNER"  
 ---```
 ---@param p0 string
----@param ped number
----@param p2 number
+---@param ped integer
+---@param p2 integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -1164,9 +1164,9 @@ function DrawShowroom(p0, ped, p2, posX, posY, posZ) end
 ---@param y number
 ---@param z number
 ---@param radius number
----@param r number
----@param g number
----@param b number
+---@param r integer
+---@param g integer
+---@param b integer
 ---@param opacity number
 function DrawSphere(x, y, z, radius, r, g, b, opacity) end
 
@@ -1196,9 +1196,9 @@ function DrawSphere(x, y, z, radius, r, g, b, opacity) end
 ---@param dirX number
 ---@param dirY number
 ---@param dirZ number
----@param colorR number
----@param colorG number
----@param colorB number
+---@param colorR integer
+---@param colorG integer
+---@param colorB integer
 ---@param distance number
 ---@param brightness number
 ---@param hardness number
@@ -1215,15 +1215,15 @@ function DrawSpotLight(posX, posY, posZ, dirX, dirY, dirZ, colorR, colorG, color
 ---@param dirX number
 ---@param dirY number
 ---@param dirZ number
----@param colorR number
----@param colorG number
----@param colorB number
+---@param colorR integer
+---@param colorG integer
+---@param colorB integer
 ---@param distance number
 ---@param brightness number
 ---@param roundness number
 ---@param radius number
 ---@param falloff number
----@param shadowId number
+---@param shadowId integer
 function DrawSpotLightWithShadow(posX, posY, posZ, dirX, dirY, dirZ, colorR, colorG, colorB, distance, brightness, roundness, radius, falloff, shadowId) end
 
 ---**`GRAPHICS` `client`**  
@@ -1250,10 +1250,10 @@ function DrawSpotLightWithShadow(posX, posY, posZ, dirX, dirY, dirZ, colorR, col
 ---@param width number
 ---@param height number
 ---@param heading number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawSprite(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -1270,10 +1270,10 @@ function DrawSprite(textureDict, textureName, screenX, screenY, width, height, h
 ---@param x3 number
 ---@param y3 number
 ---@param z3 number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 ---@param textureDict string
 ---@param textureName string
 ---@param u1 number
@@ -1306,15 +1306,15 @@ function DrawSpritePoly(x1, y1, z1, x2, y2, z2, x3, y3, z3, red, green, blue, al
 ---@param red1 number
 ---@param green1 number
 ---@param blue1 number
----@param alpha1 number
+---@param alpha1 integer
 ---@param red2 number
 ---@param green2 number
 ---@param blue2 number
----@param alpha2 number
+---@param alpha2 integer
 ---@param red3 number
 ---@param green3 number
 ---@param blue3 number
----@param alpha3 number
+---@param alpha3 integer
 ---@param textureDict string
 ---@param textureName string
 ---@param u1 number
@@ -1348,10 +1348,10 @@ function DrawSpritePoly_2(x1, y1, z1, x2, y2, z2, x3, y3, z3, red1, green1, blue
 ---@param u2 number
 ---@param v2 number
 ---@param heading number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawSpriteUv(textureDict, textureName, x, y, width, height, u1, v1, u2, v2, heading, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -1390,10 +1390,10 @@ function DrawSpriteUv(textureDict, textureName, x, y, width, height, u1, v1, u2,
 ---@param xScale number
 ---@param yScale number
 ---@param rotation number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function DrawTvChannel(xPos, yPos, xScale, yScale, rotation, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -1480,7 +1480,7 @@ PopScaleformMovieFunctionVoid = EndScaleformMovieMethod
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC50AA39A577AF886)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function EndScaleformMovieMethodReturnValue() end
 
 ---@deprecated
@@ -1545,7 +1545,7 @@ function FreeMemoryForMissionCreatorPhoto() end
 ---```
 ---Returns current screen resolution.  
 ---```
----@return number, number
+---@return integer, integer
 function GetActiveScreenResolution() end
 
 ---@deprecated
@@ -1568,14 +1568,14 @@ GetScreenAspectRatio = GetAspectRatio
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param binkMovie number
+---@param binkMovie integer
 ---@return number
 function GetBinkMovieTime(binkMovie) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x473151EBC762C6DA)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetCurrentNumberOfCloudPhotos() end
 
 ---@deprecated
@@ -1586,14 +1586,14 @@ GetCurrentNumberOfPhotos = GetCurrentNumberOfCloudPhotos
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x323F647679A09103)  
 ---This native does not have an official description.
----@param decal number
+---@param decal integer
 ---@return number
 function GetDecalWashLevel(decal) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBB0527EC6341496D)  
 ---See [`GET_TIMECYCLE_MODIFIER_INDEX`](#\_0xFDF3D97C674AFB66) for use, works the same just for the secondary timecycle modifier.
----@return number
+---@return integer
 function GetExtraTimecycleModifierIndex() end
 
 ---**`GRAPHICS` `client`**  
@@ -1631,7 +1631,7 @@ function GetIsWidescreen() end
 ---```
 ---This function is hard-coded to always return 96.
 ---```
----@return number
+---@return integer
 function GetMaximumNumberOfCloudPhotos() end
 
 ---@deprecated
@@ -1642,7 +1642,7 @@ GetMaximumNumberOfPhotos_2 = GetMaximumNumberOfCloudPhotos
 ---```
 ---This function is hard-coded to always return 0.
 ---```
----@return number
+---@return integer
 function GetMaximumNumberOfPhotos() end
 
 ---**`GRAPHICS` `client`**  
@@ -1664,15 +1664,15 @@ function GetSafeZoneSize() end
 ---```
 ---methodReturn: The return value of this native: END_SCALEFORM_MOVIE_METHOD_RETURN_VALUE
 ---```
----@param methodReturn number
+---@param methodReturn integer
 ---@return boolean
 function GetScaleformMovieMethodReturnValueBool(methodReturn) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2DE7EFA66B906036)  
 ---Used to get a return value from a scaleform function. Returns an int in the same way GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_STRING returns a string.
----@param method_return number
----@return number
+---@param method_return integer
+---@return integer
 function GetScaleformMovieMethodReturnValueInt(method_return) end
 
 ---@deprecated
@@ -1681,7 +1681,7 @@ GetScaleformMovieFunctionReturnInt = GetScaleformMovieMethodReturnValueInt
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE1E258829A885245)  
 ---Used to get a return value from a scaleform function. Returns a string in the same way GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_INT returns an int.
----@param method_return number
+---@param method_return integer
 ---@return string
 function GetScaleformMovieMethodReturnValueString(method_return) end
 
@@ -1736,7 +1736,7 @@ World3dToScreen2d = GetScreenCoordFromWorldCoord
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x888D57E407E63624)  
 ---Hardcoded to always return 1280x720. Use [`_GET_ACTIVE_SCREEN_RESOLUTION`](?\_0x873C9F3104101DD3) to retrieve the correct screen resolution.
----@return number, number
+---@return integer, integer
 function GetScreenResolution() end
 
 ---**`GRAPHICS` `client`**  
@@ -1752,13 +1752,13 @@ function GetScriptGfxPosition(x, y) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1670F8D05056F257)  
 ---This native does not have an official description.
 ---@param p0 string
----@return number
+---@return integer
 function GetStatusOfLoadMissionCreatorPhoto(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0C0C4E81E1AC60A0)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetStatusOfSaveHighQualityPhoto() end
 
 ---**`GRAPHICS` `client`**  
@@ -1768,19 +1768,19 @@ function GetStatusOfSaveHighQualityPhoto() end
 ---appcamera, appmedia, and cellphone_controller.
 ---```
 ---@param p0 boolean
----@return number
+---@return integer
 function GetStatusOfSortedListOperation(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0D6CA79EEEBD8CA3)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetStatusOfTakeHighQualityPhoto() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x90A78ECAA4E78453)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetStatusOfTakeMissionCreatorPhoto() end
 
 ---**`GRAPHICS` `client`**  
@@ -1801,13 +1801,13 @@ function GetTextureResolution(textureDict, textureName) end
 ---if (GRAPHICS::GET_TIMECYCLE_MODIFIER_INDEX() != -1)
 ---For a full list, see here: pastebin.com/cnk7FTF2
 ---```
----@return number
+---@return integer
 function GetTimecycleModifierIndex() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x459FD2C8D0AB78BC)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetTimecycleTransitionModifierIndex() end
 
 ---**`GRAPHICS` `client`**  
@@ -1819,7 +1819,7 @@ function GetTogglePausedRenderphasesStatus() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFC1E275A90D39995)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetTvChannel() end
 
 ---**`GRAPHICS` `client`**  
@@ -1851,9 +1851,9 @@ IsSeethroughActive = GetUsingseethrough
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFE26117A5841B2FF)  
 ---This native does not have an official description.
----@param vehicle number
----@param p1 number
----@return number
+---@param vehicle integer
+---@param p1 integer
+---@return integer
 function GetVehicleCrewEmblemRequestState(vehicle, p1) end
 
 ---**`GRAPHICS` `client`**  
@@ -1865,25 +1865,25 @@ function GolfTrailGetMaxHeight() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA4664972A9B8F8BA)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return vector3
 function GolfTrailGetVisualControlPoint(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x12995F2E53FFA601)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 number
----@param p8 number
----@param p9 number
----@param p10 number
----@param p11 number
+---@param p0 integer
+---@param p1 integer
+---@param p2 integer
+---@param p3 integer
+---@param p4 integer
+---@param p5 integer
+---@param p6 integer
+---@param p7 integer
+---@param p8 integer
+---@param p9 integer
+---@param p10 integer
+---@param p11 integer
 function GolfTrailSetColour(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) end
 
 ---**`GRAPHICS` `client`**  
@@ -1907,15 +1907,15 @@ function GolfTrailSetFacing(p0) end
 ---assuming p5 - p8 is RGBA, the graphic is always yellow (255, 255, 0, 255).
 ---Tested but noticed nothing.
 ---```
----@param type number
+---@param type integer
 ---@param xPos number
 ---@param yPos number
 ---@param zPos number
 ---@param p4 number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function GolfTrailSetFixedControlPoint(type, xPos, yPos, zPos, p4, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -1957,8 +1957,8 @@ function GolfTrailSetShaderParams(p0, p1, p2, p3, p4) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDBAA5EC848BA2D46)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 function GolfTrailSetTessellation(p0, p1) end
 
 ---**`GRAPHICS` `client`**  
@@ -1983,7 +1983,7 @@ function GrassLodShrinkScriptAreas(x, y, z, radius, p4, p5, p6) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8217150E1217EBFD)  
 ---This native does not have an official description.
----@param scaleformHandle number
+---@param scaleformHandle integer
 ---@return boolean
 function HasScaleformContainerMovieLoadedIntoParent(scaleformHandle) end
 
@@ -2006,14 +2006,14 @@ HasNamedScaleformMovieLoaded = HasScaleformMovieFilenameLoaded
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x85F01B8D5B90570E)  
 ---This native does not have an official description.
----@param scaleformHandle number
+---@param scaleformHandle integer
 ---@return boolean
 function HasScaleformMovieLoaded(scaleformHandle) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDF6E5987D2B4D140)  
 ---This native does not have an official description.
----@param hudComponent number
+---@param hudComponent integer
 ---@return boolean
 function HasScaleformScriptHudMovieLoaded(hudComponent) end
 
@@ -2030,7 +2030,7 @@ function HasStreamedTextureDictLoaded(textureDict) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC694D74949CAFD0C)  
 ---This native does not have an official description.
----@param decal number
+---@param decal integer
 ---@return boolean
 function IsDecalAlive(decal) end
 
@@ -2039,7 +2039,7 @@ function IsDecalAlive(decal) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param tvChannel number
+---@param tvChannel integer
 ---@param p1 any
 ---@return boolean
 function IsPlaylistUnk(tvChannel, p1) end
@@ -2048,7 +2048,7 @@ function IsPlaylistUnk(tvChannel, p1) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x768FF8961BA904D6)  
 ---methodReturn: The return value of this native: END_SCALEFORM_MOVIE_METHOD_RETURN_VALUE
 ---Returns true if the return value of a scaleform function is ready to be collected (using GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_STRING or GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_INT).
----@param method_return number
+---@param method_return integer
 ---@return boolean
 function IsScaleformMovieMethodReturnValueReady(method_return) end
 
@@ -2066,7 +2066,7 @@ function IsScreenblurFadeRunning() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC45CCDAAC9221CA8)  
 ---This native does not have an official description.
----@param point number
+---@param point integer
 ---@return boolean
 function IsTrackedPointVisible(point) end
 
@@ -2075,7 +2075,7 @@ function IsTrackedPointVisible(point) end
 ---```
 ---IS_*
 ---```
----@param videoCliphash number | string
+---@param videoCliphash integer | string
 ---@return boolean
 function IsTvPlaylistItemPlaying(videoCliphash) end
 
@@ -2094,7 +2094,7 @@ function LoadMissionCreatorPhoto(p0, p3) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB66064452270E8F1)  
 ---This native does not have an official description.
 ---@param movieMeshSetName string
----@return number
+---@return integer
 function LoadMovieMeshSet(movieMeshSetName) end
 
 ---**`GRAPHICS` `client`**  
@@ -2233,11 +2233,11 @@ function N_0x2c42340f916c5930(p0) end
 ---@param width number
 ---@param height number
 ---@param p6 number
----@param red number
----@param green number
----@param blue number
----@param alpha number
----@param p11 number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
+---@param p11 integer
 function N_0x2d3b147afad49de0(textureDict, textureName, x, y, width, height, p6, red, green, blue, alpha, p11) end
 
 ---**`GRAPHICS` `client`**  
@@ -2256,7 +2256,7 @@ function N_0x2fcb133ca50a49eb(p0) end
 ---
 ---NativeDB Introduced: v1493
 ---```
----@return number
+---@return integer
 function N_0x30432a0118736e00() end
 
 ---**`GRAPHICS` `client`**  
@@ -2290,7 +2290,7 @@ function N_0x393bd2275ceb7793() end
 ---```
 ---
 ---Sets the given checkpoint target to the new coords
----@param checkpointHandle number
+---@param checkpointHandle integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -2324,7 +2324,7 @@ function N_0x54e22ea2c1956a8d(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5B0316762AFD4A64)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function N_0x5b0316762afd4a64() end
 
 ---**`GRAPHICS` `client`**  
@@ -2354,7 +2354,7 @@ SetParticleFxBloodScale = N_0x5f6df3d92271e8a1
 ---```
 ---Unknown. Called after creating a checkpoint (type: 51) in the creators.  
 ---```
----@param checkpoint number
+---@param checkpoint integer
 function N_0x615d3925e87a3b26(checkpoint) end
 
 ---**`GRAPHICS` `client`**  
@@ -2380,7 +2380,7 @@ function N_0x6a51f78772175a51(toggle) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x759650634F07B6B4)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function N_0x759650634f07b6b4(p0) end
 
@@ -2618,8 +2618,8 @@ function N_0xca4ae345a153d573(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCB82A0BF0E3E3265)  
 ---This native does not have an official description.
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function N_0xcb82a0bf0e3e3265(p0) end
 
 ---**`GRAPHICS` `client`**  
@@ -2650,7 +2650,7 @@ function N_0xd9454b5752c857dc() end
 ---```
 ---
 ---This native is used for the "larger" circular checkpoints, and sets the circle/ring around the checkpoint to point in the same direction as the inner arrow
----@param checkpointHandle number
+---@param checkpointHandle integer
 function N_0xdb1ea9411c8911ec(checkpointHandle) end
 
 ---**`GRAPHICS` `client`**  
@@ -2664,7 +2664,7 @@ function N_0xe2892e7e55d7073a(p0) end
 ---```
 ---Sets an unknown value related to timecycles.  
 ---```
----@param unk number
+---@param unk integer
 function N_0xe3e2c1b4c59dbc77(unk) end
 
 ---**`GRAPHICS` `client`**  
@@ -2728,7 +2728,7 @@ function N_0xf3f776ada161e47d(p0, p1) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF51D36185993515D)  
 ---This native does not have an official description.
----@param checkpoint number
+---@param checkpoint integer
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -2750,7 +2750,7 @@ function N_0xf78b803082d4386f(p0) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param checkpoint number
+---@param checkpoint integer
 function N_0xfcf6788fc4860cd4(checkpoint) end
 
 ---**`GRAPHICS` `client`**  
@@ -2775,7 +2775,7 @@ function OverrideInteriorSmokeName(name) end
 ---```
 ---Overriding ped badge texture to a passed texture. It's synced between players (even custom textures!), don't forget to request used dict on *all* clients to make it sync properly. Can be removed by passing empty strings.
 ---```
----@param ped number
+---@param ped integer
 ---@param txd string
 ---@param txn string
 ---@return boolean
@@ -2787,7 +2787,7 @@ function OverridePedBadgeTexture(ped, txd, txn) end
 ---
 ---The key parameter which is passed to the scaleform can also be: "BACKSPACE", "ENTER" or "\x1b" (Which is ESC).
 ---This native is only used in `web_browser.c` as of game build 2944.
----@param scaleformHandle number
+---@param scaleformHandle integer
 ---@return boolean
 function PassKeyboardInputToScaleform(scaleformHandle) end
 
@@ -2798,7 +2798,7 @@ function PassKeyboardInputToScaleform(scaleformHandle) end
 ---*uParam0.f_809 = add_decal(9120, vParam1, vVar4, vVar7, 2f, 2f, to_float(iVar0) / 255f, to_float(iVar1) / 255f, to_float(iVar2) / 255f, 1f, -1f, 1, 0, 0);  
 ---PATCH_DECAL_DIFFUSE_MAP(9120, "MPOnMissMarkers", "Capture_The_Flag_Base_Icon");  
 ---```
----@param decalType number
+---@param decalType integer
 ---@param textureDict string
 ---@param textureName string
 function PatchDecalDiffuseMap(decalType, textureDict, textureName) end
@@ -2813,7 +2813,7 @@ OverrideDecalTexture = PatchDecalDiffuseMap
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param binkMovie number
+---@param binkMovie integer
 function PlayBinkMovie(binkMovie) end
 
 ---**`GRAPHICS` `client`**  
@@ -2852,31 +2852,31 @@ function RegisterNoirScreenEffectThisFrame() end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param binkMovie number
+---@param binkMovie integer
 function ReleaseBinkMovie(binkMovie) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEB119AA014E89183)  
 ---This native does not have an official description.
----@param movieMeshSet number
+---@param movieMeshSet integer
 function ReleaseMovieMeshSet(movieMeshSet) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xED3F346429CCD659)  
 ---This native does not have an official description.
----@param decal number
+---@param decal integer
 function RemoveDecal(decal) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCCF71CBDDF5B6CB9)  
 ---This native does not have an official description.
----@param obj number
+---@param obj integer
 function RemoveDecalsFromObject(obj) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA6F6F70FDC6D144C)  
 ---This native does not have an official description.
----@param obj number
+---@param obj integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -2885,7 +2885,7 @@ function RemoveDecalsFromObjectFacing(obj, x, y, z) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE91F1B65F2B48D57)  
 ---This native does not have an official description.
----@param vehicle number
+---@param vehicle integer
 function RemoveDecalsFromVehicle(vehicle) end
 
 ---**`GRAPHICS` `client`**  
@@ -2902,14 +2902,14 @@ function RemoveDecalsInRange(x, y, z, range) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC401503DFE8D53CF)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param p1 boolean
 function RemoveParticleFx(ptfxHandle, p1) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB8FEAEEBCC127425)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function RemoveParticleFxFromEntity(entity) end
 
 ---**`GRAPHICS` `client`**  
@@ -2924,7 +2924,7 @@ function RemoveParticleFxInRange(X, Y, Z, radius) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF44A5456AC3F4F97)  
 ---This native does not have an official description.
----@param hudComponent number
+---@param hudComponent integer
 function RemoveScaleformScriptHudMovie(hudComponent) end
 
 ---**`GRAPHICS` `client`**  
@@ -2936,29 +2936,29 @@ function RemoveTcmodifierOverride(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD2300034310557E4)  
 ---This native does not have an official description.
----@param vehicle number
----@param p1 number
+---@param vehicle integer
+---@param p1 integer
 function RemoveVehicleCrewEmblem(vehicle, p1) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x11FE353CF9733E6F)  
 ---This native does not have an official description.
 ---@param scaleformName string
----@return number
+---@return integer
 function RequestScaleformMovie(scaleformName) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x65E7E78842E74CDB)  
 ---Another [REQUEST_SCALEFORM_MOVIE](#\_0x11FE353CF9733E6F) equivalent.
 ---@param scaleformName string
----@return number
+---@return integer
 function RequestScaleformMovie_2(scaleformName) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC514489CFB8AF806)  
 ---Same as [REQUEST_SCALEFORM_MOVIE](#\_0x11FE353CF9733E6F), except it seems to fix stretched scaleforms on ultrawide.
 ---@param scaleformName string
----@return number
+---@return integer
 function RequestScaleformMovieInstance(scaleformName) end
 
 ---**`GRAPHICS` `client`**  
@@ -2974,7 +2974,7 @@ function RequestScaleformMovieInstance(scaleformName) end
 ---Note: Unless this hash is out-of-order, this native is next-gen only.  
 ---```
 ---@param scaleformName string
----@return number
+---@return integer
 function RequestScaleformMovieInteractive(scaleformName) end
 
 ---@deprecated
@@ -2983,7 +2983,7 @@ RequestScaleformMovie3 = RequestScaleformMovieInteractive
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9304881D6F6537EA)  
 ---This native does not have an official description.
----@param hudComponent number
+---@param hudComponent integer
 function RequestScaleformScriptHudMovie(hudComponent) end
 
 ---@deprecated
@@ -3032,14 +3032,14 @@ ScreenDrawPositionEnd = ResetScriptGfxAlign
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x40AFB081F8ADD4EE)  
 ---This native does not have an official description.
----@param p0 number
----@return number
+---@param p0 integer
+---@return integer
 function ReturnTwo(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3DEC726C25A11BAC)  
 ---This native does not have an official description.
----@param unused number
+---@param unused integer
 ---@return boolean
 function SaveHighQualityPhoto(unused) end
 
@@ -3074,7 +3074,7 @@ PushScaleformMovieMethodParameterFloat = ScaleformMovieMethodAddParamFloat
 ---```
 ---Pushes an integer for the Scaleform function onto the stack.  
 ---```
----@param value number
+---@param value integer
 function ScaleformMovieMethodAddParamInt(value) end
 
 ---@deprecated
@@ -3088,7 +3088,7 @@ PushScaleformMovieMethodParameterInt = ScaleformMovieMethodAddParamInt
 ---0 - Dialogue Brief
 ---1 - Help Text Brief
 ---2 - Mission Objective Brief
----@param value number
+---@param value integer
 function ScaleformMovieMethodAddParamLatestBriefString(value) end
 
 ---@deprecated
@@ -3147,9 +3147,9 @@ function SeethroughReset() end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1086127B3A63505E)  
 ---This native does not have an official description.
----@param red number
----@param green number
----@param blue number
+---@param red integer
+---@param green integer
+---@param blue integer
 function SeethroughSetColorNear(red, green, blue) end
 
 ---**`GRAPHICS` `client`**  
@@ -3167,7 +3167,7 @@ function SeethroughSetFadeStartDistance(distance) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD7D0B00177485411)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@param heatScale number
 function SeethroughSetHeatscale(index, heatScale) end
 
@@ -3235,7 +3235,7 @@ function SetBackfaceculling(toggle) end
 ---Creates an integer (usually 1) for a BINK movie to be called with other natives.
 ---[List of all BINK movies (alphabetically ordered) as of b2802](https://gist.github.com/ItsJunction/8046f28c29ea8ff2821e9e4f933f595f)
 ---@param name string
----@return number
+---@return integer
 function SetBinkMovie(name) end
 
 ---@deprecated
@@ -3244,7 +3244,7 @@ SetBinkMovieRequested = SetBinkMovie
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0CB6B3446855B57A)  
 ---Seeks a BINK movie to a specified position.
----@param binkMovie number
+---@param binkMovie integer
 ---@param progress number
 function SetBinkMovieTime(binkMovie, progress) end
 
@@ -3256,7 +3256,7 @@ SetBinkMovieProgress = SetBinkMovieTime
 ---```
 ---NativeDB Introduced: v1868
 ---```
----@param binkMovie number
+---@param binkMovie integer
 ---@param p1 boolean
 function SetBinkMovieUnk_2(binkMovie, p1) end
 
@@ -3269,7 +3269,7 @@ function SetBinkMovieUnk_2(binkMovie, p1) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param binkMovie number
+---@param binkMovie integer
 ---@param value number
 function SetBinkMovieVolume(binkMovie, value) end
 
@@ -3281,7 +3281,7 @@ SetBinkMovieUnk = SetBinkMovieVolume
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param binkMovie number
+---@param binkMovie integer
 ---@param shouldSkip boolean
 function SetBinkShouldSkip(binkMovie, shouldSkip) end
 
@@ -3297,7 +3297,7 @@ N_0x6805d58caa427b72 = SetBinkShouldSkip
 ---* farHeight - The height of the checkpoint when outside of the radius.  
 ---* radius - The radius of the checkpoint.  
 ---```
----@param checkpoint number
+---@param checkpoint integer
 ---@param nearHeight number
 ---@param farHeight number
 ---@param radius number
@@ -3306,7 +3306,7 @@ function SetCheckpointCylinderHeight(checkpoint, nearHeight, farHeight, radius) 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4B5B4DA5D79F1943)  
 ---This multiplies the height of the icon inside a checkpoint with the default height of about 2 units above the checkpoint's coordinates.
----@param checkpoint number
+---@param checkpoint integer
 ---@param height_multiplier number
 function SetCheckpointIconHeight(checkpoint, height_multiplier) end
 
@@ -3316,7 +3316,7 @@ SetCheckpointScale = SetCheckpointIconHeight
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44621483FF966526)  
 ---This native does not have an official description.
----@param checkpoint number
+---@param checkpoint integer
 ---@param scale number
 function SetCheckpointIconScale(checkpoint, scale) end
 
@@ -3325,11 +3325,11 @@ function SetCheckpointIconScale(checkpoint, scale) end
 ---```
 ---Sets the checkpoint color.  
 ---```
----@param checkpoint number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param checkpoint integer
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function SetCheckpointRgba(checkpoint, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -3337,11 +3337,11 @@ function SetCheckpointRgba(checkpoint, red, green, blue, alpha) end
 ---```
 ---Sets the checkpoint icon color.
 ---```
----@param checkpoint number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param checkpoint integer
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function SetCheckpointRgba2(checkpoint, red, green, blue, alpha) end
 
 ---@deprecated
@@ -3380,17 +3380,17 @@ function SetDrawOrigin(x, y, z, p3) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1D5F595CCAE2E238)  
 ---This native does not have an official description.
----@param entity number
----@param red number
----@param green number
----@param blue number
----@param alpha number
+---@param entity integer
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
 function SetEntityIconColor(entity, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE0E8BEECCA96BA31)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@param toggle boolean
 function SetEntityIconVisibility(entity, toggle) end
 
@@ -3485,7 +3485,7 @@ function SetParticleFxBulletImpactScale(scale) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xACEE6F360FC1F6B6)  
 ---This native does not have an official description.
----@param vehicle number
+---@param vehicle integer
 ---@param p1 boolean
 function SetParticleFxCamInsideNonplayerVehicle(vehicle, p1) end
 
@@ -3498,7 +3498,7 @@ function SetParticleFxCamInsideVehicle(p0) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x726845132380142E)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param alpha number
 function SetParticleFxLoopedAlpha(ptfxHandle, alpha) end
 
@@ -3508,7 +3508,7 @@ function SetParticleFxLoopedAlpha(ptfxHandle, alpha) end
 ---only works on some fx's  
 ---p4 = 0  
 ---```
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param r number
 ---@param g number
 ---@param b number
@@ -3518,7 +3518,7 @@ function SetParticleFxLoopedColour(ptfxHandle, r, g, b, p4) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F0C4B5B1C393BE2)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param propertyName string
 ---@param amount number
 ---@param noNetwork boolean
@@ -3527,7 +3527,7 @@ function SetParticleFxLoopedEvolution(ptfxHandle, propertyName, amount, noNetwor
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDCB194B85EF7B541)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param range number
 function SetParticleFxLoopedFarClipDist(ptfxHandle, range) end
 
@@ -3537,7 +3537,7 @@ SetParticleFxLoopedRange = SetParticleFxLoopedFarClipDist
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF7DDEBEC43483C43)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -3549,7 +3549,7 @@ function SetParticleFxLoopedOffsets(ptfxHandle, x, y, z, rotX, rotY, rotZ) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB44250AAA456492D)  
 ---This native does not have an official description.
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param scale number
 function SetParticleFxLoopedScale(ptfxHandle, scale) end
 
@@ -3611,20 +3611,20 @@ function SetPlayerTcmodifierTransition(value) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE6A9F00D4240B519)  
 ---This native is used in some casino scripts to fit the scaleform in the rendertarget.
----@param scaleformHandle number
+---@param scaleformHandle integer
 ---@param toggle boolean
 function SetScaleformFitRendertarget(scaleformHandle, toggle) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1D132D614DD86811)  
 ---This native does not have an official description.
----@param scaleformHandle number
+---@param scaleformHandle integer
 function SetScaleformMovieAsNoLongerNeeded(scaleformHandle) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6D8EB211944DCE08)  
 ---This native does not have an official description.
----@param scaleform number
+---@param scaleform integer
 ---@param toggle boolean
 function SetScaleformMovieToUseSystemTime(scaleform, toggle) end
 
@@ -3660,8 +3660,8 @@ function SetScaleformMovieToUseSystemTime(scaleform, toggle) end
 ---axis.
 ---
 ---To reset the value, use `RESET_SCRIPT_GFX_ALIGN`.
----@param horizontalAlign number
----@param verticalAlign number
+---@param horizontalAlign integer
+---@param verticalAlign integer
 function SetScriptGfxAlign(horizontalAlign, verticalAlign) end
 
 ---@deprecated
@@ -3697,7 +3697,7 @@ function SetScriptGfxDrawBehindPausemenu(flag) end
 ---GRAPHICS::DRAW_RECT(0.5, 0.5, 3.0, 3.0, v\_4, v\_5, v\_6, a\_0.\_f172, 0);
 ---GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(1);
 ---GRAPHICS::DRAW_RECT(0.5, 0.5, 1.5, 1.5, 0, 0, 0, 255, 0);
----@param order number
+---@param order integer
 function SetScriptGfxDrawOrder(order) end
 
 ---@deprecated
@@ -3738,7 +3738,7 @@ function SetTimecycleModifierStrength(strength) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x164ECBB3CF750CB0)  
 ---This native does not have an official description.
----@param point number
+---@param point integer
 ---@param x number
 ---@param y number
 ---@param z number
@@ -3763,7 +3763,7 @@ function SetTvAudioFrontend(toggle) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBAABBB23EB6E484E)  
 ---This native does not have an official description.
----@param channel number
+---@param channel integer
 function SetTvChannel(channel) end
 
 ---**`GRAPHICS` `client`**  
@@ -3790,7 +3790,7 @@ function SetTvChannel(channel) end
 ---1=sequence restarts from beginning every time that channel is selected
 ---The above playlists work as intended, and are commonly used, but there are many more playlists, as seen in `tvplaylists.xml`. A pastebin below outlines all playlists, they will be surronded by the name tag I.E. (<Name>PL_STD_CNT</Name> = PL_STD_CNT).
 ---https://pastebin.com/zUzGB6h7
----@param tvChannel number
+---@param tvChannel integer
 ---@param playlistName string
 ---@param restart boolean
 function SetTvChannelPlaylist(tvChannel, playlistName, restart) end
@@ -3801,9 +3801,9 @@ LoadTvChannelSequence = SetTvChannelPlaylist
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2201C576FACAEBE8)  
 ---This native does not have an official description.
----@param tvChannel number
+---@param tvChannel integer
 ---@param playlistName string
----@param hour number
+---@param hour integer
 function SetTvChannelPlaylistAtHour(tvChannel, playlistName, hour) end
 
 ---**`GRAPHICS` `client`**  
@@ -3825,7 +3825,7 @@ function SetTvVolume(volume) end
 ---NativeDB Added Parameter 16: Any p15
 ---```
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
@@ -3836,7 +3836,7 @@ function SetTvVolume(volume) end
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartNetworkedParticleFxLoopedOnEntity(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis) end
 
 ---@deprecated
@@ -3855,19 +3855,19 @@ StartParticleFxLoopedOnEntity_2 = StartNetworkedParticleFxLoopedOnEntity
 ---NativeDB Added Parameter 17: Any p16
 ---```
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
 ---@param xRot number
 ---@param yRot number
 ---@param zRot number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartNetworkedParticleFxLoopedOnEntityBone(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis) end
 
 ---@deprecated
@@ -3905,7 +3905,7 @@ StartParticleFxNonLoopedAtCoord_2 = StartNetworkedParticleFxNonLoopedAtCoord
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC95EB1DB6E92113D)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
@@ -3928,14 +3928,14 @@ StartParticleFxNonLoopedOnEntity_2 = StartNetworkedParticleFxNonLoopedOnEntity
 ---NativeDB Introduced: v2189
 ---```
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param axisX boolean
 ---@param axisY boolean
@@ -3947,14 +3947,14 @@ function StartNetworkedParticleFxNonLoopedOnEntityBone(effectName, entity, offse
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA41B6A43642AC2CF)  
 ---This native does not have an official description.
 ---@param effectName string
----@param ped number
+---@param ped integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param axisX boolean
 ---@param axisY boolean
@@ -3983,14 +3983,14 @@ StartParticleFxNonLoopedOnPedBone_2 = StartNetworkedParticleFxNonLoopedOnPedBone
 ---@param yAxis boolean
 ---@param zAxis boolean
 ---@param p11 boolean
----@return number
+---@return integer
 function StartParticleFxLoopedAtCoord(effectName, x, y, z, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis, p11) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1AE42C1660FD6517)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
@@ -4001,45 +4001,45 @@ function StartParticleFxLoopedAtCoord(effectName, x, y, z, xRot, yRot, zRot, sca
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartParticleFxLoopedOnEntity(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC6EB449E33977F0B)  
 ---This native does not have an official description.
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
 ---@param xRot number
 ---@param yRot number
 ---@param zRot number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartParticleFxLoopedOnEntityBone(effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF28DA9F38CD1787C)  
 ---This native does not have an official description.
 ---@param effectName string
----@param ped number
+---@param ped integer
 ---@param xOffset number
 ---@param yOffset number
 ---@param zOffset number
 ---@param xRot number
 ---@param yRot number
 ---@param zRot number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartParticleFxLoopedOnPedBone(effectName, ped, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
@@ -4070,7 +4070,7 @@ function StartParticleFxLoopedOnPedBone(effectName, ped, xOffset, yOffset, zOffs
 ---@param xAxis boolean
 ---@param yAxis boolean
 ---@param zAxis boolean
----@return number
+---@return integer
 function StartParticleFxNonLoopedAtCoord(effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` `client`**  
@@ -4085,7 +4085,7 @@ function StartParticleFxNonLoopedAtCoord(effectName, xPos, yPos, zPos, xRot, yRo
 ---however it uses -1 for the specified bone index, so it should be possible to start a non looped fx on an entity bone using that native  
 ---```
 ---@param effectName string
----@param entity number
+---@param entity integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
@@ -4107,14 +4107,14 @@ function StartParticleFxNonLoopedOnEntity(effectName, entity, offsetX, offsetY, 
 ---list: pastebin.com/N9unUFWY  
 ---```
 ---@param effectName string
----@param ped number
+---@param ped integer
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param boneIndex number
+---@param boneIndex integer
 ---@param scale number
 ---@param axisX boolean
 ---@param axisY boolean
@@ -4133,7 +4133,7 @@ function StartPetrolTrailDecals(p0) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param binkMovie number
+---@param binkMovie integer
 function StopBinkMovie(binkMovie) end
 
 ---**`GRAPHICS` `client`**  
@@ -4141,7 +4141,7 @@ function StopBinkMovie(binkMovie) end
 ---```
 ---p1 is always 0 in the native scripts  
 ---```
----@param ptfxHandle number
+---@param ptfxHandle integer
 ---@param p1 boolean
 function StopParticleFxLooped(ptfxHandle, p1) end
 
@@ -4162,18 +4162,18 @@ function TerraingridActivate(toggle) end
 ---Only called in golf and golf_mp\
 ---parameters used are\
 ---GRAPHICS::\_0x5CE62918F8D703C7(255, 0, 0, 64, 255, 255, 255, 5, 255, 255, 0, 64);
----@param lowR number
----@param lowG number
----@param lowB number
----@param lowAlpha number
----@param R number
----@param G number
----@param B number
----@param Alpha number
----@param highR number
----@param highG number
----@param highB number
----@param highAlpha number
+---@param lowR integer
+---@param lowG integer
+---@param lowB integer
+---@param lowAlpha integer
+---@param R integer
+---@param G integer
+---@param B integer
+---@param Alpha integer
+---@param highR integer
+---@param highG integer
+---@param highB integer
+---@param highAlpha integer
 function TerraingridSetColours(lowR, lowG, lowB, lowAlpha, R, G, B, Alpha, highR, highG, highB, highAlpha) end
 
 ---**`GRAPHICS` `client`**  
@@ -4250,7 +4250,7 @@ function Ui3dscenePushPreset(presetName) end
 ---GRAPHICS::UNPATCH_DECAL_DIFFUSE_MAP(9123);  
 ---GRAPHICS::SET_STREAMED_TEXTURE_DICT_AS_NO_LONGER_NEEDED("MPMissMarkers256");  
 ---```
----@param decalType number
+---@param decalType integer
 function UnpatchDecalDiffuseMap(decalType) end
 
 ---@deprecated
@@ -4259,7 +4259,7 @@ UndoDecalTextureOverride = UnpatchDecalDiffuseMap
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDEADC0DEDEADC0DE)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 function UpdateLightsOnEntity(entity) end
 
 ---@deprecated
@@ -4288,7 +4288,7 @@ UseParticleFxAssetNextCall = UseParticleFxAsset
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5B712761429DBC14)  
 ---This native does not have an official description.
----@param vehicle number
+---@param vehicle integer
 ---@param p1 number
 function WashDecalsFromVehicle(vehicle, p1) end
 

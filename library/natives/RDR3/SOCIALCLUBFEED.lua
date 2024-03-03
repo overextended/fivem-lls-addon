@@ -9,8 +9,8 @@ function ScFeedHubHasNewData() end
 ---**`SOCIALCLUBFEED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEFB64240F6B17817)  
 ---This native does not have an official description.
----@param type number
----@param subType number
----@return number
+---@param type integer
+---@param subType integer
+---@return integer
 function ScFeedSubmitPresetMessage(type, subType) end
 

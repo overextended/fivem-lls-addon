@@ -18,7 +18,7 @@ function CleanItemset(p0) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x35AD299F50D91B24)  
 ---This native does not have an official description.
 ---@param distri boolean
----@return number
+---@return integer
 function CreateItemset(distri) end
 
 ---**`ITEMSET` `client`**  
@@ -38,7 +38,7 @@ function GetIndexedItemInItemset(p0, p1) end
 ---**`ITEMSET` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD9127E83ABF7C631)  
 ---This native does not have an official description.
----@param x any
+---@param x integer
 ---@return any
 function GetItemsetSize(x) end
 

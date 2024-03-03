@@ -40,7 +40,7 @@ function N_0x208784099002bc30(missionNameLabel, p1) end
 ---This native does not have an official description.
 ---@param p0 number
 ---@param p1 number
----@param p2 number
+---@param p2 integer
 function N_0x293220da1b46cebc(p0, p1, p2) end
 
 ---**`RECORDING` `client`**  
@@ -59,7 +59,7 @@ function N_0x4282e08174868be3() end
 ---**`RECORDING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x48621C9FCA3EBD28)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function N_0x48621c9fca3ebd28(p0) end
 
 ---**`RECORDING` `client`**  
@@ -100,7 +100,7 @@ function SaveRecordingClip() end
 ---If mode is 1, starts recording.  
 ---If already recording a replay, does nothing.  
 ---```
----@param mode number
+---@param mode integer
 function StartRecording(mode) end
 
 ---**`RECORDING` `client`**  

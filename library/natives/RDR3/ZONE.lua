@@ -30,8 +30,8 @@
 ---@param x number
 ---@param y number
 ---@param z number
----@param type number
----@return number
+---@param type integer
+---@return integer
 function GetMapZoneAtCoords(x, y, z, type) end
 
 ---**`ZONE` `client`**  
@@ -48,6 +48,6 @@ function GetMapZoneAtCoords(x, y, z, type) end
 ---@param x number
 ---@param y number
 ---@param z number
----@return number
+---@return integer
 function GetWaterMapZoneAtCoords(x, y, z) end
 

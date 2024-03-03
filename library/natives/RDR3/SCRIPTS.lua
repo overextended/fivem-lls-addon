@@ -3,29 +3,29 @@
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7D654266025E921B)  
 ---goalContext: see <availableContexts> in common/data/stats_and_challenges/goals_*.meta
----@param goalContext number | string
+---@param goalContext integer | string
 function ActivateGoalContext(goalContext) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAC8FAB22A914AE34)  
 ---This native does not have an official description.
----@param awardHash number | string
----@param itemIndex number
+---@param awardHash integer | string
+---@param itemIndex integer
 ---@return boolean, any, any
 function AwardsGetResultItem(awardHash, itemIndex) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB9467E41DAB1CF2C)  
 ---This native does not have an official description.
----@param awardHash number | string
----@param dataIndex number
+---@param awardHash integer | string
+---@param dataIndex integer
 ---@return boolean, any, any
 function AwardsGetUnlockClaimData(awardHash, dataIndex) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBC2C927F5C264243)  
 ---This native does not have an official description.
----@param bailCode number
+---@param bailCode integer
 function BailToLandingPage(bailCode) end
 
 ---**`SCRIPTS` `client`**  
@@ -37,7 +37,7 @@ function BailWithPassThroughParams(params) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4AE1DFF337A86FDE)  
 ---This native does not have an official description.
----@param scriptIndex number
+---@param scriptIndex integer
 ---@param p1 string
 ---@return boolean
 function BgDoesLaunchParamExist(scriptIndex, p1) end
@@ -51,22 +51,22 @@ function BgEndContext(contextName) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6D1431744182CDE8)  
 ---Hashed version of BG_END_CONTEXT
----@param contextHash number | string
+---@param contextHash integer | string
 function BgEndContextHash(contextHash) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x55C40B7592BAD213)  
 ---This native does not have an official description.
----@param scriptIndex number
+---@param scriptIndex integer
 ---@param p1 string
----@return number
+---@return integer
 function BgGetLaunchParamValue(scriptIndex, p1) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x829CD22E043A2577)  
 ---This native does not have an official description.
----@param p0 number | string
----@return number
+---@param p0 integer | string
+---@return integer
 function BgGetScriptIdFromNameHash(p0) end
 
 ---**`SCRIPTS` `client`**  
@@ -96,7 +96,7 @@ function BgStartContext(contextName) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2EB67D564DCC09D5)  
 ---Hashed version of BG_START_CONTEXT
----@param contextHash number | string
+---@param contextHash integer | string
 function BgStartContextHash(contextHash) end
 
 ---**`SCRIPTS` `client`**  
@@ -108,34 +108,34 @@ function ClearAllPlayerBits() end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD426E2E3288469D6)  
 ---This native does not have an official description.
----@param bitIndex number
+---@param bitIndex integer
 ---@return any
 function ClearPlayerBitAtIndex(bitIndex) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2F050A3FF8738245)  
 ---This native does not have an official description.
----@return number, any
+---@return integer, any
 function CountParticipantBits() end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x462C687BEA254BD9)  
 ---This native does not have an official description.
----@return number, any
+---@return integer, any
 function CountPlayerBits() end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x50B72A754EE64A71)  
 ---goalContext: see _ACTIVATE_GOAL_CONTEXT
----@param goalContext number | string
+---@param goalContext integer | string
 function DeactivateGoalContext(goalContext) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1E5B70E53DB661E5)  
 ---This native does not have an official description.
----@param p0 number | string
----@param p1 number | string
----@param p2 number | string
+---@param p0 integer | string
+---@param p1 integer | string
+---@param p2 integer | string
 ---@param gamemodeName string
 ---@param title string
 ---@param subtitle string
@@ -144,7 +144,7 @@ function DisplayLoadingScreens(p0, p1, p2, gamemodeName, title, subtitle) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x66EE5B93C308F734)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@return boolean
 function DoesCompressedGlobalBlockBufferExist(index) end
 
@@ -158,22 +158,22 @@ function DoesScriptExist(scriptName) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA34E89749F628284)  
 ---This native does not have an official description.
----@param scriptHash number | string
+---@param scriptHash integer | string
 ---@return boolean
 function DoesScriptWithNameHashExist(scriptHash) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFF975BC4435A0FA3)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 ---@return boolean
 function DoesThreadExist(threadId) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFA3B530A5CC693D5)  
 ---This native does not have an official description.
----@param p1 number
----@return number, any
+---@param p1 integer
+---@return integer, any
 function GetBlockOfPlayerBits(p1) end
 
 ---**`SCRIPTS` `client`**  
@@ -181,9 +181,9 @@ function GetBlockOfPlayerBits(p1) end
 ---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork), 2 = unk, 3 = unk, 4 = SCRIPT_EVENT_QUEUE_SCRIPT_ERRORS (CEventGroupScriptErrors)
 ---
 ---Returns event name hash: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
----@param eventGroup number
----@param eventIndex number
----@return number
+---@param eventGroup integer
+---@param eventIndex integer
+---@return integer
 function GetEventAtIndex(eventGroup, eventIndex) end
 
 ---**`SCRIPTS` `client`**  
@@ -193,44 +193,44 @@ function GetEventAtIndex(eventGroup, eventIndex) end
 ---Note: eventDataSize is NOT the size in bytes, it is the size determined by the SIZE_OF operator (RAGE Script operator, not C/C++ sizeof). That is, the size in bytes divided by 8 (script variables are always 8-byte aligned!).
 ---
 ---https://github.com/femga/rdr3_discoveries/tree/master/AI/EVENTS
----@param eventGroup number
----@param eventIndex number
----@param eventDataSize number
+---@param eventGroup integer
+---@param eventIndex integer
+---@param eventDataSize integer
 ---@return boolean, any
 function GetEventData(eventGroup, eventIndex, eventDataSize) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC9F59C0A710ECD34)  
 ---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork), 2 = unk, 3 = unk, 4 = SCRIPT_EVENT_QUEUE_SCRIPT_ERRORS (CEventGroupScriptErrors)
----@param eventGroup number
----@param eventType number | string
+---@param eventGroup integer
+---@param eventType integer | string
 ---@return boolean
 function GetEventExists(eventGroup, eventType) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x42A7EB5C814C2DE0)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@return boolean
 function GetGlobalBlockCanBeAccessed(index) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBC2C927F5C264960)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetHashOfThisScriptName() end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x724CB89D35B283D0)  
 ---This native does not have an official description.
----@param threadId number
----@return number
+---@param threadId integer
+---@return integer
 function GetHashOfThread(threadId) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x55525C346BEF6960)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetIdOfThisThread() end
 
 ---**`SCRIPTS` `client`**  
@@ -242,8 +242,8 @@ function GetNoLoadingScreen() end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5CE8DE5909565748)  
 ---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork), 2 = unk, 3 = unk, 4 = SCRIPT_EVENT_QUEUE_ERRORS (CEventGroupScriptErrors)
----@param eventGroup number
----@return number
+---@param eventGroup integer
+---@return integer
 function GetNumberOfEvents(eventGroup) end
 
 ---**`SCRIPTS` `client`**  
@@ -256,14 +256,14 @@ function GetNumberOfEvents(eventGroup) end
 ---return v3;
 ---
 ---Old name: _GET_NUMBER_OF_REFERENCES_OF_SCRIPT_WITH_NAME_HASH
----@param scriptHash number | string
----@return number
+---@param scriptHash integer | string
+---@return integer
 function GetNumberOfThreadsRunningTheScriptWithThisHash(scriptHash) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD92FA81B64920E85)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 ---@return boolean, boolean
 function GetThreadExistenceDetails(threadId) end
 
@@ -277,7 +277,7 @@ function GetThreadExistenceDetails(threadId) end
 ---	THREAD_EXIT_REASON_SCENARIO_OUT_OF_SCOPE,
 ---	THREAD_EXIT_REASON_REQUESTED_BY_SCRIPT
 ---};
----@return number
+---@return integer
 function GetThreadExitReason() end
 
 ---**`SCRIPTS` `client`**  
@@ -290,34 +290,34 @@ function HasScriptLoaded(scriptName) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA5D8E0C2F3C7EEBC)  
 ---This native does not have an official description.
----@param scriptHash number | string
+---@param scriptHash integer | string
 ---@return boolean
 function HasScriptWithNameHashLoaded(scriptHash) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x380FFA15B72408FB)  
 ---Waiting for child scripts to terminate / waiting for collapse of child scripts
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function HaveAllChildScriptsTerminated(p0) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x179A6F0EE2E79026)  
 ---This native does not have an official description.
----@return boolean, number
+---@return boolean, integer
 function IsAnyPlayerBitSet() end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x20B7F69B40C6B755)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 ---@return boolean
 function IsBackgroundScript(threadId) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7409669C5ED50144)  
 ---goalContext: see _ACTIVATE_GOAL_CONTEXT
----@param goalContext number | string
+---@param goalContext integer | string
 ---@return boolean
 function IsGoalContextActive(goalContext) end
 
@@ -330,14 +330,14 @@ function IsLoadingScreenVisible() end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x72B2E00C9BAC6789)  
 ---This native does not have an official description.
----@param bitIndex number
+---@param bitIndex integer
 ---@return boolean, any
 function IsPlayerBitSetAtIndex(bitIndex) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x46E9AE36D8FA6417)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 ---@param ignoreKilledState boolean
 ---@return boolean
 function IsThreadActive(threadId, ignoreKilledState) end
@@ -351,21 +351,21 @@ function IsThreadExitRequested() end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x30BED53646C86D11)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 ---@return boolean
 function IsThreadExitRequestedForThreadWithThisId(threadId) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF1E9045F5AA9E428)  
 ---This native does not have an official description.
----@param dataIndex number
+---@param dataIndex integer
 ---@return boolean, any, any
 function LootGetLootClaimData(dataIndex) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4293B44A855F82CC)  
 ---This native does not have an official description.
----@param itemIndex number
+---@param itemIndex integer
 ---@return boolean, any, any
 function LootGetResultItem(itemIndex) end
 
@@ -407,7 +407,7 @@ function N_0x1c5eb3c27f7508cb(p0, p1) end
 ---@param p4 string
 ---@param p5 string
 ---@param p6 string
----@param p7 number
+---@param p7 integer
 function N_0x29fb4ce89472c3cb(p0, p1, p2, p3, p4, p5, p6, p7) end
 
 ---**`SCRIPTS` `client`**  
@@ -491,32 +491,32 @@ function RequestScript(scriptName) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF6B9CE3F8D5B9B74)  
 ---This native does not have an official description.
----@param scriptHash number | string
+---@param scriptHash integer | string
 function RequestScriptWithNameHash(scriptHash) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7DE4643157AD646C)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 function RequestThreadExit(threadId) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7423F7835770F619)  
 ---This native does not have an official description.
----@param nameHash number | string
+---@param nameHash integer | string
 function RequestThreadExitForAllThreadsWithThisName(nameHash) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC3914A99B4A5FDF)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@return boolean
 function RestoreGlobalBlock(index) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3CE3FB167E837D7C)  
 ---If the function returns 0, the end of the iteration has been reached.
----@return number
+---@return integer
 function ScriptThreadIteratorGetNextThreadId() end
 
 ---**`SCRIPTS` `client`**  
@@ -540,23 +540,23 @@ function SetAllPlayerBits() end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC6DFB8C04C86D5A5)  
 ---This native does not have an official description.
----@param p1 number
----@param p2 number
+---@param p1 integer
+---@param p2 integer
 ---@return any
 function SetBlockOfPlayerBits(p1, p2) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4768D5252EAEB76F)  
 ---This native does not have an official description.
----@param eventGroup number
----@param eventIndex number
+---@param eventGroup integer
+---@param eventIndex integer
 ---@param p2 boolean
 function SetEventFlagForDeletion(eventGroup, eventIndex, p2) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE66F392BFCE734AF)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@param toggle boolean
 function SetGlobalBlockCanBeAccessed(index, toggle) end
 
@@ -569,7 +569,7 @@ function SetNoLoadingScreen(toggle) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x31010318BA9897AC)  
 ---This native does not have an official description.
----@param bitIndex number
+---@param bitIndex integer
 ---@return any
 function SetPlayerBitAtIndex(bitIndex) end
 
@@ -582,7 +582,7 @@ function SetScriptAsNoLongerNeeded(scriptName) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x50723A1567C8361E)  
 ---This native does not have an official description.
----@param scriptHash number | string
+---@param scriptHash integer | string
 function SetScriptWithNameHashAsNoLongerNeeded(scriptHash) end
 
 ---**`SCRIPTS` `client`**  
@@ -594,8 +594,8 @@ function ShutdownLoadingScreen() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE81651AD79516E48)  
 ---This native does not have an official description.
 ---@param scriptName string
----@param stackSize number
----@return number
+---@param stackSize integer
+---@return integer
 function StartNewScript(scriptName, stackSize) end
 
 ---**`SCRIPTS` `client`**  
@@ -603,26 +603,26 @@ function StartNewScript(scriptName, stackSize) end
 ---return : script thread id, 0 if failed
 ---Pass pointer to struct of args in p1, size of struct goes into p2
 ---@param scriptName string
----@param argCount number
----@param stackSize number
----@return number, any
+---@param argCount integer
+---@param stackSize integer
+---@return integer, any
 function StartNewScriptWithArgs(scriptName, argCount, stackSize) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEB1C67C3A5333A92)  
 ---This native does not have an official description.
----@param scriptHash number | string
----@param stackSize number
----@return number
+---@param scriptHash integer | string
+---@param stackSize integer
+---@return integer
 function StartNewScriptWithNameHash(scriptHash, stackSize) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC4BB298BD441BE78)  
 ---This native does not have an official description.
----@param scriptHash number | string
----@param argCount number
----@param stackSize number
----@return number, any
+---@param scriptHash integer | string
+---@param argCount integer
+---@param stackSize integer
+---@return integer, any
 function StartNewScriptWithNameHashAndArgs(scriptHash, argCount, stackSize) end
 
 ---**`SCRIPTS` `client`**  
@@ -634,7 +634,7 @@ function StopDisplayingMpTransitionLoadingScreens(p0) end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB952A3AC41D58F2F)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@return boolean
 function StoreGlobalBlock(index) end
 
@@ -646,7 +646,7 @@ function TerminateThisThread() end
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x87ED52AE40EA1A52)  
 ---This native does not have an official description.
----@param threadId number
+---@param threadId integer
 function TerminateThread(threadId) end
 
 ---**`SCRIPTS` `client`**  
@@ -656,18 +656,18 @@ function TerminateThread(threadId) end
 ---Note: eventDataSize is NOT the size in bytes, it is the size determined by the SIZE_OF operator (RAGE Script operator, not C/C++ sizeof). That is, the size in bytes divided by 8 (script variables are always 8-byte aligned!).
 ---
 ---playerBits (also known as playersToBroadcastTo) is a bitset that indicates which players this event should be sent to. In order to send the event to specific players only, use (1 << playerIndex). Set all bits if it should be broadcast to all players.
----@param eventGroup number
----@param eventDataSize number
----@param scriptMetadataIndex number
----@return any, number
+---@param eventGroup integer
+---@param eventDataSize integer
+---@param scriptMetadataIndex integer
+---@return any, integer
 function TriggerScriptEvent(eventGroup, eventDataSize, scriptMetadataIndex) end
 
 ---**`SCRIPTS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8B61C950A148FFA2)  
 ---This native does not have an official description.
----@param eventDataSize number
----@param scriptMetadataIndex number
----@param threadId number
+---@param eventDataSize integer
+---@param scriptMetadataIndex integer
+---@param threadId integer
 ---@return any
 function TriggerScriptEvent_2(eventDataSize, scriptMetadataIndex, threadId) end
 

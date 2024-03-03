@@ -3,21 +3,21 @@
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x466BC8769CF26A7A)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@return boolean
 function MoneyDecrementCashBalance(amount) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0C02DABFA3B98176)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function MoneyGetCashBalance() end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBC3422DC91667621)  
 ---This native does not have an official description.
----@param amount number
----@param addReason number | string
+---@param amount integer
+---@param addReason integer | string
 ---@return boolean
 function MoneyIncrementCashBalance(amount, addReason) end
 
@@ -38,7 +38,7 @@ function N_0xa46fd001d1be896c() end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8A67120DBC299525)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetCashBalance() end
 
 ---**`MONEY` `client`**  
@@ -50,8 +50,8 @@ function NetworkGetStringCashBalance() end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAEC5F0119867E457)  
 ---This native does not have an official description.
----@param cashBalance number
----@param goldBarBalance number
+---@param cashBalance integer
+---@param goldBarBalance integer
 ---@return boolean
 function NetworkIsMoneyBalanceNotLessThan(cashBalance, goldBarBalance) end
 

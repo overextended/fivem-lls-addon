@@ -9,23 +9,23 @@ function AddTimeToDateTime() end
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAB7C251C7701D336)  
 ---This native does not have an official description.
----@param hours number
----@param minutes number
----@param seconds number
+---@param hours integer
+---@param minutes integer
+---@param seconds integer
 function AddToClockTime(hours, minutes, seconds) end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0184750AE88D0B1D)  
 ---This native does not have an official description.
----@param hour number
----@param minute number
----@param second number
+---@param hour integer
+---@param minute integer
+---@param second integer
 function AdvanceClockTimeTo(hour, minute, second) end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDF2FD796C54480A5)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetClockDayOfMonth() end
 
 ---**`CLOCK` `client`**  
@@ -39,49 +39,49 @@ function GetClockDayOfMonth() end
 ---4: Thursday
 ---5: Friday
 ---6: Saturday
----@return number
+---@return integer
 function GetClockDayOfWeek() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC82CF208C2B19199)  
 ---Gets the current ingame hour, expressed without zeros. (09:34 will be represented as 9)
----@return number
+---@return integer
 function GetClockHours() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4E162231B823DBBF)  
 ---Gets the current ingame clock minute.
----@return number
+---@return integer
 function GetClockMinutes() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2D44E8FC79EAB1AC)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetClockMonth() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB6101ABE62B5F080)  
 ---Gets the current ingame clock second. Note that ingame clock seconds change really fast since a day in RDR is only 48 minutes in real life.
----@return number
+---@return integer
 function GetClockSeconds() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE136DCA28C4A48BA)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetClockYear() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE4CB8D126501EC52)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetMillisecondsPerGameMinute() end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x90338AD4A784E455)  
 ---This native does not have an official description.
----@return number, number, number, number, number, number
+---@return integer, integer, integer, integer, integer, integer
 function GetPosixTime() end
 
 ---**`CLOCK` `client`**  
@@ -93,7 +93,7 @@ function GetPosixTimeStruct() end
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x78FD8BE812E436B2)  
 ---Base year is 1898.
----@return number
+---@return integer
 function GetSecondsSinceBaseYear() end
 
 ---**`CLOCK` `client`**  
@@ -112,22 +112,22 @@ function PauseClockThisFrame(toggle) end
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x02AD3092562941E2)  
 ---This native does not have an official description.
----@param day number
----@param month number
----@param year number
+---@param day integer
+---@param month integer
+---@param year integer
 function SetClockDate(day, month, year) end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3A52C59FFB2DEED8)  
 ---SET_CLOCK_TIME(12, 34, 56);
----@param hour number
----@param minute number
----@param second number
+---@param hour integer
+---@param minute integer
+---@param second integer
 function SetClockTime(hour, minute, second) end
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x04EEDB3848DACF68)  
 ---This native does not have an official description.
----@param ms number
+---@param ms integer
 function SetMillisecondsPerGameMinute(ms) end
 

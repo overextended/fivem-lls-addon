@@ -16,7 +16,7 @@ function CanPayGoon() end
 ---```
 ---Does nothing and always returns false.
 ---```
----@param amount number
+---@param amount integer
 ---@return boolean
 function DepositVc(amount) end
 
@@ -27,7 +27,7 @@ function DepositVc(amount) end
 ---
 ---NativeDB Introduced: v323
 ---```
----@param amount number
+---@param amount integer
 ---@return boolean
 function N_0x08e8eeadfd0dc4a0(amount) end
 
@@ -45,7 +45,7 @@ function N_0x0d30eb83668e63c5(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1868
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 any
 function N_0x0dd362f14f18942a(amount, p1, p2) end
@@ -417,7 +417,7 @@ function N_0xd29334ed1a256dbf(p0, p1, p2, p3, p4) end
 ---```
 ---NativeDB Introduced: v2060
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 function N_0xde68e30d89f97132(amount, p1) end
 
@@ -460,7 +460,7 @@ function N_0xe2bb399d90942091(p0, p1) end
 ---```
 ---NativeDB Introduced: v2060
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 function N_0xe2e244ab823b4483(amount, p1) end
 
@@ -499,7 +499,7 @@ function N_0xfa07759e6fddd7cf(p0, p1, p2, p3) end
 ---p1 = 0 (always)  
 ---p2 = 1 (always)  
 ---```
----@param cost number
+---@param cost integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkBuyAirstrike(cost, p1, p2) end
@@ -509,8 +509,8 @@ function NetworkBuyAirstrike(cost, p1, p2) end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 ---@param p2 boolean
 ---@param p3 boolean
 function NetworkBuyBackupGang(p0, p1, p2, p3) end
@@ -520,8 +520,8 @@ function NetworkBuyBackupGang(p0, p1, p2, p3) end
 ---```
 ---p1 is just an assumption. p2 was false and p3 was true.  
 ---```
----@param amount number
----@param victim number
+---@param amount integer
+---@param victim integer
 ---@param p2 boolean
 ---@param p3 boolean
 function NetworkBuyBounty(amount, victim, p2, p3) end
@@ -529,9 +529,9 @@ function NetworkBuyBounty(amount, victim, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x30FD873ECE50E9F6)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number | string
+---@param p0 integer
+---@param p1 integer
+---@param p2 integer | string
 ---@param p3 boolean
 ---@param p4 boolean
 function NetworkBuyContraband(p0, p1, p2, p3, p4) end
@@ -544,7 +544,7 @@ function NetworkBuyContraband(p0, p1, p2, p3, p4) end
 ---2,0,1 in the am_ferriswheel.c  
 ---1,0,1 in the am_rollercoaster.c  
 ---```
----@param amountSpent number
+---@param amountSpent integer
 ---@param p1 any
 ---@param p2 boolean
 ---@param p3 boolean
@@ -553,7 +553,7 @@ function NetworkBuyFairgroundRide(amountSpent, p1, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD9B067E55253E3DD)  
 ---This native does not have an official description.
----@param cost number
+---@param cost integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkBuyHealthcare(cost, p1, p2) end
@@ -564,7 +564,7 @@ function NetworkBuyHealthcare(cost, p1, p2) end
 ---p1 = 0 (always)  
 ---p2 = 1 (always)  
 ---```
----@param cost number
+---@param cost integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkBuyHeliStrike(cost, p1, p2) end
@@ -572,8 +572,8 @@ function NetworkBuyHeliStrike(cost, p1, p2) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF0077C797F66A355)  
 ---This native does not have an official description.
----@param amount number
----@param item number | string
+---@param amount integer
+---@param item integer | string
 ---@param p2 any
 ---@param p3 any
 ---@param p4 boolean
@@ -589,8 +589,8 @@ function NetworkBuyItem(amount, item, p2, p3, p4, item_name, p6, p7, p8, p9) end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 ---@param p2 boolean
 ---@param p3 boolean
 function NetworkBuyLotteryTicket(p0, p1, p2, p3) end
@@ -598,8 +598,8 @@ function NetworkBuyLotteryTicket(p0, p1, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x650A08A280870AF6)  
 ---This native does not have an official description.
----@param propertyCost number
----@param propertyName number | string
+---@param propertyCost integer
+---@param propertyName integer | string
 ---@param p2 boolean
 ---@param p3 boolean
 function NetworkBuyProperty(propertyCost, propertyName, p2, p3) end
@@ -609,7 +609,7 @@ function NetworkBuyProperty(propertyCost, propertyName, p2, p3) end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@param p0 number
+---@param p0 integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkBuySmokes(p0, p1, p2) end
@@ -617,7 +617,7 @@ function NetworkBuySmokes(p0, p1, p2) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3A54E33660DED67F)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@return boolean
 function NetworkCanBet(amount) end
 
@@ -626,7 +626,7 @@ function NetworkCanBet(amount) end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@param cost number
+---@param cost integer
 ---@return boolean
 function NetworkCanBuyLotteryTicket(cost) end
 
@@ -723,7 +723,7 @@ function NetworkCasinoCanPurchaseChipsWithPvc_2() end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param hash number | string
+---@param hash integer | string
 ---@return boolean
 function NetworkCasinoCanUseGamblingType(hash) end
 
@@ -734,8 +734,8 @@ function NetworkCasinoCanUseGamblingType(hash) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 ---@return boolean
 function NetworkCasinoPurchaseChips(p0, p1) end
 
@@ -746,15 +746,15 @@ function NetworkCasinoPurchaseChips(p0, p1) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 ---@return boolean
 function NetworkCasinoSellChips(p0, p1) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA921DED15FDF28F5)  
 ---This native does not have an official description.
----@param characterSlot number
+---@param characterSlot integer
 function NetworkClearCharacterWallet(characterSlot) end
 
 ---**`MONEY` `client`**  
@@ -762,7 +762,7 @@ function NetworkClearCharacterWallet(characterSlot) end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 string
 ---@param p2 string
 ---@param p3 boolean
@@ -775,7 +775,7 @@ function NetworkDeductCash(amount, p1, p2, p3, p4, p5) end
 ---```
 ---Note the 2nd parameters are always 1, 0. I have a feeling it deals with your money, wallet, bank. So when you delete the character it of course wipes the wallet cash at that time. So if that was the case, it would be eg, NETWORK_DELETE_CHARACTER(characterIndex, deleteWalletCash, deleteBankCash);  
 ---```
----@param characterSlot number
+---@param characterSlot integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkDeleteCharacter(characterSlot, p1, p2) end
@@ -836,7 +836,7 @@ function NetworkEarnCasinoHeistBonus(p0, p1, p2, p3, p4) end
 ---```
 ---NativeDB Introduced: v2060
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 function NetworkEarnCollectableCompletedCollection(amount, p1) end
 
@@ -862,7 +862,7 @@ function NetworkEarnFromAiTargetKill(p0, p1) end
 ---```
 ---Example for p1: "AM_DISTRACT_COPS"  
 ---```
----@param p0 number
+---@param p0 integer
 ---@param p1 string
 ---@return any
 function NetworkEarnFromAmbientJob(p0, p1) end
@@ -872,7 +872,7 @@ function NetworkEarnFromAmbientJob(p0, p1) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 function NetworkEarnFromArenaCareerProgression(amount, p1) end
 
@@ -881,7 +881,7 @@ function NetworkEarnFromArenaCareerProgression(amount, p1) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 function NetworkEarnFromArenaSkillLevelProgression(amount, p1) end
 
@@ -890,7 +890,7 @@ function NetworkEarnFromArenaSkillLevelProgression(amount, p1) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 any
 ---@param p3 any
@@ -902,7 +902,7 @@ function NetworkEarnFromArenaWar(amount, p1, p2, p3) end
 ---For the money bags that drop a max of $40,000. Often called 40k bags.
 ---Most likely NETWORK_EARN_FROM_ROB***
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromArmourTruck(amount) end
 
 ---**`MONEY` `client`**  
@@ -910,7 +910,7 @@ function NetworkEarnFromArmourTruck(amount) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromAssassinateTargetKilled(amount) end
 
 ---**`MONEY` `client`**  
@@ -918,7 +918,7 @@ function NetworkEarnFromAssassinateTargetKilled(amount) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromAssassinateTargetKilled_2(amount) end
 
 ---**`MONEY` `client`**  
@@ -943,7 +943,7 @@ function NetworkEarnFromAutoshopIncome(p0) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromBbEventBonus(amount) end
 
 ---**`MONEY` `client`**  
@@ -951,13 +951,13 @@ function NetworkEarnFromBbEventBonus(amount) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromBbEventCargo(amount) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x61326EE6DF15B0CA)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param heistHash string
 function NetworkEarnFromBendJob(amount, heistHash) end
 
@@ -967,7 +967,7 @@ NetworkEarnFromMissionH = NetworkEarnFromBendJob
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x827A5BA1A44ACA6D)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 string
 function NetworkEarnFromBetting(amount, p1) end
 
@@ -991,9 +991,9 @@ function NetworkEarnFromBikeShopBusiness(p0, p1) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x131BB5DA15453ACF)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p3 any
----@return number, any
+---@return integer, any
 function NetworkEarnFromBounty(amount, p3) end
 
 ---**`MONEY` `client`**  
@@ -1028,7 +1028,7 @@ function NetworkEarnFromBusinessHubSource(p0, p1, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8586789730B10CAF)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 any
 ---@param p3 any
@@ -1047,7 +1047,7 @@ function NetworkEarnFromCarclubMembership(p0) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromCashingOut(amount) end
 
 ---**`MONEY` `client`**  
@@ -1055,8 +1055,8 @@ function NetworkEarnFromCashingOut(amount) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
----@param hash number | string
+---@param amount integer
+---@param hash integer | string
 function NetworkEarnFromCasinoAward(amount, hash) end
 
 ---**`MONEY` `client`**  
@@ -1064,7 +1064,7 @@ function NetworkEarnFromCasinoAward(amount, hash) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromCasinoMissionParticipation(amount) end
 
 ---**`MONEY` `client`**  
@@ -1072,7 +1072,7 @@ function NetworkEarnFromCasinoMissionParticipation(amount) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromCasinoMissionReward(amount) end
 
 ---**`MONEY` `client`**  
@@ -1080,7 +1080,7 @@ function NetworkEarnFromCasinoMissionReward(amount) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromCasinoStoryMissionReward(amount) end
 
 ---**`MONEY` `client`**  
@@ -1104,7 +1104,7 @@ function NetworkEarnFromClubManagementParticipation(p0) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromCollectablesActionFigures(amount) end
 
 ---**`MONEY` `client`**  
@@ -1112,7 +1112,7 @@ function NetworkEarnFromCollectablesActionFigures(amount) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 function NetworkEarnFromCollectionItem(amount, p1) end
 
@@ -1121,20 +1121,20 @@ function NetworkEarnFromCollectionItem(amount, p1) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromCompleteCollection(amount) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xECA658CE2A4E5A72)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 any
 function NetworkEarnFromContraband(amount, p1) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB1CC1B9EC3007A2A)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function NetworkEarnFromCrateDrop(amount) end
 
 ---**`MONEY` `client`**  
@@ -1152,15 +1152,15 @@ function NetworkEarnFromCriminalMastermindBonus(p0, p1, p2) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromDailyObjectiveEvent(amount) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6EA318C91C1A8786)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 ---@param p1 string
----@param p2 number
+---@param p2 integer
 function NetworkEarnFromDailyObjectives(p0, p1, p2) end
 
 ---@deprecated
@@ -1171,7 +1171,7 @@ NetworkEarnFromDailyObjective = NetworkEarnFromDailyObjectives
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 function NetworkEarnFromDarChallenge(amount, p1) end
 
@@ -1186,8 +1186,8 @@ function NetworkEarnFromDestroyingContraband(p0) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
----@param vehicleHash number | string
+---@param amount integer
+---@param vehicleHash integer | string
 function NetworkEarnFromDoomsdayFinaleBonus(amount, vehicleHash) end
 
 ---**`MONEY` `client`**  
@@ -1211,7 +1211,7 @@ function NetworkEarnFromFmbbPhonecallMission(p0) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 ---@param unk string
 ---@param p2 any
 function NetworkEarnFromGangopsAwards(amount, unk, p2) end
@@ -1221,9 +1221,9 @@ function NetworkEarnFromGangopsAwards(amount, unk, p2) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 ---@param unk string
----@param actIndex number
+---@param actIndex integer
 function NetworkEarnFromGangopsElite(amount, unk, actIndex) end
 
 ---**`MONEY` `client`**  
@@ -1231,7 +1231,7 @@ function NetworkEarnFromGangopsElite(amount, unk, actIndex) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 ---@param unk string
 function NetworkEarnFromGangopsJobsFinale(amount, unk) end
 
@@ -1240,7 +1240,7 @@ function NetworkEarnFromGangopsJobsFinale(amount, unk) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromGangopsJobsPrepParticipation(amount) end
 
 ---**`MONEY` `client`**  
@@ -1248,7 +1248,7 @@ function NetworkEarnFromGangopsJobsPrepParticipation(amount) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 ---@param unk string
 function NetworkEarnFromGangopsJobsSetup(amount, unk) end
 
@@ -1257,8 +1257,8 @@ function NetworkEarnFromGangopsJobsSetup(amount, unk) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
----@param p1 number
+---@param amount integer
+---@param p1 integer
 function NetworkEarnFromGangopsWages(amount, p1) end
 
 ---**`MONEY` `client`**  
@@ -1266,14 +1266,14 @@ function NetworkEarnFromGangopsWages(amount, p1) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
----@param p1 number
+---@param amount integer
+---@param p1 integer
 function NetworkEarnFromGangopsWagesBonus(amount, p1) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA03D4ACE0A3284CE)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function NetworkEarnFromGangPickup(amount) end
 
 ---**`MONEY` `client`**  
@@ -1282,7 +1282,7 @@ function NetworkEarnFromGangPickup(amount) end
 ---NativeDB Introduced: v1493
 ---```
 ---@param p0 any
----@param amount number
+---@param amount integer
 ---@param p2 any
 ---@param p3 any
 function NetworkEarnFromHackerTruckMission(p0, amount, p2, p3) end
@@ -1290,20 +1290,20 @@ function NetworkEarnFromHackerTruckMission(p0, amount, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x45B8154E077D9E4D)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function NetworkEarnFromHoldups(amount) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF92A014A634442D6)  
 ---This native does not have an official description.
----@param amount number
----@param modelHash number | string
+---@param amount integer
+---@param modelHash integer | string
 function NetworkEarnFromImportExport(amount, modelHash) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB2CC4836834E8A98)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 string
 function NetworkEarnFromJob(amount, p1) end
 
@@ -1321,14 +1321,14 @@ function NetworkEarnFromJobBonus(p0) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 string
 function NetworkEarnFromJobX2(amount, p1) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4337511FA8221D36)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function NetworkEarnFromNotBadsport(amount) end
 
 ---**`MONEY` `client`**  
@@ -1348,21 +1348,21 @@ function NetworkEarnFromPersonalVehicle(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xED1517D3AF17C698)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function NetworkEarnFromPickup(amount) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC8407624CEF2354B)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 string
 function NetworkEarnFromPremiumJob(amount, p1) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x849648349D77F5C5)  
 ---This native does not have an official description.
----@param amount number
----@param propertyName number | string
+---@param amount integer
+---@param propertyName integer | string
 function NetworkEarnFromProperty(amount, propertyName) end
 
 ---**`MONEY` `client`**  
@@ -1370,7 +1370,7 @@ function NetworkEarnFromProperty(amount, propertyName) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromRcTimeTrial(amount) end
 
 ---**`MONEY` `client`**  
@@ -1378,14 +1378,14 @@ function NetworkEarnFromRcTimeTrial(amount) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 function NetworkEarnFromRdrBonus(amount, p1) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x02CE1D6AC0FC73EA)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 function NetworkEarnFromRockstar(amount) end
 
 ---**`MONEY` `client`**  
@@ -1393,15 +1393,15 @@ function NetworkEarnFromRockstar(amount) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
----@param baseNameHash number | string
+---@param amount integer
+---@param baseNameHash integer | string
 function NetworkEarnFromSellBase(amount, baseNameHash) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9251B6ABF2D0A5B4)  
 ---This native does not have an official description.
----@param amount number
----@param bunkerHash number | string
+---@param amount integer
+---@param bunkerHash integer | string
 function NetworkEarnFromSellBunker(amount, bunkerHash) end
 
 ---**`MONEY` `client`**  
@@ -1411,7 +1411,7 @@ function NetworkEarnFromSellBunker(amount, bunkerHash) end
 ---NativeDB Added Parameter 3: Any p2
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromSellingVehicle(amount) end
 
 ---**`MONEY` `client`**  
@@ -1430,7 +1430,7 @@ function NetworkEarnFromSightseeing(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1180
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 any
 ---@param p3 any
@@ -1441,7 +1441,7 @@ function NetworkEarnFromSmuggling(amount, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromSpinTheWheelCash(amount) end
 
 ---**`MONEY` `client`**  
@@ -1449,8 +1449,8 @@ function NetworkEarnFromSpinTheWheelCash(amount) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
----@param p1 number
+---@param amount integer
+---@param p1 integer
 function NetworkEarnFromTargetRefund(amount, p1) end
 
 ---**`MONEY` `client`**  
@@ -1458,7 +1458,7 @@ function NetworkEarnFromTargetRefund(amount, p1) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromTimeTrialWin(amount) end
 
 ---**`MONEY` `client`**  
@@ -1525,7 +1525,7 @@ function NetworkEarnFromVehicleAutoshopBonus(p0) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEDEAD9A91EC768B3)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 any
 function NetworkEarnFromVehicleExport(amount, p1, p2) end
@@ -1535,7 +1535,7 @@ function NetworkEarnFromVehicleExport(amount, p1, p2) end
 ---```
 ---NativeDB Introduced: v1180
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromWagePayment(amount) end
 
 ---**`MONEY` `client`**  
@@ -1543,7 +1543,7 @@ function NetworkEarnFromWagePayment(amount) end
 ---```
 ---NativeDB Introduced: v1180
 ---```
----@param amount number
+---@param amount integer
 function NetworkEarnFromWagePaymentBonus(amount) end
 
 ---**`MONEY` `client`**  
@@ -1600,7 +1600,7 @@ function NetworkEarnJobBonusHeistAward(p0, p1, p2) end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@return number
+---@return integer
 function NetworkGetEvcBalance() end
 
 ---**`MONEY` `client`**  
@@ -1616,7 +1616,7 @@ function NetworkGetIsHighEarner() end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@return number
+---@return integer
 function NetworkGetPvcBalance() end
 
 ---**`MONEY` `client`**  
@@ -1630,7 +1630,7 @@ function NetworkGetPvcBalance() end
 ---
 ---NativeDB Introduced: v323
 ---```
----@return number
+---@return integer
 function NetworkGetPvcTransferBalance() end
 
 ---@deprecated
@@ -1643,7 +1643,7 @@ NetworkGetRemainingVcDailyTransfers = NetworkGetPvcTransferBalance
 ---
 ---NativeDB Introduced: v323
 ---```
----@return number
+---@return integer
 function NetworkGetRemainingTransferBalance() end
 
 ---@deprecated
@@ -1671,20 +1671,20 @@ function NetworkGetStringBankWalletBalance() end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@param characterSlot number
+---@param characterSlot integer
 ---@return string
 function NetworkGetStringWalletBalance(characterSlot) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5CBAD97E059E1B94)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetVcBalance() end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x76EF28DA05EA395A)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkGetVcBankBalance() end
 
 ---**`MONEY` `client`**  
@@ -1694,7 +1694,7 @@ function NetworkGetVcBankBalance() end
 ---
 ---NativeDB Introduced: v323
 ---```
----@param amount number
+---@param amount integer
 ---@return boolean
 function NetworkGetVcBankBalanceIsNotLessThan(amount) end
 
@@ -1703,16 +1703,16 @@ function NetworkGetVcBankBalanceIsNotLessThan(amount) end
 ---```
 ---Returns true if bank balance + wallet balance >= amount.
 ---```
----@param amount number
----@param characterSlot number
+---@param amount integer
+---@param characterSlot integer
 ---@return boolean
 function NetworkGetVcBankWalletBalanceIsNotLessThan(amount, characterSlot) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA40F9C2623F6A8B5)  
 ---This native does not have an official description.
----@param characterSlot number
----@return number
+---@param characterSlot integer
+---@return integer
 function NetworkGetVcWalletBalance(characterSlot) end
 
 ---**`MONEY` `client`**  
@@ -1722,35 +1722,35 @@ function NetworkGetVcWalletBalance(characterSlot) end
 ---
 ---NativeDB Introduced: v323
 ---```
----@param amount number
----@param characterSlot number
+---@param amount integer
+---@param characterSlot integer
 ---@return boolean
 function NetworkGetVcWalletBalanceIsNotLessThan(amount, characterSlot) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFB18DF9CB95E0105)  
 ---This native does not have an official description.
----@param amount number
----@return number
+---@param amount integer
+---@return integer
 function NetworkGivePlayerJobshareCash(amount) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3DA5ECD1A56CBA6D)  
 ---This native does not have an official description.
----@param wallet number
----@param bank number
+---@param wallet integer
+---@param bank integer
 function NetworkInitializeCash(wallet, bank) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x821418C727FCACD7)  
 ---This native does not have an official description.
----@param characterSlot number
+---@param characterSlot integer
 function NetworkManualDeleteCharacter(characterSlot) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x81404F3DC124FE5B)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 ---@return boolean
@@ -1767,7 +1767,7 @@ function NetworkPayEmployeeWage(p0, p1, p2) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9346E14F2AF74D46)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param matchId string
 ---@param p2 boolean
 ---@param p3 boolean
@@ -1776,7 +1776,7 @@ function NetworkPayMatchEntryFee(amount, matchId, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAFE08B35EC0C9EAE)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkPayUtilityBill(amount, p1, p2) end
@@ -1784,8 +1784,8 @@ function NetworkPayUtilityBill(amount, p1, p2) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x56A3B51944C50598)  
 ---This native does not have an official description.
----@param value number
----@return number
+---@param value integer
+---@return integer
 function NetworkReceivePlayerJobshareCash(value) end
 
 ---**`MONEY` `client`**  
@@ -1824,7 +1824,7 @@ function NetworkReceivePlayerJobshareCash(value) end
 --------  
 ---Unknown bool value  
 ---```
----@param index number
+---@param index integer
 ---@param context string
 ---@param reason string
 ---@param unk boolean
@@ -1835,7 +1835,7 @@ function NetworkRefundCash(index, context, reason, unk) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param earnedMoney number
+---@param earnedMoney integer
 function NetworkRivalDeliveryCompleted(earnedMoney) end
 
 ---**`MONEY` `client`**  
@@ -1875,7 +1875,7 @@ function NetworkSpentArcadeGeneric(p0, p1, p2, p3, p4) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 boolean
 ---@param p3 boolean
@@ -1886,7 +1886,7 @@ function NetworkSpentArenaJoinSpectator(amount, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentArenaPremium(amount, p1, p2) end
@@ -1896,7 +1896,7 @@ function NetworkSpentArenaPremium(amount, p1, p2) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 boolean
 ---@param p3 boolean
@@ -1936,7 +1936,7 @@ function NetworkSpentAutoshopPropertyUtilityFee(p0, p1, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5D97630A8A0EF123)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentBallisticEquipment(amount, p1, p2) end
@@ -1946,7 +1946,7 @@ function NetworkSpentBallisticEquipment(amount, p1, p2) end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@param p0 number
+---@param p0 integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentBankInterest(p0, p1, p2) end
@@ -1972,8 +1972,8 @@ function NetworkSpentBeachPartyGeneric(p0) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1C436FD11FFA692F)  
 ---This native does not have an official description.
----@param amount number
----@param p1 number
+---@param amount integer
+---@param p1 integer
 ---@param matchId string
 ---@param p3 boolean
 ---@param p4 boolean
@@ -2021,7 +2021,7 @@ function NetworkSpentBounty(p0, p1, p2) end
 ---```
 ---NativeDB Introduced: v1493
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentBountyHunterMission(amount, p1, p2) end
@@ -2048,7 +2048,7 @@ function NetworkSpentBusiness(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 ---@param p3 string
@@ -2090,7 +2090,7 @@ function NetworkSpentBuyBunker(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 ---@return any
@@ -2218,7 +2218,7 @@ function NetworkSpentCarwash(p0, p1, p2, p3, p4) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x289016EC778D60E0)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentCashDrop(amount, p1, p2) end
@@ -2244,7 +2244,7 @@ function NetworkSpentCasinoClubGeneric(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 any
 ---@param p3 any
@@ -2285,10 +2285,10 @@ function NetworkSpentCasinoHeistSkipMission(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
----@param p3 number
+---@param p3 integer
 function NetworkSpentCasinoMembership(amount, p1, p2, p3) end
 
 ---**`MONEY` `client`**  
@@ -2325,7 +2325,7 @@ function NetworkSpentFromBank(p0, p1, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6A445B64ED7ABEB5)  
 ---This native does not have an official description.
----@param bank number
+---@param bank integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentFromRockstar(bank, p1, p2) end
@@ -2357,8 +2357,8 @@ function NetworkSpentGangopsStartMission(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param type number
----@param amount number
+---@param type integer
+---@param amount integer
 ---@param p2 boolean
 ---@param p3 boolean
 function NetworkSpentGangopsStartStrand(type, amount, p2, p3) end
@@ -2368,7 +2368,7 @@ function NetworkSpentGangopsStartStrand(type, amount, p2, p3) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentGangopsTripSkip(amount, p1, p2) end
@@ -2389,7 +2389,7 @@ function NetworkSpentGunrunningContactService(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1180
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentHangarStaffCharges(amount, p1, p2) end
@@ -2399,7 +2399,7 @@ function NetworkSpentHangarStaffCharges(amount, p1, p2) end
 ---```
 ---NativeDB Introduced: v1180
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentHangarUtilityCharges(amount, p1, p2) end
@@ -2484,7 +2484,7 @@ function NetworkSpentIslandHeist(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v323
 ---```
----@param amount number
+---@param amount integer
 ---@param matchId string
 ---@param p2 boolean
 ---@param p3 boolean
@@ -2504,7 +2504,7 @@ function NetworkSpentJukebox(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentMakeItRain(amount, p1, p2) end
@@ -2512,7 +2512,7 @@ function NetworkSpentMakeItRain(amount, p1, p2) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE7DF4E0545DFB56E)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentMoveYacht(amount, p1, p2) end
@@ -2522,7 +2522,7 @@ function NetworkSpentMoveYacht(amount, p1, p2) end
 ---```
 ---NativeDB Introduced: v1493
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 boolean
 ---@param p3 boolean
@@ -2533,8 +2533,8 @@ function NetworkSpentNightclubBarDrink(amount, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1493
 ---```
----@param player number
----@param amount number
+---@param player integer
+---@param amount integer
 ---@param p1 any
 ---@param p2 boolean
 ---@param p3 boolean
@@ -2595,9 +2595,9 @@ function NetworkSpentPayBoss(p0, p1, p2) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x08A1B82B91900682)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
----@param amount number
+---@param p0 integer
+---@param p1 integer
+---@param amount integer
 function NetworkSpentPayGoon(p0, p1, amount) end
 
 ---**`MONEY` `client`**  
@@ -2611,18 +2611,18 @@ function NetworkSpentPayGoon(p0, p1, amount) end
 ---The fifth and last parameter is a bool that returns true/false depending on if you have the money for the car based on the cost returned by func_5749. In the freemode script eg,
 ---bool hasTheMoney = MONEY::_GET_BANK_BALANCE() < carCost.
 ---```
----@param amount number
----@param vehicleModel number | string
+---@param amount integer
+---@param vehicleModel integer | string
 ---@param notBankrupt boolean
 ---@param hasTheMoney boolean
----@return number
+---@return integer
 function NetworkSpentPayVehicleInsurancePremium(amount, vehicleModel, notBankrupt, hasTheMoney) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7C99101F7FCE2EE5)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
+---@param p0 integer
+---@param p1 integer
 ---@param p2 boolean
 ---@param p3 boolean
 function NetworkSpentPlayerHealthcare(p0, p1, p2, p3) end
@@ -2649,7 +2649,7 @@ function NetworkSpentPurchaseHangar(p0, p1, p2, p3) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x33981D6804E62F49)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param data any
 ---@param p2 boolean
 ---@param p3 boolean
@@ -2660,7 +2660,7 @@ function NetworkSpentPurchaseWarehouse(amount, data, p2, p3) end
 ---```
 ---NativeDB Introduced: v1493
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentRdrhatchetBonus(amount, p1, p2) end
@@ -2670,7 +2670,7 @@ function NetworkSpentRdrhatchetBonus(amount, p1, p2) end
 ---```
 ---NativeDB Introduced: v1493
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 boolean
 ---@param p3 boolean
@@ -2703,7 +2703,7 @@ function NetworkSpentRequestJob(p0, p1, p2) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x995A65F15F581359)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentRobbedByMugger(amount, p1, p2) end
@@ -2723,7 +2723,7 @@ function NetworkSpentSalesDisplay(p0) end
 ---
 ---NativeDB Removed Parameter 4: BOOL p3
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 any
 ---@param p2 boolean
 ---@param p3 boolean
@@ -2745,7 +2745,7 @@ function NetworkSpentSubmarine(p0, p1, p2, p3, p4, p5) end
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x17C3A7D31EAE39F9)  
 ---This native does not have an official description.
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 function NetworkSpentTaxi(amount, p1, p2) end
@@ -2763,7 +2763,7 @@ function NetworkSpentTelescope(p0, p1, p2) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 ---@param p3 string
@@ -2805,7 +2805,7 @@ function NetworkSpentUpgradeBunker(p0, p1, p2, p3) end
 ---```
 ---NativeDB Introduced: v1734
 ---```
----@param amount number
+---@param amount integer
 ---@param p1 boolean
 ---@param p2 boolean
 ---@return any
@@ -2893,14 +2893,14 @@ function NetworkSpentVipUtilityCharges(p0, p1, p2) end
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
----@param amount number
+---@param amount integer
 function NetworkSpentWager(p0, p1, amount) end
 
 ---**`MONEY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x20194D48EAEC9A41)  
 ---This native does not have an official description.
 ---@param p2 string
----@return string, number, number
+---@return string, integer, integer
 function ProcessCashGift(p2) end
 
 ---**`MONEY` `client`**  
@@ -2908,7 +2908,7 @@ function ProcessCashGift(p2) end
 ---```
 ---Does nothing and always returns 0.
 ---```
----@param amount number
----@return number
+---@param amount integer
+---@return integer
 function WithdrawVc(amount) end
 

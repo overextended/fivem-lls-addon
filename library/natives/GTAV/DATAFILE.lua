@@ -32,7 +32,7 @@ ArrayValueAddFloat = DataarrayAddFloat
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCABDB751D86FE93B)  
 ---This native does not have an official description.
----@param value number
+---@param value integer
 ---@return any
 function DataarrayAddInt(value) end
 
@@ -64,7 +64,7 @@ ArrayValueAddVector3 = DataarrayAddVector
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x50C1B2874E50C114)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return boolean, any
 function DataarrayGetBool(arrayIndex) end
 
@@ -74,7 +74,7 @@ ArrayValueGetBoolean = DataarrayGetBool
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x065DB281590CEA2D)  
 ---This native does not have an official description.
----@return number, any
+---@return integer, any
 function DataarrayGetCount() end
 
 ---@deprecated
@@ -83,7 +83,7 @@ ArrayValueGetSize = DataarrayGetCount
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8B5FADCC4E3A145F)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return any, any
 function DataarrayGetDict(arrayIndex) end
 
@@ -93,7 +93,7 @@ ArrayValueGetObject = DataarrayGetDict
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC0C527B525D7CFB5)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return number, any
 function DataarrayGetFloat(arrayIndex) end
 
@@ -103,8 +103,8 @@ ArrayValueGetFloat = DataarrayGetFloat
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3E5AE19425CD74BE)  
 ---This native does not have an official description.
----@param arrayIndex number
----@return number, any
+---@param arrayIndex integer
+---@return integer, any
 function DataarrayGetInt(arrayIndex) end
 
 ---@deprecated
@@ -113,7 +113,7 @@ ArrayValueGetInteger = DataarrayGetInt
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD3F2FFEB8D836F52)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return string, any
 function DataarrayGetString(arrayIndex) end
 
@@ -132,8 +132,8 @@ ArrayValueGetString = DataarrayGetString
 ---6 = Object  
 ---7 = Array  
 ---```
----@param arrayIndex number
----@return number, any
+---@param arrayIndex integer
+---@return integer, any
 function DataarrayGetType(arrayIndex) end
 
 ---@deprecated
@@ -142,7 +142,7 @@ ArrayValueGetType = DataarrayGetType
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8D2064E5B64A628A)  
 ---This native does not have an official description.
----@param arrayIndex number
+---@param arrayIndex integer
 ---@return vector3, any
 function DataarrayGetVector(arrayIndex) end
 
@@ -213,7 +213,7 @@ ObjectValueGetFloat = DatadictGetFloat
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x78F06F6B1FB5A80C)  
 ---This native does not have an official description.
 ---@param key string
----@return number, any
+---@return integer, any
 function DatadictGetInt(key) end
 
 ---@deprecated
@@ -242,7 +242,7 @@ ObjectValueGetString = DatadictGetString
 ---7 = Array  
 ---```
 ---@param key string
----@return number, any
+---@return integer, any
 function DatadictGetType(key) end
 
 ---@deprecated
@@ -284,7 +284,7 @@ ObjectValueAddFloat = DatadictSetFloat
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE7E035450A7948D5)  
 ---This native does not have an official description.
 ---@param key string
----@param value number
+---@param value integer
 ---@return any
 function DatadictSetInt(key, value) end
 
@@ -396,7 +396,7 @@ function DatafileIsSavePending() end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFCCAE5B92A830878)  
 ---This native does not have an official description.
----@param index number
+---@param index integer
 ---@return boolean
 function DatafileIsValidRequestId(index) end
 
@@ -433,7 +433,7 @@ function DatafileSelectActiveFile(p0) end
 ---```
 ---NativeDB Added Parameter 2: Any p1
 ---```
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function DatafileSelectCreatorStats(p0) end
 
@@ -442,7 +442,7 @@ function DatafileSelectCreatorStats(p0) end
 ---```
 ---NativeDB Added Parameter 2: Any p1
 ---```
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function DatafileSelectUgcData(p0) end
 
@@ -451,7 +451,7 @@ function DatafileSelectUgcData(p0) end
 ---```
 ---NativeDB Added Parameter 2: Any p1
 ---```
----@param p0 number
+---@param p0 integer
 ---@return boolean
 function DatafileSelectUgcPlayerData(p0) end
 
@@ -460,7 +460,7 @@ function DatafileSelectUgcPlayerData(p0) end
 ---```
 ---NativeDB Added Parameter 3: Any p2
 ---```
----@param p0 number
+---@param p0 integer
 ---@param p1 boolean
 ---@return boolean
 function DatafileSelectUgcStats(p0, p1) end
@@ -492,7 +492,7 @@ function DatafileUpdateSaveToCloud() end
 ---```
 ---Adds the given request ID to the watch list.
 ---```
----@param id number
+---@param id integer
 function DatafileWatchRequestId(id) end
 
 ---**`DATAFILE` `client`**  
@@ -528,7 +528,7 @@ function N_0xdbf860cf1db8e599(p0) end
 ---NativeDB Added Parameter 8: Any p7
 ---```
 ---@param data string
----@param dataCount number
+---@param dataCount integer
 ---@param contentName string
 ---@param description string
 ---@param tagsCsv string
@@ -567,7 +567,7 @@ function UgcSetPlayerData(contentId, rating, contentTypeName) end
 ---NativeDB Added Parameter 8: Any p7
 ---```
 ---@param contentId string
----@param dataCount number
+---@param dataCount integer
 ---@param contentName string
 ---@param description string
 ---@param tagsCsv string

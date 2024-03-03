@@ -3,7 +3,7 @@
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0BC3144DEB678666)  
 ---This native does not have an official description.
----@param modelHash number | string
+---@param modelHash integer | string
 ---@return boolean
 function AddModelToCreatorBudget(modelHash) end
 
@@ -69,7 +69,7 @@ function EndSrl() end
 ---```
 ---NativeDB Introduced: v2189
 ---```
----@return number
+---@return integer
 function GetGlobalWaterType() end
 
 ---**`STREAMING` `client`**  
@@ -84,7 +84,7 @@ function GetGlobalWaterType() end
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@return number
+---@return integer
 function GetIdealPlayerSwitchType(x1, y1, z1, x2, y2, z2) end
 
 ---**`STREAMING` `client`**  
@@ -96,13 +96,13 @@ function GetLodscale() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4060057271CEBC89)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetNumberOfStreamingRequests() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x20F898A5D9782800)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetPlayerShortSwitchState() end
 
 ---**`STREAMING` `client`**  
@@ -114,7 +114,7 @@ function GetPlayerSwitchInterpOutCurrentTime() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x08C2D6C52A3104BB)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetPlayerSwitchInterpOutDuration() end
 
 ---@deprecated
@@ -123,19 +123,19 @@ SetPlayerInvertedUp = GetPlayerSwitchInterpOutDuration
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x78C0D93253149435)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetPlayerSwitchJumpCutIndex() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x470555300D10B2A5)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetPlayerSwitchState() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB3C94A90D9FC9E62)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetPlayerSwitchType() end
 
 ---**`STREAMING` `client`**  
@@ -179,7 +179,7 @@ function HasClipSetLoaded(clipSet) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x22CCA434E368F03A)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function HasCollisionForModelLoaded(model) end
 
@@ -188,7 +188,7 @@ function HasCollisionForModelLoaded(model) end
 ---Returns whether the specified model (archetype) is currently loaded.
 ---
 ---Note that this will return 'true' even if the model has been requested and loaded by something other than the current script, if you're intending to actually use the model in a later frame, you should call REQUEST_MODEL anyway.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function HasModelLoaded(model) end
 
@@ -216,7 +216,7 @@ LoadMissionCreatorData = InitCreatorBudget
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2DDFF3FB9075D747)  
 ---This native does not have an official description.
----@param entity number
+---@param entity integer
 ---@return boolean
 function IsEntityFocus(entity) end
 
@@ -230,7 +230,7 @@ function IsIplActive(iplName) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x75816577FEA6DAD5)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelAPed(model) end
 
@@ -239,7 +239,7 @@ function IsModelAPed(model) end
 ---```
 ---Returns whether the specified model represents a vehicle.  
 ---```
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelAVehicle(model) end
 
@@ -248,7 +248,7 @@ function IsModelAVehicle(model) end
 ---```
 ---Check if model is in cdimage(rpf)  
 ---```
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelInCdimage(model) end
 
@@ -257,7 +257,7 @@ function IsModelInCdimage(model) end
 ---```
 ---Returns whether the specified model exists in the game.  
 ---```
----@param model number | string
+---@param model integer | string
 ---@return boolean
 function IsModelValid(model) end
 
@@ -328,7 +328,7 @@ function LoadAllObjectsNow() end
 ---```
 ---NativeDB Introduced: v2189
 ---```
----@param waterType number
+---@param waterType integer
 function LoadGlobalWaterType(waterType) end
 
 ---**`STREAMING` `client`**  
@@ -347,7 +347,7 @@ function N_0x03f1a106bda7dd3e() end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0811381EF5062FEC)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function N_0x0811381ef5062fec(p0) end
 
 ---**`STREAMING` `client`**  
@@ -475,7 +475,7 @@ function NetworkUpdateLoadScene() end
 ---@param offsetY number
 ---@param offsetZ number
 ---@param radius number
----@param p7 number
+---@param p7 integer
 ---@return boolean
 function NewLoadSceneStart(posX, posY, posZ, offsetX, offsetY, offsetZ, radius, p7) end
 
@@ -554,7 +554,7 @@ function RemoveIpl(iplName) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF086AD9354FAC3A3)  
 ---This native does not have an official description.
----@param modelHash number | string
+---@param modelHash integer | string
 function RemoveModelFromCreatorBudget(modelHash) end
 
 ---**`STREAMING` `client`**  
@@ -605,7 +605,7 @@ function RequestCollisionAtCoord(x, y, z) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x923CB32A3B874FCB)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 function RequestCollisionForModel(model) end
 
 ---**`STREAMING` `client`**  
@@ -619,13 +619,13 @@ function RequestIpl(iplName) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA0261AEF7ACFC51E)  
 ---This native does not have an official description.
----@param model number | string
+---@param model integer | string
 function RequestMenuPedModel(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x963D27A58DF860AC)  
 ---Request a model (archetype) to be loaded for use by the current script. Use SET_MODEL_AS_NO_LONGER_NEEDED when done using the model in script.
----@param model number | string
+---@param model integer | string
 function RequestModel(model) end
 
 ---**`STREAMING` `client`**  
@@ -638,7 +638,7 @@ function RequestModel(model) end
 ---STREAMING::REQUEST_MODELS_IN_ROOM(l_13BC, "v_fib01_jan_elev");
 ---STREAMING::REQUEST_MODELS_IN_ROOM(l_13BC, "limbo");
 ---```
----@param interior number
+---@param interior integer
 ---@param roomName string
 function RequestModelsInRoom(interior, roomName) end
 
@@ -686,7 +686,7 @@ function SetDitchPoliceModels(toggle) end
 ---```
 ---It seems to make the entity's coords mark the point from which LOD-distances are measured. In my testing, setting a vehicle as the focus entity and moving that vehicle more than 300 distance units away from the player will make the level of detail around the player go down drastically (shadows disappear, textures go extremely low res, etc). The player seems to be the default focus entity.  
 ---```
----@param entity number
+---@param entity integer
 function SetFocusEntity(entity) end
 
 ---**`STREAMING` `client`**  
@@ -724,7 +724,7 @@ function SetHdArea(x, y, z, radius) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE37B76C387BE28ED)  
 ---This native does not have an official description.
----@param interiorID number
+---@param interiorID integer
 ---@param toggle boolean
 function SetInteriorActive(interiorID, toggle) end
 
@@ -756,19 +756,19 @@ function SetMapdatacullboxEnabled(name, toggle) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE532F5D78798DAAB)  
 ---Releases the script ownership assigned by REQUEST_MODEL. This command should be used when done using a specific model hash in script.
----@param model number | string
+---@param model integer | string
 function SetModelAsNoLongerNeeded(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8C95333CFC3340F3)  
 ---Sets the memory budget level for ped population.
----@param budgetLevel number
+---@param budgetLevel integer
 function SetPedPopulationBudget(budgetLevel) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F2013F8BC24EE69)  
 ---This native does not have an official description.
----@param style number
+---@param style integer
 function SetPlayerShortSwitchStyle(style) end
 
 ---**`STREAMING` `client`**  
@@ -790,7 +790,7 @@ function SetPlayerSwitchEstablishingShot(name) end
 ---@param camRotationZ number
 ---@param camFov number
 ---@param camFarClip number
----@param rotationOrder number
+---@param rotationOrder integer
 function SetPlayerSwitchOutro(cameraCoordX, cameraCoordY, cameraCoordZ, camRotationX, camRotationY, camRotationZ, camFov, camFarClip, rotationOrder) end
 
 ---**`STREAMING` `client`**  
@@ -826,7 +826,7 @@ function SetStreaming(toggle) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCB9E1EB3BE2AF4E9)  
 ---This native does not have an official description.
----@param p0 number
+---@param p0 integer
 function SetVehiclePopulationBudget(p0) end
 
 ---**`STREAMING` `client`**  
@@ -856,10 +856,10 @@ function ShutdownCreatorBudget() end
 ---Flag 8 w/ SWITCH_TYPE_LONG will zoom out 3 steps, then zoom in 2/3 steps and stop on the 3rd and just hang there.  
 ---Flag 8 w/ SWITCH_TYPE_MEDIUM will zoom out 1 step, and just hang there.  
 ---```
----@param from number
----@param to number
----@param flags number
----@param switchType number
+---@param from integer
+---@param to integer
+---@param flags integer
+---@param switchType integer
 function StartPlayerSwitch(from, to, flags, switchType) end
 
 ---**`STREAMING` `client`**  
@@ -941,9 +941,9 @@ function StreamvolIsValid(unused) end
 ---You can check if the player is in a Switch state with [`IS_PLAYER_SWITCH_IN_PROGRESS`](#\_0xD9D2CFFF49FAB35F).
 ---
 ---***Note:** Doesn't act normally when used on Mount Chiliad.*
----@param ped number
----@param flags number
----@param switchType number
+---@param ped integer
+---@param flags integer
+---@param switchType integer
 function SwitchToMultiFirstpart(ped, flags, switchType) end
 
 ---@deprecated
@@ -952,7 +952,7 @@ SwitchOutPlayer = SwitchToMultiFirstpart
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD8295AF639FD9CB8)  
 ---After using [`SWITCH_TO_MULTI_FIRSTPART`](#\_0xAAB3200ED59016BC) , use this native to smoothly return the camera to the player's character.
----@param ped number
+---@param ped integer
 function SwitchToMultiSecondpart(ped) end
 
 ---@deprecated

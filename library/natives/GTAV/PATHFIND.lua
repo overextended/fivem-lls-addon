@@ -62,7 +62,7 @@ function CalculateTravelDistanceBetweenPoints(x1, y1, z1, x2, y2, z2) end
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2801D0012266DF07)  
 ---Clears a disabled GPS route area from a certain index previously set using [`SET_GPS_DISABLED_ZONE_AT_INDEX`](#\_0xD0BC1C6FB18EE154).
----@param index number
+---@param index integer
 function ClearGpsDisabledZoneAtIndex(index) end
 
 ---**`PATHFIND` `client`**  
@@ -105,7 +105,7 @@ function DoesNavmeshBlockingObjectExist(p0) end
 ---@param y number
 ---@param z number
 ---@param p3 boolean
----@return number, number, number, number
+---@return integer, integer, number, number
 function GenerateDirectionsToCoord(x, y, z, p3) end
 
 ---**`PATHFIND` `client`**  
@@ -117,7 +117,7 @@ function GenerateDirectionsToCoord(x, y, z, p3) end
 ---@param y number
 ---@param z number
 ---@param unknown1 number
----@param unknown2 number
+---@param unknown2 integer
 ---@return boolean, vector3
 function GetClosestMajorVehicleNode(x, y, z, unknown1, unknown2) end
 
@@ -130,7 +130,7 @@ function GetClosestMajorVehicleNode(x, y, z, unknown1, unknown2) end
 ---@param y number
 ---@param z number
 ---@param p3 number
----@param p4 number
+---@param p4 integer
 ---@param p10 boolean
 ---@return any, vector3, vector3, any, any, number
 function GetClosestRoad(x, y, z, p3, p4, p10) end
@@ -156,7 +156,7 @@ function GetClosestRoad(x, y, z, p3, p4, p10) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param nodeType number
+---@param nodeType integer
 ---@param p5 number
 ---@param p6 number
 ---@return boolean, vector3
@@ -188,9 +188,9 @@ function GetClosestVehicleNode(x, y, z, nodeType, p5, p6) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param nodeType number
+---@param nodeType integer
 ---@param p6 number
----@param p7 number
+---@param p7 integer
 ---@return boolean, vector3, number
 function GetClosestVehicleNodeWithHeading(x, y, z, nodeType, p6, p7) end
 
@@ -203,7 +203,7 @@ function GetGpsBlipRouteFound() end
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBBB45C3CF5C8AA85)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function GetGpsBlipRouteLength() end
 
 ---**`PATHFIND` `client`**  
@@ -211,7 +211,7 @@ function GetGpsBlipRouteLength() end
 ---p3 can be 0, 1 or 2.
 ---@param p1 boolean
 ---@param p2 number
----@param p3 number
+---@param p3 integer
 ---@return boolean, vector3
 function GetGpsWaypointRouteEnd(p1, p2, p3) end
 
@@ -266,8 +266,8 @@ function GetHeightmapTopZForPosition(x, y) end
 ---```
 ---NativeDB Removed Parameter 1: int index
 ---```
----@param index number
----@return number
+---@param index integer
+---@return integer
 function GetNextGpsDisabledZoneIndex(index) end
 
 ---**`PATHFIND` `client`**  
@@ -276,7 +276,7 @@ function GetNextGpsDisabledZoneIndex(index) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param nthClosest number
+---@param nthClosest integer
 ---@param unknown1 any
 ---@param unknown2 any
 ---@param unknown3 any
@@ -296,8 +296,8 @@ function GetNthClosestVehicleNode(x, y, z, nthClosest, unknown1, unknown2, unkno
 ---@param desiredX number
 ---@param desiredY number
 ---@param desiredZ number
----@param nthClosest number
----@param nodetype number
+---@param nthClosest integer
+---@param nodetype integer
 ---@param p10 number
 ---@param p11 any
 ---@return boolean, vector3, number
@@ -311,11 +311,11 @@ function GetNthClosestVehicleNodeFavourDirection(x, y, z, desiredX, desiredY, de
 ---@param x number
 ---@param y number
 ---@param z number
----@param nth number
----@param nodetype number
+---@param nth integer
+---@param nodetype integer
 ---@param p5 number
 ---@param p6 number
----@return number
+---@return integer
 function GetNthClosestVehicleNodeId(x, y, z, nth, nodetype, p5, p6) end
 
 ---**`PATHFIND` `client`**  
@@ -324,11 +324,11 @@ function GetNthClosestVehicleNodeId(x, y, z, nth, nodetype, p5, p6) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param nthClosest number
+---@param nthClosest integer
 ---@param p6 any
 ---@param p7 number
 ---@param p8 number
----@return number, vector3, number
+---@return integer, vector3, number
 function GetNthClosestVehicleNodeIdWithHeading(x, y, z, nthClosest, p6, p7, p8) end
 
 ---**`PATHFIND` `client`**  
@@ -339,8 +339,8 @@ function GetNthClosestVehicleNodeIdWithHeading(x, y, z, nthClosest, p6, p7, p8) 
 ---@param x number
 ---@param y number
 ---@param z number
----@param nthClosest number
----@param unknown2 number
+---@param nthClosest integer
+---@param unknown2 integer
 ---@param unknown3 number
 ---@param unknown4 number
 ---@return boolean, vector3, number, any
@@ -355,7 +355,7 @@ function GetNthClosestVehicleNodeWithHeading(x, y, z, nthClosest, unknown2, unkn
 ---@param p3 number
 ---@param p4 number
 ---@param p5 number
----@return number
+---@return integer
 function GetNumNavmeshesExistingInArea(p0, p1, p2, p3, p4, p5) end
 
 ---**`PATHFIND` `client`**  
@@ -364,7 +364,7 @@ function GetNumNavmeshesExistingInArea(p0, p1, p2, p3, p4, p5) end
 ---@param x number
 ---@param y number
 ---@param z number
----@param p3 number
+---@param p3 integer
 ---@return boolean, vector3
 function GetPointOnRoadSide(x, y, z, p3) end
 
@@ -378,7 +378,7 @@ function GetPointOnRoadSide(x, y, z, p3) end
 ---@param p4 boolean
 ---@param p5 boolean
 ---@param p6 boolean
----@return boolean, vector3, number
+---@return boolean, vector3, integer
 function GetRandomVehicleNode(x, y, z, radius, p4, p5, p6) end
 
 ---**`PATHFIND` `client`**  
@@ -412,7 +412,7 @@ GetRoadSidePointWithHeading = GetRoadBoundaryUsingHeading
 ---@param y number
 ---@param z number
 ---@param onGround boolean
----@param flags number
+---@param flags integer
 ---@return boolean, vector3
 function GetSafeCoordForPed(x, y, z, onGround, flags) end
 
@@ -428,7 +428,7 @@ function GetSafeCoordForPed(x, y, z, onGround, flags) end
 ---@param x number
 ---@param y number
 ---@param z number
----@return number, number
+---@return integer, integer
 function GetStreetNameAtCoord(x, y, z) end
 
 ---**`PATHFIND` `client`**  
@@ -438,7 +438,7 @@ function GetStreetNameAtCoord(x, y, z) end
 ---Example:
 ---Nodes in Fort Zancudo and LSIA are false
 ---```
----@param nodeID number
+---@param nodeID integer
 ---@return boolean
 function GetVehicleNodeIsGpsAllowed(nodeID) end
 
@@ -451,7 +451,7 @@ GetSupportsGpsRouteFlag = GetVehicleNodeIsGpsAllowed
 ---Returns true when the node is Offroad. Alleys, some dirt roads, and carparks return true.
 ---Normal roads where plenty of Peds spawn will return false
 ---```
----@param nodeID number
+---@param nodeID integer
 ---@return boolean
 function GetVehicleNodeIsSwitchedOff(nodeID) end
 
@@ -465,7 +465,7 @@ GetIsSlowRoadFlag = GetVehicleNodeIsSwitchedOff
 ---Note that IS_VEHICLE_NODE_ID_VALID simply checks if nodeId is not zero. It does not actually ensure that the id is valid.
 ---Eg. IS_VEHICLE_NODE_ID_VALID(1) will return true, but will crash when calling GET_VEHICLE_NODE_POSITION().
 ---```
----@param nodeId number
+---@param nodeId integer
 ---@return vector3
 function GetVehicleNodePosition(nodeId) end
 
@@ -479,7 +479,7 @@ function GetVehicleNodePosition(nodeId) end
 ---@param x number
 ---@param y number
 ---@param z number
----@return boolean, number, number
+---@return boolean, integer, integer
 function GetVehicleNodeProperties(x, y, z) end
 
 ---**`PATHFIND` `client`**  
@@ -514,7 +514,7 @@ function IsNavmeshRequiredRegionOwnedByAnyThread() end
 ---@param x number
 ---@param y number
 ---@param z number
----@param vehicle number
+---@param vehicle integer
 ---@return boolean
 function IsPointOnRoad(x, y, z, vehicle) end
 
@@ -523,7 +523,7 @@ function IsPointOnRoad(x, y, z, vehicle) end
 ---```
 ---Returns true if the id is non zero.  
 ---```
----@param vehicleNodeId number
+---@param vehicleNodeId integer
 ---@return boolean
 function IsVehicleNodeIdValid(vehicleNodeId) end
 
@@ -578,7 +578,7 @@ function RequestPathsPreferAccurateBoundingstruct(x1, y1, x2, y2) end
 ---```
 ---NativeDB Introduced: v2189
 ---```
----@param type number
+---@param type integer
 function SetAiGlobalPathNodesType(type) end
 
 ---**`PATHFIND` `client`**  
@@ -623,7 +623,7 @@ function SetGpsDisabledZone(x1, y1, z1, x2, y2, z2) end
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param index number
+---@param index integer
 function SetGpsDisabledZoneAtIndex(x1, y1, z1, x2, y2, z2, index) end
 
 ---**`PATHFIND` `client`**  

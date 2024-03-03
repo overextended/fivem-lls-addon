@@ -35,7 +35,7 @@ Nullify = HasCloudRequestsFinished
 ---0xB119F6D
 ---0x96F02EE6
 ---```
----@param dlcHash number | string
+---@param dlcHash integer | string
 ---@return boolean
 function IsDlcPresent(dlcHash) end
 

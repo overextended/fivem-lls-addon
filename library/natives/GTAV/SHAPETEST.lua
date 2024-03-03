@@ -7,8 +7,8 @@
 ---When used with an asynchronous shape test, this native should be looped until returning 0 or 2, after which the handle is invalidated.
 ---
 ---Unless the return value is 2, the other return values are undefined.
----@param shapeTestHandle number
----@return number, boolean, vector3, vector3, number
+---@param shapeTestHandle integer
+---@return integer, boolean, vector3, vector3, integer
 function GetShapeTestResult(shapeTestHandle) end
 
 ---@deprecated
@@ -21,8 +21,8 @@ GetRaycastResult = GetShapeTestResult
 ---When used with an asynchronous shape test, this native should be looped until returning 0 or 2, after which the handle is invalidated.
 ---
 ---Unless the return value is 2, the other return values are undefined.
----@param shapeTestHandle number
----@return number, boolean, vector3, vector3, number, number
+---@param shapeTestHandle integer
+---@return integer, boolean, vector3, vector3, integer, integer
 function GetShapeTestResultIncludingMaterial(shapeTestHandle) end
 
 ---@deprecated
@@ -32,7 +32,7 @@ GetShapeTestResultEx = GetShapeTestResultIncludingMaterial
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B3334BCA57CD799)  
 ---Invalidates the entity handle passed by removing the fwScriptGuid from the entity. This should be used when receiving an
 ---ambient entity from shape testing natives, but can also be used for other natives returning an 'irrelevant' entity handle.
----@param entity number
+---@param entity integer
 function ReleaseScriptGuidFromEntity(entity) end
 
 ---@deprecated
@@ -49,10 +49,10 @@ ShapeTestResultEntity = ReleaseScriptGuidFromEntity
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param flags number
----@param entity number
----@param p8 number
----@return number
+---@param flags integer
+---@param entity integer
+---@param p8 integer
+---@return integer
 function StartExpensiveSynchronousShapeTestLosProbe(x1, y1, z1, x2, y2, z2, flags, entity, p8) end
 
 ---@deprecated
@@ -63,19 +63,19 @@ StartShapeTestRay = StartExpensiveSynchronousShapeTestLosProbe
 ---**`SHAPETEST` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x37181417CE7C8900)  
 ---See [`START_SHAPE_TEST_LOS_PROBE`](#\_0x7EE9F5D83DD4F90E) for flags.
----@param entity number
----@param flags1 number
----@param flags2 number
----@return number
+---@param entity integer
+---@param flags1 integer
+---@param flags2 integer
+---@return integer
 function StartShapeTestBound(entity, flags1, flags2) end
 
 ---**`SHAPETEST` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x052837721A854EC7)  
 ---See [`START_SHAPE_TEST_LOS_PROBE`](#\_0x7EE9F5D83DD4F90E) for flags.
----@param entity number
----@param flags1 number
----@param flags2 number
----@return number
+---@param entity integer
+---@param flags1 integer
+---@param flags2 integer
+---@return integer
 function StartShapeTestBoundingBox(entity, flags1, flags2) end
 
 ---**`SHAPETEST` `client`**  
@@ -90,11 +90,11 @@ function StartShapeTestBoundingBox(entity, flags1, flags2) end
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param p9 number
----@param flags number
----@param entity number
----@param p12 number
----@return number
+---@param p9 integer
+---@param flags integer
+---@param entity integer
+---@param p12 integer
+---@return integer
 function StartShapeTestBox(x, y, z, x1, y1, z1, rotX, rotY, rotZ, p9, flags, entity, p12) end
 
 ---**`SHAPETEST` `client`**  
@@ -107,10 +107,10 @@ function StartShapeTestBox(x, y, z, x1, y1, z1, rotX, rotY, rotZ, p9, flags, ent
 ---@param y2 number
 ---@param z2 number
 ---@param radius number
----@param flags number
----@param entity number
----@param p9 number
----@return number
+---@param flags integer
+---@param entity integer
+---@param p9 integer
+---@return integer
 function StartShapeTestCapsule(x1, y1, z1, x2, y2, z2, radius, flags, entity, p9) end
 
 ---@deprecated
@@ -145,10 +145,10 @@ Cast_3dRayPointToPoint = StartShapeTestCapsule
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param flags number
----@param entity number
----@param p8 number
----@return number
+---@param flags integer
+---@param entity integer
+---@param p8 integer
+---@return integer
 function StartShapeTestLosProbe(x1, y1, z1, x2, y2, z2, flags, entity, p8) end
 
 ---**`SHAPETEST` `client`**  
@@ -165,10 +165,10 @@ function StartShapeTestLosProbe(x1, y1, z1, x2, y2, z2, flags, entity, p8) end
 ---See [`START_SHAPE_TEST_LOS_PROBE`](#\_0x7EE9F5D83DD4F90E) for flags.
 ---@param pVec1 vector3
 ---@param pVec2 vector3
----@param flag number
----@param entity number
----@param flag2 number
----@return number
+---@param flag integer
+---@param entity integer
+---@param flag2 integer
+---@return integer
 function StartShapeTestSurroundingCoords(pVec1, pVec2, flag, entity, flag2) end
 
 ---**`SHAPETEST` `client`**  
@@ -181,10 +181,10 @@ function StartShapeTestSurroundingCoords(pVec1, pVec2, flag, entity, flag2) end
 ---@param y2 number
 ---@param z2 number
 ---@param radius number
----@param flags number
----@param entity number
----@param p9 number
----@return number
+---@param flags integer
+---@param entity integer
+---@param p9 integer
+---@return integer
 function StartShapeTestSweptSphere(x1, y1, z1, x2, y2, z2, radius, flags, entity, p9) end
 
 ---@deprecated

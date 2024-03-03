@@ -35,7 +35,7 @@ function SetAllowFirstPersonMouseCameraMovement() end
 ---spriteId's: https://github.com/femga/rdr3_discoveries/tree/master/graphics/HUD/cursor_sprites#readme
 ---
 ---Old name: _SET_MOUSE_CURSOR_SPRITE
----@param spriteId number
+---@param spriteId integer
 function SetMouseCursorStyle(spriteId) end
 
 ---**`INTERACTION` `client`**  

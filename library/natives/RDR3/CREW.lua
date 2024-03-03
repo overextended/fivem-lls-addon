@@ -10,20 +10,20 @@ function N_0x58d378af2c8765b7(p0) end
 ---**`CREW` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8E2143144B8E188D)  
 ---This native does not have an official description.
----@param crewInviteIndex number
+---@param crewInviteIndex integer
 ---@return boolean
 function NetworkAcceptClanInvite(crewInviteIndex) end
 
 ---**`CREW` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1F471B79ACC90BEF)  
 ---This native does not have an official description.
----@return number
+---@return integer
 function NetworkClanGetLocalMembershipsCount() end
 
 ---**`CREW` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x48DE78AF2C8885B8)  
 ---This native does not have an official description.
----@param p1 number
+---@param p1 integer
 ---@return boolean, any
 function NetworkClanGetMembershipDesc(p1) end
 
@@ -44,7 +44,7 @@ function NetworkClanIsEmblemReady(p0) end
 ---**`CREW` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEEE6EACBE8874FBA)  
 ---This native does not have an official description.
----@param bufferSize number
+---@param bufferSize integer
 ---@return boolean, any, any
 function NetworkClanPlayerGetDesc(bufferSize) end
 
@@ -83,7 +83,7 @@ function NetworkClanSetActive(p0) end
 ---**`CREW` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE532D6811B3A4D2A)  
 ---This native does not have an official description.
----@param crewId number
+---@param crewId integer
 ---@return boolean
 function NetworkFindGamersInCrew(crewId) end
 
