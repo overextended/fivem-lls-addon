@@ -915,7 +915,11 @@ function GetGlobalCharBuffer() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8BDC7BFC57A81E76)  
----This native does not have an official description.
+---Attempts to identify the highest ground Z-coordinate and determine the corresponding surface normal directly beneath a specified 3D coordinate.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param x number
 ---@param y number
 ---@param z number
@@ -924,6 +928,27 @@ function GetGroundZAndNormalFor_3dCoord(x, y, z) end
 
 ---@deprecated
 GetGroundZCoordWithOffsets = GetGroundZAndNormalFor_3dCoord
+
+---**`MISC` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9E82F0F362881B29)  
+---Determines the highest ground Z-coordinate directly below a specified 3D coordinate, excluding any objects at that point. Optionally, water can be considered as ground when determining the highest point.
+---
+---```
+---NativeDB Added Parameter 6: BOOL ignoreDistToWaterLevelCheck - If set to true, the distance to the water level will be ignored when checking for water as ground. 
+---```
+---
+---```
+---NativeDB Introduced: v505
+---```
+---@param x number
+---@param y number
+---@param z number
+---@param waterAsGround boolean
+---@return boolean, number
+function GetGroundZExcludingObjectsFor_3dCoord(x, y, z, waterAsGround) end
+
+---@deprecated
+GetGroundZFor_3dCoord_2 = GetGroundZExcludingObjectsFor_3dCoord
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC906A7DAB05C8D2B)  
@@ -940,18 +965,6 @@ GetGroundZCoordWithOffsets = GetGroundZAndNormalFor_3dCoord
 ---@param ignoreWater boolean
 ---@return boolean, number
 function GetGroundZFor_3dCoord(x, y, z, ignoreWater) end
-
----**`MISC` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x9E82F0F362881B29)  
----```
----NativeDB Added Parameter 6: BOOL p5
----```
----@param x number
----@param y number
----@param z number
----@param p4 boolean
----@return boolean, number
-function GetGroundZFor_3dCoord_2(x, y, z, p4) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD24D37CC275948CC)  
@@ -1707,39 +1720,6 @@ function N_0x1178e104409fe58c(p0, p1) end
 function N_0x19bfed045c647c49(ped) end
 
 ---**`MISC` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1BB299305C3E8C13)  
----```
----SCRIPT_RACE_*
----```
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
-function N_0x1bb299305c3e8c13(p0, p1, p2, p3) end
-
----**`MISC` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1EAE0A6E978894A2)  
----```
----Unsure about the use of this native but here's an example:
----void sub_8709() {
----    MISC::_1EAE0A6E978894A2(0, 1);
----    MISC::_1EAE0A6E978894A2(1, 1);
----    MISC::_1EAE0A6E978894A2(2, 1);
----    MISC::_1EAE0A6E978894A2(3, 1);
----    MISC::_1EAE0A6E978894A2(4, 1);
----    MISC::_1EAE0A6E978894A2(5, 1);
----    MISC::_1EAE0A6E978894A2(6, 1);
----    MISC::_1EAE0A6E978894A2(7, 1);
----    MISC::_1EAE0A6E978894A2(8, 1);
----}
----So it appears that p0 ranges from 0 to 8.
----ENABLE_DISPATCH_SERVICE, seems to have a similar layout.
----```
----@param p0 number
----@param p1 boolean
-function N_0x1eae0a6e978894a2(p0, p1) end
-
----**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2107A3773771186D)  
 ---```
 ---HAS_*
@@ -2343,12 +2323,29 @@ function ScriptRaceGetPlayerSplitTime(player) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0A60017F841A54F2)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
-function ScriptRaceInit(p0, p1, p2, p3) end
+---Initializes a script race in GTA:Online and sets up the helper split time system.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param numCheckpoints number
+---@param numLaps number
+---@param numPlayers number
+---@param localPlayer number
+function ScriptRaceInit(numCheckpoints, numLaps, numPlayers, localPlayer) end
+
+---**`MISC` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1BB299305C3E8C13)  
+---Records that a player has successfully passed a checkpoint during a scripted race in GTA:Online. This native should be used after initializing the race with [`SCRIPT_RACE_INIT`](#\_0x0A60017F841A54F2).
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param ped number
+---@param checkpoint number
+---@param lap number
+---@param time number
+function ScriptRacePlayerHitCheckpoint(ped, checkpoint, lap, time) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1FF6BF9A63E5757F)  
@@ -2712,24 +2709,31 @@ function SetTimeScale(timeScale) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x29B487C359E19889)  
+---Immediately changes the game's weather to the specified type, which will then persist for one cycle before the game resumes its natural weather progression.
+---
+---**Note:** This native is not supported in networked sessions. Please refer to [`SET_OVERRIDE_WEATHER`](#\_0xA43D5C6FE51ADBEF) or [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) if you want to override weather in networked sessions.
+---
 ---```
----// timecycle_keyframe_data
----BLIZZARD = 0x27EA2814
----CLEAR = 0x36A83D84
----CLEARING = 0x6DB1A50D
----CLOUDS = 0x30FDAF5C
----EXTRASUNNY = 0x97AA0A79
----FOGGY = 0xAE737644
----HALLOWEEN = 0xC91A3202
----NEUTRAL = 0xA4CA1326
----OVERCAST = 0xBB898D2D
----RAIN = 0x54A69840
----SMOG = 0x10DCF4B5
----SNOW = 0xEFB6EFF6
----SNOWLIGHT = 0x23FB812B
----THUNDER = 0xB677829F
----XMAS = 0xAAC9C895
+---NativeDB Introduced: v323
 ---```
+---
+---**Weather Types:**
+---
+---*   CLEAR
+---*   EXTRASUNNY
+---*   CLOUDS
+---*   OVERCAST
+---*   RAIN
+---*   CLEARING
+---*   THUNDER
+---*   SMOG
+---*   FOGGY
+---*   XMAS
+---*   SNOW
+---*   SNOWLIGHT
+---*   BLIZZARD
+---*   HALLOWEEN
+---*   NEUTRAL
 ---@param weatherType string
 function SetWeatherTypeNow(weatherType) end
 
@@ -2751,7 +2755,13 @@ SetWeatherTypeOverTime = SetWeatherTypeOvertimePersist
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x704983DF373B198F)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Sets the current weather type to persist indefinitely until changed.
+---
+---**Note:** This native is not supported in networked sessions. Please refer to [`SET_OVERRIDE_WEATHER`](#\_0xA43D5C6FE51ADBEF) or [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) if you want to override weather in networked sessions.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param weatherType string
 function SetWeatherTypePersist(weatherType) end
 
@@ -2958,6 +2968,27 @@ function StopSaveStruct() end
 ---@param string string
 ---@return boolean, number
 function StringToInt(string) end
+
+---**`MISC` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1EAE0A6E978894A2)  
+---Suppresses or enables a specific type of random event for the current frame.
+---
+---```cpp
+---enum eEventType {
+---    RC_PED_STEAL_VEHICLE = 0,
+---    RC_PED_JAY_WALK_LIGHT = 1,
+---    RC_COP_PURSUE = 2,
+---    RC_COP_PURSUE_VEHICLE_FLEE_SPAWNED = 3,
+---    RC_COP_VEHICLE_DRIVING_FAST = 4,
+---    RC_COP_VEHICLE_DRIVING_SLOW = 5,
+---    RC_DRIVER_RECKLESS = 6,
+---    RC_DRIVER_PRO = 7,
+---    RC_PED_PURSUE_WHEN_HIT_BY_CAR = 8
+---}
+---```
+---@param eventType number
+---@param enable boolean
+function SupressRandomEventThisFrame(eventType, enable) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x632106CC96E82E91)  

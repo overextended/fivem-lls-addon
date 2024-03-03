@@ -1042,15 +1042,6 @@ function N_0x62374889a4d59f72() end
 function N_0x62ecfcfdee7885d6() end
 
 ---**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x661B5C8654ADD825)  
----```
----SET_CAM_*
----```
----@param cam number
----@param p1 boolean
-function N_0x661b5c8654add825(cam, p1) end
-
----**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x705A276EBFF3133D)  
 ---This native does not have an official description.
 ---@return boolean
@@ -1355,6 +1346,13 @@ function SetCamAffectsAiming(cam, toggle) end
 ---@param cam number
 ---@param phase number
 function SetCamAnimCurrentPhase(cam, phase) end
+
+---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x661B5C8654ADD825)  
+---Makes the minimap follow a scripted camera's rotation instead of the gameplay cam.
+---@param cam number
+---@param toggle boolean
+function SetCamControlsMiniMapHeading(cam, toggle) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4D41783FB745E42E)  

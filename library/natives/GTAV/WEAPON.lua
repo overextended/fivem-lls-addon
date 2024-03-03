@@ -75,24 +75,22 @@ function CreateAirDefenseSphere(x, y, z, radius, p4, p5, p6, weaponHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9541D3CF0D398F36)  
----```
----Now has 8 params.  
----```
+---Create a weapon object that cannot be attached to a ped. If you want to create a weapon object that can be attached to a ped, use [`CREATE_OBJECT`](#\_0x509D5878EB39E842) instead.
 ---
 ---```
----NativeDB Added Parameter 9: Any p8
----NativeDB Added Parameter 10: Any p9
+---NativeDB Added Parameter 9: BOOL bRegisterAsNetworkObject
+---NativeDB Added Parameter 10: BOOL bScriptHostObject
 ---```
 ---@param weaponHash number | string
 ---@param ammoCount number
 ---@param x number
 ---@param y number
 ---@param z number
----@param showWorldModel boolean
+---@param bCreateDefaultComponents boolean
 ---@param scale number
----@param p7 any
+---@param customModelHash number
 ---@return number
-function CreateWeaponObject(weaponHash, ammoCount, x, y, z, showWorldModel, scale, p7) end
+function CreateWeaponObject(weaponHash, ammoCount, x, y, z, bCreateDefaultComponents, scale, customModelHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCD79A550999D7D4F)  

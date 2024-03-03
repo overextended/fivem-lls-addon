@@ -708,6 +708,8 @@ function DropAmbientProp(ped) end
 ---
 ---The naming of the native is a legacy leftover (formerly EXPLODE_CHAR_HEAD in GTA3) as in the early 3D GTA games, lethal
 ---damage to a ped head would 'explode' it.
+---
+---Do note that this native function does not work in multiplayer/network environment.
 ---@param ped number
 ---@param weaponHash number | string
 function ExplodePedHead(ped, weaponHash) end
@@ -5651,13 +5653,18 @@ function SetPedGroupMemberPassengerIndex(ped, index) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4CFFC65454C93A49)  
+---Sets the tint index for the hair on the specified ped.
+---
 ---```
----Used for freemode (online) characters.  
+---NativeDB Introduced: v323
 ---```
 ---@param ped number
 ---@param colorID number
 ---@param highlightColorID number
-function SetPedHairColor(ped, colorID, highlightColorID) end
+function SetPedHairTint(ped, colorID, highlightColorID) end
+
+---@deprecated
+SetPedHairColor = SetPedHairTint
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9414E18B9434C2FE)  

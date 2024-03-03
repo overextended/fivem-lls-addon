@@ -2042,10 +2042,15 @@ function NetworkAllocateTunablesRegistrationDataMap() end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x267C78C60E806B9A)  
----This native does not have an official description.
+---Allows scripts to use attachment commands on entities (eg. [`ATTACH_ENTITY_TO_ENTITY`](#\_0x6B9BBD38AB0796DF)) that are not controlled by the client.
+---
+---**Note:** This is only local and does not affect entities on other machines. This is used by the ferris wheel script to sync players on carts.
 ---@param entity number
 ---@param toggle boolean
-function NetworkAllowLocalEntityAttachment(entity, toggle) end
+function NetworkAllowRemoteAttachmentModification(entity, toggle) end
+
+---@deprecated
+NetworkAllowLocalEntityAttachment = NetworkAllowRemoteAttachmentModification
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x15337C7C268A27B2)  
@@ -4505,8 +4510,9 @@ function NetworkOverrideClockMillisecondsPerGameMinute(ms) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE679E3E06E363892)  
----Works in Singleplayer too.
----Passing wrong data (e.g. hours above 23) will cause the game to crash.
+---Overrides the game clock time for the local player, allowing for manipulation of the in-game time. This native is effective in both multiplayer and singleplayer modes.
+---
+---**Note:** Passing wrong data (e.g. hours above 23) will cause the game to crash.
 ---@param hours number
 ---@param minutes number
 ---@param seconds number

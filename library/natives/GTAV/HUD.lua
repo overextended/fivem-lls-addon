@@ -2538,11 +2538,6 @@ function N_0x24a49beaf468dc90(p0, p2, p3, p4) end
 function N_0x2790f4b17d098e26(toggle) end
 
 ---**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2916A928514C9827)  
----This native does not have an official description.
-function N_0x2916a928514c9827() end
-
----**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C173AE2BDB9385E)  
 ---GET_BLIP_\*
 ---Seems to always return 0 from what I can tell. I've tried a lot of different blip related natives and it always seems to return 0. Decompiled scripts always pass a blip handle as p0.
@@ -3073,6 +3068,11 @@ function ReleaseControlOfFrontend() end
 ---@param name string
 ---@return boolean
 function ReleaseNamedRendertarget(name) end
+
+---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2916A928514C9827)  
+---Forces the map menu to reload.
+function ReloadMapMenu() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x86A652570E5F25DD)  

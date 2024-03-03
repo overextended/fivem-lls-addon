@@ -296,7 +296,7 @@ function ForceEntityAiAndAnimationUpdate(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x428CA6DBD1094446)  
----Freezes or unfreezes an entity preventing its coordinates to change by the player if set to `true`. You can still change the entity position using SET_ENTITY_COORDS.
+---Freezes or unfreezes an entity preventing its coordinates to change by the player if set to `true`. You can still change the entity position using [`SET_ENTITY_COORDS`](#\_0x06843DA7060A026B).
 ---@param entity number
 ---@param toggle boolean
 function FreezeEntityPosition(entity, toggle) end
@@ -1605,15 +1605,21 @@ function SetEntityCoords(entity, xPos, yPos, zPos, alive, deadFlag, ragdollFlag,
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x239A3351AC1DA385)  
----Sets the coordinates (world position) for a specified entity.
+---Teleports an entity to specified coordinates directly, with options to maintain certain behaviors post-teleportation.
+---
+---**Note**:
+---
+---*   This native allows precise placement of entities without the usual adjustments for collision or interaction with the environment that may occur with other teleportation natives.
+---*   The `keepTasks` and `keepIK` parameters are specifically useful for maintaining the current state of a ped, ensuring actions or animations are not abruptly stopped due to the teleportation.
+---*   Setting `doWarp` to `false` is useful when simulating continuous movement or when the entity should interact with its immediate surroundings upon arrival.
 ---@param entity number
----@param xPos number
----@param yPos number
----@param zPos number
----@param alive boolean
----@param deadFlag boolean
----@param ragdollFlag boolean
-function SetEntityCoordsNoOffset(entity, xPos, yPos, zPos, alive, deadFlag, ragdollFlag) end
+---@param x number
+---@param y number
+---@param z number
+---@param keepTasks boolean
+---@param keepIK boolean
+---@param doWarp boolean
+function SetEntityCoordsNoOffset(entity, x, y, z, keepTasks, keepIK, doWarp) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x621873ECE1178967)  
@@ -1831,14 +1837,18 @@ function SetEntityRenderScorched(entity, toggle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8524A8B0171D5E07)  
----This native does not have an official description.
+---Sets the rotation of a specified entity in the game world.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param entity number
 ---@param pitch number
 ---@param roll number
 ---@param yaw number
 ---@param rotationOrder number
----@param p5 boolean
-function SetEntityRotation(entity, pitch, roll, yaw, rotationOrder, p5) end
+---@param bDeadCheck boolean
+function SetEntityRotation(entity, pitch, roll, yaw, rotationOrder, bDeadCheck) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x57C5DB656185EAC4)  
