@@ -2,8 +2,9 @@
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB302244A1839BDAD)  
----```
----decal types:  
+---Places a decal into the world
+---
+---```cs
 ---public enum DecalTypes  
 ---{  
 ---    splatters_blood = 1010,  
@@ -64,12 +65,12 @@
 ---@param posX number
 ---@param posY number
 ---@param posZ number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 number
----@param p8 number
----@param p9 number
+---@param dirX number
+---@param dirY number
+---@param dirZ number
+---@param sideX number
+---@param sideY number
+---@param sideZ number
 ---@param width number
 ---@param height number
 ---@param rCoef number
@@ -77,11 +78,11 @@
 ---@param bCoef number
 ---@param opacity number
 ---@param timeout number
----@param p17 boolean
----@param p18 boolean
----@param p19 boolean
+---@param isLongRange boolean
+---@param isDynamic boolean
+---@param useComplexColn boolean
 ---@return integer
-function AddDecal(decalType, posX, posY, posZ, p4, p5, p6, p7, p8, p9, width, height, rCoef, gCoef, bCoef, opacity, timeout, p17, p18, p19) end
+function AddDecal(decalType, posX, posY, posZ, dirX, dirY, dirZ, sideX, sideY, sideZ, width, height, rCoef, gCoef, bCoef, opacity, timeout, isLongRange, isDynamic, useComplexColn) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9CD43EEE12BF4DD0)  

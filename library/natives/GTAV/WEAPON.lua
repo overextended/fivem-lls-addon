@@ -475,7 +475,8 @@ function GetWeaponTintCount(weaponHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC3287EE3050FB74C)  
----This native does not have an official description.
+---Gets and returns the hash of the group of the specified weapon (group names can be found/changed under "Group" in the weapons' meta file).
+---Note that the group is **not** the same as the location on the weapon wheel.
 ---@param weaponHash integer | string
 ---@return integer
 function GetWeapontypeGroup(weaponHash) end

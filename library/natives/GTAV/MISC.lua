@@ -1007,6 +1007,28 @@ function GetIsAutoSaveOff() end
 function GetIsPlayerInAnimalForm() end
 
 ---**`MISC` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF56DFB7B61BE7276)  
+---Determines whether a line segment intersects a plane and, if so, returns the parameter value at which this intersection occurs.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param planeX number
+---@param planeY number
+---@param planeZ number
+---@param planeNormalX number
+---@param planeNormalY number
+---@param planeNormalZ number
+---@return boolean, number
+function GetLinePlaneIntersection(x1, y1, z1, x2, y2, z2, planeX, planeY, planeZ, planeNormalX, planeNormalY, planeNormalZ) end
+
+---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA33CDCCDA663159E)  
 ---This native does not have an official description.
 ---@return boolean
@@ -2032,24 +2054,6 @@ function N_0xeb2104e905c6f2e9() end
 function N_0xebd3205a207939ed() end
 
 ---**`MISC` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF56DFB7B61BE7276)  
----This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 number
----@param p8 number
----@param p9 number
----@param p10 number
----@param p11 number
----@return boolean, number
-function N_0xf56dfb7b61be7276(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) end
-
----**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFA3FFB0EEBC288A3)  
 ---```
 ---NativeDB Introduced: v2060
@@ -2080,14 +2084,6 @@ function N_0xfaa457ef263e8763(name) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFB00CA71DA386228)  
 ---This native does not have an official description.
 function N_0xfb00ca71da386228() end
-
----**`MISC` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xFB80AB299D2EE1BD)  
----```
----Toggles some stunt jump stuff.
----```
----@param toggle boolean
-function N_0xfb80ab299d2ee1bd(toggle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9243BAC96D64C050)  
@@ -3002,6 +2998,16 @@ function Tan(p0) end
 ---For a full list, see [here](https://gist.github.com/4mmonium/f76f3ecef649ed275b260b433ea84494).
 ---@param scriptName string
 function TerminateAllScriptsWithThisName(scriptName) end
+
+---**`MISC` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFB80AB299D2EE1BD)  
+---Enable/disable optional stunt camera.
+---
+---```
+---NativeDB Introduced: v757
+---```
+---@param toggle boolean
+function ToggleShowOptionalStuntJumpCamera(toggle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEA2F2061875EED90)  

@@ -67,19 +67,19 @@ function AddRelationshipGroup(name) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1B5C85C612E5256E)  
----This native does not have an official description.
----@param x1 number
----@param y1 number
----@param z1 number
----@param x2 number
----@param y2 number
----@param z2 number
----@param p6 boolean
----@param p7 boolean
----@param p8 boolean
----@param p9 boolean
+---Sets an area where scenarios are blocked
+---@param posMinX number
+---@param posMinY number
+---@param posMinZ number
+---@param posMaxX number
+---@param posMaxY number
+---@param posMaxZ number
+---@param network boolean
+---@param cancelActive boolean
+---@param blockPeds boolean
+---@param blockVehicles boolean
 ---@return integer
-function AddScenarioBlockingArea(x1, y1, z1, x2, y2, z2, p6, p7, p8, p9) end
+function AddScenarioBlockingArea(posMinX, posMinY, posMinZ, posMaxX, posMaxY, posMaxZ, network, cancelActive, blockPeds, blockVehicles) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x697157CED63F18D4)  
@@ -3825,9 +3825,9 @@ function RemoveRelationshipGroup(groupHash) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x31D16B74C6E29D66)  
 ---This native does not have an official description.
----@param p0 any
----@param p1 boolean
-function RemoveScenarioBlockingArea(p0, p1) end
+---@param scenarioBlockingIndex integer
+---@param bNetwork boolean
+function RemoveScenarioBlockingArea(scenarioBlockingIndex, bNetwork) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD37401D78A929A49)  
@@ -6259,13 +6259,16 @@ function SetPedShootsAtCoord(ped, x, y, z, toggle) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEC6935EBE0847B90)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@return any
-function SetPedShouldPlayDirectedScenarioExit(p0, p1, p2, p3) end
+---When this ped receives its next script task, they will exit from their scenario using the normal scenario exit.
+---Exiting the scenario may take several frames while the ped is playing the exit animation.
+---If the ped is not currently using a scenario at the time of the command or 0,0,0 is specified as the reaction position,
+---then the ped will by default attempt to direct their exit forwards.
+---@param ped integer
+---@param x number
+---@param y number
+---@param z number
+---@return boolean
+function SetPedShouldPlayDirectedScenarioExit(ped, x, y, z) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEEED8FAFEC331A70)  
@@ -6586,10 +6589,10 @@ function SetRelationshipGroupDontAffectWantedLevel(group, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7A556143A1C03898)  
----This native does not have an official description.
----@param p0 number
----@param p1 number
-function SetScenarioPedDensityMultiplierThisFrame(p0, p1) end
+---Set the number of scenario peds on the entire map
+---@param interiorMult number
+---@param exteriorMult number
+function SetScenarioPedDensityMultiplierThisFrame(interiorMult, exteriorMult) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28157D43CF600981)  

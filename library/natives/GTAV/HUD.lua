@@ -669,22 +669,11 @@ function DisplayCash(display) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x960C9FF8F616E41C)  
----```
----The messages are localized strings.  
----Examples:  
----"No_bus_money"  
----"Enter_bus"  
----"Tour_help"  
----"LETTERS_HELP2"  
----"Dummy"  
----**The bool appears to always be false (if it even is a bool, as it's represented by a zero)**  
------------  
----p1 doesn't seem to make a difference, regardless of the state it's in.   
----picture of where on the screen this is displayed?  
----```
----@param message string
----@param p1 boolean
-function DisplayHelpTextThisFrame(message, p1) end
+---Shows a help message for one frame.
+---Do note that this message doesn't get added to the Pause Menu info section.
+---@param pTextLabel string
+---@param bCurvedWindow boolean
+function DisplayHelpTextThisFrame(pTextLabel, bCurvedWindow) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA6294919E56FF02A)  
