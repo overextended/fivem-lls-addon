@@ -3223,15 +3223,6 @@ function N_0x2311dd7159f00582(vehicle, p1) end
 function N_0x26d99d5a82fd18e8(p0) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x26E13D440E7F6064)  
----```
----NativeDB Introduced: v1290
----```
----@param vehicle integer
----@param value number
-function N_0x26e13d440e7f6064(vehicle, value) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C1D8B3B19E517CC)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -3995,13 +3986,6 @@ function N_0xe8718faf591fd224(vehicle) end
 function N_0xed5ede9e676643c9(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xEDBC8405B3895CC9)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xedbc8405b3895cc9(p0, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEEBFC7A7EFDC35B4)  
 ---```
 ---Some kind of flags.  
@@ -4602,6 +4586,30 @@ function SetConvertibleRoofLatchState(vehicle, state) end
 ---@param deploy boolean
 ---@param p2 boolean
 function SetDeployHeliStubWings(vehicle, deploy, p2) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x26E13D440E7F6064)  
+---Prevents a vehicle from exploding upon sustaining body damage from physical collisions. This can be used to increase the durability of vehicles in high-impact scenarios, such as races or combat situations, by preventing them from being destroyed due to collision-induced body damage.
+---
+---For helicopters, you might want to check [`SET_DISABLE_HELI_EXPLODE_FROM_BODY_DAMAGE`](#\_0xEDBC8405B3895CC9) instead.
+---
+---```
+---NativeDB Introduced: v1290
+---```
+---@param vehicle integer
+---@param disableExplode boolean
+function SetDisableExplodeFromBodyDamageOnCollision(vehicle, disableExplode) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEDBC8405B3895CC9)  
+---Prevents a helicopter from exploding due to relatively minor body damage. This native can be particularly useful in gameplay scenarios or missions where helicopters are subject to damage that would not realistically cause an explosion, ensuring they remain operational unless subjected to more significant damage.
+---
+---```
+---NativeDB Introduced: v1103
+---```
+---@param helicopter integer
+---@param disableExplode boolean
+function SetDisableHeliExplodeFromBodyDamage(helicopter, disableExplode) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2D55FE374D5FDB91)  

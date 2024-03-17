@@ -766,13 +766,6 @@ function ForceLightningFlash() end
 CreateLightningThunder = ForceLightningFlash
 
 ---**`MISC` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xEB6891F03362FB12)  
----```
----Exits the game and downloads a fresh social club update on next restart.  
----```
-function ForceSocialClubUpdate() end
-
----**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8B3CA62B1EF19B62)  
 ---This native does not have an official description.
 ---@return integer
@@ -2171,6 +2164,14 @@ function QueueMissionRepeatLoad() end
 function QueueMissionRepeatSave() end
 
 ---**`MISC` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEB6891F03362FB12)  
+---Quits the game.
+function QuitGame() end
+
+---@deprecated
+ForceSocialClubUpdate = QuitGame
+
+---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC8F4131414C835A1)  
 ---This native does not have an official description.
 ---@param name string
@@ -2300,7 +2301,8 @@ function ResetDispatchTimeBetweenSpawnAttempts(p0) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE574A662ACAEFBB1)  
----In singleplayer it does exactly what the name implies. In FiveM / GTA:Online it shows `Disconnecting from GTA Online` HUD and then quits the game.
+---In singleplayer it does exactly what the name implies. In FiveM / GTA:Online it shows the `Disconnecting from GTA Online` warning screen message and quits the game.
+---After quitting, the game process is started again (as the name implies).
 function RestartGame() end
 
 ---**`MISC` `client`**  
@@ -2687,7 +2689,7 @@ function SetThisScriptCanBePaused(toggle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB98236CAAECEF897)  
----This native does not have an official description.
+---Normally, blips can only be removed by the script or resource that created them. However, this native function allows a script to bypass this logic and remove blips from any script.
 ---@param toggle boolean
 function SetThisScriptCanRemoveBlipsCreatedByAnyScript(toggle) end
 
