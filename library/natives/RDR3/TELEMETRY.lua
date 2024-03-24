@@ -16,6 +16,14 @@ function AnalyticsPlaytimeFreemodeStart() end
 function ClearTelemetryShopUi() end
 
 ---**`TELEMETRY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6F5BC5C4EAB42B15)  
+---Note: this native was added in build 1491.50
+---@param linkID integer
+---@param type integer
+---@param contentId string
+function N_0x6f5bc5c4eab42b15(linkID, type, contentId) end
+
+---**`TELEMETRY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEC0BD8736DCAF841)  
 ---This native does not have an official description.
 ---@param toggle boolean

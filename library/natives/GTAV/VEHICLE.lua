@@ -116,6 +116,14 @@ function AreHeliStubWingsDeployed(vehicle) end
 function AreOutriggerLegsDeployed(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF78F94D60248C737)  
+---Queries whether the control panels of a plane are intact. This native is used to determine the operational status of a plane's cockpit controls, which can affect the plane's flyability.
+---@param vehicle integer
+---@param checkForZeroHealth boolean
+---@return boolean
+function ArePlaneControlPanelsIntact(vehicle, checkForZeroHealth) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x755D6D5267CBBD7E)  
 ---This native does not have an official description.
 ---@param plane integer
@@ -3217,12 +3225,6 @@ function N_0x2310a8f9421ebf43(p0) end
 function N_0x2311dd7159f00582(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x26D99D5A82FD18E8)  
----This native does not have an official description.
----@param p0 any
-function N_0x26d99d5a82fd18e8(p0) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C1D8B3B19E517CC)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -4027,14 +4029,6 @@ function N_0xf25e02cb9c5818f8() end
 function N_0xf3b0e0aed097a3f5(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF78F94D60248C737)  
----This native does not have an official description.
----@param vehicle integer
----@param p1 boolean
----@return boolean
-function N_0xf78f94d60248c737(vehicle, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF8B49F5BA7F850E7)  
 ---```
 ---NativeDB Introduced: v2060
@@ -4586,6 +4580,16 @@ function SetConvertibleRoofLatchState(vehicle, state) end
 ---@param deploy boolean
 ---@param p2 boolean
 function SetDeployHeliStubWings(vehicle, deploy, p2) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x26D99D5A82FD18E8)  
+---Disables the additional physics forces applied to BMX bikes that enable them to perform tricks.
+---
+---```
+---NativeDB Introduced: v463
+---```
+---@param disableExtraTrickForces boolean
+function SetDisableBmxExtraTrickForces(disableExtraTrickForces) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26E13D440E7F6064)  

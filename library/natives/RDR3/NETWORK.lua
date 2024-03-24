@@ -1267,6 +1267,13 @@ function N_0xd7d0df27cb1765b5(p0) end
 function N_0xda1bfed8582f61f0() end
 
 ---**`NETWORK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDBDF80673BBA3D65)  
+---Note: this native was added in build 1491.50
+---@param p0 integer
+---@return boolean
+function N_0xdbdf80673bba3d65(p0) end
+
+---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC6AD5C046F33AB4)  
 ---This native does not have an official description.
 ---@param p0 boolean
