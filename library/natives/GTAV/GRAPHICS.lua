@@ -1764,13 +1764,10 @@ function GetStatusOfSaveHighQualityPhoto() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF5BED327CEA362B1)  
----```
----3 matches across 3 scripts. First 2 were 0, 3rd was 1. Possibly a bool.
----appcamera, appmedia, and cellphone_controller.
----```
----@param p0 boolean
+---Returns status of gallery photo fetch, which was requested by [`QUEUE_OPERATION_TO_CREATE_SORTED_LIST_OF_PHOTOS`](#\_0x2A893980E96B659A).
+---@param scanForSaving boolean
 ---@return integer
-function GetStatusOfSortedListOperation(p0) end
+function GetStatusOfSortedListOperation(scanForSaving) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0D6CA79EEEBD8CA3)  
@@ -2046,6 +2043,15 @@ function IsDecalAlive(decal) end
 function IsPlaylistUnk(tvChannel, p1) end
 
 ---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x86255B1FC929E33E)  
+---```
+---NativeDB Introduced: v1290
+---```
+---@param scaleformIndex integer
+---@return boolean
+function IsScaleformMovieDeleting(scaleformIndex) end
+
+---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x768FF8961BA904D6)  
 ---methodReturn: The return value of this native: END_SCALEFORM_MOVIE_METHOD_RETURN_VALUE
 ---Returns true if the return value of a scaleform function is ready to be collected (using GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_STRING or GET_SCALEFORM_MOVIE_METHOD_RETURN_VALUE_INT).
@@ -2199,13 +2205,6 @@ function N_0x27feb5254759cde3(textureDict, p1) end
 ---NativeDB Introduced: v323
 ---```
 function N_0x2a251aa48b2b46db() end
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2A893980E96B659A)  
----This native does not have an official description.
----@param p0 boolean
----@return boolean
-function N_0x2a893980e96b659a(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B40A97646381508)  
@@ -2422,15 +2421,6 @@ function N_0x82acc484ffa3b05f(p0) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x851CD923176EBA7C)  
 ---This native does not have an official description.
 function N_0x851cd923176eba7c() end
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x86255B1FC929E33E)  
----```
----NativeDB Introduced: v1290
----```
----@param p0 any
----@return any
-function N_0x86255b1fc929e33e(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8CDE909A0370BB3A)  
@@ -2844,6 +2834,14 @@ function PushTimecycleModifier() end
 function QueryMovieMeshSetState(p0) end
 
 ---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2A893980E96B659A)  
+---Queues a scan of all gallery photos.
+---Also see [`GET_STATUS_OF_SORTED_LIST_OPERATION`](#\_0xF5BED327CEA362B1)
+---@param scanForSaving boolean
+---@return boolean
+function QueueOperationToCreateSortedListOfPhotos(scanForSaving) end
+
+---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA44FF770DFBC5DAE)  
 ---Used with 'NG_filmnoir_BW{01,02}' timecycles and the "NOIR_FILTER_SOUNDS" audioref.
 function RegisterNoirScreenEffectThisFrame() end
@@ -2949,13 +2947,6 @@ function RemoveVehicleCrewEmblem(vehicle, p1) end
 function RequestScaleformMovie(scaleformName) end
 
 ---**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x65E7E78842E74CDB)  
----Another [REQUEST_SCALEFORM_MOVIE](#\_0x11FE353CF9733E6F) equivalent.
----@param scaleformName string
----@return integer
-function RequestScaleformMovie_2(scaleformName) end
-
----**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC514489CFB8AF806)  
 ---Same as [REQUEST_SCALEFORM_MOVIE](#\_0x11FE353CF9733E6F), except it seems to fix stretched scaleforms on ultrawide.
 ---@param scaleformName string
@@ -2964,22 +2955,25 @@ function RequestScaleformMovieInstance(scaleformName) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBD06C611BB9048C2)  
----```
----Similar to REQUEST_SCALEFORM_MOVIE, but seems to be some kind of "interactive" scaleform movie?  
----These seem to be the only scaleforms ever requested by this native:  
----"breaking_news"  
----"desktop_pc"  
----"ECG_MONITOR"  
----"Hacking_PC"  
----"TEETH_PULLING"  
----Note: Unless this hash is out-of-order, this native is next-gen only.  
----```
+---Requests a scaleform movie that doesn't render when the game is paused (With [`SET_GAME_PAUSED`](#\_0x577D1284D6873711)).
 ---@param scaleformName string
 ---@return integer
-function RequestScaleformMovieInteractive(scaleformName) end
+function RequestScaleformMovieSkipRenderWhilePaused(scaleformName) end
 
 ---@deprecated
-RequestScaleformMovie3 = RequestScaleformMovieInteractive
+RequestScaleformMovie3 = RequestScaleformMovieSkipRenderWhilePaused
+---@deprecated
+RequestScaleformMovieInteractive = RequestScaleformMovieSkipRenderWhilePaused
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x65E7E78842E74CDB)  
+---Requests a scaleform movie, which has no widescreen adjustments while rendering (Useful for when your scaleform doesn't fully draw on the screen and borders are visible).
+---@param scaleformName string
+---@return integer
+function RequestScaleformMovieWithIgnoreSuperWidescreen(scaleformName) end
+
+---@deprecated
+RequestScaleformMovie_2 = RequestScaleformMovieWithIgnoreSuperWidescreen
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9304881D6F6537EA)  
@@ -4201,7 +4195,7 @@ function TerraingridSetParams(x, y, z, p3, rotation, p5, width, height, p8, scal
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDFC252D8A3E15AB7)  
----This native does not have an official description.
+---Switches the rendering display to exclude everything except PostFX, resulting in a frozen screen before the UI pass.
 ---@param toggle boolean
 function TogglePausedRenderphases(toggle) end
 

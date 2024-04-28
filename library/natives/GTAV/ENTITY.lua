@@ -1321,15 +1321,6 @@ function N_0xc34bc448da29f5e9(entity, toggle) end
 function N_0xcea7c8e1b48ff68c(p0, p1) end
 
 ---**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xD7B80E7C3BEFC396)  
----```
----NativeDB Introduced: v1180
----```
----@param p0 any
----@param p1 any
-function N_0xd7b80e7c3befc396(p0, p1) end
-
----**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDC6F8601FAF2E893)  
 ---```
 ---SET_*
@@ -1520,9 +1511,9 @@ function SetEntityAnimSpeed(entity, animDictionary, animName, speedMultiplier) e
 ---
 ---Note that this is not needed right after creating an entity as a script-created entity will automatically be assigned.
 ---@param entity integer
----@param p1 boolean
----@param p2 boolean
-function SetEntityAsMissionEntity(entity, p1, p2) end
+---@param scriptHostObject boolean
+---@param bGrabFromOtherScript boolean
+function SetEntityAsMissionEntity(entity, scriptHostObject, bGrabFromOtherScript) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB736A491E64A32CF)  
@@ -1898,6 +1889,17 @@ function SetObjectAsNoLongerNeeded(object) end
 ---```
 ---@param ped integer
 function SetPedAsNoLongerNeeded(ped) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD7B80E7C3BEFC396)  
+---Configures an entity to either allow or prevent it from being picked up by Cargobobs.
+---
+---```
+---NativeDB Introduced: v1180
+---```
+---@param entity integer
+---@param toggle boolean
+function SetPickUpByCargobobDisabled(entity, toggle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x629BFA74418D6239)  

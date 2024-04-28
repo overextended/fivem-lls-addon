@@ -963,27 +963,6 @@ function N_0x444c4525ece0a4b9() end
 function N_0x45e816772e93a9db() end
 
 ---**`NETWORK` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x45F35C0EDC33B03B)  
----NETWORK_A\*
----Similar structure as NETWORK_ADD_ENTITY_TO_SYNCHRONISED_SCENE but it includes this time a hash.
----In casino_slots it is used one time in a synced scene involving a ped and the slot machine?
----
----```
----NativeDB Introduced: v1734
----```
----@param netScene integer
----@param modelHash integer | string
----@param x number
----@param y number
----@param z number
----@param p5 number
----@param p6 string
----@param p7 number
----@param p8 number
----@param flags integer
-function N_0x45f35c0edc33b03b(netScene, modelHash, x, y, z, p5, p6, p7, p8, flags) end
-
----**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4811BBAC21C5FCD5)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1477,23 +1456,6 @@ function N_0xa2e9c1ab8a92e8cd(toggle) end
 function N_0xa306f470d1660581() end
 
 ---**`NETWORK` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA5EAFE473E45C442)  
----```
----NativeDB Introduced: v1290
----```
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
----@param p7 any
----@param p8 any
----@param p9 any
-function N_0xa5eafe473e45c442(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
-
----**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA6FCECCF4721D679)  
 ---```
 ---NativeDB Introduced: v1604
@@ -1980,15 +1942,15 @@ function NetworkAddEntityDisplayedBoundaries(p0, p1, p2, p3, p4, p5) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF2404D68CBC855FA)  
----This native does not have an official description.
+---Adds an entity to a network synchronised scene.
 ---@param entity integer
 ---@param netScene integer
 ---@param animDict string
 ---@param animName string
----@param speed number
----@param speedMulitiplier number
+---@param blendIn number
+---@param blendOut number
 ---@param flag integer
-function NetworkAddEntityToSynchronisedScene(entity, netScene, animDict, animName, speed, speedMulitiplier, flag) end
+function NetworkAddEntityToSynchronisedScene(entity, netScene, animDict, animName, blendIn, blendOut, flag) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x236406F60CF216D6)  
@@ -2007,19 +1969,85 @@ function NetworkAddFollowers(p1) end
 function NetworkAddFriend(message) end
 
 ---**`NETWORK` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x45F35C0EDC33B03B)  
+---Adds a map entity to a network synchronized scene. This native function is utilized only once as of game build 2944 within the casino_slots script.
+---Please note that it's only possible to add a single map entity to synchronised scenes.
+---
+---It's advisable to initially locate the object and retrieve its actual coordinates using [`GET_CLOSEST_OBJECT_OF_TYPE`](#\_0xE143FA2249364369).
+---
+---```
+---NativeDB Introduced: v1734
+---```
+---@param netScene integer
+---@param modelHash integer | string
+---@param x number
+---@param y number
+---@param z number
+---@param animDict string
+---@param animName string
+---@param blendInSpeed number
+---@param blendOutSpeed number
+---@param flags integer
+function NetworkAddMapEntityToSynchronisedScene(netScene, modelHash, x, y, z, animDict, animName, blendInSpeed, blendOutSpeed, flags) end
+
+---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x742A637471BCECD9)  
----This native does not have an official description.
+---Adds a ped to a networked synchronised scene.
+---
+---Synchronized scene playback flags (Also works in other `NETWORK_ADD_*_TO_SYNCHRONISED_SCENE` natives):
+---|Value| Name | Notes |
+---|:----:|:------:| :--------: |
+---|`0`| None | No flag set. |
+---|`1`| USE_PHYSICS | Allows the ped to have physics during the scene. |
+---|`2`| TAG_SYNC_OUT | The task will do a tag synchronized blend out with the movement behaviour of the ped. |
+---|`4`| DONT_INTERRUPT | The scene will not be interrupted by external events. |
+---|`8`| ON_ABORT_STOP_SCENE | The scene will be stopped if the scripted task is aborted. |
+---|`16`| ABORT_ON_WEAPON_DAMAGE | The scene will be stopped if the ped is damaged by a weapon. |
+---|`32`| BLOCK_MOVER_UPDATE | The task will not update the mover. |
+---|`64`| LOOP_WITHIN_SCENE | Animations within this scene will be looped until the scene is finished. |
+---|`128`| PRESERVE_VELOCITY | The task will keep it's velocity when the scene is cleaned up/stopped. Do note that the `USE_PHYSICS` flag must also be present. |
+---|`256`| EXPAND_PED_CAPSULE_FROM_SKELETON | The task will apply the `ExpandPedCapsuleFromSkeleton` reset flag to the ped (See [`SET_PED_RESET_FLAG`](#\_0xC1E8A365BF3B29F2)). |
+---|`512`| ACTIVATE_RAGDOLL_ON_COLLISION | The ped will be ragdoll if it comes in contact with an object. |
+---|`1024`| HIDE_WEAPON | The ped's current weapon will be hidden during the scene. |
+---|`2048`| ABORT_ON_DEATH | The synchronised scene will be aborted if the ped dies. |
+---|`4096`| VEHICLE_ABORT_ON_LARGE_IMPACT | If the scene is running on a vehicle, then it will be aborted if the vehicle takes a heavy collision with another vehicle. |
+---|`16384`| PROCESS_ATTACHMENTS_ON_START | Attachments will be processed at the start of the scene. |
+---|`32768`| NET_ON_EARLY_NON_PED_STOP_RETURN_TO_START |  A non-ped entity will be returned to their starting position if the scene finishes early. |
+---|`65536`| SET_PED_OUT_OF_VEHICLE_AT_START | If the ped is in a vehicle when the scene starts, it will be set out of the vehicle. |
+---|`131072`| NET_DISREGARD_ATTACHMENT_CHECKS | Attachment checks will be disregarded when the scene is running. |
+---
+---These flags can be combined with the `|` operator.
 ---@param ped integer
 ---@param netScene integer
 ---@param animDict string
----@param animnName string
+---@param animClip string
 ---@param blendInSpeed number
 ---@param blendOutSpeed number
----@param duration integer
----@param flag integer
----@param playbackRate number
----@param p9 any
-function NetworkAddPedToSynchronisedScene(ped, netScene, animDict, animnName, blendInSpeed, blendOutSpeed, duration, flag, playbackRate, p9) end
+---@param syncedSceneFlags integer
+---@param ragdollFlags integer
+---@param moverBlendInDelta number
+---@param ikFlags integer
+function NetworkAddPedToSynchronisedScene(ped, netScene, animDict, animClip, blendInSpeed, blendOutSpeed, syncedSceneFlags, ragdollFlags, moverBlendInDelta, ikFlags) end
+
+---**`NETWORK` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA5EAFE473E45C442)  
+---Adds a ped to a networked synchronized scene but extends [`NETWORK_ADD_PED_TO_SYNCHRONISED_SCENE`](#\_0x742A637471BCECD9) to support IK flags.
+---There is barely any difference between this and [`NETWORK_ADD_PED_TO_SYNCHRONISED_SCENE`](#\_0x742A637471BCECD9).
+---
+---```
+---NativeDB Introduced: v1290
+---```
+---@param ped integer
+---@param netSceneID integer
+---@param animDict string
+---@param animClip string
+---@param blendIn number
+---@param blendOut number
+---@param sceneFlags integer
+---@param ragdollFlags integer
+---@param moverBlendInDelta number
+---@param ikFlags integer
+function NetworkAddPedToSynchronisedSceneWithIk(ped, netSceneID, animDict, animClip, blendIn, blendOut, sceneFlags, ragdollFlags, moverBlendInDelta, ikFlags) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF8BD3B0BD6D42D7)  
@@ -2546,7 +2574,8 @@ function NetworkConcealPlayer(player, toggle, p2) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7CD6BC4C2BBDD526)  
----This native does not have an official description.
+---Creates a networked synchronized scene.
+---Be sure to actually start the scene with [`NETWORK_START_SYNCHRONISED_SCENE`](#\_0x9A1B3FCDB36C8697) after you're done adding peds or entities to the scene.
 ---@param x number
 ---@param y number
 ---@param z number
@@ -2556,11 +2585,11 @@ function NetworkConcealPlayer(player, toggle, p2) end
 ---@param rotationOrder integer
 ---@param holdLastFrame boolean
 ---@param looped boolean
----@param p9 number
----@param animTime number
+---@param phaseToStopScene number
+---@param phaseToStartScene number
 ---@param animSpeed number
 ---@return integer
-function NetworkCreateSynchronisedScene(x, y, z, xRot, yRot, zRot, rotationOrder, holdLastFrame, looped, p9, animTime, animSpeed) end
+function NetworkCreateSynchronisedScene(x, y, z, xRot, yRot, zRot, rotationOrder, holdLastFrame, looped, phaseToStopScene, phaseToStartScene, animSpeed) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF9B83B77929D8863)  
@@ -3086,10 +3115,10 @@ function NetworkGetLocalHandle(bufferSize) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x02C40BF885C567B6)  
----This native does not have an official description.
----@param netId integer
+---Returns a local synchronized scene handle of a networked synchronised scene.
+---@param netSceneId integer
 ---@return integer
-function NetworkGetLocalSceneFromNetworkId(netId) end
+function NetworkGetLocalSceneFromNetworkId(netSceneId) end
 
 ---@deprecated
 NetworkUnlinkNetworkedSynchronisedScene = NetworkGetLocalSceneFromNetworkId
@@ -4800,16 +4829,98 @@ function NetworkRespawnCoords(player, x, y, z, p4, p5) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEA23C49EAA83ACFB)  
+---Revives our local player who was previously dead.
+---
+---**Note:** Call this once you resurrect the player (this does not need to be called every frame).
+---
+---```cpp
+---enum ePlayerSpawnLocation {
+---  SPAWN_LOCATION_AUTOMATIC = 0, // system will decide
+---  SPAWN_LOCATION_NEAR_DEATH,					
+---  SPAWN_LOCATION_NEAR_TEAM_MATES,			
+---  SPAWN_LOCATION_MISSION_AREA, // script defined area
+---  SPAWN_LOCATION_NEAR_OTHER_PLAYERS, 
+---  SPAWN_LOCATION_NEAR_CURRENT_POSITION,	
+---  SPAWN_LOCATION_AT_CURRENT_POSITION,
+---  SPAWN_LOCATION_NET_TEST_BED,	
+---  SPAWN_LOCATION_CUSTOM_SPAWN_POINTS,
+---  SPAWN_LOCATION_OUTSIDE_SIMEON_GARAGE,
+---  SPAWN_LOCATION_NEAR_SPECIFIC_COORDS,
+---  SPAWN_LOCATION_AT_SPECIFIC_COORDS,
+---  SPAWN_LOCATION_AT_AIRPORT_ARRIVALS,
+---  SPAWN_LOCATION_AT_SPECIFIC_COORDS_IF_POSSIBLE,
+---  SPAWN_LOCATION_IN_SPECIFIC_ANGLED_AREA,
+---  SPAWN_LOCATION_NEAREST_RESPAWN_POINT, 
+---  SPAWN_LOCATION_AT_SPECIFIC_COORDS_RACE_CORONA, 
+---  SPAWN_LOCATION_INSIDE_GARAGE,
+---  SPAWN_LOCATION_INSIDE_PROPERTY,
+---  SPAWN_LOCATION_INSIDE_PROPERTY_OR_GARAGE,
+---  SPAWN_LOCATION_NEAR_DEATH_IMPROMPTU,
+---  SPAWN_LOCATION_NEAR_CURRENT_POSITION_SPREAD_OUT,
+---  SPAWN_LOCATION_NEAREST_RESPAWN_POINT_TO_SPECIFIC_COORDS,
+---  SPAWN_LOCATION_NEAREST_HOSPITAL,
+---  SPAWN_LOCATION_NEAREST_POLICE_STATION,
+---  SPAWN_LOCATION_NEAREST_HOTEL_TO_SPECIFIC_COORDS,
+---  SPAWN_LOCATION_MISSION_AREA_NEAR_CURRENT_POSITION,
+---  SPAWN_LOCATION_PRIVATE_YACHT,
+---  SPAWN_LOCATION_PRIVATE_YACHT_APARTMENT,
+---  SPAWN_LOCATION_PRIVATE_FRIEND_YACHT,
+---  SPAWN_LOCATION_PRIVATE_YACHT_NEAR_SHORE,
+---  SPAWN_LOCATION_NEAR_GANG_BOSS,
+---  SPAWN_LOCATION_NEAR_SPECIFIC_COORDS_WITH_GANG,
+---  SPAWN_LOCATION_GANG_DM,
+---  SPAWN_LOCATION_GANG_BOSS_PRIVATE_YACHT,
+---  SPAWN_LOCATION_OFFICE,
+---  SPAWN_LOCATION_CLUBHOUSE,
+---  SPAWN_LOCATION_NEAR_CURRENT_POSITION_AS_POSSIBLE,
+---  SPAWN_LOCATION_NEAR_CURRENT_PERCEIVED_POSITION,
+---  SPAWN_LOCATION_IE_WAREHOUSE,
+---  SPAWN_LOCATION_BUNKER,
+---  SPAWN_LOCATION_HANGAR,
+---  SPAWN_LOCATION_DEFUNCT_BASE,
+---  SPAWN_LOCATION_NIGHTCLUB,
+---  SPAWN_LOCATION_ARENA_GARAGE,
+---  SPAWN_LOCATION_CASINO,
+---  SPAWN_LOCATION_CASINO_APARTMENT,
+---  SPAWN_LOCATION_CASINO_OUTSIDE,
+---  SPAWN_LOCATION_ARCADE,
+---  SPAWN_LOCATION_CASINO_NIGHTCLUB,
+---  SPAWN_LOCATION_SUBMARINE,
+---  SPAWN_LOCATION_HEIST_ISLAND_NEAR_DEATH,
+---  SPAWN_LOCATION_HEIST_ISLAND_BEACH_PARTY,
+---  SPAWN_LOCATION_LAND_NEAR_SUBMARINE,
+---  SPAWN_LOCATION_CAR_MEET,
+---  SPAWN_LOCATION_AUTO_SHOP,
+---  SPAWN_LOCATION_FIXER_HQ,
+---  SPAWN_LOCATION_SITTING_SMOKING,
+---  SPAWN_LOCATION_DRUNK_WAKE_UP_MUSIC_STUDIO,
+---  SPAWN_LOCATION_MUSIC_STUDIO,
+---  TOTAL_SPAWN_LOCATIONS
+---};
 ---```
----NativeDB Added Parameter 7: Any p6
+---
+---```cpp
+---enum eSpawnReason {
+---  SPAWN_REASON_DEATH = 0,
+---  SPAWN_REASON_TRANSITION,
+---  SPAWN_REASON_MANUAL,
+---  SPAWN_REASON_RESTORE_CHARACTER,
+---  SPAWN_REASON_IN_VEHICLE
+---};
 ---```
+---
+---### Added parameters
+---
+---*   **bUnpauseRenderPhases**: This boolean parameter will unpause the render phases when set to `true`.
+---*   **iSpawnLocation**: This integer parameter sets the player's spawn location metric for telemetry. See `ePlayerSpawnLocation` enum.
+---*   **iSpawnReason**: This integer parameter sets the player's spawn reason metric for telemetry. See `eSpawnReason` enum.
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param heading number
----@param unk boolean
----@param changetime boolean
-function NetworkResurrectLocalPlayer(x, y, z, heading, unk, changetime) end
+---@param nInvincibilityTime integer
+---@param bLeaveDeadPed boolean
+function NetworkResurrectLocalPlayer(x, y, z, heading, nInvincibilityTime, bLeaveDeadPed) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF1B84178F8674195)  

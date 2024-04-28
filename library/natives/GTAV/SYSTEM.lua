@@ -59,19 +59,20 @@ function SetThreadPriority(priority) end
 
 ---**`SYSTEM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC1B1E9A034A63A62)  
----This native does not have an official description.
+---Sets the value for the timer A in milliseconds
 ---@param value integer
 function Settimera(value) end
 
 ---**`SYSTEM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5AE11BC36633DE4E)  
----This native does not have an official description.
+---Sets the value for the timer B in milliseconds
 ---@param value integer
 function Settimerb(value) end
 
 ---**`SYSTEM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEDD95A39E5544DE8)  
----This native does not have an official description.
+---Left bit shifts a value.
+---It is advised you use the `<<` operator instead of this native. It does the same and is faster.
 ---@param value integer
 ---@param bitShift integer
 ---@return integer
@@ -79,7 +80,8 @@ function ShiftLeft(value, bitShift) end
 
 ---**`SYSTEM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x97EF1E5BCE9DC075)  
----This native does not have an official description.
+---Right bit shifts a value.
+---It is advised you use the `>>` operator instead of this native. It does the same and is faster.
 ---@param value integer
 ---@param bitShift integer
 ---@return integer
@@ -204,8 +206,10 @@ function ToFloat(value) end
 
 ---**`SYSTEM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A488C176D52CCA5)  
+---Calculates the distance between two points in 3D space. For performance reasons, consider using direct mathematical calculations for distance, as they can be more efficient than calling this native function.
+---
 ---```
----Calculates distance between vectors.  
+---NativeDB Introduced: v323
 ---```
 ---@param x1 number
 ---@param y1 number
@@ -218,8 +222,10 @@ function Vdist(x1, y1, z1, x2, y2, z2) end
 
 ---**`SYSTEM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB7A628320EFF8E47)  
+---Calculates distance between vectors but does not perform Sqrt operations. Its way faster than [`VDIST`](#\_0x2A488C176D52CCA5), but it's not faster than direct mathematical calculations.
+---
 ---```
----Calculates distance between vectors but does not perform Sqrt operations. (Its way faster)  
+---NativeDB Introduced: v323
 ---```
 ---@param x1 number
 ---@param y1 number

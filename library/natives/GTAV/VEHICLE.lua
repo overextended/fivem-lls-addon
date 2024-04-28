@@ -251,6 +251,14 @@ function CanAnchorBoatHere_2(vehicle) end
 CanBoatBeAnchored_2 = CanAnchorBoatHere_2
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2C1D8B3B19E517CC)  
+---Determines whether the specified Cargobob can pick up a given entity.
+---@param cargobob integer
+---@param entity integer
+---@return boolean
+function CanCargobobPickUpEntity(cargobob, entity) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x30785D90C956BF35)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -455,7 +463,7 @@ function DeleteMissionTrain(train) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x22102C9ABFCF125D)  
----This native does not have an official description.
+---Removes a scripted vehicle generator.
 ---@param vehicleGenerator integer
 function DeleteScriptVehicleGenerator(vehicleGenerator) end
 
@@ -480,7 +488,7 @@ function DetachContainerFromHandlerFrame(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAF03011701811146)  
----This native does not have an official description.
+---Detaches the specified entity currently being carried by a Cargobob.
 ---@param vehicle integer
 ---@param entity integer
 ---@return any
@@ -783,6 +791,17 @@ function FixVehicleWindow(vehicle, windowIndex) end
 ---@param vehicle integer
 ---@param p1 boolean
 function ForcePlaybackRecordedVehicleUpdate(vehicle, p1) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC67DB108A9ADE3BE)  
+---Forces a submarine to maintain neutral buoyancy for a specified duration, preventing it from rising when unoccupied or without a driver.
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param submarine integer
+---@param time integer
+function ForceSubmarineNeurtalBuoyancy(submarine, time) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x33506883545AC0DF)  
@@ -1409,22 +1428,32 @@ function GetRotationOfVehicleRecordingAtTime(recording, time, script) end
 function GetRotationOfVehicleRecordingIdAtTime(id, time) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x093D6DDCA5B8FBAE)  
----```
----NativeDB Introduced: v2189
----```
----@param submarine integer
----@return integer
-function GetSubmarineCrushDepthWarningState(submarine) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3E71D0B300B7AA79)  
+---Determines if the submarine is operating below its designated crush depth.
+---
 ---```
 ---NativeDB Introduced: v2189
 ---```
 ---@param submarine integer
 ---@return boolean
-function GetSubmarineIsBelowFirstCrushDepth(submarine) end
+function GetSubmarineIsUnderDesignDepth(submarine) end
+
+---@deprecated
+GetSubmarineIsBelowFirstCrushDepth = GetSubmarineIsUnderDesignDepth
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x093D6DDCA5B8FBAE)  
+---Checks if a Submarine has any air leaks, when there is more than 4 the player will drown.
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param submarine integer
+---@return integer
+function GetSubmarineNumberOfAirLeaks(submarine) end
+
+---@deprecated
+GetSubmarineCrushDepthWarningState = GetSubmarineNumberOfAirLeaks
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5746F3A7AB7FE544)  
@@ -3203,13 +3232,6 @@ function N_0x1312ddd8385aee4e(p0, p1) end
 function N_0x182f266c2d9e2beb(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1F34B0626C594380)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x1f34b0626c594380(p0, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2310A8F9421EBF43)  
 ---```
 ---NativeDB Introduced: v2372
@@ -3223,14 +3245,6 @@ function N_0x2310a8f9421ebf43(p0) end
 ---@param vehicle integer
 ---@param p1 boolean
 function N_0x2311dd7159f00582(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2C1D8B3B19E517CC)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x2c1d8b3b19e517cc(p0, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C4A1590ABF43E8B)  
@@ -3867,15 +3881,6 @@ function N_0xc4b3347bd68bd609(p0) end
 function N_0xc50ce861b55eab8b(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xC67DB108A9ADE3BE)  
----```
----NativeDB Introduced: v2189
----```
----@param p0 any
----@param p1 any
-function N_0xc67db108a9ade3be(p0, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF9159024555488C)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -4433,6 +4438,13 @@ function SetCanResprayVehicle(vehicle, state) end
 ---This native does not have an official description.
 ---@param vehicle integer
 function SetCarBootOpen(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1F34B0626C594380)  
+---Prevents a specified entity from being detached from a Cargobob, even in the event of collisions.
+---@param cargobob integer
+---@param entity integer
+function SetCargobobExcludeFromPickupEntity(cargobob, entity) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x571FEB383F629926)  
@@ -6444,9 +6456,7 @@ function SetVehicleModKit(vehicle, modKit) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBFDF984E2C22B94F)  
----```
----NOTE: Debugging functions are not present in the retail version of the game.  
----```
+---This method is utilized solely for debugging purposes and is functional only in debug builds of the game. Please note that its functionality may not be available in the retail version.
 ---@param vehicle integer
 ---@param name string
 function SetVehicleNameDebug(vehicle, name) end
@@ -7075,7 +7085,7 @@ function SkipToEndAndStopPlaybackRecordedVehicle(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9E5B5E4D2CCD2259)  
----See eWindowId declared in [`IS_VEHICLE_WINDOW_INTACT`](#\_0x46E571A0E20D01F1).
+---Smashes a vehicles window. See eWindowId declared in [`IS_VEHICLE_WINDOW_INTACT`](#\_0x46E571A0E20D01F1).
 ---@param vehicle integer
 ---@param windowIndex integer
 function SmashVehicleWindow(vehicle, windowIndex) end
@@ -7135,13 +7145,7 @@ function StartVehicleAlarm(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9C8C6504B5B63D2C)  
----```
----Sounds the horn for the specified vehicle.  
----vehicle: The vehicle to activate the horn for.  
----mode: The hash of "NORMAL" or "HELDDOWN". Can be 0.  
----duration: The duration to sound the horn, in milliseconds.  
----Note: If a player is in the vehicle, it will only sound briefly.  
----```
+---Sounds the horn for the specified vehicle. Note that if a player is in the vehicle, it will only sound briefly.
 ---@param vehicle integer
 ---@param duration integer
 ---@param mode integer | string

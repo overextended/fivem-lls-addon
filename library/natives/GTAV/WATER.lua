@@ -30,11 +30,9 @@ GetCurrentIntensity = GetDeepOceanScaler
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF6829842C06AE524)  
----```
----This function set height to the value of z-axis of the water surface.  
----This function works with sea and lake. However it does not work with shallow rivers (e.g. raton canyon will return -100000.0f)  
----note: seems to return true when you are in water  
----```
+---Retrieves the depth of the water beneath the specified position, accounting for the waves.
+---
+---**Note:** The result might vary depending on the specific frame when this command is executed due to wave fluctuations.
 ---@param x number
 ---@param y number
 ---@param z number
@@ -43,7 +41,9 @@ function GetWaterHeight(x, y, z) end
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8EE6B53CE13A9794)  
----This native does not have an official description.
+---Retrieves the depth of the water beneath the specified position, disregarding wave effects.
+---
+---**Note:** The result remains consistent across different frames as it doesn't consider wave fluctuations.
 ---@param x number
 ---@param y number
 ---@param z number

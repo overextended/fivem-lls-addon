@@ -487,8 +487,16 @@ function GetIsArenaPropPhysicsDisabled(entity, p1) end
 function GetObjectFragmentDamageHealth(p0, p1) end
 
 ---**`OBJECT` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x163E252DE035A133)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE84EB93729C5F36A)  
 ---This native does not have an official description.
+---@param object integer
+---@return integer
+function GetObjectTextureVariation(object) end
+
+---**`OBJECT` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x163E252DE035A133)  
+---Calculates the world coordinates after applying the specified offsets to the given position, relative to a certain heading.
+---This native is similar to [`GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS`](#\_0x1899F328B0E12848), but uses a world position and heading as the reference point.
 ---@param xPos number
 ---@param yPos number
 ---@param zPos number
@@ -497,14 +505,10 @@ function GetObjectFragmentDamageHealth(p0, p1) end
 ---@param yOffset number
 ---@param zOffset number
 ---@return vector3
-function GetObjectOffsetFromCoords(xPos, yPos, zPos, heading, xOffset, yOffset, zOffset) end
+function GetOffsetFromCoordAndHeadingInWorldCoords(xPos, yPos, zPos, heading, xOffset, yOffset, zOffset) end
 
----**`OBJECT` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE84EB93729C5F36A)  
----This native does not have an official description.
----@param object integer
----@return integer
-function GetObjectTextureVariation(object) end
+---@deprecated
+GetObjectOffsetFromCoords = GetOffsetFromCoordAndHeadingInWorldCoords
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x225B8B35C88029B3)  

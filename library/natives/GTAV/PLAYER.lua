@@ -763,10 +763,7 @@ function IsPlayerLoggingInNp() end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF25D331DC2627BBC)  
----```
----Returns TRUE if the game is in online mode and FALSE if in offline mode.  
----This is an alias for NETWORK_IS_SIGNED_ONLINE.  
----```
+---It returns true if the player is online, suggesting they are also logged in locally. Note that this is an alias for `NETWORK_IS_SIGNED_ONLINE`.
 ---@return boolean
 function IsPlayerOnline() end
 
@@ -1600,14 +1597,10 @@ function SetPlayerHomingRocketDisabled(player, p1) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x239528EACDC3E7DE)  
----```
----Simply sets you as invincible (Health will not deplete).  
----Use 0x733A643B5B0C53C1 instead if you want Ragdoll enabled, which is equal to:  
----*(DWORD *)(playerPedAddress + 0x188) |= (1 << 9);  
----```
+---Make the player impervious to all forms of damage.
 ---@param player integer
----@param toggle boolean
-function SetPlayerInvincible(player, toggle) end
+---@param bInvincible boolean
+function SetPlayerInvincible(player, bInvincible) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6BC97F4F4BB3C04B)  
@@ -1652,13 +1645,13 @@ function SetPlayerMaxArmour(player, value) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1DE37BBF9E9CC14A)  
----This native does not have an official description.
+---Establishes a reset flag to prevent the player from entering any vehicle. Not that this native must be called every frame.
 ---@param player integer
 function SetPlayerMayNotEnterAnyVehicle(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8026FF78F208978A)  
----This native does not have an official description.
+---Limit the player to only enter this vehicle. Note set vehicle to false if you want them to access any vehicle.
 ---@param player integer
 ---@param vehicle integer
 function SetPlayerMayOnlyEnterThisVehicle(player, vehicle) end
@@ -1869,9 +1862,7 @@ function SetPlayerTargetLevel(targetLevel) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0299FA38396A4940)  
----```
----Set player team on deathmatch and last team standing..  
----```
+---Set the player's current team.
 ---@param player integer
 ---@param team integer
 function SetPlayerTeam(player, team) end

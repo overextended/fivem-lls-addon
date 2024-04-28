@@ -1569,7 +1569,7 @@ function GetDefaultScriptRendertargetRenderId() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1BEDE233E6CD2A1F)  
----This native does not have an official description.
+---Also see [`GET_NEXT_BLIP_INFO_ID`](#\_0x14F96AA50D6FBEA7) for an example.
 ---@param blipSprite integer
 ---@return integer
 function GetFirstBlipInfoId(blipSprite) end
@@ -2234,12 +2234,6 @@ function IsHudPreferenceSwitchedOn() end
 function IsMessageBeingDisplayed() end
 
 ---**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x9049FE339D5F6F6F)  
----This native does not have an official description.
----@return boolean
-function IsMinimapInInterior() end
-
----**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAF754F20EB5CD51A)  
 ---This native does not have an official description.
 ---@return boolean
@@ -2324,6 +2318,15 @@ function IsNavigatingMenuContent() end
 ---Returns the same as `IS_SOCIAL_CLUB_ACTIVE`.
 ---@return boolean
 function IsOnlinePoliciesMenuActive() end
+
+---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9049FE339D5F6F6F)  
+---This native does not have an official description.
+---@return boolean
+function IsPausemapInInteriorMode() end
+
+---@deprecated
+IsMinimapInInterior = IsPausemapInInteriorMode
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB0034A223497FFCB)  
@@ -2540,12 +2543,6 @@ function N_0x2c173ae2bdb9385e(blip) end
 ---@param blip integer
 ---@param p1 any
 function N_0x2c9f302398e13141(blip, p1) end
-
----**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2DE6C5E2E996F178)  
----This native does not have an official description.
----@param p0 any
-function N_0x2de6c5e2e996f178(p0) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2E22FEFA0100275E)  
@@ -2990,6 +2987,12 @@ function PauseMenuSetBusySpinner(p0, p1, p2) end
 function PauseMenuSetWarnOnTabChange(setWarn) end
 
 ---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2DE6C5E2E996F178)  
+---Toggles pause menu map rendering.
+---@param enabled boolean
+function PauseToggleFullscreenMap(enabled) end
+
+---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC65AB383CD91DF98)  
 ---This native does not have an official description.
 function PreloadBusyspinner() end
@@ -3162,19 +3165,10 @@ function ResetReticuleValues() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x10706DC6AD2D49C0)  
----```
----Before using this native click the native above and look at the decription.  
----Example:  
----int GetHash = Function.Call<int>(Hash.GET_HASH_KEY, "fe_menu_version_corona_lobby");  
----Function.Call(Hash.ACTIVATE_FRONTEND_MENU, GetHash, 0, -1);  
----Function.Call(Hash.RESTART_FRONTEND_MENU(GetHash, -1);  
----This native refreshes the frontend menu.  
----p1 = Hash of Menu  
----p2 = Unknown but always works with -1.  
----```
+---Changes the current frontend menu to the desired frontend menu version.
 ---@param menuHash integer | string
----@param p1 integer
-function RestartFrontendMenu(menuHash, p1) end
+---@param highlightedTab integer
+function RestartFrontendMenu(menuHash, highlightedTab) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9969599CCFF5D85E)  
@@ -3513,6 +3507,16 @@ SetNotificationColorNext = SetColourOfNextTextComponent
 ---SET_*
 ---```
 function SetDirectorModeClearTriggeredFlag() end
+
+---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x77E2DD177910E1CF)  
+---Overrides the position of the main player blip for the current frame.
+---@param x number
+---@param y number
+function SetFakePausemapPlayerPositionThisFrame(x, y) end
+
+---@deprecated
+SetPlayerBlipPositionThisFrame = SetFakePausemapPlayerPositionThisFrame
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7679CC1BCEBE3D4C)  
@@ -4036,7 +4040,13 @@ function SetNewWaypoint(x, y) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDF47FC56C71569CF)  
----This native does not have an official description.
+---This native is deprecated.
+---
+---If you're looking to:
+---
+---*   Toggle the pause menu on, use [`ACTIVATE_FRONTEND_MENU`](#\_0xEF01D36B9C9D0C7B)
+---*   Toggle the pause menu off, use [`SET_FRONTEND_ACTIVE`](#\_0x745711A75AB09277)
+---*   Disable toggling the pause menu, use [`DISABLE_FRONTEND_THIS_FRAME`](#\_0x6D3465A73092F0E6)
 ---@param toggle boolean
 function SetPauseMenuActive(toggle) end
 
@@ -4132,16 +4142,6 @@ SetPedAiBlip = SetPedHasAiBlip
 ---@param hasCone boolean
 ---@param color integer
 function SetPedHasAiBlipWithColor(ped, hasCone, color) end
-
----**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x77E2DD177910E1CF)  
----```
----Sets the position of the arrow icon representing the player on both the minimap and world map.  
----Too bad this wouldn't work over the network (obviously not). Could spoof where we would be.  
----```
----@param x number
----@param y number
-function SetPlayerBlipPositionThisFrame(x, y) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x808519373FD336A3)  

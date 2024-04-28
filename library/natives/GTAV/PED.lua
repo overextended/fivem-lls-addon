@@ -2103,14 +2103,31 @@ function GetVehiclePedIsUsing(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54C7C4A94367717E)  
----```
----PoliceMotorcycleHelmet   1024
----RegularMotorcycleHelmet   4096
----FiremanHelmet 16384
----PilotHeadset  32768
----PilotHelmet   65536
------
----p2 is generally 4096 or 16384 in the scripts. p1 varies between 1 and 0.
+---Gives the ped a helmet. Can be removed by invoking [`REMOVE_PED_HELMET`](#0xA7B2458D0AD6DED8).
+---
+---```cpp
+---enum ePedCompFlags {
+---  PV_FLAG_NONE                  = 0, // 0
+---  PV_FLAG_BULKY                 = 1, // 1<<0
+---  PV_FLAG_JOB                   = 2, // 1<<1
+---  PV_FLAG_SUNNY                 = 4, // 1<<2
+---  PV_FLAG_WET                   = 8, // 1<<3
+---  PV_FLAG_COLD                  = 16, // 1<<4
+---  PV_FLAG_NOT_IN_CAR            = 32, // 1<<5
+---  PV_FLAG_BIKE_ONLY             = 64, // 1<<6
+---  PV_FLAG_NOT_INDOORS           = 128, // 1<<7
+---  PV_FLAG_FIRE_RETARDENT        = 256, // 1<<8
+---  PV_FLAG_ARMOURED              = 512, // 1<<9
+---  PV_FLAG_LIGHTLY_ARMOURED      = 1024, // 1<<10
+---  PV_FLAG_HIGH_DETAIL           = 2048, // 1<<11
+---  PV_FLAG_DEFAULT_HELMET        = 4096, // 1<<12
+---  PV_FLAG_RANDOM_HELMET         = 8192, // 1<<13
+---  PV_FLAG_SCRIPT_HELMET         = 16384, // 1<<14
+---  PV_FLAG_FLIGHT_HELMET         = 32768, // 1<<15
+---  PV_FLAG_HIDE_IN_FIRST_PERSON  = 65536, // 1<<16
+---  PV_FLAG_USE_PHYSICS_HAT_2     = 131072, // 1<<17
+---  PV_FLAG_PILOT_HELMET          = 262144 // 1<<18
+---};
 ---```
 ---@param ped integer
 ---@param cannotRemove boolean
@@ -2242,17 +2259,17 @@ function IsAnyPedNearPoint(x, y, z, radius) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA0D3D71EA1086C55)  
----This native does not have an official description.
----@param x1 number
----@param y1 number
----@param z1 number
----@param x2 number
----@param y2 number
----@param z2 number
----@param p6 boolean
----@param p7 boolean
+---Verifies whether a ped is firing within a specific area.
+---@param minX number
+---@param minY number
+---@param minZ number
+---@param maxX number
+---@param maxY number
+---@param maxZ number
+---@param bHighlightArea boolean
+---@param bDo3DCheck boolean
 ---@return boolean
-function IsAnyPedShootingInArea(x1, y1, z1, x2, y2, z2, p6, p7) end
+function IsAnyPedShootingInArea(minX, minY, minZ, maxX, maxY, maxZ, bHighlightArea, bDo3DCheck) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE0A0AEC214B1FABA)  
@@ -2629,10 +2646,7 @@ function IsPedInAnyVehicle(ped, atGetIn) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4859F1FC66A6278E)  
----```
----Checks to see if ped and target are in combat with eachother. Only goes one-way: if target is engaged in combat with ped but ped has not yet reacted, the function will return false until ped starts fighting back.  
----p1 is usually 0 in the scripts because it gets the ped id during the task sequence. For instance: PED::IS_PED_IN_COMBAT(l_42E[4/*14*/], PLAYER::PLAYER_PED_ID()) // armenian2.ct4: 43794  
----```
+---Examines whether the ped is engaged in combat; when given a target ped index, it confirms if the ped is actively fighting the specified target, returning true if engaged and false if not.
 ---@param ped integer
 ---@param target integer
 ---@return boolean
@@ -3014,7 +3028,7 @@ function IsPedTracked(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44D28D5DDFE5F68C)  
----This native does not have an official description.
+---If the ped is attempting to enter a locked vehicle.
 ---@param ped integer
 ---@return boolean
 function IsPedTryingToEnterALockedVehicle(ped) end
@@ -3399,13 +3413,6 @@ function N_0x80054d7fcc70eec6(ped) end
 ---@param p0 any
 ---@param p1 any
 function N_0x820e9892a77e97cd(p0, p1) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x83A169EABCDB10A2)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x83a169eabcdb10a2(p0, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x87DDEB611B329A9C)  
@@ -3805,7 +3812,7 @@ function RemovePedFromGroup(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA7B2458D0AD6DED8)  
----This native does not have an official description.
+---Remove a helmet from a ped
 ---@param ped integer
 ---@param instantly boolean
 function RemovePedHelmet(ped, instantly) end
@@ -4742,15 +4749,19 @@ function SetPedCombatMovement(ped, combatMovement) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3C606747B23E497B)  
----```
----Only the values 0, 1 and 2 occur in the decompiled scripts. Most likely refers directly to the values also described as AttackRange in combatbehaviour.meta:  
----0: CR_Near  
----1: CR_Medium  
----2: CR_Far  
+---Define the scope within which the ped will engage in combat with the target.
+---
+---```cpp
+---enum eCombatRange {
+---    CR_NEAR = 0, // keeps within 5-15m
+---    CR_MEDIUM, // keeps within 7-30m
+---    CR_FAR, // keeps within 15-40m
+---    CR_VERY_FAR // keeps within 22-45m
+---};
 ---```
 ---@param ped integer
----@param p1 integer
-function SetPedCombatRange(ped, p1) end
+---@param range integer
+function SetPedCombatRange(ped, range) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x262B14F48D29DE80)  
@@ -5755,10 +5766,10 @@ function SetPedHeatscaleOverride(ped, heatScale) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x560A43136EB58105)  
----This native does not have an official description.
+---Sets whether a pedestrian should wear a helmet.
 ---@param ped integer
----@param canWearHelmet boolean
-function SetPedHelmet(ped, canWearHelmet) end
+---@param bEnable boolean
+function SetPedHelmet(ped, bEnable) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC0E78D5C2CE3EB25)  
@@ -6058,6 +6069,27 @@ function SetPedPanicExitScenario(ped, x, y, z) end
 function SetPedParachuteTintIndex(ped, tintIndex) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x83A169EABCDB10A2)  
+---Sets the palette index of a ped's phone.
+---
+---| Value | Color      |
+---| :---: | :-----:    |
+---|  `0`  | Light Blue |
+---|  `1`  | Green      |
+---|  `2`  | Red        |
+---|  `3`  | Orange     |
+---|  `4`  | Grey       |
+---|  `5`  | Purple     |
+---|  `6`  | Pink       |
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param ped integer
+---@param index integer
+function SetPedPhonePaletteIdx(ped, index) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAAD6D1ACF08F4612)  
 ---```
 ---i could be time. Only example in the decompiled scripts uses it as -1.
@@ -6249,7 +6281,7 @@ function SetPedShootRate(ped, shootRate) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x96A05E4FB321B1BA)  
----This native does not have an official description.
+---Fires a weapon at a coordinate using a ped.
 ---@param ped integer
 ---@param x number
 ---@param y number
@@ -6781,7 +6813,7 @@ function UpdatePedHeadBlendData(ped, shapeMix, skinMix, thirdMix) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF9800AA1A771B000)  
----This native does not have an official description.
+---Verifies whether ped was eliminated through stealth.
 ---@param ped integer
 ---@return boolean
 function WasPedKilledByStealth(ped) end
