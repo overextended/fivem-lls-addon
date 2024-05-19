@@ -742,7 +742,6 @@ function N_0x24e4e51fc16305f9() end
 ---
 ---NativeDB Introduced: v323
 ---```
----@return any
 function N_0x2555cf7da5473794() end
 
 ---**`NETWORK` `client`**  
@@ -1200,7 +1199,6 @@ function N_0x6fb7bb3607d27fa2() end
 ---
 ---NativeDB Introduced: v323
 ---```
----@return any
 function N_0x6fd992c4a1c1b986() end
 
 ---**`NETWORK` `client`**  
@@ -1509,7 +1507,6 @@ function N_0xaeab987727c5a8a4(p0) end
 ---
 ---NativeDB Introduced: v323
 ---```
----@return any
 function N_0xaedf1bc1c133d6e3() end
 
 ---**`NETWORK` `client`**  
