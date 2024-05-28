@@ -1,7 +1,6 @@
 local str_find = string.find
 local str_sub = string.sub
 local str_gmatch = string.gmatch
-local str_gsub = string.gsub
 
 ---@param uri string # The uri of file
 ---@param text string # The content of file
@@ -45,38 +44,6 @@ function OnSetText(uri, text)
 			finish = tableEnd - 1,
 			text = ('%s(%s or {})'):format(whitespace == '' and pre or '', tableName)
 		}
-	end
-
-	-- prevent diagnostic errors from in unpacking (a, b, c in t)  
-	-- needs better comment detection (i.e. comment blocks) to prevent nonsense changes to annotations
-	for comment, vars, inPos, afterInPos, tablePos, tableName, finishPos in str_gmatch(text, '(%-?%-?)([_%w, ]*)%s+()in()[     ]+()([_%w]*%s-%(?.-%)?)()') do
-		if comment == '' then
-			if tableName ~= '' and not str_find(vars, '^%s*for%s') then
-				-- replace 'in' with '='
-				count = count + 1
-				diffs[count] = {
-					start = inPos,
-					finish = afterInPos - 1,
-					text = '='
-				}
-
-				local tableVars = ''
-				vars = str_gsub(vars, '^%s*local%s', '')
-
-				-- replace 't' with 't.a, t.b, t.c'
-				for varName in str_gmatch(str_gsub(vars, '%s+', ''), '([_%w]+)') do
-					if #tableVars > 0 then tableVars = tableVars .. ',' end
-					tableVars = tableVars .. tableName .. '.' .. varName
-				end
-
-				count = count + 1
-				diffs[count] = {
-					start = tablePos,
-					finish = finishPos - 1,
-					text = tableVars
-				}
-			end
-		end
 	end
 
 	return diffs
