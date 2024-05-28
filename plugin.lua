@@ -3,18 +3,15 @@ local str_sub = string.sub
 local str_gmatch = string.gmatch
 local str_gsub = string.gsub
 
+---@param uri string # The uri of file
+---@param text string # The content of file
+---@return { start: integer, finish: integer, text: string }[] | string | nil
 function OnSetText(uri, text)
 	-- ignore .vscode dir, extension files (i.e. natives), and other meta files
 	if str_find(uri, '[\\/]%.vscode[\\/]') or str_sub(text, 1, 8) == '---@meta' then return end
 
 	-- ignore files using fx asset protection
-	if str_sub(text, 1, 4) == 'FXAP' then
-		return {{
-			start = 1,
-			finish = #text,
-			text = ''
-		}}
-	end
+	if str_sub(text, 1, 4) == 'FXAP' then return '' end
 
 	local diffs = {}
 	local count = 0
