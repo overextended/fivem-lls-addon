@@ -118,6 +118,11 @@ function AddMinimapOverlayWithDepth(name, depth) end
 ---@param overlay integer | string
 function AddPedDecorationFromHashes(ped, collection, overlay) end
 
+---@deprecated
+ApplyPedOverlay = AddPedDecorationFromHashes
+---@deprecated
+SetPedDecoration = AddPedDecorationFromHashes
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA66F8F75)  
 ---Experimental natives, please do not use in a live environment.
@@ -578,6 +583,15 @@ function DoesPlayerOwnSkuExt(playerSrc, skuId) end
 ---@param varName string
 ---@return boolean
 function DoesTimecycleModifierHasVar(modifierName, varName) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEF30A696)  
+---Checks whether the vehicle consumes fuel. The check is done based on petrol tank volume and vehicle type. Bicycles and vehicles with petrol tank volume equal to zero (only bicycles by default) do not use fuel. All other vehicles do.
+---
+---You can customize petrol tank volume using [`SET_HANDLING_FLOAT`](#\_0x90DD01C)/[`SET_VEHICLE_HANDLING_FLOAT`](#\_0x488C86D2) natives with `fieldName` equal to `fPetrolTankVolume`.
+---@param vehicle integer
+---@return boolean
+function DoesVehicleUseFuel(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF65BBA4B)  
@@ -1047,6 +1061,13 @@ function GetConvarInt(varName, default_) end
 ---@return string
 function GetCurrentGameName() end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB0237302)  
+---Returns the hash of weapon the Ped is currently using.
+---@param ped integer
+---@return integer
+function GetCurrentPedWeapon(ped) end
+
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE5E9EBBB)  
 ---Returns the name of the currently executing resource.
@@ -1261,6 +1282,18 @@ function GetExternalKvpInt(resource, key) end
 ---@param key string
 ---@return string
 function GetExternalKvpString(resource, key) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5550BF9F)  
+---This native does not have an official description.
+---@return number
+function GetFuelConsumptionRateMultiplier() end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC66CD90C)  
+---This native does not have an official description.
+---@return boolean
+function GetFuelConsumptionState() end
 
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x804B9F7B)  
@@ -2236,7 +2269,9 @@ function GetScenarioPedDensityMultiplier() end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD240123E)  
----Returns a hash of selected ped weapon.
+---An alias of [GET_CURRENT_PED_WEAPON](#\_0xB0237302).
+---
+---Note, the client-side [GET_SELECTED_PED_WEAPON](#\_0x0A6DB4965674D243) native returns the weapon selected via the HUD (weapon wheel). This data is not available to FXServer.
 ---@param ped integer
 ---@return integer
 function GetSelectedPedWeapon(ped) end
@@ -2597,6 +2632,14 @@ function GetVehicleFlightNozzlePosition(vehicle) end
 function GetVehicleFuelLevel(vehicle) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x82E794B7)  
+---Gets vehicles gear ratio on choosen gear.
+---@param vehicle integer
+---@param gear integer
+---@return number
+function GetVehicleGearRatio(vehicle, gear) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB48A1292)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -2805,9 +2848,11 @@ function GetVehicleTopSpeedModifier(vehicle) end
 ---@return number
 function GetVehicleTurboPressure(vehicle) end
 
----**`CFX` `server`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA273060E)  
 ---Returns the type of the passed vehicle.
+---
+---For client scripts, reference the more detailed [GET_VEHICLE_TYPE_RAW](#\_0xDE73BC10) native.
 ---
 ---### Vehicle types
 ---
@@ -2822,6 +2867,36 @@ function GetVehicleTurboPressure(vehicle) end
 ---@param vehicle integer
 ---@return string
 function GetVehicleType(vehicle) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDE73BC10)  
+---Returns the model type of the vehicle as defined by:
+---
+---```cpp
+---enum VehicleType---
+---{---
+---	VEHICLE_TYPE_NONE = -1,---
+---	VEHICLE_TYPE_CAR = 0,---
+---	VEHICLE_TYPE_PLANE = 1,---
+---	VEHICLE_TYPE_TRAILER = 2,---
+---	VEHICLE_TYPE_QUADBIKE = 3,---
+---	VEHICLE_TYPE_DRAFT = 4,---
+---	VEHICLE_TYPE_SUBMARINECAR = 5,---
+---	VEHICLE_TYPE_AMPHIBIOUS_AUTOMOBILE = 6,---
+---	VEHICLE_TYPE_AMPHIBIOUS_QUADBIKE = 7,---
+---	VEHICLE_TYPE_HELI = 8,---
+---	VEHICLE_TYPE_BLIMP = 9,---
+---	VEHICLE_TYPE_AUTOGYRO = 10,---
+---	VEHICLE_TYPE_BIKE = 11,---
+---	VEHICLE_TYPE_BICYCLE = 12,---
+---	VEHICLE_TYPE_BOAT = 13,---
+---	VEHICLE_TYPE_TRAIN = 14,---
+---	VEHICLE_TYPE_SUBMARINE = 15,---
+---};
+---```
+---@param vehicle integer
+---@return integer
+function GetVehicleTypeRaw(vehicle) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x75280015)  
@@ -4630,6 +4705,24 @@ function SetFlashLightKeepOnWhileMoving(state) end
 ---@return boolean
 function SetFlyThroughWindscreenParams(vehMinSpeed, unkMinSpeed, unkModifier, minDamage) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x845F3E5C)  
+---Sets fuel consumption rate multiplier for all vehicles operated by a player. This is a way to slow down or speed up fuel consumption for all vehicles at a time. If 0 - it practically means that fuel will not be consumed. By default is set to 1.
+---
+---When the multiplier is set to 1 a default 65 litre gas tank car with average fuel consumption can stay idle for ~16.67 hours or run with max RPM for ~2.5 hours.
+---
+---To customize fuel consumption per vehicle / vehicle class use [`SET_HANDLING_FLOAT`](#\_0x90DD01C)/[`SET_VEHICLE_HANDLING_FLOAT`](#\_0x488C86D2) natives with `fieldName` equal to `fPetrolConsumptionRate`. By default it is set to 0.5 for all vehicles.
+---@param multiplier number
+function SetFuelConsumptionRateMultiplier(multiplier) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x81DAD03E)  
+---Turns on and off fuel consumption in all vehicles operated by a player. NPC operated vehicles will not consume fuel to avoid traffic disruptions.
+---
+---The default Gta5 behaviour is fuel consumption turned off.
+---@param state boolean
+function SetFuelConsumptionState(state) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF90B7469)  
 ---This native does not have an official description.
@@ -5559,6 +5652,23 @@ function SetPedEyeColor(ped, index) end
 function SetPedFaceFeature(ped, index, scale) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA23FE32C)  
+---Sets the tint index for the hair on the specified ped.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---
+---**This is the server-side RPC native equivalent of the client native [SET_PED_HAIR_TINT](?\_0x4CFFC65454C93A49).**
+---@param ped integer
+---@param colorID integer
+---@param highlightColorID integer
+function SetPedHairTint(ped, colorID, highlightColorID) end
+
+---@deprecated
+SetPedHairColor = SetPedHairTint
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x60746B88)  
 ---For more info please refer to [this](https://gtaforums.com/topic/858970-all-gtao-face-ids-pedset-ped-head-blend-data-explained) topic.---
 ---**Other information:**---
@@ -5641,6 +5751,16 @@ function SetPedHeadOverlayColor(ped, overlayID, colorType, colorID, secondColorI
 ---@param vehicle integer
 ---@param seatIndex integer
 function SetPedIntoVehicle(ped, vehicle, seatIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8E51EC29)  
+---Override the limits on the number and types of melee combatants. The game is limited to at most ten combatants among the three types: primary, secondary, and observers.
+---
+---This native infers the number of observers based on the primary and secondary counts.
+---@param primaryCount integer
+---@param secondaryCount integer
+---@param populationPedCount integer
+function SetPedMeleeCombatLimits(primaryCount, secondaryCount, populationPedCount) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x46F6B38B)  
@@ -6229,6 +6349,14 @@ function SetVehicleEngineTemperature(vehicle, temperature) end
 function SetVehicleFuelLevel(vehicle, level) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x496EF2F2)  
+---Sets the vehicles gear ratio on choosen gear, reverse gear needs to be a negative float and forward moving gear needs to be a positive float. Refer to the examples if confused.
+---@param vehicle integer
+---@param gear integer
+---@param ratio number
+function SetVehicleGearRatio(vehicle, gear, ratio) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1A963E58)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -6279,6 +6407,12 @@ function SetVehicleHandlingVector(vehicle, class_, fieldName, value) end
 ---@param vehicle integer
 ---@param gear integer
 function SetVehicleHighGear(vehicle, gear) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA40CB822)  
+---Sets the maximum distance in which [\_SET_VEHICLE_NITRO_ENABLED](#\_0xC8E9B6B71B8E660D) PTFX are rendered. Distance is measured from the camera position.
+---@param range number
+function SetVehicleNitroPtfxRange(range) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x400F9556)  
