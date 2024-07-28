@@ -4965,16 +4965,6 @@ function N_0xc2ef407645beecdc(p0) end
 function N_0xc3995d396f1d97b6(ped, p1, p2) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC412AA1C73111FE0)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
-function N_0xc412aa1c73111fe0(p0, p1, p2, p3, p4) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC48AF420371C7407)  
 ---_SET_PED_M*
 ---@param ped integer
@@ -7868,6 +7858,16 @@ function SetPedWrithingDuration(ped, writhingDuration1, writhingDuration2, p3) e
 ---@param horse integer
 ---@param peltId integer
 function SetPeltForHorse(horse, peltId) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC412AA1C73111FE0)  
+---Adds a pelt to a horse, requires a pelt hash like GetHashKey('PROVISION_DEER_HIDE_POOR') and the albedo texture GetHashKey('a_c_deer_01_uppr_000_c0_001_ab'), Normal is optional, p4 is always 0
+---@param horse integer
+---@param peltId integer | string
+---@param albedo integer
+---@param normal integer
+---@param p4 boolean
+function SetPeltForHorseWithTexture(horse, peltId, albedo, normal, p4) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5708EDD71B50C008)  
