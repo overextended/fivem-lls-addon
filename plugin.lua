@@ -47,7 +47,7 @@ function OnSetText(uri, text)
 	end
 
 	-- prevent "missing-parameter" diagnostic when using a vector in natives execution by destructing the vector into its components
-	for vecStart, vecParam, vecEnd, _, dimension in str_gmatch(text, '()([_%w]+)()%s*%-%-%[(=*)%[@vec([234])param%]%4%]') do
+	for vecStart, vecParam, vecEnd, _, dimension in str_gmatch(text, '()([%._%w]+)()%s*%-%-%[(=*)%[@vec([234])param%]%4%]') do
 		dimension = tonumber(dimension) --[[@as 2|3|4]]
 		local paramPattern = ('%s[%%d]'):format(vecParam)
 		local replacementParams = {}
