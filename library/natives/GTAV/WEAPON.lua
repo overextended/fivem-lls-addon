@@ -159,13 +159,11 @@ function GetAmmoInPedWeapon(ped, weaponhash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8483E98E8B888AE2)  
----```
----p1 is always 0 in the scripts.  
----```
+---This native does not have an official description.
 ---@param ped integer
----@param p1 boolean
+---@param ignoreAmmoCount boolean
 ---@return integer
-function GetBestPedWeapon(ped, p1) end
+function GetBestPedWeapon(ped, ignoreAmmoCount) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1017582BCD3832DC)  
@@ -513,7 +511,55 @@ function GiveDelayedWeaponToPed(ped, weaponHash, ammoCount, bForceInHand) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x68F8BE6AF5CDF8A6)  
----This native does not have an official description.
+---List of all available loadouts:
+---
+---```
+---LOADOUT_DEFAULT
+---LOADOUT_ANIMAL
+---LOADOUT_COUGAR
+---LOADOUT_HILLBILLY
+---LOADOUT_CULT
+---LOADOUT_CHEAT_0
+---LOADOUT_CHEAT_1
+---LOADOUT_GUARD
+---LOADOUT_NETWORK_BOT
+---LOADOUT_LOST
+---LOADOUT_LOST_L1
+---LOADOUT_LOST_L2
+---LOADOUT_LOST_L3
+---LOADOUT_MEXICAN
+---LOADOUT_MEXICAN_L1
+---LOADOUT_MEXICAN_L2
+---LOADOUT_MEXICAN_L3
+---LOADOUT_FAMILY
+---LOADOUT_ASIAN
+---LOADOUT_SECUR
+---LOADOUT_POLICE_GUARD
+---LOADOUT_COP
+---LOADOUT_COP_L1
+---LOADOUT_COP_L2
+---LOADOUT_COP_L3
+---LOADOUT_SWAT
+---LOADOUT_SWAT_NO_LASER
+---LOADOUT_COP_SHOTGUN
+---LOADOUT_FIREMAN
+---LOADOUT_COP_HELI
+---LOADOUT_COP_BOAT
+---LOADOUT_ARMY
+---LOADOUT_ANIMAL_RETRIEVER
+---LOADOUT_SMALL_DOG
+---LOADOUT_TIGER_SHARK
+---LOADOUT_HAMMERHEAD_SHARK
+---LOADOUT_KILLER_WHALE
+---LOADOUT_BOAR
+---LOADOUT_PIG
+---LOADOUT_COYOTE
+---LOADOUT_DEER
+---LOADOUT_HEN
+---LOADOUT_RABBIT
+---LOADOUT_CAT
+---LOADOUT_COW
+---```
 ---@param ped integer
 ---@param loadoutHash integer | string
 function GiveLoadoutToPed(ped, loadoutHash) end
@@ -1108,40 +1154,47 @@ function SetPlayerAirDefenseZoneFlag(player, zoneId, enable) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1055AC3A667F09D9)  
----```
----Changes the selected ped aiming animation style.   
----Note : You must use GET_HASH_KEY!  
----Strings to use with GET_HASH_KEY :  
----	"Ballistic",  
----	"Default",  
----	"Fat",  
----	"Female",  
----	"FirstPerson",  
----	"FirstPersonAiming",  
----	"FirstPersonFranklin",  
----	"FirstPersonFranklinAiming",  
----	"FirstPersonFranklinRNG",  
----	"FirstPersonFranklinScope",  
----	"FirstPersonMPFemale",  
----	"FirstPersonMichael",  
----	"FirstPersonMichaelAiming",  
----	"FirstPersonMichaelRNG",  
----	"FirstPersonMichaelScope",  
----	"FirstPersonRNG",  
----	"FirstPersonScope",  
----	"FirstPersonTrevor",  
----	"FirstPersonTrevorAiming",  
----	"FirstPersonTrevorRNG",  
----	"FirstPersonTrevorScope",  
----	"Franklin",  
----	"Gang",  
----	"Gang1H",  
----	"GangFemale",  
----	"Hillbilly",  
----	"MP_F_Freemode",  
----	"Michael",  
----	"SuperFat",  
----	"Trevor"  
+---Changes the selected ped aiming animation style, you can find the list of animations below.
+---
+---These are stored in the `weaponanimations.meta` file located in `Grand Theft Auto V\update\update.rpf\common\data\ai\weaponanimations.meta`.
+---
+---For Lua, it's best if you send the animation using [compile-time jenkins](https://cookbook.fivem.net/2019/06/23/lua-support-for-compile-time-jenkins-hashes/) hashes to avoid overhead. An example is shown down below.
+---
+---### Animations
+---
+---```cpp
+---enum eWeaponAnimationOverrides {
+---	Ballistic = 0x5534A626,
+---	Default = 0xE4DF46D5,
+---	Franklin = 0x44C24694,
+---	Gang = 0xBC066B98,
+---	Michael = 0x55932F38,
+---	MP_F_Freemode = 0xACB10C83,
+---	Trevor = 0x2737D5AC,
+---	Hillbilly = 0x8503D409,
+---	Gang1H = 0x724A7AB7,
+---	FirstPerson = 0xEE38E8E0,
+---	FirstPersonAiming = 0xC76297A3,
+---	FirstPersonRNG = 0xA4FDD608,
+---	FirstPersonScope = 0x28117C22,
+---	FirstPersonMichael = 0xEAA2550B,
+---	FirstPersonMichaelAiming = 0x3E6FF30F,
+---	FirstPersonMichaelRNG = 0xB7A826C1,
+---	FirstPersonMichaelScope = 0xC554CF97,
+---	FirstPersonFranklin = 0xC407163A,
+---	FirstPersonFranklinAiming = 0x3D4B7B03,
+---	FirstPersonFranklinRNG = 0xBE79B0B4,
+---	FirstPersonFranklinScope = 0xAFEA6593,
+---	FirstPersonTrevor = 0xA65D5351,
+---	FirstPersonTrevorAiming = 0xF9BE8ED9,
+---	FirstPersonTrevorRNG = 0xD181ED09,
+---	FirstPersonTrevorScope = 0x34A67D6D,
+---	FirstPersonMPFemale = 0x8431583F,
+---	Fat = 0xC531A409,
+---	SuperFat = 0x529E5780,
+---	Female = 0x6D155A1B,
+---	GangFemale = 0x678ADF82,
+---}
 ---```
 ---@param ped integer
 ---@param animStyle integer | string

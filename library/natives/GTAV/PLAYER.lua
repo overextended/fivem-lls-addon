@@ -196,6 +196,13 @@ function GetCauseOfMostRecentForceCleanup() end
 function GetEntityPlayerIsFreeAimingAt(player) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5FC472C501CCADB3)  
+---This native does not have an official description.
+---@param playerId integer
+---@return boolean
+function GetIsPlayerDrivingOnHighway(playerId) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x462E0DB9B137DC5F)  
 ---```
 ---Gets the maximum wanted level the player can get.  
@@ -705,21 +712,17 @@ function IsPlayerDead(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF10B44FD479D69F3)  
----Violation types:
----
----```
+---```cpp
 ---enum eViolationType {
+---  // Checks if the player is driving on pedestrians walk ways
 ---  VT_PAVED_PEDESTRIAN_AREAS = 0,
----  VT_RUNNING_REDS,
----  VT_AGAINST_TRAFFIC
+---  // Checks if the player is running through red lights
+---  // This takes some time to return true.
+---  VT_RUNNING_REDS = 1,
+---  // checks if the player is driving on the wrong side of the road
+---  VT_AGAINST_TRAFFIC = 2
 ---};
 ---```
----
----Checks if a player is performing a certain type of traffic violation.
----
----*   Type 0: Checks if the player is driving outside designated road areas pedestrians would walk on (specifically paved sidewalks).
----*   Type 1: Checks if the player is running through reds, takes some time to return true.
----*   Type 2: Checks if the player is driving on the wrong side of the road (against traffic).
 ---
 ---Used solely in "Al Di Napoli" with type 2 for a voiceline.
 ---@param player integer
@@ -969,15 +972,6 @@ function N_0x5501b7a5cdb79d37(player) end
 ---@param player2 integer
 ---@param toggle boolean
 function N_0x55fcc0c390620314(player1, player2, toggle) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5FC472C501CCADB3)  
----```
----Appears once in "re_dealgonewrong"  
----```
----@param player integer
----@return boolean
-function N_0x5fc472c501ccadb3(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x690A61A6D13583F6)  
@@ -1466,12 +1460,6 @@ function SetPlayerCanBeHassledByGangs(player, toggle) end
 ---Sets whether the player is able to do drive-bys in vehicle (shooting & aiming in vehicles), this also includes middle finger taunts.
 ---
 ---This is a toggle, it does not have to be ran every frame.
----
----Example:
----
----```lua
----SetPlayerCanDoDriveBy(PlayerId(), false)
----```
 ---@param player integer
 ---@param toggle boolean
 function SetPlayerCanDoDriveBy(player, toggle) end
@@ -1581,7 +1569,7 @@ function SetPlayerHealthRechargeLimit(player, limit) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5DB660B38DD98A31)  
----This native does not have an official description.
+---This multiplier is reset to `1.0` every time the player ped is changed, often times via [`SET_PLAYER_MODEL`](#\_0x00A1CADD00108836) or [`CHANGE_PLAYER_PED`](#\_0x048189FAC643DEEE).
 ---@param player integer
 ---@param regenRate number
 function SetPlayerHealthRechargeMultiplier(player, regenRate) end

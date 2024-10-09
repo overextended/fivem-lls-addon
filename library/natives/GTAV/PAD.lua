@@ -25,11 +25,12 @@ function DisableInputGroup(padIndex) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA5FFE9B05F199DE7)  
----```
----padIndex: 
----0 - PLAYER_CONTROL
----1 - Unknown 
----2 - FRONTEND_CONTROL
+---```cpp
+---enum ePadType {
+---  PLAYER_CONTROL = 0,
+---  CAMERA_CONTROL = 1,
+---  FRONTEND_CONTRO = 2
+---};
 ---```
 ---@param padIndex integer
 function EnableAllControlActions(padIndex) end

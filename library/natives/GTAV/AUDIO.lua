@@ -288,6 +288,17 @@ SetVehicleAudio = ForceUseAudioGameObject
 ForceVehicleEngineAudio = ForceUseAudioGameObject
 
 ---**`AUDIO` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEB7D0E1FCC8FE17A)  
+---This native is used alongside with [`SET_VEHICLE_TYRE_BURST`](#\_0xEC6A202EE4960385).
+---
+---```
+---NativeDB Introduced: v3258
+---```
+---@param vehicle integer
+---@param force boolean
+function ForceVehicleEngineSynth(vehicle, force) end
+
+---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD57AAAE0E2214D11)  
 ---Allows script to freeze the microphone for a single frame, mantaining its current transform/settings.
 ---This native should be called every frame you want to keep the microphone frozen, when you stop calling it it will automatically unfreeze
@@ -815,11 +826,6 @@ SetRadioStationDisabled = LockRadioStation
 function LockRadioStationTrackList(radioStation, trackListName) end
 
 ---**`AUDIO` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0150B6FF25A9E2E5)  
----This native does not have an official description.
-function N_0x0150b6ff25a9e2e5() end
-
----**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x02E93C796ABD3A97)  
 ---**This native does absolutely nothing, just a nullsub**
 ---@param p0 boolean
@@ -832,23 +838,9 @@ function N_0x02e93c796abd3a97(p0) end
 function N_0x11579d940949c49e(p0) end
 
 ---**`AUDIO` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x159B7318403A1CD8)  
----This native does not have an official description.
----@param p0 any
-function N_0x159b7318403a1cd8(p0) end
-
----**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x19AF7ED9B9D23058)  
 ---This native does not have an official description.
 function N_0x19af7ed9b9d23058() end
-
----**`AUDIO` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2ACABED337622DF2)  
----```
----NativeDB Introduced: v1493
----```
----@param p0 string
-function N_0x2acabed337622df2(p0) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2DD39BF3E2F9C47F)  
@@ -1061,12 +1053,12 @@ PlayAmbientSpeechAtCoords = PlayAmbientSpeechFromPositionNative
 ---```cpp
 ---enum eAudAnimalType {
 ---	AUD_ANIMAL_NONE = -1,
----	AUD_ANIMAL_BOAR,
----	AUD_ANIMAL_CHICKEN,
----	AUD_ANIMAL_DOG,
----	AUD_ANIMAL_DOG_ROTTWEILER,
----	AUD_ANIMAL_HORSE,
----	AUD_NUM_ANIMALS
+---	AUD_ANIMAL_BOAR = 0,
+---	AUD_ANIMAL_CHICKEN = 1,
+---	AUD_ANIMAL_DOG = 2,
+---	AUD_ANIMAL_DOG_ROTTWEILER = 3,
+---	AUD_ANIMAL_HORSE = 4,
+---	AUD_NUM_ANIMALS = 5
 ---}
 ---```
 ---@param pedHandle integer
@@ -1105,6 +1097,10 @@ function PlayMissionCompleteAudio(audioName) end
 ---This native had a 4th parameter added in newer game builds
 ---`syncOverNetwork` creates a `CPedPlayPainEvent` when set to true, by default this variable is false.
 ---
+---You won't be able to use this for clones (remote pedestrians that are not owned by you) or migrating peds if `syncOverNetwork` is set to true; it simply won't execute.
+---
+---The `ped` should also have speech for this to work.
+---
 ---```cpp
 ---enum eAudDamageReason {
 ---	AUD_DAMAGE_REASON_DEFAULT = 0,
@@ -1117,7 +1113,8 @@ function PlayMissionCompleteAudio(audioName) end
 ---	AUD_DAMAGE_REASON_SCREAM_TERROR = 7,
 ---	AUD_DAMAGE_REASON_ON_FIRE = 8,
 ---	AUD_DAMAGE_REASON_DROWNING = 9,
----	AUD_DAMAGE_REASON_SURFACE_DROWNING = 10,	// drowning on the surface of water, after we time out
+---	// drowning on the surface of water, after we time out
+---	AUD_DAMAGE_REASON_SURFACE_DROWNING = 10,
 ---	AUD_DAMAGE_REASON_INHALE = 11,
 ---	AUD_DAMAGE_REASON_EXHALE = 12,
 ---	AUD_DAMAGE_REASON_POST_FALL_GRUNT = 13,
@@ -1640,10 +1637,10 @@ function SetAmbientZoneStatePersistent(zoneName, enabled, forceUpdate) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCC97B29285B1DC3B)  
 ---```cpp
 ---enum eAudAnimalMood {
----	AUD_ANIMAL_MOOD_ANGRY,
----	AUD_ANIMAL_MOOD_PLAYFUL,
+---	AUD_ANIMAL_MOOD_ANGRY = 0,
+---	AUD_ANIMAL_MOOD_PLAYFUL = 1,
 ---
----	AUD_ANIMAL_MOOD_NUM_MOODS
+---	AUD_ANIMAL_MOOD_NUM_MOODS = 2
 ---}
 ---```
 ---@param animal integer
@@ -1654,49 +1651,51 @@ function SetAnimalMood(animal, mood) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB9EFD5C25018725A)  
 ---Generic interface to toggle audio functionality, with auto-reset on script termination and support for multiple script threads
 ---
+---Flags used in game scripts:
+---| Flag Name | Description of Usage |
+---| ----- | -------- |
+---| ActivateSwitchWheelAudio | |
+---| AllowAmbientSpeechInSlowMo | |
+---| AllowCutsceneOverScreenFade | |
+---| AllowForceRadioAfterRetune | |
+---| AllowPainAndAmbientSpeechToPlayDuringCutscene | |
+---| AllowPlayerAIOnMission | |
+---| AllowPoliceScannerWhenPlayerHasNoControl | |
+---| AllowRadioDuringSwitch | |
+---| AllowRadioOverScreenFade | |
+---| AllowScoreAndRadio | |
+---| AllowScriptedSpeechInSlowMo | |
+---| AvoidMissionCompleteDelay | |
+---| DisableAbortConversationForDeathAndInjury | |
+---| DisableAbortConversationForRagdoll | |
+---| DisableBarks | |
+---| DisableFlightMusic | |
+---| DisableNPCHeadsetSpeechAttenuation | |
+---| DisableReplayScriptStreamRecording | |
+---| EnableHeadsetBeep | |
+---| EnableMissileLockWarningForAllVehicles | |
+---| ForceConversationInterrupt | |
+---| ForceSeamlessRadioSwitch | |
+---| ForceSniperAudio | |
+---| FrontendRadioDisabled | |
+---| HoldMissionCompleteWhenPrepared | |
+---| IsDirectorModeActive |  Allows you to play speech infinitely without any pauses like in Director Mode. |
+---| IsPlayerOnMissionForSpeech | |
+---| ListenerReverbDisabled | |
+---| LoadMPData | |
+---| MobileRadioInGame | |
+---| OnlyAllowScriptTriggerPoliceScanner | |
+---| PlayerOnDLCHeist4Island | |
+---| PlayMenuMusic | |
+---| PoliceScannerDisabled | |
+---| ScriptedConvListenerMaySpeak | |
+---| SpeechDucksScore | |
+---| SuppressPlayerScubaBreathing | |
+---| UseQuietSceneSoftVersion | |
+---| WantedMusicDisabled | |
+---| WantedMusicOnMission | |
+---
 ---```
----Possible flag names:
----"ActivateSwitchWheelAudio"
----"AllowAmbientSpeechInSlowMo"
----"AllowCutsceneOverScreenFade"
----"AllowForceRadioAfterRetune"
----"AllowPainAndAmbientSpeechToPlayDuringCutscene"
----"AllowPlayerAIOnMission"
----"AllowPoliceScannerWhenPlayerHasNoControl"
----"AllowRadioDuringSwitch"
----"AllowRadioOverScreenFade"
----"AllowScoreAndRadio"
----"AllowScriptedSpeechInSlowMo"
----"AvoidMissionCompleteDelay"
----"DisableAbortConversationForDeathAndInjury"
----"DisableAbortConversationForRagdoll"
----"DisableBarks"
----"DisableFlightMusic"
----"DisableReplayScriptStreamRecording"
----"EnableHeadsetBeep"
----"ForceConversationInterrupt"
----"ForceSeamlessRadioSwitch"
----"ForceSniperAudio"
----"FrontendRadioDisabled"
----"HoldMissionCompleteWhenPrepared"
----"IsDirectorModeActive"
----"IsPlayerOnMissionForSpeech"
----"ListenerReverbDisabled"
----"LoadMPData"
----"MobileRadioInGame"
----"OnlyAllowScriptTriggerPoliceScanner"
----"PlayMenuMusic"
----"PoliceScannerDisabled"
----"ScriptedConvListenerMaySpeak"
----"SpeechDucksScore"
----"SuppressPlayerScubaBreathing"
----"WantedMusicDisabled"
----"WantedMusicOnMission"
-----------------------------------
----No added flag names between b393d and b573d, including b573d.
----#######################################################################
----"IsDirectorModeActive" is an audio flag which will allow you to play speech infinitely without any pauses like in Director Mode.
---------------------------------------------------------------------------
 ---All flag IDs and hashes:
 ---ID: 01 | Hash: 0x20A7858F
 ---ID: 02 | Hash: 0xA11C2259
@@ -1785,7 +1784,7 @@ function SetAudioScriptCleanupTime(timeMs) end
 ---Needs to be called every frame.
 ---
 ---```cpp
----enum audSpecialEffectMode
+---enum eAudSpecialEffectMode
 ---{
 ---	kSpecialEffectModeNormal = 0,
 ---	kSpecialEffectModeUnderwater = 1,
@@ -1879,6 +1878,13 @@ function SetEntityForNullConvPed(speakerConversationIndex, entity) end
 ---Allows the radio to be played in the frontend.
 ---@param active boolean
 function SetFrontendRadioActive(active) end
+
+---**`AUDIO` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x159B7318403A1CD8)  
+---Sets the global radio signal level, lower value will cause radio static.
+---Used only a handful of times in scripts.
+---@param signalLevel number
+function SetGlobalRadioSignalLevel(signalLevel) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3BD3F52BA9B1E4E8)  
@@ -2462,6 +2468,16 @@ function TriggerMusicEvent(eventName) end
 function TriggerSiren(vehicle) end
 
 ---**`AUDIO` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2ACABED337622DF2)  
+---```
+---NativeDB Introduced: v1493
+---```
+---
+---Removes all instances of a given context block.
+---@param groupName string
+function UnblockSpeechContextGroup(groupName) end
+
+---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFC00454CF60B91DD)  
 ---This native does not have an official description.
 ---@param radioStation string
@@ -2490,6 +2506,11 @@ function UnlockRadioStationTrackList(radioStation, trackListName) end
 ---On last-gen this just runs blr and this func is called by several other functions other then the native's table.  
 ---```
 function UnregisterScriptWithAudio() end
+
+---**`AUDIO` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0150B6FF25A9E2E5)  
+---Unloads tennis vocalization banks loaded with [`REQUEST_TENNIS_BANKS`](#\_0x4ADA3F19BE4A6047).
+function UnrequestTennisBanks() end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7EC3C679D0E7E46B)  

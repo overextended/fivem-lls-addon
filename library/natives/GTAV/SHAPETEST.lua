@@ -121,18 +121,19 @@ Cast_3dRayPointToPoint = StartShapeTestCapsule
 ---Asynchronously starts a line-of-sight (raycast) world probe shape test.
 ---
 ---```cpp
----enum TraceFlags
+---enum eTraceFlags
 ---{
 ---  None = 0,
 ---  IntersectWorld = 1,
 ---  IntersectVehicles = 2,
----  IntersectPedsSimpleCollision = 4,
----  IntersectPeds = 8,
+---  IntersectPeds = 4,
+---  IntersectRagdolls = 8,
 ---  IntersectObjects = 16,
 ---  IntersectWater = 32,
----  Unknown = 128,
+---  IntersectGlass = 64,
+---  IntersectRiver = 128,
 ---  IntersectFoliage = 256,
----  IntersectEverything = 4294967295
+---  IntersectEverything = -1
 ---}
 ---```
 ---
@@ -145,11 +146,11 @@ Cast_3dRayPointToPoint = StartShapeTestCapsule
 ---@param x2 number
 ---@param y2 number
 ---@param z2 number
----@param flags integer
+---@param traceFlags integer
 ---@param entity integer
----@param p8 integer
+---@param options integer
 ---@return integer
-function StartShapeTestLosProbe(x1, y1, z1, x2, y2, z2, flags, entity, p8) end
+function StartShapeTestLosProbe(x1, y1, z1, x2, y2, z2, traceFlags, entity, options) end
 
 ---**`SHAPETEST` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF6BE494C7987F34)  

@@ -36,8 +36,17 @@ function CellCamIsCharVisibleNoFaceCheck(entity) end
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95C9E72F3D7DEC9B)  
----```
----For move the finger of player, the value of int goes 1 at 5.  
+---Moves the character's finger in a swiping motion when holding a cellphone in their hand through the use of the [CREATE_MOBILE_PHONE](#\_0xA4E8E696C532FBC7) native.
+---
+---```cpp
+---enum eCellInput {
+---    CELL_INPUT_NONE = 0,
+---    CELL_INPUT_UP = 1,
+---    CELL_INPUT_DOWN = 2,
+---    CELL_INPUT_LEFT = 3,
+---    CELL_INPUT_RIGHT = 4,
+---    CELL_INPUT_SELECT = 5
+---}
 ---```
 ---@param direction integer
 function CellCamMoveFinger(direction) end

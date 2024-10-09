@@ -210,8 +210,12 @@ function CreatePortablePickup(pickupHash, x, y, z, placeOnGround, modelHash) end
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x539E0AE3E6634B9F)  
+---Deletes the specified object.
+---
+---**Note**: If for some reason the entity won't delete, you might want to check if the object is a mission entity.
+---
 ---```
----Deletes the specified object, then sets the handle pointed to by the pointer to NULL.
+---NativeDB Introduced: v323
 ---```
 ---@param object integer
 function DeleteObject(object) end
@@ -1499,9 +1503,17 @@ function SetObjectStuntPropSpeedup(object, intensity) end
 function SetObjectTargettable(object, targettable) end
 
 ---**`OBJECT` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB39F03368DB0CAA2)  
+---This native does not have an official description.
+---@param object integer
+---@param setFlag34 boolean
+---@param setFlag35 boolean
+function SetObjectTargettableByPlayer(object, setFlag34, setFlag35) end
+
+---**`OBJECT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x971DA0055324D033)  
----```
----enum ObjectPaintVariants  
+---```cpp
+---enum eObjectPaintVariants
 ---{  
 ---	Pacific = 0,  
 ---	Azure = 1,  

@@ -6,13 +6,18 @@
 ---
 ---Only 32 blocking objects may exist at a given time and must be manually managed. See [`REMOVE_NAVMESH_BLOCKING_OBJECT`](#\_0x46399A7895957C0E) and [`onResourceStop`](https://docs.fivem.net/docs/scripting-reference/events/list/onResourceStop/)
 ---
----```
+---```cpp
 ---enum eBlockingObjectFlags {
----    BLOCKING_OBJECT_DEFAULT = 0,      // Default Flag
----    BLOCKING_OBJECT_WANDERPATH = 1,   // Blocking object will block wander paths
----    BLOCKING_OBJECT_SHORTESTPATH = 2, // Blocking object will block (regular) shortest-paths
----    BLOCKING_OBJECT_FLEEPATH = 4,     // Blocking object will block flee paths
----    BLOCKING_OBJECT_ALLPATHS = 7,     // Blocking object will block all paths
+---    // Default Flag
+---    BLOCKING_OBJECT_DEFAULT = 0,
+---    // Blocking object will block wander paths
+---    BLOCKING_OBJECT_WANDERPATH = 1,
+---    // Blocking object will block (regular) shortest-paths
+---    BLOCKING_OBJECT_SHORTESTPATH = 2,
+---    // Blocking object will block flee paths
+---    BLOCKING_OBJECT_FLEEPATH = 4,
+---    // Blocking object will block all paths
+---    BLOCKING_OBJECT_ALLPATHS = 7,
 ---}
 ---```
 ---@param x number
@@ -134,17 +139,15 @@ function GetClosestMajorVehicleNode(x, y, z, unknown1, unknown2) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x132F52BBA570FE92)  
----```
----p1 seems to be always 1.0f in the scripts  
----```
+---Finds an edge (node connection to another node) that satisfies the specified criteria.
 ---@param x number
 ---@param y number
 ---@param z number
----@param p3 number
----@param p4 integer
----@param p10 boolean
----@return any, vector3, vector3, any, any, number
-function GetClosestRoad(x, y, z, p3, p4, p10) end
+---@param minimumEdgeLength number
+---@param minimumLaneCount integer
+---@param onlyMajorRoads boolean
+---@return boolean, vector3, vector3, integer, integer, number
+function GetClosestRoad(x, y, z, minimumEdgeLength, minimumLaneCount, onlyMajorRoads) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x240A18690AE96513)  
@@ -216,15 +219,6 @@ function GetGpsBlipRouteFound() end
 ---This native does not have an official description.
 ---@return integer
 function GetGpsBlipRouteLength() end
-
----**`PATHFIND` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF3162836C28F9DA5)  
----p3 can be 0, 1 or 2.
----@param p1 boolean
----@param p2 number
----@param p3 integer
----@return boolean, vector3
-function GetGpsWaypointRouteEnd(p1, p2, p3) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3599D741C9AC6310)  
@@ -344,18 +338,27 @@ function GetNthClosestVehicleNodeIdWithHeading(x, y, z, nthClosest, p6, p7, p8) 
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80CA6A8B6C094CC4)  
----```
----Get the nth closest vehicle node and its heading. (unknown2 = 9, unknown3 = 3.0, unknown4 = 2.5)  
+---Get the nth closest vehicle node with its heading and total lane count.
+---If you need specific forward and backward lane counts use [GET_CLOSEST_ROAD](#\_0x132F52BBA570FE92)
+---
+---```cpp
+---enum eNodeFlags {
+---	NONE = 0,
+---	INCLUDE_SWITCHED_OFF_NODES = 1,
+---	INCLUDE_BOAT_NODES = 2,
+---	IGNORE_SLIPLANES = 4,
+---	IGNORE_SWITCHED_OFF_DEAD_ENDS = 8,
+---}
 ---```
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param nthClosest integer
----@param unknown2 integer
----@param unknown3 number
----@param unknown4 number
----@return boolean, vector3, number, any
-function GetNthClosestVehicleNodeWithHeading(x, y, z, nthClosest, unknown2, unknown3, unknown4) end
+---@param searchFlags integer
+---@param zMeasureMult number
+---@param zTolerance number
+---@return boolean, vector3, number, integer
+function GetNthClosestVehicleNodeWithHeading(x, y, z, nthClosest, searchFlags, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01708E8DD3FF8C65)  
@@ -378,6 +381,27 @@ function GetNumNavmeshesExistingInArea(posMinX, posMinY, posMinZ, posMaxX, posMa
 ---@param p3 integer
 ---@return boolean, vector3
 function GetPointOnRoadSide(x, y, z, p3) end
+
+---**`PATHFIND` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF3162836C28F9DA5)  
+---Native to get a position along current player GPS route using supplied slot.
+---This native was previously named `GET_GPS_WAYPOINT_ROUTE_END`, but its named changed.
+---
+---```cpp
+---enum eGpsSlotType {
+---	GPS_SLOT_WAYPOINT = 0,
+---	GPS_SLOT_RADAR_BLIP = 1,
+---	GPS_SLOT_DISCRETE = 2
+---}
+---```
+---@param bStartAtPlayerPos boolean
+---@param fDistanceAlongRoute number
+---@param slotType integer
+---@return boolean, vector3
+function GetPosAlongGpsTypeRoute(bStartAtPlayerPos, fDistanceAlongRoute, slotType) end
+
+---@deprecated
+GetGpsWaypointRouteEnd = GetPosAlongGpsTypeRoute
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x93E0DB8440B73A7D)  
@@ -482,10 +506,23 @@ function GetVehicleNodePosition(nodeId) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0568566ACBB5DEDC)  
----```
----Gets the density and flags of the closest node to the specified position.  
----Density is a value between 0 and 15, indicating how busy the road is.  
----Flags is a bit field.  
+---Gets the density and flags of the closest node to the specified position.\
+---Density is a value between 0 and 15, indicating how busy the road is.
+---
+---```cpp
+---enum eVehicleNodeProperties {
+---	OFF_ROAD = 1 << 0,
+---	ON_PLAYERS_ROAD =  1 << 1,
+---	NO_BIG_VEHICLES = 1 << 2,
+---	SWITCHED_OFF = 1 << 3,
+---	TUNNEL_OR_INTERIOR = 1 << 4,
+---	LEADS_TO_DEAD_END = 1 << 5,
+---	HIGHWAY = 1 << 6,
+---	JUNCTION = 1 << 7,
+---	TRAFFIC_LIGHT = 1 << 8,
+---	GIVE_WAY = 1 << 9,
+---	WATER = 1 << 10,
+---}
 ---```
 ---@param x number
 ---@param y number

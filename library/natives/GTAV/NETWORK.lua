@@ -1992,26 +1992,27 @@ function NetworkAddMapEntityToSynchronisedScene(netScene, modelHash, x, y, z, an
 ---Adds a ped to a networked synchronised scene.
 ---
 ---Synchronized scene playback flags (Also works in other `NETWORK_ADD_*_TO_SYNCHRONISED_SCENE` natives):
----|Value| Name | Notes |
----|:----:|:------:| :--------: |
----|`0`| None | No flag set. |
----|`1`| USE_PHYSICS | Allows the ped to have physics during the scene. |
----|`2`| TAG_SYNC_OUT | The task will do a tag synchronized blend out with the movement behaviour of the ped. |
----|`4`| DONT_INTERRUPT | The scene will not be interrupted by external events. |
----|`8`| ON_ABORT_STOP_SCENE | The scene will be stopped if the scripted task is aborted. |
----|`16`| ABORT_ON_WEAPON_DAMAGE | The scene will be stopped if the ped is damaged by a weapon. |
----|`32`| BLOCK_MOVER_UPDATE | The task will not update the mover. |
----|`64`| LOOP_WITHIN_SCENE | Animations within this scene will be looped until the scene is finished. |
----|`128`| PRESERVE_VELOCITY | The task will keep it's velocity when the scene is cleaned up/stopped. Do note that the `USE_PHYSICS` flag must also be present. |
----|`256`| EXPAND_PED_CAPSULE_FROM_SKELETON | The task will apply the `ExpandPedCapsuleFromSkeleton` reset flag to the ped (See [`SET_PED_RESET_FLAG`](#\_0xC1E8A365BF3B29F2)). |
----|`512`| ACTIVATE_RAGDOLL_ON_COLLISION | The ped will be ragdoll if it comes in contact with an object. |
----|`1024`| HIDE_WEAPON | The ped's current weapon will be hidden during the scene. |
----|`2048`| ABORT_ON_DEATH | The synchronised scene will be aborted if the ped dies. |
----|`4096`| VEHICLE_ABORT_ON_LARGE_IMPACT | If the scene is running on a vehicle, then it will be aborted if the vehicle takes a heavy collision with another vehicle. |
----|`16384`| PROCESS_ATTACHMENTS_ON_START | Attachments will be processed at the start of the scene. |
----|`32768`| NET_ON_EARLY_NON_PED_STOP_RETURN_TO_START |  A non-ped entity will be returned to their starting position if the scene finishes early. |
----|`65536`| SET_PED_OUT_OF_VEHICLE_AT_START | If the ped is in a vehicle when the scene starts, it will be set out of the vehicle. |
----|`131072`| NET_DISREGARD_ATTACHMENT_CHECKS | Attachment checks will be disregarded when the scene is running. |
+---| Value     |                  Name                     |                                                             Notes                                                                |
+---| :-------: | :---------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: |
+---| `0`       |  None                                     | No flag set.                                                                                                                     |
+---| `1`       | USE_PHYSICS                               | Allows the ped to have physics during the scene.                                                                                 |
+---| `2`       | TAG_SYNC_OUT                              | The task will do a tag synchronized blend out with the movement behaviour of the ped.                                            |
+---| `4`       | DONT_INTERRUPT                            | The scene will not be interrupted by external events.                                                                            |
+---| `8`       | ON_ABORT_STOP_SCENE                       | The scene will be stopped if the scripted task is aborted.                                                                       |
+---| `16`      | ABORT_ON_WEAPON_DAMAGE                    | The scene will be stopped if the ped is damaged by a weapon.                                                                     |
+---| `32`      | BLOCK_MOVER_UPDATE                        | The task will not update the mover.                                                                                              |
+---| `64`      | LOOP_WITHIN_SCENE                         | Animations within this scene will be looped until the scene is finished.                                                         |
+---| `128`     | PRESERVE_VELOCITY                         | The task will keep it's velocity when the scene is cleaned up/stopped. Do note that the `USE_PHYSICS` flag must also be present. |
+---| `256`     | EXPAND_PED_CAPSULE_FROM_SKELETON          | The task will apply the `ExpandPedCapsuleFromSkeleton` reset flag to the ped (See [`SET_PED_RESET_FLAG`](#\_0xC1E8A365BF3B29F2)). |
+---| `512`     | ACTIVATE_RAGDOLL_ON_COLLISION             | The ped will be ragdoll if it comes in contact with an object.                                                                   |
+---| `1024`    | HIDE_WEAPON                               | The ped's current weapon will be hidden during the scene.                                                                        |
+---| `2048`    | ABORT_ON_DEATH                            | The synchronised scene will be aborted if the ped dies.                                                                          |
+---| `4096`    | VEHICLE_ABORT_ON_LARGE_IMPACT             | If the scene is running on a vehicle, then it will be aborted if the vehicle takes a heavy collision with another vehicle.       |
+---| `8192`    | VEHICLE_ALLOW_PLAYER_ENTRY                | If the scene is on a vehicle, it allows players to enter it.                                                                     |
+---| `16384`   | PROCESS_ATTACHMENTS_ON_START              | Attachments will be processed at the start of the scene.                                                                         |
+---| `32768`   | NET_ON_EARLY_NON_PED_STOP_RETURN_TO_START | A non-ped entity will be returned to their starting position if the scene finishes early.                                        |
+---| `65536`   | SET_PED_OUT_OF_VEHICLE_AT_START           | If the ped is in a vehicle when the scene starts, it will be set out of the vehicle.                                             |
+---| `131072`  | NET_DISREGARD_ATTACHMENT_CHECKS           | Attachment checks will be disregarded when the scene is running.                                                                 |
 ---
 ---These flags can be combined with the `|` operator.
 ---@param ped integer
@@ -2564,10 +2565,22 @@ function NetworkConcealEntity(entity, toggle) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBBDF066252829606)  
 ---This is what R\* uses to hide players in MP interiors.
+---
+---To manage player visibility with NetworkConcealPlayer, here’s a solid approach:
+---
+---**General Population (players not in any instance):**
+---
+---*   Use NetworkConcealPlayer to hide players who are in any instance. This way, general population players won’t see or interact with instance players.
+---
+---**Instance Players (players in a specific instance):**
+---
+---*   Use NetworkConcealPlayer to hide players who aren’t in the same instance. Instance players can still see and interact with the general population but not with players in other instances.
+---
+---This setup keeps instance players separate from each other while allowing interaction with the general population.
 ---@param player integer
 ---@param toggle boolean
----@param p2 boolean
-function NetworkConcealPlayer(player, toggle, p2) end
+---@param bAllowDamagingWhileConcealed boolean
+function NetworkConcealPlayer(player, toggle, bAllowDamagingWhileConcealed) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7CD6BC4C2BBDD526)  
@@ -2791,18 +2804,16 @@ function NetworkExplodeVehicle(vehicle, isAudible, isInvisible, p3) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1F4ED342ACEFE62D)  
----```
----state - 0 does 5 fades  
----state - 1 does 6 fades  
----native is missing third argument, also boolean, setting to 1 made vehicle fade in slower, probably "slow" as per NETWORK_FADE_OUT_ENTITY  
----```
+---Fade the given entity back in, usually used after the entity has been faded out with [NETWORK_FADE_OUT_ENTITY](#\_0xDE564951F95E09ED)
 ---
----```
----NativeDB Added Parameter 3: BOOL slow
----```
+---When used on a entity which isn't invisible or faded out then the native will still work, it will just instanly make the ped invisible before fading in.
+---
+---**Additional Parameters**:
+---
+---*   **flash**: If set to true the entity will flash while fading in.
 ---@param entity integer
----@param state boolean
-function NetworkFadeInEntity(entity, state) end
+---@param bNetwork boolean
+function NetworkFadeInEntity(entity, bNetwork) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDE564951F95E09ED)  
@@ -4832,67 +4843,69 @@ function NetworkRespawnCoords(player, x, y, z, p4, p5) end
 ---
 ---```cpp
 ---enum ePlayerSpawnLocation {
----  SPAWN_LOCATION_AUTOMATIC = 0, // system will decide
----  SPAWN_LOCATION_NEAR_DEATH,					
----  SPAWN_LOCATION_NEAR_TEAM_MATES,			
----  SPAWN_LOCATION_MISSION_AREA, // script defined area
----  SPAWN_LOCATION_NEAR_OTHER_PLAYERS, 
----  SPAWN_LOCATION_NEAR_CURRENT_POSITION,	
----  SPAWN_LOCATION_AT_CURRENT_POSITION,
----  SPAWN_LOCATION_NET_TEST_BED,	
----  SPAWN_LOCATION_CUSTOM_SPAWN_POINTS,
----  SPAWN_LOCATION_OUTSIDE_SIMEON_GARAGE,
----  SPAWN_LOCATION_NEAR_SPECIFIC_COORDS,
----  SPAWN_LOCATION_AT_SPECIFIC_COORDS,
----  SPAWN_LOCATION_AT_AIRPORT_ARRIVALS,
----  SPAWN_LOCATION_AT_SPECIFIC_COORDS_IF_POSSIBLE,
----  SPAWN_LOCATION_IN_SPECIFIC_ANGLED_AREA,
----  SPAWN_LOCATION_NEAREST_RESPAWN_POINT, 
----  SPAWN_LOCATION_AT_SPECIFIC_COORDS_RACE_CORONA, 
----  SPAWN_LOCATION_INSIDE_GARAGE,
----  SPAWN_LOCATION_INSIDE_PROPERTY,
----  SPAWN_LOCATION_INSIDE_PROPERTY_OR_GARAGE,
----  SPAWN_LOCATION_NEAR_DEATH_IMPROMPTU,
----  SPAWN_LOCATION_NEAR_CURRENT_POSITION_SPREAD_OUT,
----  SPAWN_LOCATION_NEAREST_RESPAWN_POINT_TO_SPECIFIC_COORDS,
----  SPAWN_LOCATION_NEAREST_HOSPITAL,
----  SPAWN_LOCATION_NEAREST_POLICE_STATION,
----  SPAWN_LOCATION_NEAREST_HOTEL_TO_SPECIFIC_COORDS,
----  SPAWN_LOCATION_MISSION_AREA_NEAR_CURRENT_POSITION,
----  SPAWN_LOCATION_PRIVATE_YACHT,
----  SPAWN_LOCATION_PRIVATE_YACHT_APARTMENT,
----  SPAWN_LOCATION_PRIVATE_FRIEND_YACHT,
----  SPAWN_LOCATION_PRIVATE_YACHT_NEAR_SHORE,
----  SPAWN_LOCATION_NEAR_GANG_BOSS,
----  SPAWN_LOCATION_NEAR_SPECIFIC_COORDS_WITH_GANG,
----  SPAWN_LOCATION_GANG_DM,
----  SPAWN_LOCATION_GANG_BOSS_PRIVATE_YACHT,
----  SPAWN_LOCATION_OFFICE,
----  SPAWN_LOCATION_CLUBHOUSE,
----  SPAWN_LOCATION_NEAR_CURRENT_POSITION_AS_POSSIBLE,
----  SPAWN_LOCATION_NEAR_CURRENT_PERCEIVED_POSITION,
----  SPAWN_LOCATION_IE_WAREHOUSE,
----  SPAWN_LOCATION_BUNKER,
----  SPAWN_LOCATION_HANGAR,
----  SPAWN_LOCATION_DEFUNCT_BASE,
----  SPAWN_LOCATION_NIGHTCLUB,
----  SPAWN_LOCATION_ARENA_GARAGE,
----  SPAWN_LOCATION_CASINO,
----  SPAWN_LOCATION_CASINO_APARTMENT,
----  SPAWN_LOCATION_CASINO_OUTSIDE,
----  SPAWN_LOCATION_ARCADE,
----  SPAWN_LOCATION_CASINO_NIGHTCLUB,
----  SPAWN_LOCATION_SUBMARINE,
----  SPAWN_LOCATION_HEIST_ISLAND_NEAR_DEATH,
----  SPAWN_LOCATION_HEIST_ISLAND_BEACH_PARTY,
----  SPAWN_LOCATION_LAND_NEAR_SUBMARINE,
----  SPAWN_LOCATION_CAR_MEET,
----  SPAWN_LOCATION_AUTO_SHOP,
----  SPAWN_LOCATION_FIXER_HQ,
----  SPAWN_LOCATION_SITTING_SMOKING,
----  SPAWN_LOCATION_DRUNK_WAKE_UP_MUSIC_STUDIO,
----  SPAWN_LOCATION_MUSIC_STUDIO,
----  TOTAL_SPAWN_LOCATIONS
+---  // system will decide
+---  SPAWN_LOCATION_AUTOMATIC = 0,
+---  SPAWN_LOCATION_NEAR_DEATH = 1,
+---  SPAWN_LOCATION_NEAR_TEAM_MATES = 2,
+---  // script defined area
+---  SPAWN_LOCATION_MISSION_AREA = 3,
+---  SPAWN_LOCATION_NEAR_OTHER_PLAYERS = 4,
+---  SPAWN_LOCATION_NEAR_CURRENT_POSITION = 5,
+---  SPAWN_LOCATION_AT_CURRENT_POSITION = 6,
+---  SPAWN_LOCATION_NET_TEST_BED = 7,
+---  SPAWN_LOCATION_CUSTOM_SPAWN_POINTS = 8,
+---  SPAWN_LOCATION_OUTSIDE_SIMEON_GARAGE = 9,
+---  SPAWN_LOCATION_NEAR_SPECIFIC_COORDS = 10,
+---  SPAWN_LOCATION_AT_SPECIFIC_COORDS = 11,
+---  SPAWN_LOCATION_AT_AIRPORT_ARRIVALS = 12,
+---  SPAWN_LOCATION_AT_SPECIFIC_COORDS_IF_POSSIBLE = 13,
+---  SPAWN_LOCATION_IN_SPECIFIC_ANGLED_AREA = 14,
+---  SPAWN_LOCATION_NEAREST_RESPAWN_POINT = 15,
+---  SPAWN_LOCATION_AT_SPECIFIC_COORDS_RACE_CORONA = 16,
+---  SPAWN_LOCATION_INSIDE_GARAGE = 17,
+---  SPAWN_LOCATION_INSIDE_PROPERTY = 18,
+---  SPAWN_LOCATION_INSIDE_PROPERTY_OR_GARAGE = 19,
+---  SPAWN_LOCATION_NEAR_DEATH_IMPROMPTU = 20,
+---  SPAWN_LOCATION_NEAR_CURRENT_POSITION_SPREAD_OUT = 21,
+---  SPAWN_LOCATION_NEAREST_RESPAWN_POINT_TO_SPECIFIC_COORDS = 22,
+---  SPAWN_LOCATION_NEAREST_HOSPITAL = 23,
+---  SPAWN_LOCATION_NEAREST_POLICE_STATION = 24,
+---  SPAWN_LOCATION_NEAREST_HOTEL_TO_SPECIFIC_COORDS = 25,
+---  SPAWN_LOCATION_MISSION_AREA_NEAR_CURRENT_POSITION = 26,
+---  SPAWN_LOCATION_PRIVATE_YACHT = 27,
+---  SPAWN_LOCATION_PRIVATE_YACHT_APARTMENT = 28,
+---  SPAWN_LOCATION_PRIVATE_FRIEND_YACHT = 29,
+---  SPAWN_LOCATION_PRIVATE_YACHT_NEAR_SHORE = 30,
+---  SPAWN_LOCATION_NEAR_GANG_BOSS = 31,
+---  SPAWN_LOCATION_NEAR_SPECIFIC_COORDS_WITH_GANG = 32,
+---  SPAWN_LOCATION_GANG_DM = 33,
+---  SPAWN_LOCATION_GANG_BOSS_PRIVATE_YACHT = 34,
+---  SPAWN_LOCATION_OFFICE = 35,
+---  SPAWN_LOCATION_CLUBHOUSE = 36,
+---  SPAWN_LOCATION_NEAR_CURRENT_POSITION_AS_POSSIBLE = 37,
+---  SPAWN_LOCATION_NEAR_CURRENT_PERCEIVED_POSITION = 38,
+---  SPAWN_LOCATION_IE_WAREHOUSE = 39,
+---  SPAWN_LOCATION_BUNKER = 40,
+---  SPAWN_LOCATION_HANGAR = 41,
+---  SPAWN_LOCATION_DEFUNCT_BASE = 42,
+---  SPAWN_LOCATION_NIGHTCLUB = 43,
+---  SPAWN_LOCATION_ARENA_GARAGE = 44,
+---  SPAWN_LOCATION_CASINO = 45,
+---  SPAWN_LOCATION_CASINO_APARTMENT = 46,
+---  SPAWN_LOCATION_CASINO_OUTSIDE = 47,
+---  SPAWN_LOCATION_ARCADE = 48,
+---  SPAWN_LOCATION_CASINO_NIGHTCLUB = 49,
+---  SPAWN_LOCATION_SUBMARINE = 50,
+---  SPAWN_LOCATION_HEIST_ISLAND_NEAR_DEATH = 51,
+---  SPAWN_LOCATION_HEIST_ISLAND_BEACH_PARTY = 52,
+---  SPAWN_LOCATION_LAND_NEAR_SUBMARINE = 53,
+---  SPAWN_LOCATION_CAR_MEET = 54,
+---  SPAWN_LOCATION_AUTO_SHOP = 55,
+---  SPAWN_LOCATION_FIXER_HQ = 56,
+---  SPAWN_LOCATION_SITTING_SMOKING = 57,
+---  SPAWN_LOCATION_DRUNK_WAKE_UP_MUSIC_STUDIO = 58,
+---  SPAWN_LOCATION_MUSIC_STUDIO = 59,
+---  TOTAL_SPAWN_LOCATIONS = 60
 ---};
 ---```
 ---
@@ -5361,32 +5374,30 @@ function NetworkSetCurrentMissionId(missionId) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA6D5451DC3448B6)  
----```
----mpSettingSpawn:
----
+---```cpp
 ---enum eMpSettingSpawn
 ---{
----	MP_SETTING_SPAWN_NULL,
----	MP_SETTING_SPAWN_PROPERTY,
----	MP_SETTING_SPAWN_LAST_POSITION,
----	MP_SETTING_SPAWN_GARAGE,
----	MP_SETTING_SPAWN_RANDOM,
----	MP_SETTING_SPAWN_PRIVATE_YACHT,
----	MP_SETTING_SPAWN_OFFICE,
----	MP_SETTING_SPAWN_CLUBHOUSE,
----	MP_SETTING_SPAWN_IE_WAREHOUSE,
----	MP_SETTING_SPAWN_BUNKER,
----	MP_SETTING_SPAWN_HANGAR,
----	MP_SETTING_SPAWN_DEFUNCT_BASE,
----	MP_SETTING_SPAWN_NIGHTCLUB,
----	MP_SETTING_SPAWN_ARENA_GARAGE,
----	MP_SETTING_SPAWN_CASINO_APARTMENT,
----	MP_SETTING_SPAWN_ARCADE,
----	MP_SETTING_SPAWN_SUBMARINE,
----	MP_SETTING_SPAWN_CAR_MEET,
----	MP_SETTING_SPAWN_AUTO_SHOP,
----	MP_SETTING_SPAWN_FIXER_HQ,
----	MP_SETTING_SPAWN_MAX,
+---	MP_SETTING_SPAWN_NULL = 0,
+---	MP_SETTING_SPAWN_PROPERTY = 1,
+---	MP_SETTING_SPAWN_LAST_POSITION = 2,
+---	MP_SETTING_SPAWN_GARAGE = 3,
+---	MP_SETTING_SPAWN_RANDOM = 4,
+---	MP_SETTING_SPAWN_PRIVATE_YACHT = 5,
+---	MP_SETTING_SPAWN_OFFICE = 6,
+---	MP_SETTING_SPAWN_CLUBHOUSE = 7,
+---	MP_SETTING_SPAWN_IE_WAREHOUSE = 8,
+---	MP_SETTING_SPAWN_BUNKER = 9,
+---	MP_SETTING_SPAWN_HANGAR = 10,
+---	MP_SETTING_SPAWN_DEFUNCT_BASE = 11,
+---	MP_SETTING_SPAWN_NIGHTCLUB = 12,
+---	MP_SETTING_SPAWN_ARENA_GARAGE = 13,
+---	MP_SETTING_SPAWN_CASINO_APARTMENT = 14,
+---	MP_SETTING_SPAWN_ARCADE = 15,
+---	MP_SETTING_SPAWN_SUBMARINE = 16,
+---	MP_SETTING_SPAWN_CAR_MEET = 17,
+---	MP_SETTING_SPAWN_AUTO_SHOP = 18,
+---	MP_SETTING_SPAWN_FIXER_HQ = 19,
+---	MP_SETTING_SPAWN_MAX = 20,
 ---};
 ---```
 ---

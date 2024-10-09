@@ -4,10 +4,8 @@
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC5F68BE9613E2D18)  
 ---Applies a force to the specified entity.
 ---
----**List of force types (p1)**:
----
----```
----public enum ForceType
+---```cpp
+---enum eForceType
 ---{
 ---    MinForce = 0,
 ---    MaxForceRot = 1,
@@ -37,22 +35,7 @@ function ApplyForceToEntity(entity, forceType, x, y, z, offX, offY, offZ, boneIn
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x18FF00FC7EFF559E)  
----```
----Applies a force to the specified entity.
----**List of force types (p1)**:
----public enum ForceType
----{
----    MinForce = 0,
----    MaxForceRot = 1,
----    MinForce2 = 2,
----    MaxForceRot2 = 3,
----    ForceNoRot = 4,
----    ForceRotPlusForce = 5
----}
----Research/documentation on the gtaforums can be found here https://gtaforums.com/topic/885669-precisely-define-object-physics/) and here https://gtaforums.com/topic/887362-apply-forces-and-momentums-to-entityobject/.
----p6/relative - makes the xyz force not relative to world coords, but to something else
----p7/highForce - setting false will make the force really low
----```
+---This native does not have an official description.
 ---@param entity integer
 ---@param forceType integer
 ---@param x number
@@ -525,6 +508,16 @@ function GetEntityForwardY(entity) end
 function GetEntityHeading(entity) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x846BF6291198A71E)  
+---Gets the heading of the entity physics in degrees, which tends to be more accurate than just [`GET_ENTITY_HEADING`](#\_0xE83D4F9BA2A38914). This can be clearly seen while, for example, ragdolling a ped/player.
+---@param entity integer
+---@return number
+function GetEntityHeadingFromEulers(entity) end
+
+---@deprecated
+GetEntityPhysicsHeading = GetEntityHeadingFromEulers
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEEF059FAD016D209)  
 ---```
 ---Returns an integer value of entity's current health.
@@ -600,16 +593,6 @@ function GetEntityMaxHealth(entity) end
 function GetEntityModel(entity) end
 
 ---**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x846BF6291198A71E)  
----```
----Gets the heading of the entity physics in degrees, which tends to be more accurate than just "GET_ENTITY_HEADING". This can be clearly seen while, for example, ragdolling a ped/player.  
----NOTE: The name and description of this native are based on independent research. If you find this native to be more suitable under a different name and/or described differently, please feel free to do so.  
----```
----@param entity integer
----@return number
-function GetEntityPhysicsHeading(entity) end
-
----**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1F922734E259BD26)  
 ---```
 ---GET_ENTITY_*
@@ -667,23 +650,24 @@ function GetEntityRoll(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAFBD61CC738D9EB9)  
+---**NOTE**: What you use for rotationOrder when getting must be the same as rotationOrder when setting the rotation.
+---
+---```cpp
+---enum eRotationOrder {
+---    // Rotate around the z-axis, then the y-axis and finally the x-axis.
+---    ROT_ZYX = 0,
+---    // Rotate around the y-axis, then the z-axis and finally the x-axis.
+---    ROT_YZX = 1,
+---    // Rotate around the z-axis, then the x-axis and finally the y-axis.
+---    ROT_ZXY = 2,
+---    // Rotate around the x-axis, then the z-axis and finally the y-axis.
+---    ROT_XZY = 3,
+---    // Rotate around the y-axis, then the x-axis and finally the z-axis.
+---    ROT_YXZ = 4,
+---    // Rotate around the x-axis, then the y-axis and finally the z-axis.
+---    ROT_XYZ = 5,
+---}
 ---```
----rotationOrder refers to the order yaw pitch roll is applied; value ranges from 0 to 5 and is usually *2* in scripts.
----
----What you use for rotationOrder when getting must be the same as rotationOrder when setting the rotation.
----
----What it returns is the yaw on the z part of the vector, which makes sense considering R* considers z as vertical. Here's a picture for those of you who don't understand pitch, yaw, and roll:
----www.allstar.fiu.edu/aero/images/pic5-1.gif
----```
----
----### Rotation Orders
----
----*   **0**: ZYX - Rotate around the z-axis, then the y-axis and finally the x-axis.
----*   **1**: YZX - Rotate around the y-axis, then the z-axis and finally the x-axis.
----*   **2**: ZXY - Rotate around the z-axis, then the x-axis and finally the y-axis.
----*   **3**: XZY - Rotate around the x-axis, then the z-axis and finally the y-axis.
----*   **4**: YXZ - Rotate around the y-axis, then the x-axis and finally the z-axis.
----*   **5**: XYZ - Rotate around the x-axis, then the y-axis and finally the z-axis.
 ---@param entity integer
 ---@param rotationOrder integer
 ---@return vector3
@@ -904,16 +888,12 @@ function HasEntityBeenDamagedByAnyVehicle(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC86D67D52A707CF8)  
----```
----Entity 1 = Victim  
----Entity 2 = Attacker  
----p2 seems to always be 1  
----```
----@param entity1 integer
----@param entity2 integer
----@param p2 boolean
+---This native does not have an official description.
+---@param entity integer
+---@param damager integer
+---@param bCheckDamagerVehicle boolean
 ---@return boolean
-function HasEntityBeenDamagedByEntity(entity1, entity2, p2) end
+function HasEntityBeenDamagedByEntity(entity, damager, bCheckDamagerVehicle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFCDFF7B72D23A1AC)  
@@ -1280,15 +1260,6 @@ function N_0x5c3b791d580e0bc2(entity, p1) end
 function N_0x68b562e124cc0aef(p0, p1) end
 
 ---**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x694E00132F2823ED)  
----```
----SET_ENTITY_R*
----```
----@param entity integer
----@param toggle boolean
-function N_0x694e00132f2823ed(entity, toggle) end
-
----**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x78E8E3A640178255)  
 ---```
 ---Related to cutscene entities. Unsure about the use.
@@ -1319,19 +1290,6 @@ function N_0xc34bc448da29f5e9(entity, toggle) end
 ---@param p0 any
 ---@param p1 any
 function N_0xcea7c8e1b48ff68c(p0, p1) end
-
----**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xDC6F8601FAF2E893)  
----```
----SET_*
----Only called within 1 script for x360. 'fm_mission_controller' and it used on an object.
----Ran after these 2 natives,
----set_object_targettable(uParam0, 0);
----set_entity_invincible(uParam0, 1);
----```
----@param entity integer
----@param toggle boolean
-function N_0xdc6f8601faf2e893(entity, toggle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE66377CDDADA4810)  
@@ -1660,15 +1618,15 @@ function SetEntityHeading(entity, heading) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6B76DC1F3AE6E6A3)  
----health >= 0
+---When setting health for a player ped, the game will clamp the health value to ensure it does not exceed the maximum health. This maximum health can be retrieved by calling [`GET_PED_MAX_HEALTH`](#\_0x4700A416E8324EF3). It can also be modified by calling [`SET_PED_MAX_HEALTH`](#\_0xF5F6378C4F3419D3).
 ---
----male ped ~= 100 - 200
+---When setting the health for non-player peds or entities, the maximum health will be increased if the new health value exceeds the current maximum.
 ---
----female ped ~= 0 - 100
+---Default health for male peds is `200`, for female peds it is `175`.
 ---
----```
----NativeDB Added Parameter 3: int p2
----```
+---### Added parameters
+---
+---*   **inflictor**: The handle for the entity that caused the damage.
 ---@param entity integer
 ---@param health integer
 function SetEntityHealth(entity, health) end
@@ -1827,6 +1785,13 @@ function SetEntityRecordsCollisions(entity, toggle) end
 function SetEntityRenderScorched(entity, toggle) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x694E00132F2823ED)  
+---This native does not have an official description.
+---@param entity integer
+---@param toggle boolean
+function SetEntityRequiresMoreExpensiveRiverCheck(entity, toggle) end
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8524A8B0171D5E07)  
 ---Sets the rotation of a specified entity in the game world.
 ---
@@ -1843,13 +1808,18 @@ function SetEntityRotation(entity, pitch, roll, yaw, rotationOrder, bDeadCheck) 
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x57C5DB656185EAC4)  
----```
----Example here: www.gtaforums.com/topic/830463-help-with-turning-lights-green-and-causing-peds-to-crash-into-each-other/#entry1068211340
----0 = green
----1 = red
----2 = yellow
----3 = reset changes
----changing lights may not change the behavior of vehicles
+---Changing traffic-lights will not change the behavior of NPCs.
+---
+---Example: [here](https://www.gtaforums.com/topic/830463-help-with-turning-lights-green-and-causing-peds-to-crash-into-each-other/#entry1068211340)
+---
+---```cpp
+---enum eTrafficlightOverrideMode
+---{
+---    TLO_RED = 0,
+---    TLO_AMBER = 1,
+---    TLO_GREEN = 2,
+---    TLO_NONE = 3
+---}
 ---```
 ---@param entity integer
 ---@param state integer
@@ -1908,6 +1878,19 @@ function SetPickUpByCargobobDisabled(entity, toggle) end
 ---```
 ---@param vehicle integer
 function SetVehicleAsNoLongerNeeded(vehicle) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDC6F8601FAF2E893)  
+---```
+---SET_*
+---Only called within 1 script for x360. 'fm_mission_controller' and it used on an object.
+---Ran after these 2 natives,
+---set_object_targettable(uParam0, 0);
+---set_entity_invincible(uParam0, 1);
+---```
+---@param entity integer
+---@param toggle boolean
+function SetWaitForCollisionsBeforeProbe(entity, toggle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28004F88151E03E0)  

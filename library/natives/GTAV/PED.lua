@@ -153,16 +153,6 @@ function ApplyPedBloodSpecific(ped, component, u, v, rotation, scale, forcedFram
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x397C38AA7B4A5F83)  
 ---```
----enum eDamageZone
----{
----	DZ_Torso = 0,
----	DZ_Head,
----	DZ_LeftArm,
----	DZ_RightArm,
----	DZ_LeftLeg,
----	DZ_RightLeg,
----};
----Decal Names:
 ---scar
 ---blushing
 ---cs_flush_anger
@@ -174,7 +164,6 @@ function ApplyPedBloodSpecific(ped, component, u, v, rotation, scale, forcedFram
 ---basic_dirt_cloth
 ---basic_dirt_skin
 ---cs_trev1_dirt
----APPLY_PED_DAMAGE_DECAL(ped, 1, 0.5f, 0.513f, 0f, 1f, unk, 0, 0, "blushing");
 ---```
 ---@param ped integer
 ---@param damageZone integer
@@ -730,34 +719,42 @@ function ForcePedAiAndAnimationUpdate(ped, p1, p2) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF28965D04F570DCA)  
----```
----Some motionstate hashes are  
----0xec17e58 (standing idle), 0xbac0f10b (nothing?), 0x3f67c6af (aiming with pistol 2-h), 0x422d7a25 (stealth), 0xbd8817db, 0x916e828c  
----and those for the strings  
----"motionstate_idle", "motionstate_walk", "motionstate_run", "motionstate_actionmode_idle", and "motionstate_actionmode_walk".  
----Regarding p2, p3 and p4: Most common is 0, 0, 0); followed by 0, 1, 0); and 1, 1, 0); in the scripts. p4 is very rarely something other than 0.  
---- [31/03/2017] ins1de :  
----        enum MotionState  
----        {  
----            StopRunning = -530524,  
----            StopWalking = -668482597,  
----            Idle = 247561816, // 1, 1, 0  
----            Idl2 = -1871534317,  
----            SkyDive =-1161760501, // 0, 1, 0  
----            Stealth = 1110276645,  
----            Sprint = -1115154469,  
----            Swim = -1855028596,  
----            Unknown1 = 1063765679,  
----            Unknown2 = -633298724,  
----        }  
+---```cpp
+---enum ePedMotionState
+---{
+---    MOTIONSTATE_NONE = -294553821, // MotionState_None
+---    MOTIONSTATE_IDLE = -1871534317, // MotionState_Idle
+---    MOTIONSTATE_WALK = -668482597, // MotionState_Walk
+---    MOTIONSTATE_RUN = -530524, // MotionState_Run
+---    MOTIONSTATE_SPRINT = -1115154469, // MotionState_Sprint
+---    MOTIONSTATE_CROUCH_IDLE = 1140525470, // MotionState_Crouch_Idle
+---    MOTIONSTATE_CROUCH_WALK = 147004056, // MotionState_Crouch_Walk
+---    MOTIONSTATE_CROUCH_RUN = 898879241, // MotionState_Crouch_Run
+---    MOTIONSTATE_DONOTHING = 247561816, // MotionState_DoNothing
+---    MOTIONSTATE_ANIMATEDVELOCITY = 1427811395, // MotionState_AnimatedVelocity
+---    MOTIONSTATE_INVEHICLE = -1797663347, // MotionState_InVehicle
+---    MOTIONSTATE_AIMING = 1063765679, // MotionState_Aiming
+---    MOTIONSTATE_DIVING_IDLE = 1212730861, // MotionState_Diving_Idle
+---    MOTIONSTATE_DIVING_SWIM = -1855028596, // MotionState_Diving_Swim
+---    MOTIONSTATE_SWIMMING_TREADWATER = -776007225, // MotionState_Swimming_TreadWater
+---    MOTIONSTATE_DEAD = 230360860, // MotionState_Dead
+---    MOTIONSTATE_STEALTH_IDLE = 1110276645, // MotionState_Stealth_Idle
+---    MOTIONSTATE_STEALTH_WALK = 69908130, // MotionState_Stealth_Walk
+---    MOTIONSTATE_STEALTH_RUN = -83133983, // MotionState_Stealth_Run
+---    MOTIONSTATE_PARACHUTING = -1161760501, // MotionState_Parachuting
+---    MOTIONSTATE_ACTIONMODE_IDLE = -633298724, // MotionState_ActionMode_Idle
+---    MOTIONSTATE_ACTIONMODE_WALK = -762290521, // MotionState_ActionMode_Walk
+---    MOTIONSTATE_ACTIONMODE_RUN = 834330132, // MotionState_ActionMode_Run
+---    MOTIONSTATE_JETPACK = 1398696542 // MotionState_Jetpack
+---}
 ---```
 ---@param ped integer
 ---@param motionStateHash integer | string
----@param p2 boolean
----@param p3 integer
----@param p4 boolean
+---@param shouldReset boolean
+---@param updateState integer
+---@param forceAIPreCameraUpdate boolean
 ---@return boolean
-function ForcePedMotionState(ped, motionStateHash, p2, p3, p4) end
+function ForcePedMotionState(ped, motionStateHash, shouldReset, updateState, forceAIPreCameraUpdate) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x16E42E800B472221)  
@@ -1053,7 +1050,7 @@ function GetPedBoneCoords(ped, boneId, offsetX, offsetY, offsetZ) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3F428D08BE5AAE31)  
----```
+---```cpp
 ---enum ePedBoneId : uint16_t
 ---{
 ---    SKEL_ROOT = 0x0,
@@ -1469,8 +1466,7 @@ function GetPedDecorationsState(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9FD452BFBE7A7A8B)  
----```
----Returns the zoneID for the overlay if it is a member of collection.
+---```cpp
 ---enum ePedDecorationZone
 ---{
 ---	ZONE_TORSO = 0,
@@ -1916,36 +1912,36 @@ function GetPedTimeOfDeath(ped) end
 ---```cpp
 ---enum ePedType
 ---{
----	PED_TYPE_PLAYER_0,
----	PED_TYPE_PLAYER_1,
----	PED_TYPE_NETWORK_PLAYER,
----	PED_TYPE_PLAYER_2,
----	PED_TYPE_CIVMALE,
----	PED_TYPE_CIVFEMALE,
----	PED_TYPE_COP,
----	PED_TYPE_GANG_ALBANIAN,
----	PED_TYPE_GANG_BIKER_1,
----	PED_TYPE_GANG_BIKER_2,
----	PED_TYPE_GANG_ITALIAN,
----	PED_TYPE_GANG_RUSSIAN,
----	PED_TYPE_GANG_RUSSIAN_2,
----	PED_TYPE_GANG_IRISH,
----	PED_TYPE_GANG_JAMAICAN,
----	PED_TYPE_GANG_AFRICAN_AMERICAN,
----	PED_TYPE_GANG_KOREAN,
----	PED_TYPE_GANG_CHINESE_JAPANESE,
----	PED_TYPE_GANG_PUERTO_RICAN,
----	PED_TYPE_DEALER,
----	PED_TYPE_MEDIC,
----	PED_TYPE_FIREMAN,
----	PED_TYPE_CRIMINAL,
----	PED_TYPE_BUM,
----	PED_TYPE_PROSTITUTE,
----	PED_TYPE_SPECIAL,
----	PED_TYPE_MISSION,
----	PED_TYPE_SWAT,
----	PED_TYPE_ANIMAL,
----	PED_TYPE_ARMY
+---	PED_TYPE_PLAYER_0 = 0,
+---	PED_TYPE_PLAYER_1 = 1,
+---	PED_TYPE_NETWORK_PLAYER = 2,
+---	PED_TYPE_PLAYER_2 = 3,
+---	PED_TYPE_CIVMALE = 4,
+---	PED_TYPE_CIVFEMALE = 5,
+---	PED_TYPE_COP = 6,
+---	PED_TYPE_GANG_ALBANIAN = 7,
+---	PED_TYPE_GANG_BIKER_1 = 8,
+---	PED_TYPE_GANG_BIKER_2 = 9,
+---	PED_TYPE_GANG_ITALIAN = 10,
+---	PED_TYPE_GANG_RUSSIAN = 11,
+---	PED_TYPE_GANG_RUSSIAN_2 = 12,
+---	PED_TYPE_GANG_IRISH = 13,
+---	PED_TYPE_GANG_JAMAICAN = 14,
+---	PED_TYPE_GANG_AFRICAN_AMERICAN = 15,
+---	PED_TYPE_GANG_KOREAN = 16,
+---	PED_TYPE_GANG_CHINESE_JAPANESE = 17,
+---	PED_TYPE_GANG_PUERTO_RICAN = 18,
+---	PED_TYPE_DEALER = 19,
+---	PED_TYPE_MEDIC = 20,
+---	PED_TYPE_FIREMAN = 21,
+---	PED_TYPE_CRIMINAL = 22,
+---	PED_TYPE_BUM = 23,
+---	PED_TYPE_PROSTITUTE = 24,
+---	PED_TYPE_SPECIAL = 25,
+---	PED_TYPE_MISSION = 26,
+---	PED_TYPE_SWAT = 27,
+---	PED_TYPE_ANIMAL = 28,
+---	PED_TYPE_ARMY = 29
 ---};
 ---```
 ---@param ped integer
@@ -2103,7 +2099,7 @@ function GetVehiclePedIsUsing(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54C7C4A94367717E)  
----Gives the ped a helmet. Can be removed by invoking [`REMOVE_PED_HELMET`](#0xA7B2458D0AD6DED8).
+---Gives the ped a helmet. Can be removed by invoking [`REMOVE_PED_HELMET`](#\_0xA7B2458D0AD6DED8).
 ---
 ---```cpp
 ---enum ePedCompFlags {
@@ -2695,10 +2691,16 @@ IsPedStandingInCover = IsPedInHighCover
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84A2DD9AC37C35C1)  
----```
----Gets a value indicating whether this ped's health is below its injured threshold.  
----The default threshold is 100.  
----```
+---Indicates whether this ped's health is below its injured threshold.
+---The default threshold is 100, these are stored in the `pedhealth.meta` file located in `common:\data\`
+---
+---### Below are some of the values
+---
+---| InjuredHealthThreshold | Name      |
+---|------------------------|-----------|
+---| 100.000000             | Strong    |
+---| 100.000000             | Average   |
+---| 100.000000             | Weak      |
 ---@param ped integer
 ---@return boolean
 function IsPedInjured(ped) end
@@ -3049,7 +3051,7 @@ function IsPedUsingAnyScenario(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1BF094736DD62C2E)  
----This native does not have an official description.
+---See [`TASK_START_SCENARIO_IN_PLACE`](#\_0x142A02425FF02BD9) for a list of scenarios.
 ---@param ped integer
 ---@param scenario string
 ---@return boolean
@@ -3657,17 +3659,6 @@ function N_0xf2385935bffd4d92(ped) end
 function N_0xf2bebcdfafdaa19e(toggle) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF9ACF4A08098EA25)  
----```
----p1 was always 1 (true).  
----Kicks the ped from the current vehicle and keeps the rendering-focus on this ped (also disables its collision). If doing this for your player ped, you'll still be able to drive the vehicle.  
----Actual name begins with 'S'  
----```
----@param ped integer
----@param p1 boolean
-function N_0xf9acf4a08098ea25(ped, p1) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFAB944D4D481ACCB)  
 ---SET_A\*
 ---
@@ -3983,6 +3974,15 @@ function SetAiWeaponDamageModifier(value) end
 function SetAmbientPedsDropMoney(p0) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC73EFFC5E043A8BA)  
+---Prevents ambient peds from dropping their weapons for the current frame.
+---
+---```
+---NativeDB Introduced: v3258
+---```
+function SetBlockAmbientPedsFromDroppingWeaponsThisFrame() end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9F8AA94D6D97DBF4)  
 ---```
 ---works with TASK::TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS to make a ped completely oblivious to all events going on around him
@@ -4189,7 +4189,53 @@ function SetHeadBlendPaletteColor(ped, r, g, b, id) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC32779C16FCEECD9)  
----This native does not have an official description.
+---Sets the IK target for a given IK part belonging to the ped.
+---
+---**Please note:** The IK target will only be valid for one update, so it needs to be set for as long as it is needed (to avoid IK targets not being cleared and getting stuck enabled).
+---
+---```cpp
+---enum eIkPart {
+---  IK_PART_INVALID = 0,
+---  // head
+---  IK_PART_HEAD = 1,
+---  // spine
+---  IK_PART_SPINE = 2,
+---  // Left Arm
+---  IK_PART_ARM_LEFT = 3,
+---  // Right Arm
+---  IK_PART_ARM_RIGHT = 4,
+---  // Left Leg
+---  IK_PART_LEG_LEFT = 5,
+---  // Right Leg
+---  IK_PART_LEG_RIGHT = 6
+---};
+---
+---```
+---
+---```cpp
+---enum eIkTargetFlags {
+---  ITF_DEFAULT = 0,
+---  // arm target relative to the handbone
+---  ITF_ARM_TARGET_WRT_HANDBON = 1,
+---  // arm target relative to the pointhelper
+---  ITF_ARM_TARGET_WRT_POINTHELPER = 2,
+---  // arm target relative to the ikhelper
+---  ITF_ARM_TARGET_WRT_IKHELPE = 4,
+---  // use animation tags directly
+---  ITF_IK_TAG_MODE_NORMAL = 8,
+---  // use animation tags in ALLOW mode
+---  ITF_IK_TAG_MODE_ALLOW = 16,
+---  // use animation tags in BLOCK mode
+---  ITF_IK_TAG_MODE_BLOCK = 32,
+---  // solve for orientation in addition to position
+---  ITF_ARM_USE_ORIENTATION = 64
+---};
+---
+---```
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param ped integer
 ---@param ikIndex integer
 ---@param entityLookAt integer
@@ -4197,10 +4243,10 @@ function SetHeadBlendPaletteColor(ped, r, g, b, id) end
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
----@param p7 any
+---@param ikTargetFlags integer
 ---@param blendInDuration integer
 ---@param blendOutDuration integer
-function SetIkTarget(ped, ikIndex, entityLookAt, boneLookAt, offsetX, offsetY, offsetZ, p7, blendInDuration, blendOutDuration) end
+function SetIkTarget(ped, ikIndex, entityLookAt, boneLookAt, offsetX, offsetY, offsetZ, ikTargetFlags, blendInDuration, blendOutDuration) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x781DE8FA214E87D2)  
@@ -4635,88 +4681,170 @@ function SetPedCombatAbility(ped, p1) end
 ---enum eCombatAttribute
 ---{
 ---  CA_INVALID = -1,	
----  CA_USE_COVER = 0, // AI will only use cover if this is set
----  CA_USE_VEHICLE = 1, // AI will only use vehicles if this is set
----  CA_DO_DRIVEBYS = 2, // AI will only driveby from a vehicle if this is set
----  CA_LEAVE_VEHICLES = 3, // Will be forced to stay in a ny vehicel if this isn't set
----  CA_CAN_USE_DYNAMIC_STRAFE_DECISIONS	= 4, // This ped can make decisions on whether to strafe or not based on distance to destination, recent bullet events, etc.
----  CA_ALWAYS_FIGHT = 5, // Ped will always fight upon getting threat response task
----  CA_FLEE_WHILST_IN_VEHICLE = 6, // If in combat and in a vehicle, the ped will flee rather than attacking
----  CA_JUST_FOLLOW_VEHICLE = 7, // If in combat and chasing in a vehicle, the ped will keep a distance behind rather than ramming
----  CA_PLAY_REACTION_ANIMS = 8, // Deprecated
----  CA_WILL_SCAN_FOR_DEAD_PEDS = 9, // Peds will scan for and react to dead peds found
----  CA_IS_A_GUARD = 10, // Deprecated
----  CA_JUST_SEEK_COVER = 11, // The ped will seek cover only 
----  CA_BLIND_FIRE_IN_COVER = 12, // Ped will only blind fire when in cover
----  CA_AGGRESSIVE = 13, // Ped may advance
----  CA_CAN_INVESTIGATE = 14, // Ped can investigate events such as distant gunfire, footsteps, explosions etc
----  CA_CAN_USE_RADIO = 15, // Ped can use a radio to call for backup (happens after a reaction)
----  CA_CAN_CAPTURE_ENEMY_PEDS = 16, // Deprecated
----  CA_ALWAYS_FLEE = 17, // Ped will always flee upon getting threat response task
----  CA_CAN_TAUNT_IN_VEHICLE = 20, // Ped can do unarmed taunts in vehicle
----  CA_CAN_CHASE_TARGET_ON_FOOT = 21, // Ped will be able to chase their targets if both are on foot and the target is running away
----  CA_WILL_DRAG_INJURED_PEDS_TO_SAFETY = 22, // Ped can drag injured peds to safety
----  CA_REQUIRES_LOS_TO_SHOOT = 23, // Ped will require LOS to the target it is aiming at before shooting
----  CA_USE_PROXIMITY_FIRING_RATE = 24, // Ped is allowed to use proximity based fire rate (increasing fire rate at closer distances)
----  CA_DISABLE_SECONDARY_TARGET = 25, // Normally peds can switch briefly to a secondary target in combat, setting this will prevent that
----  CA_DISABLE_ENTRY_REACTIONS = 26, // This will disable the flinching combat entry reactions for peds, instead only playing the turn and aim anims
----  CA_PERFECT_ACCURACY = 27, // Force ped to be 100% accurate in all situations (added by Jay Reinebold)
----  CA_CAN_USE_FRUSTRATED_ADVANCE	= 28, // If we don't have cover and can't see our target it's possible we will advance, even if the target is in cover
----  CA_MOVE_TO_LOCATION_BEFORE_COVER_SEARCH = 29, // This will have the ped move to defensive areas and within attack windows before performing the cover search
----  CA_CAN_SHOOT_WITHOUT_LOS = 30, // Allow shooting of our weapon even if we don't have LOS (this isn't X-ray vision as it only affects weapon firing)
----  CA_MAINTAIN_MIN_DISTANCE_TO_TARGET = 31, // Ped will try to maintain a min distance to the target, even if using defensive areas (currently only for cover finding + usage) 
----  CA_CAN_USE_PEEKING_VARIATIONS	= 34, // Allows ped to use steamed variations of peeking anims
----  CA_DISABLE_PINNED_DOWN = 35, // Disables pinned down behaviors
----  CA_DISABLE_PIN_DOWN_OTHERS = 36, // Disables pinning down others
----  CA_OPEN_COMBAT_WHEN_DEFENSIVE_AREA_IS_REACHED = 37, // When defensive area is reached the area is cleared and the ped is set to use defensive combat movement
----  CA_DISABLE_BULLET_REACTIONS = 38, // Disables bullet reactions
----  CA_CAN_BUST = 39, // Allows ped to bust the player
----  CA_IGNORED_BY_OTHER_PEDS_WHEN_WANTED = 40, // This ped is ignored by other peds when wanted
----  CA_CAN_COMMANDEER_VEHICLES = 41, // Ped is allowed to "jack" vehicles when needing to chase a target in combat
----  CA_CAN_FLANK = 42, // Ped is allowed to flank
----  CA_SWITCH_TO_ADVANCE_IF_CANT_FIND_COVER = 43,	// Ped will switch to advance if they can't find cover
----  CA_SWITCH_TO_DEFENSIVE_IF_IN_COVER = 44, // Ped will switch to defensive if they are in cover
----  CA_CLEAR_PRIMARY_DEFENSIVE_AREA_WHEN_REACHED = 45, // Ped will clear their primary defensive area when it is reached
----  CA_CAN_FIGHT_ARMED_PEDS_WHEN_NOT_ARMED = 46, // Ped is allowed to fight armed peds when not armed
----  CA_ENABLE_TACTICAL_POINTS_WHEN_DEFENSIVE = 47, // Ped is not allowed to use tactical points if set to use defensive movement (will only use cover)
----  CA_DISABLE_COVER_ARC_ADJUSTMENTS = 48, // Ped cannot adjust cover arcs when testing cover safety (atm done on corner cover points when  ped usingdefensive area + no LOS)
----  CA_USE_ENEMY_ACCURACY_SCALING	= 49, // Ped may use reduced accuracy with large number of enemies attacking the same local player target
----  CA_CAN_CHARGE = 50, // Ped is allowed to charge the enemy position
----  CA_REMOVE_AREA_SET_WILL_ADVANCE_WHEN_DEFENSIVE_AREA_REACHED = 51, // When defensive area is reached the area is cleared and the ped is set to use will advance movement
----  CA_USE_VEHICLE_ATTACK = 52, // Use the vehicle attack mission during combat (only works on driver)
----  CA_USE_VEHICLE_ATTACK_IF_VEHICLE_HAS_MOUNTED_GUNS = 53, // Use the vehicle attack mission during combat if the vehicle has mounted guns (only works on driver)
----  CA_ALWAYS_EQUIP_BEST_WEAPON = 54, // Always equip best weapon in combat
----  CA_CAN_SEE_UNDERWATER_PEDS = 55, // Ignores in water at depth visibility check
----  CA_DISABLE_AIM_AT_AI_TARGETS_IN_HELIS = 56, // Will prevent this ped from aiming at any AI targets that are in helicopters
----  CA_DISABLE_SEEK_DUE_TO_LINE_OF_SIGHT = 57, // Disables peds seeking due to no clear line of sight
----  CA_DISABLE_FLEE_FROM_COMBAT = 58, // To be used when releasing missions peds if we don't want them fleeing from combat (mission peds already prevent flee)
----  CA_DISABLE_TARGET_CHANGES_DURING_VEHICLE_PURSUIT = 59, // Disables target changes during vehicle pursuit
----  CA_CAN_THROW_SMOKE_GRENADE = 60, // Ped may throw a smoke grenade at player loitering in combat
----  CA_CLEAR_AREA_SET_DEFENSIVE_IF_DEFENSIVE_CANNOT_BE_REACHED = 62, // Will clear a set defensive area if that area cannot be reached
----  CA_DISABLE_BLOCK_FROM_PURSUE_DURING_VEHICLE_CHASE = 64, // Disable block from pursue during vehicle chases
----  CA_DISABLE_SPIN_OUT_DURING_VEHICLE_CHASE = 65, // Disable spin out during vehicle chases
----  CA_DISABLE_CRUISE_IN_FRONT_DURING_BLOCK_DURING_VEHICLE_CHASE = 66, // Disable cruise in front during block during vehicle chases
----  CA_CAN_IGNORE_BLOCKED_LOS_WEIGHTING = 67, // Makes it more likely that the ped will continue targeting a target with blocked los for a few seconds
----  CA_DISABLE_REACT_TO_BUDDY_SHOT = 68, // Disables the react to buddy shot behaviour.
----  CA_PREFER_NAVMESH_DURING_VEHICLE_CHASE = 69, // Prefer pathing using navmesh over road nodes
----  CA_ALLOWED_TO_AVOID_OFFROAD_DURING_VEHICLE_CHASE = 70, // Ignore road edges when avoiding
----  CA_PERMIT_CHARGE_BEYOND_DEFENSIVE_AREA = 71, // Permits ped to charge a target outside the assigned defensive area.
----  CA_USE_ROCKETS_AGAINST_VEHICLES_ONLY = 72, // This ped will switch to an RPG if target is in a vehicle, otherwise will use alternate weapon.
----  CA_DISABLE_TACTICAL_POINTS_WITHOUT_CLEAR_LOS = 73, // Disables peds moving to a tactical point without clear los
----  CA_DISABLE_PULL_ALONGSIDE_DURING_VEHICLE_CHASE = 74, // Disables pull alongside during vehicle chase
----  CA_DISABLE_ALL_RANDOMS_FLEE = 78,	// If set on a ped, they will not flee when all random peds flee is set to TRUE (they are still able to flee due to other reasons)
----  CA_WILL_GENERATE_DEAD_PED_SEEN_SCRIPT_EVENTS = 79, // This ped will send out a script DeadPedSeenEvent when they see a dead ped
----  CA_USE_MAX_SENSE_RANGE_WHEN_RECEIVING_EVENTS = 80, // This will use the receiving peds sense range rather than the range supplied to the communicate event
----  CA_RESTRICT_IN_VEHICLE_AIMING_TO_CURRENT_SIDE = 81, // When aiming from a vehicle the ped will only aim at targets on his side of the vehicle
----  CA_USE_DEFAULT_BLOCKED_LOS_POSITION_AND_DIRECTION = 82, // LOS to the target is blocked we return to our default position and direction until we have LOS (no aiming)
----  CA_REQUIRES_LOS_TO_AIM = 83, // LOS to the target is blocked we return to our default position and direction until we have LOS (no aiming)
----  CA_CAN_CRUISE_AND_BLOCK_IN_VEHICLE = 84, // Allow vehicles spawned infront of target facing away to enter cruise and wait to block approaching target
----  CA_PREFER_AIR_COMBAT_WHEN_IN_AIRCRAFT = 85, // Peds flying aircraft will prefer to target other aircraft over entities on the ground
----  CA_ALLOW_DOG_FIGHTING = 86, //Allow peds flying aircraft to use dog fighting behaviours
----  CA_PREFER_NON_AIRCRAFT_TARGETS = 87, // This will make the weight of targets who aircraft vehicles be reduced greatly compared to targets on foot or in ground based vehicles
----  CA_PREFER_KNOWN_TARGETS_WHEN_COMBAT_CLOSEST_TARGET = 88, //When peds are tasked to go to combat, they keep searching for a known target for a while before forcing an unknown one
----  CA_FORCE_CHECK_ATTACK_ANGLE_FOR_MOUNTED_GUNS = 89, // Only allow mounted weapons to fire if within the correct attack angle (default 25-degree cone). On a flag in order to keep exiting behaviour and only fix in specific cases.
----  CA_BLOCK_FIRE_FOR_VEHICLE_PASSENGER_MOUNTED_GUNS = 90 // Blocks the firing state for passenger-controlled mounted weapons. Existing flags CA_USE_VEHICLE_ATTACK and CA_USE_VEHICLE_ATTACK_IF_VEHICLE_HAS_MOUNTED_GUNS only work for drivers.
+---  // AI will only use cover if this is set
+---  CA_USE_COVER = 0,
+---  // AI will only use vehicles if this is set
+---  CA_USE_VEHICLE = 1,
+---  // AI will only driveby from a vehicle if this is set
+---  CA_DO_DRIVEBYS = 2,
+---  // Will be forced to stay in a ny vehicel if this isn't set
+---  CA_LEAVE_VEHICLES = 3,
+---  // This ped can make decisions on whether to strafe or not based on distance to destination, recent bullet events, etc.
+---  CA_CAN_USE_DYNAMIC_STRAFE_DECISIONS	= 4,
+---  // Ped will always fight upon getting threat response task
+---  CA_ALWAYS_FIGHT = 5,
+---  // If in combat and in a vehicle, the ped will flee rather than attacking
+---  CA_FLEE_WHILST_IN_VEHICLE = 6,
+---  // If in combat and chasing in a vehicle, the ped will keep a distance behind rather than ramming
+---  CA_JUST_FOLLOW_VEHICLE = 7,
+---  // Deprecated
+---  CA_PLAY_REACTION_ANIMS = 8,
+---  // Peds will scan for and react to dead peds found
+---  CA_WILL_SCAN_FOR_DEAD_PEDS = 9,
+---  // Deprecated
+---  CA_IS_A_GUARD = 10,
+---  // The ped will seek cover only 
+---  CA_JUST_SEEK_COVER = 11,
+---  // Ped will only blind fire when in cover
+---  CA_BLIND_FIRE_IN_COVER = 12,
+---  // Ped may advance
+---  CA_AGGRESSIVE = 13,
+---  // Ped can investigate events such as distant gunfire, footsteps, explosions etc
+---  CA_CAN_INVESTIGATE = 14,
+---  // Ped can use a radio to call for backup (happens after a reaction)
+---  CA_CAN_USE_RADIO = 15,
+---  // Deprecated
+---  CA_CAN_CAPTURE_ENEMY_PEDS = 16,
+---  // Ped will always flee upon getting threat response task
+---  CA_ALWAYS_FLEE = 17,
+---  // Ped can do unarmed taunts in vehicle
+---  CA_CAN_TAUNT_IN_VEHICLE = 20,
+---  // Ped will be able to chase their targets if both are on foot and the target is running away
+---  CA_CAN_CHASE_TARGET_ON_FOOT = 21,
+---  // Ped can drag injured peds to safety
+---  CA_WILL_DRAG_INJURED_PEDS_TO_SAFETY = 22,
+---  // Ped will require LOS to the target it is aiming at before shooting
+---  CA_REQUIRES_LOS_TO_SHOOT = 23,
+---  // Ped is allowed to use proximity based fire rate (increasing fire rate at closer distances)
+---  CA_USE_PROXIMITY_FIRING_RATE = 24,
+---  // Normally peds can switch briefly to a secondary target in combat, setting this will prevent that
+---  CA_DISABLE_SECONDARY_TARGET = 25,
+---  // This will disable the flinching combat entry reactions for peds, instead only playing the turn and aim anims
+---  CA_DISABLE_ENTRY_REACTIONS = 26,
+---  // Force ped to be 100% accurate in all situations (added by Jay Reinebold)
+---  CA_PERFECT_ACCURACY = 27,
+---  // If we don't have cover and can't see our target it's possible we will advance, even if the target is in cover
+---  CA_CAN_USE_FRUSTRATED_ADVANCE	= 28,
+---  // This will have the ped move to defensive areas and within attack windows before performing the cover search
+---  CA_MOVE_TO_LOCATION_BEFORE_COVER_SEARCH = 29,
+---  // Allow shooting of our weapon even if we don't have LOS (this isn't X-ray vision as it only affects weapon firing)
+---  CA_CAN_SHOOT_WITHOUT_LOS = 30,
+---  // Ped will try to maintain a min distance to the target, even if using defensive areas (currently only for cover finding + usage) 
+---  CA_MAINTAIN_MIN_DISTANCE_TO_TARGET = 31,
+---  // Allows ped to use steamed variations of peeking anims
+---  CA_CAN_USE_PEEKING_VARIATIONS	= 34,
+---  // Disables pinned down behaviors
+---  CA_DISABLE_PINNED_DOWN = 35,
+---  // Disables pinning down others
+---  CA_DISABLE_PIN_DOWN_OTHERS = 36,
+---  // When defensive area is reached the area is cleared and the ped is set to use defensive combat movement
+---  CA_OPEN_COMBAT_WHEN_DEFENSIVE_AREA_IS_REACHED = 37,
+---  // Disables bullet reactions
+---  CA_DISABLE_BULLET_REACTIONS = 38,
+---  // Allows ped to bust the player
+---  CA_CAN_BUST = 39,
+---  // This ped is ignored by other peds when wanted
+---  CA_IGNORED_BY_OTHER_PEDS_WHEN_WANTED = 40,
+---  // Ped is allowed to "jack" vehicles when needing to chase a target in combat
+---  CA_CAN_COMMANDEER_VEHICLES = 41,
+---  // Ped is allowed to flank
+---  CA_CAN_FLANK = 42,
+---  // Ped will switch to advance if they can't find cover
+---  CA_SWITCH_TO_ADVANCE_IF_CANT_FIND_COVER = 43,
+---  // Ped will switch to defensive if they are in cover
+---  CA_SWITCH_TO_DEFENSIVE_IF_IN_COVER = 44,
+---  // Ped will clear their primary defensive area when it is reached
+---  CA_CLEAR_PRIMARY_DEFENSIVE_AREA_WHEN_REACHED = 45,
+---  // Ped is allowed to fight armed peds when not armed
+---  CA_CAN_FIGHT_ARMED_PEDS_WHEN_NOT_ARMED = 46,
+---  // Ped is not allowed to use tactical points if set to use defensive movement (will only use cover)
+---  CA_ENABLE_TACTICAL_POINTS_WHEN_DEFENSIVE = 47,
+---  // Ped cannot adjust cover arcs when testing cover safety (atm done on corner cover points when  ped usingdefensive area + no LOS)
+---  CA_DISABLE_COVER_ARC_ADJUSTMENTS = 48,
+---  // Ped may use reduced accuracy with large number of enemies attacking the same local player target
+---  CA_USE_ENEMY_ACCURACY_SCALING	= 49,
+---  // Ped is allowed to charge the enemy position
+---  CA_CAN_CHARGE = 50,
+---  // When defensive area is reached the area is cleared and the ped is set to use will advance movement
+---  CA_REMOVE_AREA_SET_WILL_ADVANCE_WHEN_DEFENSIVE_AREA_REACHED = 51,
+---  // Use the vehicle attack mission during combat (only works on driver)
+---  CA_USE_VEHICLE_ATTACK = 52,
+---  // Use the vehicle attack mission during combat if the vehicle has mounted guns (only works on driver)
+---  CA_USE_VEHICLE_ATTACK_IF_VEHICLE_HAS_MOUNTED_GUNS = 53,
+---  // Always equip best weapon in combat
+---  CA_ALWAYS_EQUIP_BEST_WEAPON = 54,
+---  // Ignores in water at depth visibility check
+---  CA_CAN_SEE_UNDERWATER_PEDS = 55,
+---  // Will prevent this ped from aiming at any AI targets that are in helicopters
+---  CA_DISABLE_AIM_AT_AI_TARGETS_IN_HELIS = 56,
+---  // Disables peds seeking due to no clear line of sight
+---  CA_DISABLE_SEEK_DUE_TO_LINE_OF_SIGHT = 57,
+---  // To be used when releasing missions peds if we don't want them fleeing from combat (mission peds already prevent flee)
+---  CA_DISABLE_FLEE_FROM_COMBAT = 58,
+---  // Disables target changes during vehicle pursuit
+---  CA_DISABLE_TARGET_CHANGES_DURING_VEHICLE_PURSUIT = 59,
+---  // Ped may throw a smoke grenade at player loitering in combat
+---  CA_CAN_THROW_SMOKE_GRENADE = 60,
+---  // Will clear a set defensive area if that area cannot be reached
+---  CA_CLEAR_AREA_SET_DEFENSIVE_IF_DEFENSIVE_CANNOT_BE_REACHED = 62,
+---  // Disable block from pursue during vehicle chases
+---  CA_DISABLE_BLOCK_FROM_PURSUE_DURING_VEHICLE_CHASE = 64,
+---  // Disable spin out during vehicle chases
+---  CA_DISABLE_SPIN_OUT_DURING_VEHICLE_CHASE = 65,
+---  // Disable cruise in front during block during vehicle chases
+---  CA_DISABLE_CRUISE_IN_FRONT_DURING_BLOCK_DURING_VEHICLE_CHASE = 66,
+---  // Makes it more likely that the ped will continue targeting a target with blocked los for a few seconds
+---  CA_CAN_IGNORE_BLOCKED_LOS_WEIGHTING = 67,
+---  // Disables the react to buddy shot behaviour.
+---  CA_DISABLE_REACT_TO_BUDDY_SHOT = 68,
+---  // Prefer pathing using navmesh over road nodes
+---  CA_PREFER_NAVMESH_DURING_VEHICLE_CHASE = 69,
+---  // Ignore road edges when avoiding
+---  CA_ALLOWED_TO_AVOID_OFFROAD_DURING_VEHICLE_CHASE = 70,
+---  // Permits ped to charge a target outside the assigned defensive area.
+---  CA_PERMIT_CHARGE_BEYOND_DEFENSIVE_AREA = 71,
+---  // This ped will switch to an RPG if target is in a vehicle, otherwise will use alternate weapon.
+---  CA_USE_ROCKETS_AGAINST_VEHICLES_ONLY = 72,
+---  // Disables peds moving to a tactical point without clear los
+---  CA_DISABLE_TACTICAL_POINTS_WITHOUT_CLEAR_LOS = 73,
+---  // Disables pull alongside during vehicle chase
+---  CA_DISABLE_PULL_ALONGSIDE_DURING_VEHICLE_CHASE = 74,
+---  // If set on a ped, they will not flee when all random peds flee is set to TRUE (they are still able to flee due to other reasons)
+---  CA_DISABLE_ALL_RANDOMS_FLEE = 78,
+---  // This ped will send out a script DeadPedSeenEvent when they see a dead ped
+---  CA_WILL_GENERATE_DEAD_PED_SEEN_SCRIPT_EVENTS = 79,
+---  // This will use the receiving peds sense range rather than the range supplied to the communicate event
+---  CA_USE_MAX_SENSE_RANGE_WHEN_RECEIVING_EVENTS = 80,
+---  // When aiming from a vehicle the ped will only aim at targets on his side of the vehicle
+---  CA_RESTRICT_IN_VEHICLE_AIMING_TO_CURRENT_SIDE = 81,
+---  // LOS to the target is blocked we return to our default position and direction until we have LOS (no aiming)
+---  CA_USE_DEFAULT_BLOCKED_LOS_POSITION_AND_DIRECTION = 82,
+---  // LOS to the target is blocked we return to our default position and direction until we have LOS (no aiming)
+---  CA_REQUIRES_LOS_TO_AIM = 83,
+---  // Allow vehicles spawned infront of target facing away to enter cruise and wait to block approaching target
+---  CA_CAN_CRUISE_AND_BLOCK_IN_VEHICLE = 84,
+---  // Peds flying aircraft will prefer to target other aircraft over entities on the ground
+---  CA_PREFER_AIR_COMBAT_WHEN_IN_AIRCRAFT = 85,
+---  //Allow peds flying aircraft to use dog fighting behaviours
+---  CA_ALLOW_DOG_FIGHTING = 86,
+---  // This will make the weight of targets who aircraft vehicles be reduced greatly compared to targets on foot or in ground based vehicles
+---  CA_PREFER_NON_AIRCRAFT_TARGETS = 87,
+---  //When peds are tasked to go to combat, they keep searching for a known target for a while before forcing an unknown one
+---  CA_PREFER_KNOWN_TARGETS_WHEN_COMBAT_CLOSEST_TARGET = 88,
+---  // Only allow mounted weapons to fire if within the correct attack angle (default 25-degree cone). On a flag in order to keep exiting behaviour and only fix in specific cases.
+---  CA_FORCE_CHECK_ATTACK_ANGLE_FOR_MOUNTED_GUNS = 89,
+---  // Blocks the firing state for passenger-controlled mounted weapons. Existing flags CA_USE_VEHICLE_ATTACK and CA_USE_VEHICLE_ATTACK_IF_VEHICLE_HAS_MOUNTED_GUNS only work for drivers.
+---  CA_BLOCK_FIRE_FOR_VEHICLE_PASSENGER_MOUNTED_GUNS = 90 
 ---};
 ---```
 ---@param ped integer
@@ -4743,9 +4871,9 @@ function SetPedCombatMovement(ped, combatMovement) end
 ---```cpp
 ---enum eCombatRange {
 ---    CR_NEAR = 0, // keeps within 5-15m
----    CR_MEDIUM, // keeps within 7-30m
----    CR_FAR, // keeps within 15-40m
----    CR_VERY_FAR // keeps within 22-45m
+---    CR_MEDIUM = 1, // keeps within 7-30m
+---    CR_FAR = 2, // keeps within 15-40m
+---    CR_VERY_FAR = 3 // keeps within 22-45m
 ---};
 ---```
 ---@param ped integer
@@ -4805,64 +4933,64 @@ function SetPedComponentVariation(ped, componentId, drawableId, textureId, palet
 ---```cpp
 ---// Potential names and hash collisions included as comments
 ---enum ePedConfigFlags {
----	_0x67D1A445 = 0,
----	_0xC63DE95E = 1,
+---	CPED_CONFIG_FLAG_CreatedByFactory = 0,
+---	CPED_CONFIG_FLAG_CanBeShotInVehicle = 1,
 ---	CPED_CONFIG_FLAG_NoCriticalHits = 2,
 ---	CPED_CONFIG_FLAG_DrownsInWater = 3,
----	CPED_CONFIG_FLAG_DisableReticuleFixedLockon = 4,
----	_0x37D196F4 = 5,
----	_0xE2462399 = 6,
+---	CPED_CONFIG_FLAG_DrownsInSinkingVehicle = 4,
+---	CPED_CONFIG_FLAG_DiesInstantlyWhenSwimming = 5,
+---	CPED_CONFIG_FLAG_HasBulletProofVest = 6,
 ---	CPED_CONFIG_FLAG_UpperBodyDamageAnimsOnly = 7,
----	_0xEDDEB838 = 8,
----	_0xB398B6FD = 9,
----	_0xF6664E68 = 10,
----	_0xA05E7CA3 = 11,
----	_0xCE394045 = 12,
+---	CPED_CONFIG_FLAG_NeverFallOffSkis = 8,
+---	CPED_CONFIG_FLAG_NeverEverTargetThisPed = 9,
+---	CPED_CONFIG_FLAG_ThisPedIsATargetPriority = 10,
+---	CPED_CONFIG_FLAG_TargettableWithNoLos = 11,
+---	CPED_CONFIG_FLAG_DoesntListenToPlayerGroupCommands = 12,
 ---	CPED_CONFIG_FLAG_NeverLeavesGroup = 13,
----	_0xCD8D1411 = 14,
----	_0xB031F1A9 = 15,
----	_0xFE65BEE3 = 16,
+---	CPED_CONFIG_FLAG_DoesntDropWeaponsWhenDead = 14,
+---	CPED_CONFIG_FLAG_SetDelayedWeaponAsCurrent = 15,
+---	CPED_CONFIG_FLAG_KeepTasksAfterCleanUp = 16,
 ---	CPED_CONFIG_FLAG_BlockNonTemporaryEvents = 17,
----	_0x380165BD = 18,
----	_0x07C045C7 = 19,
----	_0x583B5E2D = 20,
----	_0x475EDA58 = 21,
----	_0x8629D05B = 22,
----	_0x1522968B = 23,
+---	CPED_CONFIG_FLAG_HasAScriptBrain = 18,
+---	CPED_CONFIG_FLAG_WaitingForScriptBrainToLoad = 19,
+---	CPED_CONFIG_FLAG_AllowMedicsToReviveMe = 20,
+---	CPED_CONFIG_FLAG_MoneyHasBeenGivenByScript = 21,
+---	CPED_CONFIG_FLAG_NotAllowedToCrouch = 22,
+---	CPED_CONFIG_FLAG_DeathPickupsPersist = 23,
 ---	CPED_CONFIG_FLAG_IgnoreSeenMelee = 24,
----	_0x4CC09C4B = 25,
----	_0x034F3053 = 26,
----	_0xD91BA7CC = 27,
----	_0x5C8DC66E = 28,
----	_0x8902EAA0 = 29,
----	_0x6580B9D2 = 30,
----	_0x0EF7A297 = 31,
----	_0x6BF86E5B = 32,
+---	CPED_CONFIG_FLAG_ForceDieIfInjured = 25,
+---	CPED_CONFIG_FLAG_DontDragMeOutCar = 26,
+---	CPED_CONFIG_FLAG_StayInCarOnJack = 27,
+---	CPED_CONFIG_FLAG_ForceDieInCar = 28,
+---	CPED_CONFIG_FLAG_GetOutUndriveableVehicle = 29,
+---	CPED_CONFIG_FLAG_WillRemainOnBoatAfterMissionEnds = 30,
+---	CPED_CONFIG_FLAG_DontStoreAsPersistent = 31,
+---	CPED_CONFIG_FLAG_WillFlyThroughWindscreen = 32,
 ---	CPED_CONFIG_FLAG_DieWhenRagdoll = 33,
 ---	CPED_CONFIG_FLAG_HasHelmet = 34,
 ---	CPED_CONFIG_FLAG_UseHelmet = 35,
----	_0xEEB3D630 = 36,
----	_0xB130D17B = 37,
----	_0x5F071200 = 38,
+---	CPED_CONFIG_FLAG_DontTakeOffHelmet = 36,
+---	CPED_CONFIG_FLAG_HideInCutscene = 37,
+---	CPED_CONFIG_FLAG_PedIsEnemyToPlayer = 38,
 ---	CPED_CONFIG_FLAG_DisableEvasiveDives = 39,
----	_0xC287AAFF = 40,
----	_0x203328CC = 41,
+---	CPED_CONFIG_FLAG_PedGeneratesDeadBodyEvents = 40,
+---	CPED_CONFIG_FLAG_DontAttackPlayerWithoutWantedLevel = 41,
 ---	CPED_CONFIG_FLAG_DontInfluenceWantedLevel = 42,
 ---	CPED_CONFIG_FLAG_DisablePlayerLockon = 43,
 ---	CPED_CONFIG_FLAG_DisableLockonToRandomPeds = 44,
----	_0xEC4A8ACF = 45,
+---	CPED_CONFIG_FLAG_AllowLockonToFriendlyPlayers = 45,
 ---	_0xDB115BFA = 46,
 ---	CPED_CONFIG_FLAG_PedBeingDeleted = 47,
 ---	CPED_CONFIG_FLAG_BlockWeaponSwitching = 48,
----	_0xF8E99565 = 49,
----	_0xDD17FEE6 = 50,
----	_0x7ED9B2C9 = 51,
----	_0x655E8618 = 52,
----	_0x5A6C1F6E = 53,
----	_0xD749FC41 = 54,
----	_0x357F63F3 = 55,
----	_0xC5E60961 = 56,
----	_0x29275C3E = 57,
+---	CPED_CONFIG_FLAG_BlockGroupPedAimedAtResponse = 49,
+---	CPED_CONFIG_FLAG_WillFollowLeaderAnyMeans = 50,
+---	CPED_CONFIG_FLAG_BlippedByScript = 51,
+---	CPED_CONFIG_FLAG_DrawRadarVisualField = 52,
+---	CPED_CONFIG_FLAG_StopWeaponFiringOnImpact = 53,
+---	CPED_CONFIG_FLAG_DissableAutoFallOffTests = 54,
+---	CPED_CONFIG_FLAG_SteerAroundDeadBodies = 55,
+---	CPED_CONFIG_FLAG_ConstrainToNavMesh = 56,
+---	CPED_CONFIG_FLAG_SyncingAnimatedProps = 57,
 ---	CPED_CONFIG_FLAG_IsFiring = 58,
 ---	CPED_CONFIG_FLAG_WasFiring = 59,
 ---	CPED_CONFIG_FLAG_IsStanding = 60,
@@ -4877,392 +5005,398 @@ function SetPedComponentVariation(ped, componentId, drawableId, textureId, palet
 ---	CPED_CONFIG_FLAG_KilledByStealth = 69,
 ---	CPED_CONFIG_FLAG_KilledByTakedown = 70,
 ---	CPED_CONFIG_FLAG_Knockedout = 71,
----	_0x3E3C4560 = 72,
----	_0x2994C7B7 = 73,
----	_0x6D59D275 = 74,
+---	CPED_CONFIG_FLAG_ClearRadarBlipOnDeath = 72,
+---	CPED_CONFIG_FLAG_JustGotOffTrain = 73,
+---	CPED_CONFIG_FLAG_JustGotOnTrain = 74,
 ---	CPED_CONFIG_FLAG_UsingCoverPoint = 75,
 ---	CPED_CONFIG_FLAG_IsInTheAir = 76,
----	_0x2D493FB7 = 77,
+---	CPED_CONFIG_FLAG_KnockedUpIntoAir = 77,
 ---	CPED_CONFIG_FLAG_IsAimingGun = 78,
----	_0x14D69875 = 79,
----	_0x40B05311 = 80,
----	_0x8B230BC5 = 81,
----	_0xC74E5842 = 82,
----	_0x9EA86147 = 83,
----	_0x674C746C = 84,
----	_0x3E56A8C2 = 85,
----	_0xC144A1EF = 86,
----	_0x0548512D = 87,
----	_0x31C93909 = 88,
----	_0xA0269315 = 89,
----	_0xD4D59D4D = 90,
----	_0x411D4420 = 91,
----	_0xDF4AEF0D = 92,
+---	CPED_CONFIG_FLAG_HasJustLeftCar = 79,
+---	CPED_CONFIG_FLAG_TargetWhenInjuredAllowed = 80,
+---	CPED_CONFIG_FLAG_CurrLeftFootCollNM = 81,
+---	CPED_CONFIG_FLAG_PrevLeftFootCollNM = 82,
+---	CPED_CONFIG_FLAG_CurrRightFootCollNM = 83,
+---	CPED_CONFIG_FLAG_PrevRightFootCollNM = 84,
+---	CPED_CONFIG_FLAG_HasBeenBumpedInCar = 85,
+---	CPED_CONFIG_FLAG_InWaterTaskQuitToClimbLadder = 86,
+---	CPED_CONFIG_FLAG_NMTwoHandedWeaponBothHandsConstrained = 87,
+---	CPED_CONFIG_FLAG_CreatedBloodPoolTimer = 88,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromAnyPedImpact = 89,
+---	CPED_CONFIG_FLAG_GroupPedFailedToEnterCover = 90,
+---	CPED_CONFIG_FLAG_AlreadyChattedOnPhone = 91,
+---	CPED_CONFIG_FLAG_AlreadyReactedToPedOnRoof = 92,
 ---	CPED_CONFIG_FLAG_ForcePedLoadCover = 93,
----	_0x300E4CD3 = 94,
----	_0xF1C5BF04 = 95,
----	_0x89C2EF13 = 96,
+---	CPED_CONFIG_FLAG_BlockCoweringInCover = 94,
+---	CPED_CONFIG_FLAG_BlockPeekingInCover = 95,
+---	CPED_CONFIG_FLAG_JustLeftCarNotCheckedForDoors = 96,
 ---	CPED_CONFIG_FLAG_VaultFromCover = 97,
----	_0x02A852C8 = 98,
----	_0x3D9407F1 = 99,
----	_0x319B4558 = 100,
+---	CPED_CONFIG_FLAG_AutoConversationLookAts = 98,
+---	CPED_CONFIG_FLAG_UsingCrouchedPedCapsule = 99,
+---	CPED_CONFIG_FLAG_HasDeadPedBeenReported = 100,
 ---	CPED_CONFIG_FLAG_ForcedAim = 101,
----	_0xB942D71A = 102,
----	_0xD26C55A8 = 103,
----	_0xB89E703B = 104,
+---	CPED_CONFIG_FLAG_SteersAroundPeds = 102,
+---	CPED_CONFIG_FLAG_SteersAroundObjects = 103,
+---	CPED_CONFIG_FLAG_OpenDoorArmIK = 104,
 ---	CPED_CONFIG_FLAG_ForceReload = 105,
----	_0xD9E73DA2 = 106,
----	_0xFF71DC2C = 107,
----	_0x1E27E8D8 = 108,
----	_0xF2C53966 = 109,
----	_0xC4DBE247 = 110,
----	_0x83C0A4BF = 111,
----	_0x0E0FAF8C = 112,
----	_0x26616660 = 113,
----	_0x43B80B79 = 114,
----	_0x0D2A9309 = 115,
----	_0x12C1C983 = 116,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromVehicleImpact = 106,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromBulletImpact = 107,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromExplosions = 108,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromFire = 109,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromElectrocution = 110,
+---	CPED_CONFIG_FLAG_IsBeingDraggedToSafety = 111,
+---	CPED_CONFIG_FLAG_HasBeenDraggedToSafety = 112,
+---	CPED_CONFIG_FLAG_KeepWeaponHolsteredUnlessFired = 113,
+---	CPED_CONFIG_FLAG_ForceScriptControlledKnockout = 114,
+---	CPED_CONFIG_FLAG_FallOutOfVehicleWhenKilled = 115,
+---	CPED_CONFIG_FLAG_GetOutBurningVehicle = 116,
 ---	CPED_CONFIG_FLAG_BumpedByPlayer = 117,
----	_0xE586D504 = 118,
----	_0x52374204 = 119,
+---	CPED_CONFIG_FLAG_RunFromFiresAndExplosions = 118,
+---	CPED_CONFIG_FLAG_TreatAsPlayerDuringTargeting = 119,
 ---	CPED_CONFIG_FLAG_IsHandCuffed = 120,
 ---	CPED_CONFIG_FLAG_IsAnkleCuffed = 121,
 ---	CPED_CONFIG_FLAG_DisableMelee = 122,
----	_0xFE714397 = 123,
----	_0xB3E660BD = 124,
----	_0x5FED6BFD = 125,
----	_0xC9D6F66F = 126,
----	_0x519BC986 = 127,
+---	CPED_CONFIG_FLAG_DisableUnarmedDrivebys = 123,
+---	CPED_CONFIG_FLAG_JustGetsPulledOutWhenElectrocuted = 124,
+---	CPED_CONFIG_FLAG_UNUSED_REPLACE_ME = 125,
+---	CPED_CONFIG_FLAG_WillNotHotwireLawEnforcementVehicle = 126,
+---	CPED_CONFIG_FLAG_WillCommandeerRatherThanJack = 127,
 ---	CPED_CONFIG_FLAG_CanBeAgitated = 128,
----	_0x9A4B617C = 129, // CPED_CONFIG_FLAG_FaceDirInsult
----	_0xDAB70E9F = 130,
----	_0xE569438A = 131,
----	_0xBBC77D6D = 132,
----	_0xCB59EF0F = 133,
----	_0x8C5EA971 = 134,
+---	CPED_CONFIG_FLAG_ForcePedToFaceLeftInCover = 129,
+---	CPED_CONFIG_FLAG_ForcePedToFaceRightInCover = 130,
+---	CPED_CONFIG_FLAG_BlockPedFromTurningInCover = 131,
+---	CPED_CONFIG_FLAG_KeepRelationshipGroupAfterCleanUp = 132,
+---	CPED_CONFIG_FLAG_ForcePedToBeDragged = 133,
+---	CPED_CONFIG_FLAG_PreventPedFromReactingToBeingJacked = 134,
 ---	CPED_CONFIG_FLAG_IsScuba = 135,
 ---	CPED_CONFIG_FLAG_WillArrestRatherThanJack = 136,
----	_0xDCE59B58 = 137,
+---	CPED_CONFIG_FLAG_RemoveDeadExtraFarAway = 137,
 ---	CPED_CONFIG_FLAG_RidingTrain = 138,
 ---	CPED_CONFIG_FLAG_ArrestResult = 139,
 ---	CPED_CONFIG_FLAG_CanAttackFriendly = 140,
----	_0x98A4BE43 = 141,
----	_0x6901E731 = 142,
----	_0x9EC9BF6C = 143,
----	_0x42841A8F = 144,
----	CPED_CONFIG_FLAG_ShootingAnimFlag = 145,
+---	CPED_CONFIG_FLAG_WillJackAnyPlayer = 141,
+---	CPED_CONFIG_FLAG_BumpedByPlayerVehicle = 142,
+---	CPED_CONFIG_FLAG_DodgedPlayerVehicle = 143,
+---	CPED_CONFIG_FLAG_WillJackWantedPlayersRatherThanStealCar = 144,
+---	CPED_CONFIG_FLAG_NoCopWantedAggro = 145,
 ---	CPED_CONFIG_FLAG_DisableLadderClimbing = 146,
 ---	CPED_CONFIG_FLAG_StairsDetected = 147,
 ---	CPED_CONFIG_FLAG_SlopeDetected = 148,
----	_0x1A15670B = 149,
----	_0x61786EE5 = 150,
----	_0xCB9186BD = 151,
----	_0xF0710152 = 152,
----	_0x43DFE310 = 153,
----	_0xC43C624E = 154,
+---	CPED_CONFIG_FLAG_HelmetHasBeenShot = 149,
+---	CPED_CONFIG_FLAG_CowerInsteadOfFlee = 150,
+---	CPED_CONFIG_FLAG_CanActivateRagdollWhenVehicleUpsideDown = 151,
+---	CPED_CONFIG_FLAG_AlwaysRespondToCriesForHelp = 152,
+---	CPED_CONFIG_FLAG_DisableBloodPoolCreation = 153,
+---	CPED_CONFIG_FLAG_ShouldFixIfNoCollision = 154,
 ---	CPED_CONFIG_FLAG_CanPerformArrest = 155,
 ---	CPED_CONFIG_FLAG_CanPerformUncuff = 156,
 ---	CPED_CONFIG_FLAG_CanBeArrested = 157,
----	_0xF7960FF5 = 158,
----	_0x59564113 = 159,
----	_0x0C6C3099 = 160,
----	_0x645F927A = 161,
----	_0xA86549B9 = 162,
----	_0x8AAF337A = 163,
----	_0x13BAA6E7 = 164,
----	_0x5FB9D1F5 = 165,
+---	CPED_CONFIG_FLAG_MoverConstrictedByOpposingCollisions = 158,
+---	CPED_CONFIG_FLAG_PlayerPreferFrontSeatMP = 159,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromImpactObject = 160,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromMelee = 161,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromWaterJet = 162,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromDrowning = 163,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromFalling = 164,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromRubberBullet = 165,
 ---	CPED_CONFIG_FLAG_IsInjured = 166,
----	_0x6398A20B = 167,
----	_0xD8072639 = 168,
----	_0xA05B1845 = 169,
----	_0x83F6D220 = 170,
----	_0xD8430331 = 171,
----	_0x4B547520 = 172,
----	_0xE66E1406 = 173,
----	_0x1C4BFE0C = 174,
----	_0x90008BFA = 175,
----	_0x07C7A910 = 176,
----	_0xF15F8191 = 177,
----	_0xCE4E8BE2 = 178,
----	_0x1D46E4F2 = 179,
+---	CPED_CONFIG_FLAG_DontEnterVehiclesInPlayersGroup = 167,
+---	CPED_CONFIG_FLAG_SwimmingTasksRunning = 168,
+---	CPED_CONFIG_FLAG_PreventAllMeleeTaunts = 169,
+---	CPED_CONFIG_FLAG_ForceDirectEntry = 170,
+---	CPED_CONFIG_FLAG_AlwaysSeeApproachingVehicles = 171,
+---	CPED_CONFIG_FLAG_CanDiveAwayFromApproachingVehicles = 172,
+---	CPED_CONFIG_FLAG_AllowPlayerToInterruptVehicleEntryExit = 173,
+---	CPED_CONFIG_FLAG_OnlyAttackLawIfPlayerIsWanted = 174,
+---	CPED_CONFIG_FLAG_PlayerInContactWithKinematicPed = 175,
+---	CPED_CONFIG_FLAG_PlayerInContactWithSomethingOtherThanKinematicPed = 176,
+---	CPED_CONFIG_FLAG_PedsJackingMeDontGetIn = 177,
+---	CPED_CONFIG_FLAG_AdditionalRappellingPed = 178,
+---	CPED_CONFIG_FLAG_PedIgnoresAnimInterruptEvents = 179,
 ---	CPED_CONFIG_FLAG_IsInCustody = 180,
----	_0xE4FD9B3A = 181,
----	_0x67AE0812 = 182,
+---	CPED_CONFIG_FLAG_ForceStandardBumpReactionThresholds = 181,
+---	CPED_CONFIG_FLAG_LawWillOnlyAttackIfPlayerIsWanted = 182,
 ---	CPED_CONFIG_FLAG_IsAgitated = 183,
 ---	CPED_CONFIG_FLAG_PreventAutoShuffleToDriversSeat = 184,
----	_0x7B2D325E = 185,
+---	CPED_CONFIG_FLAG_UseKinematicModeWhenStationary = 185,
 ---	CPED_CONFIG_FLAG_EnableWeaponBlocking = 186,
 ---	CPED_CONFIG_FLAG_HasHurtStarted = 187,
 ---	CPED_CONFIG_FLAG_DisableHurt = 188,
 ---	CPED_CONFIG_FLAG_PlayerIsWeird = 189,
----	_0x32FC208B = 190,
----	_0x0C296E5A = 191,
----	_0xE63B73EC = 192,
----	_0x04E9CC80 = 193,
+---	CPED_CONFIG_FLAG_PedHadPhoneConversation = 190,
+---	CPED_CONFIG_FLAG_BeganCrossingRoad = 191,
+---	CPED_CONFIG_FLAG_WarpIntoLeadersVehicle = 192,
+---	CPED_CONFIG_FLAG_DoNothingWhenOnFootByDefault = 193,
 ---	CPED_CONFIG_FLAG_UsingScenario = 194,
 ---	CPED_CONFIG_FLAG_VisibleOnScreen = 195,
----	_0xD88C58A1 = 196,
----	_0x5A3DCF43 = 197, // CPED_CONFIG_FLAG_AvoidUnderSide
----	_0xEA02B420 = 198,
----	_0x3F559CFF = 199,
----	_0x8C55D029 = 200,
----	_0x5E6466F6 = 201,
----	_0xEB5AD706 = 202,
----	_0x0EDDDDE7 = 203,
----	_0xA64F7B1D = 204,
----	_0x48532CBA = 205,
----	_0xAA25A9E7 = 206,
----	_0x415B26B9 = 207,
+---	CPED_CONFIG_FLAG_DontCollideWithKinematic = 196,
+---	CPED_CONFIG_FLAG_ActivateOnSwitchFromLowPhysicsLod = 197,
+---	CPED_CONFIG_FLAG_DontActivateRagdollOnPedCollisionWhenDead = 198,
+---	CPED_CONFIG_FLAG_DontActivateRagdollOnVehicleCollisionWhenDead = 199,
+---	CPED_CONFIG_FLAG_HasBeenInArmedCombat = 200,
+---	CPED_CONFIG_FLAG_UseDiminishingAmmoRate = 201,
+---	CPED_CONFIG_FLAG_Avoidance_Ignore_All = 202,
+---	CPED_CONFIG_FLAG_Avoidance_Ignored_by_All = 203,
+---	CPED_CONFIG_FLAG_Avoidance_Ignore_Group1 = 204,
+---	CPED_CONFIG_FLAG_Avoidance_Member_of_Group1 = 205,
+---	CPED_CONFIG_FLAG_ForcedToUseSpecificGroupSeatIndex = 206,
+---	CPED_CONFIG_FLAG_LowPhysicsLodMayPlaceOnNavMesh = 207,
 ---	CPED_CONFIG_FLAG_DisableExplosionReactions = 208,
 ---	CPED_CONFIG_FLAG_DodgedPlayer = 209,
----	_0x67405504 = 210,
----	_0x75DDD68C = 211,
----	_0x2AD879B4 = 212,
----	_0x51486F91 = 213,
----	_0x32F79E21 = 214,
----	_0xBF099213 = 215,
----	_0x054AC8E2 = 216,
----	_0x14E495CC = 217,
----	_0x3C7DF9DF = 218,
----	_0x848FFEF2 = 219,
+---	CPED_CONFIG_FLAG_WaitingForPlayerControlInterrupt = 210,
+---	CPED_CONFIG_FLAG_ForcedToStayInCover = 211,
+---	CPED_CONFIG_FLAG_GeneratesSoundEvents = 212,
+---	CPED_CONFIG_FLAG_ListensToSoundEvents = 213,
+---	CPED_CONFIG_FLAG_AllowToBeTargetedInAVehicle = 214,
+---	CPED_CONFIG_FLAG_WaitForDirectEntryPointToBeFreeWhenExiting = 215,
+---	CPED_CONFIG_FLAG_OnlyRequireOnePressToExitVehicle = 216,
+---	CPED_CONFIG_FLAG_ForceExitToSkyDive = 217,
+---	CPED_CONFIG_FLAG_SteersAroundVehicles = 218,
+---	CPED_CONFIG_FLAG_AllowPedInVehiclesOverrideTaskFlags = 219,
 ---	CPED_CONFIG_FLAG_DontEnterLeadersVehicle = 220,
----	_0x2618E1CF = 221,
----	_0x84F722FA = 222,
----	_0xD1B87B1F = 223,
----	_0x728AA918 = 224,
+---	CPED_CONFIG_FLAG_DisableExitToSkyDive = 221,
+---	CPED_CONFIG_FLAG_ScriptHasDisabledCollision = 222,
+---	CPED_CONFIG_FLAG_UseAmbientModelScaling = 223,
+---	CPED_CONFIG_FLAG_DontWatchFirstOnNextHurryAway = 224,
 ---	CPED_CONFIG_FLAG_DisablePotentialToBeWalkedIntoResponse = 225,
 ---	CPED_CONFIG_FLAG_DisablePedAvoidance = 226,
----	_0x59E91185 = 227,
----	_0x1EA7225F = 228,
+---	CPED_CONFIG_FLAG_ForceRagdollUponDeath = 227,
+---	CPED_CONFIG_FLAG_CanLosePropsOnDamage = 228,
 ---	CPED_CONFIG_FLAG_DisablePanicInVehicle = 229,
----	_0x6DCA7D88 = 230,
----	_0xFC3E572D = 231,
----	_0x08E9F9CF = 232,
----	_0x2D3BA52D = 233,
----	_0xFD2F53EA = 234,
----	_0x31A1B03B = 235,
+---	CPED_CONFIG_FLAG_AllowedToDetachTrailer = 230,
+---	CPED_CONFIG_FLAG_HasShotBeenReactedToFromFront = 231,
+---	CPED_CONFIG_FLAG_HasShotBeenReactedToFromBack = 232,
+---	CPED_CONFIG_FLAG_HasShotBeenReactedToFromLeft = 233,
+---	CPED_CONFIG_FLAG_HasShotBeenReactedToFromRight = 234,
+---	CPED_CONFIG_FLAG_AllowBlockDeadPedRagdollActivation = 235,
 ---	CPED_CONFIG_FLAG_IsHoldingProp = 236,
----	_0x82ED0A66 = 237, // CPED_CONFIG_FLAG_BlocksPathingWhenDead
----	_0xCE57C9A3 = 238,
----	_0x26149198 = 239,
----	_0x1B33B598 = 240,
----	_0x719B6E87 = 241,
----	_0x13E8E8E8 = 242,
----	_0xF29739AE = 243,
----	_0xABEA8A74 = 244,
----	_0xB60EA2BA = 245,
----	_0x536B0950 = 246,
----	_0x0C754ACA = 247,
----	CPED_CONFIG_FLAG_DisableVehicleSeatRandomAnimations = 248,
----	_0x12659168 = 249,
----	_0x1BDF2F04 = 250,
----	_0x7728FAA3 = 251,
----	_0x6A807ED8 = 252,
+---	CPED_CONFIG_FLAG_BlocksPathingWhenDead = 237,
+---	CPED_CONFIG_FLAG_ForcePlayNormalScenarioExitOnNextScriptCommand = 238,
+---	CPED_CONFIG_FLAG_ForcePlayImmediateScenarioExitOnNextScriptCommand = 239,
+---	CPED_CONFIG_FLAG_ForceSkinCharacterCloth = 240,
+---	CPED_CONFIG_FLAG_LeaveEngineOnWhenExitingVehicles = 241,
+---	CPED_CONFIG_FLAG_PhoneDisableTextingAnimations = 242,
+---	CPED_CONFIG_FLAG_PhoneDisableTalkingAnimations = 243,
+---	CPED_CONFIG_FLAG_PhoneDisableCameraAnimations = 244,
+---	CPED_CONFIG_FLAG_DisableBlindFiringInShotReactions = 245,
+---	CPED_CONFIG_FLAG_AllowNearbyCoverUsage = 246,
+---	CPED_CONFIG_FLAG_InStrafeTransition = 247,
+---	CPED_CONFIG_FLAG_CanPlayInCarIdles = 248,
+---	CPED_CONFIG_FLAG_CanAttackNonWantedPlayerAsLaw = 249,
+---	CPED_CONFIG_FLAG_WillTakeDamageWhenVehicleCrashes = 250,
+---	CPED_CONFIG_FLAG_AICanDrivePlayerAsRearPassenger = 251,
+---	CPED_CONFIG_FLAG_PlayerCanJackFriendlyPlayers = 252,
 ---	CPED_CONFIG_FLAG_OnStairs = 253,
----	_0xE1A2F73F = 254,
----	_0x5B3697C8 = 255,
----	_0xF1EB20A9 = 256,
----	_0x8B7DF407 = 257,
----	_0x329DCF1A = 258,
----	_0x8D90DD1B = 259,
----	_0xB8A292B7 = 260,
----	_0x8374B087 = 261,
----	_0x2AF558F0 = 262,
----	_0x82251455 = 263,
----	_0x30CF498B = 264,
----	_0xE1CD50AF = 265,
----	_0x72E4AE48 = 266,
----	_0xC2657EA1 = 267,
----	_0x29FF6030 = 268,
----	_0x8248A5EC = 269,
+---	CPED_CONFIG_FLAG_SimulatingAiming = 254,
+---	CPED_CONFIG_FLAG_AIDriverAllowFriendlyPassengerSeatEntry = 255,
+---	CPED_CONFIG_FLAG_ParentCarIsBeingRemoved = 256,
+---	CPED_CONFIG_FLAG_AllowMissionPedToUseInjuredMovement = 257,
+---	CPED_CONFIG_FLAG_CanLoseHelmetOnDamage = 258,
+---	CPED_CONFIG_FLAG_NeverDoScenarioExitProbeChecks = 259,
+---	CPED_CONFIG_FLAG_SuppressLowLODRagdollSwitchWhenCorpseSettles = 260,
+---	CPED_CONFIG_FLAG_PreventUsingLowerPrioritySeats = 261,
+---	CPED_CONFIG_FLAG_JustLeftVehicleNeedsReset = 262,
+---	CPED_CONFIG_FLAG_TeleportIfCantReachPlayer = 263,
+---	CPED_CONFIG_FLAG_PedsInVehiclePositionNeedsReset = 264,
+---	CPED_CONFIG_FLAG_PedsFullyInSeat = 265,
+---	CPED_CONFIG_FLAG_AllowPlayerLockOnIfFriendly = 266,
+---	CPED_CONFIG_FLAG_UseCameraHeadingForDesiredDirectionLockOnTest = 267,
+---	CPED_CONFIG_FLAG_TeleportToLeaderVehicle = 268,
+---	CPED_CONFIG_FLAG_Avoidance_Ignore_WeirdPedBuffer = 269,
 ---	CPED_CONFIG_FLAG_OnStairSlope = 270,
----	_0xA0897933 = 271,
+---	CPED_CONFIG_FLAG_HasPlayedNMGetup = 271,
 ---	CPED_CONFIG_FLAG_DontBlipCop = 272,
----	CPED_CONFIG_FLAG_ClimbedShiftedFence = 273,
----	_0xF7823618 = 274,
----	_0xDC305CCE = 275, // CPED_CONFIG_FLAG_KillWhenTrapped
+---	CPED_CONFIG_FLAG_SpawnedAtExtendedRangeScenario = 273,
+---	CPED_CONFIG_FLAG_WalkAlongsideLeaderWhenClose = 274,
+---	CPED_CONFIG_FLAG_KillWhenTrapped = 275,
 ---	CPED_CONFIG_FLAG_EdgeDetected = 276,
----	_0x92B67896 = 277,
----	_0xCAD677C9 = 278,
+---	CPED_CONFIG_FLAG_AlwaysWakeUpPhysicsOfIntersectedPeds = 277,
+---	CPED_CONFIG_FLAG_EquippedAmbientLoadOutWeapon = 278,
 ---	CPED_CONFIG_FLAG_AvoidTearGas = 279,
----	_0x5276AC7B = 280,
----	_0x1032692A = 281,
----	_0xDA23E7F1 = 282,
----	_0x9139724D = 283,
----	_0xA1457461 = 284,
----	_0x4186E095 = 285,
----	_0xAC68E2EB = 286,
+---	CPED_CONFIG_FLAG_StoppedSpeechUponFreezing = 280,
+---	CPED_CONFIG_FLAG_DisableGoToWritheWhenInjured = 281,
+---	CPED_CONFIG_FLAG_OnlyUseForcedSeatWhenEnteringHeliInGroup = 282,
+---	CPED_CONFIG_FLAG_ThrownFromVehicleDueToExhaustion = 283,
+---	CPED_CONFIG_FLAG_UpdateEnclosedSearchRegion = 284,
+---	CPED_CONFIG_FLAG_DisableWeirdPedEvents = 285,
+---	CPED_CONFIG_FLAG_ShouldChargeNow = 286,
 ---	CPED_CONFIG_FLAG_RagdollingOnBoat = 287,
 ---	CPED_CONFIG_FLAG_HasBrandishedWeapon = 288,
----	_0x1B9EE8A1 = 289,
----	_0xF3F5758C = 290,
----	_0x2A9307F1 = 291,
----	_0x7403D216 = 292,
----	_0xA06A3C6C = 293,
+---	CPED_CONFIG_FLAG_AllowMinorReactionsAsMissionPed = 289,
+---	CPED_CONFIG_FLAG_BlockDeadBodyShockingEventsWhenDead = 290,
+---	CPED_CONFIG_FLAG_PedHasBeenSeen = 291,
+---	CPED_CONFIG_FLAG_PedIsInReusePool = 292,
+---	CPED_CONFIG_FLAG_PedWasReused = 293,
 ---	CPED_CONFIG_FLAG_DisableShockingEvents = 294,
----	_0xF8DA25A5 = 295,
----	_0x7EF55802 = 296,
----	_0xB31F1187 = 297,
----	_0x84315402 = 298,
----	_0x0FD69867 = 299,
----	_0xC7829B67 = 300,
+---	CPED_CONFIG_FLAG_MovedUsingLowLodPhysicsSinceLastActive = 295,
+---	CPED_CONFIG_FLAG_NeverReactToPedOnRoof = 296,
+---	CPED_CONFIG_FLAG_ForcePlayFleeScenarioExitOnNextScriptCommand = 297,
+---	CPED_CONFIG_FLAG_JustBumpedIntoVehicle = 298,
+---	CPED_CONFIG_FLAG_DisableShockingDrivingOnPavementEvents = 299,
+---	CPED_CONFIG_FLAG_ShouldThrowSmokeNow = 300,
 ---	CPED_CONFIG_FLAG_DisablePedConstraints = 301,
----	_0x6D23CF25 = 302,
----	_0x2ADA871B = 303,
----	_0x47BC8A58 = 304,
----	_0xEB692FA5 = 305,
----	_0x4A133C50 = 306,
----	_0xC58099C3 = 307,
----	_0xF3D76D41 = 308,
----	_0xB0EEE9F2 = 309,
+---	CPED_CONFIG_FLAG_ForceInitialPeekInCover = 302,
+---	CPED_CONFIG_FLAG_CreatedByDispatch = 303,
+---	CPED_CONFIG_FLAG_PointGunLeftHandSupporting = 304,
+---	CPED_CONFIG_FLAG_DisableJumpingFromVehiclesAfterLeader = 305,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromPlayerPedImpact = 306,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromAiRagdollImpact = 307,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromPlayerRagdollImpact = 308,
+---	CPED_CONFIG_FLAG_DisableQuadrupedSpring = 309,
 ---	CPED_CONFIG_FLAG_IsInCluster = 310,
----	_0x0FA153EF = 311,
----	_0xD73F5CD3 = 312,
----	_0xD4136C22 = 313,
----	_0xE404CA6B = 314,
----	_0xB9597446 = 315,
----	_0xD5C98277 = 316,
----	_0xD5060A9C = 317,
----	_0x3E5F1CBB = 318,
----	_0xD8BE1D54 = 319,
----	_0x0B1F191F = 320,
----	_0xC995167A = 321,
+---	CPED_CONFIG_FLAG_ShoutToGroupOnPlayerMelee = 311,
+---	CPED_CONFIG_FLAG_IgnoredByAutoOpenDoors = 312,
+---	CPED_CONFIG_FLAG_PreferInjuredGetup = 313,
+---	CPED_CONFIG_FLAG_ForceIgnoreMeleeActiveCombatant = 314,
+---	CPED_CONFIG_FLAG_CheckLoSForSoundEvents = 315,
+---	CPED_CONFIG_FLAG_JackedAbandonedCar = 316,
+---	CPED_CONFIG_FLAG_CanSayFollowedByPlayerAudio = 317,
+---	CPED_CONFIG_FLAG_ActivateRagdollFromMinorPlayerContact = 318,
+---	CPED_CONFIG_FLAG_HasPortablePickupAttached = 319,
+---	CPED_CONFIG_FLAG_ForcePoseCharacterCloth = 320,
+---	CPED_CONFIG_FLAG_HasClothCollisionBounds = 321,
 ---	CPED_CONFIG_FLAG_HasHighHeels = 322,
----	_0x86B01E54 = 323,
----	_0x3A56FE15 = 324,
----	_0xC03B736C = 325, // CPED_CONFIG_FLAG_SpawnedAtScenario
----	_0xBBF47729 = 326,
----	_0x22B668A8 = 327,
----	_0x2624D4D4 = 328,
+---	CPED_CONFIG_FLAG_TreatAsAmbientPedForDriverLockOn = 323,
+---	CPED_CONFIG_FLAG_DontBehaveLikeLaw = 324,
+---	CPED_CONFIG_FLAG_SpawnedAtScenario = 325,
+---	CPED_CONFIG_FLAG_DisablePoliceInvestigatingBody = 326,
+---	CPED_CONFIG_FLAG_DisableWritheShootFromGround = 327,
+---	CPED_CONFIG_FLAG_LowerPriorityOfWarpSeats = 328,
 ---	CPED_CONFIG_FLAG_DisableTalkTo = 329,
 ---	CPED_CONFIG_FLAG_DontBlip = 330,
 ---	CPED_CONFIG_FLAG_IsSwitchingWeapon = 331,
----	_0x630F55F3 = 332,
----	_0x150468FD = 333,
----	_0x914EBD6B = 334,
----	_0x79AF3B6D = 335,
----	_0x75C7A632 = 336,
----	_0x52D530E2 = 337,
----	_0xDB2A90E0 = 338,
----	_0x5922763D = 339,
----	_0x12ADB567 = 340,
----	_0x105C8518 = 341,
----	_0x106F703D = 342,
----	_0xED152C3E = 343,
----	_0xA0EFE6A8 = 344,
----	_0xBF348C82 = 345,
----	_0xCDDFE830 = 346,
----	_0x7B59BD9B = 347,
----	_0x0124C788 = 348,
+---	CPED_CONFIG_FLAG_IgnoreLegIkRestrictions = 332,
+---	CPED_CONFIG_FLAG_ScriptForceNoTimesliceIntelligenceUpdate = 333,
+---	CPED_CONFIG_FLAG_JackedOutOfMyVehicle = 334,
+---	CPED_CONFIG_FLAG_WentIntoCombatAfterBeingJacked = 335,
+---	CPED_CONFIG_FLAG_DontActivateRagdollForVehicleGrab = 336,
+---	CPED_CONFIG_FLAG_ForcePackageCharacterCloth = 337,
+---	CPED_CONFIG_FLAG_DontRemoveWithValidOrder = 338,
+---	CPED_CONFIG_FLAG_AllowTaskDoNothingTimeslicing = 339,
+---	CPED_CONFIG_FLAG_ForcedToStayInCoverDueToPlayerSwitch = 340,
+---	CPED_CONFIG_FLAG_ForceProneCharacterCloth = 341,
+---	CPED_CONFIG_FLAG_NotAllowedToJackAnyPlayers = 342,
+---	CPED_CONFIG_FLAG_InToStrafeTransition = 343,
+---	CPED_CONFIG_FLAG_KilledByStandardMelee = 344,
+---	CPED_CONFIG_FLAG_AlwaysLeaveTrainUponArrival = 345,
+---	CPED_CONFIG_FLAG_ForcePlayDirectedNormalScenarioExitOnNextScriptCommand = 346,
+---	CPED_CONFIG_FLAG_OnlyWritheFromWeaponDamage = 347,
+---	CPED_CONFIG_FLAG_UseSloMoBloodVfx = 348,
 ---	CPED_CONFIG_FLAG_EquipJetpack = 349,
----	_0x08D361A5 = 350,
----	_0xE13D1F7C = 351,
----	_0x40E25FB9 = 352,
----	_0x930629D9 = 353,
----	_0xECCF0C7F = 354,
----	_0xB6E9613B = 355,
----	_0x490C0478 = 356,
----	_0xE8865BEA = 357,
----	_0xF3C34A29 = 358,
+---	CPED_CONFIG_FLAG_PreventDraggedOutOfCarThreatResponse = 350,
+---	CPED_CONFIG_FLAG_ScriptHasCompletelyDisabledCollision = 351,
+---	CPED_CONFIG_FLAG_NeverDoScenarioNavChecks = 352,
+---	CPED_CONFIG_FLAG_ForceSynchronousScenarioExitChecking = 353,
+---	CPED_CONFIG_FLAG_ThrowingGrenadeWhileAiming = 354,
+---	CPED_CONFIG_FLAG_HeadbobToRadioEnabled = 355,
+---	CPED_CONFIG_FLAG_ForceDeepSurfaceCheck = 356,
+---	CPED_CONFIG_FLAG_DisableDeepSurfaceAnims = 357,
+---	CPED_CONFIG_FLAG_DontBlipNotSynced = 358,
 ---	CPED_CONFIG_FLAG_IsDuckingInVehicle = 359,
----	_0xF660E115 = 360,
----	_0xAB0E6DED = 361,
+---	CPED_CONFIG_FLAG_PreventAutoShuffleToTurretSeat = 360,
+---	CPED_CONFIG_FLAG_DisableEventInteriorStatusCheck = 361,
 ---	CPED_CONFIG_FLAG_HasReserveParachute = 362,
 ---	CPED_CONFIG_FLAG_UseReserveParachute = 363,
----	_0x5C5D9CD3 = 364,
----	_0x8F7701F3 = 365,
----	_0xBC4436AD = 366,
----	_0xD7E07D37 = 367,
----	_0x03C4FD24 = 368,
----	_0x7675789A = 369,
----	_0xB7288A88 = 370,
----	_0xC06B6291 = 371,
----	_0x95A4A805 = 372,
----	_0xA8E9A042 = 373,
+---	CPED_CONFIG_FLAG_TreatDislikeAsHateWhenInCombat = 364,
+---	CPED_CONFIG_FLAG_OnlyUpdateTargetWantedIfSeen = 365,
+---	CPED_CONFIG_FLAG_AllowAutoShuffleToDriversSeat = 366,
+---	CPED_CONFIG_FLAG_DontActivateRagdollFromSmokeGrenade = 367,
+---	CPED_CONFIG_FLAG_LinkMBRToOwnerOnChain = 368,
+---	CPED_CONFIG_FLAG_AmbientFriendBumpedByPlayer = 369,
+---	CPED_CONFIG_FLAG_AmbientFriendBumpedByPlayerVehicle = 370,
+---	CPED_CONFIG_FLAG_InFPSUnholsterTransition = 371,
+---	CPED_CONFIG_FLAG_PreventReactingToSilencedCloneBullets = 372,
+---	CPED_CONFIG_FLAG_DisableInjuredCryForHelpEvents = 373,
 ---	CPED_CONFIG_FLAG_NeverLeaveTrain = 374,
----	_0xBAC674B3 = 375,
----	_0x147F1FFB = 376,
----	_0x4376DD79 = 377,
----	_0xCD3DB518 = 378,
----	_0xFE4BA4B6 = 379,
----	_0x5DF03A55 = 380,
----	_0xBCD816CD = 381,
----	_0xCF02DD69 = 382,
----	_0xF73AFA2E = 383,
----	_0x80B9A9D0 = 384,
----	_0xF601F7EE = 385,
----	_0xA91350FC = 386,
----	_0x3AB23B96 = 387,
+---	CPED_CONFIG_FLAG_DontDropJetpackOnDeath = 375,
+---	CPED_CONFIG_FLAG_UseFPSUnholsterTransitionDuringCombatRoll = 376,
+---	CPED_CONFIG_FLAG_ExitingFPSCombatRoll = 377,
+---	CPED_CONFIG_FLAG_ScriptHasControlOfPlayer = 378,
+---	CPED_CONFIG_FLAG_PlayFPSIdleFidgetsForProjectile = 379,
+---	CPED_CONFIG_FLAG_DisableAutoEquipHelmetsInBikes = 380,
+---	CPED_CONFIG_FLAG_DisableAutoEquipHelmetsInAircraft = 381,
+---	CPED_CONFIG_FLAG_WasPlayingFPSGetup = 382,
+---	CPED_CONFIG_FLAG_WasPlayingFPSMeleeActionResult = 383,
+---	CPED_CONFIG_FLAG_PreferNoPriorityRemoval = 384,
+---	CPED_CONFIG_FLAG_FPSFidgetsAbortedOnFire = 385,
+---	CPED_CONFIG_FLAG_ForceFPSIKWithUpperBodyAnim = 386,
+---	CPED_CONFIG_FLAG_SwitchingCharactersInFirstPerson = 387,
 ---	CPED_CONFIG_FLAG_IsClimbingLadder = 388,
 ---	CPED_CONFIG_FLAG_HasBareFeet = 389,
----	_0xB4B1CD4C = 390,
----	_0x5459AFB8 = 391,
----	_0x54F27667 = 392,
----	_0xC11D3E8F = 393,
----	_0x5419EB3E = 394,
----	_0x82D8DBB4 = 395,
----	_0x33B02D2F = 396,
----	_0xAE66176D = 397,
----	_0xA2692593 = 398,
----	_0x714C7E31 = 399,
----	_0xEC488AC7 = 400,
----	_0xAE398504 = 401,
----	_0xABC58D72 = 402,
----	_0x5E5B9591 = 403,
----	_0x6BA1091E = 404,
----	_0x77840177 = 405,
----	_0x1C7ACAC4 = 406,
----	_0x124420E9 = 407,
----	_0x75A65587 = 408,
----	_0xDFD2D55B = 409,
----	_0xBDD39919 = 410,
----	_0x43DEC267 = 411,
----	_0xE42B7797 = 412,
+---	CPED_CONFIG_FLAG_UNUSED_REPLACE_ME_2 = 390,
+---	CPED_CONFIG_FLAG_GoOnWithoutVehicleIfItIsUnableToGetBackToRoad = 391,
+---	CPED_CONFIG_FLAG_BlockDroppingHealthSnacksOnDeath = 392,
+---	CPED_CONFIG_FLAG_ResetLastVehicleOnVehicleExit = 393,
+---	CPED_CONFIG_FLAG_ForceThreatResponseToNonFriendToFriendMeleeActions = 394,
+---	CPED_CONFIG_FLAG_DontRespondToRandomPedsDamage = 395,
+---	CPED_CONFIG_FLAG_AllowContinuousThreatResponseWantedLevelUpdates = 396,
+---	CPED_CONFIG_FLAG_KeepTargetLossResponseOnCleanup = 397,
+---	CPED_CONFIG_FLAG_PlayersDontDragMeOutOfCar = 398,
+---	CPED_CONFIG_FLAG_BroadcastRepondedToThreatWhenGoingToPointShooting = 399,
+---	CPED_CONFIG_FLAG_IgnorePedTypeForIsFriendlyWith = 400,
+---	CPED_CONFIG_FLAG_TreatNonFriendlyAsHateWhenInCombat = 401,
+---	CPED_CONFIG_FLAG_DontLeaveVehicleIfLeaderNotInVehicle = 402,
+---	CPED_CONFIG_FLAG_ChangeFromPermanentToAmbientPopTypeOnMigration = 403,
+---	CPED_CONFIG_FLAG_AllowMeleeReactionIfMeleeProofIsOn = 404,
+---	CPED_CONFIG_FLAG_UsingLowriderLeans = 405,
+---	CPED_CONFIG_FLAG_UsingAlternateLowriderLeans = 406,
+---	CPED_CONFIG_FLAG_UseNormalExplosionDamageWhenBlownUpInVehicle = 407,
+---	CPED_CONFIG_FLAG_DisableHomingMissileLockForVehiclePedInside = 408,
+---	CPED_CONFIG_FLAG_DisableTakeOffScubaGear = 409,
+---	CPED_CONFIG_FLAG_IgnoreMeleeFistWeaponDamageMult = 410,
+---	CPED_CONFIG_FLAG_LawPedsCanFleeFromNonWantedPlayer = 411,
+---	CPED_CONFIG_FLAG_ForceBlipSecurityPedsIfPlayerIsWanted = 412,
 ---	CPED_CONFIG_FLAG_IsHolsteringWeapon = 413,
----	_0x4F8149F5 = 414,
----	_0xDD9ECA7A = 415,
----	_0x9E7EF9D2 = 416,
----	_0x2C6ED942 = 417,
+---	CPED_CONFIG_FLAG_UseGoToPointForScenarioNavigation = 414,
+---	CPED_CONFIG_FLAG_DontClearLocalPassengersWantedLevel = 415,
+---	CPED_CONFIG_FLAG_BlockAutoSwapOnWeaponPickups = 416,
+---	CPED_CONFIG_FLAG_ThisPedIsATargetPriorityForAI = 417,
 ---	CPED_CONFIG_FLAG_IsSwitchingHelmetVisor = 418,
----	_0xA488727D = 419,
----	_0xCFF5F6DE = 420,
----	_0x6D614599 = 421,
+---	CPED_CONFIG_FLAG_ForceHelmetVisorSwitch = 419,
+---	CPED_CONFIG_FLAG_IsPerformingVehicleMelee = 420,
+---	CPED_CONFIG_FLAG_UseOverrideFootstepPtFx = 421,
 ---	CPED_CONFIG_FLAG_DisableVehicleCombat = 422,
----	_0xFE401D26 = 423,
----	CPED_CONFIG_FLAG_FallsLikeAircraft = 424,
----	_0x2B42AE82 = 425,
----	_0x7A95734F = 426,
----	_0xDF4D8617 = 427,
----	_0x578F1F14 = 428,
+---	CPED_CONFIG_FLAG_TreatAsFriendlyForTargetingAndDamage = 423,
+---	CPED_CONFIG_FLAG_AllowBikeAlternateAnimations = 424,
+---	CPED_CONFIG_FLAG_TreatAsFriendlyForTargetingAndDamageNonSynced = 425,
+---	CPED_CONFIG_FLAG_UseLockpickVehicleEntryAnimations = 426,
+---	CPED_CONFIG_FLAG_IgnoreInteriorCheckForSprinting = 427,
+---	CPED_CONFIG_FLAG_SwatHeliSpawnWithinLastSpottedLocation = 428,
 ---	CPED_CONFIG_FLAG_DisableStartEngine = 429,
 ---	CPED_CONFIG_FLAG_IgnoreBeingOnFire = 430,
----	_0x153C9500 = 431,
----	_0xCB7A632E = 432,
----	_0xDE727981 = 433,
+---	CPED_CONFIG_FLAG_DisableTurretOrRearSeatPreference = 431,
+---	CPED_CONFIG_FLAG_DisableWantedHelicopterSpawning = 432,
+---	CPED_CONFIG_FLAG_UseTargetPerceptionForCreatingAimedAtEvents = 433,
 ---	CPED_CONFIG_FLAG_DisableHomingMissileLockon = 434,
----	_0x12BBB935 = 435,
----	_0xAD0A1277 = 436,
----	_0xEA6AA46A = 437,
+---	CPED_CONFIG_FLAG_ForceIgnoreMaxMeleeActiveSupportCombatants = 435,
+---	CPED_CONFIG_FLAG_StayInDefensiveAreaWhenInVehicle = 436,
+---	CPED_CONFIG_FLAG_DontShoutTargetPosition = 437,
 ---	CPED_CONFIG_FLAG_DisableHelmetArmor = 438,
----	_0xCB7F3A1E = 439,
----	_0x50178878 = 440,
----	_0x051B4F0D = 441,
----	_0x2FC3DECC = 442,
----	_0xC0030B0B = 443,
----	_0xBBDAF1E9 = 444,
----	_0x944FE59C = 445,
----	_0x506FBA39 = 446,
----	_0xDD45FE84 = 447,
----	_0xE698AE75 = 448,
----	_0x199633F8 = 449,
+---	CPED_CONFIG_FLAG_CreatedByConcealedPlayer = 439,
+---	CPED_CONFIG_FLAG_PermanentlyDisablePotentialToBeWalkedIntoResponse = 440,
+---	CPED_CONFIG_FLAG_PreventVehExitDueToInvalidWeapon = 441,
+---	CPED_CONFIG_FLAG_IgnoreNetSessionFriendlyFireCheckForAllowDamage = 442,
+---	CPED_CONFIG_FLAG_DontLeaveCombatIfTargetPlayerIsAttackedByPolice = 443,
+---	CPED_CONFIG_FLAG_CheckLockedBeforeWarp = 444,
+---	CPED_CONFIG_FLAG_DontShuffleInVehicleToMakeRoom = 445,
+---	CPED_CONFIG_FLAG_GiveWeaponOnGetup = 446,
+---	CPED_CONFIG_FLAG_DontHitVehicleWithProjectiles = 447,
+---	CPED_CONFIG_FLAG_DisableForcedEntryForOpenVehiclesFromTryLockedDoor = 448,
+---	CPED_CONFIG_FLAG_FiresDummyRockets = 449,
 ---	CPED_CONFIG_FLAG_PedIsArresting = 450,
 ---	CPED_CONFIG_FLAG_IsDecoyPed = 451,
----	_0x3A251D83 = 452,
----	_0xA56F6986 = 453,
----	_0x1D19C622 = 454,
----	_0xB68D3EAB = 455,
+---	CPED_CONFIG_FLAG_HasEstablishedDecoy = 452,
+---	CPED_CONFIG_FLAG_BlockDispatchedHelicoptersFromLanding = 453,
+---	CPED_CONFIG_FLAG_DontCryForHelpOnStun = 454,
+---	CPED_CONFIG_FLAG_HitByTranqWeapon = 455,
 ---	CPED_CONFIG_FLAG_CanBeIncapacitated = 456,
----	_0x4BD5EBAD = 457,
+---	CPED_CONFIG_FLAG_ForcedAimFromArrest = 457,
+---	CPED_CONFIG_FLAG_DontChangeTargetFromMelee = 458,
+---	_0x4376ABF2 = 459,
+---	CPED_CONFIG_FLAG_RagdollFloatsIndefinitely = 460,
+---	CPED_CONFIG_FLAG_BlockElectricWeaponDamage = 461,
+---	_0x262A3B8E = 462,
+---	_0x1AA79A25 = 463,
 ---}
 ---```
 ---@param ped integer
@@ -5861,10 +5995,7 @@ function SetPedLodMultiplier(ped, multiplier) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF5F6378C4F3419D3)  
----```
----sets the maximum health of a ped  
----I think it's never been used in any script  
----```
+---This native does not have an official description.
 ---@param ped integer
 ---@param value integer
 function SetPedMaxHealth(ped, value) end
@@ -5892,12 +6023,14 @@ function SetPedMaxTimeUnderwater(ped, value) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFA0675AB151073FA)  
----```
----Ped will stay on the ground after being stunned for at lest ms time. (in milliseconds)  
----```
+---Overwrites the minimum time the ped will stay on the ground for after being stunned. Setting this while the ped is stunned will not alter the duration of the current stun but will still effect future stuns.
+---
+---Passing -1 into the second parameter `minTimeInMs` will reset the modifier, making it use the weapons original `DamageTime` as the stun duration (see `update/update.rpf/common/data/ai/weapons.meta`)
+---
+---**NOTE**: Unlike what the native name implies, this works on any weapon that has its `DamageType` in the `weapons.meta` set to `ELECTRIC`.
 ---@param ped integer
----@param ms integer
-function SetPedMinGroundTimeForStungun(ped, ms) end
+---@param minTimeInMs integer
+function SetPedMinGroundTimeForStungun(ped, minTimeInMs) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01A898D26E2333DD)  
@@ -6161,7 +6294,6 @@ function SetPedPrimaryLookat(ped, lookAt) end
 ---List of Prop IDs
 ---
 ---```cpp
----// Props
 ---enum eAnchorPoints
 ---{
 ---    ANCHOR_HEAD = 0, // "p_head"
@@ -6762,6 +6894,14 @@ function SpawnpointsStartSearch(p0, p1, p2, p3, p4, interiorFlags, scale, durati
 ---@param scale number
 ---@param duration integer
 function SpawnpointsStartSearchInAngledArea(x, y, z, p3, p4, p5, p6, interiorFlags, scale, duration) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF9ACF4A08098EA25)  
+---Kicks the ped from the current vehicle and keeps the rendering-focus on this ped (also disables its collision). If doing this for your player ped, you'll still be able to drive the vehicle.\
+---Only to be used in very specific situations where the ped needs to be inside the car still but not attached.
+---@param ped integer
+---@param noCollisionUntilClear boolean
+function SpecialFunctionDoNotUse(ped, noCollisionUntilClear) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB47BD05FA66B40CF)  

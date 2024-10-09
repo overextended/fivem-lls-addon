@@ -69,6 +69,16 @@ function GetCutFileNumSections(cutsceneName) end
 function GetCutsceneEndTime() end
 
 ---**`CUTSCENE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x710286BC5EF4D6E1)  
+---Gets the current time of the cutscene.
+---
+---```
+---NativeDB Introduced: v3258
+---```
+---@return integer
+function GetCutscenePlayTime() end
+
+---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x49010A6A396553D8)  
 ---This native does not have an official description.
 ---@return integer

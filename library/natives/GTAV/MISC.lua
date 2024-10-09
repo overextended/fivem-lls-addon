@@ -228,9 +228,9 @@ function AreStringsEqual(string1, string2) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC843060B5765DCE7)  
 ---This native does not have an official description.
----@param p0 number
+---@param value number
 ---@return number
-function Asin(p0) end
+function Asin(value) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA9D1795CD5043663)  
@@ -263,11 +263,10 @@ function BlockDispatchServiceResourceCreation(dispatchService, toggle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x58A39BE597CE99CD)  
----```
----DO NOT use this as it doesn't clean up the text input box properly and your script will get stuck in the UPDATE_ONSCREEN_KEYBOARD() loop.
----Use _FORCE_CLOSE_TEXT_INPUT_BOX instead.
----CANCEL_*
----```
+---Closes the onscreen keyboard on console versions of the game.
+---
+---**NOTE:** Do not use this native in FiveM/PC, because [`UPDATE_ONSCREEN_KEYBOARD`](#\_0x0CF2B696BBF945AE) value doesn't get cleaned up and stays as `0`.
+---You should use [`FORCE_CLOSE_TEXT_INPUT_BOX`](#\_0x8817605C2BA76200) instead.
 function CancelOnscreenKeyboard() end
 
 ---**`MISC` `client`**  
@@ -488,22 +487,6 @@ function CopyMemory(src, size) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3F892CAF67444AE7)  
 ---```
----enum IncidentTypes  
----{  
----    FireDepartment = 3,  
----    Paramedics = 5,  
----    Police = 7,  
----    PedsInCavalcades = 11,   
----    Merryweather = 14  
----};  
----As for the 'police' incident, it will call police cars to you, but unlike PedsInCavalcades & Merryweather they won't start shooting at you unless you shoot first or shoot at them. The top 2 however seem to cancel theirselves if there is noone dead around you or a fire. I only figured them out as I found out the 3rd param is definately the amountOfPeople and they called incident 3 in scripts with 4 people (which the firetruck has) and incident 5 with 2 people (which the ambulence has). The 4 param I cant say is radius, but for the pedsInCavalcades and Merryweather R* uses 0.0f and for the top 3 (Emergency Services) they use 3.0f.   
----Side Note: It seems calling the pedsInCavalcades or Merryweather then removing it seems to break you from calling the EmergencyEvents and I also believe pedsInCavalcades. (The V cavalcades of course not IV).  
----Side Note 2: I say it breaks as if you call this proper,  
----if(CREATE_INCIDENT) etc it will return false if you do as I said above.  
----=====================================================  
----```
----
----```
 ---NativeDB Added Parameter 8: Any p7
 ---NativeDB Added Parameter 9: Any p8
 ---```
@@ -518,26 +501,6 @@ function CreateIncident(dispatchService, x, y, z, numUnits, radius) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x05983472F0494E60)  
----```
----p0 could be type (valueused in scripts: 14, 7, 5, 3, 11)  
----p1 is a return from get_player_ped() in am_gang_call.c, but player_ped_id() in other (non am) scripts.  
----p3 is usually 0f or 3f  
----=====================================================  
----enum IncidentTypes  
----{  
----    FireDepartment = 3,  
----    Paramedics = 5,  
----    Police = 7,  
----    PedsInCavalcades = 11,   
----    Merryweather = 14  
----};  
----As for the 'police' incident, it will call police cars to you, but unlike PedsInCavalcades & Merryweather they won't start shooting at you unless you shoot first or shoot at them. The top 2 however seem to cancel theirselves if there is noone dead around you or a fire. I only figured them out as I found out the 3rd param is definately the amountOfPeople and they called incident 3 in scripts with 4 people (which the firetruck has) and incident 5 with 2 people (which the ambulence has). The 4 param I cant say is radius, but for the pedsInCavalcades and Merryweather R* uses 0.0f and for the top 3 (Emergency Services) they use 3.0f.   
----Side Note: It seems calling the pedsInCavalcades or Merryweather then removing it seems to break you from calling the EmergencyEvents and I also believe pedsInCavalcades. (The V cavalcades of course not IV).  
----Side Note 2: I say it breaks as if you call this proper,  
----if(CREATE_INCIDENT) etc it will return false if you do as I said above.  
----=====================================================  
----```
----
 ---```
 ---NativeDB Added Parameter 6: Any p5
 ---NativeDB Added Parameter 7: Any p6
@@ -597,49 +560,36 @@ function DisableStuntJumpSet(p0) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x00DC833F2568DBF6)  
+---Displays a text input box.
+---
+---```cpp
+---enum eKeyboardType
+---{
+---  ONSCREEN_KEYBOARD_ENGLISH = 0,
+---  ONSCREEN_KEYBOARD_LOCALISED = 1,
+---  ONSCREEN_KEYBOARD_PASSWORD = 2,
+---  ONSCREEN_KEYBOARD_GAMERTAG = 3,
+---  ONSCREEN_KEYBOARD_EMAIL = 4,
+---  ONSCREEN_KEYBOARD_BASIC_ENGLISH = 5,
+---  ONSCREEN_KEYBOARD_FILENAME = 6
+---};
 ---```
----windowTitle's  
---------------------  
----CELL_EMAIL_BOD	=	"Enter your Eyefind message"  
----CELL_EMAIL_BODE	=	"Message too long. Try again"  
----CELL_EMAIL_BODF	=	"Forbidden message. Try again"  
----CELL_EMAIL_SOD	=	"Enter your Eyefind subject"  
----CELL_EMAIL_SODE	=	"Subject too long. Try again"  
----CELL_EMAIL_SODF	=	"Forbidden text. Try again"  
----CELL_EMASH_BOD	=	"Enter your Eyefind message"  
----CELL_EMASH_BODE	=	"Message too long. Try again"  
----CELL_EMASH_BODF	=	"Forbidden message. Try again"  
----CELL_EMASH_SOD	=	"Enter your Eyefind subject"  
----CELL_EMASH_SODE	=	"Subject too long. Try again"  
----CELL_EMASH_SODF	=	"Forbidden Text. Try again"  
----FMMC_KEY_TIP10	=	"Enter Synopsis"  
----FMMC_KEY_TIP12	=	"Enter Custom Team Name"  
----FMMC_KEY_TIP12F	=	"Forbidden Text. Try again"  
----FMMC_KEY_TIP12N	=	"Custom Team Name"  
----FMMC_KEY_TIP8	=	"Enter Message"  
----FMMC_KEY_TIP8F	=	"Forbidden Text. Try again"  
----FMMC_KEY_TIP8FS	=	"Invalid Message. Try again"  
----FMMC_KEY_TIP8S	=	"Enter Message"  
----FMMC_KEY_TIP9	=	"Enter Outfit Name"  
----FMMC_KEY_TIP9F	=	"Invalid Outfit Name. Try again"  
----FMMC_KEY_TIP9N	=	"Outfit Name"  
----PM_NAME_CHALL	=	"Enter Challenge Name"  
----```
----@param p0 integer
+---@param keyboardType integer
 ---@param windowTitle string
----@param p2 string
+---@param description string
 ---@param defaultText string
 ---@param defaultConcat1 string
 ---@param defaultConcat2 string
 ---@param defaultConcat3 string
 ---@param maxInputLength integer
-function DisplayOnscreenKeyboard(p0, windowTitle, p2, defaultText, defaultConcat1, defaultConcat2, defaultConcat3, maxInputLength) end
+function DisplayOnscreenKeyboard(keyboardType, windowTitle, description, defaultText, defaultConcat1, defaultConcat2, defaultConcat3, maxInputLength) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCA78CFA0366592FE)  
----This native does not have an official description.
----@param p0 integer
+---Displays the text input box with support for input with 500 characters.
+---@param keyboardType integer
 ---@param windowTitle string
+---@param description string
 ---@param defaultText string
 ---@param defaultConcat1 string
 ---@param defaultConcat2 string
@@ -649,8 +599,7 @@ function DisplayOnscreenKeyboard(p0, windowTitle, p2, defaultText, defaultConcat
 ---@param defaultConcat6 string
 ---@param defaultConcat7 string
 ---@param maxInputLength integer
----@return any
-function DisplayOnscreenKeyboardWithLongerInitialString(p0, windowTitle, defaultText, defaultConcat1, defaultConcat2, defaultConcat3, defaultConcat4, defaultConcat5, defaultConcat6, defaultConcat7, maxInputLength) end
+function DisplayOnscreenKeyboardWithLongerInitialString(keyboardType, windowTitle, description, defaultText, defaultConcat1, defaultConcat2, defaultConcat3, defaultConcat4, defaultConcat5, defaultConcat6, defaultConcat7, maxInputLength) end
 
 ---@deprecated
 DisplayOnscreenKeyboard_2 = DisplayOnscreenKeyboardWithLongerInitialString
@@ -681,23 +630,23 @@ function DoesPopMultiplierSphereExist(id) end
 ---List of dispatch services:
 ---
 ---```cpp
----enum DispatchType
+---enum eDispatchType
 ---{
 ---	DT_Invalid = 0,
----	DT_PoliceAutomobile,
----	DT_PoliceHelicopter,
----	DT_FireDepartment,
----	DT_SwatAutomobile,
----	DT_AmbulanceDepartment,
----	DT_PoliceRiders,
----	DT_PoliceVehicleRequest,
----	DT_PoliceRoadBlock,
----	DT_PoliceAutomobileWaitPulledOver,
----	DT_PoliceAutomobileWaitCruising,
----	DT_Gangs,
----	DT_SwatHelicopter,
----	DT_PoliceBoat,
----	DT_ArmyVehicle,
+---	DT_PoliceAutomobile = 1,
+---	DT_PoliceHelicopter = 2,
+---	DT_FireDepartment = 3,
+---	DT_SwatAutomobile = 4,
+---	DT_AmbulanceDepartment = 5,
+---	DT_PoliceRiders = 6,
+---	DT_PoliceVehicleRequest = 7,
+---	DT_PoliceRoadBlock = 8,
+---	DT_PoliceAutomobileWaitPulledOver = 9,
+---	DT_PoliceAutomobileWaitCruising = 10,
+---	DT_Gangs = 11,
+---	DT_SwatHelicopter = 13,
+---	DT_PoliceBoat = 14,
+---	DT_ArmyVehicle = 15,
 ---	DT_BikerBackup = 15
 ---};
 ---```
@@ -954,9 +903,8 @@ GetGroundZFor_3dCoord_2 = GetGroundZExcludingObjectsFor_3dCoord
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC906A7DAB05C8D2B)  
----```
----Bear in mind this native can only calculate the elevation when the coordinates are within the client's render distance.
----```
+---This native gets the ground level (ground elevation) and returns the Z coordinate that represents it.
+---Note: This native can only calculate the elevation when the coordinates are within the render distance of the client.
 ---
 ---```
 ---NativeDB Added Parameter 6: BOOL p5
@@ -964,9 +912,9 @@ GetGroundZFor_3dCoord_2 = GetGroundZExcludingObjectsFor_3dCoord
 ---@param x number
 ---@param y number
 ---@param z number
----@param ignoreWater boolean
+---@param includeWater boolean
 ---@return boolean, number
-function GetGroundZFor_3dCoord(x, y, z, ignoreWater) end
+function GetGroundZFor_3dCoord(x, y, z, includeWater) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD24D37CC275948CC)  
@@ -1221,7 +1169,7 @@ function GetWeatherTypeTransition() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1F400FEF721170DA)  
----This native does not have an official description.
+---Used for hunting in singleplayer and for golfing in both sp and online. The [`GET_HEADING_FROM_VECTOR_2D`](#\_0x2FFB6B224F4B2926) native can be used to get the wind heading from the direction.
 ---@return vector3
 function GetWindDirection() end
 
@@ -1453,6 +1401,14 @@ function IsIncidentValid(incidentId) end
 function IsInPowerSavingMode() end
 
 ---**`MISC` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB8C0BB75D8A77DB3)  
+---```
+---NativeDB Introduced: 2545
+---```
+---@return boolean
+function IsJapaneseVersion() end
+
+---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8A75CE2956274ADD)  
 ---This native does not have an official description.
 ---@return boolean
@@ -1623,6 +1579,14 @@ function IsSniperBulletInArea(x1, y1, z1, x2, y2, z2) end
 ---```
 ---@return boolean
 function IsSniperInverted() end
+
+---**`MISC` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0A27B2B6282F7169)  
+---```
+---NativeDB Introduced: 2545
+---```
+---@return boolean
+function IsSteamVersion() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF22B6C47C6EAB066)  
@@ -2078,12 +2042,21 @@ function NetworkSetScriptIsSafeForNetworkGame() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3ED1438C1F5C6612)  
+---```cpp
+---enum eFontBitField
+---{
+---  FONT_BIT_STANDARD = 1,
+---  FONT_BIT_CURSIVE = 2,
+---  FONT_BIT_ROCKSTAR_TAG = 4
+---  FONT_BIT_LEADERBOARD = 8
+---  FONT_BIT_CONDENSED = 16
+---  FONT_BIT_FIXED_WIDTH_NUMBERS = 32
+---  FONT_BIT_CONDENSED_NOT_GAMERNAME = 64
+---  FONT_BIT_PRICEDOWN = 128
+---};
 ---```
----p0 was always 2 in R* scripts.
----Called before calling DISPLAY_ONSCREEN_KEYBOARD if the input needs to be saved.
----```
----@param p0 integer
-function NextOnscreenKeyboardResultWillDisplayUsingTheseFonts(p0) end
+---@param fontBitField integer
+function NextOnscreenKeyboardResultWillDisplayUsingTheseFonts(fontBitField) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1162EA8AE9D24EEA)  
@@ -2501,12 +2474,14 @@ function SetGamePaused(toggle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x740E14FAD5842351)  
----```
----level can be from 0 to 3  
----0: 9.8   
----1: 2.4   
----2: 0.1 - very low  
----3: 0.0  
+---```cpp
+---enum eGravityLevel
+---{
+---    GRAV_EARTH = 0, // earth gravity 9.8m/s2
+---    GRAV_MOON = 1, // moon gravity 2.4m/s2
+---    GRAV_LOW = 2, // very low gravity
+---    GRAV_ZERO = 3 // zero gravity
+---}
 ---```
 ---@param level integer
 function SetGravityLevel(level) end
@@ -2781,23 +2756,19 @@ function SetWeatherTypeTransition(weatherType1, weatherType2, percentWeather2) e
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAC3A74E8384A9919)  
----```
----Sets the the raw wind speed value.  
----```
+---Sets the the raw wind speed value. The wind speed will stay persistent until it is reset (see examples).
 ---@param speed number
 function SetWind(speed) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEB0F4468467B4528)  
----Sets the wind direction.
+---Sets the wind direction. The wind direction will stay persistent until it is reset (see examples).
 ---@param direction number
 function SetWindDirection(direction) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEE09ECEDBABE47FC)  
----```
----Using this native will clamp the wind speed value to a range of 0.0- 12.0. Using SET_WIND sets the same value but without the restriction.  
----```
+---Using this native will clamp the wind speed value to a range of 0.0 - 12.0. The wind speed will stay persistent until it is reset (see examples).
 ---@param speed number
 function SetWindSpeed(speed) end
 
@@ -3016,13 +2987,12 @@ function ToggleShowOptionalStuntJumpCamera(toggle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEA2F2061875EED90)  
----```
----Returns true if the current frontend menu is FE_MENU_VERSION_SP_PAUSE
----
----U*
----```
+---Returns whether the In-Game Pause Menu Launched the Benchmark Tests.
 ---@return boolean
-function UiIsSingleplayerPauseMenuActive() end
+function UiStartedEndUserBenchmark() end
+
+---@deprecated
+UiIsSingleplayerPauseMenuActive = UiStartedEndUserBenchmark
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA74802FB8D0B7814)  
@@ -3036,13 +3006,17 @@ function UnloadCloudHat(name, p1) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0CF2B696BBF945AE)  
----```
----Returns the current status of the onscreen keyboard, and updates the output.
----Status Codes:
-----1: Keyboard isn't active
----0: User still editing
----1: User has finished editing
----2: User has canceled editing
+---Returns the current state of the text input box.
+---
+---```cpp
+---enum eOSKStatus
+---{
+---  OSK_INVALID = -1,
+---  OSK_PENDING = 0,
+---  OSK_SUCCESS = 1,
+---  OSK_CANCELLED = 2,
+---  OSK_FAILED = 3
+---};
 ---```
 ---@return integer
 function UpdateOnscreenKeyboard() end

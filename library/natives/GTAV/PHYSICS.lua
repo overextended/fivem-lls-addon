@@ -9,10 +9,25 @@ function ActivatePhysics(entity) end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE832D760399EB220)  
 ---```
----Creates a rope at the specific position, that extends in the specified direction when not attached to any entities.  ---
----__  ---
----Rope does NOT interact with anything you attach it to, in some cases it make interact with the world AFTER it breaks (seems to occur if you set the type to -1).  ---
----Rope will sometimes contract and fall to the ground like you'd expect it to, but since it doesn't interact with the world the effect is just jaring.  
+---Creates a rope at the specific position, that extends in the specified direction when not attached to any entities.---
+---__---
+---Rope does NOT interact with anything you attach it to, in some cases it make interact with the world AFTER it breaks (seems to occur if you set the type to -1).---
+---Rope will sometimes contract and fall to the ground like you'd expect it to, but since it doesn't interact with the world the effect is just jaring.
+---```
+---
+---There are 8 different rope types in the base game. Full rope data can be found in `ropedata.xml`.
+---
+---```cpp
+---enum ePhysicsRopeType {---
+---    RopeThin = 0, // Verticies: 1, Radius: 0.03, Textures: rope & rope_n---
+---    RopeWire6 = 1, // Verticies: 4, Radius: 0.015, Textures: steel_cable & steel_cable_n---
+---    RopeWire32 = 2, // Verticies: 32, Radius: 0.025, Textures: steel_cable & steel_cable_n---
+---    RopeMesh = 3, // Verticies: 6, Radius: 0.03, Textures: rope & rope_n---
+---    RopeThinWire32 = 4, // Verticies: 32, Radius: 0.01, Textures: rope & rope_n---
+---    RopeReins = 5, // Verticies: 32, Radius: 0.005, Textures: rope & rope_n---
+---    RopeThin4 = 6, // Verticies: 4, Radius: 0.03, Textures: rope & rope_n---
+---    RopeWire64 = 7 // Verticies: 64, Radius: 0.025, Textures: steel_cable & steel_cable_n---
+---}
 ---```
 ---@param x number
 ---@param y number
@@ -103,7 +118,11 @@ function DeleteChildRope(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x52B4829281364649)  
----This native does not have an official description.
+---Deletes the rope with the specified handle.
+---
+---You should check if the rope exists before trying to delete it, see [DOES_ROPE_EXIST](#\_0xFD5448BE3111ED96).
+---
+---For an example on how to use this native please refer to [ADD_ROPE](#\_0xE832D760399EB220)
 ---@param ropeId integer
 function DeleteRope(ropeId) end
 
@@ -123,7 +142,7 @@ function DoesRopeBelongToThisScript(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFD5448BE3111ED96)  
----This native does not have an official description.
+---For an example on how to use this native please refer to [ADD_ROPE](#\_0xE832D760399EB220)
 ---@param ropeId integer
 ---@return boolean
 function DoesRopeExist(ropeId) end

@@ -2073,6 +2073,30 @@ function PlaystatsSpentPiCustomLoadout(amount) end
 function PlaystatsStartOfflineMode() end
 
 ---**`STATS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x928DBFB892638EF3)  
+---Allows stunts to be triggered and sent as a `CEventNetworkStuntPerformed` event.
+---
+---Event types are shown below:
+---
+---```cpp
+---enum eTrackedStuntType
+---{
+---    ST_FRONTFLIP = 0,
+---    ST_BACKFLIP = 1,
+---    ST_SPIN = 2,
+---    ST_WHEELIE = 3,
+---    ST_STOPPIE = 4,
+---    ST_BOWLING_PIN = 5,
+---    ST_FOOTBALL = 6,
+---    ST_ROLL = 7
+---};
+---```
+function PlaystatsStartTrackingStunts() end
+
+---@deprecated
+PlaystatsStuntPerformedEventAllowTrigger = PlaystatsStartTrackingStunts
+
+---**`STATS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x35E39E5570358630)  
 ---```
 ---NativeDB Introduced: v1493
@@ -2081,18 +2105,12 @@ function PlaystatsStartOfflineMode() end
 function PlaystatsStoneHatchetEnd() end
 
 ---**`STATS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x928DBFB892638EF3)  
----```
----Allows CEventNetworkStuntPerformed to be triggered.
----```
-function PlaystatsStuntPerformedEventAllowTrigger() end
-
----**`STATS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8A800DACCC0DA55D)  
----```
----Disallows CEventNetworkStuntPerformed to be triggered.
----```
-function PlaystatsStuntPerformedEventDisallowTrigger() end
+---Disallows CEventNetworkStuntPerformed to be triggered (Resets [`PLAYSTATS_START_TRACKING_STUNTS`](#\_0x928DBFB892638EF3)).
+function PlaystatsStopTrackingStunts() end
+
+---@deprecated
+PlaystatsStuntPerformedEventDisallowTrigger = PlaystatsStopTrackingStunts
 
 ---**`STATS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE95C8A1875A02CA4)  

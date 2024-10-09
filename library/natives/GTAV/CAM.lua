@@ -1,6 +1,19 @@
 ---@meta
 
 ---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x34CFC4C2A38E83E3)  
+---```
+---NativeDB Introduced: v3258
+---```
+---@param camTo integer
+---@param camFrom integer
+---@param duration integer
+---@param easeLocation integer
+---@param easeRotation integer
+---@param easeFove integer
+function ActivateCamWithInterpAndFovCurve(camTo, camFrom, duration, easeLocation, easeRotation, easeFove) end
+
+---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8609C75EC438FB3B)  
 ---```
 ---I filled p1-p6 (the floats) as they are as other natives with 6 floats in a row are similar and I see no other method. So if a test from anyone proves them wrong please correct.  
@@ -114,23 +127,6 @@ function AttachCamToEntity(cam, entity, xOffset, yOffset, zOffset, isRelative) e
 function AttachCamToPedBone(cam, ped, boneIndex, xOffset, yOffset, zOffset, isRelative) end
 
 ---**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x149916F50C34A40D)  
----```
----NativeDB Introduced: v1180
----```
----@param cam integer
----@param ped integer
----@param boneIndex integer
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 number
----@param p8 number
----@param p9 boolean
-function AttachCamToPedBone_2(cam, ped, boneIndex, p3, p4, p5, p6, p7, p8, p9) end
-
----**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8DB3F12A02CAEF72)  
 ---This native works with vehicles only.
 ---Bone indexes are usually given by this native [GET_ENTITY_BONE_INDEX_BY_NAME](#\_0xFB71170B7E76ACBA).
@@ -193,7 +189,14 @@ function CreateCam(camName, active) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5E3CF89C6BCCA67D)  
----This native does not have an official description.
+---Creates a camera with the specified camera hash, You can use `SET_CAM_` natives to manipulate the camera.
+---Make sure to call [RENDER_SCRIPT_CAMS](#\_0x07E5B515DB0636FC) once the camera is created, or this won't have any visible effect.
+---
+---Take a look at [CREATE_CAM](#\_0xC3981DCE61D9E13F) if you would like to see the available camera names.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param camHash integer | string
 ---@param active boolean
 ---@return integer
@@ -201,10 +204,14 @@ function CreateCamera(camHash, active) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6ABFA3E16460F22D)  
----CAM::\_GET_GAMEPLAY_CAM_COORDS can be used instead of posX,Y,Z\
----CAM::\_GET_GAMEPLAY_CAM_ROT can be used instead of rotX,Y,Z\
----CAM::\_GET_FINAL_RENDERED_CAM_FOV can be used instead of p7 (Possible p7 is FOV parameter. )\
----rotationOrder is 2 usually
+---Create a camera with the specified camera hash, You can use `SET_CAM_` natives to manipulate the camera.
+---Make sure to call [RENDER_SCRIPT_CAMS](#\_0x07E5B515DB0636FC) once the camera is created, or this won't have any visible effect.
+---
+---Take a look at [CREATE_CAM](#\_0xC3981DCE61D9E13F) if you would like to see the available camera names.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param camHash integer | string
 ---@param posX number
 ---@param posY number
@@ -351,7 +358,7 @@ function ForceCinematicRenderingThisUpdate(p0) end
 ---Enumerated type defined in camControlHelperMetadataViewModes:
 ---
 ---```cpp
----enum Context {
+---enum eContext {
 ---    ON_FOOT = 0, // [G|S]ET_FOLLOW_PED_CAM_*
 ---    IN_VEHICLE = 1, // [G|S]ET_FOLLOW_VEHICLE_CAM_*
 ---    ON_BIKE = 2,
@@ -587,7 +594,7 @@ function GetFocusPedOnScreen(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8D4D46230B2C353A)  
 ---```cpp
 ---// view mode enumeration
----enum _0xA11D7CA8
+---enum eCamViewMode 
 ---{
 ---	THIRD_PERSON_NEAR = 0,
 ---	THIRD_PERSON_MEDIUM = 1,
@@ -655,6 +662,69 @@ function GetGameplayCamRot(rotationOrder) end
 ---This native does not have an official description.
 ---@return integer
 function GetRenderingCam() end
+
+---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x202A5ED9CE01D6E7)  
+---Attaches a camera to an entity, including full matrix transformations for both rotation and position offsets.
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param cam integer
+---@param entity integer
+---@param xRot number
+---@param yRot number
+---@param zRot number
+---@param xOffset number
+---@param yOffset number
+---@param zOffset number
+---@param isRelative boolean
+function HardAttachCamToEntity(cam, entity, xRot, yRot, zRot, xOffset, yOffset, zOffset, isRelative) end
+
+---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x149916F50C34A40D)  
+---Attaches a camera to a specific bone of a Ped, including full matrix transformations for both rotation and position offsets.
+---This native works with peds only.
+---
+---```
+---NativeDB Introduced: v1180
+---```
+---@param cam integer
+---@param ped integer
+---@param boneIndex integer
+---@param xRot number
+---@param yRot number
+---@param zRot number
+---@param xOffset number
+---@param yOffset number
+---@param zOffset number
+---@param isRelative boolean
+function HardAttachCamToPedBone(cam, ped, boneIndex, xRot, yRot, zRot, xOffset, yOffset, zOffset, isRelative) end
+
+---@deprecated
+AttachCamToPedBone_2 = HardAttachCamToPedBone
+
+---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDDA77EE33C005AAF)  
+---Interpolates the camera to specified parameters over a set duration using various curve types for position, rotation, and fov.
+---
+---```
+---NativeDB Introduced: v3258
+---```
+---@param camera integer
+---@param camPosX number
+---@param camPosY number
+---@param camPosZ number
+---@param camRotX number
+---@param camRotY number
+---@param camRotZ number
+---@param fov number
+---@param duration integer
+---@param posCurveType integer
+---@param rotCurveType integer
+---@param rotOrder integer
+---@param fovCurveType integer
+function InterpolateCamWithParams(camera, camPosX, camPosY, camPosZ, camRotX, camRotY, camRotZ, fov, duration, posCurveType, rotCurveType, rotOrder, fovCurveType) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF4F2C0D4EE209E20)  
@@ -899,22 +969,6 @@ function N_0x17fca7199a530203() end
 function N_0x1f2300cb7fa7b7f6() end
 
 ---**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x202A5ED9CE01D6E7)  
----```
----NativeDB Introduced: v2189
----```
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
----@param p7 any
----@param p8 any
-function N_0x202a5ed9ce01d6e7(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
-
----**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x247ACBC4ABBC9D1C)  
 ---This native does not have an official description.
 ---@param p0 boolean
@@ -926,13 +980,6 @@ function N_0x247acbc4abbc9d1c(p0) end
 ---@param p0 any
 ---@param p1 boolean
 function N_0x271017b9ba825366(p0, p1) end
-
----**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x271401846BD26E92)  
----This native does not have an official description.
----@param p0 boolean
----@param p1 boolean
-function N_0x271401846bd26e92(p0, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28B022A17B068A3A)  
@@ -1285,13 +1332,7 @@ function PointCamAtPedBone(cam, ped, boneIndex, x, y, z, p6) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x07E5B515DB0636FC)  
----```
----ease - smooth transition between the camera's positions  
----easeTime - Time in milliseconds for the transition to happen  
----If you have created a script (rendering) camera, and want to go back to the   
----character (gameplay) camera, call this native with render set to 0.  
----Setting ease to 1 will smooth the transition.  
----```
+---Renders the camera previously created with [CREATE_CAM](#\_0xC3981DCE61D9E13F) or [CREATE_CAMERA](#\_0x5E3CF89C6BCCA67D)
 ---
 ---```
 ---NativeDB Added Parameter 6: Any p5
@@ -1299,9 +1340,9 @@ function PointCamAtPedBone(cam, ped, boneIndex, x, y, z, p6) end
 ---@param render boolean
 ---@param ease boolean
 ---@param easeTime integer
----@param p3 boolean
+---@param easeCoordsAnim boolean
 ---@param p4 boolean
-function RenderScriptCams(render, ease, easeTime, p3, p4) end
+function RenderScriptCams(render, ease, easeTime, easeCoordsAnim, p4) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8BFCEB5EA1B161B6)  
@@ -1743,19 +1784,38 @@ function SetFlyCamVerticalSpeedMultiplier(cam, p1, p2, p3) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44A113DD6FFC48D1)  
----```
----From the scripts:
----CAM::SET_FOLLOW_PED_CAM_THIS_UPDATE("FOLLOW_PED_ATTACHED_TO_ROPE_CAMERA", 0);
----CAM::SET_FOLLOW_PED_CAM_THIS_UPDATE("FOLLOW_PED_ON_EXILE1_LADDER_CAMERA", 1500);
----CAM::SET_FOLLOW_PED_CAM_THIS_UPDATE("FOLLOW_PED_SKY_DIVING_CAMERA", 0);
----CAM::SET_FOLLOW_PED_CAM_THIS_UPDATE("FOLLOW_PED_SKY_DIVING_CAMERA", 3000);
----CAM::SET_FOLLOW_PED_CAM_THIS_UPDATE("FOLLOW_PED_SKY_DIVING_FAMILY5_CAMERA", 0);
----CAM::SET_FOLLOW_PED_CAM_THIS_UPDATE("FOLLOW_PED_SKY_DIVING_CAMERA", 0);
+---Overrides the ped follow camera (not first person camera) with the specified camera. The game loads all camera metadata from `update/update.rpf/x64/data/metadata/cameras.ymt` and `x64a.rpf/data/metadata/cameras.ymt` with the ped follow cameras being of type `camFollowPedCameraMetadata`.
+---
+---| Follow Camera Names                          |
+---|----------------------------------------------|
+---| DEFAULT_FOLLOW_PED_CAMERA                    |
+---| FOLLOW_PED_ATTACHED_TO_ROPE_CAMERA           |
+---| FOLLOW_PED_ON_EXILE1\_LADDER_CAMERA           |
+---| FOLLOW_PED_SKY_DIVING_CAMERA                 |
+---| FOLLOW_PED_SKY_DIVING_FAMILY5\_CAMERA         |
+---| NIGHTCLUB_FOLLOW_PED_CAMERA                  |
+---| FOLLOW_PED_INTIMIDATION_CAMERA               |
+---| FOLLOW_PED_IN_WATER_CAMERA                   |
+---| FOLLOW_PED_PRONE_CAMERA                      |
+---| FOLLOW_PED_ON_SEAT_CAMERA                    |
+---| FOLLOW_PED_HANGING_UPSIDE_DOWN_CAMERA        |
+---| FOLLOW_PED_ATTACHED_TO_ROPE_CAMERA           |
+---| CUSTOM_TRANSITION_AFTER_WARP_SKY_DIVE_CAMERA |
+---| FOLLOW_PED_ON_HORSE_CAMERA                   |
+---| FOLLOW_PED_ON_LOUNGER_CAMERA                 |
+---
+---Other camera hashes (names not found yet)
+---
+---```cpp
+---// 0x5DBBFB6E
+---// 0xA38DB056
+---// 0x16B702A3
+---// 0x41D72A2E
 ---```
 ---@param camName string
----@param p1 integer
+---@param easeTime integer
 ---@return boolean
-function SetFollowPedCamThisUpdate(camName, p1) end
+function SetFollowPedCamThisUpdate(camName, easeTime) end
 
 ---@deprecated
 SetFollowPedCamCutsceneChat = SetFollowPedCamThisUpdate
@@ -2163,32 +2223,36 @@ function StopGameplayHint(bStopImmediately) end
 ---
 ---```cpp
 ---enum eCamSplineSmoothingFlags {
----    CAM_SPLINE_NO_SMOOTH                = 0,    // No smoothing just moves at a constant rate
----    CAM_SPLINE_SLOW_IN_SMOOTH           = 1,    // Decelerates when approaching a node
----    CAM_SPLINE_SLOW_OUT_SMOOTH          = 2,    // Accelerates slowly when leaving a node
----    CAM_SPLINE_SLOW_IN_OUT_SMOOTH       = 3,    // Decelerates when approaching a node and accelerates slowly when leaving a node
----    CAM_SPLINE_VERY_SLOW_IN             = 4, 
----    CAM_SPLINE_VERY_SLOW_OUT            = 5, 
----    CAM_SPLINE_VERY_SLOW_IN_SLOW_OUT    = 6, 
----    CAM_SPLINE_SLOW_IN_VERY_SLOW_OUT    = 7, 
----    CAM_SPLINE_VERY_SLOW_IN_VERY_SLOW_OUT = 8,
----    CAM_SPLINE_EASE_IN                  = 9, 
----    CAM_SPLINE_EASE_OUT                 = 10, 
----    CAM_SPLINE_QUADRATIC_EASE_IN        = 11, 
----    CAM_SPLINE_QUADRATIC_EASE_OUT       = 12, 
----    CAM_SPLINE_QUADRATIC_EASE_IN_OUT    = 13, 
----    CAM_SPLINE_CUBIC_EASE_IN            = 14, 
----    CAM_SPLINE_CUBIC_EASE_OUT           = 15, 
----    CAM_SPLINE_CUBIC_EASE_IN_OUT        = 16, 
----    CAM_SPLINE_QUARTIC_EASE_IN          = 17, 
----    CAM_SPLINE_QUARTIC_EASE_OUT         = 18, 
----    CAM_SPLINE_QUARTIC_EASE_IN_OUT      = 19, 
----    CAM_SPLINE_QUINTIC_EASE_IN          = 20, 
----    CAM_SPLINE_QUINTIC_EASE_OUT         = 21, 
----    CAM_SPLINE_QUINTIC_EASE_IN_OUT      = 22, 
----    CAM_SPLINE_CIRCULAR_EASE_IN         = 23, 
----    CAM_SPLINE_CIRCULAR_EASE_OUT        = 24, 
----    CAM_SPLINE_CIRCULAR_EASE_IN_OUT     = 25 
+---	// No smoothing just moves at a constant rate
+---	CAM_SPLINE_NO_SMOOTH = 0,
+---	// Decelerates when approaching a node
+---	CAM_SPLINE_SLOW_IN_SMOOTH = 1, 
+---	// Accelerates slowly when leaving a node
+---	CAM_SPLINE_SLOW_OUT_SMOOTH = 2,    
+---	// Decelerates when approaching a node and accelerates slowly when leaving a node
+---	CAM_SPLINE_SLOW_IN_OUT_SMOOTH = 3,
+---	CAM_SPLINE_VERY_SLOW_IN = 4,
+---	CAM_SPLINE_VERY_SLOW_OUT = 5,
+---	CAM_SPLINE_VERY_SLOW_IN_SLOW_OUT = 6,
+---	CAM_SPLINE_SLOW_IN_VERY_SLOW_OUT = 7,
+---	CAM_SPLINE_VERY_SLOW_IN_VERY_SLOW_OUT = 8,
+---	CAM_SPLINE_EASE_IN = 9,
+---	CAM_SPLINE_EASE_OUT = 10,
+---	CAM_SPLINE_QUADRATIC_EASE_IN = 11,
+---	CAM_SPLINE_QUADRATIC_EASE_OUT = 12,
+---	CAM_SPLINE_QUADRATIC_EASE_IN_OUT = 13,
+---	CAM_SPLINE_CUBIC_EASE_IN = 14,
+---	CAM_SPLINE_CUBIC_EASE_OUT = 15,
+---	CAM_SPLINE_CUBIC_EASE_IN_OUT = 16,
+---	CAM_SPLINE_QUARTIC_EASE_IN = 17,
+---	CAM_SPLINE_QUARTIC_EASE_OUT = 18,
+---	CAM_SPLINE_QUARTIC_EASE_IN_OUT = 19,
+---	CAM_SPLINE_QUINTIC_EASE_IN = 20,
+---	CAM_SPLINE_QUINTIC_EASE_OUT = 21,
+---	CAM_SPLINE_QUINTIC_EASE_IN_OUT = 22,
+---	CAM_SPLINE_CIRCULAR_EASE_IN = 23,
+---	CAM_SPLINE_CIRCULAR_EASE_OUT = 24,
+---	CAM_SPLINE_CIRCULAR_EASE_IN_OUT = 25 
 ---};
 ---```
 ---
@@ -2216,6 +2280,14 @@ RenderFirstPersonCam = StopRenderingScriptCamsUsingCatchUp
 ---```
 ---@param bStopImmediately boolean
 function StopScriptGlobalShaking(bStopImmediately) end
+
+---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x271401846BD26E92)  
+---Sets the ambient ped & vehicle population spawning origin to be based around the active scripted camera for this frame
+---This will prevent vehicles from being created close to the camera and/or on-screen
+---@param vehicles boolean
+---@param peds boolean
+function UseScriptCamForAmbientPopulationOriginThisFrame(vehicles, peds) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6493CF69859B116A)  

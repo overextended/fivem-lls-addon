@@ -44,15 +44,13 @@ function DecorIsRegisteredAsType(propertyName, type) end
 
 ---**`DECORATOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9FD90732F56403CE)  
----Decor types:
----
----```
+---```cpp
 ---enum eDecorType
 ---{
 ---    DECOR_TYPE_FLOAT = 1,
 ---    DECOR_TYPE_BOOL = 2,
 ---    DECOR_TYPE_INT = 3,
----    DECOR_TYPE_UNK = 4,
+---    DECOR_TYPE_STRING = 4,
 ---    DECOR_TYPE_TIME = 5
 ---};
 ---```

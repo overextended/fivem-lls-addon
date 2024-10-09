@@ -686,22 +686,10 @@ function DrawBinkMovie(binkMovie, posX, posY, scaleX, scaleY, rotation, r, g, b,
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD3A9971CADAC7252)  
+---This native draws a box between two vectors in the game world. It is typically used for visualizing boundaries or areas of interest. The color of the box is specified by the red, green, and blue parameters, with alpha determining its opacity. This native should be called every frame for continuous rendering.
+---
 ---```
----x,y,z = start pos  
----x2,y2,z2 = end pos  
----Draw's a 3D Box between the two x,y,z coords.  
------------------  
----Keep in mind that the edges of the box do only align to the worlds base-vectors. Therefore something like rotation cannot be applied. That means this function is pretty much useless, unless you want a static unicolor box somewhere.  
----I recommend using a predefined function to call this.  
----[VB.NET]  
----Public Sub DrawBox(a As Vector3, b As Vector3, col As Color)  
----    [Function].Call(Hash.DRAW_BOX,a.X, a.Y, a.Z,b.X, b.Y, b.Z,col.R, col.G, col.B, col.A)  
----End Sub  
----[C#]  
----public void DrawBox(Vector3 a, Vector3 b, Color col)  
----{  
----    Function.Call(Hash.DRAW_BOX,a.X, a.Y, a.Z,b.X, b.Y, b.Z,col.R, col.G, col.B, col.A);  
----}  
+---NativeDB Introduced: v323
 ---```
 ---@param x1 number
 ---@param y1 number
@@ -892,22 +880,10 @@ DrawLightWithRangeWithShadow = DrawLightWithRangeAndShadow
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6B7256074AE34680)  
+---This native draws a line between two vectors in the game world. It is typically used for visualizing paths or connections between points. The color of the line is specified by the red, green, and blue parameters, with alpha determining its opacity. This native should be called every frame for continuous rendering.
+---
 ---```
----Draws a depth-tested line from one point to another.
--------------------
----x1, y1, z1 : Coordinates for the first point
----x2, y2, z2 : Coordinates for the second point
----r, g, b, alpha : Color with RGBA-Values
----I recommend using a predefined function to call this.
----[VB.NET]
----Public Sub DrawLine(from As Vector3, [to] As Vector3, col As Color)
----    [Function].Call(Hash.DRAW_LINE, from.X, from.Y, from.Z, [to].X, [to].Y, [to].Z, col.R, col.G, col.B, col.A)
----End Sub
----[C#]
----public void DrawLine(Vector3 from, Vector3 to, Color col)
----{
----    Function.Call(Hash.DRAW_LINE, from.X, from.Y, from.Z, to.X, to.Y, to.Z, col.R, col.G, col.B, col.A);
----}
+---NativeDB Introduced: v323
 ---```
 ---@param x1 number
 ---@param y1 number
@@ -1258,37 +1234,6 @@ function DrawSpotLightWithShadow(posX, posY, posZ, dirX, dirY, dirZ, colorR, col
 function DrawSprite(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha) end
 
 ---**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x29280002282F1928)  
----Used for drawling Deadline trailing lights, see deadline.ytd
----
----For UVW mapping (u,v,w parameters), reference your favourite internet resource for more details.
----@param x1 number
----@param y1 number
----@param z1 number
----@param x2 number
----@param y2 number
----@param z2 number
----@param x3 number
----@param y3 number
----@param z3 number
----@param red integer
----@param green integer
----@param blue integer
----@param alpha integer
----@param textureDict string
----@param textureName string
----@param u1 number
----@param v1 number
----@param w1 number
----@param u2 number
----@param v2 number
----@param w2 number
----@param u3 number
----@param v3 number
----@param w3 number
-function DrawSpritePoly(x1, y1, z1, x2, y2, z2, x3, y3, z3, red, green, blue, alpha, textureDict, textureName, u1, v1, w1, u2, v2, w2, u3, v3, w3) end
-
----**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x736D7AA1B750856B)  
 ---Used for drawling Deadline trailing lights, see deadline.ytd
 ---
@@ -1354,6 +1299,42 @@ function DrawSpritePoly_2(x1, y1, z1, x2, y2, z2, x3, y3, z3, red1, green1, blue
 ---@param blue integer
 ---@param alpha integer
 function DrawSpriteUv(textureDict, textureName, x, y, width, height, u1, v1, u2, v2, heading, red, green, blue, alpha) end
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x29280002282F1928)  
+---This native draws a textured polygon between three vectors in the game world. It's commonly utilized for rendering deadline trailing lights, with additional details available in the `deadline.ytd` file. UVW mapping details (u,v,w parameters) can be found on various internet resources. This native is specifically used for drawing textured polygons on the screen, where UV coordinates define the texture mapping and color/alpha parameters define the appearance of the polygon. This native should be called every frame for continuous rendering.
+---
+---```
+---NativeDB Introduced: v877
+---```
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param x3 number
+---@param y3 number
+---@param z3 number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
+---@param textureDict string
+---@param textureName string
+---@param u1 number
+---@param v1 number
+---@param w1 number
+---@param u2 number
+---@param v2 number
+---@param w2 number
+---@param u3 number
+---@param v3 number
+---@param w3 number
+function DrawTexturedPoly(x1, y1, z1, x2, y2, z2, x3, y3, z3, red, green, blue, alpha, textureDict, textureName, u1, v1, w1, u2, v2, w2, u3, v3, w3) end
+
+---@deprecated
+DrawSpritePoly = DrawTexturedPoly
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFDDC2B4ED3C69DF0)  
@@ -1499,10 +1480,12 @@ EndTextComponent = EndTextCommandScaleformString
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAE4E8157D9ECF087)  
----```
 ---Same as END_TEXT_COMMAND_SCALEFORM_STRING but does not perform HTML conversion for text tokens.
----```
-function EndTextCommandScaleformString_2() end
+---Also useful for when you are trying to add blips and inputs in your scaleform (If the scaleform supports it).
+function EndTextCommandUnparsedScaleformString() end
+
+---@deprecated
+EndTextCommandScaleformString_2 = EndTextCommandUnparsedScaleformString
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD77EDADB0420E6E0)  
@@ -1543,21 +1526,29 @@ function FreeMemoryForMissionCreatorPhoto() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x873C9F3104101DD3)  
+---Returns current screen resolution.
+---
 ---```
----Returns current screen resolution.  
+---NativeDB Introduced: v323
 ---```
 ---@return integer, integer
-function GetActiveScreenResolution() end
+function GetActualScreenResolution() end
 
 ---@deprecated
-GetScreenActiveResolution = GetActiveScreenResolution
+GetScreenActiveResolution = GetActualScreenResolution
+---@deprecated
+GetActiveScreenResolution = GetActualScreenResolution
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF1307EF624A80D87)  
----This native does not have an official description.
----@param b boolean
+---This native retrieves the aspect ratio of the game window. If `physicalAspect` is `true`, it returns the physical aspect ratio of the game window, which is useful for 3x1 modes. Otherwise, it returns the aspect ratio of the main game window, considering any custom overrides from the settings menu.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param physicalAspect boolean
 ---@return number
-function GetAspectRatio(b) end
+function GetAspectRatio(physicalAspect) end
 
 ---@deprecated
 GetScreenAspectRatio = GetAspectRatio
@@ -1599,9 +1590,10 @@ function GetExtraTimecycleModifierIndex() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84ED31191CC5D2C9)  
+---This native indicates whether the game is running in high-definition (HD) resolution. It returns `false` if the resolution is less than `1280x720` and `true` if it's equal to or greater than `1280x720`.
+---
 ---```
----false = Any resolution < 1280x720  
----true = Any resolution >= 1280x720  
+---NativeDB Introduced: v323
 ---```
 ---@return boolean
 function GetIsHidef() end
@@ -1618,11 +1610,10 @@ function GetIsPetrolDecalInRange(xCoord, yCoord, zCoord, radius) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x30CF4BDA4FCB1905)  
+---This native retrieves whether the game is running in widescreen mode or not.
+---
 ---```
----Setting Aspect Ratio Manually in game will return:  
----false - for Narrow format Aspect Ratios (3:2, 4:3, 5:4, etc. )  
----true - for Wide format Aspect Ratios (5:3, 16:9, 16:10, etc. )  
----Setting Aspect Ratio to "Auto" in game will return "false" or "true" based on the actual set Resolution Ratio.  
+---NativeDB Introduced: v323
 ---```
 ---@return boolean
 function GetIsWidescreen() end
@@ -1662,9 +1653,7 @@ function GetSafeZoneSize() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD80A80346A45D761)  
----```
----methodReturn: The return value of this native: END_SCALEFORM_MOVIE_METHOD_RETURN_VALUE
----```
+---This native does not have an official description.
 ---@param methodReturn integer
 ---@return boolean
 function GetScaleformMovieMethodReturnValueBool(methodReturn) end
@@ -2260,13 +2249,6 @@ function N_0x2fcb133ca50a49eb(p0) end
 function N_0x30432a0118736e00() end
 
 ---**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x32F34FF7F617643B)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x32f34ff7f617643b(p0, p1) end
-
----**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x346EF3ECAAAB149E)  
 ---This native does not have an official description.
 function N_0x346ef3ecaaab149e() end
@@ -2628,11 +2610,6 @@ function N_0xcfd16f0db5a3535c(toggle) end
 ---```
 ---@param p0 any
 function N_0xd1c55b110e4df534(p0) end
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xD9454B5752C857DC)  
----This native does not have an official description.
-function N_0xd9454b5752c857dc() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDB1EA9411C8911EC)  
@@ -3090,6 +3067,18 @@ function ScaleformMovieMethodAddParamLatestBriefString(value) end
 ScaleformMovieMethodAddParamIntString = ScaleformMovieMethodAddParamLatestBriefString
 
 ---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x77FE3402004CD1B0)  
+---Adds a literal string to a scaleform movie method.
+---There doesn't seem to be any difference between this and other `SCALEFORM_MOVIE_METHOD_ADD_PARAM_*_STRING` natives in game code.
+---@param string string
+function ScaleformMovieMethodAddParamLiteralString(string) end
+
+---@deprecated
+PushScaleformMovieMethodParameterString_2 = ScaleformMovieMethodAddParamLiteralString
+---@deprecated
+ScaleformMovieMethodAddParamTextureNameString_2 = ScaleformMovieMethodAddParamLiteralString
+
+---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE83A3E3557A56640)  
 ---```
 ---This method is the equivalent to PUSH_SCALEFORM_MOVIE_FUNCTION_PARAMETER_STRING when using it to add a new button (like "INSTRUCTIONAL_BUTTONS").  
@@ -3111,18 +3100,6 @@ function ScaleformMovieMethodAddParamTextureNameString(string) end
 PushScaleformMovieFunctionParameterString = ScaleformMovieMethodAddParamTextureNameString
 ---@deprecated
 PushScaleformMovieMethodParameterString = ScaleformMovieMethodAddParamTextureNameString
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x77FE3402004CD1B0)  
----GRAPHICS::\_0x77FE3402004CD1B0(HUD::\_GET_LABEL_TEXT("YACHT_GSY"));
----GRAPHICS::\_0x77FE3402004CD1B0(PLAYER::GET_PLAYER_NAME(PLAYER::PLAYER_ID()));
----
----Both \_0xBA7148484BD90365 / \_0x77FE3402004CD1B0 works, but \_0x77FE3402004CD1B0 is usually used for "name" (organisation, players..).
----@param string string
-function ScaleformMovieMethodAddParamTextureNameString_2(string) end
-
----@deprecated
-PushScaleformMovieMethodParameterString_2 = ScaleformMovieMethodAddParamTextureNameString_2
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x43DBAE39626CE83F)  
@@ -3362,6 +3339,13 @@ function SetDebugLinesAndSpheresDrawingActive(enabled) end
 function SetDisableDecalRenderingThisFrame() end
 
 ---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD9454B5752C857DC)  
+---Prevents gas / petrol decals (aka gas / petrol trails and puddles) to be ignited on fire during the frame in which the native is called.
+---
+---**Note**: This native needs to be called every frame to prevent ignition.
+function SetDisablePetrolDecalsIgnitingThisFrame() end
+
+---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA0008F3BBB8F416)  
 ---Sets the on-screen drawing origin for draw-functions in world coordinates.
 ---
@@ -3499,16 +3483,15 @@ function SetParticleFxLoopedAlpha(ptfxHandle, alpha) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7F8F65877F88783B)  
----```
----only works on some fx's  
----p4 = 0  
----```
+---Sets the colour tint of a previously started looped particle effect
+---
+---You can use the [inverse lerp](https://www.gamedev.net/articles/programming/general-and-gameplay-programming/inverse-lerp-a-super-useful-yet-often-overlooked-function-r5230/) method to normalize in a range from 0.0 to 1.0 an rgb
 ---@param ptfxHandle integer
 ---@param r number
 ---@param g number
 ---@param b number
----@param p4 boolean
-function SetParticleFxLoopedColour(ptfxHandle, r, g, b, p4) end
+---@param bLocalOnly boolean
+function SetParticleFxLoopedColour(ptfxHandle, r, g, b, bLocalOnly) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F0C4B5B1C393BE2)  
@@ -3604,17 +3587,31 @@ function SetParticleFxShootoutBoat(p0) end
 function SetPlayerTcmodifierTransition(value) end
 
 ---**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE6A9F00D4240B519)  
----This native is used in some casino scripts to fit the scaleform in the rendertarget.
----@param scaleformHandle integer
----@param toggle boolean
-function SetScaleformFitRendertarget(scaleformHandle, toggle) end
-
----**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1D132D614DD86811)  
 ---This native does not have an official description.
 ---@param scaleformHandle integer
 function SetScaleformMovieAsNoLongerNeeded(scaleformHandle) end
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x32F34FF7F617643B)  
+---```
+---NativeDB Introduced: v573
+---```
+---
+---Configures a Scaleform movie to render to a large render target (1280x720), which is useful for ensuring higher quality and clarity in certain display scenarios. Such as displaying the name of an organization (CEO Office) in a visually impactful way for example.
+---@param scaleformMovieId integer
+---@param useLargeRT boolean
+function SetScaleformMovieToUseLargeRt(scaleformMovieId, useLargeRT) end
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE6A9F00D4240B519)  
+---Adjusts a scaleform movie's dimensions to fit a large rendertarget. Mostly used in casino scripts.
+---@param scaleformHandle integer
+---@param toggle boolean
+function SetScaleformMovieToUseSuperLargeRt(scaleformHandle, toggle) end
+
+---@deprecated
+SetScaleformFitRendertarget = SetScaleformMovieToUseSuperLargeRt
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6D8EB211944DCE08)  
@@ -3692,6 +3689,21 @@ function SetScriptGfxDrawBehindPausemenu(flag) end
 ---GRAPHICS::DRAW_RECT(0.5, 0.5, 3.0, 3.0, v\_4, v\_5, v\_6, a\_0.\_f172, 0);
 ---GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(1);
 ---GRAPHICS::DRAW_RECT(0.5, 0.5, 1.5, 1.5, 0, 0, 0, 255, 0);
+---
+---```cpp
+---enum eGfxDrawOrder
+---{
+---    GFX_ORDER_BEFORE_HUD_PRIORITY_LOW = 0,
+---    GFX_ORDER_BEFORE_HUD = 1,
+---    GFX_ORDER_BEFORE_HUD_PRIORITY_HIGH = 2,
+---    GFX_ORDER_AFTER_HUD_PRIORITY_LOW = 3,
+---    GFX_ORDER_AFTER_HUD = 4,
+---    GFX_ORDER_AFTER_HUD_PRIORITY_HIGH = 5,
+---    GFX_ORDER_AFTER_FADE_PRIORITY_LOW = 6,
+---    GFX_ORDER_AFTER_FADE = 7,
+---    GFX_ORDER_AFTER_FADE_PRIORITY_HIGH = 8,
+---}
+---```
 ---@param order integer
 function SetScriptGfxDrawOrder(order) end
 
