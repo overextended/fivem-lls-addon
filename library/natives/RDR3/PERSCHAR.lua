@@ -42,6 +42,13 @@ function GetPerscharIndexFromPedIndex(ped) end
 function GetPerscharModelName(persCharHash) end
 
 ---**`PERSCHAR` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC9655D47DEC0353)  
+---This native does not have an official description.
+---@param persCharHash integer | string
+---@return integer
+function GetPerscharOutfit(persCharHash) end
+
+---**`PERSCHAR` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x31C70A716CAE1FEE)  
 ---This native does not have an official description.
 ---@param persChar integer
@@ -78,17 +85,10 @@ function N_0x0b3a99ab6713aa52(p0) end
 
 ---**`PERSCHAR` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x112DDF56300BC6E5)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x112ddf56300bc6e5(p0) end
-
----**`PERSCHAR` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2DF89CD2ED1D0BDE)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x2df89cd2ed1d0bde(p0, p1) end
+---Returns the PersChar index of the persCharHash passed
+---@param persCharHash integer | string
+---@return integer
+function N_0x112ddf56300bc6e5(persCharHash) end
 
 ---**`PERSCHAR` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2E957AA81F2C61C9)  
@@ -177,12 +177,6 @@ function N_0x70605812abc9ff0f(p0, p1) end
 ---@param p0 any
 ---@param p1 any
 function N_0x8ae4efa464dae42d(p0, p1) end
-
----**`PERSCHAR` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8B44273A92CD406C)  
----This native does not have an official description.
----@param p0 any
-function N_0x8b44273a92cd406c(p0) end
 
 ---**`PERSCHAR` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8BC555034A5A5E8C)  
@@ -277,13 +271,6 @@ function N_0xd4b614179bcd0654(p0) end
 function N_0xd95d777f828b2bbb(p0) end
 
 ---**`PERSCHAR` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC9655D47DEC0353)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xdc9655d47dec0353(p0) end
-
----**`PERSCHAR` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE0E65E0D261F7507)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -323,6 +310,12 @@ function N_0xf8de7154f7d1458f(p0) end
 function N_0xfcc6db8dbe709bc8(persChar) end
 
 ---**`PERSCHAR` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8B44273A92CD406C)  
+---This native does not have an official description.
+---@param persCharHash integer | string
+function ResetPerscharSchedule(persCharHash) end
+
+---**`PERSCHAR` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x631CD2D77FDC0316)  
 ---This native does not have an official description.
 ---@param persChar integer
@@ -334,6 +327,13 @@ function RetaskPersistentCharacter(persChar) end
 ---@param persChar integer
 ---@return boolean
 function RevivePerschar(persChar) end
+
+---**`PERSCHAR` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2DF89CD2ED1D0BDE)  
+---This native does not have an official description.
+---@param persCharHash integer | string
+---@param outfit integer | string
+function SetPerscharOutfit(persCharHash, outfit) end
 
 ---**`PERSCHAR` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x187D65F3AEC5D679)  

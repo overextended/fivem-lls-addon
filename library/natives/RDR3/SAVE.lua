@@ -1,12 +1,6 @@
 ---@meta
 
 ---**`SAVE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1431540BCA1A1BD2)  
----This native does not have an official description.
----@return any
-function N_0x1431540bca1a1bd2() end
-
----**`SAVE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x443174C20B8B9E7F)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -148,6 +142,12 @@ function SavegameGetTextLabel_31(variableName) end
 ---@param variableName string
 ---@return any
 function SavegameGetTextLabel_63(variableName) end
+
+---**`SAVE` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1431540BCA1A1BD2)  
+---This native does not have an official description.
+---@return boolean
+function SavegameHasSaveFailed() end
 
 ---**`SAVE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3CF46F55C6585590)  

@@ -81,7 +81,6 @@ function DecorRemoveAll(entity) end
 ---**`DECORATOR` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFE26E4609B1C3772)  
 ---This function sets metadata of type bool to specified entity.
----
 ---@param entity integer
 ---@param propertyName string
 ---@param value boolean

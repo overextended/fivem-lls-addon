@@ -48,8 +48,16 @@ function DatabindingAddDataContainerByHash(p0, p1) end
 ---This native does not have an official description.
 ---@param p0 string
 ---@param p1 string
----@return any
+---@return integer
 function DatabindingAddDataContainerFromPath(p0, p1) end
+
+---**`DATABINDING` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD7DB94AB78E8EBE4)  
+---This native does not have an official description.
+---@param p0 string
+---@param p1 integer | string
+---@return any
+function DatabindingAddDataContainerFromPathByHash(p0, p1) end
 
 ---**`DATABINDING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5154228273ADB9A6)  
@@ -585,14 +593,6 @@ function N_0xc900cec8a172375b(p0, p1, p2) end
 ---@param p1 string
 ---@return any
 function N_0xd48993a61938c64d(p0, p1) end
-
----**`DATABINDING` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD7DB94AB78E8EBE4)  
----This native does not have an official description.
----@param p0 string
----@param p1 integer | string
----@return any
-function N_0xd7db94ab78e8ebe4(p0, p1) end
 
 ---**`DATABINDING` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE6AAB897120492D6)  

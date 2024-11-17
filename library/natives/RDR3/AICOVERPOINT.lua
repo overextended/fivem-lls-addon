@@ -1,6 +1,14 @@
 ---@meta
 
 ---**`AICOVERPOINT` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x733077295AB51304)  
+---args: f_0 = Volume Handle
+---f_1 = integer (?) (only the number 1 is ever used here, or is not used at all)
+---f_2 = integer (-1 to 32 in R* Scripts)
+---@return any
+function AddCoverBlockingArea() end
+
+---**`AICOVERPOINT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x975BD6351648935F)  
 ---This native does not have an official description.
 ---@return integer, any
@@ -54,12 +62,6 @@ function N_0x53e4d0c079ca6855(handle) end
 ---coverLayer: see levels_0/levels/rdr3/coverlayers
 ---@param coverLayer string
 function N_0x64340dc208d671d5(coverLayer) end
-
----**`AICOVERPOINT` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x733077295AB51304)  
----args: f_0 = Volume Handle, f_2 = integer (-1, 32 used in R* Scripts)
----@return any
-function N_0x733077295ab51304() end
 
 ---**`AICOVERPOINT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7A1FDCF35EAA140F)  

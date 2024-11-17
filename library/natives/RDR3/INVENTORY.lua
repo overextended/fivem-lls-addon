@@ -413,6 +413,16 @@ function InventoryMoveInventoryItem(inventoryId, slotId, quantity) end
 function InventoryReleaseItemCollection(collectionId) end
 
 ---**`INVENTORY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5D6182F3BCE1333B)  
+---removeReason: REMOVE_REASON_DEFAULT (eRemoveItemReason)
+---Example: INVENTORY::_0x5D6182F3BCE1333B(1, joaat("REMOVE_REASON_DEFAULT")); -> clears weapon wheel
+---Only used in R* SP Scripts
+---@param inventoryId integer
+---@param removeReason integer | string
+---@return boolean
+function InventoryRemoveInventoryItems(inventoryId, removeReason) end
+
+---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3E4E811480B3AE79)  
 ---This native does not have an official description.
 ---@param inventoryId integer
@@ -491,6 +501,12 @@ function InventorySwapInventoryItem(inventoryId) end
 function InventoryUpdateInventoryItem(inventoryId, p3) end
 
 ---**`INVENTORY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE36D4A38D28D9CFB)  
+---Only used in R* SP Scripts
+---@param p0 boolean
+function InventoryUseBackupInventory(p0) end
+
+---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA6AA9F56BC6CFF58)  
 ---This native does not have an official description.
 ---@param enable boolean
@@ -537,16 +553,6 @@ function N_0x46743bbfedbc859e(inventoryId, eInventoryItem, p2) end
 ---@param ped integer
 ---@return integer, any
 function N_0x46db71883ee9d5af(data, stats, ped) end
-
----**`INVENTORY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5D6182F3BCE1333B)  
----removeReason: REMOVE_REASON_DEFAULT (eRemoveItemReason)
----Example: INVENTORY::_0x5D6182F3BCE1333B(1, joaat("REMOVE_REASON_DEFAULT")); -> clears weapon wheel
----Only used in R* SP Scripts
----@param inventoryId integer
----@param removeReason integer | string
----@return boolean
-function N_0x5d6182f3bce1333b(inventoryId, removeReason) end
 
 ---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6862E4D93F64CF01)  
@@ -651,12 +657,6 @@ function N_0xd08685ba892dbfab(inventoryId) end
 ---Only used in R* SP Scripts
 ---@param inventoryId integer
 function N_0xe1f45a67a9f0dcbc(inventoryId) end
-
----**`INVENTORY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE36D4A38D28D9CFB)  
----Only used in R* SP Scripts
----@param p0 boolean
-function N_0xe36d4a38d28d9cfb(p0) end
 
 ---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF666EF30F4F0AC4E)  

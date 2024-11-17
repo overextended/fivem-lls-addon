@@ -330,7 +330,7 @@ function GetEntityAlpha(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x627520389E288A73)  
----This native does not have an official description.
+---Returns a normalized value between 0.0f and 1.0f. You can get the actual anim time by multiplying this by GET_ANIM_DURATION
 ---@param entity integer
 ---@param animDict string
 ---@param animName string
@@ -1901,9 +1901,9 @@ function SetEntityAnimSpeed(entity, animDict, animName, speedMultiplier) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC19C288082E586E)  
 ---Makes the specified entity (ped, vehicle or object) persistent. Persistent entities will not automatically be removed by the engine.
 ---@param entity integer
----@param p1 boolean
----@param p2 boolean
-function SetEntityAsMissionEntity(entity, p1, p2) end
+---@param scriptHostObject boolean
+---@param grabFromOtherScript boolean
+function SetEntityAsMissionEntity(entity, scriptHostObject, grabFromOtherScript) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4971D2F8162B9674)  

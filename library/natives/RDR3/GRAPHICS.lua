@@ -161,10 +161,10 @@ function AnimpostfxGetStackhash(effectName) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9AB192A9EF980EED)  
 ---This native does not have an official description.
 ---@param effectNameHash integer | string
----@param p1 integer
----@param p2 boolean
+---@param eventType integer
+---@param bPeekOnly boolean
 ---@return boolean, boolean
-function AnimpostfxHasEventTriggeredByStackhash(effectNameHash, p1, p2) end
+function AnimpostfxHasEventTriggeredByStackhash(effectNameHash, eventType, bPeekOnly) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBF2DD155B2ADCD0A)  
@@ -374,6 +374,18 @@ function CascadeShadowsSetCascadeBounds(p0, p1, p2, p3, p4, p5, p6, p7) end
 ---"CSM_ST_ESM"
 ---@param type string
 function CascadeShadowsSetShadowSampleType(type) end
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x62B9F9A1272AED80)  
+---This native does not have an official description.
+---@param value number
+function ChangePhotoModeContrast(value) end
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC8D0611D9A0CF5D3)  
+---This native does not have an official description.
+---@param value number
+function ChangePhotoModeExposure(value) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0E3F4AF2D63491FB)  
@@ -1018,18 +1030,6 @@ function N_0x5c674eb487891f6b() end
 function N_0x5c9c3a466b3296a8(p0) end
 
 ---**`GRAPHICS` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5CD6A2CCE5087161)  
----This native does not have an official description.
----@param p0 any
-function N_0x5cd6a2cce5087161(p0) end
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x62B9F9A1272AED80)  
----This native does not have an official description.
----@param p0 any
-function N_0x62b9f9a1272aed80(p0) end
-
----**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x67B0778C62E74423)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1076,11 +1076,6 @@ function N_0x8996fa6ad9fe4e90(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x910E260AEAD855DE)  
 ---This native does not have an official description.
 function N_0x910e260aead855de() end
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9229ED770975BD9E)  
----This native does not have an official description.
-function N_0x9229ed770975bd9e() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x94B261F1F35293E1)  
@@ -1196,12 +1191,6 @@ function N_0xc489fe31ac726512(p0, p1) end
 ---ANIMPOSTFX_*
 ---@param effectNameHash integer | string
 function N_0xc76fc4c2fc5f4405(effectNameHash) end
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC8D0611D9A0CF5D3)  
----This native does not have an official description.
----@param p0 any
-function N_0xc8d0611d9a0cf5d3(p0) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCC3B787E73E64160)  
@@ -1371,7 +1360,7 @@ function PedshotSetPersonaPhotoType(personaPhotoLocalCacheType) end
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA42EDF1E88734A7E)  
 ---This native does not have an official description.
----@return any
+---@return boolean
 function QueueOperationToCreateSortedListOfPhotos() end
 
 ---**`GRAPHICS` `client`**  
@@ -1734,6 +1723,12 @@ function SetPearlescentFxEnabled(object, toggle) end
 ---This native does not have an official description.
 ---@param p0 boolean
 function SetPhotoInPhotomodeStat(p0) end
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5CD6A2CCE5087161)  
+---This native does not have an official description.
+---@param locked boolean
+function SetPhotoModeExposureLocked(locked) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8B3296278328B5EB)  
@@ -2128,6 +2123,11 @@ function TogglePausedRenderphases(toggle) end
 ---This native does not have an official description.
 ---@param entity integer
 function UpdateLightsOnEntity(entity) end
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9229ED770975BD9E)  
+---Resets the exposure to the value when exposure lock was enabled
+function UpdatePhotoModeExposure() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA10DB07FC234DD12)  

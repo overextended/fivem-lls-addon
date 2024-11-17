@@ -322,7 +322,7 @@ function ParseddataGetNumChildren(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x44B3A36933AC009C)  
 ---This native does not have an official description.
 ---@param section integer | string
----@return boolean, any, any
+---@return boolean, integer, any
 function ParseddataGetSection(section) end
 
 ---**`DATAFILE` `client`**  

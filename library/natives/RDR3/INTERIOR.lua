@@ -218,7 +218,7 @@ function SetInteriorInUse(interior) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x07FD1A0B814F6055)  
 ---Does something similar to INTERIOR::DISABLE_INTERIOR.
 ---
----You don't fall through the floor but everything is invisible inside and looks the same as when INTERIOR::DISABLE_INTERIOR is used. Peds behaves normally inside. 
+---You don't fall through the floor but everything is invisible inside and looks the same as when INTERIOR::DISABLE_INTERIOR is used. Peds behaves normally inside.
 ---@param interior integer
 function UnpinInterior(interior) end
 

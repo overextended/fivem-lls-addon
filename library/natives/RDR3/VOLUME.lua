@@ -324,6 +324,18 @@ function DoesVolumeExist(volume) end
 function FindVolumeLockRequestIdWithArgs() end
 
 ---**`VOLUME` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2B32B11520626229)  
+---Indexes items (including entyties and peds) in a set volume
+---Counts up as its the return value of how many items it writes to given itemSet
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@param itemSet integer
+---@return integer
+function GetVolumeAmountOfIndexedItems(x, y, z, radius, itemSet) end
+
+---**`VOLUME` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5737199AF2DC609F)  
 ---This native does not have an official description.
 ---@param volume integer
@@ -430,17 +442,6 @@ function ModifyVolumeLockLocation(volLock, x, y, z) end
 ---nullsub, doesn't do anything
 ---@param p0 any
 function N_0x128fc3a893bf853a(p0) end
-
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2B32B11520626229)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@return any
-function N_0x2b32b11520626229(p0, p1, p2, p3, p4) end
 
 ---**`VOLUME` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x351D71B8B72B858B)  

@@ -1,6 +1,44 @@
 ---@meta
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3946FC742AC305CD)  
+---Associates a specific "interactive focus mode preset" between a player and a ped, with a specified location and target entity.
+---To access all available presets, refer to the file located at:
+---`\update_1.rpf\common\data\interactive_focus_mode_presets.meta`
+---Video: https://imgur.com/gallery/0x3946fc742ac305cd-1uJIRNr
+---@param player integer
+---@param ped integer
+---@param preset string
+---@param x number
+---@param y number
+---@param z number
+---@param targetEntity integer
+---@param name string
+function AddAmbientPlayerInteractiveFocusPreset(player, ped, preset, x, y, z, targetEntity, name) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD48227263E3D06AE)  
+---Adds an "interactive focus mode preset" between a player and a specific set of coordinates with a target entity.
+---To access all available presets, refer to the file located at:
+---`\update_1.rpf\common\data\interactive_focus_mode_presets.meta`
+---
+---Related function:
+---- _DISABLE_PLAYER_INTERACTIVE_FOCUS_PRESET (0xC67A4910425F11F1)
+---
+---Video: https://imgur.com/gallery/0xd48227263e3d06ae-SUJhMoA
+---@param player integer
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param preset string
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param targetEntity integer
+---@param name string
+function AddAmbientPlayerInteractiveFocusPresetAtCoords(player, x1, y1, z1, preset, x2, y2, z2, targetEntity, name) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAC22AA6DF4D1C1DE)  
 ---Used in script function: NET_AUTO_FOLLOW_UPDATE_LEADER_VALUES
 ---followMode:
@@ -45,6 +83,19 @@ function CanPlayerStartMission(player) end
 function ClearBountyTarget(player) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0E9057A9DA78D0F8)  
+---Clears the intensity of aura effects applied to entities for a specific player in Deadeye mode based on a flag parameter. This function is used to reset any intensity modifications set by `PLAYER::_SET_DEADEYE_ENTITY_AURA_INTENSITY_WITH_FLAG` (0x131E294EF60160DF), restoring affected entities' aura intensity to their default state.
+---
+---Example usage:
+---PLAYER::_CLEAR_DEADEYE_AURA_INTENSITY_WITH_FLAG(PLAYER::PLAYER_ID(),2);
+---Clears all aura intensity adjustments for the player based on the specified flag, restoring entities' intensity to default values.
+---
+---Video: https://imgur.com/gallery/0x0e9057a9da78d0f8-ctZPFmz
+---@param player integer
+---@param flag integer
+function ClearDeadeyeAuraIntensityWithFlag(player, flag) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0361096D6CE4372C)  
 ---This native does not have an official description.
 ---@param player integer
@@ -72,6 +123,41 @@ function ClearPlayerWantedLevel(player) end
 function DisablePlayerFiring(player, toggle) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC67A4910425F11F1)  
+---Disables the previously set "interactive focus mode preset" for a given player.
+---Example usage:
+---PLAYER::_DISABLE_PLAYER_INTERACTIVE_FOCUS_PRESET(Player::PLAYER_ID(), "qadr_");
+---
+---This example disables the preset named "qadr_" for the current player, effectively removing the previously established interactive focus mode.
+---Refer to `_ADD_AMBIENT_PLAYER_INTERACTIVE_FOCUS_PRESET(0x3946FC742AC305CD)` to understand how presets are added.
+---Video: https://imgur.com/gallery/0x3946fc742ac305cd-1uJIRNr
+---@param player integer
+---@param name string
+function DisablePlayerInteractiveFocusPreset(player, name) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA62BBAAE67A05BB0)  
+---Retrieves whether all trails are currently hidden during Eagle Eye mode for the specified player.
+---Images:
+---- https://imgur.com/gallery/0x330ca55a3647fa1c-0xa62bbaae67a05bb0-Lpzt2Yi
+---- https://imgur.com/gallery/0x330ca55a3647fa1c-0xa62bbaae67a05bb0-yLA6GBk
+---@param player integer
+---@return boolean
+function EagleEyeAreAllTrailsHidden(player) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1DA5C5B0923E1B85)  
+---Checks if the player can focus on tracks while in Eagle Eye mode. Returns true if the player is able to focus on a track, otherwise false.
+---Example usage:
+---if (PLAYER::_EAGLE_EYE_CAN_PLAYER_FOCUS_ON_TRACK(PLAYER::PLAYER_ID())) {
+---    // Perform actions when the player is focusing on a track in Eagle Eye mode
+---}
+---Video: https://imgur.com/gallery/0x1da5c5b0923e1b85-M8AyOsu
+---@param player integer
+---@return boolean
+function EagleEyeCanPlayerFocusOnTrack(player) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x40AB73092C95B5F5)  
 ---This native does not have an official description.
 ---@param entity integer
@@ -79,6 +165,16 @@ function DisablePlayerFiring(player, toggle) end
 ---@param p2 any
 ---@param p3 any
 function EagleEyeDisableTrackingTrail(entity, trail, p2, p3) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3813E11A378958A5)  
+---Retrieves the ID of the ped that the specified player is currently tracking while in Eagle Eye mode.
+---Images:
+---- https://imgur.com/gallery/0x3813e11a378958a5-CHoJVRu
+---- https://imgur.com/gallery/0x3813e11a378958a5-reK5IXt
+---@param player integer
+---@return integer
+function EagleEyeGetTrackedPedId(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2C41D93F550D5E37)  
@@ -120,11 +216,34 @@ function EagleEyeSetDrainRateModifier(player, modifier) end
 function EagleEyeSetFocusOnAssociatedClueTrail(player, linkedWaypointPed) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x330CA55A3647FA1C)  
+---Sets whether all trails are hidden during Eagle Eye mode.
+---Example usage:
+---Hide all trails in Eagle Eye mode for the current player
+---PLAYER::_EAGLE_EYE_SET_HIDE_ALL_TRAILS(PLAYER::PLAYER_ID(), true);
+---
+---Show all trails in Eagle Eye mode
+---PLAYER::_EAGLE_EYE_SET_HIDE_ALL_TRAILS(PLAYER::PLAYER_ID(), false);
+---Images:
+---- https://imgur.com/gallery/0x330ca55a3647fa1c-0xa62bbaae67a05bb0-Lpzt2Yi
+---- https://imgur.com/gallery/0x330ca55a3647fa1c-0xa62bbaae67a05bb0-yLA6GBk
+---@param player integer
+---@param hideTrails boolean
+function EagleEyeSetHideAllTrails(player, hideTrails) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE285A4413B00B7F)  
 ---This native does not have an official description.
 ---@param ped integer
 ---@param disabled boolean
 function EagleEyeSetPlusFlagDisabled(ped, disabled) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x22C8B10802301381)  
+---This native does not have an official description.
+---@param player integer
+---@param range number
+function EagleEyeSetRange(player, range) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDFC85C5199045026)  
@@ -217,6 +336,18 @@ function GetCauseOfMostRecentForceCleanup() end
 function GetConstructedDiscoveredCharacterName(p0, model, outfit) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE92261BD28C0878F)  
+---Returns the depletion delay value for the Deadeye ability that was previously set using `PLAYER::_SET_DEADEYE_ABILITY_DEPLETION_DELAY` (0x870634493CB4372C). This function provides a float value representing the delay, allowing the game to retrieve the current Deadeye depletion setting for a specific player.
+---
+---Example usage:
+---
+---float depletionDelay = PLAYER::_GET_DEADEYE_ABILITY_DEPLETION_DELAY(PLAYER::PLAYER_ID());
+---Video: https://imgur.com/gallery/0xe92261bd28c0878f-TAqX0fg
+---@param player integer
+---@return number
+function GetDeadeyeAbilityDepletionDelay(player) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCCE7C695C164C35F)  
 ---This native does not have an official description.
 ---@param player integer
@@ -283,11 +414,32 @@ function GetMaxWantedLevel() end
 function GetMountOwnedByPlayer(player) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x27AD7162D3FED01E)  
+---Retrieves the number of marks placed on a PED when Deadeye mode is active for the specified player.
+---Example usage:
+---int marksCount = PLAYER::_GET_NUM_DEADEYE_MARKS_ON_PED(PLAYER::PLAYER_ID(), pedHandle);
+---Video: https://imgur.com/gallery/0x27ad7162d3fed01e-XvMXq2d
+---@param player integer
+---@param ped integer
+---@return integer
+function GetNumDeadeyeMarksOnPed(player, ped) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCCD9B77F70D31C9D)  
 ---This native does not have an official description.
 ---@param player integer
 ---@return integer
 function GetNumMarkedDeadeyeTargets(player) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1A6E84F13C952094)  
+---Alternate name: _GET_PEDS_DAMAGED_BY_PLAYER
+---Returns an array of peds the player has recently attacked in a combo, tracking up to three consecutive peds.
+---Video: https://imgur.com/gallery/0x1a6e84f13c952094-USZqpAJ
+---@param player integer
+---@param recentlyMs integer
+---@return boolean, any
+function GetPedsInCombatWithRecently(player, recentlyMs) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDF66A37936D5F3D9)  
@@ -382,6 +534,16 @@ function GetPlayerMaxDeadEye(player, p1) end
 ---@param player integer
 ---@return integer
 function GetPlayerMood(player) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE631EAF35828FA67)  
+---Checks if the player is sprinting on a road while riding a horse.
+---This function only checks sprinting status when the player is on a road.
+---
+---Video: https://youtu.be/cGyh0AXPu1E
+---@param player integer
+---@return boolean
+function GetPlayerMountIsSprintingOnRoad(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7124FD9AC0E01BA0)  
@@ -625,6 +787,14 @@ function HasPlayerDamagedAtLeastOneNonAnimalPed(player) end
 function HasPlayerDamagedAtLeastOnePed(player) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x72AD59F7B7FB6E24)  
+---Checks if the player has damaged the ped they recently attacked. Useful for determining if the player's recent attack on a ped resulted in damage.
+---@param player integer
+---@param recentlyMs integer
+---@return boolean
+function HasPlayerDamagedRecentlyAttackedPed(player, recentlyMs) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x58FF971FC8F2702C)  
 ---Simply returns whatever is passed to it (Regardless of whether the handle is valid or not).
 ---@param value integer
@@ -725,6 +895,15 @@ function IsPlayerFreeFocusing(player) end
 function IsPlayerInScope(player) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2009F8AB7A5E9D6D)  
+---Checks if the player has locked onto an entity while on horseback.
+---This function checks only the lock-on status and does not trigger any additional behavior.
+---Images: https://imgur.com/gallery/0x2009f8ab7a5e9d6d-0xWIXcK
+---@param player integer
+---@return boolean
+function IsPlayerLockedOnEntityOnHorse(player) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBFFB35986CAAE58C)  
 ---Checks whether the specified player has a Ped, the Ped is not dead, is not injured and is not arrested.
 ---@param player integer
@@ -804,6 +983,23 @@ function IsSecondarySpecialAbilityEnabled(player) end
 function IsSpecialAbilityActive(player) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDE6C85975F9D4894)  
+---Checks if the player's Deadeye ability is enabled.
+---
+---Example usage:
+---
+---if (PLAYER::_IS_SPECIAL_ABILITY_ENABLED(PLAYER::PLAYER_ID())) {
+---    // Execute logic when Deadeye is enabled
+---}
+---
+---This function does not activate or modify the Deadeye ability but simply checks its status.
+---
+---Image : https://imgur.com/gallery/0xde6c85975f9d4894-MS4KeUL
+---@param player integer
+---@return boolean
+function IsSpecialAbilityEnabled(player) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x908258B6209E71F7)  
 ---This native does not have an official description.
 ---@return boolean
@@ -864,13 +1060,6 @@ function N_0x00eb5a760638db55(p0, p1, p2) end
 function N_0x03b4b759a8990505(p0) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x06C3DB00B69D5435)  
----This native does not have an official description.
----@param player integer
----@param p1 string
-function N_0x06c3db00b69d5435(player, p1) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x06E1FB78B1E59CA5)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -911,13 +1100,6 @@ function N_0x08e22898a6af4905(p0, p1) end
 function N_0x0b7803f6f7bb43e0() end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0E9057A9DA78D0F8)  
----This native does not have an official description.
----@param player integer
----@param bitflag integer
-function N_0x0e9057a9da78d0f8(player, bitflag) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0F4EAF69DA41AF43)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -929,13 +1111,6 @@ function N_0x0f4eaf69da41af43(p0) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x0f9cf06986300875(p0) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0FAF95D71ED67ADE)  
----This native does not have an official description.
----@param player integer
----@param p1 string
-function N_0x0faf95d71ed67ade(player, p1) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x107F2A66E1C4C83A)  
@@ -957,17 +1132,6 @@ function N_0x113ef458ab6cda67(p0, p1) end
 function N_0x12e09e278c6c29b7(p0) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x131E294EF60160DF)  
----This native does not have an official description.
----@param player integer
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 any
-function N_0x131e294ef60160df(player, p1, p2, p3, p4, p5) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x14E57F88BA0A07FC)  
 ---This native does not have an official description.
 ---@param location integer | string
@@ -982,14 +1146,6 @@ function N_0x14e57f88ba0a07fc(location) end
 function N_0x19b2c7a6c34fad54(p0, p1) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1A6E84F13C952094)  
----This native does not have an official description.
----@param player integer
----@param p1 integer
----@return boolean, any
-function N_0x1a6e84f13c952094(player, p1) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1AD8AD999C27F44A)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1000,13 +1156,6 @@ function N_0x1ad8ad999c27f44a(p0) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x1d256eed194f5b58(p0) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1DA5C5B0923E1B85)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x1da5c5b0923e1b85(p0) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1E8099F449ABB0BA)  
@@ -1030,13 +1179,6 @@ function N_0x1f488807bc8e0630(player) end
 function N_0x1fda57e8908f2609(player, ped, useSteerassist) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2009F8AB7A5E9D6D)  
----_IS_PLAYER_F*
----@param player integer
----@return boolean
-function N_0x2009f8ab7a5e9d6d(player) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x21091B4BEB6376EE)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1058,33 +1200,11 @@ function N_0x216bc0d3d2e413d2(player, p1) end
 function N_0x22b3cabeddb538b2(player, p1) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x22C8B10802301381)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x22c8b10802301381(p0, p1) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x263D69767F76059C)  
 ---This native does not have an official description.
 ---@param player integer
 ---@param p1 integer
 function N_0x263d69767f76059c(player, p1) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x27AD7162D3FED01E)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x27ad7162d3fed01e(p0, p1) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2B12B6FC8B8772AB)  
----This native does not have an official description.
----@param player integer
----@param p1 integer
-function N_0x2b12b6fc8b8772ab(player, p1) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2BB8D58E88777499)  
@@ -1129,41 +1249,15 @@ function N_0x310ce349e0c0ec4b(player, ped, p2) end
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x325434C68358D282)  
 ---Only used in script function UPDATE_PLAYER_JUST_DIED_STATE
+---The value passed to this native in the scripts is whether a global UGC mission is active or not
 ---@param toggle boolean
 function N_0x325434c68358d282(toggle) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x330CA55A3647FA1C)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x330ca55a3647fa1c(p0, p1) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x35A33783EC3C3448)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x35a33783ec3c3448(p0) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3813E11A378958A5)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x3813e11a378958a5(p0) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3946FC742AC305CD)  
----This native does not have an official description.
----@param player integer
----@param ped integer
----@param p2 string
----@param x number
----@param y number
----@param z number
----@param targetEntity integer
----@param p7 string
-function N_0x3946fc742ac305cd(player, ped, p2, x, y, z, targetEntity, p7) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x39D8D7082BC34B72)  
@@ -1382,14 +1476,6 @@ function N_0x6ecfc621a168424c(entity1, entity2, p2, p3) end
 function N_0x6edb5d08cb03e763(p0, p1) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x72AD59F7B7FB6E24)  
----_HAS_PLAYER_D*
----@param player integer
----@param p1 integer
----@return boolean
-function N_0x72ad59f7b7fb6e24(player, p1) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x73EB2EF2E92D23BF)  
 ---This native does not have an official description.
 ---@return boolean
@@ -1529,13 +1615,6 @@ function N_0x9422743a5ba50e10(p0) end
 function N_0x9461a8fab0378e5b(p0, p1) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x988C9045531B9FCE)  
----This native does not have an official description.
----@param player integer
----@param p1 string
-function N_0x988c9045531b9fce(player, p1) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9AFCF9FE1884BF62)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1548,15 +1627,6 @@ function N_0x9afcf9fe1884bf62(p0, p1) end
 ---@param p0 any
 ---@param p1 any
 function N_0x9fc5a003fb76edbd(p0, p1) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA0C683284DF027C7)  
----Params: p1 is mostly 15, sometimes 1 in R* Scripts (Function: PLAYER_TOGGLE_PICK_UP_HATS)
----_SET_PLAYER_*
----@param player integer
----@param p1 integer
----@param enable boolean
-function N_0xa0c683284df027c7(player, p1, enable) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA28056CD1B04B250)  
@@ -1589,25 +1659,11 @@ function N_0xa342495f93b7b838(p0, p1) end
 function N_0xa54000d4bfd90bde(p0) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA62BBAAE67A05BB0)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xa62bbaae67a05bb0(p0) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAAED694CE814817F)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@return any
 function N_0xaaed694ce814817f(p0) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xACA45DDCEF6071C4)  
----_SET_PLAYER_CAN_BE_* - _SET_PLAYER_CAN_USE_*
----@param player integer
----@param p1 boolean
-function N_0xaca45ddcef6071c4(player, p1) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB15CD2F9932C9AB5)  
@@ -1646,13 +1702,6 @@ function N_0xba5ca1feb5de0df6(p0, p1, p2, p3, p4, p5) end
 ---@param category integer
 ---@param emote integer | string
 function N_0xbb6ea5d59e926095(category, emote) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBBA140062B15A8AC)  
----Used in script function INIT_DEADEYE_SLOWDOWN
----_SPECIAL_ABILITY*
----@param player integer
-function N_0xbba140062b15a8ac(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBC02B3D151D3859F)  
@@ -1717,13 +1766,6 @@ function N_0xc4873b053054c04b(p0, p1, p2, p3, p4, p5, p6, p7) end
 function N_0xc58ce6824e604dec(p0) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC67A4910425F11F1)  
----_DISABLE_*(PLAYER_FORCED_INTERACTION_LOCKON?)
----@param player integer
----@param name string
-function N_0xc67a4910425f11f1(player, name) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC71D07C96946E263)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1772,15 +1814,6 @@ function N_0xcb0b9506bc91e441(p0, p1) end
 function N_0xcb61a63aa53d7d22(p0, p1) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCBB54CC7FFFFAB86)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
-function N_0xcbb54cc7ffffab86(p0, p1, p2, p3) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCD7CA3013FD12749)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1810,21 +1843,6 @@ function N_0xcedc16930526f728(p0) end
 function N_0xcfb2eed4fcb7bd77(p0, p1, p2) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCFFC3ECCD7A5CCEB)  
----This native does not have an official description.
----@param player integer
----@param weapon integer | string
----@param p2 boolean
-function N_0xcffc3eccd7a5cceb(player, weapon, p2) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD1A70C1E8D1031FE)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xd1a70c1e8d1031fe(p0, p1) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD1F6B912785BFD35)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1838,21 +1856,6 @@ function N_0xd1f6b912785bfd35(p0) end
 ---@param p1 any
 ---@param p2 any
 function N_0xd288e02e364972d2(p0, p1, p2) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD48227263E3D06AE)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
----@param p7 any
----@param p8 any
----@param p9 any
-function N_0xd48227263e3d06ae(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDA9D7BE231FE865F)  
@@ -1887,13 +1890,6 @@ function N_0xdc5e09d012d759c4(entity1, entity2, p2) end
 function N_0xdd33a82352c4652f(player, ped, p2) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDE6C85975F9D4894)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xde6c85975f9d4894(p0) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE1D356F5A66D0FFA)  
 ---This native does not have an official description.
 ---@param emote integer | string
@@ -1915,32 +1911,12 @@ function N_0xe50a67c33514a390(p0, p1) end
 function N_0xe5d3eb37abc1eb03(player) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE631EAF35828FA67)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xe631eaf35828fa67(p0) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE7F8707269544B29)  
 ---_IS_PLAYER_A* - _IS_PLAYER_BE*
 ---@param player integer
 ---@param ped integer
 ---@return boolean
 function N_0xe7f8707269544b29(player, ped) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE910932F4B30BE23)  
----This native does not have an official description.
----@param player integer
-function N_0xe910932f4b30be23(player) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE92261BD28C0878F)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xe92261bd28c0878f(p0) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE956C2340A76272E)  
@@ -2066,6 +2042,19 @@ function RemovePlayerAsFollowTarget(player, ped) end
 ---This native does not have an official description.
 ---@param player integer
 function ReportPoliceSpottedPlayer(player) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE910932F4B30BE23)  
+---Resets any aura effects applied to entities for a specific player in Deadeye mode, returning all aura-related visuals to their default state. This function is primarily used to remove any highlighting or aura effects set by `PLAYER::_SET_DEADEYE_ENTITY_AURA_WITH_FLAG` (0x2B12B6FC8B8772AB) and `PLAYER::_SET_DEADEYE_ENTITY_AURA_INTENSITY_WITH_FLAG` (0x131E294EF60160DF).
+---
+---Example usage:
+---
+---PLAYER::_RESET_DEADEYE_AURA_EFFECT(PLAYER::PLAYER_ID());
+---Resets all aura effects and intensity changes for the player, removing entity highlights and restoring default visuals after Deadeye.
+---
+---Video: https://imgur.com/gallery/0xe910932f4b30be23-tjviTeU
+---@param player integer
+function ResetDeadeyeAuraEffect(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5CE5CACC01D0F985)  
@@ -2217,6 +2206,33 @@ function SetDeadeyeAbilityLevel(player, level) end
 function SetDeadeyeAbilityLocked(player, abilityType, toggle) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x131E294EF60160DF)  
+---Applies a customizable aura effect to nearby entities when Deadeye is active, with control over aura intensity and additional behavior based on a flag parameter.
+---Example usage:
+---PLAYER::_SET_DEADEYE_ENTITY_AURA_INTENSITY_WITH_FLAG(PLAYER::PLAYER_ID(), 0.0, 0.0, 0.0, 1.0, 8);
+---Applies a maximum intensity aura effect to all nearby entities while Deadeye is active.
+---Screenshot: https://imgur.com/gallery/0x131e294ef60160df-zNQ6Pc0
+---@param player integer
+---@param p1 number
+---@param p2 number
+---@param p3 number
+---@param auraIntensity number
+---@param flag integer
+function SetDeadeyeEntityAuraIntensityWithFlag(player, p1, p2, p3, auraIntensity, flag) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2B12B6FC8B8772AB)  
+---Applies an aura effect to nearby entities when Deadeye is active, based on a flag parameter. This includes humans, animals, vehicles, and horses pulling those vehicles. Additionally, depending on the flag value, the player's appearance may change (e.g., turning gray).
+---
+---Example usage:
+---PLAYER::_SET_DEADEYE_ENTITY_AURA_WITH_FLAG(PLAYER::PLAYER_ID(), 3);
+---Applies an aura effect to nearby entities, and the player turns gray by default when flag is set to 8.
+---Video: https://youtu.be/Mgb1N9_6Htc
+---@param player integer
+---@param flag integer
+function SetDeadeyeEntityAuraWithFlag(player, flag) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x83FCD6921FC8FD05)  
 ---This native does not have an official description.
 ---@param player integer
@@ -2352,6 +2368,20 @@ function SetPedAsSaddleHorseForPlayer(player, mount) end
 function SetPedAsTempPlayerHorse(player, horse) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCFFC3ECCD7A5CCEB)  
+---Sets the weapon that the specified player will aim with. The weapon must already be assigned to the PED. This also determines the weapon order, specifying which weapon the player will automatically switch to when the current weapon runs out of ammo.
+---Example usage:
+---
+---Set the player's aim weapon to the specified weapon hash in slot 0
+---PLAYER::_SET_PLAYER_AIM_WEAPON(PLAYER::PLAYER_ID(), GetHashKey("WEAPON_RIFLE_VARMINT"), 0);
+---
+---Video: https://youtu.be/-fUMrLIm9ng
+---@param player integer
+---@param weapon integer | string
+---@param weaponDrawOrder integer
+function SetPlayerAimWeapon(player, weapon, weaponDrawOrder) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC7FE774412046825)  
 ---Sets whether this player can be hassled by gangs.
 ---@param player integer
@@ -2364,6 +2394,22 @@ function SetPlayerCanBeHassledByGangs(player, toggle) end
 ---@param player integer
 ---@param toggle boolean
 function SetPlayerCanMercyKill(player, toggle) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD1A70C1E8D1031FE)  
+---Shows or hides all "Pick Up" prompts for the specified player, including the prompt for picking up hats from the ground. When set to true, the player will see "Pick Up" prompts for all nearby items. If set to false, all "Pick Up" prompts will be hidden.
+---Video: https://imgur.com/gallery/0xd1a70c1e8d1031fe-ifgUnmV
+---@param player integer
+---@param isVisible boolean
+function SetPlayerCanPickupAbility(player, isVisible) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xACA45DDCEF6071C4)  
+---Enables or disables the "Pick Up" prompt for a hat on the ground for the specified player. When set to true, the player will see a prompt to pick up the hat if they are near it.
+---Video: https://imgur.com/gallery/0xaca45ddcef6071c4-dzlnm8Z
+---@param player integer
+---@param enable boolean
+function SetPlayerCanPickupHat(player, enable) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5EDA520F7A3BAF4E)  
@@ -2389,11 +2435,40 @@ function SetPlayerClothPinFrames(ped, p1) end
 function SetPlayerControl(player, toggle, flags, bPreventHeadingChange) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCBB54CC7FFFFAB86)  
+---Activates the "Surrender" prompt for the specified player in the current frame.
+---Notes:
+---- Continuous Activation: Must be called every frame to keep the "Surrender" prompt active.
+---- Prompt Grouping: Setting `promptOrder` to `1` ties the prompt to the `targetPed`'s prompt group.
+---- Enemy Behavior: Stops enemies from continuing their attack when activated.
+---Video: https://youtu.be/AfHdJ0Nrs7Q
+---@param player integer
+---@param targetPed integer
+---@param promptOrder integer
+---@param unknownFlag boolean
+function SetPlayerCooperatePromptThisFrame(player, targetPed, promptOrder, unknownFlag) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x78B3D19AF6391A55)  
 ---damageInfo: STANDARD_PED_DAMAGE, STANDARD_FEMALE_PED_DAMAGE, STANDARD_PLAYER_PED_DAMAGE_MP, STANDARD_FEMALE_PLAYER_PED_DAMAGE_MP
 ---@param player integer
 ---@param damageInfo string
 function SetPlayerDamageInfoOverride(player, damageInfo) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x768E81AE285A4B67)  
+---Sets the aura color for entities that the player can target in Deadeye mode, based on a specific hash value.
+---Known hash : 
+---- 1014693585 
+---- 1936842089 
+---- 1979474018
+---Example usage:
+---PLAYER::_SET_PLAYER_DEAD_EYE_AURA_BY_HASH(PLAYER::PLAYER_ID(), 1014693585);
+---Video: https://imgur.com/gallery/0x768e81ae285a4b67-LzWAwBc 
+---Previous name: _SET_PLAYER_STAT_FLAG_HASH
+---@param player integer
+---@param auraHash integer | string
+function SetPlayerDeadEyeAuraByHash(player, auraHash) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x497A6539BB0E8787)  
@@ -2443,6 +2518,27 @@ function SetPlayerHasDiscoveredCharacterNameMp(discoveryHash) end
 ---@param p1 integer
 ---@param discoveryHash integer | string
 function SetPlayerHasDiscoveredCharacterNameSp(player, p1, discoveryHash) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA0C683284DF027C7)  
+---Sets the player's ability to wear hats based on the specified flag. The flag value determines whether the player can wear all hats or only the ones they own.
+---
+---If the flag is set to 15 and `allow` is true, the player can wear all available hats. To restrict the player to wearing only owned hats (flag 1), you must first disable flag 15 by setting it to false, then set flag 1 to true.
+---
+---Example usage:
+---
+---Allow the player to wear all hats
+---PLAYER::_SET_PLAYER_HAT_ACCESS(PLAYER::PLAYER_ID(), 15, true);
+---
+---Restrict the player to only wearing owned hats
+---PLAYER::_SET_PLAYER_HAT_ACCESS(PLAYER::PLAYER_ID(), 15, false);
+---PLAYER::_SET_PLAYER_HAT_ACCESS(PLAYER::PLAYER_ID(), 1, true);
+---
+---Video: https://imgur.com/gallery/0xa0c683284df027c7-dhV5NAL
+---@param player integer
+---@param flag integer
+---@param enable boolean
+function SetPlayerHatAccess(player, flag, enable) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8899C244EBCF70DE)  
@@ -2602,6 +2698,39 @@ function SetPlayerOwnsMount(player, mount) end
 function SetPlayerOwnsVehicle(player, vehicle) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x06C3DB00B69D5435)  
+---Sets the stand prompt for a specific player using a predefined text entry.
+---Example usage:
+---PLAYER::_SET_PLAYER_PROMPT_LEAVE_TEXT(PLAYER::PLAYER_ID(), MISC::VAR_STRING(10, "LITERAL_STRING", "Get on your feet"));
+---The prompt for player to stand uses this text.
+---Screenshot: https://imgur.com/gallery/rdrnative-kscnRlF
+---@param player integer
+---@param promptTextKey string
+function SetPlayerPromptLeaveText(player, promptTextKey) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0FAF95D71ED67ADE)  
+---Sets the melee combat prompt for a specific player using a predefined text entry.
+---Example usage:
+---PLAYER::_SET_PLAYER_PROMPT_MELEE_TEXT(PLAYER::PLAYER_ID(), MISC::VAR_STRING(10, "LITERAL_STRING", "Throw Punch"));
+---The prompt for player during melee combat uses this text.
+---Screenshot: https://imgur.com/gallery/0x0faf95d71ed67ade-GDYsE9L
+---@param player integer
+---@param promptTextKey string
+function SetPlayerPromptMeleeText(player, promptTextKey) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x988C9045531B9FCE)  
+---Sets the sit prompt for a specific player using a predefined text entry.
+---Example usage:
+---PLAYER::_SET_PLAYER_PROMPT_SIT_TEXT(PLAYER::PLAYER_ID(), MISC::VAR_STRING(10, "LITERAL_STRING", "Take a Seat"));
+---The prompt for player to sit uses this text.
+---Screenshot: https://imgur.com/gallery/0x988c9045531b9fce-9bTHgkv
+---@param player integer
+---@param promptTextKey string
+function SetPlayerPromptSitText(player, promptTextKey) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDEE80FEDFDD43C9B)  
 ---This native does not have an official description.
 ---@param player integer
@@ -2644,13 +2773,6 @@ function SetPlayerStaminaRechargeMultiplier(player, multiplier) end
 ---@param player integer
 ---@param multiplier number
 function SetPlayerStaminaSprintDepletionMultiplier(player, multiplier) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x768E81AE285A4B67)  
----_N*, _O* or _PE*
----@param player integer
----@param p1 integer | string
-function SetPlayerStatFlagHash(player, p1) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD66A941F401E7302)  
@@ -2747,9 +2869,10 @@ function SetPoliceRadarBlips(toggle) end
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB427911EA6DFFEF3)  
 ---Decreases the damage the player receives while on horseback
+---Previous name: _SET_RECEIVED_HORSEBACK_DAMAGE_DECREASE
 ---@param player integer
 ---@param damageDecrease number
-function SetReceivedHorsebackDamageDecrease(player, damageDecrease) end
+function SetReceivedDamageTakenOnHorsebackModifier(player, damageDecrease) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC68829BB3F37023)  
@@ -2879,6 +3002,18 @@ function SpecialAbilityRestoreByAmount(player, amount, p2, p3, p4) end
 function SpecialAbilityRestoreOuterRing(player, amount) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBBA140062B15A8AC)  
+---Activates the special ability for the specified player.
+---Example usage:
+---
+---Activate the special ability for the current player
+---PLAYER::_SPECIAL_ABILITY_SET_ACTIVATE(PLAYER::PLAYER_ID());
+---
+---Video: https://imgur.com/gallery/0xbba140062b15a8ac-P8jniMu
+---@param player integer
+function SpecialAbilitySetActivate(player) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAE637BB8EF017875)  
 ---This native does not have an official description.
 ---@param player integer
@@ -2895,9 +3030,9 @@ function SpecialAbilitySetEagleEyeDisabled(player) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1D77B47AFA584E90)  
 ---Params: p1 = -1 in R* Scripts
 ---@param player integer
----@param p1 integer
+---@param abilityType integer
 ---@param p2 boolean
-function SpecialAbilityStartRestore(player, p1, p2) end
+function SpecialAbilityStartRestore(player, abilityType, p2) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDF8822C55EDDA65B)  

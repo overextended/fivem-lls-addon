@@ -2,7 +2,7 @@
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDEEDE7C41742E011)  
----It's unclear what exactly this does, but I assume it marks the blip as "no longer needed"
+---Not sure what exactly this does, but it calls rage::fwuiBlip::ClearScriptIdentity() internally
 ---@param blip integer
 function AbandonBlip(blip) end
 
@@ -135,6 +135,13 @@ function BlipRemoveModifier(blip, modifierHash) end
 function BlipSetStyle(blip, styleHash) end
 
 ---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x44813684F72B563C)  
+---Removes the blip icon from the entity lockon prompt
+---@param entity integer
+---@param blip integer
+function ClearBlipIconFromLockonEntityPrompt(entity, blip) end
+
+---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1EAA5674B4D181C5)  
 ---This native does not have an official description.
 function ClearGpsCustomRoute() end
@@ -153,6 +160,14 @@ function ClearGpsMultiRoute() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x08FDC6F796E350D1)  
 ---This native does not have an official description.
 function ClearGpsPlayerWaypoint() end
+
+---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7C9F4CDF402CA82A)  
+---Clears the previously set coordinates for the pause map view, removing any specified focal point and radius that were set using `_SET_PAUSEMAP_COORDS_WITH_RADIUS` (0xE0884C184728C75B). This function resets the map view, allowing it to open with the default coordinates and view instead of a specific target area.
+---Clears any previously set coordinates for the pause map view, restoring the default view when the map is opened.
+---
+---Video: https://imgur.com/gallery/0x7c9f4cdf402ca82a-mZE3Nwj
+function ClearPausemapCoords() end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1B3DA717B9AFF828)  
@@ -211,9 +226,16 @@ function GetMainPlayerBlipId() end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x29B30D07C3F7873B)  
----This native does not have an official description.
+---Note: Z coordinate will always be zero
 ---@return vector3
 function GetWaypointCoords() end
+
+---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF08E42BFA46BDFF8)  
+---Unlike `GET_WAYPOINT_COORDS` (0x29B30D07C3F7873B), which returns a single value, this native returns the x and y coordinates of the waypoint separately as float pointers.
+---Image: https://i.imgur.com/tu1jnY7.png
+---@return boolean, number, number
+function GetWaypointPosition() end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA1B4052C2A3DCC1E)  
@@ -233,6 +255,14 @@ function IsBlipAttachedToAnyEntity(blip) end
 ---@param blip integer
 ---@return boolean
 function IsBlipOnMinimap(blip) end
+
+---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3CB8859F04763C78)  
+---Returns true if the entity lockon prompt contains an blip icon.
+---@param entity integer
+---@param blip integer
+---@return boolean
+function IsDisplayBlipIconOnLockonEntityPrompt(entity, blip) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x202B1BBFC6AB5EE4)  
@@ -296,71 +326,10 @@ function MapIsRegionHighlightedWithStyle(regionHash, styleHash) end
 function N_0x01b928ca2e198b01(p0) end
 
 ---**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1726963E6049DB53)  
----This native does not have an official description.
----@param p0 any
-function N_0x1726963e6049db53(p0) end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x250C75EB1728CC0D)  
----This native does not have an official description.
----@param blip integer
-function N_0x250c75eb1728cc0d(blip) end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3CB8859F04763C78)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x3cb8859f04763c78(p0, p1) end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x44813684F72B563C)  
----_CLEAR*
----@param entity integer
----@param p1 any
-function N_0x44813684f72b563c(entity, p1) end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7563CBCA99253D1A)  
----FM_CLIENT_SETUP_EAGLE_EYE - setting up eagle eye for entity
----@param entity integer
----@param blip integer | string
-function N_0x7563cbca99253d1a(entity, blip) end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7C9F4CDF402CA82A)  
----This native does not have an official description.
-function N_0x7c9f4cdf402ca82a() end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x97F6F158CC5B5CA2)  
----This native does not have an official description.
----@param entity integer
----@param p1 any
-function N_0x97f6f158cc5b5ca2(entity, p1) end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBB68D4D3CA3DE402)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xbb68d4d3ca3de402(p0, p1) end
-
----**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD3F58E9316B7FC2A)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0xd3f58e9316b7fc2a(p0) end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF08E42BFA46BDFF8)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return boolean
-function N_0xf08e42bfa46bdff8(p0, p1) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF47A1EB2A538A3A3)  
@@ -417,6 +386,12 @@ function SetBlipFlashes(blip) end
 function SetBlipFlashTimer(blip, blipType, blipHash) end
 
 ---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x250C75EB1728CC0D)  
+---Removes blip from any entity and makes it static on the map, try it on GET_MAIN_PLAYER_BLIP_ID for a demonstration.
+---@param blip integer
+function SetBlipFrozen(blip) end
+
+---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9CB1A1623062F402)  
 ---This native does not have an official description.
 ---@param blip integer
@@ -458,6 +433,34 @@ function SetBlipScale(blip, scale) end
 ---@param hash integer | string
 ---@param p2 boolean
 function SetBlipSprite(blip, hash, p2) end
+
+---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBB68D4D3CA3DE402)  
+---Removes the icon from the lockon prompt. Never executed in R* Scripts due to hardcoded 0.
+---@param entity integer
+---@param p1 integer
+function SetDisplayBlipIconForEntityPromptRemoved(entity, p1) end
+
+---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7563CBCA99253D1A)  
+---Sets the blip icon to lockon entity prompt.
+---@param entity integer
+---@param blipIcon integer | string
+function SetDisplayBlipIconForEntityPromptWithLockon(entity, blipIcon) end
+
+---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1726963E6049DB53)  
+---Activates a blip icon prompt for a specific entity, allowing it to be displayed without requiring a lock-on. This function enables the blip to appear associated with the given entity, making it visible without the need to focus or target the entity directly.
+---Video: https://imgur.com/gallery/0x1726963e6049db53-vuuCwqe
+---@param entity integer
+function SetDisplayBlipIconForEntityPromptWithoutLockon(entity) end
+
+---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x97F6F158CC5B5CA2)  
+---Adds entity blip icon to the entity lockon prompt, if invalid param it will remove the icon if it had any.
+---@param entity integer
+---@param blip integer
+function SetDisplayBlipIconToLockonEntityPrompt(entity, blip) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63E7279D04160477)  

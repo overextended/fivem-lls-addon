@@ -94,6 +94,21 @@ function AddOwnedExplosion(ped, x, y, z, explosionType, damageScale, isAudible, 
 function GetClosestFirePos(x, y, z) end
 
 ---**`FIRE` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x559FC1D310813031)  
+---This native does not have an official description.
+---@param posX number
+---@param posY number
+---@param posZ number
+---@param rotX number
+---@param rotY number
+---@param rotZ number
+---@param scaleX number
+---@param scaleY number
+---@param scaleZ number
+---@return boolean, vector3
+function GetClosestFirePosInVolume(posX, posY, posZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
+
+---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF9617BC6FAE61E08)  
 ---This native does not have an official description.
 ---@param x number
@@ -116,6 +131,13 @@ function GetNumberOfFiresInRange(x, y, z, radius) end
 ---@param radius number
 ---@return integer
 function GetOwnerOfExplosionInAngledArea(explosionType, x1, y1, z1, x2, y2, z2, radius) end
+
+---**`FIRE` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA4454592DCF7C992)  
+---Returns true if entity is being damaged by fire, once damage caused to entity by fire (like burned appearance) has cleared over time, the native returns false.
+---@param entity integer
+---@return boolean
+function IsEntityBeingDamagedByFire(entity) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCDC25355C0D65963)  
@@ -237,22 +259,6 @@ function N_0x34ae85c7ca4857aa(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) end
 function N_0x41b87a6495ee13dd(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 
 ---**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x559FC1D310813031)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
----@param p7 any
----@param p8 any
----@param p9 any
----@return any
-function N_0x559fc1d310813031(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
-
----**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x68F6A75FDF5A70D6)  
 ---This native does not have an official description.
 ---@param x number
@@ -266,13 +272,6 @@ function N_0x68f6a75fdf5a70d6(x, y, z, p3) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x754937c28271bc65(p0) end
-
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA4454592DCF7C992)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xa4454592dcf7c992(p0) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB7DF150605EEDC9B)  

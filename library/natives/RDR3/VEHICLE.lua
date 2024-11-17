@@ -1734,14 +1734,6 @@ function N_0xceb1f1eed484a5b4(p0, p1) end
 function N_0xcf342503ca4c8df1(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCF9DA72002FC16BF)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0xcf9da72002fc16bf(p0, p1, p2) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD0116DF21E6C7B36)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -2006,6 +1998,14 @@ function RemoveVehicleWindow(vehicle, windowIndex) end
 ---@param vehicleHash integer | string
 ---@param vehicleAsset integer
 function RequestVehicleAsset(vehicleHash, vehicleAsset) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCF9DA72002FC16BF)  
+---This native does not have an official description.
+---@param ped integer
+---@param entity integer
+---@param vehicleAsset integer
+function RequestVehicleAssetAnims(ped, entity, vehicleAsset) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x84B81EF78BD22357)  

@@ -698,6 +698,13 @@ function GetVehicleWaypointTargetPoint(vehicle) end
 function GetWaypointDistanceAlongRoute(waypointRecording, p1) end
 
 ---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB8F52A3F84A7CC59)  
+---This native does not have an official description.
+---@param config integer | string
+---@return boolean
+function HasRequestedCarriableConfigLoaded(config) end
+
+---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8785E6E40C7A8818)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -711,6 +718,13 @@ function IsDrivebyTaskUnderneathDrivingTask(ped) end
 ---@param p1 any
 ---@return boolean
 function IsEmoteTaskRunning(ped, p1) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6C50B9DCCCA70023)  
+---This native does not have an official description.
+---@param ped integer
+---@return boolean
+function IsEntityRevivable(ped) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x11CD066F54DA0133)  
@@ -985,9 +999,9 @@ function MakeObjectNotCarriable(object) end
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0000A8ACDC2E1B6A)  
 ---This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x0000a8acdc2e1b6a(p0, p1) end
+---@param ped integer
+---@param p1 boolean
+function N_0x0000a8acdc2e1b6a(ped, p1) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x00FFE0F85253C572)  
@@ -1016,13 +1030,6 @@ function N_0x0365000d8bf86531(p0) end
 ---@param p0 any
 ---@return any
 function N_0x03d741cb4052e26c(p0) end
-
----**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x06ECF3925BC2ABAE)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x06ecf3925bc2abae(p0, p1) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x098036CAB8373D36)  
@@ -1093,14 +1100,6 @@ function N_0x10c44f633e2d6d9e(p0) end
 ---@param p0 any
 ---@return any
 function N_0x11c7ce1ae38911b5(p0) end
-
----**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x12990818C1D35886)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0x12990818c1d35886(p0, p1, p2) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x141BC64C8D7C5529)  
@@ -1194,14 +1193,6 @@ function N_0x1f7a9a9c38c13a56(p0) end
 function N_0x2064b33f6e6b92d4(p0, p1, p2, p3) end
 
 ---**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x216343750545A486)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0x216343750545a486(p0, p1, p2) end
-
----**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x22CD2C33ED4467A1)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1245,8 +1236,8 @@ function N_0x244430c13ba5258e(p0, p1, p2, p3) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x28EF780BDEA8A639)  
 ---This native does not have an official description.
 ---@param ped integer
----@param p1 integer
-function N_0x28ef780bdea8a639(ped, p1) end
+---@param facingPed integer
+function N_0x28ef780bdea8a639(ped, facingPed) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2948235DB2058E99)  
@@ -1323,7 +1314,7 @@ function N_0x31bb338f64d5c861(ped, p1) end
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x351F74ED6177EBE7)  
 ---This native does not have an official description.
----@return any
+---@return integer
 function N_0x351f74ed6177ebe7() end
 
 ---**`TASK` `client`**  
@@ -1358,11 +1349,10 @@ function N_0x3bbeecc5b8f35318(p0, p1) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3F8387DB1B9F31B7)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x3f8387db1b9f31b7(p0, p1) end
+---Used for HORSE_REVIVE
+---@param p1 boolean
+---@return boolean, any
+function N_0x3f8387db1b9f31b7(p1) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3FEB770D8ED9047A)  
@@ -1413,13 +1403,6 @@ function N_0x4161648394262fdf(p0, p1, p2, p3) end
 ---@param p1 integer
 ---@param p2 any
 function N_0x41d1331afad5a091(ped, p1, p2) end
-
----**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x42CFD8FD8CC8DC69)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x42cfd8fd8cc8dc69(p0, p1) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x450080DDEDB91258)  
@@ -1660,13 +1643,6 @@ function N_0x6ba606ab3a83bc4d(p0) end
 function N_0x6c269f673c47031e(p0) end
 
 ---**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6C50B9DCCCA70023)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x6c50b9dccca70023(p0) end
-
----**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6DAC799857EF3F11)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1701,8 +1677,8 @@ function N_0x74f0209674864cbd() end
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x756C7B4C43DF0422)  
 ---This native does not have an official description.
----@param p0 any
----@return any
+---@param p0 boolean
+---@return boolean
 function N_0x756c7b4c43df0422(p0) end
 
 ---**`TASK` `client`**  
@@ -1737,13 +1713,6 @@ function N_0x78d8c1d4eb80c588(p0) end
 ---@param p5 any
 ---@return any
 function N_0x79197f7d2bb5e73a(p0, p1, p2, p3, p4, p5) end
-
----**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7C015D8BCEC72CF4)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x7c015d8bcec72cf4(p0, p1) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7CB99FADDE73CD1B)  
@@ -1828,14 +1797,6 @@ function N_0x88fd60d846d9cd63(ped) end
 ---@param ped integer
 ---@param p1 number
 function N_0x8b1fdf63c3193eda(ped, p1) end
-
----**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8BB283A7888AD1AD)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0x8bb283a7888ad1ad(p0, p1, p2) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8E1DDE26D270CC5E)  
@@ -2039,14 +2000,6 @@ function N_0xb2d15d3551fe4fae(p0) end
 function N_0xb2f47a1afdfcc595(p0, p1) end
 
 ---**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB35370D5353995CB)  
----This native does not have an official description.
----@param ped integer
----@param item integer | string
----@param p2 number
-function N_0xb35370d5353995cb(ped, item, p2) end
-
----**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB520DBDA7FCF573F)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -2078,13 +2031,6 @@ function N_0xb8e213d02f37947d(p0, p1, p2, p3, p4, p5, p6) end
 ---@param p0 any
 ---@param p1 any
 function N_0xb8e3486d107f4194(p0, p1) end
-
----**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB8F52A3F84A7CC59)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xb8f52a3f84a7cc59(p0) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBAAB791AA72C2821)  
@@ -2126,14 +2072,6 @@ function N_0xbedbe39b5fd98fd6(ped) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0xbeefbb608d2aa68a(p0) end
-
----**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC6170856E54557B2)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0xc6170856e54557b2(p0, p1, p2) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE4E669400E5F8AA)  
@@ -2395,12 +2333,6 @@ function N_0xfdecca06e8b81346(ped) end
 function N_0xfe5d28b9b7837cc1(p0, p1, p2, p3) end
 
 ---**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFF745B0346E19E2C)  
----This native does not have an official description.
----@param p0 any
-function N_0xff745b0346e19e2c(p0) end
-
----**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFF8AFCA532B500D4)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -2511,6 +2443,12 @@ function RemoveCoverPoint(coverpoint) end
 ---This native does not have an official description.
 ---@param waypointRecording string
 function RemoveWaypointRecording(waypointRecording) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFF745B0346E19E2C)  
+---Config: https://gist.github.com/WesternGamer/95a1f8daf02520cad2bf96af6d957e70
+---@param config integer | string
+function RequestCarriableConfig(config) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x73F0D0327BFA0812)  
@@ -2642,6 +2580,15 @@ function SetHighFallTask(ped, p1, p2, p3) end
 function SetHogtieEscapeTimer(ped, time) end
 
 ---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB35370D5353995CB)  
+---All Interaction states
+---https://github.com/abdulkadiraktas/rdr3_discoveries/tree/master/tasks/ItemInteraction#4-item_interaction_state_name--item_interaction_propid
+---@param ped integer
+---@param itemInteractionState integer | string
+---@param p2 number
+function SetItemInteractionState(ped, itemInteractionState, p2) end
+
+---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x34C0010188D7C54A)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -2668,6 +2615,13 @@ function SetPedIgnoreDeadBodies(ped, toggle) end
 ---@param ped integer
 ---@param avoidFire boolean
 function SetPedPathAvoidFire(ped, avoidFire) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7C015D8BCEC72CF4)  
+---This native does not have an official description.
+---@param ped integer
+---@param avoidTraffic boolean
+function SetPedPathAvoidTraffic(ped, avoidTraffic) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE361C5C71C431A4F)  
@@ -2733,6 +2687,52 @@ function SetPedPathMayEnterDeepWater(ped, mayEnterDeepWater) end
 function SetPedPathMayEnterWater(ped, mayEnterWater) end
 
 ---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x06ECF3925BC2ABAE)  
+---This native does not have an official description.
+---@param ped integer
+---@param useSlidingSurfaces boolean
+function SetPedPathMayUseSlidingSurfaces(ped, useSlidingSurfaces) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x42CFD8FD8CC8DC69)  
+---This native does not have an official description.
+---@param ped integer
+---@param neverUseInteriors boolean
+function SetPedPathNeverUseInteriors(ped, neverUseInteriors) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x216343750545A486)  
+---This native does not have an official description.
+---@param ped integer
+---@param preferHorseWalkable boolean
+---@param p2 number
+function SetPedPathPreferHorseWalkable(ped, preferHorseWalkable, p2) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC6170856E54557B2)  
+---This native does not have an official description.
+---@param ped integer
+---@param preferStayInWater boolean
+---@param p2 number
+function SetPedPathPreferStayInWater(ped, preferStayInWater, p2) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x12990818C1D35886)  
+---This native does not have an official description.
+---@param ped integer
+---@param preferAvoidFoliage boolean
+---@param p2 number
+function SetPedPathPreferToAvoidFoliage(ped, preferAvoidFoliage, p2) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8BB283A7888AD1AD)  
+---This native does not have an official description.
+---@param ped integer
+---@param preferAvoidMud boolean
+---@param p2 number
+function SetPedPathPreferToAvoidMud(ped, preferAvoidMud, p2) end
+
+---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x38FE1EC73743793C)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -2747,7 +2747,7 @@ function SetPedPathPreferToAvoidWater(ped, avoidWater, p2) end
 ---@param p1 number
 ---@param p2 number
 ---@param p3 number
----@return any
+---@return boolean
 function SetPedWaypointRouteOffset(ped, p1, p2, p3) end
 
 ---**`TASK` `client`**  
@@ -3071,21 +3071,21 @@ function TaskBark(ped, barkAtTarget, mood) end
 ---This native does not have an official description.
 ---@param ped integer
 ---@param vehicle integer
----@param p2 any
+---@param p2 integer
 ---@param p3 any
----@param p4 any
----@param p5 any
-function TaskBoardVehicle(ped, vehicle, p2, p3, p4, p5) end
+---@param speed integer
+---@param boardingFlags integer
+function TaskBoardVehicle(ped, vehicle, p2, p3, speed, boardingFlags) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE41A09C8DDFF7AA4)  
 ---This native does not have an official description.
 ---@param ped integer
 ---@param p1 any
----@param p2 any
----@param p3 number
----@param flags integer
-function TaskBoardVehicle_2(ped, p1, p2, p3, flags) end
+---@param p2 integer
+---@param speed number
+---@param boardingFlags integer
+function TaskBoardVehicle_2(ped, p1, p2, speed, boardingFlags) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x15C86013127CE63F)  
@@ -3236,14 +3236,15 @@ function TaskCombatPed(ped, targetPed, p2, p3) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC624414FA748B9BA)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
-function TaskCombatPed_3(p0, p1, p2, p3, p4, p5) end
+---Coords: volume coords used in R* Script smuggler2
+---p4/p5 = 0 in R* Scripts
+---@param ped integer
+---@param x number
+---@param y number
+---@param z number
+---@param p4 integer
+---@param p5 integer
+function TaskCombatPedAtCoords(ped, x, y, z, p4, p5) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x944F30DCB7096BDE)  
@@ -4189,14 +4190,15 @@ function TaskHorseAction(ped, action, targetPed, p3) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x648B75D44930D6BD)  
----This native does not have an official description.
+---Only used in R* SP Script homeinvasion:
+---Params p2, p3, p4: 0, 0, 1
 ---@param p0 any
----@param p1 any
+---@param ped integer
 ---@param p2 any
 ---@param p3 any
 ---@param p4 any
 ---@return boolean
-function TaskIntimidated(p0, p1, p2, p3, p4) end
+function TaskIntimidated(p0, ped, p2, p3, p4) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x933ACC1A1771A288)  
@@ -4279,7 +4281,7 @@ function TaskKnockedOut(ped, p1, permanently) end
 ---This native does not have an official description.
 ---@param ped integer
 ---@param p1 number
----@param p2 integer
+---@param p2 boolean
 function TaskKnockedOutAndHogtied(ped, p1, p2) end
 
 ---**`TASK` `client`**  
@@ -4405,10 +4407,10 @@ function TaskMountAnimal(ped, mount, timer, seatIndex, pedSpeed, mountStyle, p6,
 ---This native does not have an official description.
 ---@param ped integer
 ---@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
+---@param p2 number
+---@param p3 number
+---@param p4 number
+---@param p5 number
 ---@param p6 any
 function TaskMoveBeInFormation(ped, p1, p2, p3, p4, p5, p6) end
 
@@ -4427,7 +4429,7 @@ function TaskMoveFollowRoadUsingNavmesh(ped, moveBlendRatio, x, y, z, p5) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8AA1593AEC087A29)  
 ---This native does not have an official description.
 ---@param ped integer
----@param p1 any
+---@param p1 number
 ---@param p2 any
 ---@param p3 any
 function TaskMoveInTraffic(ped, p1, p2, p3) end
@@ -4643,7 +4645,7 @@ function TaskPlantBomb(ped, x, y, z, heading) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEA47FE3719165B94)  
 ---https://github.com/femga/rdr3_discoveries/tree/master/animations
 ---flags: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/eScriptedAnimFlags
----ikFlags: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/eIkControlFlags 
+---ikFlags: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/eIkControlFlags
 ---@param ped integer
 ---@param animDict string
 ---@param animName string
@@ -4866,11 +4868,11 @@ function TaskRideTrain(ped, train, scenarioPoint, scenarioHash) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7BB967F85D8CCBDB)  
 ---This native does not have an official description.
 ---@param ped integer
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
-function TaskRobPed(ped, p1, p2, p3, p4) end
+---@param target integer
+---@param p2 number
+---@param flag integer
+---@param p4 integer
+function TaskRobPed(ped, target, p2, flag, p4) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x126EF75F1E17ABE5)  
@@ -5344,12 +5346,12 @@ function TaskVehicleDriveStraightToPoint(driver, vehicle, x, y, z, p5, p6, flag)
 ---@param y number
 ---@param z number
 ---@param speed number
----@param style any
+---@param drivingStyle integer
 ---@param vehicleModel integer | string
 ---@param drivingMode integer
 ---@param stopRange number
 ---@param straightLineDist number
-function TaskVehicleDriveToCoord(ped, vehicle, x, y, z, speed, style, vehicleModel, drivingMode, stopRange, straightLineDist) end
+function TaskVehicleDriveToCoord(ped, vehicle, x, y, z, speed, drivingStyle, vehicleModel, drivingMode, stopRange, straightLineDist) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF0108F01FB105DA2)  
@@ -5751,7 +5753,7 @@ function WaypointPlaybackGetIsShooting(ped) end
 ---@param ped integer
 ---@param speed number
 ---@param p2 any
----@param p3 any
+---@param p3 number
 ---@param p4 any
 function WaypointPlaybackOverrideSpeed(ped, speed, p2, p3, p4) end
 

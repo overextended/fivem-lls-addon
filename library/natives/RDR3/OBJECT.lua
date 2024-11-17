@@ -61,14 +61,14 @@ function ConvertOldPickupTypeToNew(pickupHash) end
 ---@param y number
 ---@param z number
 ---@param flags integer
----@param value integer
----@param modelHash integer | string
----@param p7 boolean
----@param p8 boolean
----@param p9 integer
+---@param amount integer
+---@param customModel integer | string
+---@param createAsScriptObject boolean
+---@param scriptHostObject boolean
+---@param customAmmoType integer
 ---@param p10 number
 ---@return integer
-function CreateAmbientPickup(pickupHash, x, y, z, flags, value, modelHash, p7, p8, p9, p10) end
+function CreateAmbientPickup(pickupHash, x, y, z, flags, amount, customModel, createAsScriptObject, scriptHostObject, customAmmoType, p10) end
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x509D5878EB39E842)  
@@ -614,9 +614,9 @@ function N_0x3a77dae8b4fd7586(p0, p1) end
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3DF1A0A58498E209)  
----This native does not have an official description.
+---_SET_FORCE* - _SET_LOCAL*
 ---@param object integer
----@param p1 any
+---@param p1 boolean
 function N_0x3df1a0a58498e209(object, p1) end
 
 ---**`OBJECT` `client`**  
@@ -753,13 +753,6 @@ function N_0xaaacf33cbf9b990a(p0, p1) end
 function N_0xacd4f9831dfad7f5(p0) end
 
 ---**`OBJECT` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAEE6C800E124CFE1)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xaee6c800e124cfe1(p0, p1) end
-
----**`OBJECT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB3B1546D23DF8DE1)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -796,13 +789,6 @@ function N_0xcbfbd38f2e0a263b(p0, p1) end
 ---@param p0 any
 ---@param p1 any
 function N_0xceab54f4632c6ef6(p0, p1) end
-
----**`OBJECT` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD503D6F0986D58BC)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xd503d6f0986d58bc(p0, p1) end
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD91E55B6C005EB09)  
@@ -1077,6 +1063,20 @@ function SetObjectKickable(object, kickable) end
 ---@param p10 number
 ---@param buoyancy number
 function SetObjectPhysicsParams(object, weight, p2, p3, p4, p5, gravity, p7, p8, p9, p10, buoyancy) end
+
+---**`OBJECT` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAEE6C800E124CFE1)  
+---_SET_FORCE* - _SET_LOCAL*
+---@param object integer
+---@param name string
+function SetObjectPromptName(object, name) end
+
+---**`OBJECT` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD503D6F0986D58BC)  
+---_SET_FORCE* - _SET_LOCAL*
+---@param object integer
+---@param name integer | string
+function SetObjectPromptNameFromGxtEntry(object, name) end
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEB6F1A9B5510A5D2)  

@@ -158,7 +158,7 @@ function GetHudScreenPositionFromWorldPosition(worldX, worldY, worldZ) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3429670F9B9EF2D3)  
----This native does not have an official description.
+---_GET_FILENAME_* - _GET_FRAME*
 ---@param label string
 ---@return any
 function GetLabelText_2(label) end
@@ -196,10 +196,20 @@ function GetStringFromHashKey(labelHash) end
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD8402B858F4DDD88)  
 ---Similar to 0x9D7E12EC6A1EE4E5(GET_TEXT_SUBSTRING) but starts at the beginning of the string
+---_GET_FILE* - _GET_FRAME*
 ---@param text string
 ---@param length integer
 ---@return any
 function GetTextSubstring_2(text, length) end
+
+---**`HUD` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x806862E5D266CF38)  
+---_GET_BOUNTY* - _GET_CHARACTER*
+---@param text string
+---@param begin integer
+---@param length integer
+---@return any
+function GetTextSubstring_3(text, begin, length) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x36CDD81627A6FCD2)  
@@ -215,6 +225,18 @@ function HideHudThisFrame() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEA600AABAF4B9084)  
 ---This native does not have an official description.
 function HideLoadingOnFadeThisFrame() end
+
+---**`HUD` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0501D52D24EA8934)  
+---Returns closest horse entity handle (about 3 meters; facing, directly riding, etc).
+---Maybe when horse hud interaction prompts are allowed to show (?)
+---
+---Params: p0 is usually true, if its false the native returns the players ped handle (?)
+---
+---_HIDE_* - _IGNORE_*
+---@param p0 boolean
+---@return integer
+function HudCheckClosestHorse(p0) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x71B72B478F8189DC)  
@@ -361,13 +383,6 @@ function MpGamerTagDisableReviveTopIcon(gamerTagId) end
 function MpGamerTagEnableReviveTopIcon(gamerTagId) end
 
 ---**`HUD` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0501D52D24EA8934)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x0501d52d24ea8934(p0) end
-
----**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x052D4AC0922AF91A)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -431,15 +446,6 @@ function N_0x5651516d947abc53() end
 function N_0x7ec0d68233e391ac(p0) end
 
 ---**`HUD` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x806862E5D266CF38)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@return any
-function N_0x806862e5d266cf38(p0, p1, p2) end
-
----**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8A59D44189AF2BC5)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -467,8 +473,11 @@ function N_0x958278b97c4affd8(p0, p1) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9C409BBC492CB5B1)  
----This native does not have an official description.
----@return any
+---Returns the hash of the currently highlighted item in the weapon wheel.
+---Only works while the wheel is open.
+---
+---Use in conjunction with IS_CONTROL_JUST_RELEASED(0, 'INPUT_OPEN_WHEEL_MENU') to detect item selection/usage.
+---@return integer
 function N_0x9c409bbc492cb5b1() end
 
 ---**`HUD` `client`**  
@@ -489,16 +498,6 @@ function N_0xb0e8599243b3f568(p0) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBFFF81E12A745A5F)  
 ---nullsub, doesn't do anything
 function N_0xbfff81e12a745a5f() end
-
----**`HUD` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE0D2F5586627CCE)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
-function N_0xce0d2f5586627cce(p0, p1, p2, p3, p4) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD6BD313CFA41E57A)  
@@ -533,6 +532,16 @@ function ReleaseNamedRendertarget(name) end
 ---This native does not have an official description.
 ---@param gamerTagId integer
 function RemoveMpGamerTag(gamerTagId) end
+
+---**`HUD` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE0D2F5586627CCE)  
+---string1 is the only string used in the scripts, the others are null (0)
+---@param active boolean
+---@param string1 string
+---@param string2 string
+---@param string3 string
+---@param string4 string
+function SetCurrentUgcMissionDescription(active, string1, string2, string3, string4) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE47C21C0687EBC2)  

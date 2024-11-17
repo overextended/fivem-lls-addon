@@ -173,8 +173,11 @@ function ClearAngledAreaOfVehicles(p0, p1, p2, p3, p4, p5, p6, p7) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3B882A96EA77D5B1)  
----flag |= 1 | 1048576 | 524288
----ALL_BASE, PROJECTILES, AMBIENT_POPULATION, BROADCAST
+---Possible flag names:
+---ALL_BASE = 0,
+---PROJECTILES = 1,
+---BROADCAST = 524288,
+---AMBIENT_POPULATION = 1048576
 ---@param x number
 ---@param y number
 ---@param z number
@@ -579,7 +582,7 @@ function GetFrameCount() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5E72022914CE3C38)  
----This native does not have an official description.
+---Also known as "delta time"
 ---@return number
 function GetFrameTime() end
 
@@ -1461,9 +1464,9 @@ function N_0x8bb99b85444544d9(p0, p1) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8C0F6A3D7236DEEB)  
 ---This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x8c0f6a3d7236deeb(p0, p1) end
+---@param entity integer
+---@param string string
+function N_0x8c0f6a3d7236deeb(entity, string) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8DB104CCEBCD58C5)  
@@ -1472,14 +1475,6 @@ function N_0x8c0f6a3d7236deeb(p0, p1) end
 ---@param p1 any
 ---@return any
 function N_0x8db104ccebcd58c5(p0, p1) end
-
----**`MISC` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x94E8CA3DEE952789)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x94e8ca3dee952789(p0, p1) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x94FCADCF9F0C368E)  
@@ -1670,9 +1665,9 @@ function N_0xf569e33fb72ed28e() end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF63FA29D4A9ACA86)  
 ---This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xf63fa29d4a9aca86(p0, p1) end
+---@param entity integer
+---@param string string
+function N_0xf63fa29d4a9aca86(entity, string) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF650DCF5D6F312C1)  
@@ -2177,6 +2172,15 @@ function StopCurrentLoadingProgressTimer() end
 function StopEndUserBenchmark() end
 
 ---**`MISC` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x94E8CA3DEE952789)  
+---Counts the number of segments in a string separated by specified delimiters, ignoring consecutive delimiters.
+---Example usage: int count = MISC::_STRING_SPLIT_AND_COUNT_SEGMENTS("qadr_ui-qadr_ui;qadr_ui,qadr_ui.qadr_ui;qadr_ui-", "-,;."); // Returns 6
+---@param inputString string
+---@param delimiters string
+---@return integer
+function StringSplitAndCountSegments(inputString, delimiters) end
+
+---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF2DD2298B3AF23E2)  
 ---Returns false if it's a null or empty string or if the string is too long. outInteger will be set to -999 in that case.
 ---@param string string
@@ -2231,12 +2235,14 @@ function VarString(flags, ...) end
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF06C5B66DE20B2B8)  
 ---Only used in smuggler2 script
+---Also see weather.xml (OceanWaveMaxAmplitude)
 ---@param maxAmplitude number
 function WaterOverrideSetOceanwavemaxamplitude(maxAmplitude) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x55123D5A7D9D3C42)  
 ---Only used in smuggler2 script
+---Also see weather.xml (ShoreWaveAmplitude)
 ---@param amplitude number
 function WaterOverrideSetShorewaveamplitude(amplitude) end
 

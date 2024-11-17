@@ -12,7 +12,7 @@
 ---@param p6 number
 ---@param p7 boolean
 ---@param p8 any
----@return any
+---@return integer
 function AddNavmeshBlockingObject(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
 
 ---**`PATHFIND` `client`**  
@@ -44,9 +44,9 @@ function AreNodesLoadedForArea(x1, y1, x2, y2) end
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0EAEB0DB4B132399)  
 ---This native does not have an official description.
----@param p0 any
+---@param object integer
 ---@return boolean
-function DoesNavmeshBlockingObjectExist(p0) end
+function DoesNavmeshBlockingObjectExist(object) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDE0EA444735C1368)  
@@ -72,7 +72,7 @@ function GetApproxFloorForPoint(x, y) end
 ---@param p3 number
 ---@param p4 integer
 ---@param p10 boolean
----@return any, vector3, vector3, any, any, number
+---@return boolean, vector3, vector3, any, any, number
 function GetClosestRoad(x, y, z, p3, p4, p10) end
 
 ---**`PATHFIND` `client`**  
@@ -486,10 +486,27 @@ function NavmeshIsSwapActive(name) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD470725E0703D22F)  
----Returns the number of waypoints for a requested path (NAVMESH_REQUEST_PATH) if the query is completed (_NAVMESH_REQUESTED_QUERY_STATUS). For use with _NAVMESH_REQUESTED_PATH_WAYPOINT_BY_INDEX
+---Returns the number of waypoints for a requested path (NAVMESH_REQUEST_PATH) if the query is completed (_NAVMESH_REQUESTED_PATH_QUERY_STATUS). For use with _NAVMESH_REQUESTED_PATH_WAYPOINT_BY_INDEX
 ---@param path integer
 ---@return integer
 function NavmeshRequestedPathNumWaypoints(path) end
+
+---**`PATHFIND` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3A0F82F6EE2291C8)  
+---Returns eNavMeshQueryStatus
+---enum eNavMeshQueryStatus
+---{
+---	QS_NOT_FOUND,
+---	QS_COMPLETE,
+---	QS_PENDING
+---};
+---
+---It appears that the pending state of 2 is at least also used when cleaning up a request (_NAVMESH_CLEAR_REQUESTED_PATH) or if a request never completes. Eventually queries are invalidated and return 0.
+---
+---Old name: _NAVMESH_QUERY_STATUS, _NAVMESH_REQUESTED_QUERY_STATUS
+---@param path integer
+---@return integer
+function NavmeshRequestedPathQueryStatus(path) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x430F8319AE56C8A9)  
@@ -514,25 +531,8 @@ function NavmeshRequestedPathWaypointsFound(path) end
 function NavmeshRequestedPathWaypointsTerrain(path) end
 
 ---**`PATHFIND` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3A0F82F6EE2291C8)  
----Returns eNavMeshQueryStatus
----enum eNavMeshQueryStatus
----{
----	QS_NOT_FOUND,
----	QS_COMPLETE,
----	QS_PENDING
----};
----
----It appears that the pending state of 2 is at least also used when cleaning up a request (_NAVMESH_CLEAR_REQUESTED_PATH) or if a request never completes. Eventually queries are invalidated and return 0.
----
----Old name: _NAVMESH_QUERY_STATUS
----@param path integer
----@return integer
-function NavmeshRequestedQueryStatus(path) end
-
----**`PATHFIND` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x348F211CA2404039)  
----Starts a nav mesh query for a path between coordinates with a given ped and returns a handle to be validated by _NAVMESH_REQUESTED_QUERY_STATUS and then _NAVMESH_REQUESTED_PATH_WAYPOINTS_FOUND
+---Starts a nav mesh query for a path between coordinates with a given ped and returns a handle to be validated by _NAVMESH_REQUESTED_PATH_QUERY_STATUS and then _NAVMESH_REQUESTED_PATH_WAYPOINTS_FOUND
 ---
 ---Only bit flag values used in scripts are 0, 23, and 29. 23 is used with dogs and horses. 29 with legendary animals.
 ---@param ped integer
@@ -549,8 +549,8 @@ function NavmeshRequestPath(ped, x1, y1, z1, x2, y2, z2, bitFlag) end
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x46399A7895957C0E)  
 ---This native does not have an official description.
----@param p0 any
-function RemoveNavmeshBlockingObject(p0) end
+---@param object integer
+function RemoveNavmeshBlockingObject(object) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2C87C3E1C7B96EE2)  

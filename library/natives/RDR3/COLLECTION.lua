@@ -123,6 +123,14 @@ function CollectableIncrementNumFound(collectableItem, amount) end
 function CollectableIncrementNumTurnedIn(collectableItem, amount) end
 
 ---**`COLLECTION` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEC3959E9950BF56B)  
+---Returns discoveredItemHash
+---_COLLECTABLE_C* - _COLLECTABLE_G*
+---@param collectableItem integer | string
+---@return integer
+function CollectableSetItemHashDiscovered(collectableItem) end
+
+---**`COLLECTION` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x33825A7388A6B9F6)  
 ---This native does not have an official description.
 ---@param collectableCategory integer | string
@@ -226,13 +234,6 @@ function N_0xd1806fb3eded6d11(collectableCategory, p1) end
 ---@param p1 integer
 ---@return any
 function N_0xd297f68928a58130(collectableCategory, p1) end
-
----**`COLLECTION` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEC3959E9950BF56B)  
----This native does not have an official description.
----@param p0 integer
----@return any
-function N_0xec3959e9950bf56b(p0) end
 
 ---**`COLLECTION` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFC832B06127D8E99)  

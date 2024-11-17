@@ -531,6 +531,7 @@ function N_0x73616e64696c132e(animScene, p1) end
 
 ---**`ANIMSCENE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9AAE3C1148A09BCA)  
+---Checks if AnimScene is aborted, and an unknown check. Usually used with 0x34A0671BE613D3D0
 ---Used in SP R* Scripts only
 ---_IS_ANIM_SCENE_*
 ---@param animScene integer
@@ -539,6 +540,7 @@ function N_0x9aae3c1148a09bca(animScene) end
 
 ---**`ANIMSCENE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA96619FE85159ED2)  
+---Checks if AnimScene is aborted, and an unknown check.
 ---Used in SP R* Scripts only
 ---_WAS_ANIM_SCENE_*
 ---@param animScene integer
@@ -576,6 +578,7 @@ function N_0xcdcd7b2d49aee73a(p0) end
 
 ---**`ANIMSCENE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD70C7A30412F8FA0)  
+---Checks if AnimScene is NOT aborted, and an unknown check. Usually used with ABORT_ANIM_SCENE
 ---Used in SP R* Scripts only
 ---_IS_ANIM_SCENE_*
 ---@param animScene integer

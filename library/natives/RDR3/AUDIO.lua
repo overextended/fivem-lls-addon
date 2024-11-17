@@ -120,6 +120,13 @@ function GetCurrentScriptedConversationLine(p0) end
 function GetEntityAudioMixGroup(entity) end
 
 ---**`AUDIO` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6BFFB7C276866996)  
+---Gets the hash for the last played speech line.
+---@param ped integer
+---@return integer
+function GetLastPlayedSpeechForPed(ped) end
+
+---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0556C784FA056628)  
 ---Creates stream and returns streamId handle to be used with PLAY_STREAM_* natives
 ---https://github.com/femga/rdr3_discoveries/tree/master/audio/create_stream
@@ -510,10 +517,10 @@ function N_0x44a5eef54f62e823(p0) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4A98E228A936DBCC)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x4a98e228a936dbcc(p0) end
+---Gets the hash for the currently playing speech line.
+---@param ped integer
+---@return integer
+function N_0x4a98e228a936dbcc(ped) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4BE3EC91C01F0FE8)  
@@ -606,13 +613,6 @@ function N_0x6ab944df68b512d3(p0) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x6b7a88a61b41e589(p0) end
-
----**`AUDIO` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6BFFB7C276866996)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x6bffb7c276866996(p0) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6DA15746D5CC1A92)  
@@ -723,13 +723,15 @@ function N_0x935dbd96d4a3da1f(p0, currentScriptedConvoLine) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D6DEC9791A4E501)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@return any
-function N_0x9d6dec9791a4e501(p0, p1, p2, p3) end
+---Returns true or false if the ped can say a specific speech line with PLAY_PED_AMBIENT_SPEECH_NATIVE, similar to DOES_CONTEXT_EXIST_FOR_THIS_PED.
+---Not reliable on remote clients when used on a player ped.
+---Params: p2 and p3 are usually false and true, respectively.
+---@param ped integer
+---@param speechName string
+---@param p2 boolean
+---@param p3 boolean
+---@return boolean
+function N_0x9d6dec9791a4e501(ped, speechName, p2, p3) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9EB779765E68C52E)  

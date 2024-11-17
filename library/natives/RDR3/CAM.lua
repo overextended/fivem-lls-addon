@@ -273,6 +273,11 @@ function ForceThirdPersonCamFarThisFrame() end
 function ForceThirdPersonCamThisFrame() end
 
 ---**`CAM` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x718C6ECF5E8CBDD4)  
+---Forces camera position to closest 3rd person
+function ForceThirdPersonCloseThisFrame() end
+
+---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x027CAB2C3AF27010)  
 ---This native does not have an official description.
 function FreezeGameplayCamThisFrame() end
@@ -625,16 +630,6 @@ function N_0x04084490cc302cfb() end
 function N_0x06557f6d96c86881() end
 
 ---**`CAM` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x066167C63111D8CF)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
-function N_0x066167c63111d8cf(p0, p1, p2, p3, p4) end
-
----**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0961B089947BA6D0)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -851,15 +846,12 @@ function N_0x6dfd37e586d4f44f() end
 function N_0x70a6658d476c6187() end
 
 ---**`CAM` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x718C6ECF5E8CBDD4)  
----This native does not have an official description.
-function N_0x718c6ecf5e8cbdd4() end
-
----**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x71D71E08A7ED5BD7)  
----This native does not have an official description.
----@param p0 any
-function N_0x71d71e08a7ed5bd7(p0) end
+---Zooms in the third person camera closer to ground level.
+---Must be called every frame to interpolate.
+---Pass false to reset.
+---@param toggle boolean
+function N_0x71d71e08a7ed5bd7(toggle) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x728491FB3DFFEF99)  
@@ -1174,8 +1166,8 @@ function ReactivatePedHeadshotExecuteSlowcam(ped, p1) end
 ---@param easeTime integer
 ---@param p3 boolean
 ---@param p4 boolean
----@param p5 integer
-function RenderScriptCams(render, ease, easeTime, p3, p4, p5) end
+---@param renderingFlags integer
+function RenderScriptCams(render, ease, easeTime, p3, p4, renderingFlags) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x69D65E89FFD72313)  
@@ -1286,12 +1278,12 @@ function SetCamNearClip(cam, nearClip) end
 ---@param rotZ number
 ---@param fieldOfView number
 ---@param p8 any
----@param p9 integer
----@param p10 integer
----@param p11 integer
+---@param graphType1 integer
+---@param graphType2 integer
+---@param rotationOrder integer
 ---@param p12 any
 ---@param p13 any
-function SetCamParams(cam, posX, posY, posZ, rotX, rotY, rotZ, fieldOfView, p8, p9, p10, p11, p12, p13) end
+function SetCamParams(cam, posX, posY, posZ, rotX, rotY, rotZ, fieldOfView, p8, graphType1, graphType2, rotationOrder, p12, p13) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x63DFA6810AD78719)  
@@ -1385,6 +1377,20 @@ function SetGameplayCamInitialZoom(camInitialZoom) end
 ---This native does not have an official description.
 ---@param p0 number
 function SetGameplayCamMaxMotionBlurStrengthThisUpdate(p0) end
+
+---**`CAM` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x066167C63111D8CF)  
+---Sets the third person gameplay camera zoom level and blends in.
+---Must be called every frame to interpolate.
+---Offset and distance permanently affects subtle zoom in weapon wheel and possibly in menus too.
+---
+---Params: p1 and p3 are usually true.
+---@param speed number
+---@param respectHorizontalOffset boolean
+---@param horizontalOffset number
+---@param respectDistance boolean
+---@param distance number
+function SetGameplayCamParamsThisUpdate(speed, respectHorizontalOffset, horizontalOffset, respectDistance, distance) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5D1EB123EAC5D071)  
