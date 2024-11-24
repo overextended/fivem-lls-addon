@@ -37,6 +37,16 @@ function GetItemSlotMaxCount(provision, slotId) end
 function InventoryAddItemWithGuid(inventoryId, item, inventoryItemSlot, p5, addReason) end
 
 ---**`INVENTORY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x75CFAC49301E134E)  
+---Applies weapon stats to the 'CatalogItemInspection' stats entry id.
+---p0: value returned by 0x9D21B185ABC2DBC5
+---_INVENTORY_GET*
+---@param databindingEntryId integer | string
+---@param p1 boolean
+---@param ped integer
+function InventoryApplyWeaponStatsToEntry(databindingEntryId, p1, ped) end
+
+---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0FBBFFC891A97C81)  
 ---inventoryId: see _INVENTORY_GET_PED_INVENTORY_ID
 ---@param inventoryId integer
@@ -75,6 +85,35 @@ function InventoryCopyItemToMissionInventory(p1) end
 ---@param bCopyHorse boolean
 ---@param p5 boolean
 function InventoryCopyMpInventoryToMissionInventory(p0, p1, bCopySatchelItems, bCopyEmotes, bCopyHorse, p5) end
+
+---**`INVENTORY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D21B185ABC2DBC4)  
+---data: return value of DATABINDING::_DATABINDING_ADD_DATA_CONTAINER(..., 'CatalogItemInspection');
+---name: effects
+---p2, p3: false
+---
+---Returns databindingEntryId of 'CatalogItemInspection' container to be used with 0x75CFAC49301E134F (p0)
+---@param data integer
+---@param name string
+---@param p2 boolean
+---@param p3 boolean
+---@return integer
+function InventoryCreateCatalogItemInspectionEffectsEntry(data, name, p2, p3) end
+
+---**`INVENTORY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D21B185ABC2DBC5)  
+---data: return value of DATABINDING::_DATABINDING_ADD_DATA_CONTAINER(..., 'CatalogItemInspection');
+---name: stats, compareStats
+---p2: 0
+---p3: -1
+---
+---Returns databindingEntryId of 'CatalogItemInspection' container to be used with 0x75CFAC49301E134E (p0)
+---@param data integer
+---@param name string
+---@param p2 integer
+---@param p3 integer
+---@return integer
+function InventoryCreateCatalogItemInspectionStatsEntry(data, name, p2, p3) end
 
 ---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x80D78BDC9D88EF07)  
@@ -395,6 +434,12 @@ function InventoryIsItemExpired() end
 function InventoryIsPlayerInventoryMirroringTransactions() end
 
 ---**`INVENTORY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7C7E4AB748EA3B07)  
+---This native does not have an official description.
+---@return boolean
+function InventoryIsUsingBackupInventory() end
+
+---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDCCAA7C3BFD88862)  
 ---guid1: old parent GUID
 ---guid2: new parent GUID
@@ -514,10 +559,13 @@ function InventoryUseBackupInventory(p0) end
 function InventoryUseMissionInventory(enable, mirrorTransactions) end
 
 ---**`INVENTORY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7C7E4AB748EA3B07)  
----This native does not have an official description.
----@return boolean
-function InventoryUseSpBackup() end
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x46743BBFEDBC859E)  
+---eInventoryItem: CLOTHING_FANCY_SUIT, CLOTHING_GUNSLINGER_OUTFIT, etc.
+---Only used in R* SP Scripts
+---@param inventoryId integer
+---@param eInventoryItem integer | string
+---@param p2 boolean
+function InventoryUseSatchelItem(inventoryId, eInventoryItem, p2) end
 
 ---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0349404A22736740)  
@@ -535,15 +583,6 @@ function N_0x0349404a22736740(p0, inventoryId) end
 ---@param p1 integer | string
 ---@return boolean, integer, integer, integer, integer, integer, integer
 function N_0x112bca290d2eb53c(inventoryId, p1) end
-
----**`INVENTORY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x46743BBFEDBC859E)  
----eInventoryItem: CLOTHING_FANCY_SUIT, CLOTHING_GUNSLINGER_OUTFIT, etc.
----Only used in R* SP Scripts
----@param inventoryId integer
----@param eInventoryItem integer | string
----@param p2 boolean
-function N_0x46743bbfedbc859e(inventoryId, eInventoryItem, p2) end
 
 ---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x46DB71883EE9D5AF)  
@@ -569,16 +608,9 @@ function N_0x6862e4d93f64cf01(inventoryId, p2) end
 function N_0x6968ce7ac32f6788(inventoryId) end
 
 ---**`INVENTORY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x75CFAC49301E134E)  
----p0: value returned by 0x9D21B185ABC2DBC5
----@param data any
----@param p1 boolean
----@param ped integer
-function N_0x75cfac49301e134e(data, p1, ped) end
-
----**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x75CFAC49301E134F)  
----p1, p2: 0
+---p0: value returned by 0x9D21B185ABC2DBC4
+---p1, p2: false
 ---@param databindingEntryId integer | string
 ---@param p1 boolean
 ---@param p2 boolean
@@ -605,30 +637,6 @@ function N_0x9ac53cb6907b4428(item) end
 ---Used in function SET_SHOP_BEING_ROBBED and many other shop related scripts and functions.
 ---INVENTORY_A*
 function N_0x9b4e793b1cb6550a() end
-
----**`INVENTORY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D21B185ABC2DBC4)  
----p0 is the return value of DATABINDING::_DATABINDING_ADD_DATA_CONTAINER_FROM_PATH
----p2, p3: 0
----Returns databindingEntryId
----@param data any
----@param effects string
----@param p2 boolean
----@param p3 boolean
----@return integer
-function N_0x9d21b185abc2dbc4(data, effects, p2, p3) end
-
----**`INVENTORY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9D21B185ABC2DBC5)  
----p2: 0
----p3: -1
----Returns databindingEntryId to be used with 0x75CFAC49301E134E (p0)
----@param data any
----@param stats string
----@param p2 integer
----@param p3 integer
----@return integer
-function N_0x9d21b185abc2dbc5(data, stats, p2, p3) end
 
 ---**`INVENTORY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9E58207B194488AC)  

@@ -56,9 +56,27 @@
 function AddExplosion(x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake) end
 
 ---**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x53BA259F3A67A99E)  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB7DF150605EEDC9B)  
+---Adds an explosion with entity as damage causer.
 ---explosionType: see ADD_EXPLOSION
----Change explosionFx (Visual Effect) for specified explosionType
+---_A* - _ADD_D*
+---@param entity integer
+---@param p1 integer
+---@param x number
+---@param y number
+---@param z number
+---@param explosionType integer
+---@param damageScale number
+---@param isAudible boolean
+---@param isInvisible boolean
+---@param cameraShake number
+function AddExplosionWithDamageCauser(entity, p1, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake) end
+
+---**`FIRE` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x53BA259F3A67A99E)  
+---Changes explosionFx (Visual Effect) for specified explosionType
+---explosionType: see ADD_EXPLOSION
+---explosionFx: https://github.com/femga/rdr3_discoveries/blob/master/graphics/explosions/explosion_vfxTags.lua
 ---@param x number
 ---@param y number
 ---@param z number
@@ -69,6 +87,24 @@ function AddExplosion(x, y, z, explosionType, damageScale, isAudible, isInvisibl
 ---@param isInvisible boolean
 ---@param cameraShake number
 function AddExplosionWithUserVfx(x, y, z, explosionType, explosionFx, damageScale, isAudible, isInvisible, cameraShake) end
+
+---**`FIRE` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x34AE85C7CA4857AA)  
+---Adds an explosion with vfx and entity as damage causer.
+---explosionFx: see ADD_EXPLOSION_WITH_USER_VFX
+---_A* - _ADD_D*
+---@param entity integer
+---@param p1 boolean
+---@param x number
+---@param y number
+---@param z number
+---@param explosionType integer
+---@param explosionFx integer | string
+---@param damageScale number
+---@param isAudible boolean
+---@param isInvisible boolean
+---@param cameraShake number
+function AddExplosionWithUserVfxAndDamageCauser(entity, p1, x, y, z, explosionType, explosionFx, damageScale, isAudible, isInvisible, cameraShake) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD84A917A64D4D016)  
@@ -227,22 +263,6 @@ function IsPedShockingEventActive(ped, p1) end
 function N_0x24db6b9f2b719043(p0) end
 
 ---**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x34AE85C7CA4857AA)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
----@param p7 any
----@param p8 any
----@param p9 any
----@param p10 any
-function N_0x34ae85c7ca4857aa(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) end
-
----**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x41B87A6495EE13DD)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -272,21 +292,6 @@ function N_0x68f6a75fdf5a70d6(x, y, z, p3) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x754937c28271bc65(p0) end
-
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB7DF150605EEDC9B)  
----_ADD_EXPLOSION_*(ON ENTITY?)
----@param entity integer
----@param p1 integer
----@param x number
----@param y number
----@param z number
----@param explosionType integer
----@param damageScale number
----@param isAudible boolean
----@param isInvisible boolean
----@param cameraShake number
-function N_0xb7df150605eedc9b(entity, p1, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x790125C36E194069)  

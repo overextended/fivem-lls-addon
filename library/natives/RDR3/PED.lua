@@ -129,6 +129,23 @@ function ApplyPedBloodSpecific(ped, p1, p2, p3, p4, p5, p6, p7) end
 function ApplyPedDamagePack(ped, damagePack, damage, mult) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x58D32261AE0F0843)  
+---Applies damage pack to a ped bone with offset and rotation.
+---Note: for boneId only PD_Vomit seems to work.
+---
+---Preview: https://imgur.com/a/qwEGXEu
+---@param ped integer
+---@param boneId integer
+---@param xOffset number
+---@param yOffset number
+---@param zOffset number
+---@param xRot number
+---@param yRot number
+---@param zRot number
+---@param damagePack string
+function ApplyPedDamagePackToBone(ped, boneId, xOffset, yOffset, zOffset, xRot, yRot, zRot, damagePack) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x74F512E29CB717E2)  
 ---https://github.com/femga/rdr3_discoveries/blob/master/clothes/metaped_outfits.lua
 ---@param requestId integer
@@ -1495,6 +1512,17 @@ function GetPedGrappleStyle(ped) end
 ---@param ped integer
 ---@return integer
 function GetPedGroupIndex(ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x947E43F544B6AB34)  
+---Returns whether given ped has recently interacted with a player in a specific way or not (determined by the given flag)
+---flags: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/0x947E43F544B6AB34
+---@param targetPed integer
+---@param player integer
+---@param flag integer
+---@param durationMs integer
+---@return boolean
+function GetPedHasInteractedWithPlayer(targetPed, player, flag, durationMs) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1D491CCF7211FB74)  
@@ -3861,20 +3889,6 @@ function N_0x577c60ba06d0ea64(ped) end
 function N_0x57f35552e771be9d(ped, p1) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x58D32261AE0F0843)  
----This native does not have an official description.
----@param ped integer
----@param boneId integer
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 number
----@param p8 string
-function N_0x58d32261ae0f0843(ped, boneId, p2, p3, p4, p5, p6, p7, p8) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5A1A929C8B729B4A)  
 ---_C*
 ---@param ped integer
@@ -4195,10 +4209,10 @@ function N_0x7c10221ce718aa72(ped, p1) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7C8AA850617651D9)  
 ---This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x7c8aa850617651d9(p0, p1) end
+---@param ped integer
+---@param p1 integer | string
+---@return boolean
+function N_0x7c8aa850617651d9(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7E5185B979706210)  
@@ -4469,17 +4483,6 @@ function N_0x92a1b55a59720395(p0, p1) end
 ---@param ped integer
 ---@return boolean
 function N_0x94132d7c8d3575c4(ped) end
-
----**`PED` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x947E43F544B6AB34)  
----flags: https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/0x947E43F544B6AB34
----_GET_PED_G* - _GET_PED_I(NTERACTION?)*
----@param ped integer
----@param player integer
----@param flag integer
----@param ms integer
----@return boolean
-function N_0x947e43f544b6ab34(ped, player, flag, ms) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x9629FAF6460D35CB)  
@@ -4771,15 +4774,6 @@ function N_0xa967d6a8ed2d713b(ped, p1) end
 ---@param ped integer
 ---@param p1 integer | string
 function N_0xaa6c49ae90a32299(ped, p1) end
-
----**`PED` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAAB86462966168CE)  
----Related to _0x704C908E9C405136 for component loading
----_S*
----@param ped integer
----@param isMP boolean
----@return any
-function N_0xaab86462966168ce(ped, isMP) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAAC0EE3B4999ABB5)  
@@ -6151,6 +6145,17 @@ function ReviveInjuredPed(ped) end
 ---@param ped integer
 ---@param modifier number
 function SetAccuracyAgainstLocalPlayerModifier(ped, modifier) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAAB86462966168CE)  
+---Related to _0x704C908E9C405136 for component loading
+---Can be used to fix missing outfit changes, always paired with _UPDATE_PED_VARIATION
+---_S*
+---Doesn't actually return anything.
+---@param ped integer
+---@param isMP boolean
+---@return any
+function SetActiveMetaPedComponentsUpdated(ped, isMP) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x66460DEDDD417254)  
@@ -8277,9 +8282,9 @@ function UpdatePedWoundEffect(ped, value) end
 ---@param componentHash integer | string
 ---@param wearableState integer | string
 ---@param p3 integer
----@param p4 boolean
+---@param isMp boolean
 ---@param p5 integer
-function UpdateShopItemWearableState(ped, componentHash, wearableState, p3, p4, p5) end
+function UpdateShopItemWearableState(ped, componentHash, wearableState, p3, isMp, p5) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE0B61ED8BB37712F)  

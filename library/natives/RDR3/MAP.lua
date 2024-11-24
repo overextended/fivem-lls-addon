@@ -135,6 +135,14 @@ function BlipRemoveModifier(blip, modifierHash) end
 function BlipSetStyle(blip, styleHash) end
 
 ---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x01B928CA2E198B01)  
+---Clears blip data, must be called before REMOVE_BLIP.
+---Blips seem to be handled via databinding internally, this function should then allow you to clear blip container and therefore free up memory.
+---@param blip integer
+---@return boolean
+function ClearBlip(blip) end
+
+---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x44813684F72B563C)  
 ---Removes the blip icon from the entity lockon prompt
 ---@param entity integer
@@ -265,6 +273,13 @@ function IsBlipOnMinimap(blip) end
 function IsDisplayBlipIconOnLockonEntityPrompt(entity, blip) end
 
 ---**`MAP` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF47A1EB2A538A3A3)  
+---Checks if the GPS route to the waypoint is navigable along a road.
+---If a route exists but there is no valid road path, this function returns false.
+---@return boolean
+function IsPathForGpsOnRoad() end
+
+---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x202B1BBFC6AB5EE4)  
 ---This native does not have an official description.
 ---@return boolean
@@ -319,23 +334,10 @@ function MapIsDiscoveryActive(discoveryHash) end
 function MapIsRegionHighlightedWithStyle(regionHash, styleHash) end
 
 ---**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x01B928CA2E198B01)  
----_CLEAR*
----@param p0 any
----@return any
-function N_0x01b928ca2e198b01(p0) end
-
----**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD3F58E9316B7FC2A)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0xd3f58e9316b7fc2a(p0) end
-
----**`MAP` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF47A1EB2A538A3A3)  
----This native does not have an official description.
----@return any
-function N_0xf47a1eb2a538a3a3() end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF2C3C9DA47AAA54A)  

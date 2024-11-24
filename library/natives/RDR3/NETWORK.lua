@@ -998,9 +998,9 @@ function N_0x923346025512dfb7(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x950ACD8F05B7B9DF)  
 ---Related to container entity (RANSACK_ATTACHED_LOCKBOX / RANSACK_ATTACHED_CHEST)
----@param p0 any
----@return any
-function N_0x950acd8f05b7b9df(p0) end
+---@param entity integer
+---@return boolean
+function N_0x950acd8f05b7b9df(entity) end
 
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x979765465A6F25FC)  
@@ -1179,7 +1179,7 @@ function N_0xca58d4fd20d70f24(p0) end
 ---**`NETWORK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCC4E72C339461ED1)  
 ---This native does not have an official description.
----@return any
+---@return boolean
 function N_0xcc4e72c339461ed1() end
 
 ---**`NETWORK` `client`**  

@@ -1182,12 +1182,14 @@ function UiPromptSetMashMode(prompt, mashes) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC0CB602DEADBA53)  
----This native does not have an official description.
+---Sets the mode for the given prompt to mash mode.
+---decreaseSpeed: 0.0f will result in the prompt not showing the mash progress at all. 0.01f - ?.0f. At speeds around 7.0f to 8.0f the prompt basically fails immediately if you don't start mashing right away.
+---startProgress: 0.0f - 1.0f is a percentage value, so 0.5f = 50% progress. Range: 0.0f - 1.0f 
 ---@param prompt integer
 ---@param mashes integer
----@param p2 number
----@param p3 number
-function UiPromptSetMashWithResistanceCanFailMode(prompt, mashes, p2, p3) end
+---@param decreaseSpeed number
+---@param startProgress number
+function UiPromptSetMashWithResistanceCanFailMode(prompt, mashes, decreaseSpeed, startProgress) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCD1BDFF15EFA79F5)  
@@ -1255,10 +1257,10 @@ function UiPromptSetSpinnerSpeed(prompt, p1) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x74C7D7B72ED0D3CF)  
----Hashes: SHORT_TIMED_EVENT_MP, SHORT_TIMED_EVENT, MEDIUM_TIMED_EVENT, LONG_TIMED_EVENT, RUSTLING_CALM_TIMING, PLAYER_FOCUS_TIMING, PLAYER_REACTION_TIMING
+---holdType: SHORT_TIMED_EVENT_MP, SHORT_TIMED_EVENT, MEDIUM_TIMED_EVENT, LONG_TIMED_EVENT, RUSTLING_CALM_TIMING, PLAYER_FOCUS_TIMING, PLAYER_REACTION_TIMING
 ---@param prompt integer
----@param timedEventHash integer | string
-function UiPromptSetStandardizedHoldMode(prompt, timedEventHash) end
+---@param holdType integer | string
+function UiPromptSetStandardizedHoldMode(prompt, holdType) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCC6656799977741B)  

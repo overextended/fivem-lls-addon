@@ -129,7 +129,7 @@ function N_0xccf71fcfa0070b1a() end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDB622ECD3DCBE078)  
 ---This native does not have an official description.
 ---@param player integer
----@return any
+---@return boolean
 function N_0xdb622ecd3dcbe078(player) end
 
 ---**`VOICE` `client`**  

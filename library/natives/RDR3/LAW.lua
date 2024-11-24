@@ -590,12 +590,6 @@ function N_0xdaefdfdb2aeece37(crimeType, p1) end
 function N_0xdcf12b89624aac96(p0) end
 
 ---**`LAW` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDDCE8E960D1DE240)  
----This native does not have an official description.
----@param p0 boolean
-function N_0xddce8e960d1de240(p0) end
-
----**`LAW` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDEA083C16BB91345)  
 ---This native does not have an official description.
 function N_0xdea083c16bb91345() end
@@ -802,6 +796,12 @@ function SetBountyHunterGlobalCooldown(p0, p1) end
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x55F37F5F3F2475E1)  
 ---Force clears local player's wanted level
 function SetBountyHunterPursuitCleared() end
+
+---**`LAW` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDDCE8E960D1DE240)  
+---This native does not have an official description.
+---@param enabled boolean
+function SetCantLoseLawThisResponse(enabled) end
 
 ---**`LAW` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x009CF9A29972C298)  

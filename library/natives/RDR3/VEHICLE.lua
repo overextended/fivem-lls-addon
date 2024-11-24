@@ -989,13 +989,6 @@ function N_0x0794199b25e499e1(wagon, p1) end
 function N_0x07e2e21e799080a0(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x09034479E6E3E269)  
----_RESET_VEHICLE_*
----@param train integer
----@return any, integer, integer
-function N_0x09034479e6e3e269(train) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0BA4250D20007C2E)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -2028,6 +2021,14 @@ function RequestVehicleRecording(recording, script) end
 ---@param vehicle integer
 ---@param nullAttributes integer
 function ResetVehicleStuckTimer(vehicle, nullAttributes) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x09034479E6E3E269)  
+---Outputs track hash and junction index on given train vehicle handle.
+---_RESET_VEHICLE_* (?)
+---@param train integer
+---@return boolean, integer, integer
+function ReturnTrainInfoFromHandle(train) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x138398153824E332)  

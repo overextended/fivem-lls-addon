@@ -196,6 +196,14 @@ function ItemdatabaseGetAcquireCostsCount(key) end
 function ItemdatabaseGetAcquireCostsCountFromCostType(key, costtype) end
 
 ---**`ITEMDATABASE` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1FC25AEB5F76B38D)  
+---This native does not have an official description.
+---@param award integer | string
+---@param index integer
+---@return boolean, any
+function ItemdatabaseGetAwardAcquireCost(award, index) end
+
+---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x12DF9C58201DD19A)  
 ---This native does not have an official description.
 ---@param key integer | string
@@ -548,14 +556,6 @@ function ItemdatabaseReleaseItemCollection(collectionId) end
 ---@param key integer | string
 ---@return boolean, any
 function N_0x17721003a66c72bf(shopType, key) end
-
----**`ITEMDATABASE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1FC25AEB5F76B38D)  
----_ITEMDATABASE_GET_AWARD_ACQUIRE_COST
----@param award integer | string
----@param index integer
----@return boolean, any
-function N_0x1fc25aeb5f76b38d(award, index) end
 
 ---**`ITEMDATABASE` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x388088BFF3681189)  

@@ -87,14 +87,14 @@ function ResetGuarmaWaterState() end
 ---Only used in R* Script guama1
 ---@param wavesHeight number
 ---@param p1 number
----@param p2 integer
+---@param wavesDirection integer
 ---@param p3 number
----@param p4 number
+---@param wavesAmount number
 ---@param p5 number
----@param p6 number
+---@param wavesSpeed number
 ---@param wavesStrength number
----@param p8 integer
-function SetOceanGuarmaWaterQuadrant(wavesHeight, p1, p2, p3, p4, p5, p6, wavesStrength, p8) end
+---@param ignoreHeight boolean
+function SetOceanGuarmaWaterQuadrant(wavesHeight, p1, wavesDirection, p3, wavesAmount, p5, wavesSpeed, wavesStrength, ignoreHeight) end
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE8770EE02AEE45C2)  

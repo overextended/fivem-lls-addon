@@ -40,6 +40,21 @@ function AddCoverBlockingVolume(volume, p1, p2, p3, p4) end
 function AddCoverPoint(p0, p1, p2, p3, p4, p5, p6, p7) end
 
 ---**`TASK` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x59872EA4CBD11C56)  
+---Returns the entity coverpoint with offset.
+---@param entity integer
+---@param xOffset number
+---@param yOffset number
+---@param zOffset number
+---@param heading number
+---@param p5 integer
+---@param p6 integer
+---@param p7 integer
+---@param p8 integer
+---@return integer
+function AddCoverPointForEntity(entity, xOffset, yOffset, zOffset, heading, p5, p6, p7, p8) end
+
+---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE8F1A5B4CED3725A)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -1497,21 +1512,6 @@ function N_0x583ae9af9cee0958(vehicle, x, y, z) end
 ---This native does not have an official description.
 ---@return any
 function N_0x5952dfa38fa529fe() end
-
----**`TASK` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x59872EA4CBD11C56)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
----@param p7 any
----@param p8 any
----@return any
-function N_0x59872ea4cbd11c56(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x59AE5CA4FFB4E378)  

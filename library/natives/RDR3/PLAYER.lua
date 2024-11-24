@@ -84,16 +84,24 @@ function ClearBountyTarget(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0E9057A9DA78D0F8)  
----Clears the intensity of aura effects applied to entities for a specific player in Deadeye mode based on a flag parameter. This function is used to reset any intensity modifications set by `PLAYER::_SET_DEADEYE_ENTITY_AURA_INTENSITY_WITH_FLAG` (0x131E294EF60160DF), restoring affected entities' aura intensity to their default state.
+---Clears the intensity of aura effects applied to entities for a specific player in Deadeye mode based on a flag parameter. This function is used to reset any intensity modifications set by `PLAYER::_SET_DEADEYE_ENTITY_AURA_EFFECT_INTENSITY` (0x131E294EF60160DF), restoring affected entities' aura intensity to their default state.
 ---
 ---Example usage:
----PLAYER::_CLEAR_DEADEYE_AURA_INTENSITY_WITH_FLAG(PLAYER::PLAYER_ID(),2);
+---PLAYER::_CLEAR_DEADEYE_AURA_EFFECT_INTENSITY(PLAYER::PLAYER_ID(),2);
 ---Clears all aura intensity adjustments for the player based on the specified flag, restoring entities' intensity to default values.
 ---
 ---Video: https://imgur.com/gallery/0x0e9057a9da78d0f8-ctZPFmz
 ---@param player integer
 ---@param flag integer
-function ClearDeadeyeAuraIntensityWithFlag(player, flag) end
+function ClearDeadeyeAuraEffectIntensity(player, flag) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE5D3EB37ABC1EB03)  
+---Clears all eagle eye trails that were registered for peds (maybe also other entities?) associated with specified player.
+---Video: https://imgur.com/a/uvCTPei
+---_CLEAR_FACIAL_* - _CLEAR_PED_BLOOD*
+---@param player integer
+function ClearPedEagleEyeTrailsForPlayer(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0361096D6CE4372C)  
@@ -136,6 +144,14 @@ function DisablePlayerFiring(player, toggle) end
 function DisablePlayerInteractiveFocusPreset(player, name) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBC02B3D151D3859F)  
+---Enable/disable the focus skill on given entity in eagle eye mode, which makes the entity glow up.
+---Video: https://imgur.com/a/e1ph146
+---@param entity integer
+---@param enable boolean
+function EagleEyeAddFocusSkill(entity, enable) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA62BBAAE67A05BB0)  
 ---Retrieves whether all trails are currently hidden during Eagle Eye mode for the specified player.
 ---Images:
@@ -175,6 +191,14 @@ function EagleEyeDisableTrackingTrail(entity, trail, p2, p3) end
 ---@param player integer
 ---@return integer
 function EagleEyeGetTrackedPedId(player) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC5E09D012D759C4)  
+---Clears yellow indicator particle effects from given entity.
+---@param entity1 integer
+---@param entity2 integer
+---@param p2 integer
+function EagleEyeRemoveParticleFxFromEntity(entity1, entity2, p2) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2C41D93F550D5E37)  
@@ -232,11 +256,23 @@ function EagleEyeSetFocusOnAssociatedClueTrail(player, linkedWaypointPed) end
 function EagleEyeSetHideAllTrails(player, hideTrails) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6ECFC621A168424C)  
+---Adds yellow indicator particle effects to given entity.
+---Image: https://imgur.com/a/cbldo35
+---@param entity1 integer
+---@param entity2 integer
+---@param p2 integer
+---@param heading number
+function EagleEyeSetParticleFxToEntity(entity1, entity2, p2, heading) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCE285A4413B00B7F)  
----This native does not have an official description.
----@param ped integer
+---Sets the behavior of sprinting while the eagle eye feature is active, determining whether sprinting cancels the effect based on the specified parameter.
+---disabled = true: sprinting will cancel the eagle eye effect when active. If the player starts sprinting, the Eagleeye feature will be deactivated.
+---disabled = false: sprinting will not cancel the eagle eye effect. The player can sprint while keeping the Eagleeye feature active.
+---@param player integer
 ---@param disabled boolean
-function EagleEyeSetPlusFlagDisabled(ped, disabled) end
+function EagleEyeSetPlusFlagDisabled(player, disabled) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x22C8B10802301381)  
@@ -1045,14 +1081,6 @@ function ModifyPlayerUiPromptForPed(player, ped, promptType, promptMode, enabled
 function N_0x00b156afebcc5ae0(p0) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x00EB5A760638DB55)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0x00eb5a760638db55(p0, p1, p2) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x03B4B759A8990505)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1460,15 +1488,6 @@ function N_0x694ffa4308060cd1(p0, p1) end
 function N_0x6c54e69516cc56bd(p0) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6ECFC621A168424C)  
----This native does not have an official description.
----@param entity1 integer
----@param entity2 integer
----@param p2 any
----@param p3 number
-function N_0x6ecfc621a168424c(entity1, entity2, p2, p3) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6EDB5D08CB03E763)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1704,13 +1723,6 @@ function N_0xba5ca1feb5de0df6(p0, p1, p2, p3, p4, p5) end
 function N_0xbb6ea5d59e926095(category, emote) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBC02B3D151D3859F)  
----This native does not have an official description.
----@param entity integer
----@param p1 any
-function N_0xbc02b3d151d3859f(entity, p1) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBD96185264DDAAEA)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1874,14 +1886,6 @@ function N_0xda9d7be231fe865f(p0, p1, p2) end
 function N_0xdab6a2fc56b7de65(p0) end
 
 ---**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDC5E09D012D759C4)  
----This native does not have an official description.
----@param entity1 integer
----@param entity2 integer
----@param p2 any
-function N_0xdc5e09d012d759c4(entity1, entity2, p2) end
-
----**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDD33A82352C4652F)  
 ---This native does not have an official description.
 ---@param player integer
@@ -1903,12 +1907,6 @@ function N_0xe1d356f5a66d0ffa(emote) end
 ---@param p1 any
 ---@return any
 function N_0xe50a67c33514a390(p0, p1) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE5D3EB37ABC1EB03)  
----_CLEAR_FACIAL_* - _CLEAR_PED_BLOOD*
----@param player integer
-function N_0xe5d3eb37abc1eb03(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE7F8707269544B29)  
@@ -2045,10 +2043,9 @@ function ReportPoliceSpottedPlayer(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE910932F4B30BE23)  
----Resets any aura effects applied to entities for a specific player in Deadeye mode, returning all aura-related visuals to their default state. This function is primarily used to remove any highlighting or aura effects set by `PLAYER::_SET_DEADEYE_ENTITY_AURA_WITH_FLAG` (0x2B12B6FC8B8772AB) and `PLAYER::_SET_DEADEYE_ENTITY_AURA_INTENSITY_WITH_FLAG` (0x131E294EF60160DF).
+---Resets any aura effects applied to entities for a specific player in Deadeye mode, returning all aura-related visuals to their default state. This function is primarily used to remove any highlighting or aura effects set by `PLAYER::_SET_DEADEYE_ENTITY_AURA_EFFECT` (0x2B12B6FC8B8772AB) and `PLAYER::_SET_DEADEYE_ENTITY_AURA_EFFECT_INTENSITY` (0x131E294EF60160DF).
 ---
 ---Example usage:
----
 ---PLAYER::_RESET_DEADEYE_AURA_EFFECT(PLAYER::PLAYER_ID());
 ---Resets all aura effects and intensity changes for the player, removing entity highlights and restoring default visuals after Deadeye.
 ---
@@ -2206,11 +2203,29 @@ function SetDeadeyeAbilityLevel(player, level) end
 function SetDeadeyeAbilityLocked(player, abilityType, toggle) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2B12B6FC8B8772AB)  
+---Applies an aura effect to nearby entities when Deadeye is active, based on a flag parameter. This includes humans, animals, vehicles, and horses pulling those vehicles. Additionally, depending on the flag value, the player's appearance may change (e.g., turning gray).
+---
+---Example usage:
+---PLAYER::_SET_DEADEYE_ENTITY_AURA_EFFECT(PLAYER::PLAYER_ID(), 3);
+---Applies an aura effect to nearby entities, and the player turns gray by default when flag is set to 8.
+---
+---Video: https://youtu.be/Mgb1N9_6Htc
+---@param player integer
+---@param flag integer
+function SetDeadeyeEntityAuraEffect(player, flag) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x131E294EF60160DF)  
 ---Applies a customizable aura effect to nearby entities when Deadeye is active, with control over aura intensity and additional behavior based on a flag parameter.
+---
+---auraIntensity: maximum value of 1.0. Represents how strong the aura appears on nearby entities.
+---flag: 2: Applies aura to humans, 4: Applies aura to animals
+---
 ---Example usage:
----PLAYER::_SET_DEADEYE_ENTITY_AURA_INTENSITY_WITH_FLAG(PLAYER::PLAYER_ID(), 0.0, 0.0, 0.0, 1.0, 8);
+---PLAYER::_SET_DEADEYE_ENTITY_AURA_EFFECT_INTENSITY(PLAYER::PLAYER_ID(), 0.0, 0.0, 0.0, 1.0, 8);
 ---Applies a maximum intensity aura effect to all nearby entities while Deadeye is active.
+---
 ---Screenshot: https://imgur.com/gallery/0x131e294ef60160df-zNQ6Pc0
 ---@param player integer
 ---@param p1 number
@@ -2218,19 +2233,7 @@ function SetDeadeyeAbilityLocked(player, abilityType, toggle) end
 ---@param p3 number
 ---@param auraIntensity number
 ---@param flag integer
-function SetDeadeyeEntityAuraIntensityWithFlag(player, p1, p2, p3, auraIntensity, flag) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2B12B6FC8B8772AB)  
----Applies an aura effect to nearby entities when Deadeye is active, based on a flag parameter. This includes humans, animals, vehicles, and horses pulling those vehicles. Additionally, depending on the flag value, the player's appearance may change (e.g., turning gray).
----
----Example usage:
----PLAYER::_SET_DEADEYE_ENTITY_AURA_WITH_FLAG(PLAYER::PLAYER_ID(), 3);
----Applies an aura effect to nearby entities, and the player turns gray by default when flag is set to 8.
----Video: https://youtu.be/Mgb1N9_6Htc
----@param player integer
----@param flag integer
-function SetDeadeyeEntityAuraWithFlag(player, flag) end
+function SetDeadeyeEntityAuraEffectIntensity(player, p1, p2, p3, auraIntensity, flag) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x83FCD6921FC8FD05)  
@@ -2466,6 +2469,7 @@ function SetPlayerDamageInfoOverride(player, damageInfo) end
 ---PLAYER::_SET_PLAYER_DEAD_EYE_AURA_BY_HASH(PLAYER::PLAYER_ID(), 1014693585);
 ---Video: https://imgur.com/gallery/0x768e81ae285a4b67-LzWAwBc 
 ---Previous name: _SET_PLAYER_STAT_FLAG_HASH
+---_N*, _O* or _PE*
 ---@param player integer
 ---@param auraHash integer | string
 function SetPlayerDeadEyeAuraByHash(player, auraHash) end
@@ -2955,6 +2959,14 @@ function SetWantedLevelMultiplier(multiplier) end
 ---@param player integer
 ---@param modifier number
 function SetWeaponDegradationModifier(player, modifier) end
+
+---**`PLAYER` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x00EB5A760638DB55)  
+---This native does not have an official description.
+---@param player integer
+---@param weaponHash integer | string
+---@param modifier number
+function SetWeaponDrawSpeed(player, weaponHash, modifier) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFA0C063C422C4355)  

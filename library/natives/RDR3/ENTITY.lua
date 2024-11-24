@@ -41,6 +41,27 @@ function ApplyForceToEntity(entity, forceFlags, x, y, z, offX, offY, offZ, boneI
 function ApplyForceToEntityCenterOfMass(entity, forceType, x, y, z, component, isDirectionRel, isForceRel, p8) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x445D7D8EA66E373E)  
+---This native does not have an official description.
+---@param entity integer
+---@param p1 integer
+---@param x number
+---@param y number
+---@param z number
+---@param offsetX number
+---@param offsetY number
+---@param offsetZ number
+---@param timer number
+---@param p9 boolean
+---@param p10 integer
+---@param p11 integer
+---@param p12 integer
+---@param p13 integer
+---@param p14 integer
+---@param p15 integer
+function AttachEntityToCoordsPhysically(entity, p1, x, y, z, offsetX, offsetY, offsetZ, timer, p9, p10, p11, p12, p13, p14, p15) end
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6B9BBD38AB0796DF)  
 ---Attaches entity1 to bone (boneIndex) of entity2.
 ---
@@ -248,6 +269,13 @@ function DoesThreadOwnThisEntity(entity) end
 ---@param p2 string
 ---@return boolean, any, any
 function FindAnimEventPhase(animDictionary, animName, p2) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEF2D9ED7CE684F08)  
+---Returns the ped which is currently looting another ped. Returns null if no one is looting the ped.
+---@param entity integer
+---@return integer
+function FindEntityLootingPed(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4C9E96473D4F1A88)  
@@ -1335,27 +1363,6 @@ function N_0x3ec28da1ffac9ddd(entity1, entity2, p2, p3) end
 function N_0x3f08c6163a4ab1d6(p0) end
 
 ---**`ENTITY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x445D7D8EA66E373E)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
----@param p7 any
----@param p8 any
----@param p9 any
----@param p10 any
----@param p11 any
----@param p12 any
----@param p13 any
----@param p14 any
----@param p15 any
-function N_0x445d7d8ea66e373e(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15) end
-
----**`ENTITY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x56E0735D6273B227)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1707,13 +1714,6 @@ function N_0xeab3d91d30a344f1(p0) end
 ---@param entity integer
 ---@param p1 any
 function N_0xef259aa1e097e0ad(entity, p1) end
-
----**`ENTITY` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEF2D9ED7CE684F08)  
----This native does not have an official description.
----@param ped integer
----@return integer
-function N_0xef2d9ed7ce684f08(ped) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF41E2979D5BC5370)  
@@ -2258,12 +2258,12 @@ function SetVehicleAsNoLongerNeeded(vehicle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x786591D986DE9159)  
----This native does not have an official description.
+---Doesn't actually return anything.
 ---@param entity integer
 ---@param animation string
 ---@param animGroup string
 ---@param p3 number
----@return any
+---@return boolean
 function StopEntityAnim(entity, animation, animGroup, p3) end
 
 ---**`ENTITY` `client`**  
