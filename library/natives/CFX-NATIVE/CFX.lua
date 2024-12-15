@@ -70,6 +70,23 @@ function AddBlipForEntity(entity) end
 ---@return integer
 function AddBlipForRadius(posX, posY, posZ, radius) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xAB7F7241)  
+---Adds a listener for Console Variable changes.
+---
+---The function called expects to match the following signature:
+---
+---```ts
+---function ConVarChangeListener(conVarName: string, reserved: any);
+---```
+---
+---*   **conVarName**: The ConVar that changed.
+---*   **reserved**: Currently unused.
+---@param conVarFilter string
+---@param handler function
+---@return integer
+function AddConvarChangeListener(conVarFilter, handler) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4AFD2499)  
 ---Loads a minimap overlay from a GFx file in the current resource.
@@ -89,6 +106,7 @@ function AddMinimapOverlayWithDepth(name, depth) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x70559AC7)  
+---```
 ---Applies an Item from a PedDecorationCollection to a ped. These include tattoos and shirt decals.---
 ---collection - PedDecorationCollection filename hash---
 ---overlay - Item name hash---
@@ -110,7 +128,8 @@ function AddMinimapOverlayWithDepth(name, depth) end
 ---<awardLevel />---
 ---</Item>---
 ---Code:---
----PED::\_0x5F5D1665E352A839(PLAYER::PLAYER_PED_ID(), MISC::GET_HASH_KEY("mpbeach_overlays"), MISC::GET_HASH_KEY("fm_hair_fuzz"))
+---PED::_0x5F5D1665E352A839(PLAYER::PLAYER_PED_ID(), MISC::GET_HASH_KEY("mpbeach_overlays"), MISC::GET_HASH_KEY("fm_hair_fuzz"))
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [ADD_PED_DECORATION_FROM_HASHES](?\_0x5F5D1665E352A839).**
 ---@param ped integer
@@ -175,11 +194,10 @@ function AddTextEntryByHash(entryKey, entryText) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC1C0855A)  
----Applies a force to the specified entity.---
----**List of force types (p1)**:
+---Applies a force to the specified entity.
 ---
----```
----public enum ForceType---
+---```cpp
+---enum eForceType---
 ---{---
 ---MinForce = 0,---
 ---MaxForceRot = 1,---
@@ -208,6 +226,14 @@ function AddTextEntryByHash(entryKey, entryText) end
 ---@param p12 boolean
 ---@param p13 boolean
 function ApplyForceToEntity(entity, forceType, x, y, z, offX, offY, offZ, boneIndex, isDirectionRel, ignoreUpVec, isForceRel, p12, p13) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3422291C)  
+---This native does not have an official description.
+---@param numEntries integer
+---@param msPerCycle integer
+---@return boolean
+function ApplyWeatherCycles(numEntries, msPerCycle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA274CADB)  
@@ -280,8 +306,10 @@ function ClearPedTasksImmediately(ped) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54EA5BCC)  
+---```
 ---This executes at the same as speed as PLAYER::SET_PLAYER_WANTED_LEVEL(player, 0, false);---
 ---PLAYER::GET_PLAYER_WANTED_LEVEL(player); executes in less than half the time. Which means that it's worth first checking if the wanted level needs to be cleared before clearing. However, this is mostly about good code practice and can important in other situations. The difference in time in this example is negligible.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [CLEAR_PLAYER_WANTED_LEVEL](?\_0xB302540597885499).**
 ---@param player integer
@@ -1048,6 +1076,22 @@ function GetConsoleBuffer() end
 function GetConvar(varName, default_) end
 
 ---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7E8EBFE5)  
+---Can be used to get a console variable casted back to `bool`.
+---@param varName string
+---@param defaultValue boolean
+---@return boolean
+function GetConvarBool(varName, defaultValue) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9E666D)  
+---This will have floating point inaccuracy.
+---@param varName string
+---@param defaultValue number
+---@return number
+function GetConvarFloat(varName, defaultValue) end
+
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x935C0AB2)  
 ---Can be used to get a console variable casted back to `int` (an integer value).
 ---@param varName string
@@ -1086,6 +1130,17 @@ function GetCurrentServerEndpoint() end
 ---@param duiObject integer
 ---@return string
 function GetDuiHandle(duiObject) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9A3144BC)  
+---**Experimental**: This native may be altered or removed in future versions of CitizenFX without warning.
+---
+---Returns the memory address of an entity.
+---
+---This native is intended for singleplayer debugging, and may not be available during multiplayer.
+---@param entity integer
+---@return any
+function GetEntityAddress(entity) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x47B870F5)  
@@ -1168,6 +1223,13 @@ function GetEntityMaxHealth(entity) end
 ---@param entity integer
 ---@return integer
 function GetEntityModel(entity) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD16EA02F)  
+---This native does not have an official description.
+---@param entity integer
+---@return integer
+function GetEntityOrphanMode(entity) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFC30DDFF)  
@@ -1312,6 +1374,8 @@ function GetFuelConsumptionState() end
 ---    *   2802
 ---    *   2944
 ---    *   3095
+---    *   3258
+---    *   3323
 ---*   RedM
 ---    *   1311
 ---    *   1355
@@ -1339,7 +1403,7 @@ function GetGameBuildNumber() end
 ---@return string
 function GetGameName() end
 
----**`CFX` `client`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B9D4F50)  
 ---Returns a list of entity handles (script GUID) for all entities in the specified pool - the data returned is an array as---
 ---follows:
@@ -1352,6 +1416,7 @@ function GetGameName() end
 ---
 ---*   `CPed`: Peds (including animals) and players.
 ---*   `CObject`: Objects (props), doors, and projectiles.
+---*   `CNetObject`: Networked objects
 ---*   `CVehicle`: Vehicles.
 ---*   `CPickup`: Pickups.
 ---@param poolName string
@@ -1364,12 +1429,53 @@ function GetGamePool(poolName) end
 ---@return integer
 function GetGameTimer() end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x78951816)  
+---A getter for [SET_GLOBAL_PASSENGER_MASS_MULTIPLIER](#\_0x1c47f6ac).
+---@return number
+function GetGlobalPassengerMassMultiplier() end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x98EFF6F1)  
 ---This native converts the passed string to a hash.
 ---@param model string
 ---@return integer
 function GetHashKey(model) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA886495D)  
+---**Note** This native will always return `1000.0` unless [SET_VEHICLE_BODY_HEALTH](#\_0xB77D05AC8C78AADB), [SET_VEHICLE_ENGINE_HEALTH](#\_0x45F6D8EEF34ABEF1), or [SET_VEHICLE_PETROL_TANK_HEALTH](#\_0x70DB57649FA8D0D8) have been called with a value greater than `1000.0`.
+---@param heli integer
+---@return integer
+function GetHeliBodyHealth(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x82AFC0A3)  
+---This is a getter for [SET_DISABLE_HELI_EXPLODE_FROM_BODY_DAMAGE](#\_0xEDBC8405B3895CC9)
+---@param heli integer
+---@return boolean
+function GetHeliDisableExplodeFromBodyDamage(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA0FA0354)  
+---**Note** This native will always return `1000.0` unless [SET_VEHICLE_BODY_HEALTH](#\_0xB77D05AC8C78AADB), [SET_VEHICLE_ENGINE_HEALTH](#\_0x45F6D8EEF34ABEF1), or [SET_VEHICLE_PETROL_TANK_HEALTH](#\_0x70DB57649FA8D0D8) have been called with a value greater than `1000.0`.
+---@param heli integer
+---@return integer
+function GetHeliEngineHealth(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD4EC7858)  
+---**Note** This native will always return `1000.0` unless [SET_VEHICLE_BODY_HEALTH](#\_0xB77D05AC8C78AADB), [SET_VEHICLE_ENGINE_HEALTH](#\_0x45F6D8EEF34ABEF1), or [SET_VEHICLE_PETROL_TANK_HEALTH](#\_0x70DB57649FA8D0D8) have been called with a value greater than `1000.0`.
+---@param heli integer
+---@return integer
+function GetHeliGasTankHealth(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC37D668)  
+---This native does not have an official description.
+---@param heli integer
+---@return number
+function GetHeliMainRotorDamageScale(heli) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF01E2AAB)  
@@ -1379,11 +1485,60 @@ function GetHashKey(model) end
 function GetHeliMainRotorHealth(vehicle) end
 
 ---**`CFX` `server`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA41BC13D)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1944AC95)  
 ---This native does not have an official description.
+---@param heli integer
+---@return number
+function GetHeliPitchControl(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC40161E2)  
+---This native does not have an official description.
+---@param heli integer
+---@return number
+function GetHeliRearRotorDamageScale(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x33EE6E2B)  
+---This native is a getter for [SET_HELI_TAIL_ROTOR_HEALTH](#\_0xFE205F38AAA58E5B)
+---@param vehicle integer
+---@return number
+function GetHeliRearRotorHealth(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x12948DE9)  
+---This native does not have an official description.
+---@param heli integer
+---@return number
+function GetHeliRollControl(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x22239130)  
+---This native does not have an official description.
+---@param heli integer
+---@return number
+function GetHeliTailRotorDamageScale(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA41BC13D)  
+---**Note**: This native is deprecated, please use [`GET_HELI_REAR_ROTOR_HEALTH`](#\_0x33EE6E2B) instead.
 ---@param vehicle integer
 ---@return number
 function GetHeliTailRotorHealth(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8E86238D)  
+---This native does not have an official description.
+---@param heli integer
+---@return number
+function GetHeliThrottleControl(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8FDC0768)  
+---This native does not have an official description.
+---@param heli integer
+---@return number
+function GetHeliYawControl(heli) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F70F5A3)  
@@ -1577,6 +1732,13 @@ function GetInteriorRotation(interiorId) end
 function GetInvokingResource() end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3EFE38D1)  
+---This native does not have an official description.
+---@param heli integer
+---@return boolean
+function GetIsHeliEngineRunning(heli) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7DC6D022)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -1667,6 +1829,44 @@ function GetNetworkWalkMode() end
 ---@return integer, integer
 function GetNuiCursorPosition() end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x310D0271)  
+---An analogue of [GET_NUMBER_OF_PED_DRAWABLE_VARIATIONS](#\_0x27561561732A7842) that returns number of drawable variations inside a single collection instead of the total number across all collections.
+---@param ped integer
+---@param componentId integer
+---@param collection string
+---@return integer
+function GetNumberOfPedCollectionDrawableVariations(ped, componentId, collection) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3B6A13E1)  
+---An analogue of [GET_NUMBER_OF_PED_PROP_DRAWABLE_VARIATIONS](#\_0x5FAF9754E789FB47) that returns number of prop variations inside a single collection instead of the total number across all collections.
+---@param ped integer
+---@param anchorPoint integer
+---@param collection string
+---@return integer
+function GetNumberOfPedCollectionPropDrawableVariations(ped, anchorPoint, collection) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x75CAF9CC)  
+---An alternative to [GET_NUMBER_OF_PED_PROP_TEXTURE_VARIATIONS](#\_0xA6E7F1CEB523E171) that uses local collection indexing instead of the global one.
+---@param ped integer
+---@param anchorPoint integer
+---@param collection string
+---@param propIndex integer
+---@return integer
+function GetNumberOfPedCollectionPropTextureVariations(ped, anchorPoint, collection, propIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD2C15D7)  
+---An alternative to [GET_NUMBER_OF_PED_TEXTURE_VARIATIONS](#\_0x8F7156A3142A6BAD) that uses local collection indexing instead of the global one.
+---@param ped integer
+---@param componentId integer
+---@param collection string
+---@param drawableId integer
+---@return integer
+function GetNumberOfPedCollectionTextureVariations(ped, componentId, collection, drawableId) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF7F66AB)  
 ---This native does not have an official description.
@@ -1736,6 +1936,65 @@ function GetPedArmour(ped) end
 function GetPedCauseOfDeath(ped) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x94EB1FE4)  
+---Gets local index inside a collection (which can be obtained using [GET_PED_COLLECTION_NAME_FROM_DRAWABLE](#\_0xD6BBA48B)) for the given global drawable ID. The collection name and index are used in functions like [SET_PED_COLLECTION_COMPONENT_VARIATION](#\_0x88711BBA).
+---@param ped integer
+---@param componentId integer
+---@param drawableId integer
+---@return integer
+function GetPedCollectionLocalIndexFromDrawable(ped, componentId, drawableId) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFBDB885F)  
+---Gets local index inside a collection (which can be obtained using [GET_PED_COLLECTION_NAME_FROM_PROP](#\_0x8ED0C17)) for the given global prop index. The collection name and index are used in functions like [SET_PED_COLLECTION_PROP_INDEX](#\_0x75240BCB).
+---@param ped integer
+---@param anchorPoint integer
+---@param propIndex integer
+---@return integer
+function GetPedCollectionLocalIndexFromProp(ped, anchorPoint, propIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFED5D83A)  
+---Returns name of collection under given index for the given Ped.
+---
+---Collections are groups of drawable components or props available for the given Ped. Usually collection corresponds to a certain DLC or the base game. See [SET_PED_COLLECTION_COMPONENT_VARIATION](#\_0x88711BBA), [SET_PED_COLLECTION_PROP_INDEX](#\_0x75240BCB), [GET_NUMBER_OF_PED_COLLECTION_DRAWABLE_VARIATIONS](#\_0x310D0271) etc natives for more details on how to work with collections.
+---
+---`GET_PED_COLLECTION_NAME` can be used together with [GET_PED_COLLECTIONS_COUNT](#\_0x45946359) to list all collections attached to Ped.
+---@param ped integer
+---@param index integer
+---@return string
+function GetPedCollectionName(ped, index) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD6BBA48B)  
+---Gets collection name for the given global drawable ID. Together with [GET_PED_COLLECTION_LOCAL_INDEX_FROM_DRAWABLE](#\_0x94EB1FE4) is used to get collection and local index (inside the given collection) of the drawable. The collection name and index are used in functions like [SET_PED_COLLECTION_COMPONENT_VARIATION](#\_0x88711BBA).
+---@param ped integer
+---@param componentId integer
+---@param drawableId integer
+---@return string
+function GetPedCollectionNameFromDrawable(ped, componentId, drawableId) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8ED0C17)  
+---Gets collection name for the given global prop index. Together with [GET_PED_COLLECTION_LOCAL_INDEX_FROM_PROP](#\_0xFBDB885F) is used to get collection and local index (inside the given collection) of the prop. The collection name and index are used in functions like [SET_PED_COLLECTION_PROP_INDEX](#\_0x75240BCB).
+---@param ped integer
+---@param anchorPoint integer
+---@param propIndex integer
+---@return string
+function GetPedCollectionNameFromProp(ped, anchorPoint, propIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x45946359)  
+---Returns number of variation collections available for the given Ped.
+---
+---Collections are groups of drawable components or props available for the given Ped. Usually collection corresponds to a certain DLC or the base game. See [SET_PED_COLLECTION_COMPONENT_VARIATION](#\_0x88711BBA), [SET_PED_COLLECTION_PROP_INDEX](#\_0x75240BCB), [GET_NUMBER_OF_PED_COLLECTION_DRAWABLE_VARIATIONS](#\_0x310D0271) etc natives for more details on how to work with collections.
+---
+---`GET_PED_COLLECTIONS_COUNT` can be used together with [GET_PED_COLLECTION_NAME](#\_0xFED5D83A) to list all collections attached to Ped.
+---@param ped integer
+---@return integer
+function GetPedCollectionsCount(ped) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7CCE1163)  
 ---Returns a list of decorations applied to a ped.
 ---
@@ -1762,6 +2021,38 @@ function GetPedDensityMultiplier() end
 ---@param ped integer
 ---@return number
 function GetPedDesiredHeading(ped) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x280F1FC3)  
+---Returns global drawable index based on the local one. Is it a reverse to [GET_PED_COLLECTION_NAME_FROM_DRAWABLE](#\_0xD6BBA48B) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_DRAWABLE](#\_0x94EB1FE4) natives.
+---
+---Drawables are stored inside collections. Each collection usually corresponds to a certain DCL or the base game.
+---
+---If all drawables from all collections are placed into one continuous array - the global index will correspond to the index of drawable in such array. Local index is index of drawable in this array relative to the start of the given collection.
+---@param ped integer
+---@param componentId integer
+---@param collection string
+---@param drawableId integer
+---@return integer
+function GetPedDrawableGlobalIndexFromCollection(ped, componentId, collection, drawableId) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9970386F)  
+---An analogue to [GET_PED_DRAWABLE_VARIATION](#\_0x67F3780DD425D4FC) that returns collection local drawable index (inside [GET_PED_DRAWABLE_VARIATION_COLLECTION_NAME](#\_0xBCE0AB63) collection) instead of the global drawable index.
+---@param ped integer
+---@param componentId integer
+---@return integer
+function GetPedDrawableVariationCollectionLocalIndex(ped, componentId) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBCE0AB63)  
+---An analogue to [GET_PED_DRAWABLE_VARIATION](#\_0x67F3780DD425D4FC) that returns collection name instead of the global drawable index.
+---
+---Should be used together with [GET_PED_DRAWABLE_VARIATION_COLLECTION_LOCAL_INDEX](#\_0x9970386F).
+---@param ped integer
+---@param componentId integer
+---@return string
+function GetPedDrawableVariationCollectionName(ped, componentId) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA47B860F)  
@@ -1828,6 +2119,20 @@ function GetPedModelPersonality(modelHash) end
 ---@param ped integer
 ---@return integer
 function GetPedMovementClipset(ped) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2CB45CDC)  
+---Returns global prop index based on the local one. Is it a reverse to [GET_PED_COLLECTION_NAME_FROM_PROP](#\_0x8ED0C17) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_PROP](#\_0xFBDB885F) natives.
+---
+---Props are stored inside collections. Each collection usually corresponds to a certain DCL or the base game.
+---
+---If all props from all collections are placed into one continuous array - the global index will correspond to the index of the prop in such array. Local index is index of the prop in this array relative to the start of the given collection.
+---@param ped integer
+---@param anchorPoint integer
+---@param collection string
+---@param propIndex integer
+---@return integer
+function GetPedPropGlobalIndexFromCollection(ped, anchorPoint, collection, propIndex) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84FE084)  
@@ -2069,6 +2374,13 @@ function GetPlayerTeam(playerSrc) end
 function GetPlayerTimeInPursuit(playerSrc, lastPursuit) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x67D2E605)  
+---Gets the current time online for a specified player.
+---@param playerSrc string
+---@return integer
+function GetPlayerTimeOnline(playerSrc) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54C06897)  
 ---Gets a player's token. Tokens can be used to enhance banning logic, however are specific to a server.
 ---@param playerSrc string
@@ -2288,12 +2600,33 @@ function GetSelectedPedWeapon(ped) end
 function GetShapeTestResultIncludingMaterial(shapeTestHandle) end
 
 ---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x78D864C7)  
+---This native does not have an official description.
+---@param bagName string
+---@return table
+function GetStateBagKeys(bagName) end
+
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x637F4C75)  
 ---Returns the value of a state bag key.
 ---@param bagName string
 ---@param key string
 ---@return table
 function GetStateBagValue(bagName, key) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1C939E87)  
+---This native does not have an official description.
+---@param jetpack integer
+---@return number
+function GetThrusterSideRcsThrottle(jetpack) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x94E24C96)  
+---This native does not have an official description.
+---@param jetpack integer
+---@return number
+function GetThrusterThrottle(jetpack) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFE2A1D4D)  
@@ -2704,6 +3037,24 @@ function GetVehicleHighGear(vehicle) end
 ---@return integer
 function GetVehicleHomingLockonState(vehicle) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDEA49773)  
+---This is a getter for the client-side native [`START_VEHICLE_HORN`](https://docs.fivem.net/natives/?\_0x9C8C6504B5B63D2C), which allows you to return the horn type of the vehicle.
+---
+---**Note**: This native only gets the hash value set with `START_VEHICLE_HORN`. If a wrong hash is passed into `START_VEHICLE_HORN`, it will return this wrong hash.
+---
+---```cpp
+---enum eHornTypes---
+---{---
+---    NORMAL = 1330140148,---
+---    HELDDOWN = -2087385909,---
+---    AGGRESSIVE = -92810745---
+---}
+---```
+---@param vehicle integer
+---@return integer
+function GetVehicleHornType(vehicle) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x83070354)  
 ---Gets the vehicle indicator light state. 0 = off, 1 = left, 2 = right, 3 = both
@@ -2745,6 +3096,31 @@ function GetVehicleLivery(vehicle) end
 ---@param vehicle integer
 ---@return integer
 function GetVehicleLockOnTarget(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD9319DCB)  
+---Getter to check the neon colour of a vehicle. This native is the server side getter of [GET_VEHICLE_NEON_LIGHTS_COLOUR](#\_0x7619EEE8C886757F).
+---@param vehicle integer
+---@return integer, integer, integer
+function GetVehicleNeonColour(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x684BDBF2)  
+---Getter to check if one of the neon lights of a vehicle is enabled. This native is the server side getter of [IS_VEHICLE_NEON_LIGHT_ENABLED](#\_0x8C4B92553E4766A5).
+---
+---```cpp
+---enum neonIndex---
+---{---
+---    NEON_BACK = 0,   // Back neon---
+---    NEON_RIGHT = 1,  // Right neon---
+---    NEON_LEFT = 2,   // Left neon---
+---    NEON_FRONT = 3   // Front neon---
+---};
+---```
+---@param vehicle integer
+---@param neonIndex integer
+---@return boolean
+function GetVehicleNeonEnabled(vehicle, neonIndex) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDDB298AE)  
@@ -3343,15 +3719,6 @@ function HasVehicleBeenDamagedByBullets(vehicle) end
 function HasVehicleBeenOwnedByPlayer(vehicle) end
 
 ---**`CFX` `shared`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE3551879)  
----This native does not have an official description.
----@param referenceIdentity string
----@param argsSerialized string
----@param argsLength integer
----@return string, integer
-function InvokeFunctionReference(referenceIdentity, argsSerialized, argsLength) end
-
----**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7EBB9929)  
 ---This native does not have an official description.
 ---@param object string
@@ -3419,6 +3786,20 @@ function IsEntityVisible(entity) end
 ---@return boolean
 function IsFlashLightOn(ped) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x23E46BD7)  
+---This is a getter for [SET_HELI_TAIL_EXPLODE_THROW_DASHBOARD](#\_0x3EC8BF18AA453FE9)
+---@param heli integer
+---@return boolean
+function IsHeliTailBoomBreakable(heli) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2C59F987)  
+---This native does not have an official description.
+---@param heli integer
+---@return boolean
+function IsHeliTailBoomBroken(heli) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x98545E6D)  
 ---Returns the current NUI focus state previously set with `SET_NUI_FOCUS`.
@@ -3437,6 +3818,35 @@ function IsNuiFocusKeepingInput() end
 ---@param ped integer
 ---@return boolean
 function IsPedAPlayer(ped) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x33B2AFA2)  
+---An alternative to [IS_PED_COMPONENT_VARIATION_GEN9\_EXCLUSIVE](#\_0xC767B581) that uses local collection indexing instead of the global one.
+---
+---The local / collection relative indexing is useful because the global index may get shifted after Title Update. While local index will remain the same which simplifies migration to the newer game version.
+---
+---Collection name and local index inside the collection can be obtained from the global index using [GET_PED_COLLECTION_NAME_FROM_DRAWABLE](#\_0xD6BBA48B) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_DRAWABLE](#\_0x94EB1FE4) natives.
+---@param ped integer
+---@param componentId integer
+---@param collection string
+---@param drawableId integer
+---@return boolean
+function IsPedCollectionComponentVariationGen9Exclusive(ped, componentId, collection, drawableId) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCA63A52A)  
+---An alternative to [IS_PED_COMPONENT_VARIATION_VALID](#\_0xE825F6B6CEA7671D) that uses local collection indexing instead of the global one.
+---
+---The local / collection relative indexing is useful because the global index may get shifted after Title Update. While local index will remain the same which simplifies migration to the newer game version.
+---
+---Collection name and local index inside the collection can be obtained from the global index using [GET_PED_COLLECTION_NAME_FROM_DRAWABLE](#\_0xD6BBA48B) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_DRAWABLE](#\_0x94EB1FE4) natives.
+---@param ped integer
+---@param componentId integer
+---@param collection string
+---@param drawableId integer
+---@param textureId integer
+---@return boolean
+function IsPedCollectionComponentVariationValid(ped, componentId, collection, drawableId, textureId) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC767B581)  
@@ -3699,6 +4109,13 @@ function MumbleClearVoiceTargetPlayers(targetId) end
 function MumbleCreateChannel(id) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCC8CA25)  
+---Check whether specified channel exists on the Mumble server.
+---@param channel integer
+---@return boolean
+function MumbleDoesChannelExist(channel) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84E02A32)  
 ---This native does not have an official description.
 ---@return number
@@ -3857,6 +4274,13 @@ function MumbleSetVolumeOverride(player, volume) end
 ---@param volume number
 function MumbleSetVolumeOverrideByServerId(serverId, volume) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1E2E3177)  
+---This native does not have an official description.
+---@param netId integer
+---@return boolean
+function NetworkDoesEntityExistWithNetworkId(netId) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5B912C3F)  
 ---This native does not have an official description.
@@ -3993,15 +4417,6 @@ function RegisterCommand(commandName, handler, restricted) end
 function RegisterConsoleListener(listener) end
 
 ---**`CFX` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x410DA7D3)  
----**Experimental**: This native may be altered or removed in future versions of CitizenFX without warning.
----
----Registers a set of entities with the game engine. These should match `CEntityDef` class information from the game.---
----At this time, this function **should not be used in a live environment**.
----@param factory function
-function RegisterEntities(factory) end
-
----**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1B3A363)  
 ---Registers a specified .gfx file as GFx font library.---
 ---The .gfx file has to be registered with the streamer already.
@@ -4131,6 +4546,12 @@ function RemoveAllPedWeapons(ped, p1) end
 ---@param blip integer
 function RemoveBlip(blip) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEAC49841)  
+---This native does not have an official description.
+---@param cookie integer
+function RemoveConvarChangeListener(cookie) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7BCAA6E7)  
 ---Removes a dry volume from the game session.---
@@ -4178,6 +4599,7 @@ function RemoveWeaponComponentFromPed(ped, weaponHash, componentHash) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9C37F220)  
+---```
 ---This native removes a specified weapon from your selected ped.---
 ---Weapon Hashes: pastebin.com/0wwDZgkF---
 ---Example:---
@@ -4186,6 +4608,7 @@ function RemoveWeaponComponentFromPed(ped, weaponHash, componentHash) end
 ---C++:---
 ---WEAPON::REMOVE_WEAPON_FROM_PED(PLAYER::PLAYER_PED_ID(), 0x99B507EA);---
 ---The code above removes the knife from the player.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [REMOVE_WEAPON_FROM_PED](?\_0x4899CB088EDF59B8).**
 ---@param ped integer
@@ -4565,6 +4988,14 @@ function SetDrawOrigin(x, y, z, is2d) end
 ---@param url string
 function SetDuiUrl(duiObject, url) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8AA1F3C2)  
+---Allows StaticEmitter's without a linked entity to make use of environment features like occlusion and reverb even if they are located higher than 20.0 units above any static collision inside interiors.
+---
+---This native allows you to extend the probe range up to 150.0 units.
+---@param probeLength number
+function SetEmitterProbeLength(probeLength) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDF70B41B)  
 ---Sets the coordinates (world position) for a specified entity, offset by the radius of the entity on the Z axis.
@@ -4653,6 +5084,30 @@ function SetEntityIgnoreRequestControlFilter(entity, ignore) end
 function SetEntityMatrix(entity, forwardX, forwardY, forwardZ, rightX, rightY, rightZ, upX, upY, upZ, atX, atY, atZ) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x489E9162)  
+---```cpp
+---enum EntityOrphanMode {---
+---    // Default, this will delete the entity when it isn't relevant to any players---
+---    // NOTE: this *doesn't* mean when they're no longer in scope---
+---    DeleteWhenNotRelevant = 0,---
+---    // The entity will be deleted whenever its original owner disconnects---
+---    // NOTE: if this is set when the entities original owner has already left it will be---
+---    // marked for deletion (similar to just calling DELETE_ENTITY)---
+---    DeleteOnOwnerDisconnect = 1,---
+---    // The entity will never be deleted by the server when it does relevancy checks---
+---    // you should only use this on entities that need to be relatively persistent---
+---    KeepEntity = 2---
+---}
+---```
+---
+---Sets what happens when the entity is orphaned and no longer has its original owner.
+---
+---**NOTE**: This native doesn't guarantee the persistence of the entity.
+---@param entity integer
+---@param orphanMode integer
+function SetEntityOrphanMode(entity, orphanMode) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA345EFE)  
 ---Sets the rotation of a specified entity in the game world.
 ---
@@ -4680,7 +5135,9 @@ function SetEntityRoutingBucket(entity, bucket) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF5A1988)  
+---```
 ---Note that the third parameter(denoted as z) is "up and down" with positive numbers encouraging upwards movement.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_ENTITY_VELOCITY](?\_0x1C99BB7B6E96D16F).**
 ---@param entity integer
@@ -4728,6 +5185,12 @@ function SetFuelConsumptionState(state) end
 ---This native does not have an official description.
 ---@param gametypeName string
 function SetGameType(gametypeName) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1C47F6AC)  
+---This native does not have an official description.
+---@param massMul number
+function SetGlobalPassengerMassMultiplier(massMul) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFE8064E3)  
@@ -4876,6 +5339,20 @@ function SetInteriorPortalRoomFrom(interiorId, portalIndex, roomFrom) end
 function SetInteriorPortalRoomTo(interiorId, portalIndex, roomTo) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x423F7E39)  
+---Overwrite the games default CPortalTracker interior detection range.---
+---This fixes potentially unwanted behaviour in the base game and allows you to build custom interiors with larger ceiling heights without running into graphical glitches.
+---
+---By default CPortalTracker will probe 4 units downward trying to reach collisions that are part of the interior the entity is in.---
+---If no collision can be found 16 units are used in some circumstances.
+---
+---There are 30+ hard coded special cases, only some of them exposed via script (for example `ENABLE_STADIUM_PROBES_THIS_FRAME`).
+---
+---This native allows you to extend the probe range up to 150 units which is the same value the game uses for the `xs_arena_interior`
+---@param probeLength number
+function SetInteriorProbeLength(probeLength) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4FDCF51E)  
 ---This native does not have an official description.
 ---@param interiorId integer
@@ -4903,6 +5380,12 @@ function SetInteriorRoomFlag(interiorId, roomIndex, flag) end
 ---@param roomIndex integer
 ---@param timecycleHash integer
 function SetInteriorRoomTimecycle(interiorId, roomIndex, timecycleHash) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCB0241B5)  
+---Toggles the visibility of resource names in the FiveM key mapping page.
+---@param hide boolean
+function SetKeyMappingHideResources(hide) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1722C938)  
@@ -5019,7 +5502,9 @@ function SetNuiFocusKeepInput(keepInput) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBF90DF1A)  
+---```
 ---NativeDB Added Parameter 4: BOOL p3
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PED_AMMO](?\_0x14E56BC5B5DB6A19).**
 ---@param ped integer
@@ -5029,9 +5514,11 @@ function SetPedAmmo(ped, weaponHash, ammo) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4E3A0CC4)  
+---```
 ---Sets the armor of the specified ped.---
 ---ped: The Ped to set the armor of.---
 ---amount: A value between 0 and 100 indicating the value to set the Ped's armor to.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PED_ARMOUR](?\_0xCEA04D83135264CC).**
 ---@param ped integer
@@ -5046,6 +5533,64 @@ function SetPedArmour(ped, amount) end
 ---@param ped integer
 ---@param toggle boolean
 function SetPedCanRagdoll(ped, toggle) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x88711BBA)  
+---An alternative to [SET_PED_COMPONENT_VARIATION](#\_0x262B14F48D29DE80) that uses local collection indexing instead of the global one.
+---
+---The local / collection relative indexing is useful because the global index may get shifted after Title Update. While local index will remain the same which simplifies migration to the newer game version.
+---
+---Collection name and local index inside the collection can be obtained from the global index using [GET_PED_COLLECTION_NAME_FROM_DRAWABLE](#\_0xD6BBA48B) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_DRAWABLE](#\_0x94EB1FE4) natives.
+---@param ped integer
+---@param componentId integer
+---@param collection string
+---@param drawableId integer
+---@param textureId integer
+---@param paletteId integer
+function SetPedCollectionComponentVariation(ped, componentId, collection, drawableId, textureId, paletteId) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x14B5BBE0)  
+---An alternative to [SET_PED_PRELOAD_PROP_DATA](#\_0x2B16A3BFF1FBCE49) that uses local collection indexing instead of the global one.
+---
+---The local / collection relative indexing is useful because the global index may get shifted after Title Update. While local index will remain the same which simplifies migration to the newer game version.
+---
+---Collection name and local index inside the collection can be obtained from the global index using [GET_PED_COLLECTION_NAME_FROM_PROP](#\_0x8ED0C17) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_PROP](#\_0xFBDB885F) natives.
+---@param ped integer
+---@param anchorPoint integer
+---@param collection string
+---@param propIndex integer
+---@param textureId integer
+function SetPedCollectionPreloadPropData(ped, anchorPoint, collection, propIndex, textureId) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3EC75558)  
+---An alternative to [SET_PED_PRELOAD_VARIATION_DATA](#\_0x39D55A620FCB6A3A) that uses local collection indexing instead of the global one.
+---
+---The local / collection relative indexing is useful because the global index may get shifted after Title Update. While local index will remain the same which simplifies migration to the newer game version.
+---
+---Collection name and local index inside the collection can be obtained from the global index using [GET_PED_COLLECTION_NAME_FROM_DRAWABLE](#\_0x5C612867) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_DRAWABLE](#\_0x94EB1FE4) natives.
+---@param ped integer
+---@param componentId integer
+---@param collection string
+---@param drawableId integer
+---@param textureId integer
+function SetPedCollectionPreloadVariationData(ped, componentId, collection, drawableId, textureId) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x75240BCB)  
+---An alternative to [SET_PED_PROP_INDEX](#\_0x93376B65A266EB5F) that uses local collection indexing instead of the global one.
+---
+---The local / collection relative indexing is useful because the global index may get shifted after Title Update. While local index will remain the same which simplifies migration to the newer game version.
+---
+---Collection name and local index inside the collection can be obtained from the global index using [GET_PED_COLLECTION_NAME_FROM_PROP](#\_0x8ED0C17) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_PROP](#\_0xFBDB885F) natives.
+---@param ped integer
+---@param anchorPoint integer
+---@param collection string
+---@param propIndex integer
+---@param textureId integer
+---@param attach boolean
+function SetPedCollectionPropIndex(ped, anchorPoint, collection, propIndex, textureId, attach) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD4F7B05C)  
@@ -5098,67 +5643,67 @@ function SetPedComponentVariation(ped, componentId, drawableId, textureId, palet
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9CFBE10D)  
----cpp---
+---```cpp
 ---// Potential names and hash collisions included as comments---
 ---enum ePedConfigFlags {---
----\_0x67D1A445 = 0,---
----\_0xC63DE95E = 1,---
+---CPED_CONFIG_FLAG_CreatedByFactory = 0,---
+---CPED_CONFIG_FLAG_CanBeShotInVehicle = 1,---
 ---CPED_CONFIG_FLAG_NoCriticalHits = 2,---
 ---CPED_CONFIG_FLAG_DrownsInWater = 3,---
----CPED_CONFIG_FLAG_DisableReticuleFixedLockon = 4,---
----\_0x37D196F4 = 5,---
----\_0xE2462399 = 6,---
+---CPED_CONFIG_FLAG_DrownsInSinkingVehicle = 4,---
+---CPED_CONFIG_FLAG_DiesInstantlyWhenSwimming = 5,---
+---CPED_CONFIG_FLAG_HasBulletProofVest = 6,---
 ---CPED_CONFIG_FLAG_UpperBodyDamageAnimsOnly = 7,---
----\_0xEDDEB838 = 8,---
----\_0xB398B6FD = 9,---
----\_0xF6664E68 = 10,---
----\_0xA05E7CA3 = 11,---
----\_0xCE394045 = 12,---
+---CPED_CONFIG_FLAG_NeverFallOffSkis = 8,---
+---CPED_CONFIG_FLAG_NeverEverTargetThisPed = 9,---
+---CPED_CONFIG_FLAG_ThisPedIsATargetPriority = 10,---
+---CPED_CONFIG_FLAG_TargettableWithNoLos = 11,---
+---CPED_CONFIG_FLAG_DoesntListenToPlayerGroupCommands = 12,---
 ---CPED_CONFIG_FLAG_NeverLeavesGroup = 13,---
----\_0xCD8D1411 = 14,---
----\_0xB031F1A9 = 15,---
----\_0xFE65BEE3 = 16,---
+---CPED_CONFIG_FLAG_DoesntDropWeaponsWhenDead = 14,---
+---CPED_CONFIG_FLAG_SetDelayedWeaponAsCurrent = 15,---
+---CPED_CONFIG_FLAG_KeepTasksAfterCleanUp = 16,---
 ---CPED_CONFIG_FLAG_BlockNonTemporaryEvents = 17,---
----\_0x380165BD = 18,---
----\_0x07C045C7 = 19,---
----\_0x583B5E2D = 20,---
----\_0x475EDA58 = 21,---
----\_0x8629D05B = 22,---
----\_0x1522968B = 23,---
+---CPED_CONFIG_FLAG_HasAScriptBrain = 18,---
+---CPED_CONFIG_FLAG_WaitingForScriptBrainToLoad = 19,---
+---CPED_CONFIG_FLAG_AllowMedicsToReviveMe = 20,---
+---CPED_CONFIG_FLAG_MoneyHasBeenGivenByScript = 21,---
+---CPED_CONFIG_FLAG_NotAllowedToCrouch = 22,---
+---CPED_CONFIG_FLAG_DeathPickupsPersist = 23,---
 ---CPED_CONFIG_FLAG_IgnoreSeenMelee = 24,---
----\_0x4CC09C4B = 25,---
----\_0x034F3053 = 26,---
----\_0xD91BA7CC = 27,---
----\_0x5C8DC66E = 28,---
----\_0x8902EAA0 = 29,---
----\_0x6580B9D2 = 30,---
----\_0x0EF7A297 = 31,---
----\_0x6BF86E5B = 32,---
+---CPED_CONFIG_FLAG_ForceDieIfInjured = 25,---
+---CPED_CONFIG_FLAG_DontDragMeOutCar = 26,---
+---CPED_CONFIG_FLAG_StayInCarOnJack = 27,---
+---CPED_CONFIG_FLAG_ForceDieInCar = 28,---
+---CPED_CONFIG_FLAG_GetOutUndriveableVehicle = 29,---
+---CPED_CONFIG_FLAG_WillRemainOnBoatAfterMissionEnds = 30,---
+---CPED_CONFIG_FLAG_DontStoreAsPersistent = 31,---
+---CPED_CONFIG_FLAG_WillFlyThroughWindscreen = 32,---
 ---CPED_CONFIG_FLAG_DieWhenRagdoll = 33,---
 ---CPED_CONFIG_FLAG_HasHelmet = 34,---
 ---CPED_CONFIG_FLAG_UseHelmet = 35,---
----\_0xEEB3D630 = 36,---
----\_0xB130D17B = 37,---
----\_0x5F071200 = 38,---
+---CPED_CONFIG_FLAG_DontTakeOffHelmet = 36,---
+---CPED_CONFIG_FLAG_HideInCutscene = 37,---
+---CPED_CONFIG_FLAG_PedIsEnemyToPlayer = 38,---
 ---CPED_CONFIG_FLAG_DisableEvasiveDives = 39,---
----\_0xC287AAFF = 40,---
----\_0x203328CC = 41,---
+---CPED_CONFIG_FLAG_PedGeneratesDeadBodyEvents = 40,---
+---CPED_CONFIG_FLAG_DontAttackPlayerWithoutWantedLevel = 41,---
 ---CPED_CONFIG_FLAG_DontInfluenceWantedLevel = 42,---
 ---CPED_CONFIG_FLAG_DisablePlayerLockon = 43,---
 ---CPED_CONFIG_FLAG_DisableLockonToRandomPeds = 44,---
----\_0xEC4A8ACF = 45,---
----\_0xDB115BFA = 46,---
+---CPED_CONFIG_FLAG_AllowLockonToFriendlyPlayers = 45,---
+---_0xDB115BFA = 46,---
 ---CPED_CONFIG_FLAG_PedBeingDeleted = 47,---
 ---CPED_CONFIG_FLAG_BlockWeaponSwitching = 48,---
----\_0xF8E99565 = 49,---
----\_0xDD17FEE6 = 50,---
----\_0x7ED9B2C9 = 51,---
----\_0x655E8618 = 52,---
----\_0x5A6C1F6E = 53,---
----\_0xD749FC41 = 54,---
----\_0x357F63F3 = 55,---
----\_0xC5E60961 = 56,---
----\_0x29275C3E = 57,---
+---CPED_CONFIG_FLAG_BlockGroupPedAimedAtResponse = 49,---
+---CPED_CONFIG_FLAG_WillFollowLeaderAnyMeans = 50,---
+---CPED_CONFIG_FLAG_BlippedByScript = 51,---
+---CPED_CONFIG_FLAG_DrawRadarVisualField = 52,---
+---CPED_CONFIG_FLAG_StopWeaponFiringOnImpact = 53,---
+---CPED_CONFIG_FLAG_DissableAutoFallOffTests = 54,---
+---CPED_CONFIG_FLAG_SteerAroundDeadBodies = 55,---
+---CPED_CONFIG_FLAG_ConstrainToNavMesh = 56,---
+---CPED_CONFIG_FLAG_SyncingAnimatedProps = 57,---
 ---CPED_CONFIG_FLAG_IsFiring = 58,---
 ---CPED_CONFIG_FLAG_WasFiring = 59,---
 ---CPED_CONFIG_FLAG_IsStanding = 60,---
@@ -5173,393 +5718,400 @@ function SetPedComponentVariation(ped, componentId, drawableId, textureId, palet
 ---CPED_CONFIG_FLAG_KilledByStealth = 69,---
 ---CPED_CONFIG_FLAG_KilledByTakedown = 70,---
 ---CPED_CONFIG_FLAG_Knockedout = 71,---
----\_0x3E3C4560 = 72,---
----\_0x2994C7B7 = 73,---
----\_0x6D59D275 = 74,---
+---CPED_CONFIG_FLAG_ClearRadarBlipOnDeath = 72,---
+---CPED_CONFIG_FLAG_JustGotOffTrain = 73,---
+---CPED_CONFIG_FLAG_JustGotOnTrain = 74,---
 ---CPED_CONFIG_FLAG_UsingCoverPoint = 75,---
 ---CPED_CONFIG_FLAG_IsInTheAir = 76,---
----\_0x2D493FB7 = 77,---
+---CPED_CONFIG_FLAG_KnockedUpIntoAir = 77,---
 ---CPED_CONFIG_FLAG_IsAimingGun = 78,---
----\_0x14D69875 = 79,---
----\_0x40B05311 = 80,---
----\_0x8B230BC5 = 81,---
----\_0xC74E5842 = 82,---
----\_0x9EA86147 = 83,---
----\_0x674C746C = 84,---
----\_0x3E56A8C2 = 85,---
----\_0xC144A1EF = 86,---
----\_0x0548512D = 87,---
----\_0x31C93909 = 88,---
----\_0xA0269315 = 89,---
----\_0xD4D59D4D = 90,---
----\_0x411D4420 = 91,---
----\_0xDF4AEF0D = 92,---
+---CPED_CONFIG_FLAG_HasJustLeftCar = 79,---
+---CPED_CONFIG_FLAG_TargetWhenInjuredAllowed = 80,---
+---CPED_CONFIG_FLAG_CurrLeftFootCollNM = 81,---
+---CPED_CONFIG_FLAG_PrevLeftFootCollNM = 82,---
+---CPED_CONFIG_FLAG_CurrRightFootCollNM = 83,---
+---CPED_CONFIG_FLAG_PrevRightFootCollNM = 84,---
+---CPED_CONFIG_FLAG_HasBeenBumpedInCar = 85,---
+---CPED_CONFIG_FLAG_InWaterTaskQuitToClimbLadder = 86,---
+---CPED_CONFIG_FLAG_NMTwoHandedWeaponBothHandsConstrained = 87,---
+---CPED_CONFIG_FLAG_CreatedBloodPoolTimer = 88,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromAnyPedImpact = 89,---
+---CPED_CONFIG_FLAG_GroupPedFailedToEnterCover = 90,---
+---CPED_CONFIG_FLAG_AlreadyChattedOnPhone = 91,---
+---CPED_CONFIG_FLAG_AlreadyReactedToPedOnRoof = 92,---
 ---CPED_CONFIG_FLAG_ForcePedLoadCover = 93,---
----\_0x300E4CD3 = 94,---
----\_0xF1C5BF04 = 95,---
----\_0x89C2EF13 = 96,---
+---CPED_CONFIG_FLAG_BlockCoweringInCover = 94,---
+---CPED_CONFIG_FLAG_BlockPeekingInCover = 95,---
+---CPED_CONFIG_FLAG_JustLeftCarNotCheckedForDoors = 96,---
 ---CPED_CONFIG_FLAG_VaultFromCover = 97,---
----\_0x02A852C8 = 98,---
----\_0x3D9407F1 = 99,---
----\_0x319B4558 = 100,---
+---CPED_CONFIG_FLAG_AutoConversationLookAts = 98,---
+---CPED_CONFIG_FLAG_UsingCrouchedPedCapsule = 99,---
+---CPED_CONFIG_FLAG_HasDeadPedBeenReported = 100,---
 ---CPED_CONFIG_FLAG_ForcedAim = 101,---
----\_0xB942D71A = 102,---
----\_0xD26C55A8 = 103,---
----\_0xB89E703B = 104,---
+---CPED_CONFIG_FLAG_SteersAroundPeds = 102,---
+---CPED_CONFIG_FLAG_SteersAroundObjects = 103,---
+---CPED_CONFIG_FLAG_OpenDoorArmIK = 104,---
 ---CPED_CONFIG_FLAG_ForceReload = 105,---
----\_0xD9E73DA2 = 106,---
----\_0xFF71DC2C = 107,---
----\_0x1E27E8D8 = 108,---
----\_0xF2C53966 = 109,---
----\_0xC4DBE247 = 110,---
----\_0x83C0A4BF = 111,---
----\_0x0E0FAF8C = 112,---
----\_0x26616660 = 113,---
----\_0x43B80B79 = 114,---
----\_0x0D2A9309 = 115,---
----\_0x12C1C983 = 116,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromVehicleImpact = 106,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromBulletImpact = 107,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromExplosions = 108,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromFire = 109,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromElectrocution = 110,---
+---CPED_CONFIG_FLAG_IsBeingDraggedToSafety = 111,---
+---CPED_CONFIG_FLAG_HasBeenDraggedToSafety = 112,---
+---CPED_CONFIG_FLAG_KeepWeaponHolsteredUnlessFired = 113,---
+---CPED_CONFIG_FLAG_ForceScriptControlledKnockout = 114,---
+---CPED_CONFIG_FLAG_FallOutOfVehicleWhenKilled = 115,---
+---CPED_CONFIG_FLAG_GetOutBurningVehicle = 116,---
 ---CPED_CONFIG_FLAG_BumpedByPlayer = 117,---
----\_0xE586D504 = 118,---
----\_0x52374204 = 119,---
+---CPED_CONFIG_FLAG_RunFromFiresAndExplosions = 118,---
+---CPED_CONFIG_FLAG_TreatAsPlayerDuringTargeting = 119,---
 ---CPED_CONFIG_FLAG_IsHandCuffed = 120,---
 ---CPED_CONFIG_FLAG_IsAnkleCuffed = 121,---
 ---CPED_CONFIG_FLAG_DisableMelee = 122,---
----\_0xFE714397 = 123,---
----\_0xB3E660BD = 124,---
----\_0x5FED6BFD = 125,---
----\_0xC9D6F66F = 126,---
----\_0x519BC986 = 127,---
+---CPED_CONFIG_FLAG_DisableUnarmedDrivebys = 123,---
+---CPED_CONFIG_FLAG_JustGetsPulledOutWhenElectrocuted = 124,---
+---CPED_CONFIG_FLAG_UNUSED_REPLACE_ME = 125,---
+---CPED_CONFIG_FLAG_WillNotHotwireLawEnforcementVehicle = 126,---
+---CPED_CONFIG_FLAG_WillCommandeerRatherThanJack = 127,---
 ---CPED_CONFIG_FLAG_CanBeAgitated = 128,---
----\_0x9A4B617C = 129, // CPED_CONFIG_FLAG_FaceDirInsult---
----\_0xDAB70E9F = 130,---
----\_0xE569438A = 131,---
----\_0xBBC77D6D = 132,---
----\_0xCB59EF0F = 133,---
----\_0x8C5EA971 = 134,---
+---CPED_CONFIG_FLAG_ForcePedToFaceLeftInCover = 129,---
+---CPED_CONFIG_FLAG_ForcePedToFaceRightInCover = 130,---
+---CPED_CONFIG_FLAG_BlockPedFromTurningInCover = 131,---
+---CPED_CONFIG_FLAG_KeepRelationshipGroupAfterCleanUp = 132,---
+---CPED_CONFIG_FLAG_ForcePedToBeDragged = 133,---
+---CPED_CONFIG_FLAG_PreventPedFromReactingToBeingJacked = 134,---
 ---CPED_CONFIG_FLAG_IsScuba = 135,---
 ---CPED_CONFIG_FLAG_WillArrestRatherThanJack = 136,---
----\_0xDCE59B58 = 137,---
+---CPED_CONFIG_FLAG_RemoveDeadExtraFarAway = 137,---
 ---CPED_CONFIG_FLAG_RidingTrain = 138,---
 ---CPED_CONFIG_FLAG_ArrestResult = 139,---
 ---CPED_CONFIG_FLAG_CanAttackFriendly = 140,---
----\_0x98A4BE43 = 141,---
----\_0x6901E731 = 142,---
----\_0x9EC9BF6C = 143,---
----\_0x42841A8F = 144,---
----CPED_CONFIG_FLAG_ShootingAnimFlag = 145,---
+---CPED_CONFIG_FLAG_WillJackAnyPlayer = 141,---
+---CPED_CONFIG_FLAG_BumpedByPlayerVehicle = 142,---
+---CPED_CONFIG_FLAG_DodgedPlayerVehicle = 143,---
+---CPED_CONFIG_FLAG_WillJackWantedPlayersRatherThanStealCar = 144,---
+---CPED_CONFIG_FLAG_NoCopWantedAggro = 145,---
 ---CPED_CONFIG_FLAG_DisableLadderClimbing = 146,---
 ---CPED_CONFIG_FLAG_StairsDetected = 147,---
 ---CPED_CONFIG_FLAG_SlopeDetected = 148,---
----\_0x1A15670B = 149,---
----\_0x61786EE5 = 150,---
----\_0xCB9186BD = 151,---
----\_0xF0710152 = 152,---
----\_0x43DFE310 = 153,---
----\_0xC43C624E = 154,---
+---CPED_CONFIG_FLAG_HelmetHasBeenShot = 149,---
+---CPED_CONFIG_FLAG_CowerInsteadOfFlee = 150,---
+---CPED_CONFIG_FLAG_CanActivateRagdollWhenVehicleUpsideDown = 151,---
+---CPED_CONFIG_FLAG_AlwaysRespondToCriesForHelp = 152,---
+---CPED_CONFIG_FLAG_DisableBloodPoolCreation = 153,---
+---CPED_CONFIG_FLAG_ShouldFixIfNoCollision = 154,---
 ---CPED_CONFIG_FLAG_CanPerformArrest = 155,---
 ---CPED_CONFIG_FLAG_CanPerformUncuff = 156,---
 ---CPED_CONFIG_FLAG_CanBeArrested = 157,---
----\_0xF7960FF5 = 158,---
----\_0x59564113 = 159,---
----\_0x0C6C3099 = 160,---
----\_0x645F927A = 161,---
----\_0xA86549B9 = 162,---
----\_0x8AAF337A = 163,---
----\_0x13BAA6E7 = 164,---
----\_0x5FB9D1F5 = 165,---
+---CPED_CONFIG_FLAG_MoverConstrictedByOpposingCollisions = 158,---
+---CPED_CONFIG_FLAG_PlayerPreferFrontSeatMP = 159,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromImpactObject = 160,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromMelee = 161,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromWaterJet = 162,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromDrowning = 163,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromFalling = 164,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromRubberBullet = 165,---
 ---CPED_CONFIG_FLAG_IsInjured = 166,---
----\_0x6398A20B = 167,---
----\_0xD8072639 = 168,---
----\_0xA05B1845 = 169,---
----\_0x83F6D220 = 170,---
----\_0xD8430331 = 171,---
----\_0x4B547520 = 172,---
----\_0xE66E1406 = 173,---
----\_0x1C4BFE0C = 174,---
----\_0x90008BFA = 175,---
----\_0x07C7A910 = 176,---
----\_0xF15F8191 = 177,---
----\_0xCE4E8BE2 = 178,---
----\_0x1D46E4F2 = 179,---
+---CPED_CONFIG_FLAG_DontEnterVehiclesInPlayersGroup = 167,---
+---CPED_CONFIG_FLAG_SwimmingTasksRunning = 168,---
+---CPED_CONFIG_FLAG_PreventAllMeleeTaunts = 169,---
+---CPED_CONFIG_FLAG_ForceDirectEntry = 170,---
+---CPED_CONFIG_FLAG_AlwaysSeeApproachingVehicles = 171,---
+---CPED_CONFIG_FLAG_CanDiveAwayFromApproachingVehicles = 172,---
+---CPED_CONFIG_FLAG_AllowPlayerToInterruptVehicleEntryExit = 173,---
+---CPED_CONFIG_FLAG_OnlyAttackLawIfPlayerIsWanted = 174,---
+---CPED_CONFIG_FLAG_PlayerInContactWithKinematicPed = 175,---
+---CPED_CONFIG_FLAG_PlayerInContactWithSomethingOtherThanKinematicPed = 176,---
+---CPED_CONFIG_FLAG_PedsJackingMeDontGetIn = 177,---
+---CPED_CONFIG_FLAG_AdditionalRappellingPed = 178,---
+---CPED_CONFIG_FLAG_PedIgnoresAnimInterruptEvents = 179,---
 ---CPED_CONFIG_FLAG_IsInCustody = 180,---
----\_0xE4FD9B3A = 181,---
----\_0x67AE0812 = 182,---
+---CPED_CONFIG_FLAG_ForceStandardBumpReactionThresholds = 181,---
+---CPED_CONFIG_FLAG_LawWillOnlyAttackIfPlayerIsWanted = 182,---
 ---CPED_CONFIG_FLAG_IsAgitated = 183,---
 ---CPED_CONFIG_FLAG_PreventAutoShuffleToDriversSeat = 184,---
----\_0x7B2D325E = 185,---
+---CPED_CONFIG_FLAG_UseKinematicModeWhenStationary = 185,---
 ---CPED_CONFIG_FLAG_EnableWeaponBlocking = 186,---
 ---CPED_CONFIG_FLAG_HasHurtStarted = 187,---
 ---CPED_CONFIG_FLAG_DisableHurt = 188,---
 ---CPED_CONFIG_FLAG_PlayerIsWeird = 189,---
----\_0x32FC208B = 190,---
----\_0x0C296E5A = 191,---
----\_0xE63B73EC = 192,---
----\_0x04E9CC80 = 193,---
+---CPED_CONFIG_FLAG_PedHadPhoneConversation = 190,---
+---CPED_CONFIG_FLAG_BeganCrossingRoad = 191,---
+---CPED_CONFIG_FLAG_WarpIntoLeadersVehicle = 192,---
+---CPED_CONFIG_FLAG_DoNothingWhenOnFootByDefault = 193,---
 ---CPED_CONFIG_FLAG_UsingScenario = 194,---
 ---CPED_CONFIG_FLAG_VisibleOnScreen = 195,---
----\_0xD88C58A1 = 196,---
----\_0x5A3DCF43 = 197, // CPED_CONFIG_FLAG_AvoidUnderSide---
----\_0xEA02B420 = 198,---
----\_0x3F559CFF = 199,---
----\_0x8C55D029 = 200,---
----\_0x5E6466F6 = 201,---
----\_0xEB5AD706 = 202,---
----\_0x0EDDDDE7 = 203,---
----\_0xA64F7B1D = 204,---
----\_0x48532CBA = 205,---
----\_0xAA25A9E7 = 206,---
----\_0x415B26B9 = 207,---
+---CPED_CONFIG_FLAG_DontCollideWithKinematic = 196,---
+---CPED_CONFIG_FLAG_ActivateOnSwitchFromLowPhysicsLod = 197,---
+---CPED_CONFIG_FLAG_DontActivateRagdollOnPedCollisionWhenDead = 198,---
+---CPED_CONFIG_FLAG_DontActivateRagdollOnVehicleCollisionWhenDead = 199,---
+---CPED_CONFIG_FLAG_HasBeenInArmedCombat = 200,---
+---CPED_CONFIG_FLAG_UseDiminishingAmmoRate = 201,---
+---CPED_CONFIG_FLAG_Avoidance_Ignore_All = 202,---
+---CPED_CONFIG_FLAG_Avoidance_Ignored_by_All = 203,---
+---CPED_CONFIG_FLAG_Avoidance_Ignore_Group1 = 204,---
+---CPED_CONFIG_FLAG_Avoidance_Member_of_Group1 = 205,---
+---CPED_CONFIG_FLAG_ForcedToUseSpecificGroupSeatIndex = 206,---
+---CPED_CONFIG_FLAG_LowPhysicsLodMayPlaceOnNavMesh = 207,---
 ---CPED_CONFIG_FLAG_DisableExplosionReactions = 208,---
 ---CPED_CONFIG_FLAG_DodgedPlayer = 209,---
----\_0x67405504 = 210,---
----\_0x75DDD68C = 211,---
----\_0x2AD879B4 = 212,---
----\_0x51486F91 = 213,---
----\_0x32F79E21 = 214,---
----\_0xBF099213 = 215,---
----\_0x054AC8E2 = 216,---
----\_0x14E495CC = 217,---
----\_0x3C7DF9DF = 218,---
----\_0x848FFEF2 = 219,---
+---CPED_CONFIG_FLAG_WaitingForPlayerControlInterrupt = 210,---
+---CPED_CONFIG_FLAG_ForcedToStayInCover = 211,---
+---CPED_CONFIG_FLAG_GeneratesSoundEvents = 212,---
+---CPED_CONFIG_FLAG_ListensToSoundEvents = 213,---
+---CPED_CONFIG_FLAG_AllowToBeTargetedInAVehicle = 214,---
+---CPED_CONFIG_FLAG_WaitForDirectEntryPointToBeFreeWhenExiting = 215,---
+---CPED_CONFIG_FLAG_OnlyRequireOnePressToExitVehicle = 216,---
+---CPED_CONFIG_FLAG_ForceExitToSkyDive = 217,---
+---CPED_CONFIG_FLAG_SteersAroundVehicles = 218,---
+---CPED_CONFIG_FLAG_AllowPedInVehiclesOverrideTaskFlags = 219,---
 ---CPED_CONFIG_FLAG_DontEnterLeadersVehicle = 220,---
----\_0x2618E1CF = 221,---
----\_0x84F722FA = 222,---
----\_0xD1B87B1F = 223,---
----\_0x728AA918 = 224,---
+---CPED_CONFIG_FLAG_DisableExitToSkyDive = 221,---
+---CPED_CONFIG_FLAG_ScriptHasDisabledCollision = 222,---
+---CPED_CONFIG_FLAG_UseAmbientModelScaling = 223,---
+---CPED_CONFIG_FLAG_DontWatchFirstOnNextHurryAway = 224,---
 ---CPED_CONFIG_FLAG_DisablePotentialToBeWalkedIntoResponse = 225,---
 ---CPED_CONFIG_FLAG_DisablePedAvoidance = 226,---
----\_0x59E91185 = 227,---
----\_0x1EA7225F = 228,---
+---CPED_CONFIG_FLAG_ForceRagdollUponDeath = 227,---
+---CPED_CONFIG_FLAG_CanLosePropsOnDamage = 228,---
 ---CPED_CONFIG_FLAG_DisablePanicInVehicle = 229,---
----\_0x6DCA7D88 = 230,---
----\_0xFC3E572D = 231,---
----\_0x08E9F9CF = 232,---
----\_0x2D3BA52D = 233,---
----\_0xFD2F53EA = 234,---
----\_0x31A1B03B = 235,---
+---CPED_CONFIG_FLAG_AllowedToDetachTrailer = 230,---
+---CPED_CONFIG_FLAG_HasShotBeenReactedToFromFront = 231,---
+---CPED_CONFIG_FLAG_HasShotBeenReactedToFromBack = 232,---
+---CPED_CONFIG_FLAG_HasShotBeenReactedToFromLeft = 233,---
+---CPED_CONFIG_FLAG_HasShotBeenReactedToFromRight = 234,---
+---CPED_CONFIG_FLAG_AllowBlockDeadPedRagdollActivation = 235,---
 ---CPED_CONFIG_FLAG_IsHoldingProp = 236,---
----\_0x82ED0A66 = 237, // CPED_CONFIG_FLAG_BlocksPathingWhenDead---
----\_0xCE57C9A3 = 238,---
----\_0x26149198 = 239,---
----\_0x1B33B598 = 240,---
----\_0x719B6E87 = 241,---
----\_0x13E8E8E8 = 242,---
----\_0xF29739AE = 243,---
----\_0xABEA8A74 = 244,---
----\_0xB60EA2BA = 245,---
----\_0x536B0950 = 246,---
----\_0x0C754ACA = 247,---
----CPED_CONFIG_FLAG_DisableVehicleSeatRandomAnimations = 248,---
----\_0x12659168 = 249,---
----\_0x1BDF2F04 = 250,---
----\_0x7728FAA3 = 251,---
----\_0x6A807ED8 = 252,---
+---CPED_CONFIG_FLAG_BlocksPathingWhenDead = 237,---
+---CPED_CONFIG_FLAG_ForcePlayNormalScenarioExitOnNextScriptCommand = 238,---
+---CPED_CONFIG_FLAG_ForcePlayImmediateScenarioExitOnNextScriptCommand = 239,---
+---CPED_CONFIG_FLAG_ForceSkinCharacterCloth = 240,---
+---CPED_CONFIG_FLAG_LeaveEngineOnWhenExitingVehicles = 241,---
+---CPED_CONFIG_FLAG_PhoneDisableTextingAnimations = 242,---
+---CPED_CONFIG_FLAG_PhoneDisableTalkingAnimations = 243,---
+---CPED_CONFIG_FLAG_PhoneDisableCameraAnimations = 244,---
+---CPED_CONFIG_FLAG_DisableBlindFiringInShotReactions = 245,---
+---CPED_CONFIG_FLAG_AllowNearbyCoverUsage = 246,---
+---CPED_CONFIG_FLAG_InStrafeTransition = 247,---
+---CPED_CONFIG_FLAG_CanPlayInCarIdles = 248,---
+---CPED_CONFIG_FLAG_CanAttackNonWantedPlayerAsLaw = 249,---
+---CPED_CONFIG_FLAG_WillTakeDamageWhenVehicleCrashes = 250,---
+---CPED_CONFIG_FLAG_AICanDrivePlayerAsRearPassenger = 251,---
+---CPED_CONFIG_FLAG_PlayerCanJackFriendlyPlayers = 252,---
 ---CPED_CONFIG_FLAG_OnStairs = 253,---
----\_0xE1A2F73F = 254,---
----\_0x5B3697C8 = 255,---
----\_0xF1EB20A9 = 256,---
----\_0x8B7DF407 = 257,---
----\_0x329DCF1A = 258,---
----\_0x8D90DD1B = 259,---
----\_0xB8A292B7 = 260,---
----\_0x8374B087 = 261,---
----\_0x2AF558F0 = 262,---
----\_0x82251455 = 263,---
----\_0x30CF498B = 264,---
----\_0xE1CD50AF = 265,---
----\_0x72E4AE48 = 266,---
----\_0xC2657EA1 = 267,---
----\_0x29FF6030 = 268,---
----\_0x8248A5EC = 269,---
+---CPED_CONFIG_FLAG_SimulatingAiming = 254,---
+---CPED_CONFIG_FLAG_AIDriverAllowFriendlyPassengerSeatEntry = 255,---
+---CPED_CONFIG_FLAG_ParentCarIsBeingRemoved = 256,---
+---CPED_CONFIG_FLAG_AllowMissionPedToUseInjuredMovement = 257,---
+---CPED_CONFIG_FLAG_CanLoseHelmetOnDamage = 258,---
+---CPED_CONFIG_FLAG_NeverDoScenarioExitProbeChecks = 259,---
+---CPED_CONFIG_FLAG_SuppressLowLODRagdollSwitchWhenCorpseSettles = 260,---
+---CPED_CONFIG_FLAG_PreventUsingLowerPrioritySeats = 261,---
+---CPED_CONFIG_FLAG_JustLeftVehicleNeedsReset = 262,---
+---CPED_CONFIG_FLAG_TeleportIfCantReachPlayer = 263,---
+---CPED_CONFIG_FLAG_PedsInVehiclePositionNeedsReset = 264,---
+---CPED_CONFIG_FLAG_PedsFullyInSeat = 265,---
+---CPED_CONFIG_FLAG_AllowPlayerLockOnIfFriendly = 266,---
+---CPED_CONFIG_FLAG_UseCameraHeadingForDesiredDirectionLockOnTest = 267,---
+---CPED_CONFIG_FLAG_TeleportToLeaderVehicle = 268,---
+---CPED_CONFIG_FLAG_Avoidance_Ignore_WeirdPedBuffer = 269,---
 ---CPED_CONFIG_FLAG_OnStairSlope = 270,---
----\_0xA0897933 = 271,---
+---CPED_CONFIG_FLAG_HasPlayedNMGetup = 271,---
 ---CPED_CONFIG_FLAG_DontBlipCop = 272,---
----CPED_CONFIG_FLAG_ClimbedShiftedFence = 273,---
----\_0xF7823618 = 274,---
----\_0xDC305CCE = 275, // CPED_CONFIG_FLAG_KillWhenTrapped---
+---CPED_CONFIG_FLAG_SpawnedAtExtendedRangeScenario = 273,---
+---CPED_CONFIG_FLAG_WalkAlongsideLeaderWhenClose = 274,---
+---CPED_CONFIG_FLAG_KillWhenTrapped = 275,---
 ---CPED_CONFIG_FLAG_EdgeDetected = 276,---
----\_0x92B67896 = 277,---
----\_0xCAD677C9 = 278,---
+---CPED_CONFIG_FLAG_AlwaysWakeUpPhysicsOfIntersectedPeds = 277,---
+---CPED_CONFIG_FLAG_EquippedAmbientLoadOutWeapon = 278,---
 ---CPED_CONFIG_FLAG_AvoidTearGas = 279,---
----\_0x5276AC7B = 280,---
----\_0x1032692A = 281,---
----\_0xDA23E7F1 = 282,---
----\_0x9139724D = 283,---
----\_0xA1457461 = 284,---
----\_0x4186E095 = 285,---
----\_0xAC68E2EB = 286,---
+---CPED_CONFIG_FLAG_StoppedSpeechUponFreezing = 280,---
+---CPED_CONFIG_FLAG_DisableGoToWritheWhenInjured = 281,---
+---CPED_CONFIG_FLAG_OnlyUseForcedSeatWhenEnteringHeliInGroup = 282,---
+---CPED_CONFIG_FLAG_ThrownFromVehicleDueToExhaustion = 283,---
+---CPED_CONFIG_FLAG_UpdateEnclosedSearchRegion = 284,---
+---CPED_CONFIG_FLAG_DisableWeirdPedEvents = 285,---
+---CPED_CONFIG_FLAG_ShouldChargeNow = 286,---
 ---CPED_CONFIG_FLAG_RagdollingOnBoat = 287,---
 ---CPED_CONFIG_FLAG_HasBrandishedWeapon = 288,---
----\_0x1B9EE8A1 = 289,---
----\_0xF3F5758C = 290,---
----\_0x2A9307F1 = 291,---
----\_0x7403D216 = 292,---
----\_0xA06A3C6C = 293,---
+---CPED_CONFIG_FLAG_AllowMinorReactionsAsMissionPed = 289,---
+---CPED_CONFIG_FLAG_BlockDeadBodyShockingEventsWhenDead = 290,---
+---CPED_CONFIG_FLAG_PedHasBeenSeen = 291,---
+---CPED_CONFIG_FLAG_PedIsInReusePool = 292,---
+---CPED_CONFIG_FLAG_PedWasReused = 293,---
 ---CPED_CONFIG_FLAG_DisableShockingEvents = 294,---
----\_0xF8DA25A5 = 295,---
----\_0x7EF55802 = 296,---
----\_0xB31F1187 = 297,---
----\_0x84315402 = 298,---
----\_0x0FD69867 = 299,---
----\_0xC7829B67 = 300,---
+---CPED_CONFIG_FLAG_MovedUsingLowLodPhysicsSinceLastActive = 295,---
+---CPED_CONFIG_FLAG_NeverReactToPedOnRoof = 296,---
+---CPED_CONFIG_FLAG_ForcePlayFleeScenarioExitOnNextScriptCommand = 297,---
+---CPED_CONFIG_FLAG_JustBumpedIntoVehicle = 298,---
+---CPED_CONFIG_FLAG_DisableShockingDrivingOnPavementEvents = 299,---
+---CPED_CONFIG_FLAG_ShouldThrowSmokeNow = 300,---
 ---CPED_CONFIG_FLAG_DisablePedConstraints = 301,---
----\_0x6D23CF25 = 302,---
----\_0x2ADA871B = 303,---
----\_0x47BC8A58 = 304,---
----\_0xEB692FA5 = 305,---
----\_0x4A133C50 = 306,---
----\_0xC58099C3 = 307,---
----\_0xF3D76D41 = 308,---
----\_0xB0EEE9F2 = 309,---
+---CPED_CONFIG_FLAG_ForceInitialPeekInCover = 302,---
+---CPED_CONFIG_FLAG_CreatedByDispatch = 303,---
+---CPED_CONFIG_FLAG_PointGunLeftHandSupporting = 304,---
+---CPED_CONFIG_FLAG_DisableJumpingFromVehiclesAfterLeader = 305,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromPlayerPedImpact = 306,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromAiRagdollImpact = 307,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromPlayerRagdollImpact = 308,---
+---CPED_CONFIG_FLAG_DisableQuadrupedSpring = 309,---
 ---CPED_CONFIG_FLAG_IsInCluster = 310,---
----\_0x0FA153EF = 311,---
----\_0xD73F5CD3 = 312,---
----\_0xD4136C22 = 313,---
----\_0xE404CA6B = 314,---
----\_0xB9597446 = 315,---
----\_0xD5C98277 = 316,---
----\_0xD5060A9C = 317,---
----\_0x3E5F1CBB = 318,---
----\_0xD8BE1D54 = 319,---
----\_0x0B1F191F = 320,---
----\_0xC995167A = 321,---
+---CPED_CONFIG_FLAG_ShoutToGroupOnPlayerMelee = 311,---
+---CPED_CONFIG_FLAG_IgnoredByAutoOpenDoors = 312,---
+---CPED_CONFIG_FLAG_PreferInjuredGetup = 313,---
+---CPED_CONFIG_FLAG_ForceIgnoreMeleeActiveCombatant = 314,---
+---CPED_CONFIG_FLAG_CheckLoSForSoundEvents = 315,---
+---CPED_CONFIG_FLAG_JackedAbandonedCar = 316,---
+---CPED_CONFIG_FLAG_CanSayFollowedByPlayerAudio = 317,---
+---CPED_CONFIG_FLAG_ActivateRagdollFromMinorPlayerContact = 318,---
+---CPED_CONFIG_FLAG_HasPortablePickupAttached = 319,---
+---CPED_CONFIG_FLAG_ForcePoseCharacterCloth = 320,---
+---CPED_CONFIG_FLAG_HasClothCollisionBounds = 321,---
 ---CPED_CONFIG_FLAG_HasHighHeels = 322,---
----\_0x86B01E54 = 323,---
----\_0x3A56FE15 = 324,---
----\_0xC03B736C = 325, // CPED_CONFIG_FLAG_SpawnedAtScenario---
----\_0xBBF47729 = 326,---
----\_0x22B668A8 = 327,---
----\_0x2624D4D4 = 328,---
+---CPED_CONFIG_FLAG_TreatAsAmbientPedForDriverLockOn = 323,---
+---CPED_CONFIG_FLAG_DontBehaveLikeLaw = 324,---
+---CPED_CONFIG_FLAG_SpawnedAtScenario = 325,---
+---CPED_CONFIG_FLAG_DisablePoliceInvestigatingBody = 326,---
+---CPED_CONFIG_FLAG_DisableWritheShootFromGround = 327,---
+---CPED_CONFIG_FLAG_LowerPriorityOfWarpSeats = 328,---
 ---CPED_CONFIG_FLAG_DisableTalkTo = 329,---
 ---CPED_CONFIG_FLAG_DontBlip = 330,---
 ---CPED_CONFIG_FLAG_IsSwitchingWeapon = 331,---
----\_0x630F55F3 = 332,---
----\_0x150468FD = 333,---
----\_0x914EBD6B = 334,---
----\_0x79AF3B6D = 335,---
----\_0x75C7A632 = 336,---
----\_0x52D530E2 = 337,---
----\_0xDB2A90E0 = 338,---
----\_0x5922763D = 339,---
----\_0x12ADB567 = 340,---
----\_0x105C8518 = 341,---
----\_0x106F703D = 342,---
----\_0xED152C3E = 343,---
----\_0xA0EFE6A8 = 344,---
----\_0xBF348C82 = 345,---
----\_0xCDDFE830 = 346,---
----\_0x7B59BD9B = 347,---
----\_0x0124C788 = 348,---
+---CPED_CONFIG_FLAG_IgnoreLegIkRestrictions = 332,---
+---CPED_CONFIG_FLAG_ScriptForceNoTimesliceIntelligenceUpdate = 333,---
+---CPED_CONFIG_FLAG_JackedOutOfMyVehicle = 334,---
+---CPED_CONFIG_FLAG_WentIntoCombatAfterBeingJacked = 335,---
+---CPED_CONFIG_FLAG_DontActivateRagdollForVehicleGrab = 336,---
+---CPED_CONFIG_FLAG_ForcePackageCharacterCloth = 337,---
+---CPED_CONFIG_FLAG_DontRemoveWithValidOrder = 338,---
+---CPED_CONFIG_FLAG_AllowTaskDoNothingTimeslicing = 339,---
+---CPED_CONFIG_FLAG_ForcedToStayInCoverDueToPlayerSwitch = 340,---
+---CPED_CONFIG_FLAG_ForceProneCharacterCloth = 341,---
+---CPED_CONFIG_FLAG_NotAllowedToJackAnyPlayers = 342,---
+---CPED_CONFIG_FLAG_InToStrafeTransition = 343,---
+---CPED_CONFIG_FLAG_KilledByStandardMelee = 344,---
+---CPED_CONFIG_FLAG_AlwaysLeaveTrainUponArrival = 345,---
+---CPED_CONFIG_FLAG_ForcePlayDirectedNormalScenarioExitOnNextScriptCommand = 346,---
+---CPED_CONFIG_FLAG_OnlyWritheFromWeaponDamage = 347,---
+---CPED_CONFIG_FLAG_UseSloMoBloodVfx = 348,---
 ---CPED_CONFIG_FLAG_EquipJetpack = 349,---
----\_0x08D361A5 = 350,---
----\_0xE13D1F7C = 351,---
----\_0x40E25FB9 = 352,---
----\_0x930629D9 = 353,---
----\_0xECCF0C7F = 354,---
----\_0xB6E9613B = 355,---
----\_0x490C0478 = 356,---
----\_0xE8865BEA = 357,---
----\_0xF3C34A29 = 358,---
+---CPED_CONFIG_FLAG_PreventDraggedOutOfCarThreatResponse = 350,---
+---CPED_CONFIG_FLAG_ScriptHasCompletelyDisabledCollision = 351,---
+---CPED_CONFIG_FLAG_NeverDoScenarioNavChecks = 352,---
+---CPED_CONFIG_FLAG_ForceSynchronousScenarioExitChecking = 353,---
+---CPED_CONFIG_FLAG_ThrowingGrenadeWhileAiming = 354,---
+---CPED_CONFIG_FLAG_HeadbobToRadioEnabled = 355,---
+---CPED_CONFIG_FLAG_ForceDeepSurfaceCheck = 356,---
+---CPED_CONFIG_FLAG_DisableDeepSurfaceAnims = 357,---
+---CPED_CONFIG_FLAG_DontBlipNotSynced = 358,---
 ---CPED_CONFIG_FLAG_IsDuckingInVehicle = 359,---
----\_0xF660E115 = 360,---
----\_0xAB0E6DED = 361,---
+---CPED_CONFIG_FLAG_PreventAutoShuffleToTurretSeat = 360,---
+---CPED_CONFIG_FLAG_DisableEventInteriorStatusCheck = 361,---
 ---CPED_CONFIG_FLAG_HasReserveParachute = 362,---
 ---CPED_CONFIG_FLAG_UseReserveParachute = 363,---
----\_0x5C5D9CD3 = 364,---
----\_0x8F7701F3 = 365,---
----\_0xBC4436AD = 366,---
----\_0xD7E07D37 = 367,---
----\_0x03C4FD24 = 368,---
----\_0x7675789A = 369,---
----\_0xB7288A88 = 370,---
----\_0xC06B6291 = 371,---
----\_0x95A4A805 = 372,---
----\_0xA8E9A042 = 373,---
+---CPED_CONFIG_FLAG_TreatDislikeAsHateWhenInCombat = 364,---
+---CPED_CONFIG_FLAG_OnlyUpdateTargetWantedIfSeen = 365,---
+---CPED_CONFIG_FLAG_AllowAutoShuffleToDriversSeat = 366,---
+---CPED_CONFIG_FLAG_DontActivateRagdollFromSmokeGrenade = 367,---
+---CPED_CONFIG_FLAG_LinkMBRToOwnerOnChain = 368,---
+---CPED_CONFIG_FLAG_AmbientFriendBumpedByPlayer = 369,---
+---CPED_CONFIG_FLAG_AmbientFriendBumpedByPlayerVehicle = 370,---
+---CPED_CONFIG_FLAG_InFPSUnholsterTransition = 371,---
+---CPED_CONFIG_FLAG_PreventReactingToSilencedCloneBullets = 372,---
+---CPED_CONFIG_FLAG_DisableInjuredCryForHelpEvents = 373,---
 ---CPED_CONFIG_FLAG_NeverLeaveTrain = 374,---
----\_0xBAC674B3 = 375,---
----\_0x147F1FFB = 376,---
----\_0x4376DD79 = 377,---
----\_0xCD3DB518 = 378,---
----\_0xFE4BA4B6 = 379,---
----\_0x5DF03A55 = 380,---
----\_0xBCD816CD = 381,---
----\_0xCF02DD69 = 382,---
----\_0xF73AFA2E = 383,---
----\_0x80B9A9D0 = 384,---
----\_0xF601F7EE = 385,---
----\_0xA91350FC = 386,---
----\_0x3AB23B96 = 387,---
+---CPED_CONFIG_FLAG_DontDropJetpackOnDeath = 375,---
+---CPED_CONFIG_FLAG_UseFPSUnholsterTransitionDuringCombatRoll = 376,---
+---CPED_CONFIG_FLAG_ExitingFPSCombatRoll = 377,---
+---CPED_CONFIG_FLAG_ScriptHasControlOfPlayer = 378,---
+---CPED_CONFIG_FLAG_PlayFPSIdleFidgetsForProjectile = 379,---
+---CPED_CONFIG_FLAG_DisableAutoEquipHelmetsInBikes = 380,---
+---CPED_CONFIG_FLAG_DisableAutoEquipHelmetsInAircraft = 381,---
+---CPED_CONFIG_FLAG_WasPlayingFPSGetup = 382,---
+---CPED_CONFIG_FLAG_WasPlayingFPSMeleeActionResult = 383,---
+---CPED_CONFIG_FLAG_PreferNoPriorityRemoval = 384,---
+---CPED_CONFIG_FLAG_FPSFidgetsAbortedOnFire = 385,---
+---CPED_CONFIG_FLAG_ForceFPSIKWithUpperBodyAnim = 386,---
+---CPED_CONFIG_FLAG_SwitchingCharactersInFirstPerson = 387,---
 ---CPED_CONFIG_FLAG_IsClimbingLadder = 388,---
 ---CPED_CONFIG_FLAG_HasBareFeet = 389,---
----\_0xB4B1CD4C = 390,---
----\_0x5459AFB8 = 391,---
----\_0x54F27667 = 392,---
----\_0xC11D3E8F = 393,---
----\_0x5419EB3E = 394,---
----\_0x82D8DBB4 = 395,---
----\_0x33B02D2F = 396,---
----\_0xAE66176D = 397,---
----\_0xA2692593 = 398,---
----\_0x714C7E31 = 399,---
----\_0xEC488AC7 = 400,---
----\_0xAE398504 = 401,---
----\_0xABC58D72 = 402,---
----\_0x5E5B9591 = 403,---
----\_0x6BA1091E = 404,---
----\_0x77840177 = 405,---
----\_0x1C7ACAC4 = 406,---
----\_0x124420E9 = 407,---
----\_0x75A65587 = 408,---
----\_0xDFD2D55B = 409,---
----\_0xBDD39919 = 410,---
----\_0x43DEC267 = 411,---
----\_0xE42B7797 = 412,---
+---CPED_CONFIG_FLAG_UNUSED_REPLACE_ME_2 = 390,---
+---CPED_CONFIG_FLAG_GoOnWithoutVehicleIfItIsUnableToGetBackToRoad = 391,---
+---CPED_CONFIG_FLAG_BlockDroppingHealthSnacksOnDeath = 392,---
+---CPED_CONFIG_FLAG_ResetLastVehicleOnVehicleExit = 393,---
+---CPED_CONFIG_FLAG_ForceThreatResponseToNonFriendToFriendMeleeActions = 394,---
+---CPED_CONFIG_FLAG_DontRespondToRandomPedsDamage = 395,---
+---CPED_CONFIG_FLAG_AllowContinuousThreatResponseWantedLevelUpdates = 396,---
+---CPED_CONFIG_FLAG_KeepTargetLossResponseOnCleanup = 397,---
+---CPED_CONFIG_FLAG_PlayersDontDragMeOutOfCar = 398,---
+---CPED_CONFIG_FLAG_BroadcastRepondedToThreatWhenGoingToPointShooting = 399,---
+---CPED_CONFIG_FLAG_IgnorePedTypeForIsFriendlyWith = 400,---
+---CPED_CONFIG_FLAG_TreatNonFriendlyAsHateWhenInCombat = 401,---
+---CPED_CONFIG_FLAG_DontLeaveVehicleIfLeaderNotInVehicle = 402,---
+---CPED_CONFIG_FLAG_ChangeFromPermanentToAmbientPopTypeOnMigration = 403,---
+---CPED_CONFIG_FLAG_AllowMeleeReactionIfMeleeProofIsOn = 404,---
+---CPED_CONFIG_FLAG_UsingLowriderLeans = 405,---
+---CPED_CONFIG_FLAG_UsingAlternateLowriderLeans = 406,---
+---CPED_CONFIG_FLAG_UseNormalExplosionDamageWhenBlownUpInVehicle = 407,---
+---CPED_CONFIG_FLAG_DisableHomingMissileLockForVehiclePedInside = 408,---
+---CPED_CONFIG_FLAG_DisableTakeOffScubaGear = 409,---
+---CPED_CONFIG_FLAG_IgnoreMeleeFistWeaponDamageMult = 410,---
+---CPED_CONFIG_FLAG_LawPedsCanFleeFromNonWantedPlayer = 411,---
+---CPED_CONFIG_FLAG_ForceBlipSecurityPedsIfPlayerIsWanted = 412,---
 ---CPED_CONFIG_FLAG_IsHolsteringWeapon = 413,---
----\_0x4F8149F5 = 414,---
----\_0xDD9ECA7A = 415,---
----\_0x9E7EF9D2 = 416,---
----\_0x2C6ED942 = 417,---
+---CPED_CONFIG_FLAG_UseGoToPointForScenarioNavigation = 414,---
+---CPED_CONFIG_FLAG_DontClearLocalPassengersWantedLevel = 415,---
+---CPED_CONFIG_FLAG_BlockAutoSwapOnWeaponPickups = 416,---
+---CPED_CONFIG_FLAG_ThisPedIsATargetPriorityForAI = 417,---
 ---CPED_CONFIG_FLAG_IsSwitchingHelmetVisor = 418,---
----\_0xA488727D = 419,---
----\_0xCFF5F6DE = 420,---
----\_0x6D614599 = 421,---
+---CPED_CONFIG_FLAG_ForceHelmetVisorSwitch = 419,---
+---CPED_CONFIG_FLAG_IsPerformingVehicleMelee = 420,---
+---CPED_CONFIG_FLAG_UseOverrideFootstepPtFx = 421,---
 ---CPED_CONFIG_FLAG_DisableVehicleCombat = 422,---
----\_0xFE401D26 = 423,---
----CPED_CONFIG_FLAG_FallsLikeAircraft = 424,---
----\_0x2B42AE82 = 425,---
----\_0x7A95734F = 426,---
----\_0xDF4D8617 = 427,---
----\_0x578F1F14 = 428,---
+---CPED_CONFIG_FLAG_TreatAsFriendlyForTargetingAndDamage = 423,---
+---CPED_CONFIG_FLAG_AllowBikeAlternateAnimations = 424,---
+---CPED_CONFIG_FLAG_TreatAsFriendlyForTargetingAndDamageNonSynced = 425,---
+---CPED_CONFIG_FLAG_UseLockpickVehicleEntryAnimations = 426,---
+---CPED_CONFIG_FLAG_IgnoreInteriorCheckForSprinting = 427,---
+---CPED_CONFIG_FLAG_SwatHeliSpawnWithinLastSpottedLocation = 428,---
 ---CPED_CONFIG_FLAG_DisableStartEngine = 429,---
 ---CPED_CONFIG_FLAG_IgnoreBeingOnFire = 430,---
----\_0x153C9500 = 431,---
----\_0xCB7A632E = 432,---
----\_0xDE727981 = 433,---
+---CPED_CONFIG_FLAG_DisableTurretOrRearSeatPreference = 431,---
+---CPED_CONFIG_FLAG_DisableWantedHelicopterSpawning = 432,---
+---CPED_CONFIG_FLAG_UseTargetPerceptionForCreatingAimedAtEvents = 433,---
 ---CPED_CONFIG_FLAG_DisableHomingMissileLockon = 434,---
----\_0x12BBB935 = 435,---
----\_0xAD0A1277 = 436,---
----\_0xEA6AA46A = 437,---
+---CPED_CONFIG_FLAG_ForceIgnoreMaxMeleeActiveSupportCombatants = 435,---
+---CPED_CONFIG_FLAG_StayInDefensiveAreaWhenInVehicle = 436,---
+---CPED_CONFIG_FLAG_DontShoutTargetPosition = 437,---
 ---CPED_CONFIG_FLAG_DisableHelmetArmor = 438,---
----\_0xCB7F3A1E = 439,---
----\_0x50178878 = 440,---
----\_0x051B4F0D = 441,---
----\_0x2FC3DECC = 442,---
----\_0xC0030B0B = 443,---
----\_0xBBDAF1E9 = 444,---
----\_0x944FE59C = 445,---
----\_0x506FBA39 = 446,---
----\_0xDD45FE84 = 447,---
----\_0xE698AE75 = 448,---
----\_0x199633F8 = 449,---
+---CPED_CONFIG_FLAG_CreatedByConcealedPlayer = 439,---
+---CPED_CONFIG_FLAG_PermanentlyDisablePotentialToBeWalkedIntoResponse = 440,---
+---CPED_CONFIG_FLAG_PreventVehExitDueToInvalidWeapon = 441,---
+---CPED_CONFIG_FLAG_IgnoreNetSessionFriendlyFireCheckForAllowDamage = 442,---
+---CPED_CONFIG_FLAG_DontLeaveCombatIfTargetPlayerIsAttackedByPolice = 443,---
+---CPED_CONFIG_FLAG_CheckLockedBeforeWarp = 444,---
+---CPED_CONFIG_FLAG_DontShuffleInVehicleToMakeRoom = 445,---
+---CPED_CONFIG_FLAG_GiveWeaponOnGetup = 446,---
+---CPED_CONFIG_FLAG_DontHitVehicleWithProjectiles = 447,---
+---CPED_CONFIG_FLAG_DisableForcedEntryForOpenVehiclesFromTryLockedDoor = 448,---
+---CPED_CONFIG_FLAG_FiresDummyRockets = 449,---
 ---CPED_CONFIG_FLAG_PedIsArresting = 450,---
 ---CPED_CONFIG_FLAG_IsDecoyPed = 451,---
----\_0x3A251D83 = 452,---
----\_0xA56F6986 = 453,---
----\_0x1D19C622 = 454,---
----\_0xB68D3EAB = 455,---
+---CPED_CONFIG_FLAG_HasEstablishedDecoy = 452,---
+---CPED_CONFIG_FLAG_BlockDispatchedHelicoptersFromLanding = 453,---
+---CPED_CONFIG_FLAG_DontCryForHelpOnStun = 454,---
+---CPED_CONFIG_FLAG_HitByTranqWeapon = 455,---
 ---CPED_CONFIG_FLAG_CanBeIncapacitated = 456,---
----\_0x4BD5EBAD = 457,---
+---CPED_CONFIG_FLAG_ForcedAimFromArrest = 457,---
+---CPED_CONFIG_FLAG_DontChangeTargetFromMelee = 458,---
+---_0x4376ABF2 = 459,---
+---CPED_CONFIG_FLAG_RagdollFloatsIndefinitely = 460,---
+---CPED_CONFIG_FLAG_BlockElectricWeaponDamage = 461,---
+---_0x262A3B8E = 462,---
+---_0x1AA79A25 = 463,---
 ---}
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PED_CONFIG_FLAG](?\_0x1913FE4CBF41C463).**
 ---@param ped integer
@@ -5569,7 +6121,9 @@ function SetPedConfigFlag(ped, flagId, value) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC866A984)  
+---```
 ---Sets Ped Default Clothes
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PED_DEFAULT_COMPONENT_VARIATION](?\_0x45EEE61580806D63).**
 ---@param ped integer
@@ -5783,7 +6337,6 @@ function SetPedModelPersonality(modelHash, personalityHash) end
 ---List of Prop IDs
 ---
 ---```cpp
----// Props---
 ---enum eAnchorPoints---
 ---{---
 ---ANCHOR_HEAD = 0, // "p_head"---
@@ -5813,7 +6366,9 @@ function SetPedPropIndex(ped, componentId, drawableId, textureId, attach) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4111BA46)  
----p1 is always 0 in R\* scripts; and a quick disassembly seems to indicate that p1 is unused.
+---```
+---p1 is always 0 in R* scripts; and a quick disassembly seems to indicate that p1 is unused.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PED_RANDOM_COMPONENT_VARIATION](?\_0xC8A9481A01E63C28).**
 ---@param ped integer
@@ -5861,13 +6416,15 @@ function SetPedToRagdoll(ped, time1, time2, ragdollType, p4, p5, p6) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFA12E286)  
----Return variable is never used in R\*'s scripts.---
----Not sure what p2 does. It seems like it would be a time judging by it's usage in R\*'s scripts, but didn't seem to affect anything in my testings.---
+---```
+---Return variable is never used in R*'s scripts.---
+---Not sure what p2 does. It seems like it would be a time judging by it's usage in R*'s scripts, but didn't seem to affect anything in my testings.---
 ---x, y, and z are coordinates, most likely to where the ped will fall.---
 ---p7 is probably the force of the fall, but untested, so I left the variable name the same.---
----p8 to p13 are always 0f in R\*'s scripts.---
----(Simplified) Example of the usage of the function from R\*'s scripts:---
+---p8 to p13 are always 0f in R*'s scripts.---
+---(Simplified) Example of the usage of the function from R*'s scripts:---
 ---ped::set_ped_to_ragdoll_with_fall(ped, 1500, 2000, 1, -entity::get_entity_forward_vector(ped), 1f, 0f, 0f, 0f, 0f, 0f, 0f);
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PED_TO_RAGDOLL_WITH_FALL](?\_0xD76632D99E4966C8).**
 ---@param ped integer
@@ -5921,6 +6478,7 @@ function SetPedTurningThresholds(min, max) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD17AFCD8)  
+---```
 ---Flags:---
 ---SPC_AMBIENT_SCRIPT = (1 << 1),---
 ---SPC_CLEAR_TASKS = (1 << 2),---
@@ -5935,6 +6493,7 @@ function SetPedTurningThresholds(min, max) end
 ---SPC_PREVENT_EVERYBODY_BACKOFF = (1 << 11),---
 ---SPC_ALLOW_PAD_SHAKE = (1 << 12)---
 ---See: https://alloc8or.re/gta5/doc/enums/eSetPlayerControlFlag.txt
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PLAYER_CONTROL](?\_0x8D32347D6D4C40A2).**
 ---@param player integer
@@ -6222,7 +6781,9 @@ function SetVehicleAutoRepairDisabled(vehicle, value) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x920C2517)  
+---```
 ---p2 often set to 1000.0 in the decompiled scripts.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_VEHICLE_BODY_HEALTH](?\_0xB77D05AC8C78AADB).**
 ---@param vehicle integer
@@ -6258,6 +6819,13 @@ function SetVehicleColourCombination(vehicle, colorCombination) end
 function SetVehicleColours(vehicle, colorPrimary, colorSecondary) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8923DD42)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param gear integer
+function SetVehicleCurrentGear(vehicle, gear) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A01A8FC)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -6266,7 +6834,9 @@ function SetVehicleCurrentRpm(vehicle, rpm) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8DF9F9BC)  
+---```
 ---p1, p2, p3 are RGB values for color (255,0,0 for Red, ect)
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_VEHICLE_CUSTOM_PRIMARY_COLOUR](?\_0x7141766F91D15BEA).**
 ---@param vehicle integer
@@ -6277,7 +6847,9 @@ function SetVehicleCustomPrimaryColour(vehicle, r, g, b) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9D77259E)  
+---```
 ---p1, p2, p3 are RGB values for color (255,0,0 for Red, ect)
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_VEHICLE_CUSTOM_SECONDARY_COLOUR](?\_0x36CED73BFED89754).**
 ---@param vehicle integer
@@ -6315,17 +6887,28 @@ function SetVehicleDoorBroken(vehicle, doorIndex, deleteDoor) end
 ---
 ---```cpp
 ---enum eVehicleLockState {---
----VEHICLELOCK_NONE = 0, // No specific lock state, vehicle behaves according to the game's default settings.---
----VEHICLELOCK_UNLOCKED = 1, // Vehicle is fully unlocked, allowing free entry by players and NPCs.---
----VEHICLELOCK_LOCKED = 2, // Vehicle is locked, preventing entry by players and NPCs.---
----VEHICLELOCK_LOCKOUT_PLAYER_ONLY = 3, // Vehicle locks out only players, allowing NPCs to enter.---
----VEHICLELOCK_LOCKED_PLAYER_INSIDE = 4, // Vehicle is locked once a player enters, preventing others from entering.---
----VEHICLELOCK_LOCKED_INITIALLY = 5, // Vehicle starts in a locked state, but may be unlocked through game events.---
----VEHICLELOCK_FORCE_SHUT_DOORS = 6, // Forces the vehicle's doors to shut and lock.---
----VEHICLELOCK_LOCKED_BUT_CAN_BE_DAMAGED = 7, // Vehicle is locked but can still be damaged.---
----VEHICLELOCK_LOCKED_BUT_BOOT_UNLOCKED = 8, // Vehicle is locked, but its trunk/boot remains unlocked.---
----VEHICLELOCK_LOCKED_NO_PASSENGERS = 9, // Vehicle is locked and does not allow passengers, except for the driver.---
----VEHICLELOCK_CANNOT_ENTER = 10 // Vehicle is completely locked, preventing entry entirely, even if previously inside.---
+---// No specific lock state, vehicle behaves according to the game's default settings.---
+---VEHICLELOCK_NONE = 0,---
+---// Vehicle is fully unlocked, allowing free entry by players and NPCs.---
+---VEHICLELOCK_UNLOCKED = 1,---
+---// Vehicle is locked, preventing entry by players and NPCs.---
+---VEHICLELOCK_LOCKED = 2,---
+---// Vehicle locks out only players, allowing NPCs to enter.---
+---VEHICLELOCK_LOCKOUT_PLAYER_ONLY = 3,---
+---// Vehicle is locked once a player enters, preventing others from entering.---
+---VEHICLELOCK_LOCKED_PLAYER_INSIDE = 4,---
+---// Vehicle starts in a locked state, but may be unlocked through game events.---
+---VEHICLELOCK_LOCKED_INITIALLY = 5,---
+---// Forces the vehicle's doors to shut and lock.---
+---VEHICLELOCK_FORCE_SHUT_DOORS = 6,---
+---// Vehicle is locked but can still be damaged.---
+---VEHICLELOCK_LOCKED_BUT_CAN_BE_DAMAGED = 7,---
+---// Vehicle is locked, but its trunk/boot remains unlocked.---
+---VEHICLELOCK_LOCKED_BUT_BOOT_UNLOCKED = 8,---
+---// Vehicle is locked and does not allow passengers, except for the driver.---
+---VEHICLELOCK_LOCKED_NO_PASSENGERS = 9,---
+---// Vehicle is completely locked, preventing entry entirely, even if previously inside.---
+---VEHICLELOCK_CANNOT_ENTER = 10---
 ---};
 ---```
 ---
@@ -6407,6 +6990,13 @@ function SetVehicleHandlingVector(vehicle, class_, fieldName, value) end
 ---@param vehicle integer
 ---@param gear integer
 function SetVehicleHighGear(vehicle, gear) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3A4566F4)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param nextGear integer
+function SetVehicleNextGear(vehicle, nextGear) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA40CB822)  
@@ -6782,6 +7372,15 @@ function SetWeaponsNoAutoreload(state) end
 function SetWeaponsNoAutoswap(state) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD264D4E1)  
+---This native does not have an official description.
+---@param index integer
+---@param typeName string
+---@param timeMult integer
+---@return boolean
+function SetWeatherCycleEntry(index, typeName, timeMult) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2703D582)  
 ---Sets whether or not the weather should be owned by the network subsystem.
 ---
@@ -6816,6 +7415,14 @@ function StartFindKvp(prefix) end
 ---@return boolean
 function StartResource(resourceName) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x12A330)  
+---This native does not have an official description.
+---@param bagName string
+---@param key string
+---@return boolean
+function StateBagHasKey(bagName, key) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x21783161)  
 ---This native does not have an official description.
@@ -6825,9 +7432,11 @@ function StopResource(resourceName) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCB0D8932)  
+---```
 ---Makes the specified ped attack the target ped.---
 ---p2 should be 0---
 ---p3 should be 16
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_COMBAT_PED](?\_0xF166E48407BAC484).**
 ---@param ped integer
@@ -6838,12 +7447,14 @@ function TaskCombatPed(ped, targetPed, p2, p3) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B84D1C4)  
+---```
 ---Example:---
----TASK::TASK_DRIVE_BY(l\_467\[1/*22*/], PLAYER::PLAYER_PED_ID(), 0, 0.0, 0.0, 2.0, 300.0, 100, 0, ${firing_pattern_burst_fire_driveby});---
+---TASK::TASK_DRIVE_BY(l_467[1/*22*/], PLAYER::PLAYER_PED_ID(), 0, 0.0, 0.0, 2.0, 300.0, 100, 0, ${firing_pattern_burst_fire_driveby});---
 ---Needs working example. Doesn't seem to do anything.---
 ---I marked p2 as targetVehicle as all these shooting related tasks seem to have that in common.---
 ---I marked p6 as distanceToShoot as if you think of GTA's Logic with the native SET_VEHICLE_SHOOT natives, it won't shoot till it gets within a certain distance of the target.---
 ---I marked p7 as pedAccuracy as it seems it's mostly 100 (Completely Accurate), 75, 90, etc. Although this could be the ammo count within the gun, but I highly doubt it. I will change this comment once I find out if it's ammo count or not.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_DRIVE_BY](?\_0x2F8AF0E82773A171).**
 ---@param driverPed integer
@@ -6860,9 +7471,11 @@ function TaskDriveBy(driverPed, targetPed, targetVehicle, targetX, targetY, targ
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB8689B4E)  
+---```
 ---speed 1.0 = walk, 2.0 = run---
 ---p5 1 = normal, 3 = teleport to vehicle, 8 = normal/carjack ped from seat, 16 = teleport directly into vehicle---
 ---p6 is always 0
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_ENTER_VEHICLE](?\_0xC20E50AA46D09CA8).**
 ---@param ped integer
@@ -6906,7 +7519,7 @@ function TaskGoStraightToCoord(ped, x, y, z, speed, timeout, targetHeading, dist
 ---DF_StopForCars = 1,---
 ---DF_StopForPeds = 2,---
 ---DF_SwerveAroundAllCars = 4,---
----DF_SteerAroundStationaryCars	= 8,---
+---DF_SteerAroundStationaryCars = 8,---
 ---DF_SteerAroundPeds = 16,---
 ---DF_SteerAroundObjects = 32,---
 ---DF_DontSteerAroundPlayerPed = 64,---
@@ -6922,8 +7535,10 @@ function TaskGoStraightToCoord(ped, x, y, z, speed, timeout, targetHeading, dist
 ---DF_AdjustCruiseSpeedBasedOnRoadSpeed = 16384,---
 ---DF_UseShortCutLinks =  262144,---
 ---DF_ChangeLanesAroundObstructions = 524288,---
----DF_UseSwitchedOffNodes =  2097152,	// cruise tasks ignore this anyway--only used for goto's---
----DF_PreferNavmeshRoute =  4194304,	// if you're going to be primarily driving off road---
+---// cruise tasks ignore this anyway--only used for goto's---
+---DF_UseSwitchedOffNodes =  2097152,---
+---// if you're going to be primarily driving off road---
+---DF_PreferNavmeshRoute =  4194304,---
 ---// Only works for planes using MISSION_GOTO, will cause them to drive along the ground instead of fly---
 ---DF_PlaneTaxiMode =  8388608,---
 ---DF_ForceStraightLine = 16777216,---
@@ -6963,10 +7578,12 @@ function TaskGoToCoordAnyMeans(ped, x, y, z, fMoveBlendRatio, vehicle, bUseLongR
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x374827C2)  
+---```
 ---The entity will move towards the target until time is over (duration) or get in target's range (distance). p5 and p6 are unknown, but you could leave p5 = 1073741824 or 100 or even 0 (didn't see any difference but on the decompiled scripts, they use 1073741824 mostly) and p6 = 0---
 ---Note: I've only tested it on entity -> ped and target -> vehicle. It could work differently on other entities, didn't try it yet.---
 ---Example: TASK::TASK_GO_TO_ENTITY(pedHandle, vehicleHandle, 5000, 4.0, 100, 1073741824, 0)---
 ---Ped will run towards the vehicle for 5 seconds and stop when time is over or when he gets 4 meters(?) around the vehicle (with duration = -1, the task duration will be ignored).
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_GO_TO_ENTITY](?\_0x6A071245EB0D1882).**
 ---@param entity integer
@@ -6980,9 +7597,11 @@ function TaskGoToEntity(entity, target, duration, distance, speed, p5, p6) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8DCC19C5)  
+---```
 ---In the scripts, p3 was always -1.---
 ---p3 seems to be duration or timeout of turn animation.---
 ---Also facingPed can be 0 or -1 so ped will just raise hands up.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_HANDS_UP](?\_0xF2EAB31979A7F910).**
 ---@param ped integer
@@ -7004,6 +7623,7 @@ function TaskLeaveAnyVehicle(ped, p1, flags) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7B1141C6)  
+---```
 ---Flags from decompiled scripts:---
 ---0 = normal exit and closes door.---
 ---1 = normal exit and closes door.---
@@ -7013,6 +7633,7 @@ function TaskLeaveAnyVehicle(ped, p1, flags) end
 ---4160 = ped is throwing himself out, even when the vehicle is still.---
 ---262144 = ped moves to passenger seat first, then exits normally---
 ---Others to be tried out: 320, 512, 131072.
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_LEAVE_VEHICLE](?\_0xD3DBCE61A490BE02).**
 ---@param ped integer
@@ -7024,52 +7645,41 @@ function TaskLeaveVehicle(ped, vehicle, flags) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5AB552C6)  
 ---[Animations list](https://alexguirre.github.io/animations-list/)
 ---
----```
----float blendInSpeed > normal speed is 8.0f---
-----------------------------
----float blendOutSpeed > normal speed is 8.0f---
-----------------------------
----int duration: time in millisecond---
-----------------------------
-----1 _ _ _ _ _ _ _> Default (see flag)---
----0 _ _ _ _ _ _ _ > Not play at all---
----Small value _ _ > Slow down animation speed---
----Other _ _ _ _ _ > freeze player control until specific time (ms) has---
----_ _ _ _ _ _ _ _ _ passed. (No effect if flag is set to be---
----_ _ _ _ _ _ _ _ _ controllable.)---
----int flag:---
-----------------------------
----enum eAnimationFlags---
+---```cpp
+---enum eScriptedAnimFlags---
 ---{---
----ANIM_FLAG_NORMAL = 0,---
----ANIM_FLAG_REPEAT = 1,---
----ANIM_FLAG_STOP_LAST_FRAME = 2,---
----ANIM_FLAG_UPPERBODY = 16,---
----ANIM_FLAG_ENABLE_PLAYER_CONTROL = 32,---
----ANIM_FLAG_CANCELABLE = 120,---
----};---
----Odd number : loop infinitely---
----Even number : Freeze at last frame---
----Multiple of 4: Freeze at last frame but controllable---
----01 to 15 > Full body---
----10 to 31 > Upper body---
----32 to 47 > Full body > Controllable---
----48 to 63 > Upper body > Controllable---
----...---
----001 to 255 > Normal---
----256 to 511 > Garbled---
----...---
----playbackRate:---
----values are between 0.0 and 1.0---
----lockX:---
----0 in most cases 1 for rcmepsilonism8 and rcmpaparazzo_3---
----> 1 for mini@sprunk---
----lockY:---
----0 in most cases---
----1 for missfam5_yoga, missfra1mcs_2_crew_react---
----lockZ:---
----0 for single player---
----Can be 1 but only for MP
+---AF_LOOPING = 1,---
+---AF_HOLD_LAST_FRAME = 2,---
+---AF_REPOSITION_WHEN_FINISHED = 4,---
+---AF_NOT_INTERRUPTABLE = 8,---
+---AF_UPPERBODY = 16,---
+---AF_SECONDARY = 32,---
+---AF_REORIENT_WHEN_FINISHED = 64,---
+---AF_ABORT_ON_PED_MOVEMENT = 128,---
+---AF_ADDITIVE = 256,---
+---AF_TURN_OFF_COLLISION = 512,---
+---AF_OVERRIDE_PHYSICS = 1024,---
+---AF_IGNORE_GRAVITY = 2048,---
+---AF_EXTRACT_INITIAL_OFFSET = 4096,---
+---AF_EXIT_AFTER_INTERRUPTED = 8192,---
+---AF_TAG_SYNC_IN = 16384,---
+---AF_TAG_SYNC_OUT = 32768,---
+---AF_TAG_SYNC_CONTINUOUS = 65536,---
+---AF_FORCE_START = 131072,---
+---AF_USE_KINEMATIC_PHYSICS = 262144,---
+---AF_USE_MOVER_EXTRACTION = 524288,---
+---AF_HIDE_WEAPON = 1048576,---
+---AF_ENDS_IN_DEAD_POSE = 2097152,---
+---AF_ACTIVATE_RAGDOLL_ON_COLLISION = 4194304,---
+---AF_DONT_EXIT_ON_DEATH = 8388608,---
+---AF_ABORT_ON_WEAPON_DAMAGE = 16777216,---
+---AF_DISABLE_FORCED_PHYSICS_UPDATE = 33554432,---
+---AF_PROCESS_ATTACHMENTS_ON_START = 67108864,---
+---AF_EXPAND_PED_CAPSULE_FROM_SKELETON = 134217728,---
+---AF_USE_ALTERNATIVE_FP_ANIM = 268435456,---
+---AF_BLENDOUT_WRT_LAST_FRAME = 536870912,---
+---AF_USE_FULL_BLENDING = 1073741824---
+---}
 ---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_PLAY_ANIM](?\_0xEA47FE3719165B94).**
@@ -7088,27 +7698,27 @@ function TaskPlayAnim(ped, animDictionary, animationName, blendInSpeed, blendOut
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3DDEB0E6)  
----It's similar to the one above, except the first 6 floats let you specify the initial position and rotation of the task. (Ped gets teleported to the position).---
+---Similar in functionality to [`TASK_PLAY_ANIM`](#\_0xEA47FE3719165B94), except the position and rotation parameters let you specify the initial position and rotation of the task. The ped is teleported to the position specified.---
 ---[Animations list](https://alexguirre.github.io/animations-list/)
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_PLAY_ANIM_ADVANCED](?\_0x83CDB10EA29B370B).**
 ---@param ped integer
----@param animDict string
----@param animName string
+---@param animDictionary string
+---@param animationName string
 ---@param posX number
 ---@param posY number
 ---@param posZ number
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param animEnterSpeed number
----@param animExitSpeed number
+---@param blendInSpeed number
+---@param blendOutSpeed number
 ---@param duration integer
 ---@param flag any
 ---@param animTime number
 ---@param p14 any
 ---@param p15 any
-function TaskPlayAnimAdvanced(ped, animDict, animName, posX, posY, posZ, rotX, rotY, rotZ, animEnterSpeed, animExitSpeed, duration, flag, animTime, p14, p15) end
+function TaskPlayAnimAdvanced(ped, animDictionary, animationName, posX, posY, posZ, rotX, rotY, rotZ, blendInSpeed, blendOutSpeed, duration, flag, animTime, p14, p15) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8A632BD8)  
@@ -7121,7 +7731,9 @@ function TaskReactAndFleePed(ped, fleeTarget) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x601C22E3)  
+---```
 ---Firing Pattern Hash Information: https://pastebin.com/Px036isB
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_SHOOT_AT_COORD](?\_0x46A6CC01E0826106).**
 ---@param ped integer
@@ -7134,14 +7746,16 @@ function TaskShootAtCoord(ped, x, y, z, duration, firingPattern) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAC0631C9)  
+---```
 ---//this part of the code is to determine at which entity the player is aiming, for example if you want to create a mod where you give orders to peds---
 ---Entity aimedentity;---
 ---Player player = PLAYER::PLAYER_ID();---
----PLAYER::\_GET_AIMED_ENTITY(player, \&aimedentity);---
+---PLAYER::_GET_AIMED_ENTITY(player, &aimedentity);---
 ---//bg is an array of peds---
----TASK::TASK_SHOOT_AT_ENTITY(bg\[i], aimedentity, 5000, MISC::GET_HASH_KEY("FIRING_PATTERN_FULL_AUTO"));---
+---TASK::TASK_SHOOT_AT_ENTITY(bg[i], aimedentity, 5000, MISC::GET_HASH_KEY("FIRING_PATTERN_FULL_AUTO"));---
 ---in practical usage, getting the entity the player is aiming at and then task the peds to shoot at the entity, at a button press event would be better.---
 ---Firing Pattern Hash Information: https://pastebin.com/Px036isB
+---```
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_SHOOT_AT_ENTITY](?\_0x08DA95E8298AE772).**
 ---@param entity integer
@@ -7152,7 +7766,12 @@ function TaskShootAtEntity(entity, target, duration, firingPattern) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x65D4A35D)  
----TASK_WARP_PED_INTO_VEHICLE
+---```
+---NativeDB Introduced: v323
+---```
+---
+---Warp a ped into a vehicle.---
+---**Note**: It's better to use [`TASK_ENTER_VEHICLE`](#\_0xC20E50AA46D09CA8) with the flag "warp" flag instead of this native.
 ---
 ---**This is the server-side RPC native equivalent of the client native [TASK_WARP_PED_INTO_VEHICLE](?\_0x9A7D091411C5F684).**
 ---@param ped integer
