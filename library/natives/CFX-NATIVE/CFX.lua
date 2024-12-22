@@ -613,6 +613,13 @@ function DoesPlayerOwnSkuExt(playerSrc, skuId) end
 function DoesTimecycleModifierHasVar(modifierName, varName) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x77CC80DC)  
+---This native does not have an official description.
+---@param train integer
+---@return boolean
+function DoesTrainStopAtStations(train) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEF30A696)  
 ---Checks whether the vehicle consumes fuel. The check is done based on petrol tank volume and vehicle type. Bicycles and vehicles with petrol tank volume equal to zero (only bicycles by default) do not use fuel. All other vehicles do.
 ---
@@ -2240,15 +2247,18 @@ function GetPlayerGuid(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7302DBCF)  
----This native does not have an official description.
+---To get the number of identifiers, use [GET_NUM_PLAYER_IDENTIFIERS](?\_0xFF7F66AB)
+---
+---To get a specific type of identifier, use [GET_PLAYER_IDENTIFIER_BY_TYPE](?\_0xA61C8FC6)
 ---@param playerSrc string
----@param identifier integer
+---@param identiferIndex integer
 ---@return string
-function GetPlayerIdentifier(playerSrc, identifier) end
+function GetPlayerIdentifier(playerSrc, identiferIndex) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA61C8FC6)  
----Get an identifier from a player by the type of the identifier.
+---Get an identifier from a player by the type of the identifier.---
+---Known [Identifiers](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/functions/GetPlayerIdentifiers/#identifier-types)
 ---@param playerSrc string
 ---@param identifierType string
 ---@return string
@@ -2810,6 +2820,15 @@ function GetVehicleDashboardBoost() end
 function GetVehicleDashboardColour(vehicle) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x435C86F4)  
+---Retrieves the current gear displayed on the dashboard of the vehicle the player is in, returned as a float. This value represents the gear shown in the instrument cluster, such as "R" (0.0) or positive values (e.g., 1.0, 2.0, etc.) for drive gears.
+---@return number
+function GetVehicleDashboardCurrentGear() end
+
+---@deprecated
+GetVehicleDashboardWaterTemp = GetVehicleDashboardCurrentGear
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x19B0B2CE)  
 ---This native does not have an official description.
 ---@return number
@@ -2867,12 +2886,6 @@ function GetVehicleDashboardTemp() end
 ---This native does not have an official description.
 ---@return number
 function GetVehicleDashboardVacuum() end
-
----**`CFX` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x8E3B3E42)  
----This native does not have an official description.
----@return number
-function GetVehicleDashboardWaterTemp() end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEF7C6538)  
@@ -6755,6 +6768,13 @@ function SetTrainDoorOpenRatio(train, doorIndex, ratio) end
 ---Enables or disables whether train doors should be forced open whilst a player is inside the train. This is enabled by default in multiplayer.
 ---@param forceOpen boolean
 function SetTrainsForceDoorsOpen(forceOpen) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xECB8B577)  
+---Toggles a train's ability to stop at stations
+---@param train integer
+---@param state boolean
+function SetTrainStopAtStations(train, state) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x24877D84)  
