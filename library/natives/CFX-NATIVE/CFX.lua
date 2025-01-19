@@ -515,6 +515,8 @@ function CreateVehicleServerSetter(modelHash, type, x, y, z, heading) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFAA3D236)  
 ---Deletes the specified entity.
+---
+---**NOTE**: For trains this will only work if called on the train engine, it will not work on its carriages.
 ---@param entity integer
 function DeleteEntity(entity) end
 
@@ -535,6 +537,12 @@ function DeleteResourceKvp(key) end
 ---Nonsynchronous [DELETE_RESOURCE_KVP](#\_0x7389B5DF) operation; see [FLUSH_RESOURCE_KVP](#\_0x5240DA5A).
 ---@param key string
 function DeleteResourceKvpNoSync(key) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x523BA3DA)  
+---Deletes the specified `entity` and any carriage its attached to, or that is attached to it.
+---@param entity integer
+function DeleteTrain(entity) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA085CB10)  
@@ -1383,6 +1391,7 @@ function GetFuelConsumptionState() end
 ---    *   3095
 ---    *   3258
 ---    *   3323
+---    *   3407
 ---*   RedM
 ---    *   1311
 ---    *   1355
@@ -2707,6 +2716,20 @@ function GetTimecycleVarDefaultValueByIndex(varIndex) end
 ---@return string
 function GetTimecycleVarNameByIndex(varIndex) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBF482A5E)  
+---This native does not have an official description.
+---@param track integer
+---@return number
+function GetTrackBrakingDistance(track) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x34EE2BF3)  
+---This native does not have an official description.
+---@param track integer
+---@return number
+function GetTrackMaxSpeed(track) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95070FA)  
 ---This native does not have an official description.
@@ -2722,11 +2745,25 @@ function GetTrainCarriageEngine(train) end
 function GetTrainCarriageIndex(train) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA4921EF5)  
+---Gets the trains desired speed.
+---@param train integer
+---@return number
+function GetTrainCruiseSpeed(train) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE015E854)  
 ---This native does not have an official description.
 ---@param train integer
 ---@return integer
 function GetTrainCurrentTrackNode(train) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8DAF79B6)  
+---Gets the direction the train is facing
+---@param train integer
+---@return boolean
+function GetTrainDirection(train) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x99974721)  
@@ -2742,6 +2779,20 @@ function GetTrainDoorCount(train) end
 ---@param doorIndex integer
 ---@return number
 function GetTrainDoorOpenRatio(train, doorIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x428668B7)  
+---Gets the speed the train is currently going.
+---@param train integer
+---@return number
+function GetTrainSpeed(train) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x81B50033)  
+---This native does not have an official description.
+---@param train integer
+---@return integer
+function GetTrainState(train) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC62AAC98)  
@@ -3229,6 +3280,13 @@ GetVehicleCurrentAcceleration = GetVehicleThrottleOffset
 ---@param vehicle integer
 ---@return number
 function GetVehicleTopSpeedModifier(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9963D5F9)  
+---This native does not have an official description.
+---@param vehicle integer
+---@return integer
+function GetVehicleTotalRepairs(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE02B51D7)  
@@ -3948,6 +4006,42 @@ function IsPlayerUsingSuperJump(playerSrc) end
 function IsPrincipalAceAllowed(principal, object) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD95A7387)  
+---Can be used to get state of raw key on keyboard.
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function IsRawKeyDown(rawKeyIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x69F7C29E)  
+---Can be used to get state of raw key on keyboard.
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function IsRawKeyPressed(rawKeyIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEAA50861)  
+---Can be used to get release state of raw key on keyboard.
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function IsRawKeyReleased(rawKeyIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x36F4E505)  
+---Can be used to get state of raw key on keyboard.
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function IsRawKeyUp(rawKeyIndex) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA194934D)  
 ---**Experimental**: This native may be altered or removed in future versions of CitizenFX without warning.
 ---
@@ -3955,6 +4049,20 @@ function IsPrincipalAceAllowed(principal, object) end
 ---@param registerAs string
 ---@return boolean
 function IsStreamingFileReady(registerAs) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x31E695CB)  
+---Getter for [SET_TRACK_ENABLED](?\_0x4b41e84c)
+---@param track integer
+---@return boolean
+function IsTrackEnabled(track) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE0C53765)  
+---Getter for [SWITCH_TRAIN_TRACK](?\_0xFD813BB7DB977F20). Determines if ambient trains are able to spawn on this track.
+---@param track integer
+---@return boolean
+function IsTrackSwitchedOff(track) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDC921211)  
@@ -5513,6 +5621,12 @@ function SetNuiFocus(hasFocus, hasCursor) end
 ---@param keepInput boolean
 function SetNuiFocusKeepInput(keepInput) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3734AAFF)  
+---Set the z-index of the NUI resource.
+---@param zIndex integer
+function SetNuiZindex(zIndex) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBF90DF1A)  
 ---```
@@ -6756,6 +6870,27 @@ function SetTextWrap(start, _end) end
 function SetTimecycleModifierVar(modifierName, varName, value1, value2) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x77EB78D0)  
+---Sets the braking distance of the track. Used by trains to determine the point to slow down when entering a station.
+---@param track integer
+---@param brakingDistance number
+function SetTrackBrakingDistance(track, brakingDistance) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4B41E84C)  
+---Toggles the track being active. If disabled mission trains will not be able to spawn on this track and will look for the next closest track to spawn
+---@param track integer
+---@param enabled boolean
+function SetTrackEnabled(track, enabled) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x37BFC732)  
+---Sets the max speed for the train tracks. Used by ambient trains and for station calculations
+---@param track integer
+---@param newSpeed integer
+function SetTrackMaxSpeed(track, newSpeed) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2468DBE8)  
 ---Sets the ratio that a door is open for on a train.
 ---@param train integer
@@ -6768,6 +6903,13 @@ function SetTrainDoorOpenRatio(train, doorIndex, ratio) end
 ---Enables or disables whether train doors should be forced open whilst a player is inside the train. This is enabled by default in multiplayer.
 ---@param forceOpen boolean
 function SetTrainsForceDoorsOpen(forceOpen) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x61CB74A0)  
+---This native does not have an official description.
+---@param train integer
+---@param state integer
+function SetTrainState(train, state) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xECB8B577)  
