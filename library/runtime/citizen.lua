@@ -48,22 +48,22 @@ function Citizen.InvokeNative(hash, ...) end
 function Citizen.InvokeNative2(nativeHash, ...) end
 
 ---Loads a game native function for later invocation.
----@param nativeNative string The name of the native name to load.
+---@param nativeNative string The name of the native function to load.
 ---@return fun(...): ...; The native function if it was successfully loaded, nil otherwise.
 function Citizen.LoadNative(nativeNative) end
 
 ---Gets the function handle of the native hash.
 ---@param nativeHash number The hash of the native.
----@return fun(...): ... ; The native function. This will allways return a function, event if the native is invalid.
+---@return fun(...): ... ; The native function. This will always return a function, even if the native is invalid.
 function Citizen.GetNative(nativeHash) end
 
 ---Retrieves an initialized float value from a pointer. Same as `Citizen.PointerValueInt`, but this assumes the pointer is initialized.
----@param pointer integer; The pointer to the adress in the memory.
+---@param pointer integer; The pointer to the address in the memory.
 ---@return userdata; The data retrieved by the pointer.
 function Citizen.PointerValueIntInitialized(pointer) end
 
 ---Retrieves an initialized integer value from a pointer. Same as `Citizen.PointerValueFloat`, but this assumes the pointer is initialized.
----@param pointer integer; The pointer to the adress in the memory.
+---@param pointer integer; The pointer to the address in the memory.
 ---@return userdata; The data retrieved by the pointer.
 function Citizen.PointerValueFloatInitialized(pointer) end
 
@@ -123,7 +123,7 @@ function Citizen.GetFunctionReference(fun) end
 function Citizen.CanonicalizeRef(reference) end
 
 ---Sets a routine for managing game ticks.
----@param tickFunction fun(tickTime: number, profilerEnabled: boolean)) The function to set as the tick routine.
+---@param tickFunction fun(tickTime: number, profilerEnabled: boolean) The function to set as the tick routine.
 function Citizen.SetTickRoutine(tickFunction) end
 
 ---Sets a routine for managing entity boundaries.
