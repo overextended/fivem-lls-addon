@@ -49,7 +49,7 @@ function Citizen.InvokeNative2(nativeHash, ...) end
 
 ---Loads a game native function for later invocation.
 ---@param nativeNative string The name of the native function to load.
----@return fun(...): ...; The native function if it was successfully loaded, nil otherwise.
+---@return function | nil; The native function if it was successfully loaded, nil otherwise.
 function Citizen.LoadNative(nativeNative) end
 
 ---Gets the function handle of the native hash.
@@ -106,42 +106,10 @@ function Citizen.ResultAsVector() end
 ---@see Citizen.ResultAsObject2 Because this is unused in all native loaders.
 function Citizen.ResultAsObject() end
 
----Converts the result of a native invocation to an object.
+---Converts the result of a native invocation to an object. In most of the instances where this is used, it is passed as the first argument to the ``msgpack.unpack`` function.
 ---@return table; The result as an object.
 ---@param msgpack_unpack function
+---```LUA
+---Citizen.ResultAsObject2(msgpack.unpack)
+---```
 function Citizen.ResultAsObject2(msgpack_unpack) end
-
----Gets a function reference for a given function. This can be used to pass functions across the network or to native invocations where a function reference is required.
----If the input is a table with a `__cfx_functionReference` key, it wraps the table in a function call.
----@param fun function The function or table to get a reference for.
----@return string|nil; A string reference to the function if successful, nil otherwise.
-function Citizen.GetFunctionReference(fun) end
-
----Converts a reference into a canonical form.
----@param reference integer The reference to canonicalize.
----@return string; The canonical form of the reference.
-function Citizen.CanonicalizeRef(reference) end
-
----Sets a routine for managing game ticks.
----@param tickFunction fun(tickTime: number, profilerEnabled: boolean) The function to set as the tick routine.
-function Citizen.SetTickRoutine(tickFunction) end
-
----Sets a routine for managing entity boundaries.
----@param routineFunction fun(f: unknown) The function to set as the boundary routine.
-function Citizen.SetBoundaryRoutine(routineFunction) end
-
----Invokes a function by its reference.
----@param reference string The function reference to invoke.
----@param args string The arguments to pass to the function.
----@return ...; The return value(s) of the function.
-function Citizen.InvokeFunctionReference(reference, args) end
-
----Marks the start of a boundary for execution.
----@param data table
----@param coroutine thread
-function Citizen.SubmitBoundaryStart(data, coroutine) end
-
----Marks the end of a boundary for execution.
----@param data table
----@param size integer
-function Citizen.SubmitBoundaryEnd(data, size) end
