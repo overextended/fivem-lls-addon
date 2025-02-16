@@ -2137,6 +2137,24 @@ function GetPedModelPersonality(modelHash) end
 function GetPedMovementClipset(ped) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCD420AD1)  
+---An analogue to [GET_PED_PROP_INDEX](#\_0x898CC20EA75BACD8) that returns collection local prop index (inside [GET_PED_PROP_COLLECTION_NAME](#\_0x6B5653E4) collection) instead of the global prop index.
+---@param ped integer
+---@param anchorPoint integer
+---@return integer
+function GetPedPropCollectionLocalIndex(ped, anchorPoint) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x6B5653E4)  
+---An analogue to [GET_PED_PROP_INDEX](#\_0x898CC20EA75BACD8) that returns collection name instead of the global drawable index.
+---
+---Should be used together with [GET_PED_PROP_COLLECTION_LOCAL_INDEX](#\_0xCD420AD1).
+---@param ped integer
+---@param anchorPoint integer
+---@return string
+function GetPedPropCollectionName(ped, anchorPoint) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2CB45CDC)  
 ---Returns global prop index based on the local one. Is it a reverse to [GET_PED_COLLECTION_NAME_FROM_PROP](#\_0x8ED0C17) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_PROP](#\_0xFBDB885F) natives.
 ---
@@ -2981,10 +2999,11 @@ function GetVehicleDoorsLockedForPlayer(vehicle) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6E35C49C)  
----This native does not have an official description.
+---Returns the open position of the specified door on the target vehicle.
 ---@param vehicle integer
+---@param doorIndex integer
 ---@return integer
-function GetVehicleDoorStatus(vehicle) end
+function GetVehicleDoorStatus(vehicle, doorIndex) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x21C1DA8E)  
@@ -3545,6 +3564,12 @@ function GetVehicleWindowTint(vehicle) end
 ---@param vehicle integer
 ---@return boolean, integer, integer, integer
 function GetVehicleXenonLightsCustomColor(vehicle) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x16605B30)  
+---A getter for [SET_VEHICLE_XMAS_SNOW_FACTOR](#\_80cc4c9e).
+---@return number
+function GetVehicleXmasSnowFactor() end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x14088095)  
@@ -4151,7 +4176,13 @@ function LoadPlayerCommerceData(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7995539E)  
----Requests the commerce data from Tebex for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
+---Requests the commerce data from Tebex for the specified player, including the owned SKUs.
+---
+---Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) to check if it has loaded.
+---
+---This will not automatically update whenever a client purchases a package, if you want to fetch new purchases you will need to call this native again.
+---
+---This native will temporarily cache the players commerce data for 10 seconds, a call to this native after 10 seconds will re-fetch the players commerce data.
 ---@param playerSrc string
 function LoadPlayerCommerceDataExt(playerSrc) end
 
@@ -4436,6 +4467,12 @@ function NetworkGetNetworkIdFromEntity(entity) end
 ---@param playerSrc string
 ---@return vector3
 function NetworkGetVoiceProximityOverrideForPlayer(playerSrc) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x30CE39D8)  
+---Toggles a check that prevents attaching (networked) entities to remotely owned peds. This is disabled by default.
+---@param enable boolean
+function OnesyncEnableRemoteAttachmentSanitization(enable) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x90A9E0B2)  
@@ -7388,6 +7425,12 @@ SetVehicleWheelXrot = SetVehicleWheelYRotation
 ---@param green integer
 ---@param blue integer
 function SetVehicleXenonLightsCustomColor(vehicle, red, green, blue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x80CC4C9E)  
+---This native does not have an official description.
+---@param gripFactor number
+function SetVehicleXmasSnowFactor(gripFactor) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD1D31681)  
