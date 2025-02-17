@@ -41,7 +41,7 @@ function TriggerEvent(eventName, ...) end
 --- [Documentation](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/functions/TriggerClientEvent/)<br>
 --- Triggers an event on the specified client(s) and passes on any additional arguments.
 ---@param eventName string
----@param playerId Player
+---@param playerId integer
 ---@vararg ...
 function TriggerClientEvent(eventName, playerId, ...) end
 
@@ -50,7 +50,7 @@ function TriggerClientEvent(eventName, playerId, ...) end
 --- This is important for timeout functionality, as sending a large amount of data blocks the network for the client, and if blocked for too long, will result in the client timing out.
 --- Latent events take an extra parameter `bps` which stands for 'bytes per second'; this defines how fast it should send data to the client.
 ---@param eventName string
----@param playerId Player
+---@param playerId integer
 ---@param bps number
 ---@vararg ...
 function TriggerLatentClientEvent(eventName, playerId, bps, ...) end
