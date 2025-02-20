@@ -26,7 +26,7 @@ function RemoveEventHandler(eventData) end
 --- If you do not provide a callback function, use [AddEventHandler](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/functions/AddEventHandler/) to listen for the event after registering it.
 ---@param eventName string
 ---@param cb? fun(...) trigger a coroutine when the event is called.
----@return EventHandler? Returns nil if you don't specify a callback.
+---@return EventHandler?; Returns nil if you don't specify a callback.
 function RegisterNetEvent(eventName, cb) end
 
 ---@deprecated
