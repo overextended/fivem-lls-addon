@@ -20,7 +20,9 @@ function DecorGetBool(entity, propertyName) end
 
 ---**`DECORATOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6524A2F114706F43)  
----This native does not have an official description.
+---```
+---The native name is correct but the db automatically prefixes "_" to unknown natives when changed.  
+---```
 ---@param entity integer
 ---@param propertyName string
 ---@return number
@@ -36,7 +38,17 @@ function DecorGetInt(entity, propertyName) end
 
 ---**`DECORATOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4F14F9F870D6FBC8)  
----This native does not have an official description.
+---```
+---Is property of that type.  
+---enum eDecorType  
+---{  
+---	DECOR_TYPE_FLOAT = 1,  
+---	DECOR_TYPE_BOOL,  
+---	DECOR_TYPE_INT,  
+---	DECOR_TYPE_UNK,  
+---	DECOR_TYPE_TIME  
+---};  
+---```
 ---@param propertyName string
 ---@param type integer
 ---@return boolean
@@ -44,15 +56,58 @@ function DecorIsRegisteredAsType(propertyName, type) end
 
 ---**`DECORATOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9FD90732F56403CE)  
----```cpp
----enum eDecorType
----{
----    DECOR_TYPE_FLOAT = 1,
----    DECOR_TYPE_BOOL = 2,
----    DECOR_TYPE_INT = 3,
----    DECOR_TYPE_STRING = 4,
----    DECOR_TYPE_TIME = 5
----};
+---```
+---Found this in standard_global_init.c4 line 1898  
+---void sub_523a() {  
+---    DECORATOR::DECOR_REGISTER("Player_Vehicle", 3);  
+---    DECORATOR::DECOR_REGISTER("PV_Slot", 3);  
+---    DECORATOR::DECOR_REGISTER("Previous_Owner", 3);  
+---    DECORATOR::DECOR_REGISTER("Sprayed_Vehicle_Decorator", 2);  
+---    DECORATOR::DECOR_REGISTER("Sprayed_Vehicle_Timer_Dec", 5);  
+---    DECORATOR::DECOR_REGISTER("Vehicle_Reward", 3);  
+---    DECORATOR::DECOR_REGISTER("Vehicle_Reward_Teams", 3);  
+---    DECORATOR::DECOR_REGISTER("Skill_Blocker", 2);  
+---    DECORATOR::DECOR_REGISTER("TargetPlayerForTeam", 3);  
+---    DECORATOR::DECOR_REGISTER("XP_Blocker", 2);  
+---    DECORATOR::DECOR_REGISTER("CrowdControlSetUp", 3);  
+---    DECORATOR::DECOR_REGISTER("Bought_Drugs", 2);  
+---    DECORATOR::DECOR_REGISTER("HeroinInPossession", 1);  
+---    DECORATOR::DECOR_REGISTER("CokeInPossession", 1);  
+---    DECORATOR::DECOR_REGISTER("WeedInPossession", 1);  
+---    DECORATOR::DECOR_REGISTER("MethInPossession", 1);  
+---    DECORATOR::DECOR_REGISTER("bombdec", 3);  
+---    DECORATOR::DECOR_REGISTER("bombdec1", 3);  
+---    DECORATOR::DECOR_REGISTER("bombowner", 3);  
+---    DECORATOR::DECOR_REGISTER("noPlateScan", 2);  
+---    DECORATOR::DECOR_REGISTER("prisonBreakBoss", 2);  
+---    DECORATOR::DECOR_REGISTER("cashondeadbody", 3);  
+---    DECORATOR::DECOR_REGISTER("MissionType", 3);  
+---    DECORATOR::DECOR_REGISTER("MatchId", 3);  
+---    DECORATOR::DECOR_REGISTER("TeamId", 3);  
+---    DECORATOR::DECOR_REGISTER("Not_Allow_As_Saved_Veh", 3);  
+---    DECORATOR::DECOR_REGISTER("Veh_Modded_By_Player", 3);  
+---    DECORATOR::DECOR_REGISTER("MPBitset", 3);  
+---    DECORATOR::DECOR_REGISTER("MC_EntityID", 3);  
+---    DECORATOR::DECOR_REGISTER("MC_ChasePedID", 3);  
+---    DECORATOR::DECOR_REGISTER("MC_Team0_VehDeliveredRules", 3);  
+---    DECORATOR::DECOR_REGISTER("MC_Team1_VehDeliveredRules", 3);  
+---    DECORATOR::DECOR_REGISTER("MC_Team2_VehDeliveredRules", 3);  
+---    DECORATOR::DECOR_REGISTER("MC_Team3_VehDeliveredRules", 3);  
+---    DECORATOR::DECOR_REGISTER("AttributeDamage", 3);  
+---    DECORATOR::DECOR_REGISTER("GangBackup", 3);  
+---    DECORATOR::DECOR_REGISTER("CreatedByPegasus", 2);  
+---    DECORATOR::DECOR_REGISTER("BeforeCorona_0", 2);  
+---}  
+--------------------------------------------------------------------------  
+---Defines type of property for property name.  
+---enum eDecorType  
+---{  
+---	DECOR_TYPE_FLOAT = 1,  
+---	DECOR_TYPE_BOOL,  
+---	DECOR_TYPE_INT,  
+---	DECOR_TYPE_UNK,  
+---	DECOR_TYPE_TIME  
+---};  
 ---```
 ---@param propertyName string
 ---@param type integer
@@ -86,7 +141,9 @@ function DecorSetBool(entity, propertyName, value) end
 
 ---**`DECORATOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x211AB1DD8D0F363A)  
----This native does not have an official description.
+---```
+---The native name is correct but the db automatically prefixes "_" to unknown natives when changed.  
+---```
 ---@param entity integer
 ---@param propertyName string
 ---@param value number
@@ -112,4 +169,21 @@ function DecorSetInt(entity, propertyName, value) end
 ---@param timestamp integer
 ---@return boolean
 function DecorSetTime(entity, propertyName, timestamp) end
+
+---**`DECORATOR` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x241FCA5B1AA14F75)  
+---```
+---------------------------  
+---| Belongs in DLC2 |  
+---------------------------  
+---Only used once in scripts, in maintransition.  
+---maintransition.c4, line ~82432:  
+---if (PED::_7350823473013C02(PLAYER::PLAYER_PED_ID()) && (DECORATOR::_241FCA5B1AA14F75() == 0)) {  
+---    g_2542A5 = a_1; // 'g_2542A5' used in 'building_controller.ysc' for IPL stuff?  
+---    return 1;  
+---}  
+---Likely used solely for the players ped. The function it's in seems to only be used for initialization/quitting. Called among natives to discard scaleforms, disable frontend, fading in/out, etc. Neighboring strings to some calls include "HUD_JOINING", "HUD_QUITTING".  
+---```
+---@return boolean
+function N_0x241fca5b1aa14f75() end
 

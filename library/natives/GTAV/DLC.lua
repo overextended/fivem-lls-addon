@@ -15,11 +15,20 @@ function GetIsLoadingScreenActive() end
 ---**`DLC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x46E2B844905BC5F0)  
 ---```
----Sets the value of the specified variable to 0.
----Always returns true.
+---Sets the value of the specified variable to 0.  
+---Always returns true.  
+---bool _NULLIFY(void* variable, int unused)  
+---{  
+---    *variable = NULL;  
+---    return true;  
+---}  
+---```
+---
+---```
+---NativeDB Parameter 0: BOOL* variable
 ---```
 ---@param unused any
----@return boolean, boolean
+---@return boolean, any
 function HasCloudRequestsFinished(unused) end
 
 ---@deprecated
@@ -28,31 +37,16 @@ Nullify = HasCloudRequestsFinished
 ---**`DLC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x812595A0644CE1DE)  
 ---```
----Example:
----DLC::IS_DLC_PRESENT($\mpbusiness2\);
----($ = gethashkey)
----bruteforce these:
----0xB119F6D
----0x96F02EE6
+---Example:  
+---DLC2::IS_DLC_PRESENT($\mpbusiness2\);  
+---($ = gethashkey)  
+---bruteforce these:  
+---0xB119F6D  
+---0x96F02EE6  
 ---```
 ---@param dlcHash integer | string
 ---@return boolean
 function IsDlcPresent(dlcHash) end
-
----**`DLC` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x241FCA5B1AA14F75)  
----```
----Only used once in scripts, in maintransition.
----maintransition.c4, line ~82432:
----if (PED::_7350823473013C02(PLAYER::PLAYER_PED_ID()) && (DECORATOR::_241FCA5B1AA14F75() == 0)) {
----    g_2542A5 = a_1; // 'g_2542A5' used in 'building_controller.ysc' for IPL stuff?
----    return 1;
----}
----Likely used solely for the players ped. The function it's in seems to only be used for initialization/quitting. Called among natives to discard scaleforms, disable frontend, fading in/out, etc. Neighboring strings to some calls include "HUD_JOINING", "HUD_QUITTING".
----Most likely ARE_*
----```
----@return boolean
-function N_0x241fca5b1aa14f75() end
 
 ---**`DLC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9489659372A81585)  
@@ -67,16 +61,6 @@ function N_0x9489659372a81585() end
 function N_0xa213b11dff526300() end
 
 ---**`DLC` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xC4637A6D03C24CC3)  
----GET_IS_LOADING_\*
----
----```
----NativeDB Introduced: v1734
----```
----@return boolean
-function N_0xc4637a6d03c24cc3() end
-
----**`DLC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF2E07819EF1A5289)  
 ---This native does not have an official description.
 ---@return boolean
@@ -87,7 +71,7 @@ function N_0xf2e07819ef1a5289() end
 ---```
 ---This loads the GTA:O dlc map parts (high end garages, apartments).
 ---Works in singleplayer.
----In order to use GTA:O heist IPL's you have to call this native with the following params: SET_INSTANCE_PRIORITY_MODE(1);
+---In order to use GTA:O heist IPL's you have to call this native with the following params: _9BAE5AD2508DF078(1);
 ---```
 function OnEnterMp() end
 

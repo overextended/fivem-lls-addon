@@ -123,8 +123,6 @@ function GetHashOfMapAreaAtCoords(x, y, z) end
 ---ZANCUDO = Zancudo River  
 ---ZP_ORT = Port of South Los Santos  
 ---ZQ_UAR = Davis Quartz  
----PROL = Prologue / North Yankton
----ISHeist = Cayo Perico Island
 ---```
 ---@param x number
 ---@param y number
@@ -248,18 +246,8 @@ function GetZonePopschedule(zoneId) end
 
 ---**`ZONE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F7B268D15BA0739)  
----Gets the zone scumminess level, used to calculate the cellphone signal strength.
----
----```cpp
----enum eZoneScumminess
----{
----    SCUMMINESS_POSH = 0,
----    SCUMMINESS_NICE = 1,
----    SCUMMINESS_ABOVE_AVERAGE = 2,
----    SCUMMINESS_BELOW_AVERAGE = 3,
----    SCUMMINESS_CRAP = 4,
----    SCUMMINESS_SCUM = 5
----}
+---```
+---cellphone range 1- 5 used for signal bar in iFruit phone  
 ---```
 ---@param zoneId integer
 ---@return integer

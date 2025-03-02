@@ -3,58 +3,73 @@
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD9F8455409B525E9)  
 ---```
----eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
+---duration is float here  
+---Event types- camx.me/gtav/tasks/shockingevents.txt  
 ---```
----@param eventType integer
+---@param type integer
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param duration number
 ---@return integer
-function AddShockingEventAtPosition(eventType, x, y, z, duration) end
+function AddShockingEventAtPosition(type, x, y, z, duration) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7FD8F3BE76F89422)  
 ---```
----eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
+---duration is float here  
+---Event types - camx.me/gtav/tasks/shockingevents.txt  
 ---```
----@param eventType integer
+---@param type integer
 ---@param entity integer
 ---@param duration number
 ---@return integer
-function AddShockingEventForEntity(eventType, entity, duration) end
+function AddShockingEventForEntity(type, entity, duration) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE42FCDFD0E4196F7)  
----```
----eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
----This is limited to 4 blocked events at a time.
----```
+---This native does not have an official description.
 ---@param name integer | string
----@param eventType integer
-function BlockDecisionMakerEvent(name, eventType) end
+---@param type integer
+function BlockDecisionMakerEvent(name, type) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4FC9381A7AEE8968)  
----```
----eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
----```
+---This native does not have an official description.
 ---@param name integer | string
----@param eventType integer
-function ClearDecisionMakerEventResponse(name, eventType) end
+---@param type integer
+function ClearDecisionMakerEventResponse(name, type) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1374ABB7C15BAB92)  
 ---```
----eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
+---Some events that i found, not sure about them, but seems to have logic based on my tests:  
+---'82 - dead body  
+---'86   
+---'87   
+---'88 - shooting, fire extinguisher in use  
+---'89   
+---'93 - ped using horn  
+---'95 - ped receiving melee attack  
+---'102 - living ped receiving shot  
+---'104 - player thrown grenade, tear gas, smoke grenade, jerry can dropping gasoline  
+---'105 - melee attack against veh  
+---'106 - player running  
+---'108 - vehicle theft  
+---'112 - melee attack  
+---'113 - veh rollover ped  
+---'114 - dead ped receiving shot  
+---'116 - aiming at ped  
+---'121   
+---		Here is full dump of shocking event types from the exe camx.me/gtav/tasks/shockingevents.txt  
 ---```
----@param eventType integer
+---@param type integer
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param radius number
 ---@return boolean
-function IsShockingEventInSphere(eventType, x, y, z, radius) end
+function IsShockingEventInSphere(type, x, y, z, radius) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEAABE8FDFA21274C)  
@@ -93,18 +108,14 @@ function SuppressShockingEventsNextFrame() end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3FD2EC8BF1F1CF30)  
----```
----eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
----```
----@param eventType integer
-function SuppressShockingEventTypeNextFrame(eventType) end
+---This native does not have an official description.
+---@param type integer
+function SuppressShockingEventTypeNextFrame(type) end
 
 ---**`EVENT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD7CD9CF34F2C99E8)  
----```
----eventType: https://alloc8or.re/gta5/doc/enums/eEventType.txt
----```
+---This native does not have an official description.
 ---@param name integer | string
----@param eventType integer
-function UnblockDecisionMakerEvent(name, eventType) end
+---@param type integer
+function UnblockDecisionMakerEvent(name, type) end
 

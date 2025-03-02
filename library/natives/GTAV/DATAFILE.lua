@@ -322,16 +322,12 @@ function DatafileClearWatchList() end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD27058A1CA2B13EE)  
----```
----NativeDB Added Parameter 1: int p0
----```
+---This native does not have an official description.
 function DatafileCreate() end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9AB9C1CFC8862DFB)  
----```
----NativeDB Added Parameter 1: int p0
----```
+---This native does not have an official description.
 function DatafileDelete() end
 
 ---**`DATAFILE` `client`**  
@@ -348,9 +344,7 @@ function DatafileFlushMissionHeader() end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x906B778CA1DC72B6)  
----```
----NativeDB Added Parameter 1: int p0
----```
+---This native does not have an official description.
 ---@return string
 function DatafileGetFileDict() end
 
@@ -408,10 +402,6 @@ function DatafileIsValidRequestId(index) end
 ---Example:
 ---DATAFILE::_LOAD_UGC_FILE("RockstarPlaylists") // loads "rockstarplaylists_00.ugc"
 ---```
----
----```
----NativeDB Added Parameter 2: Any p1
----```
 ---@param filename string
 ---@return boolean
 function DatafileLoadOfflineUgc(filename) end
@@ -421,45 +411,35 @@ LoadUgcFile = DatafileLoadOfflineUgc
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x22DA66936E0FFF37)  
----```
----NativeDB Added Parameter 2: Any p1
----```
+---This native does not have an official description.
 ---@param p0 any
 ---@return boolean
 function DatafileSelectActiveFile(p0) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01095C95CD46B624)  
----```
----NativeDB Added Parameter 2: Any p1
----```
+---This native does not have an official description.
 ---@param p0 integer
 ---@return boolean
 function DatafileSelectCreatorStats(p0) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA69AC4ADE82B57A4)  
----```
----NativeDB Added Parameter 2: Any p1
----```
+---This native does not have an official description.
 ---@param p0 integer
 ---@return boolean
 function DatafileSelectUgcData(p0) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x52818819057F2B40)  
----```
----NativeDB Added Parameter 2: Any p1
----```
+---This native does not have an official description.
 ---@param p0 integer
 ---@return boolean
 function DatafileSelectUgcPlayerData(p0) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9CB0BFA7A9342C3D)  
----```
----NativeDB Added Parameter 3: Any p2
----```
+---This native does not have an official description.
 ---@param p0 integer
 ---@param p1 boolean
 ---@return boolean
@@ -468,7 +448,26 @@ function DatafileSelectUgcStats(p0, p1) end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x83BCCE3224735F05)  
 ---```
----NativeDB Added Parameter 2: Any p1
+---Saves a JSON file? It might even be saving it to the Rockstar Cloud, but I have no way of verifying this  
+---"shrinkletter.c4", line ~378:  
+---DATAFILE::DATAFILE_CREATE();  
+---v_5 = DATAFILE::_GET_ROOT_OBJECT();  
+---DATAFILE::_OBJECT_VALUE_ADD_INTEGER(v_5, "in", a_2);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "st", &a_2._f1);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "mp", &a_2._f2);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "ms", &a_2._f3);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "sc", &a_2._f5);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "pr", &a_2._f6);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "fa", &a_2._f7);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "sm", &a_2._f8);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "kp", &a_2._f9);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "sv", &a_2._fA);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "yo", &a_2._fB);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "fi", &a_2._fC);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "rc", &a_2._fD);  
+---DATAFILE::_OBJECT_VALUE_ADD_STRING(v_5, "co", &a_2._fE);  
+---DATAFILE::_OBJECT_VALUE_ADD_INTEGER(v_5, "su", a_2._fF);  
+---DATAFILE::_83BCCE3224735F05("gta5/psych/index.json"); // saves the file?  
 ---```
 ---@param filename string
 ---@return boolean
@@ -476,9 +475,7 @@ function DatafileStartSaveToCloud(filename) end
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2ED61456317B8178)  
----```
----NativeDB Added Parameter 1: int p0
----```
+---This native does not have an official description.
 function DatafileStoreMissionHeader() end
 
 ---**`DATAFILE` `client`**  
@@ -496,39 +493,12 @@ function DatafileUpdateSaveToCloud() end
 function DatafileWatchRequestId(id) end
 
 ---**`DATAFILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x6AD0BD5E087866CB)  
----```
----NativeDB Introduced: v2189
----```
----@param p0 any
-function N_0x6ad0bd5e087866cb(p0) end
-
----**`DATAFILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA6EEF01087181EDD)  
----```
----NativeDB Introduced: v2189
----```
----@param p0 any
----@param p1 any
----@return any
-function N_0xa6eef01087181edd(p0, p1) end
-
----**`DATAFILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xDBF860CF1DB8E599)  
----```
----NativeDB Introduced: v2189
----```
----@param p0 any
----@return any
-function N_0xdbf860cf1db8e599(p0) end
-
----**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC84527E235FCA219)  
 ---```
----NativeDB Added Parameter 8: Any p7
+---NativeDB Parameter 1: int dataCount
 ---```
 ---@param data string
----@param dataCount integer
+---@param dataCount boolean
 ---@param contentName string
 ---@param description string
 ---@param tagsCsv string
@@ -540,7 +510,7 @@ function UgcCreateContent(data, dataCount, contentName, description, tagsCsv, co
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA5EFC3E847D60507)  
 ---```
----NativeDB Added Parameter 6: Any p5
+---NOTE: 'p1' might be some kind of array.  
 ---```
 ---@param contentName string
 ---@param description string
@@ -552,9 +522,7 @@ function UgcCreateMission(contentName, description, tagsCsv, contentTypeName, pu
 
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x692D808C34A82143)  
----```
----NativeDB Added Parameter 4: Any p3
----```
+---This native does not have an official description.
 ---@param contentId string
 ---@param rating number
 ---@param contentTypeName string
@@ -564,10 +532,10 @@ function UgcSetPlayerData(contentId, rating, contentTypeName) end
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x648E7A5434AF7969)  
 ---```
----NativeDB Added Parameter 8: Any p7
+---NativeDB Parameter 2: int dataCount
 ---```
 ---@param contentId string
----@param dataCount integer
+---@param dataCount boolean
 ---@param contentName string
 ---@param description string
 ---@param tagsCsv string
@@ -578,7 +546,7 @@ function UgcUpdateContent(contentId, dataCount, contentName, description, tagsCs
 ---**`DATAFILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4645DE9980999E93)  
 ---```
----NativeDB Added Parameter 6: Any p5
+---NOTE: 'p2' might be some kind of array.  
 ---```
 ---@param contentId string
 ---@param contentName string

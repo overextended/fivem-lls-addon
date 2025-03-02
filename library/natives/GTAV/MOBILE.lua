@@ -11,21 +11,25 @@ function CanPhoneBeSeenOnScreen() end
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFDE8F069C542D126)  
----Activates the cellphone camera. Make sure you have a mobile phone created with [`CREATE_MOBILE_PHONE`](#\_0xA4E8E696C532FBC7) or else the camera will not work.
----@param active boolean
----@param bGoFirstPerson boolean
-function CellCamActivate(active, bGoFirstPerson) end
+---This native does not have an official description.
+---@param p0 boolean
+---@param p1 boolean
+function CellCamActivate(p0, p1) end
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x015C49A93E3E086E)  
----Toggles the selfie mode on the cellphone camera. Only visible when the cell phone camera is active.
+---```
+---Disables the phone up-button, oddly enough.   
+---i.e.: When the phone is out, and this method is called with false as it's parameter, the phone will not be able to scroll up. However, when you use the down arrow key, it's functionality still, works on the phone.   
+---When the phone is not out, and this method is called with false as it's parameter, you will not be able to bring up the phone. Although the up arrow key still works for whatever functionality it's used for, just not for the phone.  
+---This can be used for creating menu's when trying to disable the phone from being used.   
+---You do not have to call the function again with false as a parameter, as soon as the function stops being called, the phone will again be usable.  
+---```
 ---@param toggle boolean
-function CellCamActivateSelfieMode(toggle) end
+function CellCamDisableThisFrame(toggle) end
 
 ---@deprecated
-DisablePhoneThisFrame = CellCamActivateSelfieMode
----@deprecated
-CellCamDisableThisFrame = CellCamActivateSelfieMode
+DisablePhoneThisFrame = CellCamDisableThisFrame
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x439E9BC95B7E7FBE)  
@@ -36,53 +40,14 @@ function CellCamIsCharVisibleNoFaceCheck(entity) end
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95C9E72F3D7DEC9B)  
----Moves the character's finger in a swiping motion when holding a cellphone in their hand through the use of the [CREATE_MOBILE_PHONE](#\_0xA4E8E696C532FBC7) native.
----
----```cpp
----enum eCellInput {
----    CELL_INPUT_NONE = 0,
----    CELL_INPUT_UP = 1,
----    CELL_INPUT_DOWN = 2,
----    CELL_INPUT_LEFT = 3,
----    CELL_INPUT_RIGHT = 4,
----    CELL_INPUT_SELECT = 5
----}
+---```
+---For move the finger of player, the value of int goes 1 at 5.  
 ---```
 ---@param direction integer
 function CellCamMoveFinger(direction) end
 
 ---@deprecated
 MoveFinger = CellCamMoveFinger
-
----**`MOBILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x53F4892D18EC90A4)  
----This native does not have an official description.
----@param p0 number
-function CellCamSetDistance(p0) end
-
----**`MOBILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x466DA42C89865553)  
----This native does not have an official description.
----@param p0 number
-function CellCamSetHeadHeight(p0) end
-
----**`MOBILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xD6ADE981781FCA09)  
----This native does not have an official description.
----@param p0 number
-function CellCamSetHeadPitch(p0) end
-
----**`MOBILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF1E22DC13F5EEBAD)  
----This native does not have an official description.
----@param p0 number
-function CellCamSetHeadRoll(p0) end
-
----**`MOBILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1B0B4AEED5B9B41C)  
----This native does not have an official description.
----@param p0 number
-function CellCamSetHorizontalOffset(p0) end
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44E44169EF70138E)  
@@ -95,18 +60,6 @@ function CellCamSetLean(toggle) end
 
 ---@deprecated
 SetPhoneLean = CellCamSetLean
-
----**`MOBILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x15E69E2802C24B8D)  
----This native does not have an official description.
----@param p0 number
-function CellCamSetRoll(p0) end
-
----**`MOBILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x3117D84EFA60F77B)  
----This native does not have an official description.
----@param p0 number
-function CellCamSetVerticalOffset(p0) end
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA4E8E696C532FBC7)  
@@ -149,19 +102,49 @@ function GetMobilePhoneRenderId() end
 function GetMobilePhoneRotation(p1) end
 
 ---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x15E69E2802C24B8D)  
+---This native does not have an official description.
+---@param p0 number
+function N_0x15e69e2802c24b8d(p0) end
+
+---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1B0B4AEED5B9B41C)  
+---This native does not have an official description.
+---@param p0 number
+function N_0x1b0b4aeed5b9b41c(p0) end
+
+---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3117D84EFA60F77B)  
+---This native does not have an official description.
+---@param p0 number
+function N_0x3117d84efa60f77b(p0) end
+
+---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x466DA42C89865553)  
+---This native does not have an official description.
+---@param p0 number
+function N_0x466da42c89865553(p0) end
+
+---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x53F4892D18EC90A4)  
+---This native does not have an official description.
+---@param p0 number
+function N_0x53f4892d18ec90a4(p0) end
+
+---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA2CCBE62CD4C91A4)  
 ---```
----Needs more research. If the "phone_cam12" filter is applied, this function is called with "TRUE"; otherwise, "FALSE".
----Example (XBOX 360):
----// check current filter selection
----if (MISC::ARE_STRINGS_EQUAL(getElem(g_2471024, &l_17, 4), "phone_cam12") != 0)
----{
----    MOBILE::_0xC273BB4D(0); // FALSE
----}
----else
----{
----    MOBILE::_0xC273BB4D(1); // TRUE
----}
+---Needs more research. If the "phone_cam12" filter is applied, this function is called with "TRUE"; otherwise, "FALSE".  
+---Example (XBOX 360):  
+---// check current filter selection  
+---if (GAMEPLAY::ARE_STRINGS_EQUAL(getElem(g_2471024, &l_17, 4), "phone_cam12") != 0)  
+---{  
+---    MOBILE::_0xC273BB4D(0); // FALSE  
+---}  
+---else  
+---{  
+---    MOBILE::_0xC273BB4D(1); // TRUE  
+---}  
 ---```
 ---@return integer
 function N_0xa2ccbe62cd4c91a4() end
@@ -173,6 +156,51 @@ function N_0xa2ccbe62cd4c91a4() end
 function N_0xac2890471901861c(p0) end
 
 ---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD6ADE981781FCA09)  
+---This native does not have an official description.
+---@param p0 number
+function N_0xd6ade981781fca09(p0) end
+
+---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF1E22DC13F5EEBAD)  
+---This native does not have an official description.
+---@param p0 number
+function N_0xf1e22dc13f5eebad(p0) end
+
+---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBD4D7EAF8A30F637)  
+---```
+---Belongs in UNK3, non-hashed version of 0x247F0F73A182EA0B  
+---```
+---@param name string
+---@return boolean
+function NetGameserverCatalogItemExists(name) end
+
+---@deprecated
+NetworkShopIsItemUnlocked = NetGameserverCatalogItemExists
+---@deprecated
+NetworkShopDoesItemExist = NetGameserverCatalogItemExists
+
+---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x247F0F73A182EA0B)  
+---```
+---ex.:  
+---v_15 = sub_10cc8(VEHICLE::GET_VEHICLE_WHEEL_TYPE(a_2));  
+---if (!MOBILE::_247F0F73A182EA0B(v_15)) {  
+---    return 1;  
+---}  
+---Belongs in UNK3, hashed version of 0xBD4D7EAF8A30F637  
+---```
+---@param hash integer | string
+---@return boolean
+function NetGameserverCatalogItemExistsHash(hash) end
+
+---@deprecated
+NetworkShopIsItemUnlockedHash = NetGameserverCatalogItemExistsHash
+---@deprecated
+NetworkShopDoesItemExistHash = NetGameserverCatalogItemExistsHash
+
+---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF511F759238A5122)  
 ---```
 ---If bool Toggle = true so the mobile is hide to screen.  
@@ -180,15 +208,6 @@ function N_0xac2890471901861c(p0) end
 ---```
 ---@param toggle boolean
 function ScriptIsMovingMobilePhoneOffscreen(toggle) end
-
----**`MOBILE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x375A706A5C2FD084)  
----Toggles depth of field on the cellphone camera.
----@param toggle boolean
-function SetMobilePhoneDofState(toggle) end
-
----@deprecated
-SetMobilePhoneUnk = SetMobilePhoneDofState
 
 ---**`MOBILE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x693A5C6D6734085B)  
@@ -216,4 +235,10 @@ function SetMobilePhoneRotation(rotX, rotY, rotZ, p3) end
 ---```
 ---@param scale number
 function SetMobilePhoneScale(scale) end
+
+---**`MOBILE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x375A706A5C2FD084)  
+---This native does not have an official description.
+---@param toggle boolean
+function SetMobilePhoneUnk(toggle) end
 

@@ -12,28 +12,28 @@ function AddArmourToPed(ped, amount) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F5D1665E352A839)  
 ---```
----Applies an Item from a PedDecorationCollection to a ped. These include tattoos and shirt decals.
----collection - PedDecorationCollection filename hash
----overlay - Item name hash
----Example:
----Entry inside "mpbeach_overlays.xml" -
----<Item>
----  <uvPos x="0.500000" y="0.500000" />
----  <scale x="0.600000" y="0.500000" />
----  <rotation value="0.000000" />
----  <nameHash>FM_Hair_Fuzz</nameHash>
----  <txdHash>mp_hair_fuzz</txdHash>
----  <txtHash>mp_hair_fuzz</txtHash>
----  <zone>ZONE_HEAD</zone>
----  <type>TYPE_TATTOO</type>
----  <faction>FM</faction>
----  <garment>All</garment>
----  <gender>GENDER_DONTCARE</gender>
----  <award />
----  <awardLevel />
----</Item>
----Code:
----PED::_0x5F5D1665E352A839(PLAYER::PLAYER_PED_ID(), MISC::GET_HASH_KEY("mpbeach_overlays"), MISC::GET_HASH_KEY("fm_hair_fuzz"))
+---Applies an Item from a PedDecorationCollection to a ped. These include tattoos and shirt decals.  
+---collection - PedDecorationCollection filename hash  
+---overlay - Item name hash  
+---Example:  
+---Entry inside "mpbeach_overlays.xml" -  
+---<Item>  
+---  <uvPos x="0.500000" y="0.500000" />  
+---  <scale x="0.600000" y="0.500000" />  
+---  <rotation value="0.000000" />  
+---  <nameHash>FM_Hair_Fuzz</nameHash>  
+---  <txdHash>mp_hair_fuzz</txdHash>  
+---  <txtHash>mp_hair_fuzz</txtHash>  
+---  <zone>ZONE_HEAD</zone>  
+---  <type>TYPE_TATTOO</type>  
+---  <faction>FM</faction>  
+---  <garment>All</garment>  
+---  <gender>GENDER_DONTCARE</gender>  
+---  <award />  
+---  <awardLevel />  
+---</Item>  
+---Code:  
+---PED::_0x5F5D1665E352A839(PLAYER::PLAYER_PED_ID(), GAMEPLAY::GET_HASH_KEY("mpbeach_overlays"), GAMEPLAY::GET_HASH_KEY("fm_hair_fuzz"))  
 ---```
 ---@param ped integer
 ---@param collection integer | string
@@ -67,19 +67,19 @@ function AddRelationshipGroup(name) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1B5C85C612E5256E)  
----Sets an area where scenarios are blocked
----@param posMinX number
----@param posMinY number
----@param posMinZ number
----@param posMaxX number
----@param posMaxY number
----@param posMaxZ number
----@param network boolean
----@param cancelActive boolean
----@param blockPeds boolean
----@param blockVehicles boolean
+---This native does not have an official description.
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param p6 boolean
+---@param p7 boolean
+---@param p8 boolean
+---@param p9 boolean
 ---@return integer
-function AddScenarioBlockingArea(posMinX, posMinY, posMinZ, posMaxX, posMaxY, posMaxZ, network, cancelActive, blockPeds, blockVehicles) end
+function AddScenarioBlockingArea(x1, y1, z1, x2, y2, z2, p6, p7, p8, p9) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x697157CED63F18D4)  
@@ -134,36 +134,22 @@ function ApplyPedBloodDamageByZone(ped, p1, p2, p3, p4) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEF0D582CBF2D9B0F)  
----Applies blood damage to a ped with specific parameters for zone, UV offsets, rotation, scale, and initial aging.
----
----```
----NativeDB Introduced: v323
----```
+---This native does not have an official description.
 ---@param ped integer
----@param component integer
----@param u number
----@param v number
----@param rotation number
----@param scale number
----@param forcedFrame integer
----@param preAge number
----@param bloodName string
-function ApplyPedBloodSpecific(ped, component, u, v, rotation, scale, forcedFrame, preAge, bloodName) end
+---@param p1 any
+---@param p2 number
+---@param p3 number
+---@param p4 number
+---@param p5 number
+---@param p6 any
+---@param p7 number
+---@return any
+function ApplyPedBloodSpecific(ped, p1, p2, p3, p4, p5, p6, p7) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x397C38AA7B4A5F83)  
 ---```
----scar
----blushing
----cs_flush_anger
----cs_flush_anger_face
----bruise
----bruise_large
----herpes
----ArmorBullet
----basic_dirt_cloth
----basic_dirt_skin
----cs_trev1_dirt
+---APPLY_PED_DAMAGE_DECAL(ped, 1, 0.5f, 0.513f, 0f, 1f, unk, 0, 0, "blushing");  
 ---```
 ---@param ped integer
 ---@param damageZone integer
@@ -221,7 +207,9 @@ function AttachSynchronizedSceneToEntity(sceneID, entity, boneIndex) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE43A13C9E4CCCBCF)  
----This native does not have an official description.
+---```
+---Related toggling CEventShockingDeadBody
+---```
 ---@param ped integer
 ---@param toggle boolean
 function BlockPedDeadBodyShockingEvents(ped, toggle) end
@@ -278,7 +266,9 @@ function CanPedRagdoll(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6CD5A433374D4CFB)  
----This native does not have an official description.
+---```
+---Returns true if ped1 can see ped2 in their line of vision  
+---```
 ---@param ped1 integer
 ---@param ped2 integer
 ---@return boolean
@@ -289,7 +279,10 @@ CanPedSeePed = CanPedSeeHatedPed
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCD8A7537A9B52F06)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 function ClearAllPedProps(ped) end
 
@@ -330,7 +323,7 @@ function ClearPedAlternateWalkAnim(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8FE22675A5A45817)  
----Clears the blood on a ped.
+---This native does not have an official description.
 ---@param ped integer
 function ClearPedBloodDamage(ped) end
 
@@ -385,7 +378,9 @@ function ClearPedDriveByClipsetOverride(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6585D955A68452A5)  
----This native does not have an official description.
+---```
+---Something related to clearing the ped because always used with CLEAR_PED_WETNESS, CLEAR_PED_BLOOD_DAMAGE and RESET_PED_VISIBLE_DAMAGE.  
+---```
 ---@param ped integer
 function ClearPedEnvDirt(ped) end
 
@@ -408,7 +403,10 @@ function ClearPedParachutePackVariation(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0943E5B8E078E76E)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param propId integer
 function ClearPedProp(ped, propId) end
@@ -421,12 +419,6 @@ function ClearPedScubaGearVariation(ped) end
 
 ---@deprecated
 RemovePedScubaGearNow = ClearPedScubaGearVariation
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x687C0B594907D2E8)  
----This native does not have an official description.
----@param ped integer
-function ClearPedStoredHatProp(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9C720776DAA43E7E)  
@@ -472,32 +464,40 @@ function ClearRelationshipBetweenGroups(relationship, group1, group2) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEF29A16337FACADB)  
----Creates a copy of the passed ped, optionally setting it as local and/or shallow-copying the head blend data.
----@param ped integer
----@param isNetwork boolean
----@param bScriptHostPed boolean
----@param copyHeadBlendFlag boolean
----@return integer
-function ClonePed(ped, isNetwork, bScriptHostPed, copyHeadBlendFlag) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x668FD40BCBA5DE48)  
----Used one time in fmmc_launcher.c instead of CLONE_PED because ?
+---```
+---Example of Cloning Your Player: CLONE_PED(PLAYER_PED_ID(), GET_ENTITY_HEADING(PLAYER_PED_ID()), 0, 1);  
+---```
 ---@param ped integer
 ---@param heading number
 ---@param isNetwork boolean
----@param bScriptHostPed boolean
+---@param netMissionEntity boolean
+---@return integer
+function ClonePed(ped, heading, isNetwork, netMissionEntity) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x668FD40BCBA5DE48)  
+---Used one time in fmmc_launcher.c instead of ClonePed because ?
+---
+---```
+---NativeDB Parameter 1: float heading
+---NativeDB Parameter 2: BOOL isNetwork
+---NativeDB Parameter 3: BOOL netMissionEntity
+---```
+---@param ped integer
+---@param heading any
+---@param isNetwork any
+---@param netMissionEntity any
 ---@param p4 any
 ---@return integer
-function ClonePedEx(ped, heading, isNetwork, bScriptHostPed, p4) end
-
----@deprecated
-ClonePed_2 = ClonePedEx
+function ClonePed_2(ped, heading, isNetwork, netMissionEntity, p4) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE952D6431689AD9A)  
 ---```
----Copies ped's components and props to targetPed.
+---What exactly is the difference? What does this exactly do by chance?  
+---^ Copies ped's components and props to targetPed.  
+------------------------------------------------------------------------------------  
+---| Internally has a 3rd param (bool) which is set to true by default |  
 ---```
 ---@param ped integer
 ---@param targetPed integer
@@ -545,16 +545,48 @@ function CreateNmMessage(startImmediately, messageId) end
 ---@param p1 boolean
 ---@param p2 boolean
 ---@return integer
-function CreateParachuteBagObject(ped, p1, p2) end
-
----@deprecated
-CreateParachuteObject = CreateParachuteBagObject
+function CreateParachuteObject(ped, p1, p2) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD49F9B0955C367DE)  
----Creates a ped (biped character, pedestrian, actor) with the specified model at the specified position and heading.
----This ped will initially be owned by the creating script as a mission entity, and the model should be loaded already
----(e.g. using REQUEST_MODEL).
+---```
+---*Heading*: 0.0  
+---*Heading* is the Z axis spawn rotation of the ped 0->5th parameter.  
+---Ped Types:  
+---enum PedTypes  
+---{  
+---	PED_TYPE_PLAYER_0,// michael  
+---	PED_TYPE_PLAYER_1,// franklin  
+---	PED_TYPE_NETWORK_PLAYER,	// mp character  
+---	PED_TYPE_PLAYER_2,// trevor  
+---	PED_TYPE_CIVMALE,  
+---	PED_TYPE_CIVFEMALE,  
+---	PED_TYPE_COP,  
+---	PED_TYPE_GANG_ALBANIAN,  
+---	PED_TYPE_GANG_BIKER_1,  
+---	PED_TYPE_GANG_BIKER_2,  
+---	PED_TYPE_GANG_ITALIAN,  
+---	PED_TYPE_GANG_RUSSIAN,  
+---	PED_TYPE_GANG_RUSSIAN_2,  
+---	PED_TYPE_GANG_IRISH,  
+---	PED_TYPE_GANG_JAMAICAN,  
+---	PED_TYPE_GANG_AFRICAN_AMERICAN,  
+---	PED_TYPE_GANG_KOREAN,  
+---	PED_TYPE_GANG_CHINESE_JAPANESE,  
+---	PED_TYPE_GANG_PUERTO_RICAN,  
+---	PED_TYPE_DEALER,  
+---	PED_TYPE_MEDIC,  
+---	PED_TYPE_FIREMAN,  
+---	PED_TYPE_CRIMINAL,  
+---	PED_TYPE_BUM,  
+---	PED_TYPE_PROSTITUTE,  
+---	PED_TYPE_SPECIAL,  
+---	PED_TYPE_MISSION,  
+---	PED_TYPE_SWAT,  
+---	PED_TYPE_ANIMAL,  
+---	PED_TYPE_ARMY  
+---};  
+---```
 ---@param pedType integer
 ---@param modelHash integer | string
 ---@param x number
@@ -562,33 +594,55 @@ CreateParachuteObject = CreateParachuteBagObject
 ---@param z number
 ---@param heading number
 ---@param isNetwork boolean
----@param bScriptHostPed boolean
+---@param netMissionEntity boolean
 ---@return integer
-function CreatePed(pedType, modelHash, x, y, z, heading, isNetwork, bScriptHostPed) end
+function CreatePed(pedType, modelHash, x, y, z, heading, isNetwork, netMissionEntity) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7DD959874C1FD534)  
----This native does not have an official description.
+---```
+---Ped Types:  
+---enum ePedType  
+---{  
+---	PED_TYPE_PLAYER_0 = 0,  
+---	PED_TYPE_PLAYER_1 = 1,  
+---	PED_TYPE_PLAYER_2 = 3,  
+---	PED_TYPE_CIVMALE = 4,  
+---	PED_TYPE_CIVFEMALE = 5,  
+---	PED_TYPE_COP = 6,  
+---	PED_TYPE_UNKNOWN_7 = 7,  
+---	PED_TYPE_UNKNOWN_12 = 12, // gang member?  
+---	PED_TYPE_UNKNOWN_19 = 19,  
+---	PED_TYPE_MEDIC = 20,  
+---	PED_TYPE_FIREMAN = 21,  
+---	PED_TYPE_UNKNOWN_22 = 22,  
+---	PED_TYPE_UNKNOWN_25 = 25,  
+---	PED_TYPE_UNKNOWN_26 = 26,  
+---	PED_TYPE_SWAT = 27,  
+---	PED_TYPE_ANIMAL = 28,  
+---	PED_TYPE_ARMY = 29  
+---};  
+---```
 ---@param vehicle integer
 ---@param pedType integer
 ---@param modelHash integer | string
 ---@param seat integer
 ---@param isNetwork boolean
----@param bScriptHostPed boolean
+---@param netMissionEntity boolean
 ---@return integer
-function CreatePedInsideVehicle(vehicle, pedType, modelHash, seat, isNetwork, bScriptHostPed) end
+function CreatePedInsideVehicle(vehicle, pedType, modelHash, seat, isNetwork, netMissionEntity) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB4AC7D0CF06BFE8F)  
 ---```
----vb.net
----Dim ped_handle As Integer
----                    With Game.Player.Character
----                        Dim pos As Vector3 = .Position + .ForwardVector * 3
----                        ped_handle = Native.Function.Call(Of Integer)(Hash.CREATE_RANDOM_PED, pos.X, pos.Y, pos.Z)
----                    End With
----Creates a Ped at the specified location, returns the Ped Handle.
----Ped will not act until SET_PED_AS_NO_LONGER_NEEDED is called.
+---vb.net  
+---Dim ped_handle As Integer  
+---                    With Game.Player.Character  
+---                        Dim pos As Vector3 = .Position + .ForwardVector * 3  
+---                        ped_handle = Native.Function.Call(Of Integer)(Hash.CREATE_RANDOM_PED, pos.X, pos.Y, pos.Z)  
+---                    End With  
+---Creates a Ped at the specified location, returns the Ped Handle.    
+---Ped will not act until SET_PED_AS_NO_LONGER_NEEDED is called.  
 ---```
 ---@param posX number
 ---@param posY number
@@ -659,6 +713,12 @@ function DisableHeadBlendPaletteColor(ped) end
 function DisablePedHeatscaleOverride(ped) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCD9CC7E200A52A6F)  
+---This native does not have an official description.
+---@param scene integer
+function DisposeSynchronizedScene(scene) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7C6B0C22F9F40BBE)  
 ---This native does not have an official description.
 ---@param groupId integer
@@ -667,8 +727,10 @@ function DoesGroupExist(groupId) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCC6E3B6BB69501F1)  
----This native does not have an official description.
----@param groupHash integer | string
+---```
+---NativeDB Parameter 0: Hash groupHash
+---```
+---@param groupHash any
 ---@return boolean
 function DoesRelationshipGroupExist(groupHash) end
 
@@ -692,69 +754,48 @@ function DropAmbientProp(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2D05CED3A38D0F3A)  
----Applies lethal damage (FLT_MAX) to the `SKEL_Head` bone of the specified ped using the weapon passed, leading to the
----ped's untimely demise.
----
----The naming of the native is a legacy leftover (formerly EXPLODE_CHAR_HEAD in GTA3) as in the early 3D GTA games, lethal
----damage to a ped head would 'explode' it.
----
----Do note that this native function does not work in multiplayer/network environment.
+---```
+---Forces the ped to fall back and kills it.  
+---It doesn't really explode the ped's head but it kills the ped  
+---```
 ---@param ped integer
 ---@param weaponHash integer | string
 function ExplodePedHead(ped, weaponHash) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x4668D80430D6C299)  
----This native does not have an official description.
----@param ped integer
-function FinalizeHeadBlend(ped) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2208438012482A1A)  
----This native does not have an official description.
----@param ped integer
----@param p1 boolean
----@param p2 boolean
-function ForcePedAiAndAnimationUpdate(ped, p1, p2) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF28965D04F570DCA)  
----```cpp
----enum ePedMotionState
----{
----    MOTIONSTATE_NONE = -294553821, // MotionState_None
----    MOTIONSTATE_IDLE = -1871534317, // MotionState_Idle
----    MOTIONSTATE_WALK = -668482597, // MotionState_Walk
----    MOTIONSTATE_RUN = -530524, // MotionState_Run
----    MOTIONSTATE_SPRINT = -1115154469, // MotionState_Sprint
----    MOTIONSTATE_CROUCH_IDLE = 1140525470, // MotionState_Crouch_Idle
----    MOTIONSTATE_CROUCH_WALK = 147004056, // MotionState_Crouch_Walk
----    MOTIONSTATE_CROUCH_RUN = 898879241, // MotionState_Crouch_Run
----    MOTIONSTATE_DONOTHING = 247561816, // MotionState_DoNothing
----    MOTIONSTATE_ANIMATEDVELOCITY = 1427811395, // MotionState_AnimatedVelocity
----    MOTIONSTATE_INVEHICLE = -1797663347, // MotionState_InVehicle
----    MOTIONSTATE_AIMING = 1063765679, // MotionState_Aiming
----    MOTIONSTATE_DIVING_IDLE = 1212730861, // MotionState_Diving_Idle
----    MOTIONSTATE_DIVING_SWIM = -1855028596, // MotionState_Diving_Swim
----    MOTIONSTATE_SWIMMING_TREADWATER = -776007225, // MotionState_Swimming_TreadWater
----    MOTIONSTATE_DEAD = 230360860, // MotionState_Dead
----    MOTIONSTATE_STEALTH_IDLE = 1110276645, // MotionState_Stealth_Idle
----    MOTIONSTATE_STEALTH_WALK = 69908130, // MotionState_Stealth_Walk
----    MOTIONSTATE_STEALTH_RUN = -83133983, // MotionState_Stealth_Run
----    MOTIONSTATE_PARACHUTING = -1161760501, // MotionState_Parachuting
----    MOTIONSTATE_ACTIONMODE_IDLE = -633298724, // MotionState_ActionMode_Idle
----    MOTIONSTATE_ACTIONMODE_WALK = -762290521, // MotionState_ActionMode_Walk
----    MOTIONSTATE_ACTIONMODE_RUN = 834330132, // MotionState_ActionMode_Run
----    MOTIONSTATE_JETPACK = 1398696542 // MotionState_Jetpack
----}
+---```
+---Some motionstate hashes are  
+---0xec17e58 (standing idle), 0xbac0f10b (nothing?), 0x3f67c6af (aiming with pistol 2-h), 0x422d7a25 (stealth), 0xbd8817db, 0x916e828c  
+---and those for the strings  
+---"motionstate_idle", "motionstate_walk", "motionstate_run", "motionstate_actionmode_idle", and "motionstate_actionmode_walk".  
+---Regarding p2, p3 and p4: Most common is 0, 0, 0); followed by 0, 1, 0); and 1, 1, 0); in the scripts. p4 is very rarely something other than 0.  
+--- [31/03/2017] ins1de :  
+---        enum MotionState  
+---        {  
+---            StopRunning = -530524,  
+---            StopWalking = -668482597,  
+---            Idle = 247561816, // 1, 1, 0  
+---            Idl2 = -1871534317,  
+---            SkyDive =-1161760501, // 0, 1, 0  
+---            Stealth = 1110276645,  
+---            Sprint = -1115154469,  
+---            Swim = -1855028596,  
+---            Unknown1 = 1063765679,  
+---            Unknown2 = -633298724,  
+---        }  
+---```
+---
+---```
+---NativeDB Parameter 3: int p3
 ---```
 ---@param ped integer
 ---@param motionStateHash integer | string
----@param shouldReset boolean
----@param updateState integer
----@param forceAIPreCameraUpdate boolean
+---@param p2 boolean
+---@param p3 boolean
+---@param p4 boolean
 ---@return boolean
-function ForcePedMotionState(ped, motionStateHash, shouldReset, updateState, forceAIPreCameraUpdate) end
+function ForcePedMotionState(ped, motionStateHash, p2, p3, p4) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x16E42E800B472221)  
@@ -930,7 +971,10 @@ function GetMount(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x27561561732A7842)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param componentId integer
 ---@return integer
@@ -938,7 +982,10 @@ function GetNumberOfPedDrawableVariations(ped, componentId) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5FAF9754E789FB47)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param propId integer
 ---@return integer
@@ -947,7 +994,10 @@ function GetNumberOfPedPropDrawableVariations(ped, propId) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA6E7F1CEB523E171)  
 ---```
----Need to check behavior when drawableId = -1
+---Need to check behavior when drawableId = -1  
+---
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
 ---```
 ---@param ped integer
 ---@param propId integer
@@ -957,7 +1007,10 @@ function GetNumberOfPedPropTextureVariations(ped, propId, drawableId) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8F7156A3142A6BAD)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param componentId integer
 ---@param drawableId integer
@@ -977,6 +1030,15 @@ function GetNumHairColors() end
 ---This native does not have an official description.
 ---@return integer
 function GetNumMakeupColors() end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5EF37013A6539C9D)  
+---```
+---Type equals 0 for male non-dlc, 1 for female non-dlc, 2 for male dlc, and 3 for female dlc.  
+---```
+---@param type integer
+---@return integer
+function GetNumParentPedsOfType(type) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x37F4AD56ECBC0CD6)  
@@ -1050,368 +1112,8 @@ function GetPedBoneCoords(ped, boneId, offsetX, offsetY, offsetZ) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3F428D08BE5AAE31)  
----```cpp
----enum ePedBoneId : uint16_t
----{
----    SKEL_ROOT = 0x0,
----    SKEL_Pelvis = 0x2E28,
----    SKEL_L_Thigh = 0xE39F,
----    SKEL_L_Calf = 0xF9BB,
----    SKEL_L_Foot = 0x3779,
----    SKEL_L_Toe0 = 0x83C,
----    EO_L_Foot = 0x84C5,
----    EO_L_Toe = 0x68BD,
----    IK_L_Foot = 0xFEDD,
----    PH_L_Foot = 0xE175,
----    MH_L_Knee = 0xB3FE,
----    SKEL_R_Thigh = 0xCA72,
----    SKEL_R_Calf = 0x9000,
----    SKEL_R_Foot = 0xCC4D,
----    SKEL_R_Toe0 = 0x512D,
----    EO_R_Foot = 0x1096,
----    EO_R_Toe = 0x7163,
----    IK_R_Foot = 0x8AAE,
----    PH_R_Foot = 0x60E6,
----    MH_R_Knee = 0x3FCF,
----    RB_L_ThighRoll = 0x5C57,
----    RB_R_ThighRoll = 0x192A,
----    SKEL_Spine_Root = 0xE0FD,
----    SKEL_Spine0 = 0x5C01,
----    SKEL_Spine1 = 0x60F0,
----    SKEL_Spine2 = 0x60F1,
----    SKEL_Spine3 = 0x60F2,
----    SKEL_L_Clavicle = 0xFCD9,
----    SKEL_L_UpperArm = 0xB1C5,
----    SKEL_L_Forearm = 0xEEEB,
----    SKEL_L_Hand = 0x49D9,
----    SKEL_L_Finger00 = 0x67F2,
----    SKEL_L_Finger01 = 0xFF9,
----    SKEL_L_Finger02 = 0xFFA,
----    SKEL_L_Finger10 = 0x67F3,
----    SKEL_L_Finger11 = 0x1049,
----    SKEL_L_Finger12 = 0x104A,
----    SKEL_L_Finger20 = 0x67F4,
----    SKEL_L_Finger21 = 0x1059,
----    SKEL_L_Finger22 = 0x105A,
----    SKEL_L_Finger30 = 0x67F5,
----    SKEL_L_Finger31 = 0x1029,
----    SKEL_L_Finger32 = 0x102A,
----    SKEL_L_Finger40 = 0x67F6,
----    SKEL_L_Finger41 = 0x1039,
----    SKEL_L_Finger42 = 0x103A,
----    PH_L_Hand = 0xEB95,
----    IK_L_Hand = 0x8CBD,
----    RB_L_ForeArmRoll = 0xEE4F,
----    RB_L_ArmRoll = 0x1470,
----    MH_L_Elbow = 0x58B7,
----    SKEL_R_Clavicle = 0x29D2,
----    SKEL_R_UpperArm = 0x9D4D,
----    SKEL_R_Forearm = 0x6E5C,
----    SKEL_R_Hand = 0xDEAD,
----    SKEL_R_Finger00 = 0xE5F2,
----    SKEL_R_Finger01 = 0xFA10,
----    SKEL_R_Finger02 = 0xFA11,
----    SKEL_R_Finger10 = 0xE5F3,
----    SKEL_R_Finger11 = 0xFA60,
----    SKEL_R_Finger12 = 0xFA61,
----    SKEL_R_Finger20 = 0xE5F4,
----    SKEL_R_Finger21 = 0xFA70,
----    SKEL_R_Finger22 = 0xFA71,
----    SKEL_R_Finger30 = 0xE5F5,
----    SKEL_R_Finger31 = 0xFA40,
----    SKEL_R_Finger32 = 0xFA41,
----    SKEL_R_Finger40 = 0xE5F6,
----    SKEL_R_Finger41 = 0xFA50,
----    SKEL_R_Finger42 = 0xFA51,
----    PH_R_Hand = 0x6F06,
----    IK_R_Hand = 0x188E,
----    RB_R_ForeArmRoll = 0xAB22,
----    RB_R_ArmRoll = 0x90FF,
----    MH_R_Elbow = 0xBB0,
----    SKEL_Neck_1 = 0x9995,
----    SKEL_Head = 0x796E,
----    IK_Head = 0x322C,
----    FACIAL_facialRoot = 0xFE2C,
----    FB_L_Brow_Out_000 = 0xE3DB,
----    FB_L_Lid_Upper_000 = 0xB2B6,
----    FB_L_Eye_000 = 0x62AC,
----    FB_L_CheekBone_000 = 0x542E,
----    FB_L_Lip_Corner_000 = 0x74AC,
----    FB_R_Lid_Upper_000 = 0xAA10,
----    FB_R_Eye_000 = 0x6B52,
----    FB_R_CheekBone_000 = 0x4B88,
----    FB_R_Brow_Out_000 = 0x54C,
----    FB_R_Lip_Corner_000 = 0x2BA6,
----    FB_Brow_Centre_000 = 0x9149,
----    FB_UpperLipRoot_000 = 0x4ED2,
----    FB_UpperLip_000 = 0xF18F,
----    FB_L_Lip_Top_000 = 0x4F37,
----    FB_R_Lip_Top_000 = 0x4537,
----    FB_Jaw_000 = 0xB4A0,
----    FB_LowerLipRoot_000 = 0x4324,
----    FB_LowerLip_000 = 0x508F,
----    FB_L_Lip_Bot_000 = 0xB93B,
----    FB_R_Lip_Bot_000 = 0xC33B,
----    FB_Tongue_000 = 0xB987,
----    RB_Neck_1 = 0x8B93,
----    SPR_L_Breast = 0xFC8E,
----    SPR_R_Breast = 0x885F,
----    IK_Root = 0xDD1C,
----    SKEL_Neck_2 = 0x5FD4,
----    SKEL_Pelvis1 = 0xD003,
----    SKEL_PelvisRoot = 0x45FC,
----    SKEL_SADDLE = 0x9524,
----    MH_L_CalfBack = 0x1013,
----    MH_L_ThighBack = 0x600D,
----    SM_L_Skirt = 0xC419,
----    MH_R_CalfBack = 0xB013,
----    MH_R_ThighBack = 0x51A3,
----    SM_R_Skirt = 0x7712,
----    SM_M_BackSkirtRoll = 0xDBB,
----    SM_L_BackSkirtRoll = 0x40B2,
----    SM_R_BackSkirtRoll = 0xC141,
----    SM_M_FrontSkirtRoll = 0xCDBB,
----    SM_L_FrontSkirtRoll = 0x9B69,
----    SM_R_FrontSkirtRoll = 0x86F1,
----    SM_CockNBalls_ROOT = 0xC67D,
----    SM_CockNBalls = 0x9D34,
----    MH_L_Finger00 = 0x8C63,
----    MH_L_FingerBulge00 = 0x5FB8,
----    MH_L_Finger10 = 0x8C53,
----    MH_L_FingerTop00 = 0xA244,
----    MH_L_HandSide = 0xC78A,
----    MH_Watch = 0x2738,
----    MH_L_Sleeve = 0x933C,
----    MH_R_Finger00 = 0x2C63,
----    MH_R_FingerBulge00 = 0x69B8,
----    MH_R_Finger10 = 0x2C53,
----    MH_R_FingerTop00 = 0xEF4B,
----    MH_R_HandSide = 0x68FB,
----    MH_R_Sleeve = 0x92DC,
----    FACIAL_jaw = 0xB21,
----    FACIAL_underChin = 0x8A95,
----    FACIAL_L_underChin = 0x234E,
----    FACIAL_chin = 0xB578,
----    FACIAL_chinSkinBottom = 0x98BC,
----    FACIAL_L_chinSkinBottom = 0x3E8F,
----    FACIAL_R_chinSkinBottom = 0x9E8F,
----    FACIAL_tongueA = 0x4A7C,
----    FACIAL_tongueB = 0x4A7D,
----    FACIAL_tongueC = 0x4A7E,
----    FACIAL_tongueD = 0x4A7F,
----    FACIAL_tongueE = 0x4A80,
----    FACIAL_L_tongueE = 0x35F2,
----    FACIAL_R_tongueE = 0x2FF2,
----    FACIAL_L_tongueD = 0x35F1,
----    FACIAL_R_tongueD = 0x2FF1,
----    FACIAL_L_tongueC = 0x35F0,
----    FACIAL_R_tongueC = 0x2FF0,
----    FACIAL_L_tongueB = 0x35EF,
----    FACIAL_R_tongueB = 0x2FEF,
----    FACIAL_L_tongueA = 0x35EE,
----    FACIAL_R_tongueA = 0x2FEE,
----    FACIAL_chinSkinTop = 0x7226,
----    FACIAL_L_chinSkinTop = 0x3EB3,
----    FACIAL_chinSkinMid = 0x899A,
----    FACIAL_L_chinSkinMid = 0x4427,
----    FACIAL_L_chinSide = 0x4A5E,
----    FACIAL_R_chinSkinMid = 0xF5AF,
----    FACIAL_R_chinSkinTop = 0xF03B,
----    FACIAL_R_chinSide = 0xAA5E,
----    FACIAL_R_underChin = 0x2BF4,
----    FACIAL_L_lipLowerSDK = 0xB9E1,
----    FACIAL_L_lipLowerAnalog = 0x244A,
----    FACIAL_L_lipLowerThicknessV = 0xC749,
----    FACIAL_L_lipLowerThicknessH = 0xC67B,
----    FACIAL_lipLowerSDK = 0x7285,
----    FACIAL_lipLowerAnalog = 0xD97B,
----    FACIAL_lipLowerThicknessV = 0xC5BB,
----    FACIAL_lipLowerThicknessH = 0xC5ED,
----    FACIAL_R_lipLowerSDK = 0xA034,
----    FACIAL_R_lipLowerAnalog = 0xC2D9,
----    FACIAL_R_lipLowerThicknessV = 0xC6E9,
----    FACIAL_R_lipLowerThicknessH = 0xC6DB,
----    FACIAL_nose = 0x20F1,
----    FACIAL_L_nostril = 0x7322,
----    FACIAL_L_nostrilThickness = 0xC15F,
----    FACIAL_noseLower = 0xE05A,
----    FACIAL_L_noseLowerThickness = 0x79D5,
----    FACIAL_R_noseLowerThickness = 0x7975,
----    FACIAL_noseTip = 0x6A60,
----    FACIAL_R_nostril = 0x7922,
----    FACIAL_R_nostrilThickness = 0x36FF,
----    FACIAL_noseUpper = 0xA04F,
----    FACIAL_L_noseUpper = 0x1FB8,
----    FACIAL_noseBridge = 0x9BA3,
----    FACIAL_L_nasolabialFurrow = 0x5ACA,
----    FACIAL_L_nasolabialBulge = 0xCD78,
----    FACIAL_L_cheekLower = 0x6907,
----    FACIAL_L_cheekLowerBulge1 = 0xE3FB,
----    FACIAL_L_cheekLowerBulge2 = 0xE3FC,
----    FACIAL_L_cheekInner = 0xE7AB,
----    FACIAL_L_cheekOuter = 0x8161,
----    FACIAL_L_eyesackLower = 0x771B,
----    FACIAL_L_eyeball = 0x1744,
----    FACIAL_L_eyelidLower = 0x998C,
----    FACIAL_L_eyelidLowerOuterSDK = 0xFE4C,
----    FACIAL_L_eyelidLowerOuterAnalog = 0xB9AA,
----    FACIAL_L_eyelashLowerOuter = 0xD7F6,
----    FACIAL_L_eyelidLowerInnerSDK = 0xF151,
----    FACIAL_L_eyelidLowerInnerAnalog = 0x8242,
----    FACIAL_L_eyelashLowerInner = 0x4CCF,
----    FACIAL_L_eyelidUpper = 0x97C1,
----    FACIAL_L_eyelidUpperOuterSDK = 0xAF15,
----    FACIAL_L_eyelidUpperOuterAnalog = 0x67FA,
----    FACIAL_L_eyelashUpperOuter = 0x27B7,
----    FACIAL_L_eyelidUpperInnerSDK = 0xD341,
----    FACIAL_L_eyelidUpperInnerAnalog = 0xF092,
----    FACIAL_L_eyelashUpperInner = 0x9B1F,
----    FACIAL_L_eyesackUpperOuterBulge = 0xA559,
----    FACIAL_L_eyesackUpperInnerBulge = 0x2F2A,
----    FACIAL_L_eyesackUpperOuterFurrow = 0xC597,
----    FACIAL_L_eyesackUpperInnerFurrow = 0x52A7,
----    FACIAL_forehead = 0x9218,
----    FACIAL_L_foreheadInner = 0x843,
----    FACIAL_L_foreheadInnerBulge = 0x767C,
----    FACIAL_L_foreheadOuter = 0x8DCB,
----    FACIAL_skull = 0x4221,
----    FACIAL_foreheadUpper = 0xF7D6,
----    FACIAL_L_foreheadUpperInner = 0xCF13,
----    FACIAL_L_foreheadUpperOuter = 0x509B,
----    FACIAL_R_foreheadUpperInner = 0xCEF3,
----    FACIAL_R_foreheadUpperOuter = 0x507B,
----    FACIAL_L_temple = 0xAF79,
----    FACIAL_L_ear = 0x19DD,
----    FACIAL_L_earLower = 0x6031,
----    FACIAL_L_masseter = 0x2810,
----    FACIAL_L_jawRecess = 0x9C7A,
----    FACIAL_L_cheekOuterSkin = 0x14A5,
----    FACIAL_R_cheekLower = 0xF367,
----    FACIAL_R_cheekLowerBulge1 = 0x599B,
----    FACIAL_R_cheekLowerBulge2 = 0x599C,
----    FACIAL_R_masseter = 0x810,
----    FACIAL_R_jawRecess = 0x93D4,
----    FACIAL_R_ear = 0x1137,
----    FACIAL_R_earLower = 0x8031,
----    FACIAL_R_eyesackLower = 0x777B,
----    FACIAL_R_nasolabialBulge = 0xD61E,
----    FACIAL_R_cheekOuter = 0xD32,
----    FACIAL_R_cheekInner = 0x737C,
----    FACIAL_R_noseUpper = 0x1CD6,
----    FACIAL_R_foreheadInner = 0xE43,
----    FACIAL_R_foreheadInnerBulge = 0x769C,
----    FACIAL_R_foreheadOuter = 0x8FCB,
----    FACIAL_R_cheekOuterSkin = 0xB334,
----    FACIAL_R_eyesackUpperInnerFurrow = 0x9FAE,
----    FACIAL_R_eyesackUpperOuterFurrow = 0x140F,
----    FACIAL_R_eyesackUpperInnerBulge = 0xA359,
----    FACIAL_R_eyesackUpperOuterBulge = 0x1AF9,
----    FACIAL_R_nasolabialFurrow = 0x2CAA,
----    FACIAL_R_temple = 0xAF19,
----    FACIAL_R_eyeball = 0x1944,
----    FACIAL_R_eyelidUpper = 0x7E14,
----    FACIAL_R_eyelidUpperOuterSDK = 0xB115,
----    FACIAL_R_eyelidUpperOuterAnalog = 0xF25A,
----    FACIAL_R_eyelashUpperOuter = 0xE0A,
----    FACIAL_R_eyelidUpperInnerSDK = 0xD541,
----    FACIAL_R_eyelidUpperInnerAnalog = 0x7C63,
----    FACIAL_R_eyelashUpperInner = 0x8172,
----    FACIAL_R_eyelidLower = 0x7FDF,
----    FACIAL_R_eyelidLowerOuterSDK = 0x1BD,
----    FACIAL_R_eyelidLowerOuterAnalog = 0x457B,
----    FACIAL_R_eyelashLowerOuter = 0xBE49,
----    FACIAL_R_eyelidLowerInnerSDK = 0xF351,
----    FACIAL_R_eyelidLowerInnerAnalog = 0xE13,
----    FACIAL_R_eyelashLowerInner = 0x3322,
----    FACIAL_L_lipUpperSDK = 0x8F30,
----    FACIAL_L_lipUpperAnalog = 0xB1CF,
----    FACIAL_L_lipUpperThicknessH = 0x37CE,
----    FACIAL_L_lipUpperThicknessV = 0x38BC,
----    FACIAL_lipUpperSDK = 0x1774,
----    FACIAL_lipUpperAnalog = 0xE064,
----    FACIAL_lipUpperThicknessH = 0x7993,
----    FACIAL_lipUpperThicknessV = 0x7981,
----    FACIAL_L_lipCornerSDK = 0xB1C,
----    FACIAL_L_lipCornerAnalog = 0xE568,
----    FACIAL_L_lipCornerThicknessUpper = 0x7BC,
----    FACIAL_L_lipCornerThicknessLower = 0xDD42,
----    FACIAL_R_lipUpperSDK = 0x7583,
----    FACIAL_R_lipUpperAnalog = 0x51CF,
----    FACIAL_R_lipUpperThicknessH = 0x382E,
----    FACIAL_R_lipUpperThicknessV = 0x385C,
----    FACIAL_R_lipCornerSDK = 0xB3C,
----    FACIAL_R_lipCornerAnalog = 0xEE0E,
----    FACIAL_R_lipCornerThicknessUpper = 0x54C3,
----    FACIAL_R_lipCornerThicknessLower = 0x2BBA,
----    MH_MulletRoot = 0x3E73,
----    MH_MulletScaler = 0xA1C2,
----    MH_Hair_Scale = 0xC664,
----    MH_Hair_Crown = 0x1675,
----    SM_Torch = 0x8D6,
----    FX_Light = 0x8959,
----    FX_Light_Scale = 0x5038,
----    FX_Light_Switch = 0xE18E,
----    BagRoot = 0xAD09,
----    BagPivotROOT = 0xB836,
----    BagPivot = 0x4D11,
----    BagBody = 0xAB6D,
----    BagBone_R = 0x937,
----    BagBone_L = 0x991,
----    SM_LifeSaver_Front = 0x9420,
----    SM_R_Pouches_ROOT = 0x2962,
----    SM_R_Pouches = 0x4141,
----    SM_L_Pouches_ROOT = 0x2A02,
----    SM_L_Pouches = 0x4B41,
----    SM_Suit_Back_Flapper = 0xDA2D,
----    SPR_CopRadio = 0x8245,
----    SM_LifeSaver_Back = 0x2127,
----    MH_BlushSlider = 0xA0CE,
----    SKEL_Tail_01 = 0x347,
----    SKEL_Tail_02 = 0x348,
----    MH_L_Concertina_B = 0xC988,
----    MH_L_Concertina_A = 0xC987,
----    MH_R_Concertina_B = 0xC8E8,
----    MH_R_Concertina_A = 0xC8E7,
----    MH_L_ShoulderBladeRoot = 0x8711,
----    MH_L_ShoulderBlade = 0x4EAF,
----    MH_R_ShoulderBladeRoot = 0x3A0A,
----    MH_R_ShoulderBlade = 0x54AF,
----    FB_R_Ear_000 = 0x6CDF,
----    SPR_R_Ear = 0x63B6,
----    FB_L_Ear_000 = 0x6439,
----    SPR_L_Ear = 0x5B10,
----    FB_TongueA_000 = 0x4206,
----    FB_TongueB_000 = 0x4207,
----    FB_TongueC_000 = 0x4208,
----    SKEL_L_Toe1 = 0x1D6B,
----    SKEL_R_Toe1 = 0xB23F,
----    SKEL_Tail_03 = 0x349,
----    SKEL_Tail_04 = 0x34A,
----    SKEL_Tail_05 = 0x34B,
----    SPR_Gonads_ROOT = 0xBFDE,
----    SPR_Gonads = 0x1C00,
----    FB_L_Brow_Out_001 = 0xE3DB,
----    FB_L_Lid_Upper_001 = 0xB2B6,
----    FB_L_Eye_001 = 0x62AC,
----    FB_L_CheekBone_001 = 0x542E,
----    FB_L_Lip_Corner_001 = 0x74AC,
----    FB_R_Lid_Upper_001 = 0xAA10,
----    FB_R_Eye_001 = 0x6B52,
----    FB_R_CheekBone_001 = 0x4B88,
----    FB_R_Brow_Out_001 = 0x54C,
----    FB_R_Lip_Corner_001 = 0x2BA6,
----    FB_Brow_Centre_001 = 0x9149,
----    FB_UpperLipRoot_001 = 0x4ED2,
----    FB_UpperLip_001 = 0xF18F,
----    FB_L_Lip_Top_001 = 0x4F37,
----    FB_R_Lip_Top_001 = 0x4537,
----    FB_Jaw_001 = 0xB4A0,
----    FB_LowerLipRoot_001 = 0x4324,
----    FB_LowerLip_001 = 0x508F,
----    FB_L_Lip_Bot_001 = 0xB93B,
----    FB_R_Lip_Bot_001 = 0xC33B,
----    FB_Tongue_001 = 0xB987
----}; 
+---```
+---Bone ID enum: pastebin.com/3pz17QGd  
 ---```
 ---@param ped integer
 ---@param boneId integer
@@ -1443,19 +1145,16 @@ function GetPedCombatRange(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7EE53118C892B513)  
----See [`SET_PED_CONFIG_FLAG`](#\_0x1913FE4CBF41C463).
+---```
+---p2 is always 1 in the scripts.  
+---if (GET_PED_CONFIG_FLAG(ped, 78, 1))  
+---= returns true if ped is aiming/shooting a gun  
+---```
 ---@param ped integer
 ---@param flagId integer
 ---@param p2 boolean
 ---@return boolean
 function GetPedConfigFlag(ped, flagId, p2) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF60165E1D2C5370B)  
----This native does not have an official description.
----@param ped integer
----@return boolean, number, number
-function GetPedCurrentMovementSpeed(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x71EAB450D86954A1)  
@@ -1466,18 +1165,19 @@ function GetPedDecorationsState(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9FD452BFBE7A7A8B)  
----```cpp
----enum ePedDecorationZone
----{
----	ZONE_TORSO = 0,
----	ZONE_HEAD = 1,
----	ZONE_LEFT_ARM = 2,
----	ZONE_RIGHT_ARM = 3,
----	ZONE_LEFT_LEG = 4,
----	ZONE_RIGHT_LEG = 5,
----	ZONE_UNKNOWN = 6,
----	ZONE_NONE = 7
----};
+---```
+---Returns the zoneID for the overlay if it is a member of collection.  
+---enum TattooZoneData  
+---{  
+---	ZONE_TORSO = 0,  
+---	ZONE_HEAD = 1,  
+---	ZONE_LEFT_ARM = 2,  
+---	ZONE_RIGHT_ARM = 3,  
+---	ZONE_LEFT_LEG = 4,  
+---	ZONE_RIGHT_LEG = 5,  
+---	ZONE_UNKNOWN = 6,  
+---	ZONE_NONE = 7,  
+---};  
 ---```
 ---@param collection integer | string
 ---@param overlay integer | string
@@ -1496,30 +1196,20 @@ GetTattooZone = GetPedDecorationZoneFromHashes
 function GetPedDefensiveAreaPosition(ped, p1) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x65671A4FB8218930)  
----```
----NativeDB Introduced: v2699
----```
----@param ped integer
----@return boolean
-function GetPedDiesInWater(ped) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x67F3780DD425D4FC)  
 ---```
----Ids
----0 - Head
----1 - Beard
----2 - Hair
----3 - Torso
----4 - Legs
----5 - Hands
----6 - Foot
----7 - Scarfs/Neck Accessories
----8 - Accessories 1
----9 - Accessories 2
----10- Decals
----11 - Auxiliary parts for torso
+---Ids  
+---1   
+---2   
+---3   
+---4   
+---5   
+---6   
+---7 - ------  
+---8 - Accessories 1  
+---9 - Accessories 2  
+---10  
+---11 - Auxiliary parts for torso  
 ---```
 ---@param ped integer
 ---@param componentId integer
@@ -1527,31 +1217,11 @@ function GetPedDiesInWater(ped) end
 function GetPedDrawableVariation(ped, componentId) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1461B28A06717D68)  
----Use [`SetPedIlluminatedClothingGlowIntensity`](#\_0x4E90D746056E273D) to set the illuminated clothing glow intensity for a specific ped.
----@param ped integer
----@return number
-function GetPedEmissiveIntensity(ped) end
-
----@deprecated
-GetPedIlluminatedClothingGlowIntensity = GetPedEmissiveIntensity
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9C14D30395A51A3C)  
 ---This native does not have an official description.
 ---@param ped integer
 ---@return number
 function GetPedEnveffScale(ped) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xBA656A3BB01BDEA3)  
----```
----NativeDB Introduced: v2189
----```
----@param ped integer
----@param eventType integer
----@return boolean, any
-function GetPedEventData(ped, eventType) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE0AF41401ADF87E3)  
@@ -1564,13 +1234,6 @@ function GetPedEventData(ped, eventType) end
 ---@param worldSpace boolean
 ---@return vector3
 function GetPedExtractedDisplacement(ped, worldSpace) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x76BBA2CEE66D47E9)  
----A getter for [`_SET_PED_EYE_COLOR`](#\_0x50B56988B170AFDF).
----@param ped integer
----@return integer
-function GetPedEyeColor(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF162E133B4E7A675)  
@@ -1588,7 +1251,7 @@ function GetPedGroupIndex(ped) end
 ---
 ---This is used with the hair color swatches scaleform.
 ---
----Use [`_0x013E5CFC38CD5387`](#\_0x013E5CFC38CD5387) to get the makeup colors.
+---Use [`_0x013E5CFC38CD5387`](#_0x013E5CFC38CD5387) to get the makeup colors.
 ---@param hairColorIndex integer
 ---@return integer, integer, integer
 function GetPedHairRgbColor(hairColorIndex) end
@@ -1626,18 +1289,6 @@ function GetPedHeadBlendFirstIndex(type) end
 GetFirstParentIdForPedType = GetPedHeadBlendFirstIndex
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5EF37013A6539C9D)  
----```
----Type equals 0 for male non-dlc, 1 for female non-dlc, 2 for male dlc, and 3 for female dlc.  
----```
----@param type integer
----@return integer
-function GetPedHeadBlendNumHeads(type) end
-
----@deprecated
-GetNumParentPedsOfType = GetPedHeadBlendNumHeads
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF1CE768BB43480E)  
 ---```
 ---Used with freemode (online) characters.
@@ -1652,8 +1303,7 @@ GetNumHeadOverlayValues = GetPedHeadOverlayNum
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA60EF3B6461A4D43)  
 ---```
----Likely a char, if that overlay is not set, e.i. "None" option, returns 255;
----This might be the once removed native GET_PED_HEAD_OVERLAY.
+---Likely a char, if that overlay is not set, e.i. "None" option, returns 255;  
 ---```
 ---@param ped integer
 ---@param overlayID integer
@@ -1665,27 +1315,22 @@ function GetPedHeadOverlayValue(ped, overlayID) end
 ---```
 ---gtaforums.com/topic/885580-ped-headshotmugshot-txd/  
 ---```
----@param id integer
+---@param handle integer
 ---@return string
-function GetPedheadshotTxdString(id) end
+function GetPedheadshotTxdString(handle) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x451294E859ECC018)  
----This native does not have an official description.
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1461B28A06717D68)  
+---Use [`SetPedIlluminatedClothingGlowIntensity`](#_0x4E90D746056E273D) to set the illuminated clothing glow intensity for a specific ped.
 ---@param ped integer
----@return integer
-function GetPedHelmetStoredHatPropIndex(ped) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x9D728C1E12BF5518)  
----This native does not have an official description.
----@param ped integer
----@return integer
-function GetPedHelmetStoredHatTexIndex(ped) end
+---@return number
+function GetPedIlluminatedClothingGlowIntensity(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD75960F6BD9EA49C)  
----This native does not have an official description.
+---```
+---Pretty sure outBone is an int.  
+---```
 ---@param ped integer
 ---@return boolean, integer
 function GetPedLastDamageBone(ped) end
@@ -1697,7 +1342,7 @@ function GetPedLastDamageBone(ped) end
 ---
 ---This is used with the makeup color swatches scaleform.
 ---
----Use [`_0x4852FC386E2E1BB5`](#\_0x4852FC386E2E1BB5) to get the hair colors.
+---Use [`_0x4852FC386E2E1BB5`](#_0x4852FC386E2E1BB5) to get the hair colors.
 ---@param makeupColorIndex integer
 ---@return integer, integer, integer
 function GetPedMakeupRgbColor(makeupColorIndex) end
@@ -1721,9 +1366,18 @@ function GetPedMoney(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x23F8F5FC7E8C4A6B)  
----Console/PC structure definitions and example: pastebin.com/SsFej963
----
----For FiveM/Cfx.Re use-cases refer to: [`GET_GAME_POOL`](#\_0x2B9D4F50).
+---```
+---sizeAndPeds - is a pointer to an array. The array is filled with peds found nearby the ped supplied to the first argument.  
+---ignore - ped type to ignore  
+---Return value is the number of peds found and added to the array passed.  
+--------------------------------------  
+---To make this work in most menu bases at least in C++ do it like so,  
+--- Formatted Example: pastebin.com/D8an9wwp  
+--------------------------------------  
+---Example: gtaforums.com/topic/789788-function-args-to-pedget-ped-nearby-peds/?p=1067386687  
+---Here's the right way to do it (console and pc):  
+---pastebin.com/SsFej963  
+---```
 ---@param ped integer
 ---@param ignore integer
 ---@return integer, integer
@@ -1764,7 +1418,10 @@ function GetPedNearbyVehicles(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE3DD5F2A84B42281)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param componentId integer
 ---@return integer
@@ -1807,7 +1464,10 @@ function GetPedParachuteTintIndex(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x898CC20EA75BACD8)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param componentId integer
 ---@return integer
@@ -1815,7 +1475,10 @@ function GetPedPropIndex(ped, componentId) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE131A28626F81AB2)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param componentId integer
 ---@return integer
@@ -1881,18 +1544,11 @@ GetPedKiller = GetPedSourceOfDeath
 function GetPedStealthMovement(ped) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x32C27A11307B01CC)  
----```
----NativeDB Introduced: v2372
----```
----@param ped integer
----@param p1 any
----@return integer
-function GetPedTaskCombatTarget(ped, p1) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x04A355E041E004E6)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param componentId integer
 ---@return integer
@@ -1900,49 +1556,39 @@ function GetPedTextureVariation(ped, componentId) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1E98817B311AE98A)  
----This native does not have an official description.
+---```
+---Name was _GET_PED_TIME_OF_DEATH  
+--------------------------------------------------------------------  
+---There is no way this is the correct name. The only time this is called it's compared with the game timer and I used this to test something and noticed when I was killed by no matter what it was my 'Time Of Death' via this native was always 0, but my friends was some random big number like so, 147591.  
+---Retreives [CPed + 15CC] (as of 944)  
+---```
 ---@param ped integer
 ---@return integer
 function GetPedTimeOfDeath(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF059E1E4C01E63C)  
----Ped types:
----
----```cpp
----enum ePedType
----{
----	PED_TYPE_PLAYER_0 = 0,
----	PED_TYPE_PLAYER_1 = 1,
----	PED_TYPE_NETWORK_PLAYER = 2,
----	PED_TYPE_PLAYER_2 = 3,
----	PED_TYPE_CIVMALE = 4,
----	PED_TYPE_CIVFEMALE = 5,
----	PED_TYPE_COP = 6,
----	PED_TYPE_GANG_ALBANIAN = 7,
----	PED_TYPE_GANG_BIKER_1 = 8,
----	PED_TYPE_GANG_BIKER_2 = 9,
----	PED_TYPE_GANG_ITALIAN = 10,
----	PED_TYPE_GANG_RUSSIAN = 11,
----	PED_TYPE_GANG_RUSSIAN_2 = 12,
----	PED_TYPE_GANG_IRISH = 13,
----	PED_TYPE_GANG_JAMAICAN = 14,
----	PED_TYPE_GANG_AFRICAN_AMERICAN = 15,
----	PED_TYPE_GANG_KOREAN = 16,
----	PED_TYPE_GANG_CHINESE_JAPANESE = 17,
----	PED_TYPE_GANG_PUERTO_RICAN = 18,
----	PED_TYPE_DEALER = 19,
----	PED_TYPE_MEDIC = 20,
----	PED_TYPE_FIREMAN = 21,
----	PED_TYPE_CRIMINAL = 22,
----	PED_TYPE_BUM = 23,
----	PED_TYPE_PROSTITUTE = 24,
----	PED_TYPE_SPECIAL = 25,
----	PED_TYPE_MISSION = 26,
----	PED_TYPE_SWAT = 27,
----	PED_TYPE_ANIMAL = 28,
----	PED_TYPE_ARMY = 29
----};
+---```
+---Ped Types: (ordered by return priority)  
+---Michael = 0  
+---Franklin = 1  
+---Trevor = 2  
+---Army = 29  
+---Animal = 28  
+---SWAT = 27  
+---LSFD = 21  
+---Paramedic = 20  
+---Cop = 6  
+---Male = 4  
+---Female = 5   
+---Human = 26  
+---Note/Exception  
+---hc_gunman : 4 // Mix male and female  
+---hc_hacker : 4 // Mix male and female  
+---mp_f_misty_01 : 4 // Female character  
+---s_f_y_ranger_01 : 5 // Ranger  
+---s_m_y_ranger_01 : 4 // Ranger  
+---s_m_y_uscg_01 : 6 // US Coast Guard  
 ---```
 ---@param ped integer
 ---@return integer
@@ -2056,10 +1702,14 @@ function GetSynchronizedSceneRate(sceneID) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x36B77BB84687C318)  
 ---```
----GET_TIME_*
+---GET_TIME_SINCE_???  
+---```
+---
+---```
+---NativeDB Parameter 1: Hash weaponHash
 ---```
 ---@param ped integer
----@param weaponHash integer | string
+---@param weaponHash any
 ---@return integer
 function GetTimeOfLastPedWeaponDamage(ped, weaponHash) end
 
@@ -2075,7 +1725,7 @@ SetExclusivePhoneRelationships = GetVehiclePedIsEntering
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9A9112A0FE9A4713)  
----Retrieves the vehicle the specified ped is currently in, or the last vehicle they were in.
+---Gets the vehicle the specified Ped is/was in depending on bool value.
 ---@param ped integer
 ---@param lastVehicle boolean
 ---@return integer
@@ -2083,7 +1733,12 @@ function GetVehiclePedIsIn(ped, lastVehicle) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x814FA8BE5449445D)  
----This native does not have an official description.
+---```
+---Should be renamed GET_CAR_PED_IS_TRYING_TO_ENTER...  
+---Because this works only for cars, not for helis, planes,motorcycles or bicycles...  
+---From Calderon  
+---This is what R* named it, deal with it.  
+---```
 ---@param ped integer
 ---@return integer
 function GetVehiclePedIsTryingToEnter(ped) end
@@ -2099,31 +1754,14 @@ function GetVehiclePedIsUsing(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54C7C4A94367717E)  
----Gives the ped a helmet. Can be removed by invoking [`REMOVE_PED_HELMET`](#\_0xA7B2458D0AD6DED8).
----
----```cpp
----enum ePedCompFlags {
----  PV_FLAG_NONE                  = 0, // 0
----  PV_FLAG_BULKY                 = 1, // 1<<0
----  PV_FLAG_JOB                   = 2, // 1<<1
----  PV_FLAG_SUNNY                 = 4, // 1<<2
----  PV_FLAG_WET                   = 8, // 1<<3
----  PV_FLAG_COLD                  = 16, // 1<<4
----  PV_FLAG_NOT_IN_CAR            = 32, // 1<<5
----  PV_FLAG_BIKE_ONLY             = 64, // 1<<6
----  PV_FLAG_NOT_INDOORS           = 128, // 1<<7
----  PV_FLAG_FIRE_RETARDENT        = 256, // 1<<8
----  PV_FLAG_ARMOURED              = 512, // 1<<9
----  PV_FLAG_LIGHTLY_ARMOURED      = 1024, // 1<<10
----  PV_FLAG_HIGH_DETAIL           = 2048, // 1<<11
----  PV_FLAG_DEFAULT_HELMET        = 4096, // 1<<12
----  PV_FLAG_RANDOM_HELMET         = 8192, // 1<<13
----  PV_FLAG_SCRIPT_HELMET         = 16384, // 1<<14
----  PV_FLAG_FLIGHT_HELMET         = 32768, // 1<<15
----  PV_FLAG_HIDE_IN_FIRST_PERSON  = 65536, // 1<<16
----  PV_FLAG_USE_PHYSICS_HAT_2     = 131072, // 1<<17
----  PV_FLAG_PILOT_HELMET          = 262144 // 1<<18
----};
+---```
+---PoliceMotorcycleHelmet	1024	  
+---RegularMotorcycleHelmet	4096	  
+---FiremanHelmet	16384	  
+---PilotHeadset	32768	  
+---PilotHelmet	65536  
+-----  
+---p2 is generally 4096 or 16384 in the scripts. p1 varies between 1 and 0.  
 ---```
 ---@param ped integer
 ---@param cannotRemove boolean
@@ -2171,25 +1809,29 @@ function HasPedHeadBlendFinished(ped) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x876928DDDFCCC9CD)  
 ---This native does not have an official description.
----@return boolean
+---@return any
 function HasPedheadshotImgUploadFailed() end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE8A169E666CBC541)  
 ---This native does not have an official description.
----@return boolean
+---@return any
 function HasPedheadshotImgUploadSucceeded() end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x784002A632822099)  
----This native does not have an official description.
+---```
+---Normally returns true. Returns false briefly whilst putting on a helmet after getting onto a motorbike. Not sure what that's about.
+---```
 ---@param ped integer
 ---@return boolean
 function HasPedPreloadPropDataFinished(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x66680A92700F43DF)  
----This native does not have an official description.
+---```
+---Normally returns true. Returns false briefly whilst getting into a plane. This is probably a check to see if the ped model and all its components/drawables are properly loaded yet.
+---```
 ---@param ped integer
 ---@return boolean
 function HasPedPreloadVariationDataFinished(ped) end
@@ -2211,13 +1853,13 @@ function HasStealthModeAssetLoaded(asset) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7350823473013C02)  
----This native does not have an official description.
+---```
+---HAS_*
+---Functionality also closely related to blending
+---```
 ---@param ped integer
 ---@return boolean
-function HaveAllStreamingRequestsCompleted(ped) end
-
----@deprecated
-HasStreamedPedAssetsLoaded = HaveAllStreamingRequestsCompleted
+function HasStreamedPedAssetsLoaded(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x62AB793144DE75DC)  
@@ -2226,11 +1868,6 @@ HasStreamedPedAssetsLoaded = HaveAllStreamingRequestsCompleted
 ---@param p1 any
 ---@param p2 boolean
 function HidePedBloodDamageByZone(ped, p1, p2) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x4759CC730F947C81)  
----This native does not have an official description.
-function InstantlyFillPedPopulation() end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x68772DB2B2526F9F)  
@@ -2255,17 +1892,17 @@ function IsAnyPedNearPoint(x, y, z, radius) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA0D3D71EA1086C55)  
----Verifies whether a ped is firing within a specific area.
----@param minX number
----@param minY number
----@param minZ number
----@param maxX number
----@param maxY number
----@param maxZ number
----@param bHighlightArea boolean
----@param bDo3DCheck boolean
+---This native does not have an official description.
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param p6 boolean
+---@param p7 boolean
 ---@return boolean
-function IsAnyPedShootingInArea(minX, minY, minZ, maxX, maxY, maxZ, bHighlightArea, bDo3DCheck) end
+function IsAnyPedShootingInArea(x1, y1, z1, x2, y2, z2, p6, p7) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE0A0AEC214B1FABA)  
@@ -2298,7 +1935,7 @@ function IsPedAimingFromCover(ped) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x12534C348C6CB68B)  
 ---```
----Returns true if the given ped has a valid pointer to CPlayerInfo in its CPed class. That's all.
+---Returns true if the given ped has a valid pointer to CPlayerInfo in its CPed class. That's it.  
 ---```
 ---@param ped integer
 ---@return boolean
@@ -2337,10 +1974,12 @@ function IsPedBlushColorValid(colorID) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF41B5D290C99A3D6)  
----This native does not have an official description.
----@param colorId integer
+---```
+---Used in hairdo_shop*.ysc and maintransition.ysc
+---```
+---@param colorID integer
 ---@return boolean
-function IsPedBlushColorValid_2(colorId) end
+function IsPedBlushColorValid_2(colorID) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x09E7ECA981D9B210)  
@@ -2348,7 +1987,7 @@ function IsPedBlushColorValid_2(colorId) end
 ---NativeDB Introduced: v1290
 ---```
 ---@param colorID integer
----@return boolean
+---@return any
 function IsPedBodyBlemishValid(colorID) end
 
 ---**`PED` `client`**  
@@ -2360,7 +1999,11 @@ function IsPedClimbing(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE825F6B6CEA7671D)  
----Checks if the component variation is valid, this works great for randomizing components using loops.
+---```
+---Checks if the component variation is valid, this works great for randomizing components using loops.  
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param componentId integer
 ---@param drawableId integer
@@ -2370,15 +2013,18 @@ function IsPedComponentVariationValid(ped, componentId, drawableId, textureId) e
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3317DEDB88C95038)  
----Determines if a ped is dead. Contrary to what the name might suggest, it does not always detect when a ped is in the 'dying' phase (transitioning to death). The exception is when `checkMeleeDeathFlags` is set to `true`, which then includes peds in the midst of melee takedown moves as being in a dying state, even if the death task has not yet started.
----
 ---```
----NativeDB Introduced: v323
+---Seems to consistently return true if the ped is dead.  
+---p1 is always passed 1 in the scripts.  
+---I suggest to remove "OR_DYING" part, because it does not detect dying phase.  
+---That's what the devs call it, cry about it.  
+---lol  
+---that's a good meme right there.  
 ---```
 ---@param ped integer
----@param checkMeleeDeathFlags boolean
+---@param p1 boolean
 ---@return boolean
-function IsPedDeadOrDying(ped, checkMeleeDeathFlags) end
+function IsPedDeadOrDying(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA63D9FE45412247)  
@@ -2394,13 +2040,6 @@ function IsPedDefensiveAreaActive(ped, p1) end
 ---@param ped integer
 ---@return boolean
 function IsPedDiving(ped) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x451D05012CCEC234)  
----This native does not have an official description.
----@param ped integer
----@return boolean
-function IsPedDoingBeastJump(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB2C086CC1BF8F2BF)  
@@ -2419,10 +2058,10 @@ function IsPedDucking(ped) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x414641C26E105898)  
 ---```
----Presumably returns the Entity that the Ped is currently diving out of the way of.
----var num3;
----    if (PED::IS_PED_EVASIVE_DIVING(A_0, &num3) != 0)
----        if (ENTITY::IS_ENTITY_A_VEHICLE(num3) != 0)
+---Presumably returns the Entity that the Ped is currently diving out of the way of.  
+---var num3;  
+---    if (PED::IS_PED_EVASIVE_DIVING(A_0, &num3) != 0)  
+---        if (ENTITY::IS_ENTITY_A_VEHICLE(num3) != 0)  
 ---```
 ---@param ped integer
 ---@return boolean, integer
@@ -2494,10 +2133,12 @@ function IsPedHairColorValid(colorID) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xED6D8E27A43B8CDE)  
----This native does not have an official description.
----@param colorId integer
+---```
+---Used in hairdo_shop*.ysc and maintransition.ysc
+---```
+---@param colorID integer
 ---@return boolean
-function IsPedHairColorValid_2(colorId) end
+function IsPedHairColorValid_2(colorID) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1C86D8AEF8254B78)  
@@ -2520,7 +2161,7 @@ function IsPedHeadingTowardsPosition(ped, x, y, z, p4) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEBB376779A760AA8)  
 ---This native does not have an official description.
----@return boolean
+---@return any
 function IsPedheadshotImgUploadAvailable() end
 
 ---**`PED` `client`**  
@@ -2537,9 +2178,9 @@ function IsPedheadshotReady(id) end
 ---```
 ---gtaforums.com/topic/885580-ped-headshotmugshot-txd/  
 ---```
----@param id integer
+---@param handle integer
 ---@return boolean
-function IsPedheadshotValid(id) end
+function IsPedheadshotValid(handle) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x813A0A7C9D2E831F)  
@@ -2642,7 +2283,10 @@ function IsPedInAnyVehicle(ped, atGetIn) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4859F1FC66A6278E)  
----Examines whether the ped is engaged in combat; when given a target ped index, it confirms if the ped is actively fighting the specified target, returning true if engaged and false if not.
+---```
+---Checks to see if ped and target are in combat with eachother. Only goes one-way: if target is engaged in combat with ped but ped has not yet reacted, the function will return false until ped starts fighting back.  
+---p1 is usually 0 in the scripts because it gets the ped id during the task sequence. For instance: PED::IS_PED_IN_COMBAT(l_42E[4/*14*/], PLAYER::PLAYER_PED_ID()) // armenian2.ct4: 43794  
+---```
 ---@param ped integer
 ---@param target integer
 ---@return boolean
@@ -2691,16 +2335,10 @@ IsPedStandingInCover = IsPedInHighCover
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84A2DD9AC37C35C1)  
----Indicates whether this ped's health is below its injured threshold.
----The default threshold is 100, these are stored in the `pedhealth.meta` file located in `common:\data\`
----
----### Below are some of the values
----
----| InjuredHealthThreshold | Name      |
----|------------------------|-----------|
----| 100.000000             | Strong    |
----| 100.000000             | Average   |
----| 100.000000             | Weak      |
+---```
+---Gets a value indicating whether this ped's health is below its injured threshold.  
+---The default threshold is 100.  
+---```
 ---@param ped integer
 ---@return boolean
 function IsPedInjured(ped) end
@@ -2775,10 +2413,12 @@ function IsPedLipstickColorValid(colorID) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3E802F11FBE27674)  
----This native does not have an official description.
----@param colorId integer
+---```
+---Used in hairdo_shop*.ysc and maintransition.ysc
+---```
+---@param colorID integer
 ---@return boolean
-function IsPedLipstickColorValid_2(colorId) end
+function IsPedLipstickColorValid_2(colorID) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6D9F5FAA7488BA46)  
@@ -2994,13 +2634,6 @@ function IsPedSittingInVehicle(ped, vehicle) end
 function IsPedStopped(ped) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x3795688A307E1EB6)  
----This native does not have an official description.
----@param Ped integer
----@return boolean
-function IsPedSwappingWeapon(Ped) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9DE327631295B4C2)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -3015,13 +2648,6 @@ function IsPedSwimming(ped) end
 function IsPedSwimmingUnderWater(ped) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x14590DDBEDB1EC85)  
----This native does not have an official description.
----@param ped integer
----@return boolean
-function IsPedTakingOffHelmet(ped) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4C5E1F087CD10BB7)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -3030,7 +2656,7 @@ function IsPedTracked(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44D28D5DDFE5F68C)  
----If the ped is attempting to enter a locked vehicle.
+---This native does not have an official description.
 ---@param ped integer
 ---@return boolean
 function IsPedTryingToEnterALockedVehicle(ped) end
@@ -3051,7 +2677,7 @@ function IsPedUsingAnyScenario(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1BF094736DD62C2E)  
----See [`TASK_START_SCENARIO_IN_PLACE`](#\_0x142A02425FF02BD9) for a list of scenarios.
+---This native does not have an official description.
 ---@param ped integer
 ---@param scenario string
 ---@return boolean
@@ -3059,7 +2685,9 @@ function IsPedUsingScenario(ped, scenario) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x117C70D1F5730B5E)  
----This native does not have an official description.
+---```
+---Definition of vaulting?  
+---```
 ---@param ped integer
 ---@return boolean
 function IsPedVaulting(ped) end
@@ -3092,13 +2720,6 @@ function IsScriptedScenarioPedUsingConditionalAnim(ped, animDict, anim) end
 function IsScubaGearLightEnabled(ped) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x7F2F4F13AC5257EF)  
----This native does not have an official description.
----@param sceneID integer
----@return boolean
-function IsSynchronizedSceneHoldLastFrame(sceneID) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x62522002E0C391BA)  
 ---This native does not have an official description.
 ---@param sceneID integer
@@ -3126,7 +2747,10 @@ function IsTrackedPedVisible(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6FD7816A36615F48)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 ---@param p1 boolean
 ---@param p2 boolean
@@ -3215,6 +2839,15 @@ function N_0x110f526ab784111f(ped, p1) end
 function N_0x1216e0bfa72cc703(p0, p1) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x14590DDBEDB1EC85)  
+---```
+---IS_PED_*
+---```
+---@param ped integer
+---@return boolean
+function N_0x14590ddbedb1ec85(ped) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1A330D297AAC6BC1)  
 ---```
 ---Only appears in lamar1 script.  
@@ -3242,6 +2875,17 @@ function N_0x1e77fa7a62ee6c4c(p0) end
 function N_0x2016c603d6b8987c(ped, toggle) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2208438012482A1A)  
+---```
+---Function.Call(Hash._0x2208438012482A1A, ped, 0, 0);  
+---This makes the ped have faster animations  
+---```
+---@param ped integer
+---@param p1 boolean
+---@param p2 boolean
+function N_0x2208438012482a1a(ped, p1, p2) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x25361A96E0F7E419)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -3259,11 +2903,25 @@ function N_0x25361a96e0f7e419(p0, p1, p2, p3) end
 function N_0x2735233a786b1bef(ped, p1) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x280C7E3AC7F56E90)  
+---This native does not have an official description.
+---@param p0 any
+---@return any, any, any
+function N_0x280c7e3ac7f56e90(p0) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x288DF530C92DAD6F)  
----[`SET_VEHICLE_STEER_BIAS`](#\_0x42A8EC77D5150CBE) for peds, e.g., `_SET_PED_STEER_BIAS`.
----@param ped integer
----@param value number
-function N_0x288df530c92dad6f(ped, value) end
+---This native does not have an official description.
+---@param p0 any
+---@param p1 number
+function N_0x288df530c92dad6f(p0, p1) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2B5AA717A181FB4C)  
+---This native does not have an official description.
+---@param p0 any
+---@param p1 boolean
+function N_0x2b5aa717a181fb4c(p0, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B694AFCF64E6994)  
@@ -3271,6 +2929,19 @@ function N_0x288df530c92dad6f(ped, value) end
 ---@param ped integer
 ---@param p1 boolean
 function N_0x2b694afcf64e6994(ped, p1) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2DF9038C90AD5264)  
+---This native does not have an official description.
+---@param p0 number
+---@param p1 number
+---@param p2 number
+---@param p3 number
+---@param p4 number
+---@param interiorFlags integer
+---@param scale number
+---@param duration integer
+function N_0x2df9038c90ad5264(p0, p1, p2, p3, p4, interiorFlags, scale, duration) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2DFC81C9B9608549)  
@@ -3310,6 +2981,21 @@ function N_0x2f3c3d9f50681de4(p0, p1) end
 function N_0x336b3d200ab007cb(p0, p1, p2, p3, p4) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3795688A307E1EB6)  
+---```
+---IS_PED_*
+---```
+---@param Ped integer
+---@return boolean
+function N_0x3795688a307e1eb6(Ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3C67506996001F5E)  
+---This native does not have an official description.
+---@return any
+function N_0x3c67506996001f5e() end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3E9679C1DFCF422C)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -3331,6 +3017,33 @@ function N_0x412f1364fa066cfb(p0) end
 function N_0x425aecf167663f48(ped, p1) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x451294E859ECC018)  
+---```
+---yoga.ysc  
+---if (PED::IS_PED_WEARING_HELMET(iParam0) && PED::_0x451294E859ECC018(iParam0) != -1)  
+---{  
+---	*uParam2 = PED::_0x451294E859ECC018(iParam0);  
+---	*uParam3 = PED::_0x9D728C1E12BF5518(iParam0);  
+---}  
+---```
+---@param ped integer
+---@return integer
+function N_0x451294e859ecc018(ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x451D05012CCEC234)  
+---This native does not have an official description.
+---@param p0 any
+---@return any
+function N_0x451d05012ccec234(p0) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4668D80430D6C299)  
+---This native does not have an official description.
+---@param ped integer
+function N_0x4668d80430d6c299(ped) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x46B05BCAE43856B0)  
 ---```
 ---Checks if the specified unknown flag is set in the ped's model.  
@@ -3341,6 +3054,13 @@ function N_0x425aecf167663f48(ped, p1) end
 ---@param flag integer
 ---@return boolean
 function N_0x46b05bcae43856b0(ped, flag) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4759CC730F947C81)  
+---```
+---Something regarding ped population.
+---```
+function N_0x4759cc730f947c81() end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x49E50BDB8BA4DAB2)  
@@ -3368,6 +3088,13 @@ function N_0x511f1a683387c7e2(ped) end
 function N_0x5407b7288d0478b7(p0) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5615E0C5EB2BC6E2)  
+---This native does not have an official description.
+---@param p0 any
+---@param p1 any
+function N_0x5615e0c5eb2bc6e2(p0, p1) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5A7F62FDA59759BD)  
 ---This native does not have an official description.
 function N_0x5a7f62fda59759bd() end
@@ -3378,6 +3105,20 @@ function N_0x5a7f62fda59759bd() end
 ---@param p0 any
 ---@param p1 boolean
 function N_0x5b6010b3cbc29095(p0, p1) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x687C0B594907D2E8)  
+---```
+---CLEAR_PED_*
+---```
+---@param ped integer
+function N_0x687c0b594907d2e8(ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x6B0E6172C9A4D902)  
+---This native does not have an official description.
+---@param p0 boolean
+function N_0x6b0e6172c9a4d902(p0) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x711794453CFD692B)  
@@ -3402,6 +3143,22 @@ function N_0x733c87d4ce22bea2(ped) end
 function N_0x75ba1cb3b7d40caf(ped, p1) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x76BBA2CEE66D47E9)  
+---A getter for [\_SET_PED_EYE_COLOR](#_0x50B56988B170AFDF). Returns -1 if fails to get.
+---@param ped integer
+---@return integer
+function N_0x76bba2cee66d47e9(ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7F2F4F13AC5257EF)  
+---```
+---IS_S*
+---```
+---@param p0 any
+---@return boolean
+function N_0x7f2f4f13ac5257ef(p0) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80054D7FCC70EEC6)  
 ---```
 ---CLEAR_PED_*
@@ -3415,6 +3172,13 @@ function N_0x80054d7fcc70eec6(ped) end
 ---@param p0 any
 ---@param p1 any
 function N_0x820e9892a77e97cd(p0, p1) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x83A169EABCDB10A2)  
+---This native does not have an official description.
+---@param p0 any
+---@param p1 any
+function N_0x83a169eabcdb10a2(p0, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x87DDEB611B329A9C)  
@@ -3433,16 +3197,25 @@ function N_0x9911f4a24485f653(p0) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9A77DFD295E29B09)  
 ---This native does not have an official description.
----@param ped integer
----@param toggle boolean
-function N_0x9a77dfd295e29b09(ped, toggle) end
+---@param p0 any
+---@param p1 boolean
+function N_0x9a77dfd295e29b09(p0, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9C6A6C19B6C0C496)  
+---```
+---NativeDB Parameter 1: int* p1
+---```
+---@param ped integer
+---@return boolean, any
+function N_0x9c6a6c19b6c0c496(ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9D728C1E12BF5518)  
 ---This native does not have an official description.
 ---@param ped integer
----@return boolean, integer
-function N_0x9c6a6c19b6c0c496(ped) end
+---@return integer
+function N_0x9d728c1e12bf5518(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9E30E91FB03A2CAF)  
@@ -3451,19 +3224,23 @@ function N_0x9c6a6c19b6c0c496(ped) end
 function N_0x9e30e91fb03a2caf() end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA3A9299C4F2ADB98)  
+---This native does not have an official description.
+---@param p0 any
+function N_0xa3a9299c4f2adb98(p0) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA3F3564A5B3646C0)  
 ---```
----Only called once in the scripts:
----if (sub_1abd() && (!PED::_A3F3564A5B3646C0(l_8C))) {
----    if (sub_52e3("RESNA_CELLR", 0)) {
----        PED::SET_PED_CAN_PLAY_GESTURE_ANIMS(l_8C, 1);
----        PED::SET_PED_CAN_PLAY_AMBIENT_ANIMS(l_8C, 1);
----        PED::SET_PED_CAN_PLAY_VISEME_ANIMS(l_8C, 1, 0);
----        l_184 += 1;
----    }
----}
----Checks something related to the mobile phone task.
----IS_*
+---Only called once in the scripts:  
+---if (sub_1abd() && (!PED::_A3F3564A5B3646C0(l_8C))) {  
+---    if (sub_52e3("RESNA_CELLR", 0)) {  
+---        PED::SET_PED_CAN_PLAY_GESTURE_ANIMS(l_8C, 1);  
+---        PED::SET_PED_CAN_PLAY_AMBIENT_ANIMS(l_8C, 1);  
+---        PED::SET_PED_CAN_PLAY_VISEME_ANIMS(l_8C, 1, 0);  
+---        l_184 += 1;  
+---    }  
+---}  
 ---```
 ---@param ped integer
 ---@return boolean
@@ -3474,6 +3251,18 @@ function N_0xa3f3564a5b3646c0(ped) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0xa52d5247a4227e14(p0) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA586FBEB32A53DBB)  
+---This native does not have an official description.
+---@return any
+function N_0xa586fbeb32a53dbb() end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA635C11B8C44AFC2)  
+---This native does not have an official description.
+---@return any
+function N_0xa635c11b8c44afc2() end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA660FAF550EB37E5)  
@@ -3501,13 +3290,13 @@ function N_0xaaa6a3698a69e048(p0) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param ped integer
+---@param p0 any
 ---@param p1 any
----@param p2 number
----@param hash integer | string
+---@param p2 any
+---@param p3 any
 ---@param p4 any
 ---@param p5 any
-function N_0xad27d957598e49e9(ped, p1, p2, hash, p4, p5) end
+function N_0xad27d957598e49e9(p0, p1, p2, p3, p4, p5) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAFC976FD0580C7B3)  
@@ -3526,22 +3315,32 @@ function N_0xafc976fd0580c7b3(ped, toggle) end
 function N_0xb282749d5e028163(p0, p1) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB3352E018D6F89DF)  
----```
----_SET_PED_HEAD_* - _SET_PED_HEARING_*
----
----_SET_PED_HEALTH_...
----```
----
----```
----NativeDB Introduced: v2699
----```
----@param toggle boolean
-function N_0xb3352e018d6f89df(toggle) end
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB2AFF10216DEFA2F)  
+---This native does not have an official description.
+---@param x number
+---@param y number
+---@param z number
+---@param p3 number
+---@param p4 number
+---@param p5 number
+---@param p6 number
+---@param interiorFlags integer
+---@param scale number
+---@param duration integer
+function N_0xb2aff10216defa2f(x, y, z, p3, p4, p5, p6, interiorFlags, scale, duration) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB782F8238512BAD5)  
+---This native does not have an official description.
+---@param p0 any
+---@return any
+function N_0xb782f8238512bad5(p0) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB8B52E498014F5B0)  
----This native does not have an official description.
+---```
+---if (!$B8B52E498014F5B0(PLAYER::PLAYER_PED_ID())) {  
+---```
 ---@param ped integer
 ---@return boolean
 function N_0xb8b52e498014f5b0(ped) end
@@ -3551,15 +3350,6 @@ function N_0xb8b52e498014f5b0(ped) end
 ---This native does not have an official description.
 ---@param ped integer
 function N_0xc2ee020f5fb4db53(ped) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xC30BDAEE47256C13)  
----```
----NativeDB Introduced: v1868
----```
----@param p0 any
----@return any
-function N_0xc30bdaee47256c13(p0) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC56FBF2F228E1DAC)  
@@ -3597,8 +3387,18 @@ function N_0xd33daa36272177c4(ped) end
 ---```
 ---NativeDB Introduced: v1180
 ---```
+---@param p0 any
+function N_0xdfe68c4b787e1bfb(p0) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE861D0B05C7662B8)  
+---```
+---SET_PED_CAN_*
+---```
 ---@param ped integer
-function N_0xdfe68c4b787e1bfb(ped) end
+---@param p1 boolean
+---@param p2 integer
+function N_0xe861d0b05c7662b8(ped, p1, p2) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE906EC930F5FE7C8)  
@@ -3625,12 +3425,32 @@ function N_0xea9960d07dadcf10(p0) end
 function N_0xec4b4b3b9908052a(ped, unk) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEC6935EBE0847B90)  
+---This native does not have an official description.
+---@param p0 any
+---@param p1 any
+---@param p2 any
+---@param p3 any
+---@return any
+function N_0xec6935ebe0847b90(p0, p1, p2, p3) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xED3C76ADFA6D07C4)  
 ---```
 ---FORCE_*
 ---```
 ---@param ped integer
 function N_0xed3c76adfa6d07c4(ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEEED8FAFEC331A70)  
+---This native does not have an official description.
+---@param p0 any
+---@param p1 any
+---@param p2 any
+---@param p3 any
+---@return any
+function N_0xeeed8fafec331a70(p0, p1, p2, p3) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF033419D1B81FAE8)  
@@ -3642,8 +3462,14 @@ function N_0xed3c76adfa6d07c4(ped) end
 function N_0xf033419d1b81fae8(p0) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF1C03A5352243A30)  
+---This native does not have an official description.
+---@param p0 any
+function N_0xf1c03a5352243a30(p0) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF2385935BFFD4D92)  
----Initial guess of native: `_IS_PED_WEARING_MOTORCYCLE_HELMET`.
+---This native does not have an official description.
 ---@param ped integer
 ---@return boolean
 function N_0xf2385935bffd4d92(ped) end
@@ -3651,23 +3477,35 @@ function N_0xf2385935bffd4d92(ped) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF2BEBCDFAFDAA19E)  
 ---```
----SET_PED_ALLOW*
----toggle was always false except in one instance (b678).
----The one time this is set to true seems to do with when you fail the mission.
+---toggle was always 0 except in one instance (b678).  
+---The one time this is set to true seems to do with when you fail the mission.  
 ---```
 ---@param toggle boolean
 function N_0xf2bebcdfafdaa19e(toggle) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xFAB944D4D481ACCB)  
----SET_A\*
----
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF445DE8DA80A1792)  
+---This native does not have an official description.
+---@return any
+function N_0xf445de8da80a1792() end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF60165E1D2C5370B)  
+---This native does not have an official description.
+---@param ped integer
+---@return boolean, any, any
+function N_0xf60165e1d2c5370b(ped) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF9ACF4A08098EA25)  
 ---```
----NativeDB Introduced: v1734
+---p1 was always 1 (true).  
+---Kicks the ped from the current vehicle and keeps the rendering-focus on this ped (also disables its collision). If doing this for your player ped, you'll still be able to drive the vehicle.  
+---Actual name begins with 'S'  
 ---```
 ---@param ped integer
----@param toggle boolean
-function N_0xfab944d4d481accb(ped, toggle) end
+---@param p1 boolean
+function N_0xf9acf4a08098ea25(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFD325494792302D7)  
@@ -3681,23 +3519,31 @@ SetTimeExclusiveDisplayTexture = N_0xfd325494792302d7
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFEC9A3B1820F3331)  
----Native to check whether [`_SET_PED_SCUBA_GEAR_VARIATION`](#\_0x36c6984c3ed0c911) is enabled/actived.
----@param ped integer
+---This native does not have an official description.
+---@param p0 any
 ---@return boolean
-function N_0xfec9a3b1820f3331(ped) end
+function N_0xfec9a3b1820f3331(p0) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFEE4A5459472A9F8)  
+---This native does not have an official description.
+function N_0xfee4a5459472a9f8() end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF4803BC019852D9)  
----```
----Related to Peds dropping pickup_health_snack; p0 is a value between [0.0, 1.0] that corresponds to drop rate
----```
+---This native does not have an official description.
 ---@param p0 number
 ---@param p1 any
 function N_0xff4803bc019852d9(p0, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE1E65CA8AC9C00ED)  
----This native does not have an official description.
+---```
+---Look at facials@gen_male@base and facials@gen_female@base for some common facial animations.   
+---!!!NOTE!!!  
+---Unlike most animation natives, the animation comes BEFORE the animation dictionary here. So you could call e.g.   
+---PLAY_FACIAL_ANIM(ped, "dead_1", "facials@gen_male@base")  
+---```
 ---@param ped integer
 ---@param animName string
 ---@param animDict string
@@ -3803,7 +3649,7 @@ function RemovePedFromGroup(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA7B2458D0AD6DED8)  
----Remove a helmet from a ped
+---This native does not have an official description.
 ---@param ped integer
 ---@param instantly boolean
 function RemovePedHelmet(ped, instantly) end
@@ -3823,9 +3669,9 @@ function RemoveRelationshipGroup(groupHash) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x31D16B74C6E29D66)  
 ---This native does not have an official description.
----@param scenarioBlockingIndex integer
----@param bNetwork boolean
-function RemoveScenarioBlockingArea(scenarioBlockingIndex, bNetwork) end
+---@param p0 any
+---@param p1 boolean
+function RemoveScenarioBlockingArea(p0, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD37401D78A929A49)  
@@ -3863,7 +3709,14 @@ GetPedFloodInvincibility = RequestPedVehicleVisibilityTracking
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7D7A2E43E74E2EB8)  
----This native does not have an official description.
+---```
+---i found this function just like VEHICLE::TRACK_VEHICLE_VISIBILITY   
+---example:  
+---PED::_0x7D7A2E43E74E2EB8(ped);// TRACK_PED_VISIBILITY  
+---if (PED::IS_TRACKED_PED_VISIBLE(ped))  
+---{  
+---}  
+---```
 ---@param ped integer
 function RequestPedVisibilityTracking(ped) end
 
@@ -3905,10 +3758,15 @@ function ResetPedLastVehicle(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA74EC0CB0AAEA2C)  
----This native does not have an official description.
+---```
+---If p1 is 0.0, I believe you are back to normal.   
+---If p1 is 1.0, it looks like you can only rotate the ped, not walk.  
+---Using the following code to reset back to normal  
+---PED::RESET_PED_MOVEMENT_CLIPSET(PLAYER::PLAYER_PED_ID(), 0.0);  
+---```
 ---@param ped integer
----@param transitionSpeed number
-function ResetPedMovementClipset(ped, transitionSpeed) end
+---@param p1 number
+function ResetPedMovementClipset(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9FA4664CF62E47E8)  
@@ -3924,8 +3782,11 @@ function ResetPedStrafeClipset(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3AC1F7B898F30C05)  
----This native does not have an official description.
+---```
+---NativeDB Return Type: void
+---```
 ---@param ped integer
+---@return any
 function ResetPedVisibleDamage(ped) end
 
 ---**`PED` `client`**  
@@ -3937,10 +3798,10 @@ function ResetPedWeaponMovementClipset(ped) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x71BC8E838B9C6035)  
 ---```
----This function will simply bring the dead person back to life.
----Try not to use it alone, since using this function alone, will make peds fall through ground in hell(well for the most of the times).
----Instead, before calling this function, you may want to declare the position, where your Resurrected ped to be spawn at.(For instance, Around 2 floats of Player's current position.)
----Also, disabling any assigned task immediately helped in the number of scenarios, where If you want peds to perform certain decided tasks.
+---This function will simply bring the dead person back to life.  
+---Try not to use it alone, since using this function alone, will make peds fall through ground.  
+---Instead, before calling this function, you may want to declare the position, where your Resurrected ped to be spawn at.(For instance, Around 2 floats of Player's current position.)   
+---Also, disabling any assigned task immediately helped in the number of scenarios, where If you want peds to perform certain decided tasks.  
 ---```
 ---@param ped integer
 function ResurrectPed(ped) end
@@ -3968,24 +3829,9 @@ function SetAiMeleeWeaponDamageModifier(modifier) end
 function SetAiWeaponDamageModifier(value) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x6B0E6172C9A4D902)  
----This native does not have an official description.
----@param p0 boolean
-function SetAmbientPedsDropMoney(p0) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xC73EFFC5E043A8BA)  
----Prevents ambient peds from dropping their weapons for the current frame.
----
----```
----NativeDB Introduced: v3258
----```
-function SetBlockAmbientPedsFromDroppingWeaponsThisFrame() end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9F8AA94D6D97DBF4)  
 ---```
----works with TASK::TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS to make a ped completely oblivious to all events going on around him
+---works with AI::TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS to make a ped completely oblivious to all events going on around him  
 ---```
 ---@param ped integer
 ---@param toggle boolean
@@ -4006,7 +3852,9 @@ function SetCanAttackFriendly(ped, toggle, p2) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF41B4B141ED981C)  
----This native does not have an official description.
+---```
+---combatType can be between 0-14. See GET_COMBAT_FLOAT below for a list of possible parameters.  
+---```
 ---@param ped integer
 ---@param combatType integer
 ---@param p2 number
@@ -4051,7 +3899,7 @@ function SetDriverAggressiveness(driver, aggressiveness) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDED5AF5A0EA4B297)  
 ---```
----Scripts use 0.2, 0.5 and 1.0. Value must be >= 0.0 && <= 1.0
+---Scripts use 0.2, 0.5 and 1.0.  
 ---```
 ---@param driver integer
 ---@param modifier number
@@ -4059,7 +3907,7 @@ function SetDriverRacingModifier(driver, modifier) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC52E0F855C58FC2E)  
----Used with [SET_ENABLE_HANDCUFFS](#\_0xDF1AF8B5D56542FA) in decompiled scripts. From my observations, I have noticed that while being ragdolled you are not able to get up but you can still run. Your legs can also bend.
+---Used with [SET_ENABLE_HANDCUFFS](#_0xDF1AF8B5D56542FA) in decompiled scripts. From my observations, I have noticed that while being ragdolled you are not able to get up but you can still run. Your legs can also bend.
 ---@param ped integer
 ---@param toggle boolean
 function SetEnableBoundAnkles(ped, toggle) end
@@ -4105,11 +3953,11 @@ function SetEnableScubaGearLight(ped, toggle) end
 ---"facials@gen_male@base"
 ---"facials@p_m_zero@base"
 ---
----Typically followed with [SET_FACIAL_IDLE_ANIM_OVERRIDE](#\_0xFFC24B988B938B38):
----"mood_drunk\_1"
----"mood_stressed\_1"
----"mood_happy\_1"
----"mood_talking\_1"
+---Typically followed with [SET_FACIAL_IDLE_ANIM_OVERRIDE](#_0xFFC24B988B938B38):
+---"mood_drunk_1"
+---"mood_stressed_1"
+---"mood_happy_1"
+---"mood_talking_1"
 ---
 ---```
 ---NativeDB Introduced: v1493
@@ -4145,15 +3993,10 @@ function SetForceStepType(ped, p1, type, p3) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCE2F5FC3AF7E8C1E)  
 ---```
----0: Freedom to move
----1: Circle Around Leader
+---0: Default  
+---1: Circle Around Leader  
 ---2: Alternative Circle Around Leader  
 ---3: Line, with Leader at center  
----4: Arrow Formation
----5: "V" Formation
----6: Line Follow Formation
----7: Single Formation
----8: Pairwise
 ---```
 ---@param groupId integer
 ---@param formationType integer
@@ -4179,7 +4022,7 @@ function SetGroupSeparationRange(groupHandle, separationRange) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCC9682B8951C5229)  
----Preview: https://gfycat.com/MaleRareAmazonparrot
+---Preview: <https://gfycat.com/MaleRareAmazonparrot>
 ---@param ped integer
 ---@param r integer
 ---@param g integer
@@ -4189,52 +4032,14 @@ function SetHeadBlendPaletteColor(ped, r, g, b, id) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC32779C16FCEECD9)  
----Sets the IK target for a given IK part belonging to the ped.
----
----**Please note:** The IK target will only be valid for one update, so it needs to be set for as long as it is needed (to avoid IK targets not being cleared and getting stuck enabled).
----
----```cpp
----enum eIkPart {
----  IK_PART_INVALID = 0,
----  // head
----  IK_PART_HEAD = 1,
----  // spine
----  IK_PART_SPINE = 2,
----  // Left Arm
----  IK_PART_ARM_LEFT = 3,
----  // Right Arm
----  IK_PART_ARM_RIGHT = 4,
----  // Left Leg
----  IK_PART_LEG_LEFT = 5,
----  // Right Leg
----  IK_PART_LEG_RIGHT = 6
----};
----
 ---```
----
----```cpp
----enum eIkTargetFlags {
----  ITF_DEFAULT = 0,
----  // arm target relative to the handbone
----  ITF_ARM_TARGET_WRT_HANDBON = 1,
----  // arm target relative to the pointhelper
----  ITF_ARM_TARGET_WRT_POINTHELPER = 2,
----  // arm target relative to the ikhelper
----  ITF_ARM_TARGET_WRT_IKHELPE = 4,
----  // use animation tags directly
----  ITF_IK_TAG_MODE_NORMAL = 8,
----  // use animation tags in ALLOW mode
----  ITF_IK_TAG_MODE_ALLOW = 16,
----  // use animation tags in BLOCK mode
----  ITF_IK_TAG_MODE_BLOCK = 32,
----  // solve for orientation in addition to position
----  ITF_ARM_USE_ORIENTATION = 64
----};
----
----```
----
----```
----NativeDB Introduced: v323
+---No other indices work...  
+---IK Index ---------  
+---1 = head  
+---3 = left arm  
+---4 = right arm  
+---------------------  
+---EntityLookAt can be null (0 handle)  
 ---```
 ---@param ped integer
 ---@param ikIndex integer
@@ -4243,15 +4048,15 @@ function SetHeadBlendPaletteColor(ped, r, g, b, id) end
 ---@param offsetX number
 ---@param offsetY number
 ---@param offsetZ number
----@param ikTargetFlags integer
+---@param p7 any
 ---@param blendInDuration integer
 ---@param blendOutDuration integer
-function SetIkTarget(ped, ikIndex, entityLookAt, boneLookAt, offsetX, offsetY, offsetZ, ikTargetFlags, blendInDuration, blendOutDuration) end
+function SetIkTarget(ped, ikIndex, entityLookAt, boneLookAt, offsetX, offsetY, offsetZ, p7, blendInDuration, blendOutDuration) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x781DE8FA214E87D2)  
 ---```
----name: "MP_FEMALE_ACTION" found multiple times in the b617d scripts.
+---p1: "MP_FEMALE_ACTION" found multiple times in the b617d scripts.  
 ---```
 ---@param ped integer
 ---@param name string
@@ -4260,10 +4065,15 @@ function SetMovementModeOverride(ped, name) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7AEFB85C1D49DEB6)  
 ---```
----accuracy = 0-100, 100 being perfectly accurate
+---accuracy = 0-100, 100 being perfectly accurate  
+---```
+---
+---```
+---NativeDB Return Type: void
 ---```
 ---@param ped integer
 ---@param accuracy integer
+---@return any
 function SetPedAccuracy(ped, accuracy) end
 
 ---**`PED` `client`**  
@@ -4334,15 +4144,6 @@ function SetPedAlternateWalkAnim(ped, animDict, animName, p3, p4) end
 function SetPedAngledDefensiveArea(ped, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2B5AA717A181FB4C)  
----```
----Enable/disable ped shadow (ambient occlusion). https://gfycat.com/thankfulesteemedgecko
----```
----@param ped integer
----@param toggle boolean
-function SetPedAoBlobRendering(ped, toggle) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCEA04D83135264CC)  
 ---```
 ---Sets the armor of the specified ped.  
@@ -4397,8 +4198,8 @@ function SetPedBlendFromParents(ped, father, mother, fathersSide, mothersSide) e
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x576594E8D64375E2)  
 ---This native does not have an official description.
 ---@param ped integer
----@param toggle boolean
-function SetPedBlocksPathingWhenDead(ped, toggle) end
+---@param p1 boolean
+function SetPedBlocksPathingWhenDead(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4F5F651ACCC9C4CF)  
@@ -4428,7 +4229,10 @@ function SetPedCanBeDraggedOut(ped, toggle) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7A6535691B477C48)  
 ---```
----state: https://alloc8or.re/gta5/doc/enums/eKnockOffVehicle.txt
+---0 = can (bike)  
+---1 = can't (bike)  
+---2 = unk   
+---3 = unk  
 ---```
 ---@param ped integer
 ---@param state integer
@@ -4508,15 +4312,6 @@ function SetPedCanHeadIk(ped, toggle) end
 ---@param ped integer
 ---@param toggle boolean
 function SetPedCanLegIk(ped, toggle) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE861D0B05C7662B8)  
----It makes the ped lose (or not lose) their props (like glasses or helmets/hat) when someone punches or pushes the ped.
----This is probably what's being used in GTA:O to keep players from knocking other player's hats/glasses off when in combat.
----@param ped integer
----@param loseProps boolean
----@param p2 integer
-function SetPedCanLosePropsOnDamage(ped, loseProps, p2) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC514825C507E3736)  
@@ -4673,179 +4468,27 @@ function SetPedCombatAbility(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9F7794730795E019)  
----These combat attributes seem to be the same as the BehaviourFlags from combatbehaviour.meta.
----
----So far, these are the equivalents found:
----
----```cpp
----enum eCombatAttribute
----{
----  CA_INVALID = -1,	
----  // AI will only use cover if this is set
----  CA_USE_COVER = 0,
----  // AI will only use vehicles if this is set
----  CA_USE_VEHICLE = 1,
----  // AI will only driveby from a vehicle if this is set
----  CA_DO_DRIVEBYS = 2,
----  // Will be forced to stay in a ny vehicel if this isn't set
----  CA_LEAVE_VEHICLES = 3,
----  // This ped can make decisions on whether to strafe or not based on distance to destination, recent bullet events, etc.
----  CA_CAN_USE_DYNAMIC_STRAFE_DECISIONS	= 4,
----  // Ped will always fight upon getting threat response task
----  CA_ALWAYS_FIGHT = 5,
----  // If in combat and in a vehicle, the ped will flee rather than attacking
----  CA_FLEE_WHILST_IN_VEHICLE = 6,
----  // If in combat and chasing in a vehicle, the ped will keep a distance behind rather than ramming
----  CA_JUST_FOLLOW_VEHICLE = 7,
----  // Deprecated
----  CA_PLAY_REACTION_ANIMS = 8,
----  // Peds will scan for and react to dead peds found
----  CA_WILL_SCAN_FOR_DEAD_PEDS = 9,
----  // Deprecated
----  CA_IS_A_GUARD = 10,
----  // The ped will seek cover only 
----  CA_JUST_SEEK_COVER = 11,
----  // Ped will only blind fire when in cover
----  CA_BLIND_FIRE_IN_COVER = 12,
----  // Ped may advance
----  CA_AGGRESSIVE = 13,
----  // Ped can investigate events such as distant gunfire, footsteps, explosions etc
----  CA_CAN_INVESTIGATE = 14,
----  // Ped can use a radio to call for backup (happens after a reaction)
----  CA_CAN_USE_RADIO = 15,
----  // Deprecated
----  CA_CAN_CAPTURE_ENEMY_PEDS = 16,
----  // Ped will always flee upon getting threat response task
----  CA_ALWAYS_FLEE = 17,
----  // Ped can do unarmed taunts in vehicle
----  CA_CAN_TAUNT_IN_VEHICLE = 20,
----  // Ped will be able to chase their targets if both are on foot and the target is running away
----  CA_CAN_CHASE_TARGET_ON_FOOT = 21,
----  // Ped can drag injured peds to safety
----  CA_WILL_DRAG_INJURED_PEDS_TO_SAFETY = 22,
----  // Ped will require LOS to the target it is aiming at before shooting
----  CA_REQUIRES_LOS_TO_SHOOT = 23,
----  // Ped is allowed to use proximity based fire rate (increasing fire rate at closer distances)
----  CA_USE_PROXIMITY_FIRING_RATE = 24,
----  // Normally peds can switch briefly to a secondary target in combat, setting this will prevent that
----  CA_DISABLE_SECONDARY_TARGET = 25,
----  // This will disable the flinching combat entry reactions for peds, instead only playing the turn and aim anims
----  CA_DISABLE_ENTRY_REACTIONS = 26,
----  // Force ped to be 100% accurate in all situations (added by Jay Reinebold)
----  CA_PERFECT_ACCURACY = 27,
----  // If we don't have cover and can't see our target it's possible we will advance, even if the target is in cover
----  CA_CAN_USE_FRUSTRATED_ADVANCE	= 28,
----  // This will have the ped move to defensive areas and within attack windows before performing the cover search
----  CA_MOVE_TO_LOCATION_BEFORE_COVER_SEARCH = 29,
----  // Allow shooting of our weapon even if we don't have LOS (this isn't X-ray vision as it only affects weapon firing)
----  CA_CAN_SHOOT_WITHOUT_LOS = 30,
----  // Ped will try to maintain a min distance to the target, even if using defensive areas (currently only for cover finding + usage) 
----  CA_MAINTAIN_MIN_DISTANCE_TO_TARGET = 31,
----  // Allows ped to use steamed variations of peeking anims
----  CA_CAN_USE_PEEKING_VARIATIONS	= 34,
----  // Disables pinned down behaviors
----  CA_DISABLE_PINNED_DOWN = 35,
----  // Disables pinning down others
----  CA_DISABLE_PIN_DOWN_OTHERS = 36,
----  // When defensive area is reached the area is cleared and the ped is set to use defensive combat movement
----  CA_OPEN_COMBAT_WHEN_DEFENSIVE_AREA_IS_REACHED = 37,
----  // Disables bullet reactions
----  CA_DISABLE_BULLET_REACTIONS = 38,
----  // Allows ped to bust the player
----  CA_CAN_BUST = 39,
----  // This ped is ignored by other peds when wanted
----  CA_IGNORED_BY_OTHER_PEDS_WHEN_WANTED = 40,
----  // Ped is allowed to "jack" vehicles when needing to chase a target in combat
----  CA_CAN_COMMANDEER_VEHICLES = 41,
----  // Ped is allowed to flank
----  CA_CAN_FLANK = 42,
----  // Ped will switch to advance if they can't find cover
----  CA_SWITCH_TO_ADVANCE_IF_CANT_FIND_COVER = 43,
----  // Ped will switch to defensive if they are in cover
----  CA_SWITCH_TO_DEFENSIVE_IF_IN_COVER = 44,
----  // Ped will clear their primary defensive area when it is reached
----  CA_CLEAR_PRIMARY_DEFENSIVE_AREA_WHEN_REACHED = 45,
----  // Ped is allowed to fight armed peds when not armed
----  CA_CAN_FIGHT_ARMED_PEDS_WHEN_NOT_ARMED = 46,
----  // Ped is not allowed to use tactical points if set to use defensive movement (will only use cover)
----  CA_ENABLE_TACTICAL_POINTS_WHEN_DEFENSIVE = 47,
----  // Ped cannot adjust cover arcs when testing cover safety (atm done on corner cover points when  ped usingdefensive area + no LOS)
----  CA_DISABLE_COVER_ARC_ADJUSTMENTS = 48,
----  // Ped may use reduced accuracy with large number of enemies attacking the same local player target
----  CA_USE_ENEMY_ACCURACY_SCALING	= 49,
----  // Ped is allowed to charge the enemy position
----  CA_CAN_CHARGE = 50,
----  // When defensive area is reached the area is cleared and the ped is set to use will advance movement
----  CA_REMOVE_AREA_SET_WILL_ADVANCE_WHEN_DEFENSIVE_AREA_REACHED = 51,
----  // Use the vehicle attack mission during combat (only works on driver)
----  CA_USE_VEHICLE_ATTACK = 52,
----  // Use the vehicle attack mission during combat if the vehicle has mounted guns (only works on driver)
----  CA_USE_VEHICLE_ATTACK_IF_VEHICLE_HAS_MOUNTED_GUNS = 53,
----  // Always equip best weapon in combat
----  CA_ALWAYS_EQUIP_BEST_WEAPON = 54,
----  // Ignores in water at depth visibility check
----  CA_CAN_SEE_UNDERWATER_PEDS = 55,
----  // Will prevent this ped from aiming at any AI targets that are in helicopters
----  CA_DISABLE_AIM_AT_AI_TARGETS_IN_HELIS = 56,
----  // Disables peds seeking due to no clear line of sight
----  CA_DISABLE_SEEK_DUE_TO_LINE_OF_SIGHT = 57,
----  // To be used when releasing missions peds if we don't want them fleeing from combat (mission peds already prevent flee)
----  CA_DISABLE_FLEE_FROM_COMBAT = 58,
----  // Disables target changes during vehicle pursuit
----  CA_DISABLE_TARGET_CHANGES_DURING_VEHICLE_PURSUIT = 59,
----  // Ped may throw a smoke grenade at player loitering in combat
----  CA_CAN_THROW_SMOKE_GRENADE = 60,
----  // Will clear a set defensive area if that area cannot be reached
----  CA_CLEAR_AREA_SET_DEFENSIVE_IF_DEFENSIVE_CANNOT_BE_REACHED = 62,
----  // Disable block from pursue during vehicle chases
----  CA_DISABLE_BLOCK_FROM_PURSUE_DURING_VEHICLE_CHASE = 64,
----  // Disable spin out during vehicle chases
----  CA_DISABLE_SPIN_OUT_DURING_VEHICLE_CHASE = 65,
----  // Disable cruise in front during block during vehicle chases
----  CA_DISABLE_CRUISE_IN_FRONT_DURING_BLOCK_DURING_VEHICLE_CHASE = 66,
----  // Makes it more likely that the ped will continue targeting a target with blocked los for a few seconds
----  CA_CAN_IGNORE_BLOCKED_LOS_WEIGHTING = 67,
----  // Disables the react to buddy shot behaviour.
----  CA_DISABLE_REACT_TO_BUDDY_SHOT = 68,
----  // Prefer pathing using navmesh over road nodes
----  CA_PREFER_NAVMESH_DURING_VEHICLE_CHASE = 69,
----  // Ignore road edges when avoiding
----  CA_ALLOWED_TO_AVOID_OFFROAD_DURING_VEHICLE_CHASE = 70,
----  // Permits ped to charge a target outside the assigned defensive area.
----  CA_PERMIT_CHARGE_BEYOND_DEFENSIVE_AREA = 71,
----  // This ped will switch to an RPG if target is in a vehicle, otherwise will use alternate weapon.
----  CA_USE_ROCKETS_AGAINST_VEHICLES_ONLY = 72,
----  // Disables peds moving to a tactical point without clear los
----  CA_DISABLE_TACTICAL_POINTS_WITHOUT_CLEAR_LOS = 73,
----  // Disables pull alongside during vehicle chase
----  CA_DISABLE_PULL_ALONGSIDE_DURING_VEHICLE_CHASE = 74,
----  // If set on a ped, they will not flee when all random peds flee is set to TRUE (they are still able to flee due to other reasons)
----  CA_DISABLE_ALL_RANDOMS_FLEE = 78,
----  // This ped will send out a script DeadPedSeenEvent when they see a dead ped
----  CA_WILL_GENERATE_DEAD_PED_SEEN_SCRIPT_EVENTS = 79,
----  // This will use the receiving peds sense range rather than the range supplied to the communicate event
----  CA_USE_MAX_SENSE_RANGE_WHEN_RECEIVING_EVENTS = 80,
----  // When aiming from a vehicle the ped will only aim at targets on his side of the vehicle
----  CA_RESTRICT_IN_VEHICLE_AIMING_TO_CURRENT_SIDE = 81,
----  // LOS to the target is blocked we return to our default position and direction until we have LOS (no aiming)
----  CA_USE_DEFAULT_BLOCKED_LOS_POSITION_AND_DIRECTION = 82,
----  // LOS to the target is blocked we return to our default position and direction until we have LOS (no aiming)
----  CA_REQUIRES_LOS_TO_AIM = 83,
----  // Allow vehicles spawned infront of target facing away to enter cruise and wait to block approaching target
----  CA_CAN_CRUISE_AND_BLOCK_IN_VEHICLE = 84,
----  // Peds flying aircraft will prefer to target other aircraft over entities on the ground
----  CA_PREFER_AIR_COMBAT_WHEN_IN_AIRCRAFT = 85,
----  //Allow peds flying aircraft to use dog fighting behaviours
----  CA_ALLOW_DOG_FIGHTING = 86,
----  // This will make the weight of targets who aircraft vehicles be reduced greatly compared to targets on foot or in ground based vehicles
----  CA_PREFER_NON_AIRCRAFT_TARGETS = 87,
----  //When peds are tasked to go to combat, they keep searching for a known target for a while before forcing an unknown one
----  CA_PREFER_KNOWN_TARGETS_WHEN_COMBAT_CLOSEST_TARGET = 88,
----  // Only allow mounted weapons to fire if within the correct attack angle (default 25-degree cone). On a flag in order to keep exiting behaviour and only fix in specific cases.
----  CA_FORCE_CHECK_ATTACK_ANGLE_FOR_MOUNTED_GUNS = 89,
----  // Blocks the firing state for passenger-controlled mounted weapons. Existing flags CA_USE_VEHICLE_ATTACK and CA_USE_VEHICLE_ATTACK_IF_VEHICLE_HAS_MOUNTED_GUNS only work for drivers.
----  CA_BLOCK_FIRE_FOR_VEHICLE_PASSENGER_MOUNTED_GUNS = 90 
----};
+---```
+---These combat attributes seem to be the same as the BehaviourFlags from combatbehaviour.meta.  
+---So far, these are the equivalents found:  
+---enum CombatAttributes  
+---{  
+---	BF_CanUseCover = 0,  
+---	BF_CanUseVehicles = 1,  
+---	BF_CanDoDrivebys = 2,  
+---	BF_CanLeaveVehicle = 3,  
+---	BF_CanFightArmedPedsWhenNotArmed = 5,  
+---	BF_CanTauntInVehicle = 20,  
+---	BF_AlwaysFight = 46,  
+---	BF_IgnoreTrafficWhenDriving = 52,  
+---        BF_FreezeMovement = 292,  
+---        BF_PlayerCanUseFiringWeapons = 1424  
+---};  
+---8 = ?  
+---9 = ?  
+---13 = ?  
+---14 ?  
+---Research thread: gtaforums.com/topic/833391-researchguide-combat-behaviour-flags/  
 ---```
 ---@param ped integer
 ---@param attributeIndex integer
@@ -4866,61 +4509,41 @@ function SetPedCombatMovement(ped, combatMovement) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3C606747B23E497B)  
----Define the scope within which the ped will engage in combat with the target.
----
----```cpp
----enum eCombatRange {
----    CR_NEAR = 0, // keeps within 5-15m
----    CR_MEDIUM = 1, // keeps within 7-30m
----    CR_FAR = 2, // keeps within 15-40m
----    CR_VERY_FAR = 3 // keeps within 22-45m
----};
+---```
+---Only the values 0, 1 and 2 occur in the decompiled scripts. Most likely refers directly to the values also described as AttackRange in combatbehaviour.meta:  
+---0: CR_Near  
+---1: CR_Medium  
+---2: CR_Far  
 ---```
 ---@param ped integer
----@param range integer
-function SetPedCombatRange(ped, range) end
+---@param p1 integer
+function SetPedCombatRange(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x262B14F48D29DE80)  
----This native is used to set component variation on a ped. Components, drawables and textures IDs are related to the ped model.
+---This native is used to set component variation on a ped. Components, drawables and textures IDs are related to the ped model. 
 ---
 ---### MP Freemode list of components
 ---
----**0**: Face
----**1**: Mask
----**2**: Hair
----**3**: Torso
----**4**: Leg
----**5**: Parachute / bag
----**6**: Shoes
----**7**: Accessory
----**8**: Undershirt
----**9**: Kevlar
----**10**: Badge
----**11**: Torso 2
+---**0**: Face  
+---**1**: Mask  
+---**2**: Hair  
+---**3**: Torso  
+---**4**: Leg  
+---**5**: Parachute / bag  
+---**6**: Shoes  
+---**7**: Accessory  
+---**8**: Undershirt  
+---**9**: Kevlar  
+---**10**: Badge  
+---**11**: Torso 2  
 ---
----List of Component IDs
+---### Related and useful natives
 ---
----```cpp
----// Components
----enum ePedVarComp
----{
----    PV_COMP_INVALID = 0xFFFFFFFF,
----    PV_COMP_HEAD = 0, // "HEAD"
----    PV_COMP_BERD = 1, // "BEARD"
----    PV_COMP_HAIR = 2, // "HAIR"
----    PV_COMP_UPPR = 3, // "UPPER"
----    PV_COMP_LOWR = 4, // "LOWER"
----    PV_COMP_HAND = 5, // "HAND"
----    PV_COMP_FEET = 6, // "FEET"
----    PV_COMP_TEEF = 7, // "TEETH"
----    PV_COMP_ACCS = 8, // "ACCESSORIES"
----    PV_COMP_TASK = 9, // "TASK"
----    PV_COMP_DECL = 10, // "DECL"
----    PV_COMP_JBIB = 11, // "JBIB"
----    PV_COMP_MAX = 12,
----};
----```
+---[GET_NUMBER_OF_PED_DRAWABLE_VARIATIONS](#_0x27561561732A7842)  
+---[GET_NUMBER_OF_PED_TEXTURE_VARIATIONS](#_0x8F7156A3142A6BAD)  
+---
+---[List of component/props ID](gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html) of player_two with examples
 ---@param ped integer
 ---@param componentId integer
 ---@param drawableId integer
@@ -4930,474 +4553,55 @@ function SetPedComponentVariation(ped, componentId, drawableId, textureId, palet
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1913FE4CBF41C463)  
----```cpp
----// Potential names and hash collisions included as comments
----enum ePedConfigFlags {
----	CPED_CONFIG_FLAG_CreatedByFactory = 0,
----	CPED_CONFIG_FLAG_CanBeShotInVehicle = 1,
----	CPED_CONFIG_FLAG_NoCriticalHits = 2,
----	CPED_CONFIG_FLAG_DrownsInWater = 3,
----	CPED_CONFIG_FLAG_DrownsInSinkingVehicle = 4,
----	CPED_CONFIG_FLAG_DiesInstantlyWhenSwimming = 5,
----	CPED_CONFIG_FLAG_HasBulletProofVest = 6,
----	CPED_CONFIG_FLAG_UpperBodyDamageAnimsOnly = 7,
----	CPED_CONFIG_FLAG_NeverFallOffSkis = 8,
----	CPED_CONFIG_FLAG_NeverEverTargetThisPed = 9,
----	CPED_CONFIG_FLAG_ThisPedIsATargetPriority = 10,
----	CPED_CONFIG_FLAG_TargettableWithNoLos = 11,
----	CPED_CONFIG_FLAG_DoesntListenToPlayerGroupCommands = 12,
----	CPED_CONFIG_FLAG_NeverLeavesGroup = 13,
----	CPED_CONFIG_FLAG_DoesntDropWeaponsWhenDead = 14,
----	CPED_CONFIG_FLAG_SetDelayedWeaponAsCurrent = 15,
----	CPED_CONFIG_FLAG_KeepTasksAfterCleanUp = 16,
----	CPED_CONFIG_FLAG_BlockNonTemporaryEvents = 17,
----	CPED_CONFIG_FLAG_HasAScriptBrain = 18,
----	CPED_CONFIG_FLAG_WaitingForScriptBrainToLoad = 19,
----	CPED_CONFIG_FLAG_AllowMedicsToReviveMe = 20,
----	CPED_CONFIG_FLAG_MoneyHasBeenGivenByScript = 21,
----	CPED_CONFIG_FLAG_NotAllowedToCrouch = 22,
----	CPED_CONFIG_FLAG_DeathPickupsPersist = 23,
----	CPED_CONFIG_FLAG_IgnoreSeenMelee = 24,
----	CPED_CONFIG_FLAG_ForceDieIfInjured = 25,
----	CPED_CONFIG_FLAG_DontDragMeOutCar = 26,
----	CPED_CONFIG_FLAG_StayInCarOnJack = 27,
----	CPED_CONFIG_FLAG_ForceDieInCar = 28,
----	CPED_CONFIG_FLAG_GetOutUndriveableVehicle = 29,
----	CPED_CONFIG_FLAG_WillRemainOnBoatAfterMissionEnds = 30,
----	CPED_CONFIG_FLAG_DontStoreAsPersistent = 31,
----	CPED_CONFIG_FLAG_WillFlyThroughWindscreen = 32,
----	CPED_CONFIG_FLAG_DieWhenRagdoll = 33,
----	CPED_CONFIG_FLAG_HasHelmet = 34,
----	CPED_CONFIG_FLAG_UseHelmet = 35,
----	CPED_CONFIG_FLAG_DontTakeOffHelmet = 36,
----	CPED_CONFIG_FLAG_HideInCutscene = 37,
----	CPED_CONFIG_FLAG_PedIsEnemyToPlayer = 38,
----	CPED_CONFIG_FLAG_DisableEvasiveDives = 39,
----	CPED_CONFIG_FLAG_PedGeneratesDeadBodyEvents = 40,
----	CPED_CONFIG_FLAG_DontAttackPlayerWithoutWantedLevel = 41,
----	CPED_CONFIG_FLAG_DontInfluenceWantedLevel = 42,
----	CPED_CONFIG_FLAG_DisablePlayerLockon = 43,
----	CPED_CONFIG_FLAG_DisableLockonToRandomPeds = 44,
----	CPED_CONFIG_FLAG_AllowLockonToFriendlyPlayers = 45,
----	_0xDB115BFA = 46,
----	CPED_CONFIG_FLAG_PedBeingDeleted = 47,
----	CPED_CONFIG_FLAG_BlockWeaponSwitching = 48,
----	CPED_CONFIG_FLAG_BlockGroupPedAimedAtResponse = 49,
----	CPED_CONFIG_FLAG_WillFollowLeaderAnyMeans = 50,
----	CPED_CONFIG_FLAG_BlippedByScript = 51,
----	CPED_CONFIG_FLAG_DrawRadarVisualField = 52,
----	CPED_CONFIG_FLAG_StopWeaponFiringOnImpact = 53,
----	CPED_CONFIG_FLAG_DissableAutoFallOffTests = 54,
----	CPED_CONFIG_FLAG_SteerAroundDeadBodies = 55,
----	CPED_CONFIG_FLAG_ConstrainToNavMesh = 56,
----	CPED_CONFIG_FLAG_SyncingAnimatedProps = 57,
----	CPED_CONFIG_FLAG_IsFiring = 58,
----	CPED_CONFIG_FLAG_WasFiring = 59,
----	CPED_CONFIG_FLAG_IsStanding = 60,
----	CPED_CONFIG_FLAG_WasStanding = 61,
----	CPED_CONFIG_FLAG_InVehicle = 62,
----	CPED_CONFIG_FLAG_OnMount = 63,
----	CPED_CONFIG_FLAG_AttachedToVehicle = 64,
----	CPED_CONFIG_FLAG_IsSwimming = 65,
----	CPED_CONFIG_FLAG_WasSwimming = 66,
----	CPED_CONFIG_FLAG_IsSkiing = 67,
----	CPED_CONFIG_FLAG_IsSitting = 68,
----	CPED_CONFIG_FLAG_KilledByStealth = 69,
----	CPED_CONFIG_FLAG_KilledByTakedown = 70,
----	CPED_CONFIG_FLAG_Knockedout = 71,
----	CPED_CONFIG_FLAG_ClearRadarBlipOnDeath = 72,
----	CPED_CONFIG_FLAG_JustGotOffTrain = 73,
----	CPED_CONFIG_FLAG_JustGotOnTrain = 74,
----	CPED_CONFIG_FLAG_UsingCoverPoint = 75,
----	CPED_CONFIG_FLAG_IsInTheAir = 76,
----	CPED_CONFIG_FLAG_KnockedUpIntoAir = 77,
----	CPED_CONFIG_FLAG_IsAimingGun = 78,
----	CPED_CONFIG_FLAG_HasJustLeftCar = 79,
----	CPED_CONFIG_FLAG_TargetWhenInjuredAllowed = 80,
----	CPED_CONFIG_FLAG_CurrLeftFootCollNM = 81,
----	CPED_CONFIG_FLAG_PrevLeftFootCollNM = 82,
----	CPED_CONFIG_FLAG_CurrRightFootCollNM = 83,
----	CPED_CONFIG_FLAG_PrevRightFootCollNM = 84,
----	CPED_CONFIG_FLAG_HasBeenBumpedInCar = 85,
----	CPED_CONFIG_FLAG_InWaterTaskQuitToClimbLadder = 86,
----	CPED_CONFIG_FLAG_NMTwoHandedWeaponBothHandsConstrained = 87,
----	CPED_CONFIG_FLAG_CreatedBloodPoolTimer = 88,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromAnyPedImpact = 89,
----	CPED_CONFIG_FLAG_GroupPedFailedToEnterCover = 90,
----	CPED_CONFIG_FLAG_AlreadyChattedOnPhone = 91,
----	CPED_CONFIG_FLAG_AlreadyReactedToPedOnRoof = 92,
----	CPED_CONFIG_FLAG_ForcePedLoadCover = 93,
----	CPED_CONFIG_FLAG_BlockCoweringInCover = 94,
----	CPED_CONFIG_FLAG_BlockPeekingInCover = 95,
----	CPED_CONFIG_FLAG_JustLeftCarNotCheckedForDoors = 96,
----	CPED_CONFIG_FLAG_VaultFromCover = 97,
----	CPED_CONFIG_FLAG_AutoConversationLookAts = 98,
----	CPED_CONFIG_FLAG_UsingCrouchedPedCapsule = 99,
----	CPED_CONFIG_FLAG_HasDeadPedBeenReported = 100,
----	CPED_CONFIG_FLAG_ForcedAim = 101,
----	CPED_CONFIG_FLAG_SteersAroundPeds = 102,
----	CPED_CONFIG_FLAG_SteersAroundObjects = 103,
----	CPED_CONFIG_FLAG_OpenDoorArmIK = 104,
----	CPED_CONFIG_FLAG_ForceReload = 105,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromVehicleImpact = 106,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromBulletImpact = 107,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromExplosions = 108,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromFire = 109,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromElectrocution = 110,
----	CPED_CONFIG_FLAG_IsBeingDraggedToSafety = 111,
----	CPED_CONFIG_FLAG_HasBeenDraggedToSafety = 112,
----	CPED_CONFIG_FLAG_KeepWeaponHolsteredUnlessFired = 113,
----	CPED_CONFIG_FLAG_ForceScriptControlledKnockout = 114,
----	CPED_CONFIG_FLAG_FallOutOfVehicleWhenKilled = 115,
----	CPED_CONFIG_FLAG_GetOutBurningVehicle = 116,
----	CPED_CONFIG_FLAG_BumpedByPlayer = 117,
----	CPED_CONFIG_FLAG_RunFromFiresAndExplosions = 118,
----	CPED_CONFIG_FLAG_TreatAsPlayerDuringTargeting = 119,
----	CPED_CONFIG_FLAG_IsHandCuffed = 120,
----	CPED_CONFIG_FLAG_IsAnkleCuffed = 121,
----	CPED_CONFIG_FLAG_DisableMelee = 122,
----	CPED_CONFIG_FLAG_DisableUnarmedDrivebys = 123,
----	CPED_CONFIG_FLAG_JustGetsPulledOutWhenElectrocuted = 124,
----	CPED_CONFIG_FLAG_UNUSED_REPLACE_ME = 125,
----	CPED_CONFIG_FLAG_WillNotHotwireLawEnforcementVehicle = 126,
----	CPED_CONFIG_FLAG_WillCommandeerRatherThanJack = 127,
----	CPED_CONFIG_FLAG_CanBeAgitated = 128,
----	CPED_CONFIG_FLAG_ForcePedToFaceLeftInCover = 129,
----	CPED_CONFIG_FLAG_ForcePedToFaceRightInCover = 130,
----	CPED_CONFIG_FLAG_BlockPedFromTurningInCover = 131,
----	CPED_CONFIG_FLAG_KeepRelationshipGroupAfterCleanUp = 132,
----	CPED_CONFIG_FLAG_ForcePedToBeDragged = 133,
----	CPED_CONFIG_FLAG_PreventPedFromReactingToBeingJacked = 134,
----	CPED_CONFIG_FLAG_IsScuba = 135,
----	CPED_CONFIG_FLAG_WillArrestRatherThanJack = 136,
----	CPED_CONFIG_FLAG_RemoveDeadExtraFarAway = 137,
----	CPED_CONFIG_FLAG_RidingTrain = 138,
----	CPED_CONFIG_FLAG_ArrestResult = 139,
----	CPED_CONFIG_FLAG_CanAttackFriendly = 140,
----	CPED_CONFIG_FLAG_WillJackAnyPlayer = 141,
----	CPED_CONFIG_FLAG_BumpedByPlayerVehicle = 142,
----	CPED_CONFIG_FLAG_DodgedPlayerVehicle = 143,
----	CPED_CONFIG_FLAG_WillJackWantedPlayersRatherThanStealCar = 144,
----	CPED_CONFIG_FLAG_NoCopWantedAggro = 145,
----	CPED_CONFIG_FLAG_DisableLadderClimbing = 146,
----	CPED_CONFIG_FLAG_StairsDetected = 147,
----	CPED_CONFIG_FLAG_SlopeDetected = 148,
----	CPED_CONFIG_FLAG_HelmetHasBeenShot = 149,
----	CPED_CONFIG_FLAG_CowerInsteadOfFlee = 150,
----	CPED_CONFIG_FLAG_CanActivateRagdollWhenVehicleUpsideDown = 151,
----	CPED_CONFIG_FLAG_AlwaysRespondToCriesForHelp = 152,
----	CPED_CONFIG_FLAG_DisableBloodPoolCreation = 153,
----	CPED_CONFIG_FLAG_ShouldFixIfNoCollision = 154,
----	CPED_CONFIG_FLAG_CanPerformArrest = 155,
----	CPED_CONFIG_FLAG_CanPerformUncuff = 156,
----	CPED_CONFIG_FLAG_CanBeArrested = 157,
----	CPED_CONFIG_FLAG_MoverConstrictedByOpposingCollisions = 158,
----	CPED_CONFIG_FLAG_PlayerPreferFrontSeatMP = 159,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromImpactObject = 160,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromMelee = 161,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromWaterJet = 162,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromDrowning = 163,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromFalling = 164,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromRubberBullet = 165,
----	CPED_CONFIG_FLAG_IsInjured = 166,
----	CPED_CONFIG_FLAG_DontEnterVehiclesInPlayersGroup = 167,
----	CPED_CONFIG_FLAG_SwimmingTasksRunning = 168,
----	CPED_CONFIG_FLAG_PreventAllMeleeTaunts = 169,
----	CPED_CONFIG_FLAG_ForceDirectEntry = 170,
----	CPED_CONFIG_FLAG_AlwaysSeeApproachingVehicles = 171,
----	CPED_CONFIG_FLAG_CanDiveAwayFromApproachingVehicles = 172,
----	CPED_CONFIG_FLAG_AllowPlayerToInterruptVehicleEntryExit = 173,
----	CPED_CONFIG_FLAG_OnlyAttackLawIfPlayerIsWanted = 174,
----	CPED_CONFIG_FLAG_PlayerInContactWithKinematicPed = 175,
----	CPED_CONFIG_FLAG_PlayerInContactWithSomethingOtherThanKinematicPed = 176,
----	CPED_CONFIG_FLAG_PedsJackingMeDontGetIn = 177,
----	CPED_CONFIG_FLAG_AdditionalRappellingPed = 178,
----	CPED_CONFIG_FLAG_PedIgnoresAnimInterruptEvents = 179,
----	CPED_CONFIG_FLAG_IsInCustody = 180,
----	CPED_CONFIG_FLAG_ForceStandardBumpReactionThresholds = 181,
----	CPED_CONFIG_FLAG_LawWillOnlyAttackIfPlayerIsWanted = 182,
----	CPED_CONFIG_FLAG_IsAgitated = 183,
----	CPED_CONFIG_FLAG_PreventAutoShuffleToDriversSeat = 184,
----	CPED_CONFIG_FLAG_UseKinematicModeWhenStationary = 185,
----	CPED_CONFIG_FLAG_EnableWeaponBlocking = 186,
----	CPED_CONFIG_FLAG_HasHurtStarted = 187,
----	CPED_CONFIG_FLAG_DisableHurt = 188,
----	CPED_CONFIG_FLAG_PlayerIsWeird = 189,
----	CPED_CONFIG_FLAG_PedHadPhoneConversation = 190,
----	CPED_CONFIG_FLAG_BeganCrossingRoad = 191,
----	CPED_CONFIG_FLAG_WarpIntoLeadersVehicle = 192,
----	CPED_CONFIG_FLAG_DoNothingWhenOnFootByDefault = 193,
----	CPED_CONFIG_FLAG_UsingScenario = 194,
----	CPED_CONFIG_FLAG_VisibleOnScreen = 195,
----	CPED_CONFIG_FLAG_DontCollideWithKinematic = 196,
----	CPED_CONFIG_FLAG_ActivateOnSwitchFromLowPhysicsLod = 197,
----	CPED_CONFIG_FLAG_DontActivateRagdollOnPedCollisionWhenDead = 198,
----	CPED_CONFIG_FLAG_DontActivateRagdollOnVehicleCollisionWhenDead = 199,
----	CPED_CONFIG_FLAG_HasBeenInArmedCombat = 200,
----	CPED_CONFIG_FLAG_UseDiminishingAmmoRate = 201,
----	CPED_CONFIG_FLAG_Avoidance_Ignore_All = 202,
----	CPED_CONFIG_FLAG_Avoidance_Ignored_by_All = 203,
----	CPED_CONFIG_FLAG_Avoidance_Ignore_Group1 = 204,
----	CPED_CONFIG_FLAG_Avoidance_Member_of_Group1 = 205,
----	CPED_CONFIG_FLAG_ForcedToUseSpecificGroupSeatIndex = 206,
----	CPED_CONFIG_FLAG_LowPhysicsLodMayPlaceOnNavMesh = 207,
----	CPED_CONFIG_FLAG_DisableExplosionReactions = 208,
----	CPED_CONFIG_FLAG_DodgedPlayer = 209,
----	CPED_CONFIG_FLAG_WaitingForPlayerControlInterrupt = 210,
----	CPED_CONFIG_FLAG_ForcedToStayInCover = 211,
----	CPED_CONFIG_FLAG_GeneratesSoundEvents = 212,
----	CPED_CONFIG_FLAG_ListensToSoundEvents = 213,
----	CPED_CONFIG_FLAG_AllowToBeTargetedInAVehicle = 214,
----	CPED_CONFIG_FLAG_WaitForDirectEntryPointToBeFreeWhenExiting = 215,
----	CPED_CONFIG_FLAG_OnlyRequireOnePressToExitVehicle = 216,
----	CPED_CONFIG_FLAG_ForceExitToSkyDive = 217,
----	CPED_CONFIG_FLAG_SteersAroundVehicles = 218,
----	CPED_CONFIG_FLAG_AllowPedInVehiclesOverrideTaskFlags = 219,
----	CPED_CONFIG_FLAG_DontEnterLeadersVehicle = 220,
----	CPED_CONFIG_FLAG_DisableExitToSkyDive = 221,
----	CPED_CONFIG_FLAG_ScriptHasDisabledCollision = 222,
----	CPED_CONFIG_FLAG_UseAmbientModelScaling = 223,
----	CPED_CONFIG_FLAG_DontWatchFirstOnNextHurryAway = 224,
----	CPED_CONFIG_FLAG_DisablePotentialToBeWalkedIntoResponse = 225,
----	CPED_CONFIG_FLAG_DisablePedAvoidance = 226,
----	CPED_CONFIG_FLAG_ForceRagdollUponDeath = 227,
----	CPED_CONFIG_FLAG_CanLosePropsOnDamage = 228,
----	CPED_CONFIG_FLAG_DisablePanicInVehicle = 229,
----	CPED_CONFIG_FLAG_AllowedToDetachTrailer = 230,
----	CPED_CONFIG_FLAG_HasShotBeenReactedToFromFront = 231,
----	CPED_CONFIG_FLAG_HasShotBeenReactedToFromBack = 232,
----	CPED_CONFIG_FLAG_HasShotBeenReactedToFromLeft = 233,
----	CPED_CONFIG_FLAG_HasShotBeenReactedToFromRight = 234,
----	CPED_CONFIG_FLAG_AllowBlockDeadPedRagdollActivation = 235,
----	CPED_CONFIG_FLAG_IsHoldingProp = 236,
----	CPED_CONFIG_FLAG_BlocksPathingWhenDead = 237,
----	CPED_CONFIG_FLAG_ForcePlayNormalScenarioExitOnNextScriptCommand = 238,
----	CPED_CONFIG_FLAG_ForcePlayImmediateScenarioExitOnNextScriptCommand = 239,
----	CPED_CONFIG_FLAG_ForceSkinCharacterCloth = 240,
----	CPED_CONFIG_FLAG_LeaveEngineOnWhenExitingVehicles = 241,
----	CPED_CONFIG_FLAG_PhoneDisableTextingAnimations = 242,
----	CPED_CONFIG_FLAG_PhoneDisableTalkingAnimations = 243,
----	CPED_CONFIG_FLAG_PhoneDisableCameraAnimations = 244,
----	CPED_CONFIG_FLAG_DisableBlindFiringInShotReactions = 245,
----	CPED_CONFIG_FLAG_AllowNearbyCoverUsage = 246,
----	CPED_CONFIG_FLAG_InStrafeTransition = 247,
----	CPED_CONFIG_FLAG_CanPlayInCarIdles = 248,
----	CPED_CONFIG_FLAG_CanAttackNonWantedPlayerAsLaw = 249,
----	CPED_CONFIG_FLAG_WillTakeDamageWhenVehicleCrashes = 250,
----	CPED_CONFIG_FLAG_AICanDrivePlayerAsRearPassenger = 251,
----	CPED_CONFIG_FLAG_PlayerCanJackFriendlyPlayers = 252,
----	CPED_CONFIG_FLAG_OnStairs = 253,
----	CPED_CONFIG_FLAG_SimulatingAiming = 254,
----	CPED_CONFIG_FLAG_AIDriverAllowFriendlyPassengerSeatEntry = 255,
----	CPED_CONFIG_FLAG_ParentCarIsBeingRemoved = 256,
----	CPED_CONFIG_FLAG_AllowMissionPedToUseInjuredMovement = 257,
----	CPED_CONFIG_FLAG_CanLoseHelmetOnDamage = 258,
----	CPED_CONFIG_FLAG_NeverDoScenarioExitProbeChecks = 259,
----	CPED_CONFIG_FLAG_SuppressLowLODRagdollSwitchWhenCorpseSettles = 260,
----	CPED_CONFIG_FLAG_PreventUsingLowerPrioritySeats = 261,
----	CPED_CONFIG_FLAG_JustLeftVehicleNeedsReset = 262,
----	CPED_CONFIG_FLAG_TeleportIfCantReachPlayer = 263,
----	CPED_CONFIG_FLAG_PedsInVehiclePositionNeedsReset = 264,
----	CPED_CONFIG_FLAG_PedsFullyInSeat = 265,
----	CPED_CONFIG_FLAG_AllowPlayerLockOnIfFriendly = 266,
----	CPED_CONFIG_FLAG_UseCameraHeadingForDesiredDirectionLockOnTest = 267,
----	CPED_CONFIG_FLAG_TeleportToLeaderVehicle = 268,
----	CPED_CONFIG_FLAG_Avoidance_Ignore_WeirdPedBuffer = 269,
----	CPED_CONFIG_FLAG_OnStairSlope = 270,
----	CPED_CONFIG_FLAG_HasPlayedNMGetup = 271,
----	CPED_CONFIG_FLAG_DontBlipCop = 272,
----	CPED_CONFIG_FLAG_SpawnedAtExtendedRangeScenario = 273,
----	CPED_CONFIG_FLAG_WalkAlongsideLeaderWhenClose = 274,
----	CPED_CONFIG_FLAG_KillWhenTrapped = 275,
----	CPED_CONFIG_FLAG_EdgeDetected = 276,
----	CPED_CONFIG_FLAG_AlwaysWakeUpPhysicsOfIntersectedPeds = 277,
----	CPED_CONFIG_FLAG_EquippedAmbientLoadOutWeapon = 278,
----	CPED_CONFIG_FLAG_AvoidTearGas = 279,
----	CPED_CONFIG_FLAG_StoppedSpeechUponFreezing = 280,
----	CPED_CONFIG_FLAG_DisableGoToWritheWhenInjured = 281,
----	CPED_CONFIG_FLAG_OnlyUseForcedSeatWhenEnteringHeliInGroup = 282,
----	CPED_CONFIG_FLAG_ThrownFromVehicleDueToExhaustion = 283,
----	CPED_CONFIG_FLAG_UpdateEnclosedSearchRegion = 284,
----	CPED_CONFIG_FLAG_DisableWeirdPedEvents = 285,
----	CPED_CONFIG_FLAG_ShouldChargeNow = 286,
----	CPED_CONFIG_FLAG_RagdollingOnBoat = 287,
----	CPED_CONFIG_FLAG_HasBrandishedWeapon = 288,
----	CPED_CONFIG_FLAG_AllowMinorReactionsAsMissionPed = 289,
----	CPED_CONFIG_FLAG_BlockDeadBodyShockingEventsWhenDead = 290,
----	CPED_CONFIG_FLAG_PedHasBeenSeen = 291,
----	CPED_CONFIG_FLAG_PedIsInReusePool = 292,
----	CPED_CONFIG_FLAG_PedWasReused = 293,
----	CPED_CONFIG_FLAG_DisableShockingEvents = 294,
----	CPED_CONFIG_FLAG_MovedUsingLowLodPhysicsSinceLastActive = 295,
----	CPED_CONFIG_FLAG_NeverReactToPedOnRoof = 296,
----	CPED_CONFIG_FLAG_ForcePlayFleeScenarioExitOnNextScriptCommand = 297,
----	CPED_CONFIG_FLAG_JustBumpedIntoVehicle = 298,
----	CPED_CONFIG_FLAG_DisableShockingDrivingOnPavementEvents = 299,
----	CPED_CONFIG_FLAG_ShouldThrowSmokeNow = 300,
----	CPED_CONFIG_FLAG_DisablePedConstraints = 301,
----	CPED_CONFIG_FLAG_ForceInitialPeekInCover = 302,
----	CPED_CONFIG_FLAG_CreatedByDispatch = 303,
----	CPED_CONFIG_FLAG_PointGunLeftHandSupporting = 304,
----	CPED_CONFIG_FLAG_DisableJumpingFromVehiclesAfterLeader = 305,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromPlayerPedImpact = 306,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromAiRagdollImpact = 307,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromPlayerRagdollImpact = 308,
----	CPED_CONFIG_FLAG_DisableQuadrupedSpring = 309,
----	CPED_CONFIG_FLAG_IsInCluster = 310,
----	CPED_CONFIG_FLAG_ShoutToGroupOnPlayerMelee = 311,
----	CPED_CONFIG_FLAG_IgnoredByAutoOpenDoors = 312,
----	CPED_CONFIG_FLAG_PreferInjuredGetup = 313,
----	CPED_CONFIG_FLAG_ForceIgnoreMeleeActiveCombatant = 314,
----	CPED_CONFIG_FLAG_CheckLoSForSoundEvents = 315,
----	CPED_CONFIG_FLAG_JackedAbandonedCar = 316,
----	CPED_CONFIG_FLAG_CanSayFollowedByPlayerAudio = 317,
----	CPED_CONFIG_FLAG_ActivateRagdollFromMinorPlayerContact = 318,
----	CPED_CONFIG_FLAG_HasPortablePickupAttached = 319,
----	CPED_CONFIG_FLAG_ForcePoseCharacterCloth = 320,
----	CPED_CONFIG_FLAG_HasClothCollisionBounds = 321,
----	CPED_CONFIG_FLAG_HasHighHeels = 322,
----	CPED_CONFIG_FLAG_TreatAsAmbientPedForDriverLockOn = 323,
----	CPED_CONFIG_FLAG_DontBehaveLikeLaw = 324,
----	CPED_CONFIG_FLAG_SpawnedAtScenario = 325,
----	CPED_CONFIG_FLAG_DisablePoliceInvestigatingBody = 326,
----	CPED_CONFIG_FLAG_DisableWritheShootFromGround = 327,
----	CPED_CONFIG_FLAG_LowerPriorityOfWarpSeats = 328,
----	CPED_CONFIG_FLAG_DisableTalkTo = 329,
----	CPED_CONFIG_FLAG_DontBlip = 330,
----	CPED_CONFIG_FLAG_IsSwitchingWeapon = 331,
----	CPED_CONFIG_FLAG_IgnoreLegIkRestrictions = 332,
----	CPED_CONFIG_FLAG_ScriptForceNoTimesliceIntelligenceUpdate = 333,
----	CPED_CONFIG_FLAG_JackedOutOfMyVehicle = 334,
----	CPED_CONFIG_FLAG_WentIntoCombatAfterBeingJacked = 335,
----	CPED_CONFIG_FLAG_DontActivateRagdollForVehicleGrab = 336,
----	CPED_CONFIG_FLAG_ForcePackageCharacterCloth = 337,
----	CPED_CONFIG_FLAG_DontRemoveWithValidOrder = 338,
----	CPED_CONFIG_FLAG_AllowTaskDoNothingTimeslicing = 339,
----	CPED_CONFIG_FLAG_ForcedToStayInCoverDueToPlayerSwitch = 340,
----	CPED_CONFIG_FLAG_ForceProneCharacterCloth = 341,
----	CPED_CONFIG_FLAG_NotAllowedToJackAnyPlayers = 342,
----	CPED_CONFIG_FLAG_InToStrafeTransition = 343,
----	CPED_CONFIG_FLAG_KilledByStandardMelee = 344,
----	CPED_CONFIG_FLAG_AlwaysLeaveTrainUponArrival = 345,
----	CPED_CONFIG_FLAG_ForcePlayDirectedNormalScenarioExitOnNextScriptCommand = 346,
----	CPED_CONFIG_FLAG_OnlyWritheFromWeaponDamage = 347,
----	CPED_CONFIG_FLAG_UseSloMoBloodVfx = 348,
----	CPED_CONFIG_FLAG_EquipJetpack = 349,
----	CPED_CONFIG_FLAG_PreventDraggedOutOfCarThreatResponse = 350,
----	CPED_CONFIG_FLAG_ScriptHasCompletelyDisabledCollision = 351,
----	CPED_CONFIG_FLAG_NeverDoScenarioNavChecks = 352,
----	CPED_CONFIG_FLAG_ForceSynchronousScenarioExitChecking = 353,
----	CPED_CONFIG_FLAG_ThrowingGrenadeWhileAiming = 354,
----	CPED_CONFIG_FLAG_HeadbobToRadioEnabled = 355,
----	CPED_CONFIG_FLAG_ForceDeepSurfaceCheck = 356,
----	CPED_CONFIG_FLAG_DisableDeepSurfaceAnims = 357,
----	CPED_CONFIG_FLAG_DontBlipNotSynced = 358,
----	CPED_CONFIG_FLAG_IsDuckingInVehicle = 359,
----	CPED_CONFIG_FLAG_PreventAutoShuffleToTurretSeat = 360,
----	CPED_CONFIG_FLAG_DisableEventInteriorStatusCheck = 361,
----	CPED_CONFIG_FLAG_HasReserveParachute = 362,
----	CPED_CONFIG_FLAG_UseReserveParachute = 363,
----	CPED_CONFIG_FLAG_TreatDislikeAsHateWhenInCombat = 364,
----	CPED_CONFIG_FLAG_OnlyUpdateTargetWantedIfSeen = 365,
----	CPED_CONFIG_FLAG_AllowAutoShuffleToDriversSeat = 366,
----	CPED_CONFIG_FLAG_DontActivateRagdollFromSmokeGrenade = 367,
----	CPED_CONFIG_FLAG_LinkMBRToOwnerOnChain = 368,
----	CPED_CONFIG_FLAG_AmbientFriendBumpedByPlayer = 369,
----	CPED_CONFIG_FLAG_AmbientFriendBumpedByPlayerVehicle = 370,
----	CPED_CONFIG_FLAG_InFPSUnholsterTransition = 371,
----	CPED_CONFIG_FLAG_PreventReactingToSilencedCloneBullets = 372,
----	CPED_CONFIG_FLAG_DisableInjuredCryForHelpEvents = 373,
----	CPED_CONFIG_FLAG_NeverLeaveTrain = 374,
----	CPED_CONFIG_FLAG_DontDropJetpackOnDeath = 375,
----	CPED_CONFIG_FLAG_UseFPSUnholsterTransitionDuringCombatRoll = 376,
----	CPED_CONFIG_FLAG_ExitingFPSCombatRoll = 377,
----	CPED_CONFIG_FLAG_ScriptHasControlOfPlayer = 378,
----	CPED_CONFIG_FLAG_PlayFPSIdleFidgetsForProjectile = 379,
----	CPED_CONFIG_FLAG_DisableAutoEquipHelmetsInBikes = 380,
----	CPED_CONFIG_FLAG_DisableAutoEquipHelmetsInAircraft = 381,
----	CPED_CONFIG_FLAG_WasPlayingFPSGetup = 382,
----	CPED_CONFIG_FLAG_WasPlayingFPSMeleeActionResult = 383,
----	CPED_CONFIG_FLAG_PreferNoPriorityRemoval = 384,
----	CPED_CONFIG_FLAG_FPSFidgetsAbortedOnFire = 385,
----	CPED_CONFIG_FLAG_ForceFPSIKWithUpperBodyAnim = 386,
----	CPED_CONFIG_FLAG_SwitchingCharactersInFirstPerson = 387,
----	CPED_CONFIG_FLAG_IsClimbingLadder = 388,
----	CPED_CONFIG_FLAG_HasBareFeet = 389,
----	CPED_CONFIG_FLAG_UNUSED_REPLACE_ME_2 = 390,
----	CPED_CONFIG_FLAG_GoOnWithoutVehicleIfItIsUnableToGetBackToRoad = 391,
----	CPED_CONFIG_FLAG_BlockDroppingHealthSnacksOnDeath = 392,
----	CPED_CONFIG_FLAG_ResetLastVehicleOnVehicleExit = 393,
----	CPED_CONFIG_FLAG_ForceThreatResponseToNonFriendToFriendMeleeActions = 394,
----	CPED_CONFIG_FLAG_DontRespondToRandomPedsDamage = 395,
----	CPED_CONFIG_FLAG_AllowContinuousThreatResponseWantedLevelUpdates = 396,
----	CPED_CONFIG_FLAG_KeepTargetLossResponseOnCleanup = 397,
----	CPED_CONFIG_FLAG_PlayersDontDragMeOutOfCar = 398,
----	CPED_CONFIG_FLAG_BroadcastRepondedToThreatWhenGoingToPointShooting = 399,
----	CPED_CONFIG_FLAG_IgnorePedTypeForIsFriendlyWith = 400,
----	CPED_CONFIG_FLAG_TreatNonFriendlyAsHateWhenInCombat = 401,
----	CPED_CONFIG_FLAG_DontLeaveVehicleIfLeaderNotInVehicle = 402,
----	CPED_CONFIG_FLAG_ChangeFromPermanentToAmbientPopTypeOnMigration = 403,
----	CPED_CONFIG_FLAG_AllowMeleeReactionIfMeleeProofIsOn = 404,
----	CPED_CONFIG_FLAG_UsingLowriderLeans = 405,
----	CPED_CONFIG_FLAG_UsingAlternateLowriderLeans = 406,
----	CPED_CONFIG_FLAG_UseNormalExplosionDamageWhenBlownUpInVehicle = 407,
----	CPED_CONFIG_FLAG_DisableHomingMissileLockForVehiclePedInside = 408,
----	CPED_CONFIG_FLAG_DisableTakeOffScubaGear = 409,
----	CPED_CONFIG_FLAG_IgnoreMeleeFistWeaponDamageMult = 410,
----	CPED_CONFIG_FLAG_LawPedsCanFleeFromNonWantedPlayer = 411,
----	CPED_CONFIG_FLAG_ForceBlipSecurityPedsIfPlayerIsWanted = 412,
----	CPED_CONFIG_FLAG_IsHolsteringWeapon = 413,
----	CPED_CONFIG_FLAG_UseGoToPointForScenarioNavigation = 414,
----	CPED_CONFIG_FLAG_DontClearLocalPassengersWantedLevel = 415,
----	CPED_CONFIG_FLAG_BlockAutoSwapOnWeaponPickups = 416,
----	CPED_CONFIG_FLAG_ThisPedIsATargetPriorityForAI = 417,
----	CPED_CONFIG_FLAG_IsSwitchingHelmetVisor = 418,
----	CPED_CONFIG_FLAG_ForceHelmetVisorSwitch = 419,
----	CPED_CONFIG_FLAG_IsPerformingVehicleMelee = 420,
----	CPED_CONFIG_FLAG_UseOverrideFootstepPtFx = 421,
----	CPED_CONFIG_FLAG_DisableVehicleCombat = 422,
----	CPED_CONFIG_FLAG_TreatAsFriendlyForTargetingAndDamage = 423,
----	CPED_CONFIG_FLAG_AllowBikeAlternateAnimations = 424,
----	CPED_CONFIG_FLAG_TreatAsFriendlyForTargetingAndDamageNonSynced = 425,
----	CPED_CONFIG_FLAG_UseLockpickVehicleEntryAnimations = 426,
----	CPED_CONFIG_FLAG_IgnoreInteriorCheckForSprinting = 427,
----	CPED_CONFIG_FLAG_SwatHeliSpawnWithinLastSpottedLocation = 428,
----	CPED_CONFIG_FLAG_DisableStartEngine = 429,
----	CPED_CONFIG_FLAG_IgnoreBeingOnFire = 430,
----	CPED_CONFIG_FLAG_DisableTurretOrRearSeatPreference = 431,
----	CPED_CONFIG_FLAG_DisableWantedHelicopterSpawning = 432,
----	CPED_CONFIG_FLAG_UseTargetPerceptionForCreatingAimedAtEvents = 433,
----	CPED_CONFIG_FLAG_DisableHomingMissileLockon = 434,
----	CPED_CONFIG_FLAG_ForceIgnoreMaxMeleeActiveSupportCombatants = 435,
----	CPED_CONFIG_FLAG_StayInDefensiveAreaWhenInVehicle = 436,
----	CPED_CONFIG_FLAG_DontShoutTargetPosition = 437,
----	CPED_CONFIG_FLAG_DisableHelmetArmor = 438,
----	CPED_CONFIG_FLAG_CreatedByConcealedPlayer = 439,
----	CPED_CONFIG_FLAG_PermanentlyDisablePotentialToBeWalkedIntoResponse = 440,
----	CPED_CONFIG_FLAG_PreventVehExitDueToInvalidWeapon = 441,
----	CPED_CONFIG_FLAG_IgnoreNetSessionFriendlyFireCheckForAllowDamage = 442,
----	CPED_CONFIG_FLAG_DontLeaveCombatIfTargetPlayerIsAttackedByPolice = 443,
----	CPED_CONFIG_FLAG_CheckLockedBeforeWarp = 444,
----	CPED_CONFIG_FLAG_DontShuffleInVehicleToMakeRoom = 445,
----	CPED_CONFIG_FLAG_GiveWeaponOnGetup = 446,
----	CPED_CONFIG_FLAG_DontHitVehicleWithProjectiles = 447,
----	CPED_CONFIG_FLAG_DisableForcedEntryForOpenVehiclesFromTryLockedDoor = 448,
----	CPED_CONFIG_FLAG_FiresDummyRockets = 449,
----	CPED_CONFIG_FLAG_PedIsArresting = 450,
----	CPED_CONFIG_FLAG_IsDecoyPed = 451,
----	CPED_CONFIG_FLAG_HasEstablishedDecoy = 452,
----	CPED_CONFIG_FLAG_BlockDispatchedHelicoptersFromLanding = 453,
----	CPED_CONFIG_FLAG_DontCryForHelpOnStun = 454,
----	CPED_CONFIG_FLAG_HitByTranqWeapon = 455,
----	CPED_CONFIG_FLAG_CanBeIncapacitated = 456,
----	CPED_CONFIG_FLAG_ForcedAimFromArrest = 457,
----	CPED_CONFIG_FLAG_DontChangeTargetFromMelee = 458,
----	_0x4376ABF2 = 459,
----	CPED_CONFIG_FLAG_RagdollFloatsIndefinitely = 460,
----	CPED_CONFIG_FLAG_BlockElectricWeaponDamage = 461,
----	_0x262A3B8E = 462,
----	_0x1AA79A25 = 463,
----}
+---```
+---Research help : pastebin.com/fPL1cSwB  
+---New items added with underscore as first char  
+--------------------------------------------------------------------------  
+---enum PedConfigFlags  
+---{  
+---	PED_FLAG_CAN_FLY_THRU_WINDSCREEN = 32,  
+---        PED_FLAG_DIES_BY_RAGDOLL = 33,  
+---	_PED_FLAG_PUT_ON_MOTORCYCLE_HELMET = 35,  
+---	PED_FLAG_NO_COLLISION = 52,  
+---        _PED_FLAG_IS_SHOOTING = 58,  
+---        _PED_FLAG_IS_ON_GROUND = 60,  
+---	PED_FLAG_NO_COLLIDE = 62,  
+---	PED_FLAG_DEAD = 71,  
+---        PED_FLAG_IS_SNIPER_SCOPE_ACTIVE = 72,  
+---	PED_FLAG_SUPER_DEAD = 73,  
+---        _PED_FLAG_IS_IN_AIR = 76,  
+---	PED_FLAG_IS_AIMING = 78,  
+---	PED_FLAG_DRUNK = 100,  
+---        _PED_FLAG_IS_NOT_RAGDOLL_AND_NOT_PLAYING_ANIM = 104,  
+---        PED_FLAG_NO_PLAYER_MELEE = 122,  
+---	PED_FLAG_NM_MESSAGE_466 = 125,  
+---	PED_FLAG_INJURED_LIMP = 166,  
+---	PED_FLAG_INJURED_LIMP_2 = 170,  
+---	_PED_FLAG_DISABLE_SHUFFLING_TO_DRIVER_SEAT = 184,  
+---	PED_FLAG_INJURED_DOWN = 187,  
+---	PED_FLAG_SHRINK = 223,  
+---        PED_FLAG_MELEE_COMBAT = 224,  
+---        _PED_FLAG_IS_ON_STAIRS = 253,  
+---        _PED_FLAG_HAS_ONE_LEG_ON_GROUND = 276,  
+---	PED_FLAG_NO_WRITHE = 281,  
+---	PED_FLAG_FREEZE = 292,  
+---	PED_FLAG_IS_STILL = 301,  
+---        PED_FLAG_NO_PED_MELEE = 314,  
+---        _PED_SWITCHING_WEAPON = 331,  
+---	PED_FLAG_ALPHA = 410,  
+---	_PED_FLAG_DISABLE_STARTING_VEH_ENGINE = 429,  
+---};  
+---(*) When flagId is set to 33 and the bool value to true, peds will die by starting ragdoll, so you should set this flag to false when you resurrect a ped.  
+---When flagId is set to 62 and the boolvalue to false this happens: Ped is taken out of vehicle and can't get back in when jacking their empty vehicle. If in a plane it falls from the sky and crashes. Sometimes peds vehicle continue to drive the route without its driver who's running after.   
+---(*)  
+---JUMPING CHANGES  60,61,104 TO FALSE  
+---BEING ON WATER CHANGES 60,61 TO FALSE AND 65,66,168 TO TRUE  
+---FALLING CHANGES 60,61,104,276 TO FALSE AND TO 76 TRUE  
+---DYING CHANGES 60,61,104,276* TO FALSE AND (NONE) TO TRUE  
+---DYING MAKES 60,61,104 TO FALSE  
+---BEING IN A CAR CHANGES 60,79,104 TO FALSE AND 62 TO TRUE  
+---(*)Maximum value for flagId is 0x1AA (426) in b944.  
+---ID 0xF0 (240) appears to be a special flag which is handled different compared to the others IDs.  
 ---```
 ---@param ped integer
 ---@param flagId integer
@@ -5427,9 +4631,8 @@ function SetPedCoordsNoGang(ped, posX, posY, posZ) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9DBA107B4937F809)  
 ---```
----Found in the b617d scripts:
----PED::_9DBA107B4937F809(v_7, "trevor_heist_cover_2h");
----SET_PED_MO*
+---Found in the b617d scripts:  
+---PED::_9DBA107B4937F809(v_7, "trevor_heist_cover_2h");  
 ---```
 ---@param ped integer
 ---@param p1 string
@@ -5504,7 +4707,13 @@ function SetPedDefensiveSphereAttachedToVehicle(ped, target, xOffset, yOffset, z
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95E3D6257B166CF2)  
----**Usage:** Call this native every frame
+---```
+---• Usage  
+---→ Use this native inside a looped function.  
+---→ Values:  
+---→ 0.0 = no peds on streets  
+---→ 1.0 = normal peds on streets  
+---```
 ---@param multiplier number
 function SetPedDensityMultiplierThisFrame(multiplier) end
 
@@ -5545,9 +4754,12 @@ function SetPedDiesInWater(ped, toggle) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5BA7919BED300023)  
----This native does not have an official description.
+---```
+---NativeDB Return Type: void
+---```
 ---@param ped integer
 ---@param toggle boolean
+---@return any
 function SetPedDiesWhenInjured(ped, toggle) end
 
 ---**`PED` `client`**  
@@ -5567,41 +4779,13 @@ function SetPedDriveByClipsetOverride(ped, clipset) end
 function SetPedDucking(ped, toggle) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x4E90D746056E273D)  
----This native sets the glow intensity of illuminated clothing items.
----
----This native does **NOT** need to be executed every tick.
----This native is **NOT** synced with other connected players, you will have to set the opacity on the ped on all clients individually.
----
----Glow intensity is a value between `0.0` and `1.0`.
----
----In some older decompiled scripts this is known as `_SET_PED_REFLECTION_INTENSITY`.
----Since there's no joaat hash for this, I find `_SET_PED_ILLUMINATED_CLOTHING_GLOW_INTENSITY` more descriptive than `_SET_PED_REFLECTION_INTENSITY`.
----
----Use [`GetPedIlluminatedClothingGlowIntensity`](#\_0x1461B28A06717D68) to get the illuminated clothing glow intensity of a specific ped.
----
----Intensity: `1.0`:
----![](https://www.vespura.com/hi/i/2018-11-13\_17-03\_c2e23\_229.png)
----
----Intensity: `0.0`:
----![](https://www.vespura.com/hi/i/2018-11-13\_17-03\_35c33\_230.png)
----
----**Examples code result**:
----![](https://www.vespura.com/hi/i/2018-11-13\_17-11\_10199\_232.gif)
----
----(Direct link if embed doesn't work: [here](https://www.vespura.com/hi/i/2018-11-13\_17-11\_10199\_232.gif))
----@param ped integer
----@param intensity number
-function SetPedEmissiveIntensity(ped, intensity) end
-
----@deprecated
-SetPedIlluminatedClothingGlowIntensity = SetPedEmissiveIntensity
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x97A790315D3831FD)  
----This native does not have an official description.
+---```
+---NativeDB Return Type: void
+---```
 ---@param ped integer
 ---@param toggle boolean
+---@return any
 function SetPedEnableWeaponBlocking(ped, toggle) end
 
 ---**`PED` `client`**  
@@ -5629,76 +4813,43 @@ function SetPedEnveffScale(ped, value) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x50B56988B170AFDF)  
----Used for freemode (online) characters.
----
----Indices:
----
----1.  black
----2.  very light blue/green
----3.  dark blue
----4.  brown
----5.  darker brown
----6.  light brown
----7.  blue
----8.  light blue
----9.  pink
----10. yellow
----11. purple
----12. black
----13. dark green
----14. light brown
----15. yellow/black pattern
----16. light colored spiral pattern
----17. shiny red
----18. shiny half blue/half red
----19. half black/half light blue
----20. white/red perimter
----21. green snake
----22. red snake
----23. dark blue snake
----24. dark yellow
----25. bright yellow
----26. all black
----27. red small pupil
----28. devil blue/black
----29. white small pupil
----30. glossed over
+---```
+---Used for freemode (online) characters.  
+---For some reason, the scripts use a rounded float for the index.  
+---```
 ---@param ped integer
 ---@param index integer
 function SetPedEyeColor(ped, index) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x71A5C1DBA060049E)  
----Sets the various freemode face features, e.g. nose length, chin shape.
+---```
+---Sets the various freemode face features, e.g. nose length, chin shape. Scale ranges from -1.0 to 1.0.  
+---Index can be 0   
 ---
----**Indexes (From 0 to 19):**
----
----Parentheses indicate morph scale/direction as in (-1.0 to 1.0)
----
----*   **0**: Nose Width (Thin/Wide)
----*   **1**: Nose Peak (Up/Down)
----*   **2**: Nose Length (Long/Short)
----*   **3**: Nose Bone Curveness (Crooked/Curved)
----*   **4**: Nose Tip (Up/Down)
----*   **5**: Nose Bone Twist (Left/Right)
----*   **6**: Eyebrow (Up/Down)
----*   **7**: Eyebrow (In/Out)
----*   **8**: Cheek Bones (Up/Down)
----*   **9**: Cheek Sideways Bone Size (In/Out)
----*   **10**: Cheek Bones Width (Puffed/Gaunt)
----*   **11**: Eye Opening (Both) (Wide/Squinted)
----*   **12**: Lip Thickness (Both) (Fat/Thin)
----*   **13**: Jaw Bone Width (Narrow/Wide)
----*   **14**: Jaw Bone Shape (Round/Square)
----*   **15**: Chin Bone (Up/Down)
----*   **16**: Chin Bone Length (In/Out or Backward/Forward)
----*   **17**: Chin Bone Shape (Pointed/Square)
----*   **18**: Chin Hole (Chin Bum)
----*   **19**: Neck Thickness (Thin/Thick)
----
----**Note:**
----
----You may need to call [`SetPedHeadBlendData`](#\_0x9414E18B9434C2FE) prior to calling this native in order for it to work.
+---    Enum Face_Feature  
+---        Nose_Width  
+---        Nose_Peak_Hight  
+---        Nose_Peak_Lenght  
+---        Nose_Bone_High  
+---        Nose_Peak_Lowering  
+---        Nose_Bone_Twist  
+---        EyeBrown_High  
+---        EyeBrown_Forward  
+---        Cheeks_Bone_High  
+---        Cheeks_Bone_Width  
+---        Cheeks_Width  
+---        Eyes_Openning  
+---        Lips_Thickness  
+---        Jaw_Bone_Width 'Bone size to sides  
+---        Jaw_Bone_Back_Lenght 'Bone size to back  
+---        Chimp_Bone_Lowering 'Go Down  
+---        Chimp_Bone_Lenght 'Go forward  
+---        Chimp_Bone_Width  
+---        Chimp_Hole  
+---        Neck_Thikness  
+---    End Enum  
+---```
 ---@param ped integer
 ---@param index integer
 ---@param scale number
@@ -5732,7 +4883,9 @@ function SetPedFiringPattern(ped, patternHash) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x70A2D1137C8ED7C9)  
 ---```
----bit 15 (0x8000) = force cower
+---Bool probably has something to do with vehicles, maybe if the ped can use vehicle to flee?  
+---Values used as attributes are those in sequence of powers of two, 1, 2, 4, 8, 16, 32, 64.... 65536.  
+---jedijosh920: Setting attribute "2" to true will make the ped steal a vehicle.  
 ---```
 ---@param ped integer
 ---@param attributeFlags integer
@@ -5787,33 +4940,28 @@ function SetPedGroupMemberPassengerIndex(ped, index) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4CFFC65454C93A49)  
----Sets the tint index for the hair on the specified ped.
----
 ---```
----NativeDB Introduced: v323
+---Used for freemode (online) characters.  
 ---```
 ---@param ped integer
 ---@param colorID integer
 ---@param highlightColorID integer
-function SetPedHairTint(ped, colorID, highlightColorID) end
-
----@deprecated
-SetPedHairColor = SetPedHairTint
+function SetPedHairColor(ped, colorID, highlightColorID) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9414E18B9434C2FE)  
----For more info please refer to [this](https://gtaforums.com/topic/858970-all-gtao-face-ids-pedset-ped-head-blend-data-explained) topic.
----
----**Other information:**
----
----IDs start at zero and go Male Non-DLC, Female Non-DLC, Male DLC, and Female DLC.</br>
----
----This native function is often called prior to calling natives such as:
----
----*   [`SetPedHairColor`](#\_0xBB43F090)
----*   [`SetPedHeadOverlayColor`](#\_0x78935A27)
----*   [`SetPedHeadOverlay`](#\_0xD28DBA90)
----*   [`SetPedFaceFeature`](#\_0x6C8D4458)
+---```
+---The "shape" parameters control the shape of the ped's face. The "skin" parameters control the skin tone. ShapeMix and skinMix control how much the first and second IDs contribute,(typically mother and father.) ThirdMix overrides the others in favor of the third IDs. IsParent is set for "children" of the player character's grandparents during old-gen character creation. It has unknown effect otherwise.  
+---The IDs start at zero and go Male Non-DLC, Female Non-DLC, Male DLC, and Female DLC.  
+---!!!Can someone add working example for this???  
+---try this:  
+---headBlendData headData;  
+---_GET_PED_HEAD_BLEND_DATA(PLAYER_PED_ID(), &headData);  
+---SET_PED_HEAD_BLEND_DATA(PLAYER_PED_ID(), headData.shapeFirst, headData.shapeSecond, headData.shapeThird, headData.skinFirst, headData.skinSecond  
+---	, headData.skinThird, headData.shapeMix, headData.skinMix, headData.skinThird, 0);  
+---For more info please refer to this topic.   
+---gtaforums.com/topic/858970-all-gtao-face-ids-pedset-ped-head-blend-data-explained  
+---```
 ---@param ped integer
 ---@param shapeFirstID integer
 ---@param shapeSecondID integer
@@ -5846,10 +4994,6 @@ function SetPedHeadBlendData(ped, shapeFirstID, shapeSecondID, shapeThirdID, ski
 ---11              Body Blemishes        0 - 11, 255  
 ---12              Add Body Blemishes    0 - 1, 255  
 ---```
----
----**Note:**
----
----You may need to call [`SetPedHeadBlendData`](#\_0x9414E18B9434C2FE) prior to calling this native in order for it to work.
 ---@param ped integer
 ---@param overlayID integer
 ---@param index integer
@@ -5859,13 +5003,10 @@ function SetPedHeadOverlay(ped, overlayID, index, opacity) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x497BF74A7B9CB952)  
 ---```
----Used for freemode (online) characters. 
+---Used for freemode (online) characters.  
+---ColorType is 1 for eyebrows, beards, and chest hair; 2 for blush and lipstick; and 0 otherwise, though not called in those cases.  
 ---Called after SET_PED_HEAD_OVERLAY().  
 ---```
----
----**Note:**
----
----You may need to call [`SetPedHeadBlendData`](#\_0x9414E18B9434C2FE) prior to calling this native in order for it to work.
 ---@param ped integer
 ---@param overlayID integer
 ---@param colorType integer
@@ -5883,16 +5024,16 @@ function SetPedHearingRange(ped, value) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC1F6EBF9A3D55538)  
 ---This native does not have an official description.
----@param ped integer
----@param heatScale number
-function SetPedHeatscaleOverride(ped, heatScale) end
+---@param p0 any
+---@param p1 any
+function SetPedHeatscaleOverride(p0, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x560A43136EB58105)  
----Sets whether a pedestrian should wear a helmet.
+---This native does not have an official description.
 ---@param ped integer
----@param bEnable boolean
-function SetPedHelmet(ped, bEnable) end
+---@param canWearHelmet boolean
+function SetPedHelmet(ped, canWearHelmet) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC0E78D5C2CE3EB25)  
@@ -5903,6 +5044,11 @@ function SetPedHelmetFlag(ped, helmetFlag) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26D83693ED99291C)  
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
+---
 ---```
 ---NativeDB Added Parameter 3: BOOL p2
 ---```
@@ -5941,6 +5087,34 @@ function SetPedHighlyPerceptive(ped, toggle) end
 function SetPedIdRange(ped, value) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4E90D746056E273D)  
+---This native sets the glow intensity of illuminated clothing items.
+---
+---This native does **NOT** need to be executed every tick.
+---This native is **NOT** synced with other connected players, you will have to set the opacity on the ped on all clients individually.
+---
+---Glow intensity is a value between `0.0` and `1.0`.
+---
+---In some older decompiled scripts this is known as `_SET_PED_REFLECTION_INTENSITY`.
+---Since there's no joaat hash for this, I find `_SET_PED_ILLUMINATED_CLOTHING_GLOW_INTENSITY` more descriptive than `_SET_PED_REFLECTION_INTENSITY`.
+---
+---Use [`GetPedIlluminatedClothingGlowIntensity`](#_0x1461B28A06717D68) to get the illuminated clothing glow intensity of a specific ped.
+---
+---Intensity: `1.0`:
+---![](https://www.vespura.com/hi/i/2018-11-13_17-03_c2e23_229.png)
+---
+---Intensity: `0.0`:
+---![](https://www.vespura.com/hi/i/2018-11-13_17-03_35c33_230.png)
+---
+---**Examples code result**:
+---![](https://www.vespura.com/hi/i/2018-11-13_17-11_10199_232.gif)
+---
+---(Direct link if embed doesn't work: [here](https://www.vespura.com/hi/i/2018-11-13_17-11_10199_232.gif))
+---@param ped integer
+---@param intensity number
+function SetPedIlluminatedClothingGlowIntensity(ped, intensity) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x570389D1C3DE3C6B)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -5948,7 +5122,16 @@ function SetPedIncreasedAvoidanceRadius(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF75B0D629E1C063D)  
----This native does not have an official description.
+---```
+---Ped: The ped to warp.  
+---vehicle: The vehicle to warp the ped into.  
+---Seat_Index: [-1 is driver seat, -2 first free passenger seat]  
+---Moreinfo of Seat Index  
+---DriverSeat = -1  
+---Passenger = 0  
+---Left Rear = 1  
+---RightRear = 2  
+---```
 ---@param ped integer
 ---@param vehicle integer
 ---@param seatIndex integer
@@ -5957,14 +5140,14 @@ function SetPedIntoVehicle(ped, vehicle, seatIndex) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x530071295899A8C6)  
 ---```
----PED::SET_PED_IN_VEHICLE_CONTEXT(l_128, MISC::GET_HASH_KEY("MINI_PROSTITUTE_LOW_PASSENGER"));
----PED::SET_PED_IN_VEHICLE_CONTEXT(l_128, MISC::GET_HASH_KEY("MINI_PROSTITUTE_LOW_RESTRICTED_PASSENGER"));
----PED::SET_PED_IN_VEHICLE_CONTEXT(l_3212, MISC::GET_HASH_KEY("MISS_FAMILY1_JIMMY_SIT"));
----PED::SET_PED_IN_VEHICLE_CONTEXT(l_3212, MISC::GET_HASH_KEY("MISS_FAMILY1_JIMMY_SIT_REAR"));
----PED::SET_PED_IN_VEHICLE_CONTEXT(l_95, MISC::GET_HASH_KEY("MISS_FAMILY2_JIMMY_BICYCLE"));
----PED::SET_PED_IN_VEHICLE_CONTEXT(num3, MISC::GET_HASH_KEY("MISSFBI2_MICHAEL_DRIVEBY"));
----PED::SET_PED_IN_VEHICLE_CONTEXT(PLAYER::PLAYER_PED_ID(), MISC::GET_HASH_KEY("MISS_ARMENIAN3_FRANKLIN_TENSE"));
----PED::SET_PED_IN_VEHICLE_CONTEXT(PLAYER::PLAYER_PED_ID(), MISC::GET_HASH_KEY("MISSFBI5_TREVOR_DRIVING"));
+---PED::SET_PED_IN_VEHICLE_CONTEXT(l_128, GAMEPLAY::GET_HASH_KEY("MINI_PROSTITUTE_LOW_PASSENGER"));  
+---PED::SET_PED_IN_VEHICLE_CONTEXT(l_128, GAMEPLAY::GET_HASH_KEY("MINI_PROSTITUTE_LOW_RESTRICTED_PASSENGER"));  
+---PED::SET_PED_IN_VEHICLE_CONTEXT(l_3212, GAMEPLAY::GET_HASH_KEY("MISS_FAMILY1_JIMMY_SIT"));  
+---PED::SET_PED_IN_VEHICLE_CONTEXT(l_3212, GAMEPLAY::GET_HASH_KEY("MISS_FAMILY1_JIMMY_SIT_REAR"));  
+---PED::SET_PED_IN_VEHICLE_CONTEXT(l_95, GAMEPLAY::GET_HASH_KEY("MISS_FAMILY2_JIMMY_BICYCLE"));  
+---PED::SET_PED_IN_VEHICLE_CONTEXT(num3, GAMEPLAY::GET_HASH_KEY("MISSFBI2_MICHAEL_DRIVEBY"));  
+---PED::SET_PED_IN_VEHICLE_CONTEXT(PLAYER::PLAYER_PED_ID(), GAMEPLAY::GET_HASH_KEY("MISS_ARMENIAN3_FRANKLIN_TENSE"));  
+---PED::SET_PED_IN_VEHICLE_CONTEXT(PLAYER::PLAYER_PED_ID(), GAMEPLAY::GET_HASH_KEY("MISSFBI5_TREVOR_DRIVING"));  
 ---```
 ---@param ped integer
 ---@param context integer | string
@@ -5995,7 +5178,10 @@ function SetPedLodMultiplier(ped, multiplier) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF5F6378C4F3419D3)  
----This native does not have an official description.
+---```
+---sets the maximum health of a ped  
+---I think it's never been used in any script  
+---```
 ---@param ped integer
 ---@param value integer
 function SetPedMaxHealth(ped, value) end
@@ -6016,21 +5202,19 @@ function SetPedMaxTimeInWater(ped, value) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6BA428C528D9E522)  
----Set the maximum time a ped can stay underwater. Maximum seems to be 50 seconds.
+---This native does not have an official description.
 ---@param ped integer
 ---@param value number
 function SetPedMaxTimeUnderwater(ped, value) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFA0675AB151073FA)  
----Overwrites the minimum time the ped will stay on the ground for after being stunned. Setting this while the ped is stunned will not alter the duration of the current stun but will still effect future stuns.
----
----Passing -1 into the second parameter `minTimeInMs` will reset the modifier, making it use the weapons original `DamageTime` as the stun duration (see `update/update.rpf/common/data/ai/weapons.meta`)
----
----**NOTE**: Unlike what the native name implies, this works on any weapon that has its `DamageType` in the `weapons.meta` set to `ELECTRIC`.
+---```
+---Ped will stay on the ground after being stunned for at lest ms time. (in milliseconds)  
+---```
 ---@param ped integer
----@param minTimeInMs integer
-function SetPedMinGroundTimeForStungun(ped, minTimeInMs) end
+---@param ms integer
+function SetPedMinGroundTimeForStungun(ped, ms) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01A898D26E2333DD)  
@@ -6041,10 +5225,12 @@ function SetPedMinMoveBlendRatio(ped, value) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE163A4BCE4DE6F11)  
----This native does not have an official description.
----@param model integer | string
+---```
+---NativeDB Parameter 0: Hash modelHash
+---```
+---@param ped integer
 ---@param toggle boolean
-function SetPedModelIsSuppressed(model, toggle) end
+function SetPedModelIsSuppressed(ped, toggle) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA9C8960E8684C1B5)  
@@ -6073,59 +5259,64 @@ function SetPedMoveAnimsBlendOut(ped) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAF8A94EDE7712BEF)  
 ---```
----List of movement clipsets:
----Thanks to elsewhat for list.
---- "ANIM_GROUP_MOVE_BALLISTIC"
---- "ANIM_GROUP_MOVE_LEMAR_ALLEY"
---- "clipset@move@trash_fast_turn"
---- "FEMALE_FAST_RUNNER"
---- "missfbi4prepp1_garbageman"
---- "move_characters@franklin@fire"
---- "move_characters@Jimmy@slow@"
---- "move_characters@michael@fire"
---- "move_f@flee@a"
---- "move_f@scared"
---- "move_f@sexy@a"
---- "move_heist_lester"
---- "move_injured_generic"
---- "move_lester_CaneUp"
---- "move_m@bag"
---- "MOVE_M@BAIL_BOND_NOT_TAZERED"
---- "MOVE_M@BAIL_BOND_TAZERED"
---- "move_m@brave"
---- "move_m@casual@d"
---- "move_m@drunk@moderatedrunk"
---- "MOVE_M@DRUNK@MODERATEDRUNK"
---- "MOVE_M@DRUNK@MODERATEDRUNK_HEAD_UP"
---- "MOVE_M@DRUNK@SLIGHTLYDRUNK"
---- "MOVE_M@DRUNK@VERYDRUNK"
---- "move_m@fire"
---- "move_m@gangster@var_e"
---- "move_m@gangster@var_f"
---- "move_m@gangster@var_i"
---- "move_m@JOG@"
---- "MOVE_M@PRISON_GAURD"
---- "MOVE_P_M_ONE"
---- "MOVE_P_M_ONE_BRIEFCASE"
---- "move_p_m_zero_janitor"
---- "move_p_m_zero_slow"
---- "move_ped_bucket"
---- "move_ped_crouched"
---- "move_ped_mop"
---- "MOVE_M@FEMME@"
---- "MOVE_F@FEMME@"
---- "MOVE_M@GANGSTER@NG"
---- "MOVE_F@GANGSTER@NG"
---- "MOVE_M@POSH@"
---- "MOVE_F@POSH@"
---- "MOVE_M@TOUGH_GUY@"
---- "MOVE_F@TOUGH_GUY@"
----~ NotCrunchyTaco
+---p2 is usually 1.0f  
+---EDIT 12/24/16:   
+---p2 does absolutely nothing no matter what the value is.   
+---EDIT 08/16/17:  
+---p2 is the time for a smooth changing to the new clipset.  
+---List of movement clipsets:  
+---Thanks to elsewhat for list.  
+--- "ANIM_GROUP_MOVE_BALLISTIC"  
+--- "ANIM_GROUP_MOVE_LEMAR_ALLEY"  
+--- "clipset@move@trash_fast_turn"  
+--- "FEMALE_FAST_RUNNER"  
+--- "missfbi4prepp1_garbageman"  
+--- "move_characters@franklin@fire"  
+--- "move_characters@Jimmy@slow@"  
+--- "move_characters@michael@fire"  
+--- "move_f@flee@a"  
+--- "move_f@scared"  
+--- "move_f@sexy@a"  
+--- "move_heist_lester"  
+--- "move_injured_generic"  
+--- "move_lester_CaneUp"  
+--- "move_m@bag"  
+--- "MOVE_M@BAIL_BOND_NOT_TAZERED"  
+--- "MOVE_M@BAIL_BOND_TAZERED"  
+--- "move_m@brave"  
+--- "move_m@casual@d"  
+--- "move_m@drunk@moderatedrunk"  
+--- "MOVE_M@DRUNK@MODERATEDRUNK"  
+--- "MOVE_M@DRUNK@MODERATEDRUNK_HEAD_UP"  
+--- "MOVE_M@DRUNK@SLIGHTLYDRUNK"  
+--- "MOVE_M@DRUNK@VERYDRUNK"  
+--- "move_m@fire"  
+--- "move_m@gangster@var_e"  
+--- "move_m@gangster@var_f"  
+--- "move_m@gangster@var_i"  
+--- "move_m@JOG@"  
+--- "MOVE_M@PRISON_GAURD"  
+--- "MOVE_P_M_ONE"  
+--- "MOVE_P_M_ONE_BRIEFCASE"  
+--- "move_p_m_zero_janitor"  
+--- "move_p_m_zero_slow"  
+--- "move_ped_bucket"  
+--- "move_ped_crouched"  
+--- "move_ped_mop"  
+--- "MOVE_M@FEMME@"  
+--- "MOVE_F@FEMME@"  
+--- "MOVE_M@GANGSTER@NG"  
+--- "MOVE_F@GANGSTER@NG"  
+--- "MOVE_M@POSH@"  
+--- "MOVE_F@POSH@"  
+--- "MOVE_M@TOUGH_GUY@"  
+--- "MOVE_F@TOUGH_GUY@"  
+---~ NotCrunchyTaco  
 ---```
 ---@param ped integer
 ---@param clipSet string
----@param transitionSpeed number
-function SetPedMovementClipset(ped, clipSet, transitionSpeed) end
+---@param p2 number
+function SetPedMovementClipset(ped, clipSet, p2) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x085BF80FA50A39D1)  
@@ -6191,36 +5382,15 @@ function SetPedPanicExitScenario(ped, x, y, z) end
 function SetPedParachuteTintIndex(ped, tintIndex) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x83A169EABCDB10A2)  
----Sets the palette index of a ped's phone.
----
----| Value | Color      |
----| :---: | :-----:    |
----|  `0`  | Light Blue |
----|  `1`  | Green      |
----|  `2`  | Red        |
----|  `3`  | Orange     |
----|  `4`  | Grey       |
----|  `5`  | Purple     |
----|  `6`  | Pink       |
----
----```
----NativeDB Introduced: v323
----```
----@param ped integer
----@param index integer
-function SetPedPhonePaletteIdx(ped, index) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAAD6D1ACF08F4612)  
 ---```
----i could be time. Only example in the decompiled scripts uses it as -1.
+---p2 could be time. Only example in the decompiled scripts uses it as -1.  
 ---```
 ---@param ped integer
 ---@param pinned boolean
----@param i integer
+---@param p2 integer
 ---@return any
-function SetPedPinnedDown(ped, pinned, i) end
+function SetPedPinnedDown(ped, pinned, p2) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x94D94BF1A75AED3D)  
@@ -6242,13 +5412,16 @@ function SetPedPreferredCoverSet(ped, itemSet) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B16A3BFF1FBCE49)  
----This native does not have an official description.
+---```
+---List of component/props ID
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html
+---```
 ---@param ped integer
 ---@param componentId integer
 ---@param drawableId integer
----@param textureId integer
+---@param TextureId integer
 ---@return boolean
-function SetPedPreloadPropData(ped, componentId, drawableId, textureId) end
+function SetPedPreloadPropData(ped, componentId, drawableId, TextureId) end
 
 ---@deprecated
 IsPedPropValid = SetPedPreloadPropData
@@ -6270,10 +5443,10 @@ function SetPedPreloadVariationData(ped, slot, drawableId, textureId) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCD17B554996A8D9E)  
 ---```
----This is only called once in the scripts.
----sub_1CD9(&l_49, 0, getElem(3, &l_34, 4), "MICHAEL", 0, 1);
----                    sub_1CA8("WORLD_HUMAN_SMOKING", 2);
----                    PED::SET_PED_PRIMARY_LOOKAT(getElem(3, &l_34, 4), PLAYER::PLAYER_PED_ID());
+---This is only called once in the scripts.  
+---sub_1CD9(&l_49, 0, getElem(3, &l_34, 4), "MICHAEL", 0, 1);  
+---                    sub_1CA8("WORLD_HUMAN_SMOKING", 2);  
+---                    PED::SET_PED_PRIMARY_LOOKAT(getElem(3, &l_34, 4), PLAYER::PLAYER_PED_ID());  
 ---```
 ---@param ped integer
 ---@param lookAt integer
@@ -6281,37 +5454,22 @@ function SetPedPrimaryLookat(ped, lookAt) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x93376B65A266EB5F)  
----This native is used to set prop variation on a ped. Components, drawables and textures IDs are related to the ped model.
+---This native is used to set prop variation on a ped. Components, drawables and textures IDs are related to the ped model. 
 ---
 ---### MP Freemode list of props
 ---
----**0**: Hats
----**1**: Glasses
----**2**: Ears
----**6**: Watches
----**7**: Bracelets
+---**0**: Hat  
+---**1**: Glass  
+---**2**: Ear  
+---**6**: Watch  
+---**7**: Bracelet  
 ---
----List of Prop IDs
+---### Related and useful natives
 ---
----```cpp
----enum eAnchorPoints
----{
----    ANCHOR_HEAD = 0, // "p_head"
----    ANCHOR_EYES = 1, // "p_eyes"
----    ANCHOR_EARS = 2, // "p_ears"
----    ANCHOR_MOUTH = 3, // "p_mouth"
----    ANCHOR_LEFT_HAND = 4, // "p_lhand"
----    ANCHOR_RIGHT_HAND = 5, // "p_rhand"
----    ANCHOR_LEFT_WRIST = 6, // "p_lwrist"
----    ANCHOR_RIGHT_WRIST = 7, // "p_rwrist"
----    ANCHOR_HIP = 8, // "p_lhip"
----    ANCHOR_LEFT_FOOT = 9, // "p_lfoot"
----    ANCHOR_RIGHT_FOOT = 10, // "p_rfoot"
----    ANCHOR_PH_L_HAND = 11, // "ph_lhand"
----    ANCHOR_PH_R_HAND = 12, // "ph_rhand"
----    NUM_ANCHORS = 13,
----};
----```
+---[GET_NUMBER_OF_PED_PROP_DRAWABLE_VARIATIONS](#_0x5FAF9754E789FB47)  
+---[GET_NUMBER_OF_PED_PROP_TEXTURE_VARIATIONS](#_0xA6E7F1CEB523E171)  
+---
+---[List of component/props ID](gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html) of player_two with examples
 ---@param ped integer
 ---@param componentId integer
 ---@param drawableId integer
@@ -6321,14 +5479,18 @@ function SetPedPropIndex(ped, componentId, drawableId, textureId, attach) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01F6594B923B9251)  
----This native does not have an official description.
+---```
+---NativeDB Return Type: void
+---```
 ---@param ped integer
+---@return any
 function SetPedRagdollForceFall(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF0A4F1BBF4FA7497)  
----Causes Ped to ragdoll on collision with any object (e.g Running into trashcan). If applied to player you will sometimes trip on the sidewalk.
----Needs to be recalled after each ragdoll from a Collision.
+---```
+---Causes Ped to ragdoll on collision with any object (e.g Running into trashcan). If applied to player you will sometimes trip on the sidewalk.  
+---```
 ---@param ped integer
 ---@param toggle boolean
 function SetPedRagdollOnCollision(ped, toggle) end
@@ -6336,15 +5498,25 @@ function SetPedRagdollOnCollision(ped, toggle) end
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC8A9481A01E63C28)  
 ---```
----p1 is always 0 in R* scripts; and a quick disassembly seems to indicate that p1 is unused.  
+---p1 is always false in R* scripts; and a quick disassembly seems to indicate that p1 is unused.  
+---
+---List of component/props ID:
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
+---
+---```
+---NativeDB Parameter 1: int p1
 ---```
 ---@param ped integer
----@param p1 integer
+---@param p1 boolean
 function SetPedRandomComponentVariation(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC44AA05345C992C6)  
----This native does not have an official description.
+---```
+---List of component/props ID  
+---gtaxscripting.blogspot.com/2016/04/gta-v-peds-component-and-props.html  
+---```
 ---@param ped integer
 function SetPedRandomProps(ped) end
 
@@ -6371,8 +5543,9 @@ function SetPedReserveParachuteTintIndex(ped, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC1E8A365BF3B29F2)  
----PED::SET_PED_RESET_FLAG(PLAYER::PLAYER_PED_ID(), 240, 1);
----Known values:
+---**Known values**
+---
+---`PRF_PreventGoingIntoStillInVehicleState` = 236 _(fanatic2.c)_
 ---@param ped integer
 ---@param flagId integer
 ---@param doReset boolean
@@ -6380,7 +5553,8 @@ function SetPedResetFlag(ped, flagId, doReset) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x36C6984C3ED0C911)  
----This native sets a scuba mask for freemode models and an oxygen bottle for player_\* models. It works on freemode and player_\* models.
+---This native sets a scuba mask for freemode models and an oxygen bottle for player_\* models.
+---It works on freemode and player_\* models.
 ---@param ped integer
 function SetPedScubaGearVariation(ped) end
 
@@ -6402,48 +5576,13 @@ function SetPedShootRate(ped, shootRate) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x96A05E4FB321B1BA)  
----Fires a weapon at a coordinate using a ped.
+---This native does not have an official description.
 ---@param ped integer
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param toggle boolean
 function SetPedShootsAtCoord(ped, x, y, z, toggle) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xEC6935EBE0847B90)  
----When this ped receives its next script task, they will exit from their scenario using the normal scenario exit.
----Exiting the scenario may take several frames while the ped is playing the exit animation.
----If the ped is not currently using a scenario at the time of the command or 0,0,0 is specified as the reaction position,
----then the ped will by default attempt to direct their exit forwards.
----@param ped integer
----@param x number
----@param y number
----@param z number
----@return boolean
-function SetPedShouldPlayDirectedScenarioExit(ped, x, y, z) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xEEED8FAFEC331A70)  
----This native does not have an official description.
----@param ped integer
----@param p1 any
----@param p2 any
----@param p3 any
----@return any
-function SetPedShouldPlayFleeScenarioExit(ped, p1, p2, p3) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF1C03A5352243A30)  
----This native does not have an official description.
----@param ped integer
-function SetPedShouldPlayImmediateScenarioExit(ped) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA3A9299C4F2ADB98)  
----This native does not have an official description.
----@param ped integer
-function SetPedShouldPlayNormalScenarioExit(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9D3151A373974804)  
@@ -6604,9 +5743,7 @@ function SetPedUsingActionMode(ped, p1, p2, action) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x952F06BEECD775CC)  
----```
----NativeDB Added Parameter 5: Any p4
----```
+---This native does not have an official description.
 ---@param ped integer
 ---@param vehicle integer
 ---@param seatIndex integer
@@ -6685,15 +5822,13 @@ function SetPedWetnessHeight(ped, height) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD8C3BE3EE94CAF2D)  
----```
----Min and max are usually 100.0 and 200.0
----```
+---This native does not have an official description.
 ---@param x number
 ---@param y number
 ---@param z number
----@param min number
----@param max number
-function SetPopControlSphereThisFrame(x, y, z, min, max) end
+---@param p3 number
+---@param p4 number
+function SetPopControlSphereThisFrame(x, y, z, p3, p4) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26695EC767728D84)  
@@ -6734,18 +5869,13 @@ SetPedRagdollBlockingFlags = SetRagdollBlockingFlags
 function SetRelationshipBetweenGroups(relationship, group1, group2) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5615E0C5EB2BC6E2)  
----This native does not have an official description.
----@param group integer | string
----@param p1 boolean
-function SetRelationshipGroupDontAffectWantedLevel(group, p1) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7A556143A1C03898)  
----Set the number of scenario peds on the entire map
----@param interiorMult number
----@param exteriorMult number
-function SetScenarioPedDensityMultiplierThisFrame(interiorMult, exteriorMult) end
+---```
+---p0 and p1 are always the same  
+---```
+---@param p0 number
+---@param p1 number
+function SetScenarioPedDensityMultiplierThisFrame(p0, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28157D43CF600981)  
@@ -6781,21 +5911,18 @@ function SetScriptedAnimSeatOffset(ped, p1) end
 function SetScriptedConversionCoordThisFrame(x, y, z) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x394B9CD12435C981)  
----This native does not have an official description.
----@param sceneID integer
----@param toggle boolean
-function SetSynchronizedSceneHoldLastFrame(sceneID, toggle) end
-
----@deprecated
-SetSynchronizedSceneOcclusionPortal = SetSynchronizedSceneHoldLastFrame
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD9A897A4C6C2974F)  
 ---This native does not have an official description.
 ---@param sceneID integer
 ---@param toggle boolean
 function SetSynchronizedSceneLooped(sceneID, toggle) end
+
+---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x394B9CD12435C981)  
+---This native does not have an official description.
+---@param sceneID any
+---@param p1 boolean
+function SetSynchronizedSceneOcclusionPortal(sceneID, p1) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6ACF6B7225801CD7)  
@@ -6825,85 +5952,6 @@ function SetSynchronizedScenePhase(sceneID, phase) end
 function SetSynchronizedSceneRate(sceneID, rate) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xFEE4A5459472A9F8)  
----This native does not have an official description.
-function SpawnpointsCancelSearch() end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA635C11B8C44AFC2)  
----This native does not have an official description.
----@return integer
-function SpawnpointsGetNumSearchResults() end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x280C7E3AC7F56E90)  
----This native does not have an official description.
----@param randomInt integer
----@return number, number, number
-function SpawnpointsGetSearchResult(randomInt) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB782F8238512BAD5)  
----This native does not have an official description.
----@param p0 any
----@return any
-function SpawnpointsGetSearchResultFlags(p0) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x3C67506996001F5E)  
----This native does not have an official description.
----@return boolean
-function SpawnpointsIsSearchActive() end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA586FBEB32A53DBB)  
----This native does not have an official description.
----@return boolean
-function SpawnpointsIsSearchComplete() end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF445DE8DA80A1792)  
----This native does not have an official description.
----@return boolean
-function SpawnpointsIsSearchFailed() end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2DF9038C90AD5264)  
----This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param interiorFlags integer
----@param scale number
----@param duration integer
-function SpawnpointsStartSearch(p0, p1, p2, p3, p4, interiorFlags, scale, duration) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB2AFF10216DEFA2F)  
----This native does not have an official description.
----@param x number
----@param y number
----@param z number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param interiorFlags integer
----@param scale number
----@param duration integer
-function SpawnpointsStartSearchInAngledArea(x, y, z, p3, p4, p5, p6, interiorFlags, scale, duration) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF9ACF4A08098EA25)  
----Kicks the ped from the current vehicle and keeps the rendering-focus on this ped (also disables its collision). If doing this for your player ped, you'll still be able to drive the vehicle.\
----Only to be used in very specific situations where the ped needs to be inside the car still but not attached.
----@param ped integer
----@param noCollisionUntilClear boolean
-function SpecialFunctionDoNotUse(ped, noCollisionUntilClear) end
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB47BD05FA66B40CF)  
 ---This native does not have an official description.
 function StopAnyPedModelBeingSuppressed() end
@@ -6915,15 +5963,6 @@ function StopAnyPedModelBeingSuppressed() end
 function StopPedWeaponFiringWhenDropped(ped) end
 
 ---**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xCD9CC7E200A52A6F)  
----This native does not have an official description.
----@param scene integer
-function TakeOwnershipOfSynchronizedScene(scene) end
-
----@deprecated
-DisposeSynchronizedScene = TakeOwnershipOfSynchronizedScene
-
----**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x96B1361D9B24C2FF)  
 ---```
 ---gtaforums.com/topic/885580-ped-headshotmugshot-txd/  
@@ -6933,7 +5972,9 @@ function UnregisterPedheadshot(id) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x723538F61C647C5A)  
----See [`SET_PED_HEAD_BLEND_DATA`](#\_0x9414E18B9434C2FE)
+---```
+---See SET_PED_HEAD_BLEND_DATA().  
+---```
 ---@param ped integer
 ---@param shapeMix number
 ---@param skinMix number
@@ -6942,7 +5983,7 @@ function UpdatePedHeadBlendData(ped, shapeMix, skinMix, thirdMix) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF9800AA1A771B000)  
----Verifies whether ped was eliminated through stealth.
+---This native does not have an official description.
 ---@param ped integer
 ---@return boolean
 function WasPedKilledByStealth(ped) end

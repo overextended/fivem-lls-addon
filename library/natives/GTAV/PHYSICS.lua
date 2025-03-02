@@ -2,32 +2,34 @@
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x710311ADF0E20730)  
----This native does not have an official description.
+---```
+---seems to be frequently used with the NETWORK::NET_TO_x natives, particularly with vehicles. It is often the only ROPE:: native in a script.  
+---```
 ---@param entity integer
 function ActivatePhysics(entity) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE832D760399EB220)  
 ---```
----Creates a rope at the specific position, that extends in the specified direction when not attached to any entities.---
----__---
----Rope does NOT interact with anything you attach it to, in some cases it make interact with the world AFTER it breaks (seems to occur if you set the type to -1).---
----Rope will sometimes contract and fall to the ground like you'd expect it to, but since it doesn't interact with the world the effect is just jaring.
----```
----
----There are 8 different rope types in the base game. Full rope data can be found in `ropedata.xml`.
----
----```cpp
----enum ePhysicsRopeType {---
----    RopeThin = 0, // Verticies: 1, Radius: 0.03, Textures: rope & rope_n---
----    RopeWire6 = 1, // Verticies: 4, Radius: 0.015, Textures: steel_cable & steel_cable_n---
----    RopeWire32 = 2, // Verticies: 32, Radius: 0.025, Textures: steel_cable & steel_cable_n---
----    RopeMesh = 3, // Verticies: 6, Radius: 0.03, Textures: rope & rope_n---
----    RopeThinWire32 = 4, // Verticies: 32, Radius: 0.01, Textures: rope & rope_n---
----    RopeReins = 5, // Verticies: 32, Radius: 0.005, Textures: rope & rope_n---
----    RopeThin4 = 6, // Verticies: 4, Radius: 0.03, Textures: rope & rope_n---
----    RopeWire64 = 7 // Verticies: 64, Radius: 0.025, Textures: steel_cable & steel_cable_n---
----}
+---Creates a rope at the specific position, that extends in the specified direction when not attached to any entities.  
+---__  
+---Add_Rope(pos.x,pos.y,pos.z,0.0,0.0,0.0,20.0,4,20.0,1.0,0.0,false,false,false,5.0,false,NULL)  
+---When attached, Position<vector> does not matter  
+---When attached, Angle<vector> does not matter  
+---Rope Type:  
+---4 and bellow is a thick rope  
+---5 and up are small metal wires  
+---0 crashes the game  
+---Max_length - Rope is forced to this length, generally best to keep this the same as your rope length.  
+---Rigid - If max length is zero, and this is set to false the rope will become rigid (it will force a specific distance, what ever length is, between the objects).  
+---breakable - Whether or not shooting the rope will break it.  
+---unkPtr - unknown ptr, always 0 in orig scripts  
+---__  
+---Lengths can be calculated like so:  
+---float distance = abs(x1 - x2) + abs(y1 - y2) + abs(z1 - z2); // Rope length  
+---NOTES:  
+---Rope does NOT interact with anything you attach it to, in some cases it make interact with the world AFTER it breaks (seems to occur if you set the type to -1).  
+---Rope will sometimes contract and fall to the ground like you'd expect it to, but since it doesn't interact with the world the effect is just jaring.  
 ---```
 ---@param x number
 ---@param y number
@@ -35,18 +37,18 @@ function ActivatePhysics(entity) end
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param maxLength number
+---@param length number
 ---@param ropeType integer
----@param initLength number
+---@param maxLength number
 ---@param minLength number
----@param lengthChangeRate number
----@param onlyPPU boolean
----@param collisionOn boolean
----@param lockFromFront boolean
----@param timeMultiplier number
----@param breakable boolean
+---@param p10 number
+---@param p11 boolean
+---@param p12 boolean
+---@param rigid boolean
+---@param p14 number
+---@param breakWhenShot boolean
 ---@return integer, any
-function AddRope(x, y, z, rotX, rotY, rotZ, maxLength, ropeType, initLength, minLength, lengthChangeRate, onlyPPU, collisionOn, lockFromFront, timeMultiplier, breakable) end
+function AddRope(x, y, z, rotX, rotY, rotZ, length, ropeType, maxLength, minLength, p10, p11, p12, rigid, p14, breakWhenShot) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE37F721824571784)  
@@ -112,17 +114,16 @@ function BreakEntityGlass(entity, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA5D6B1888E4DB20)  
----This native does not have an official description.
+---```
+---NativeDB Return Type: void
+---```
 ---@param ropeId integer
+---@return any
 function DeleteChildRope(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x52B4829281364649)  
----Deletes the rope with the specified handle.
----
----You should check if the rope exists before trying to delete it, see [DOES_ROPE_EXIST](#\_0xFD5448BE3111ED96).
----
----For an example on how to use this native please refer to [ADD_ROPE](#\_0xE832D760399EB220)
+---This native does not have an official description.
 ---@param ropeId integer
 function DeleteRope(ropeId) end
 
@@ -134,15 +135,26 @@ function DeleteRope(ropeId) end
 function DetachRopeFromEntity(ropeId, entity) end
 
 ---**`PHYSICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0C112765300C7E1E)  
+---```
+---GET_*
+---```
+---@param object integer
+---@return boolean
+function DoesEntityHaveFragInst(object) end
+
+---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x271C9D3ACA5D6409)  
----Return if the rope was generated or not by the script where the native is called.
+---This native does not have an official description.
 ---@param ropeId integer
 ---@return boolean
 function DoesRopeBelongToThisScript(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFD5448BE3111ED96)  
----For an example on how to use this native please refer to [ADD_ROPE](#\_0xE832D760399EB220)
+---```
+---Ptr is correct  
+---```
 ---@param ropeId integer
 ---@return boolean
 function DoesRopeExist(ropeId) end
@@ -155,22 +167,12 @@ function DoesRopeExist(ropeId) end
 function GetCgoffset(entity) end
 
 ---**`PHYSICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0C112765300C7E1E)  
----```
----GET_*
----```
----@param object integer
----@return boolean
-function GetHasObjectFragInst(object) end
-
----@deprecated
-DoesEntityHaveFragInst = GetHasObjectFragInst
-
----**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x21BB0FBD3E217C2D)  
----This native does not have an official description.
+---```
+---NativeDB Return Type: Vector3
+---```
 ---@param ropeId integer
----@return vector3
+---@return any
 function GetRopeLastVertexCoord(ropeId) end
 
 ---**`PHYSICS` `client`**  
@@ -191,10 +193,15 @@ function GetRopeVertexCount(ropeId) end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCBB203C04D1ABD27)  
 ---```
----Rope presets can be found in the gamefiles. One example is "ropeFamily3", it is NOT a hash but rather a string.
+---Rope presets can be found in the gamefiles. One example is "ropeFamily3", it is NOT a hash but rather a string.  
+---```
+---
+---```
+---NativeDB Return Type: void
 ---```
 ---@param ropeId integer
 ---@param rope_preset string
+---@return any
 function LoadRopeData(ropeId, rope_preset) end
 
 ---**`PHYSICS` `client`**  
@@ -208,8 +215,10 @@ function N_0x36ccb9be67b970fd(ropeId, p1) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84DE3B5FB3E666F0)  
----This native does not have an official description.
----@return boolean, integer
+---```
+---NativeDB Parameter 0: int* ropeId
+---```
+---@return boolean, any
 function N_0x84de3b5fb3e666f0() end
 
 ---**`PHYSICS` `client`**  
@@ -219,17 +228,6 @@ function N_0x84de3b5fb3e666f0() end
 ---```
 ---@param p0 boolean
 function N_0x9ebd751e5787baf2(p0) end
-
----**`PHYSICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA1AE736541B0FCA3)  
----ROPE_\*
----
----```
----NativeDB Introduced: v1868
----```
----@param p1 boolean
----@return integer
-function N_0xa1ae736541b0fca3(p1) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB1B6216CA2E7B55E)  
@@ -309,15 +307,22 @@ function RopeDrawShadowEnabled(toggle) end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD009F759A723DB1B)  
 ---```
----Forces a rope to a certain length.
+---Forces a rope to a certain length.  
+---```
+---
+---```
+---NativeDB Return Type: void
 ---```
 ---@param ropeId integer
 ---@param length number
+---@return any
 function RopeForceLength(ropeId, length) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x73040398DFF9A4A6)  
----This native does not have an official description.
+---```
+---Get a rope's length.  Can be modified with ROPE_FORCE_LENGTH  
+---```
 ---@param ropeId integer
 ---@return number
 function RopeGetDistanceBetweenEnds(ropeId) end
@@ -328,8 +333,13 @@ GetRopeLength = RopeGetDistanceBetweenEnds
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9B9039DBF2D258C1)  
 ---```
----Loads rope textures for all ropes in the current scene.
+---Loads rope textures for all ropes in the current scene.  
 ---```
+---
+---```
+---NativeDB Return Type: void
+---```
+---@return any
 function RopeLoadTextures() end
 
 ---**`PHYSICS` `client`**  
@@ -343,7 +353,9 @@ function RopeResetLength(ropeId, length) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDC57A637A20006ED)  
----This native does not have an official description.
+---```
+---ROPE_*
+---```
 ---@param ropeId integer
 ---@param p1 any
 function RopeSetUpdateOrder(ropeId, p1) end
@@ -357,8 +369,13 @@ function RopeSetUpdatePinverts(ropeId) end
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6CE36C35C1AC8163)  
 ---```
----Unloads rope textures for all ropes in the current scene.
+---Unloads rope textures for all ropes in the current scene.  
 ---```
+---
+---```
+---NativeDB Return Type: void
+---```
+---@return any
 function RopeUnloadTextures() end
 
 ---**`PHYSICS` `client`**  
@@ -386,14 +403,19 @@ function SetDamping(entity, vertex, value) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5CEC1A84620E7D5B)  
----This native does not have an official description.
+---```
+---NativeDB Return Type: void
+---```
 ---@param object integer
 ---@param toggle boolean
+---@return any
 function SetDisableBreaking(object, toggle) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01BA3AED21C16CFB)  
----This native does not have an official description.
+---```
+---sometimes used used with NET_TO_OBJ  
+---```
 ---@param object integer
 ---@param toggle boolean
 function SetDisableFragDamage(object, toggle) end
@@ -412,8 +434,8 @@ function SetEntityProofUnk(entity, toggle) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param toggle boolean
-function SetLaunchControlEnabled(toggle) end
+---@param p0 boolean
+function SetLaunchControlEnabled(p0) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x538D1179EC1AA9A9)  
@@ -441,8 +463,11 @@ function StopRopeWinding(ropeId) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4B5AE2EEE4A8F180)  
----This native does not have an official description.
+---```
+---NativeDB Return Type: void
+---```
 ---@param ropeId integer
 ---@param vertex integer
+---@return any
 function UnpinRopeVertex(ropeId, vertex) end
 

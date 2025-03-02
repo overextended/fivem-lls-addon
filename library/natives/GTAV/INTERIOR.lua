@@ -29,16 +29,6 @@ function AddPickupToInteriorRoomByName(pickup, roomName) end
 function CapInterior(interiorID, toggle) end
 
 ---**`INTERIOR` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x85D5422B2039A70D)  
----Immediately removes entity from an interior. Like sets entity to `limbo` room.
----
----```
----NativeDB Introduced: v2189
----```
----@param entity integer
-function ClearInteriorForEntity(entity) end
-
----**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB365FC0C4E27FFA7)  
 ---This native does not have an official description.
 ---@param entity integer
@@ -83,8 +73,10 @@ HideMapObjectThisFrame = EnableExteriorCullModelThisFrame
 
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x50C375537449F369)  
----This native does not have an official description.
----@param mapObjectHash integer | string
+---```
+---NativeDB Parameter 0: Hash mapObjectHash
+---```
+---@param mapObjectHash any
 function EnableScriptCullModelThisFrame(mapObjectHash) end
 
 ---**`INTERIOR` `client`**  
@@ -135,12 +127,16 @@ function GetInteriorAtCoordsWithType(x, y, z, interiorType) end
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF0F77ADB9F67E79D)  
 ---```
----Hashed version of GET_INTERIOR_AT_COORDS_WITH_TYPE
+---Returns the interior ID at the given coords, but only if the unknown variable is set to 0, otherwise it will return 0.  
+---```
+---
+---```
+---NativeDB Parameter 3: Hash typeHash
 ---```
 ---@param x number
 ---@param y number
 ---@param z number
----@param typeHash integer | string
+---@param typeHash integer
 ---@return integer
 function GetInteriorAtCoordsWithTypehash(x, y, z, typeHash) end
 
@@ -171,10 +167,7 @@ function GetInteriorFromEntity(entity) end
 ---NativeDB Introduced: v1604
 ---```
 ---@return integer
-function GetInteriorFromPrimaryView() end
-
----@deprecated
-GetInteriorFromGameplayCam = GetInteriorFromPrimaryView
+function GetInteriorFromGameplayCam() end
 
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE4A84ABF135EF91A)  
@@ -188,6 +181,8 @@ function GetInteriorGroupId(interior) end
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF49B58631D9E22D9)  
 ---```
+---GET_INTERIOR_*
+---
 ---NativeDB Introduced: v1493
 ---```
 ---@param interior integer
@@ -197,14 +192,13 @@ function GetInteriorHeading(interior) end
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x252BDC06B73FA6EA)  
 ---```
+---GET_INTERIOR_*
+---
 ---NativeDB Introduced: v1290
 ---```
 ---@param interior integer
 ---@return vector3, integer
-function GetInteriorLocationAndNamehash(interior) end
-
----@deprecated
-GetInteriorInfo = GetInteriorLocationAndNamehash
+function GetInteriorInfo(interior) end
 
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x399685DB942336BC)  
@@ -227,7 +221,9 @@ function GetOffsetFromInteriorInWorldCoords(interior, x, y, z) end
 
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA6575914D2A0B450)  
----This native does not have an official description.
+---```
+---Returns the room hash key from the current gameplay cam.  
+---```
 ---@return integer
 function GetRoomKeyForGameViewport() end
 
@@ -295,10 +291,12 @@ function IsInteriorScene() end
 
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26B0E73D7EAAF4D3)  
----This native does not have an official description.
----@param interior integer
+---```
+---Return if interior is valid.  
+---```
+---@param interiorID integer
 ---@return boolean
-function IsValidInterior(interior) end
+function IsValidInterior(interiorID) end
 
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x38C1CB1CB119A016)  
@@ -325,12 +323,11 @@ function N_0x483aca1176ca93f1() end
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4C2330E61D3DEB56)  
 ---```
----Only used once in the entire game scripts.
----Does not actually return anything.
+---Only used once in the entire game scripts, probably useless. Always returns 0.  
 ---```
----@param interior integer
+---@param interiorID integer
 ---@return any
-function N_0x4c2330e61d3deb56(interior) end
+function N_0x4c2330e61d3deb56(interiorID) end
 
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7241CCB7D020DB69)  
@@ -359,7 +356,8 @@ function N_0x82ebb79e258fa2b7(entity, interiorID) end
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9E6542F0CE8E70A3)  
 ---```
----DISABLE_*
+---Only found 4 times in Rockstar scripts.  
+---Clearly has something to do with Cutscenes.  
 ---```
 ---@param toggle boolean
 function N_0x9e6542f0ce8e70a3(toggle) end
@@ -375,7 +373,9 @@ function N_0xaf348afcb575a441(roomName) end
 
 ---**`INTERIOR` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2CA429C029CCF247)  
----This native does not have an official description.
+---```
+---Load interior  
+---```
 ---@param interior integer
 function PinInteriorInMemory(interior) end
 

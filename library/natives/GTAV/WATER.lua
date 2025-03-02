@@ -2,18 +2,16 @@
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFDBF4CDBC07E1706)  
----Only 8 current rises can exist. If rises need to be changed, use REMOVE_EXTRA_CALMING_QUAD and then ADD_EXTRA_CALMING_QUAD again.
----After removing a rise, you will be able to add a rise again.
+---```
+---Most likely ADD_CURRENT_*
+---```
 ---@param xLow number
 ---@param yLow number
 ---@param xHigh number
 ---@param yHigh number
 ---@param height number
 ---@return integer
-function AddExtraCalmingQuad(xLow, yLow, xHigh, yHigh, height) end
-
----@deprecated
-AddCurrentRise = AddExtraCalmingQuad
+function AddCurrentRise(xLow, yLow, xHigh, yHigh, height) end
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B2A2CC86778B619)  
@@ -30,9 +28,11 @@ GetCurrentIntensity = GetDeepOceanScaler
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF6829842C06AE524)  
----Retrieves the depth of the water beneath the specified position, accounting for the waves.
----
----**Note:** The result might vary depending on the specific frame when this command is executed due to wave fluctuations.
+---```
+---This function set height to the value of z-axis of the water surface.  
+---This function works with sea and lake. However it does not work with shallow rivers (e.g. raton canyon will return -100000.0f)  
+---note: seems to return true when you are in water  
+---```
 ---@param x number
 ---@param y number
 ---@param z number
@@ -41,9 +41,7 @@ function GetWaterHeight(x, y, z) end
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8EE6B53CE13A9794)  
----Retrieves the depth of the water beneath the specified position, disregarding wave effects.
----
----**Note:** The result remains consistent across different frames as it doesn't consider wave fluctuations.
+---This native does not have an official description.
 ---@param x number
 ---@param y number
 ---@param z number
@@ -57,9 +55,9 @@ function GetWaterHeightNoWaves(x, y, z) end
 ---```
 ---@param x number
 ---@param y number
----@param height number
 ---@param radius number
-function ModifyWater(x, y, height, radius) end
+---@param height number
+function ModifyWater(x, y, radius, height) end
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x547237AA71AB44DE)  
@@ -103,16 +101,17 @@ SetCurrentIntensity = SetDeepOceanScaler
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8974647ED222EA5F)  
----Flags are identical to START_SHAPE_TEST\*, however, 128 is automatically set.
----@param x1 number
----@param y1 number
----@param z1 number
----@param x2 number
----@param y2 number
----@param z2 number
----@param flag integer
----@return boolean, vector3
-function TestProbeAgainstAllWater(x1, y1, z1, x2, y2, z2, flag) end
+---This native does not have an official description.
+---@param p0 any
+---@param p1 any
+---@param p2 any
+---@param p3 any
+---@param p4 any
+---@param p5 any
+---@param p6 any
+---@param p7 any
+---@return boolean
+function TestProbeAgainstAllWater(p0, p1, p2, p3, p4, p5, p6, p7) end
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFFA5D878809819DB)  
@@ -128,11 +127,13 @@ function TestProbeAgainstWater(x1, y1, z1, x2, y2, z2) end
 
 ---**`WATER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B3451FA1E3142E2)  
----This native does not have an official description.
+---```
+---I guess p3 is shape test flags?  
+---```
 ---@param x number
 ---@param y number
 ---@param z number
----@param flag integer
+---@param p3 any
 ---@return boolean, number
-function TestVerticalProbeAgainstAllWater(x, y, z, flag) end
+function TestVerticalProbeAgainstAllWater(x, y, z, p3) end
 

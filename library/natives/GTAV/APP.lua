@@ -17,8 +17,10 @@ function AppCloseBlock() end
 
 ---**`APP` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x846AA8E7D55EE5B6)  
----This native does not have an official description.
----@return boolean
+---```
+---NativeDB Return Type: BOOL
+---```
+---@return integer
 function AppDataValid() end
 
 ---**`APP` `client`**  
@@ -43,9 +45,11 @@ function AppGetFloat(property) end
 
 ---**`APP` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD3A58A12C77D9D4B)  
----This native does not have an official description.
----@param property string
----@return integer
+---```
+---NativeDB Parameter 0: char* property
+---NativeDB Return Type: int
+---```
+---@param property integer
 function AppGetInt(property) end
 
 ---**`APP` `client`**  

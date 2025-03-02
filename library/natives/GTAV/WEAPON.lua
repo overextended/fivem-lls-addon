@@ -10,9 +10,11 @@ function AddAmmoToPed(ped, weaponHash, ammo) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2472622CE1F2D45F)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash ammoType
+---```
 ---@param ped integer
----@param ammoType integer | string
+---@param ammoType any
 ---@param ammo integer
 function AddAmmoToPedByType(ped, ammoType, ammo) end
 
@@ -36,13 +38,16 @@ function ClearEntityLastWeaponDamage(entity) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0E98F88A24C5F4B8)  
----Does NOT seem to work with HAS_PED_BEEN_DAMAGED_BY_WEAPON. Use CLEAR_ENTITY_LAST_WEAPON_DAMAGE and HAS_ENTITY_BEEN_DAMAGED_BY_WEAPON instead.
+---Does NOT seem to work with HasPedBeenDamagedByWeapon.
+---Use ClearEntityLastWeaponDamage and HasEntityBeenDamagedByWeapon instead.
 ---@param ped integer
 function ClearPedLastWeaponDamage(ped) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9DA58CDBF6BDBC08)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 10: Hash weaponHash
+---```
 ---@param p0 number
 ---@param p1 number
 ---@param p2 number
@@ -53,7 +58,7 @@ function ClearPedLastWeaponDamage(ped) end
 ---@param p7 number
 ---@param p8 number
 ---@param p9 number
----@param weaponHash integer | string
+---@param weaponHash any
 ---@return integer
 function CreateAirDefenseArea(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, weaponHash) end
 
@@ -61,36 +66,42 @@ function CreateAirDefenseArea(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, weaponHash
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x91EF34584710BE99)  
 ---Both coordinates are from objects in the decompiled scripts.
 ---
----Native related to [\_0xECDC202B25E5CF48](#\_0xECDC202B25E5CF48) p1 value. The only weapon hash used in the decompiled scripts is weapon_air_defence_gun. These two natives are used by the yacht script, decompiled scripts suggest it and the weapon hash used (valkyrie's rockets) are also used by yachts.
----@param x number
----@param y number
----@param z number
----@param radius number
+---Native related to [\_0xECDC202B25E5CF48](#_0xECDC202B25E5CF48) p1 value. The only weapon hash used in the decompiled scripts is weapon_air_defence_gun. These two natives are used by the yacht script, decompiled scripts suggest it and the weapon hash used (valkyrie's rockets) are also used by yachts.
+---
+---```
+---NativeDB Parameter 3: float radius
+---```
+---@param p0 number
+---@param p1 number
+---@param p2 number
+---@param radius integer
 ---@param p4 number
 ---@param p5 number
 ---@param p6 number
 ---@param weaponHash integer | string
 ---@return integer
-function CreateAirDefenseSphere(x, y, z, radius, p4, p5, p6, weaponHash) end
+function CreateAirDefenseSphere(p0, p1, p2, radius, p4, p5, p6, weaponHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9541D3CF0D398F36)  
----Create a weapon object that cannot be attached to a ped. If you want to create a weapon object that can be attached to a ped, use [`CREATE_OBJECT`](#\_0x509D5878EB39E842) instead.
+---```
+---Now has 8 params.  
+---```
 ---
 ---```
----NativeDB Added Parameter 9: BOOL bRegisterAsNetworkObject
----NativeDB Added Parameter 10: BOOL bScriptHostObject
+---NativeDB Added Parameter 9: Any p8
+---NativeDB Added Parameter 10: Any p9
 ---```
 ---@param weaponHash integer | string
 ---@param ammoCount integer
 ---@param x number
 ---@param y number
 ---@param z number
----@param bCreateDefaultComponents boolean
----@param scale number
----@param customModelHash integer
+---@param showWorldModel boolean
+---@param heading number
+---@param p7 any
 ---@return integer
-function CreateWeaponObject(weaponHash, ammoCount, x, y, z, bCreateDefaultComponents, scale, customModelHash) end
+function CreateWeaponObject(weaponHash, ammoCount, x, y, z, showWorldModel, heading, p7) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCD79A550999D7D4F)  
@@ -159,11 +170,13 @@ function GetAmmoInPedWeapon(ped, weaponhash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8483E98E8B888AE2)  
----This native does not have an official description.
+---```
+---p1 is always 0 in the scripts.  
+---```
 ---@param ped integer
----@param ignoreAmmoCount boolean
+---@param p1 boolean
 ---@return integer
-function GetBestPedWeapon(ped, ignoreAmmoCount) end
+function GetBestPedWeapon(ped, p1) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1017582BCD3832DC)  
@@ -185,9 +198,7 @@ function GetCurrentPedWeapon(ped, p2) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3B390A939AF0B5FC)  
----```
----NativeDB Added Parameter 2: Any p1
----```
+---This native does not have an official description.
 ---@param ped integer
 ---@return integer
 function GetCurrentPedWeaponEntityIndex(ped) end
@@ -222,9 +233,11 @@ function GetMaxAmmo(ped, weaponHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x585847C5E4E11709)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash ammoType
+---```
 ---@param ped integer
----@param ammoType integer | string
+---@param ammoType any
 ---@return boolean, integer
 function GetMaxAmmoByType(ped, ammoType) end
 
@@ -251,9 +264,11 @@ function GetMaxRangeOfCurrentPedWeapon(ped) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x39D22031557946C1)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash ammoType
+---```
 ---@param ped integer
----@param ammoType integer | string
+---@param ammoType any
 ---@return integer
 function GetPedAmmoByType(ped, ammoType) end
 
@@ -299,10 +314,13 @@ function GetPedLastWeaponImpactCoord(ped) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF0A60040BE558F2D)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash weaponHash
+---NativeDB Parameter 2: Hash camoComponentHash
+---```
 ---@param ped integer
----@param weaponHash integer | string
----@param camoComponentHash integer | string
+---@param weaponHash any
+---@param camoComponentHash any
 ---@return integer
 function GetPedWeaponLiveryColor(ped, weaponHash, camoComponentHash) end
 
@@ -324,7 +342,17 @@ function GetPedWeapontypeInSlot(ped, weaponSlot) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0A6DB4965674D243)  
----This native does not have an official description.
+---```
+---Returns the hash of the weapon.   
+---var num7 = WEAPON::GET_SELECTED_PED_WEAPON(num4);  
+---sub_27D3(num7);  
+---switch (num7)  
+---{  
+---    case 0x24B17070:  
+---		Also see WEAPON::GET_CURRENT_PED_WEAPON. Difference?  
+---		-------------------------------------------------------------------------  
+---		The difference is that GET_SELECTED_PED_WEAPON simply returns the ped's current weapon hash but GET_CURRENT_PED_WEAPON also checks the weapon object and returns true if the hash of the weapon object equals the weapon hash  
+---```
 ---@param ped integer
 ---@return integer
 function GetSelectedPedWeapon(ped) end
@@ -366,24 +394,33 @@ function GetWeaponComponentTypeModel(componentHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6558AC7C17BFEF58)  
----This native does not have an official description.
----@param componentHash integer | string
+---```
+---NativeDB Parameter 0: Hash componentHash
+---```
+---@param componentHash any
 ---@return integer
 function GetWeaponComponentVariantExtraComponentCount(componentHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4D1CB8DC40208A17)  
----This native does not have an official description.
----@param componentHash integer | string
+---```
+---NativeDB Parameter 0: Hash componentHash
+---NativeDB Return Type: Hash
+---```
+---@param componentHash any
 ---@param extraComponentIndex integer
----@return integer
+---@return any
 function GetWeaponComponentVariantExtraComponentModel(componentHash, extraComponentIndex) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3133B907D8B32053)  
 ---This native does not return damages of weapons from the melee and explosive group.
+---
+---```
+---NativeDB Parameter 1: Hash componentHash
+---```
 ---@param weaponHash integer | string
----@param componentHash integer | string
+---@param componentHash any
 ---@return number
 function GetWeaponDamage(weaponHash, componentHash) end
 
@@ -444,9 +481,11 @@ function GetWeaponObjectFromPed(ped, p1) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB3EA4FEABF41464B)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash camoComponentHash
+---```
 ---@param weaponObject integer
----@param camoComponentHash integer | string
+---@param camoComponentHash any
 ---@return integer
 function GetWeaponObjectLiveryColor(weaponObject, camoComponentHash) end
 
@@ -459,9 +498,9 @@ function GetWeaponObjectTintIndex(weapon) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x065D2AACAD8CF7A4)  
----This native does not have an official description.
+---NativeDB Introduced: v1290
 ---@param weaponHash integer | string
----@return number
+---@return any
 function GetWeaponTimeBetweenShots(weaponHash) end
 
 ---**`WEAPON` `client`**  
@@ -473,8 +512,7 @@ function GetWeaponTintCount(weaponHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC3287EE3050FB74C)  
----Gets and returns the hash of the group of the specified weapon (group names can be found/changed under "Group" in the weapons' meta file).
----Note that the group is **not** the same as the location on the weapon wheel.
+---This native does not have an official description.
 ---@param weaponHash integer | string
 ---@return integer
 function GetWeapontypeGroup(weaponHash) end
@@ -500,68 +538,25 @@ function GetWeapontypeSlot(weaponHash) end
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB282DC6EBD803C75)  
 ---```
----Gives a weapon to PED with a delay, example:
----WEAPON::GIVE_DELAYED_WEAPON_TO_PED(PED::PLAYER_PED_ID(), MISC::GET_HASH_KEY("WEAPON_PISTOL"), 1000, false)
+---Gives a weapon to PED with a delay, example:  
+---WEAPON::GIVE_DELAYED_WEAPON_TO_PED(PED::PLAYER_PED_ID(), GAMEPLAY::GET_HASH_KEY("WEAPON_PISTOL"), 1000, false)  
+-------------------------------------------------------------------------------------------------------------------------------------------  
+---Translation table:  
+---pastebin.com/a39K8Nz8  
 ---```
 ---@param ped integer
 ---@param weaponHash integer | string
 ---@param ammoCount integer
----@param bForceInHand boolean
-function GiveDelayedWeaponToPed(ped, weaponHash, ammoCount, bForceInHand) end
+---@param equipNow boolean
+function GiveDelayedWeaponToPed(ped, weaponHash, ammoCount, equipNow) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x68F8BE6AF5CDF8A6)  
----List of all available loadouts:
----
 ---```
----LOADOUT_DEFAULT
----LOADOUT_ANIMAL
----LOADOUT_COUGAR
----LOADOUT_HILLBILLY
----LOADOUT_CULT
----LOADOUT_CHEAT_0
----LOADOUT_CHEAT_1
----LOADOUT_GUARD
----LOADOUT_NETWORK_BOT
----LOADOUT_LOST
----LOADOUT_LOST_L1
----LOADOUT_LOST_L2
----LOADOUT_LOST_L3
----LOADOUT_MEXICAN
----LOADOUT_MEXICAN_L1
----LOADOUT_MEXICAN_L2
----LOADOUT_MEXICAN_L3
----LOADOUT_FAMILY
----LOADOUT_ASIAN
----LOADOUT_SECUR
----LOADOUT_POLICE_GUARD
----LOADOUT_COP
----LOADOUT_COP_L1
----LOADOUT_COP_L2
----LOADOUT_COP_L3
----LOADOUT_SWAT
----LOADOUT_SWAT_NO_LASER
----LOADOUT_COP_SHOTGUN
----LOADOUT_FIREMAN
----LOADOUT_COP_HELI
----LOADOUT_COP_BOAT
----LOADOUT_ARMY
----LOADOUT_ANIMAL_RETRIEVER
----LOADOUT_SMALL_DOG
----LOADOUT_TIGER_SHARK
----LOADOUT_HAMMERHEAD_SHARK
----LOADOUT_KILLER_WHALE
----LOADOUT_BOAR
----LOADOUT_PIG
----LOADOUT_COYOTE
----LOADOUT_DEER
----LOADOUT_HEN
----LOADOUT_RABBIT
----LOADOUT_CAT
----LOADOUT_COW
+---NativeDB Parameter 1: Hash loadoutHash
 ---```
 ---@param ped integer
----@param loadoutHash integer | string
+---@param loadoutHash any
 function GiveLoadoutToPed(ped, loadoutHash) end
 
 ---**`WEAPON` `client`**  
@@ -575,9 +570,11 @@ function GiveWeaponComponentToPed(ped, weaponHash, componentHash) end
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x33E179436C0B31DB)  
 ---```
----addonHash:
----(use WEAPON::GET_WEAPON_COMPONENT_TYPE_MODEL() to get hash value)
----${component_at_ar_flsh}, ${component_at_ar_supp}, ${component_at_pi_flsh}, ${component_at_scope_large}, ${component_at_ar_supp_02}
+---addonHash:  
+---(use WEAPON::GET_WEAPON_COMPONENT_TYPE_MODEL() to get hash value)  
+---^ Wrong.  
+---AddonHash is NOT a model hash, it's the weapon component hash.  
+---${component_at_ar_flsh}, ${component_at_ar_supp}, ${component_at_pi_flsh}, ${component_at_scope_large}, ${component_at_ar_supp_02}  
 ---```
 ---@param weaponObject integer
 ---@param addonHash integer | string
@@ -592,21 +589,44 @@ function GiveWeaponObjectToPed(weaponObject, ped) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBF0FD6E56C964FCB)  
----This native does not have an official description.
+---```
+---isHidden - ????  
+---All weapon names (add to the list if something is missing), use GAMEPLAY::GET_HASH_KEY((char *)weaponNames[i]) to get get the hash:  
+---static LPCSTR weaponNames[] = {  
+---	"WEAPON_KNIFE", "WEAPON_NIGHTSTICK", "WEAPON_HAMMER", "WEAPON_BAT", "WEAPON_GOLFCLUB",  
+---	"WEAPON_CROWBAR", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_APPISTOL", "WEAPON_PISTOL50",  
+---	"WEAPON_MICROSMG", "WEAPON_SMG", "WEAPON_ASSAULTSMG", "WEAPON_ASSAULTRIFLE",  
+---	"WEAPON_CARBINERIFLE", "WEAPON_ADVANCEDRIFLE", "WEAPON_MG", "WEAPON_COMBATMG", "WEAPON_PUMPSHOTGUN",  
+---	"WEAPON_SAWNOFFSHOTGUN", "WEAPON_ASSAULTSHOTGUN", "WEAPON_BULLPUPSHOTGUN", "WEAPON_STUNGUN", "WEAPON_SNIPERRIFLE",  
+---	"WEAPON_HEAVYSNIPER", "WEAPON_GRENADELAUNCHER", "WEAPON_GRENADELAUNCHER_SMOKE", "WEAPON_RPG", "WEAPON_MINIGUN",  
+---	"WEAPON_GRENADE", "WEAPON_STICKYBOMB", "WEAPON_SMOKEGRENADE", "WEAPON_BZGAS", "WEAPON_MOLOTOV",  
+---	"WEAPON_FIREEXTINGUISHER", "WEAPON_PETROLCAN", "WEAPON_FLARE", "WEAPON_SNSPISTOL", "WEAPON_SPECIALCARBINE",  
+---	"WEAPON_HEAVYPISTOL", "WEAPON_BULLPUPRIFLE", "WEAPON_HOMINGLAUNCHER", "WEAPON_PROXMINE", "WEAPON_SNOWBALL",  
+---	"WEAPON_VINTAGEPISTOL", "WEAPON_DAGGER", "WEAPON_FIREWORK", "WEAPON_MUSKET", "WEAPON_MARKSMANRIFLE",  
+---	"WEAPON_HEAVYSHOTGUN", "WEAPON_GUSENBERG", "WEAPON_HATCHET", "WEAPON_RAILGUN", "WEAPON_COMBATPDW",  
+---	"WEAPON_KNUCKLE", "WEAPON_MARKSMANPISTOL", "WEAPON_FLASHLIGHT", "WEAPON_MACHETE", "WEAPON_MACHINEPISTOL",  
+---	"WEAPON_SWITCHBLADE", "WEAPON_REVOLVER", "WEAPON_COMPACTRIFLE", "WEAPON_DBSHOTGUN", "WEAPON_FLAREGUN",  
+---	"WEAPON_AUTOSHOTGUN", "WEAPON_BATTLEAXE", "WEAPON_COMPACTLAUNCHER", "WEAPON_MINISMG", "WEAPON_PIPEBOMB",  
+---	"WEAPON_POOLCUE", "WEAPON_SWEEPER", "WEAPON_WRENCH"  
+---};  
+-------------------------------------------------------------------------------------------------------------------------------------------  
+---Translation table:  
+---pastebin.com/a39K8Nz8  
+---```
 ---@param ped integer
 ---@param weaponHash integer | string
 ---@param ammoCount integer
 ---@param isHidden boolean
----@param bForceInHand boolean
-function GiveWeaponToPed(ped, weaponHash, ammoCount, isHidden, bForceInHand) end
+---@param equipNow boolean
+function GiveWeaponToPed(ped, weaponHash, ammoCount, isHidden, equipNow) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x131D401334815E94)  
 ---```
----It determines what weapons caused damage:
----If you want to define only a specific weapon, second parameter=weapon hash code, third parameter=0
----If you want to define any melee weapon, second parameter=0, third parameter=1.
----If you want to identify any weapon (firearms, melee, rockets, etc.), second parameter=0, third parameter=2.
+---It determines what weapons caused damage:  
+---If youu want to define only a specific weapon, second parameter=weapon hash code, third parameter=0  
+---If you want to define any melee weapon, second parameter=0, third parameter=1.  
+---If you want to identify any weapon (firearms, melee, rockets, etc.), second parameter=0, third parameter=2.  
 ---```
 ---@param entity integer
 ---@param weaponHash integer | string
@@ -694,11 +714,9 @@ function HidePedWeaponForScriptedCutscene(ped, toggle) end
 ---@param y number
 ---@param z number
 ---@param radius number
----@return boolean, integer
-function IsAnyAirDefenseZoneInsideSphere(x, y, z, radius) end
-
----@deprecated
-IsAirDefenseZoneInsideSphere = IsAnyAirDefenseZoneInsideSphere
+---@param zoneId integer
+---@return boolean
+function IsAirDefenseZoneInsideSphere(x, y, z, radius, zoneId) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4B7620C47217126C)  
@@ -712,19 +730,23 @@ SetWeaponSmokegrenadeAssigned = IsFlashLightOn
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x475768A975D5AD17)  
----Checks if the ped is currently equipped with a weapon matching a bit specified using a bitwise-or in typeFlags.
----
----| Bit value | Effect            |
----|-----------|-------------------|
----| 1         | Melee weapons     |
----| 2         | Explosive weapons |
----| 4         | Any other weapons |
----
----Not specifying any bit will lead to the native *always* returning 'false', and for example specifying '4 | 2' will check for any weapon except fists and melee weapons.
+---```
+---p1 is anywhere from 4 to 7 in the scripts. Might be a weapon wheel group?  
+---^It's kinda like that.   
+---7 returns true if you are equipped with any weapon except your fists.  
+---6 returns true if you are equipped with any weapon except melee weapons.  
+---5 returns true if you are equipped with any weapon except the Explosives weapon group.  
+---4 returns true if you are equipped with any weapon except Explosives weapon group AND melee weapons.  
+---3 returns true if you are equipped with either Explosives or Melee weapons (the exact opposite of 4).  
+---2 returns true only if you are equipped with any weapon from the Explosives weapon group.  
+---1 returns true only if you are equipped with any Melee weapon.  
+---0 never returns true.  
+---Note: When I say "Explosives weapon group", it does not include the Jerry can and Fire Extinguisher.  
+---```
 ---@param ped integer
----@param typeFlags integer
+---@param p1 integer
 ---@return boolean
-function IsPedArmed(ped, typeFlags) end
+function IsPedArmed(ped, p1) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x65F0C5AE05943EC7)  
@@ -747,7 +769,9 @@ function IsPedWeaponComponentActive(ped, weaponHash, componentHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB80CA294F2F26749)  
----This native does not have an official description.
+---```
+---Probably checks whether the ped has finished reloading or not and if the current weapon is not being switched to another.  
+---```
 ---@param ped integer
 ---@return boolean
 function IsPedWeaponReadyToShoot(ped) end
@@ -761,31 +785,10 @@ function IsWeaponValid(weaponHash) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x20AE33F3AC9C0033)  
----Forces a ped to reload only if they are able to; if they have a full magazine, they will not reload.
+---Forces a ped to reload **only** if they are able to; if they have a full magazine, they will not reload.
 ---@param ped integer
 ---@return boolean
 function MakePedReload(ped) end
-
----**`WEAPON` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x24C024BA8379A70A)  
----```
----NativeDB Introduced: v1868
----```
----@param p0 any
----@param p1 any
-function N_0x24c024ba8379a70a(p0, p1) end
-
----**`WEAPON` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x50276EF8172F5F12)  
----Related to the ped's weapon - flag used when disabling ped vehicle weapon
----
----SET_PED_\*
----
----```
----NativeDB Introduced: v1734
----```
----@param ped integer
-function N_0x50276ef8172f5f12(ped) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x977CA98939E82E4B)  
@@ -798,9 +801,11 @@ function N_0x977ca98939e82e4b(weaponObject, p1) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA2C9AC24B4061285)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash weaponHash
+---```
 ---@param ped integer
----@param weaponHash integer | string
+---@param weaponHash any
 ---@return integer
 function N_0xa2c9ac24b4061285(ped, weaponHash) end
 
@@ -811,23 +816,24 @@ function N_0xa2c9ac24b4061285(ped, weaponHash) end
 function N_0xe4dcec7fd5b739a5(ped) end
 
 ---**`WEAPON` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE6D2CEDD370FF98E)  
----```
----NativeDB Introduced: v2372
----```
----@param p0 any
----@param p1 any
-function N_0xe6d2cedd370ff98e(p0, p1) end
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE620FD3512A04F18)  
+---This native does not have an official description.
+---@param p0 number
+function N_0xe620fd3512a04f18(p0) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8C0D57EA686FAD87)  
----This native does not have an official description.
+---```
+---[23.03.2017 19:08] by ins1de :  
+---"_IS_PED_RELOADING" is totally a wrong name...  
+---This native actually disables the reloading animation and script for the specified ped. Native renamed.  
+---```
 ---@param ped integer
 ---@return boolean
-function RefillAmmoInstantly(ped) end
+function PedSkipNextReloading(ped) end
 
 ---@deprecated
-PedSkipNextReloading = RefillAmmoInstantly
+IsPedReloading = PedSkipNextReloading
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0ABF535877897560)  
@@ -843,18 +849,21 @@ function RemoveAllAirDefenseZones() end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF25DF915FA38C5F3)  
----Parameter `p1` does not seem to be used or referenced in game binaries.\
----**Note:** When called for networked entities, a `CRemoveAllWeaponsEvent` will be created per request.
+---```
+---setting the last params to false it does that same so I would suggest its not a toggle  
+---```
 ---@param ped integer
 ---@param p1 boolean
 function RemoveAllPedWeapons(ped, p1) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFC52E0F37E446528)  
----If `explode` true, then removal is done through exploding the projectile. Basically the same as EXPLODE_PROJECTILES but without defining the owner ped.
+---```
+---p1 seems always to be 0  
+---```
 ---@param weaponHash integer | string
----@param explode boolean
-function RemoveAllProjectilesOfType(weaponHash, explode) end
+---@param p1 boolean
+function RemoveAllProjectilesOfType(weaponHash, p1) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA08EF13F341C8FC)  
@@ -873,9 +882,9 @@ function RemoveWeaponComponentFromPed(ped, weaponHash, componentHash) end
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF7D82B0D66777611)  
 ---This native does not have an official description.
----@param weaponObject integer
----@param addonHash integer | string
-function RemoveWeaponComponentFromWeaponObject(weaponObject, addonHash) end
+---@param p0 any
+---@param p1 any
+function RemoveWeaponComponentFromWeaponObject(p0, p1) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4899CB088EDF59B8)  
@@ -921,21 +930,18 @@ function SetAmmoInClip(ped, weaponHash, ammo) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEFF296097FF1E509)  
----Does the same as [`_SET_CAN_PED_SELECT_WEAPON`](#\_0xB4771B9AAF4E68E4) except for all weapons.
+---Does the same as [`_SET_CAN_PED_SELECT_WEAPON`](https://runtime.fivem.net/doc/natives/#_0xB4771B9AAF4E68E4) except for all weapons.
 ---@param ped integer
 ---@param toggle boolean
 function SetCanPedEquipAllWeapons(ped, toggle) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB4771B9AAF4E68E4)  
----Disables selecting the given weapon. Ped isn't forced to put the gun away. However you can't reselect the weapon if you holster then unholster. Weapon is also grayed out on the weapon wheel.
+---For the player ped this will also gray out the weapon in the weapon wheel.
 ---@param ped integer
 ---@param weaponHash integer | string
 ---@param toggle boolean
-function SetCanPedEquipWeapon(ped, weaponHash, toggle) end
-
----@deprecated
-SetCanPedSelectWeapon = SetCanPedEquipWeapon
+function SetCanPedSelectWeapon(ped, weaponHash, toggle) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x75C55983C2C39DAA)  
@@ -950,19 +956,8 @@ function SetCurrentPedVehicleWeapon(ped, weaponHash) end
 ---This native does not have an official description.
 ---@param ped integer
 ---@param weaponHash integer | string
----@param bForceInHand boolean
-function SetCurrentPedWeapon(ped, weaponHash, bForceInHand) end
-
----**`WEAPON` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x988DB6FE9B3AC000)  
----Enables/disables flashlight on ped's weapon.
----
----```
----NativeDB Introduced: v2060
----```
----@param ped integer
----@param toggle boolean
-function SetFlashLightEnabled(ped, toggle) end
+---@param equipNow boolean
+function SetCurrentPedWeapon(ped, weaponHash, equipNow) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCEA66DAD478CD39B)  
@@ -983,9 +978,11 @@ function SetPedAmmo(ped, weaponHash, ammo) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5FD1E1F011E76D7E)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash ammoType
+---```
 ---@param ped integer
----@param ammoType integer | string
+---@param ammoType any
 ---@param ammo integer
 function SetPedAmmoByType(ped, ammoType, ammo) end
 
@@ -1018,7 +1015,28 @@ function SetPedCurrentWeaponVisible(ped, visible, deselectWeapon, p3, p4) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x208A1888007FC0E6)  
----This native does not have an official description.
+---```
+---[16/06/2017 by ins1de] :  
+---Drops the weapon object from selected peds and turns it into a pickup.  
+---Offset defines the next position of the weapon, ammo count is the stored ammo in the pickup (if ammoCount == 0, pickup won't be created)  
+---Default offset values (freemode.c):  
+---if (is_ped_walking(player_ped_id()))  
+---        {  
+---            vVar1 = {0.6f, 4.7f, -0.1f};  
+---        }  
+---        else if (is_ped_sprinting(player_ped_id()))  
+---        {  
+---            vVar1 = {0.6f, 5.7f, -0.1f};  
+---        }  
+---        else if (is_ped_running(player_ped_id()))  
+---        {  
+---            vVar1 = {0.6f, 4.7f, -0.1f};  
+---        }  
+---        else  
+---        {  
+---            vVar1 = {0.4f, 4.7f, -0.1f};  
+---        }  
+---```
 ---@param ped integer
 ---@param weaponHash integer | string
 ---@param xOffset number
@@ -1069,7 +1087,9 @@ function SetPedInfiniteAmmoClip(ped, toggle) end
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB4C8D77C80C0421E)  
 ---```
----Returns handle of the projectile.
+---Only used once in the scripts  
+---weapon::_0xB4C8D77C80C0421E(Local_888[3 /*33*/], -1082130432);  
+---The code following this relates to manually triggering an RPG rocket (creating the object, the particle fx and sound)  
 ---```
 ---@param ped integer
 ---@param p1 number
@@ -1078,10 +1098,13 @@ function SetPedShootOrdnanceWeapon(ped, p1) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9FE5633880ECD8ED)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash weaponHash
+---NativeDB Parameter 2: Hash camoComponentHash
+---```
 ---@param ped integer
----@param weaponHash integer | string
----@param camoComponentHash integer | string
+---@param weaponHash any
+---@param camoComponentHash any
 ---@param colorIndex integer
 function SetPedWeaponLiveryColor(ped, weaponHash, camoComponentHash, colorIndex) end
 
@@ -1089,60 +1112,18 @@ function SetPedWeaponLiveryColor(ped, weaponHash, camoComponentHash, colorIndex)
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x50969B9B89ED5738)  
 ---```
 ---tintIndex can be the following:  
----0 : Default/Black
----1 : Green
----2 : Gold
----3 : Pink
----4 : Army
----5 : LSPD
----6 : Orange
----7 : Platinum
----
----tintIndex for MK2 weapons :
----0 : Classic Black
----1 : Classic Gray
----2 : Classic Two-Tone
----3 : Classic White
----4 : Classic Beige
----5 : Classic Green
----6 : Classic Blue
----7 : Classic Earth
----8 : Classic Brown & Black
----9 : Red Contrast
----10 : Blue Contrast
----11 : Yellow Contrast
----12 : Orange Contrast
----13 : Bold Pink
----14 : Bold Purple & Yellow
----15 : Bold Orange
----16 : Bold Green & Purple
----17 : Bold Red Features
----18 : Bold Green Features
----19 : Bold Cyan Features
----20 : Bold Yellow Features
----21 : Bold Red & White
----22 : Bold Blue & White
----23 : Metallic Gold
----24 : Metallic Platinum
----25 : Metallic Gray & Lilac
----26 : Metallic Purple & Lime
----27 : Metallic Red
----28 : Metallic Green
----29 : Metallic Blue
----30 : Metallic White & Aqua
----31 : Metallic Orange & Yellow
----32 : Mettalic Red and Yellow
+---1   
+---2   
+---3   
+---4   
+---5   
+---6   
+---7  
 ---```
 ---@param ped integer
 ---@param weaponHash integer | string
 ---@param tintIndex integer
 function SetPedWeaponTintIndex(ped, weaponHash, tintIndex) end
-
----**`WEAPON` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE620FD3512A04F18)  
----This native does not have an official description.
----@param p0 number
-function SetPickupAmmoAmountScaler(p0) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xECDC202B25E5CF48)  
@@ -1154,47 +1135,40 @@ function SetPlayerAirDefenseZoneFlag(player, zoneId, enable) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1055AC3A667F09D9)  
----Changes the selected ped aiming animation style, you can find the list of animations below.
----
----These are stored in the `weaponanimations.meta` file located in `Grand Theft Auto V\update\update.rpf\common\data\ai\weaponanimations.meta`.
----
----For Lua, it's best if you send the animation using [compile-time jenkins](https://cookbook.fivem.net/2019/06/23/lua-support-for-compile-time-jenkins-hashes/) hashes to avoid overhead. An example is shown down below.
----
----### Animations
----
----```cpp
----enum eWeaponAnimationOverrides {
----	Ballistic = 0x5534A626,
----	Default = 0xE4DF46D5,
----	Franklin = 0x44C24694,
----	Gang = 0xBC066B98,
----	Michael = 0x55932F38,
----	MP_F_Freemode = 0xACB10C83,
----	Trevor = 0x2737D5AC,
----	Hillbilly = 0x8503D409,
----	Gang1H = 0x724A7AB7,
----	FirstPerson = 0xEE38E8E0,
----	FirstPersonAiming = 0xC76297A3,
----	FirstPersonRNG = 0xA4FDD608,
----	FirstPersonScope = 0x28117C22,
----	FirstPersonMichael = 0xEAA2550B,
----	FirstPersonMichaelAiming = 0x3E6FF30F,
----	FirstPersonMichaelRNG = 0xB7A826C1,
----	FirstPersonMichaelScope = 0xC554CF97,
----	FirstPersonFranklin = 0xC407163A,
----	FirstPersonFranklinAiming = 0x3D4B7B03,
----	FirstPersonFranklinRNG = 0xBE79B0B4,
----	FirstPersonFranklinScope = 0xAFEA6593,
----	FirstPersonTrevor = 0xA65D5351,
----	FirstPersonTrevorAiming = 0xF9BE8ED9,
----	FirstPersonTrevorRNG = 0xD181ED09,
----	FirstPersonTrevorScope = 0x34A67D6D,
----	FirstPersonMPFemale = 0x8431583F,
----	Fat = 0xC531A409,
----	SuperFat = 0x529E5780,
----	Female = 0x6D155A1B,
----	GangFemale = 0x678ADF82,
----}
+---```
+---Changes the selected ped aiming animation style.   
+---Note : You must use GET_HASH_KEY!  
+---Strings to use with GET_HASH_KEY :  
+---	"Ballistic",  
+---	"Default",  
+---	"Fat",  
+---	"Female",  
+---	"FirstPerson",  
+---	"FirstPersonAiming",  
+---	"FirstPersonFranklin",  
+---	"FirstPersonFranklinAiming",  
+---	"FirstPersonFranklinRNG",  
+---	"FirstPersonFranklinScope",  
+---	"FirstPersonMPFemale",  
+---	"FirstPersonMichael",  
+---	"FirstPersonMichaelAiming",  
+---	"FirstPersonMichaelRNG",  
+---	"FirstPersonMichaelScope",  
+---	"FirstPersonRNG",  
+---	"FirstPersonScope",  
+---	"FirstPersonTrevor",  
+---	"FirstPersonTrevorAiming",  
+---	"FirstPersonTrevorRNG",  
+---	"FirstPersonTrevorScope",  
+---	"Franklin",  
+---	"Gang",  
+---	"Gang1H",  
+---	"GangFemale",  
+---	"Hillbilly",  
+---	"MP_F_Freemode",  
+---	"Michael",  
+---	"SuperFat",  
+---	"Trevor"  
 ---```
 ---@param ped integer
 ---@param animStyle integer | string
@@ -1202,29 +1176,18 @@ function SetWeaponAnimationOverride(ped, animStyle) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4757F00BC6323CFE)  
----Changes the weapon damage output by the given multiplier value.
----Does NOT need to be called every frame.
+---This native does not have an official description.
 ---@param weaponHash integer | string
----@param damageMultiplier number
-function SetWeaponDamageModifier(weaponHash, damageMultiplier) end
-
----@deprecated
-SetWeaponDamageModifierThisFrame = SetWeaponDamageModifier
-
----**`WEAPON` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x4AE5AC8B852D642C)  
----```
----NativeDB Introduced: v2372
----```
----@param weaponHash integer | string
----@param multiplier number
-function SetWeaponExplosionRadiusMultiplier(weaponHash, multiplier) end
+---@param damageAmount number
+function SetWeaponDamageModifier(weaponHash, damageAmount) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5DA825A85D0EA6E6)  
----This native does not have an official description.
+---```
+---NativeDB Parameter 1: Hash camoComponentHash
+---```
 ---@param weaponObject integer
----@param camoComponentHash integer | string
+---@param camoComponentHash any
 ---@param colorIndex integer
 function SetWeaponObjectLiveryColor(weaponObject, camoComponentHash, colorIndex) end
 
