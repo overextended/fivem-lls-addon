@@ -1,11 +1,15 @@
 ---@meta
 
----**`RENDERING` `client`**  
+---**`REPLAY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x49DA8145672B2725)  
----This native does not have an official description.
+---Please note that you will need to call DO_SCREEN_FADE_IN after exiting the Rockstar Editor when you call this.
+---
+---```
+---NativeDB Added Parameter 1: int p0
+---```
 function ActivateRockstarEditor() end
 
----**`RENDERING` `client`**  
+---**`REPLAY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95AB8B5C992C7B58)  
 ---```
 ---Returns a bool if interior rendering is disabled, if yes, all "normal" rendered interiors are invisible  
@@ -13,14 +17,14 @@ function ActivateRockstarEditor() end
 ---@return boolean
 function IsInteriorRenderingDisabled() end
 
----**`RENDERING` `client`**  
+---**`REPLAY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5AD3932DAEB1E5D3)  
 ---```
 ---Disables some other rendering (internal)  
 ---```
 function N_0x5ad3932daeb1e5d3() end
 
----**`RENDERING` `client`**  
+---**`REPLAY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7E2BD3EF6C205F09)  
 ---**This native does absolutely nothing, just a nullsub**
 ---
@@ -44,13 +48,13 @@ function N_0x5ad3932daeb1e5d3() end
 ---@param p1 boolean
 function N_0x7e2bd3ef6c205f09(p0, p1) end
 
----**`RENDERING` `client`**  
+---**`REPLAY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE058175F8EAFE79A)  
 ---This native does not have an official description.
 ---@param p0 boolean
 function N_0xe058175f8eafe79a(p0) end
 
----**`RENDERING` `client`**  
+---**`REPLAY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3353D13F09307691)  
 ---```
 ---Sets (almost, not sure) all Rockstar Editor values (bIsRecording etc) to 0.  

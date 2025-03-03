@@ -16,10 +16,8 @@ function CleanItemset(p0) end
 
 ---**`ITEMSET` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x35AD299F50D91B24)  
----```
----NativeDB Parameter 0: BOOL distri
----```
----@param distri integer
+---This native does not have an official description.
+---@param distri boolean
 ---@return integer
 function CreateItemset(distri) end
 

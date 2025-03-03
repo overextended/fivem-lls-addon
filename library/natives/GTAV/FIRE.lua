@@ -3,53 +3,104 @@
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE3AD2BDBAEE269AC)  
 ---```
----BOOL isAudible = If explosion makes a sound.  
----BOOL isInvisible = If the explosion is invisible or not.  
----this native is missing a new argument: noDamage  
----nodamage = false: damage || nodamage = true: no damage  
----enum ExplosionTypes  
----{  
----	EXPLOSION_GRENADE,  
----	EXPLOSION_GRENADELAUNCHER,  
----	EXPLOSION_STICKYBOMB,  
----	EXPLOSION_MOLOTOV,  
----	EXPLOSION_ROCKET,  
----	EXPLOSION_TANKSHELL,  
----	EXPLOSION_HI_OCTANE,  
----	EXPLOSION_CAR,  
----	EXPLOSION_PLANE,  
----	EXPLOSION_PETROL_PUMP,  
----	EXPLOSION_BIKE,  
----	EXPLOSION_DIR_STEAM,  
----	EXPLOSION_DIR_FLAME,  
----	EXPLOSION_DIR_WATER_HYDRANT,  
----	EXPLOSION_DIR_GAS_CANISTER,  
----	EXPLOSION_BOAT,  
----	EXPLOSION_SHIP_DESTROY,  
----	EXPLOSION_TRUCK,  
----	EXPLOSION_BULLET,  
----	EXPLOSION_SMOKEGRENADELAUNCHER,  
----	EXPLOSION_SMOKEGRENADE,  
----	EXPLOSION_BZGAS,  
----	EXPLOSION_FLARE,  
----	EXPLOSION_GAS_CANISTER,  
----	EXPLOSION_EXTINGUISHER,  
----	EXPLOSION_PROGRAMMABLEAR,  
----	EXPLOSION_TRAIN,  
----	EXPLOSION_BARREL,  
----	EXPLOSION_PROPANE,  
----	EXPLOSION_BLIMP,  
----	EXPLOSION_DIR_FLAME_EXPLODE,  
----	EXPLOSION_TANKER,  
----	EXPLOSION_PLANE_ROCKET,  
----	EXPLOSION_VEHICLE_BULLET,  
----	EXPLOSION_GAS_TANK,  
----	EXPLOSION_BIRD_CRAP  
----};  
+---NativeDB Added Parameter 9: BOOL noDamage
 ---```
 ---
 ---```
----NativeDB Added Parameter 9: BOOL noDamage
+---BOOL isAudible = If explosion makes a sound.  
+---BOOL isInvisible = If the explosion is invisible or not.
+---BOOL noDamage = false: damage || nodamage = true: no damage
+---```
+---
+---```cpp
+---enum eExplosionTag
+---{
+---	DONTCARE = -1,
+---	GRENADE = 0,
+---	GRENADELAUNCHER = 1,
+---	STICKYBOMB = 2,
+---	MOLOTOV = 3,
+---	ROCKET = 4,
+---	TANKSHELL = 5,
+---	HI_OCTANE = 6,
+---	CAR = 7,
+---	PLANE = 8,
+---	PETROL_PUMP = 9,
+---	BIKE = 10,
+---	DIR_STEAM = 11,
+---	DIR_FLAME = 12,
+---	DIR_WATER_HYDRANT = 13,
+---	DIR_GAS_CANISTER = 14,
+---	BOAT = 15,
+---	SHIP_DESTROY = 16,
+---	TRUCK = 17,
+---	BULLET = 18,
+---	SMOKE_GRENADE_LAUNCHER = 19,
+---	SMOKE_GRENADE = 20,
+---	BZGAS = 21,
+---	FLARE = 22,
+---	GAS_CANISTER = 23,
+---	EXTINGUISHER = 24,
+---	PROGRAMMABLEAR = 25,
+---	TRAIN = 26,
+---	BARREL = 27,
+---	PROPANE = 28,
+---	BLIMP = 29,
+---	DIR_FLAME_EXPLODE = 30,
+---	TANKER = 31,
+---	PLANE_ROCKET = 32,
+---	VEHICLE_BULLET = 33,
+---	GAS_TANK = 34,
+---	BIRD_CRAP = 35,
+---	RAILGUN = 36,
+---	BLIMP2 = 37,
+---	FIREWORK = 38,
+---	SNOWBALL = 39,
+---	PROXMINE = 40,
+---	VALKYRIE_CANNON = 41,
+---	AIR_DEFENCE = 42,
+---	PIPEBOMB = 43,
+---	VEHICLEMINE = 44,
+---	EXPLOSIVEAMMO = 45,
+---	APCSHELL = 46,
+---	BOMB_CLUSTER = 47,
+---	BOMB_GAS = 48,
+---	BOMB_INCENDIARY = 49,
+---	BOMB_STANDARD = 50,
+---	TORPEDO = 51,
+---	TORPEDO_UNDERWATER = 52,
+---	BOMBUSHKA_CANNON = 53,
+---	BOMB_CLUSTER_SECONDARY = 54,
+---	HUNTER_BARRAGE = 55,
+---	HUNTER_CANNON = 56,
+---	ROGUE_CANNON = 57,
+---	MINE_UNDERWATER = 58,
+---	ORBITAL_CANNON = 59,
+---	BOMB_STANDARD_WIDE = 60,
+---	EXPLOSIVEAMMO_SHOTGUN = 61,
+---	OPPRESSOR2_CANNON = 62,
+---	MORTAR_KINETIC = 63,
+---	VEHICLEMINE_KINETIC = 64,
+---	VEHICLEMINE_EMP = 65,
+---	VEHICLEMINE_SPIKE = 66,
+---	VEHICLEMINE_SLICK = 67,
+---	VEHICLEMINE_TAR = 68,
+---	SCRIPT_DRONE = 69,
+---	RAYGUN = 70,
+---	BURIEDMINE = 71,
+---	SCRIPT_MISSILE = 72,
+---	RCTANK_ROCKET = 73,
+---	BOMB_WATER = 74,
+---	BOMB_WATER_SECONDARY = 75,
+---	MINE_CNCSPIKE = 76,
+---	BZGAS_MK2 = 77,
+---	FLASHGRENADE = 78,
+---	STUNGRENADE = 79,
+---	CNC_KINETICRAM = 80,
+---	SCRIPT_MISSILE_LARGE = 81,
+---	SUBMARINE_BIG = 82,
+---	EMPLAUNCHER_EMP = 83
+---};
 ---```
 ---@param x number
 ---@param y number
@@ -80,49 +131,7 @@ AddSpecfxExplosion = AddExplosionWithUserVfx
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x172AA1B624FA1013)  
----```
----enum ExplosionTypes  
----{  
----	EXPLOSION_GRENADE,  
----	EXPLOSION_GRENADELAUNCHER,  
----	EXPLOSION_STICKYBOMB,  
----	EXPLOSION_MOLOTOV,  
----	EXPLOSION_ROCKET,  
----	EXPLOSION_TANKSHELL,  
----	EXPLOSION_HI_OCTANE,  
----	EXPLOSION_CAR,  
----	EXPLOSION_PLANE,  
----	EXPLOSION_PETROL_PUMP,  
----	EXPLOSION_BIKE,  
----	EXPLOSION_DIR_STEAM,  
----	EXPLOSION_DIR_FLAME,  
----	EXPLOSION_DIR_WATER_HYDRANT,  
----	EXPLOSION_DIR_GAS_CANISTER,  
----	EXPLOSION_BOAT,  
----	EXPLOSION_SHIP_DESTROY,  
----	EXPLOSION_TRUCK,  
----	EXPLOSION_BULLET,  
----	EXPLOSION_SMOKEGRENADELAUNCHER,  
----	EXPLOSION_SMOKEGRENADE,  
----	EXPLOSION_BZGAS,  
----	EXPLOSION_FLARE,  
----	EXPLOSION_GAS_CANISTER,  
----	EXPLOSION_EXTINGUISHER,  
----	EXPLOSION_PROGRAMMABLEAR,  
----	EXPLOSION_TRAIN,  
----	EXPLOSION_BARREL,  
----	EXPLOSION_PROPANE,  
----	EXPLOSION_BLIMP,  
----	EXPLOSION_DIR_FLAME_EXPLODE,  
----	EXPLOSION_TANKER,  
----	EXPLOSION_PLANE_ROCKET,  
----	EXPLOSION_VEHICLE_BULLET,  
----	EXPLOSION_GAS_TANK,  
----	EXPLOSION_BIRD_CRAP  
----};  
----BOOL isAudible = If explosion makes a sound.  
----BOOL isInvisible = If the explosion is invisible or not.  
----```
+---This native does not have an official description.
 ---@param ped integer
 ---@param x number
 ---@param y number
@@ -148,7 +157,7 @@ function GetClosestFirePos(x, y, z) end
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x14BA4BA137AF6CEC)  
 ---```
----Returns a handle to the first entity within the a circle spawned inside the 2 points from a radius. It could return a ped or an entity, but the scripts expect a ped, but still check if it's a ped.  
+---Returns a handle to the first entity within the a circle spawned inside the 2 points from a radius.
 ---```
 ---@param explosionType integer
 ---@param x1 number
@@ -209,7 +218,7 @@ function IsExplosionActiveInArea(explosionType, x1, y1, z1, x2, y2, z2) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA079A6C51525DC4B)  
----See [IS_POINT_IN_ANGLED_AREA](#_0x2A70BAE8883E4C81) for the definition of an angled area.
+---See [`IS_POINT_IN_ANGLED_AREA`](#\_0x2A70BAE8883E4C81) for the definition of an angled area.
 ---@param explosionType integer
 ---@param x1 number
 ---@param y1 number
@@ -252,6 +261,16 @@ function IsExplosionInSphere(explosionType, x, y, z, radius) end
 function RemoveScriptFire(fireHandle) end
 
 ---**`FIRE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8F390AC4155099BA)  
+---SET_FIRE_\*
+---
+---```
+---NativeDB Introduced: v1734
+---```
+---@param p0 number
+function SetFireSpreadRate(p0) end
+
+---**`FIRE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF6A9D9708F6F23DF)  
 ---This native does not have an official description.
 ---@param entity integer
@@ -282,9 +301,7 @@ function StopEntityFire(entity) end
 
 ---**`FIRE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x056A8A219B8E829F)  
----```
----This doesn't stop fire nor the fire propagation in a loop... for some reasons.  
----```
+---This native does not have an official description.
 ---@param x number
 ---@param y number
 ---@param z number

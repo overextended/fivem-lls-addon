@@ -2,14 +2,7 @@
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2CE544C68FB812A0)  
----```
----This is used to add a speedzone on a position.  
----Example usage C#:  
----uint speedZone = Function.Call<uint>((Hash) 0x2CE544C68FB812A0, Game.PlayerPed.Position.X, Game.PlayerPed.Position.Y, Game.PlayerPed.Position.Z, 100.0f, 0.0f, false);  
----(Thanks to alexguirre for his help!)  
----==========================================  
----What is the point in adding a speed zone? Does it just generally affect the speed NPCs will drive? I can imagine running this on every section of the interstate setting it to 3 MPH rip.  
----```
+---This native does not have an official description.
 ---@param x number
 ---@param y number
 ---@param z number
@@ -17,13 +10,14 @@
 ---@param speed number
 ---@param p5 boolean
 ---@return integer
-function AddSpeedZoneForCoord(x, y, z, radius, speed, p5) end
+function AddRoadNodeSpeedZone(x, y, z, radius, speed, p5) end
+
+---@deprecated
+AddSpeedZoneForCoord = AddRoadNodeSpeedZone
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54B0F614960F4A5F)  
----```
----ADD_*
----```
+---This native does not have an official description.
 ---@param p0 number
 ---@param p1 number
 ---@param p2 number
@@ -60,6 +54,12 @@ function AddVehicleStuckCheckWithWarp(p0, p1, p2, p3, p4, p5, p6) end
 ---This native does not have an official description.
 ---@param vehicle integer
 function AddVehicleUpsidedownCheck(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB264C4D2F2B0A78B)  
+---This native it's a debug native. Won't do anything.
+---@param vehicle integer
+function AllowAmbientVehiclesToAvoidAdverseConditions(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x11D862A3E977A9EF)  
@@ -104,16 +104,28 @@ GetAreBombBayDoorsOpen = AreBombBayDoorsOpen
 function AreHeliStubWingsDeployed(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3A9128352EAC9E85)  
+---Returns whether the outrigger legs are deployed for the vehicle.
+---The Chernobog is one of the few vehicles with outrigger legs.
+---
+---```
+---NativeDB Introduced: v1290
+---```
+---@param vehicle integer
+---@return boolean
+function AreOutriggerLegsDeployed(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF78F94D60248C737)  
+---Queries whether the control panels of a plane are intact. This native is used to determine the operational status of a plane's cockpit controls, which can affect the plane's flyability.
+---@param vehicle integer
+---@param checkForZeroHealth boolean
+---@return boolean
+function ArePlaneControlPanelsIntact(vehicle, checkForZeroHealth) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x755D6D5267CBBD7E)  
----```
----Found this in the decompiled scripts, I'd do more research before changing the name --  
----if (!ENTITY::IS_ENTITY_DEAD(l_1911)) {  
----    if (!VEHICLE::_755D6D5267CBBD7E(l_1911)) {  
----        sub_1ba80("TRAFFICKING AIR: FAILING - PROPELLERS ARE DAMAGED");  
----        l_12CE = 9;  
----    }  
----}  
----```
+---This native does not have an official description.
 ---@param plane integer
 ---@return boolean
 function ArePlanePropellersIntact(plane) end
@@ -123,9 +135,7 @@ ArePropellersUndamaged = ArePlanePropellersIntact
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5991A01434CE9677)  
----```
----Can be used for planes only!  
----```
+---This native does not have an official description.
 ---@param plane integer
 ---@return boolean
 function ArePlaneWingsIntact(plane) end
@@ -134,6 +144,13 @@ function ArePlaneWingsIntact(plane) end
 AddAMarkerOverVehicle = ArePlaneWingsIntact
 ---@deprecated
 AreVehicleWingsIntact = ArePlaneWingsIntact
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x6A98C2ECF57FA5D4)  
+---This native does not have an official description.
+---@param handler integer
+---@param container integer
+function AttachContainerToHandlerFrame(handler, container) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA1DD82F3CCF9A01E)  
@@ -166,19 +183,18 @@ function AttachVehicleOnToTrailer(vehicle, trailer, offsetX, offsetY, offsetZ, c
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4127F1D84E347769)  
 ---This native does not have an official description.
----@param vehicle integer
 ---@param cargobob integer
----@param p2 integer
+---@param vehicle integer
+---@param vehicleBoneIndex integer
 ---@param x number
 ---@param y number
 ---@param z number
-function AttachVehicleToCargobob(vehicle, cargobob, p2, x, y, z) end
+function AttachVehicleToCargobob(cargobob, vehicle, vehicleBoneIndex, x, y, z) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x29A16F8D621C4508)  
 ---```
----HookOffset defines where the hook is attached. leave at 0 for default attachment.  
----When using the tow truck online, this is not used (set a breakpoint and never called during tow truck attachment)  
+---HookOffset defines where the hook is attached. leave at 0 for default attachment.
 ---```
 ---@param towTruck integer
 ---@param vehicle integer
@@ -198,26 +214,26 @@ function AttachVehicleToTrailer(vehicle, trailer, radius) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x260BE8F09E326A20)  
----```
----This native makes the vehicle stop immediately, as happens when we enter a MP garage.  
----. distance defines how far it will travel until stopping. Garage doors use 3.0.  
----. If killEngine is set to 1, you cannot resume driving the vehicle once it stops. This looks like is a bitmapped integer.  
----```
+---This native makes the vehicle stop immediately, as it happens when we enter a multiplayer garage.
 ---@param vehicle integer
 ---@param distance number
 ---@param duration integer
----@param unknown boolean
-function BringVehicleToHalt(vehicle, distance, duration, unknown) end
+---@param bControlVerticalVelocity boolean
+function BringVehicleToHalt(vehicle, distance, duration, bControlVerticalVelocity) end
 
 ---@deprecated
 SetVehicleHalt = BringVehicleToHalt
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26C10ECBDA5D043B)  
----This native does not have an official description.
----@param vehicle integer
+---Checks if a boat can be anchored at its present position without possibly intersecting collision later.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param boat integer
 ---@return boolean
-function CanAnchorBoatHere(vehicle) end
+function CanAnchorBoatHere(boat) end
 
 ---@deprecated
 GetBoatAnchor = CanAnchorBoatHere
@@ -226,29 +242,35 @@ CanBoatBeAnchored = CanAnchorBoatHere
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x24F4121D07579880)  
----```
----Differs from 0x26C10ECBDA5D043B in that 0x140EFCC10 (1604 retail) is called with a2 = true.
+---Checks if a boat can be anchored at its present position, ignoring any players standing on the boat.
 ---
+---```
 ---NativeDB Introduced: v678
 ---```
----@param vehicle integer
+---@param boat integer
 ---@return boolean
-function CanBoatBeAnchored_2(vehicle) end
+function CanAnchorBoatHereIgnorePlayers(boat) end
+
+---@deprecated
+CanBoatBeAnchored_2 = CanAnchorBoatHereIgnorePlayers
+---@deprecated
+CanAnchorBoatHere_2 = CanAnchorBoatHereIgnorePlayers
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2C1D8B3B19E517CC)  
+---Determines whether the specified Cargobob can pick up a given entity.
+---@param cargobob integer
+---@param entity integer
+---@return boolean
+function CanCargobobPickUpEntity(cargobob, entity) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x30785D90C956BF35)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param p1 any
+---@param seatIndex integer
 ---@return boolean
-function CanShuffleSeat(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA916396DF4154EE3)  
----This native does not have an official description.
----@param vehicle integer
----@return boolean
-function CanVehicleParachuteBeActivated(vehicle) end
+function CanShuffleSeat(vehicle, seatIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE01903C47C7AC89E)  
@@ -256,22 +278,33 @@ function CanVehicleParachuteBeActivated(vehicle) end
 function ClearLastDrivenVehicle() end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x55E1D2758F34E437)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC889AE921400E1ED)  
 ---```
----NativeDB Return Type: void
+---NativeDB Introduced: 3095
 ---```
+---
+---Resets or clears the nitrous system for a specified vehicle. You can check if a vehicle has nitrous with [`IS_NITROUS_ACTIVE`](#\_0x491E822B2C464FE4)
 ---@param vehicle integer
----@return any
+function ClearNitrous(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x55E1D2758F34E437)  
+---This native does not have an official description.
+---@param vehicle integer
 function ClearVehicleCustomPrimaryColour(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5FFBDEEC3E8E2009)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param vehicle integer
----@return any
 function ClearVehicleCustomSecondaryColour(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0A436B8643716D14)  
+---Removes the cargen area of interest and resumes normal cargen spawning.
+---
+---You can set the area of interest with [`SET_VEHICLE_GENERATOR_AREA_OF_INTEREST`](#\_0x9A75585FB2E54FAD)
+function ClearVehicleGeneratorAreaOfInterest() end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA3F739ABDDCF21F)  
@@ -309,23 +342,48 @@ SetVehicleLandingGear = ControlLandingGear
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE44A982368A4AF23)  
----Copy the damage like broken bumpers and broken lights from a vehicle and paste them on another vehicle.
+---Copies sourceVehicle's damage (broken bumpers, broken lights, etc.) to targetVehicle.
 ---@param sourceVehicle integer
 ---@param targetVehicle integer
 function CopyVehicleDamages(sourceVehicle, targetVehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x63C6CCA8E68AE8C8)  
+---Train models must be [requested](#\_0x963D27A58DF860AC) before use. See trains.xml (located in `Grand Theft Auto V\update\update.rpf\common\data\levels\gta5\trains.xml`) for freight and metro variations.
+---
+---Model names to request can be found by searching `model_name` in the file.
+---
+---The `Lua` usage example provided down below has been provided in such way so users can test each and every train variation.
+---
+---### Newly added parameters (seen in 2372 build)
+---
 ---```
----Train models HAVE TO be loaded (requested) before you use this.  
----For variation 15 - request:  
----freight  
----freightcar  
----freightgrain  
----freightcont1  
----freightcont2  
----freighttrailer  
+---NativeDB Added Parameter 6: BOOL isNetwork
+---NativeDB Added Parameter 7: BOOL netMissionEntity
 ---```
+---
+---*   **isNetwork**: Whether to create a network object for the train. If false, the train exists only locally.
+---*   **netMissionEntity**: Whether to register the train as pinned to the script host in the R\* network model.
+---
+---### Train Models:
+---
+---*   freight
+---
+---### Carriage Models:
+---
+---*   freightcar
+---*   freightcar2 (Added v2372)
+---*   freightcont1
+---*   freightcont2
+---*   freightgrain
+---*   metrotrain
+---*   tankercar
+---
+---### Some train variations (default from trains.xml as of build 2372)
+---
+---*   17. Very long train and freight variation.
+---*   18. Freight train only.
+---*   26. Double metro train (with both models flipped opposite to each other). This used to be `25` before the 2802 build, it also used to be `24` before the 2372 build.
 ---@param variation integer
 ---@param x number
 ---@param y number
@@ -336,9 +394,9 @@ function CreateMissionTrain(variation, x, y, z, direction) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7BEB0C7A235F6F3B)  
----```
----Drops the Hook/Magnet on a cargobob  
----state  
+---Drops the Hook/Magnet on a cargobob
+---
+---```cpp
 ---enum eCargobobHook  
 ---{  
 ---	CARGOBOB_HOOK = 0,  
@@ -392,6 +450,9 @@ function CreateScriptVehicleGenerator(x, y, z, heading, p4, p5, modelHash, p7, p
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAF35D0D2583051B0)  
+---Creates a vehicle with the specified model at the specified position. This vehicle will initially be owned by the creating
+---script as a mission entity, and the model should be loaded already (e.g. using REQUEST_MODEL).
+---
 ---```
 ---NativeDB Added Parameter 8: BOOL p7
 ---```
@@ -412,13 +473,13 @@ function DeleteAllTrains() end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5B76B14AE875C795)  
----This native does not have an official description.
+---Used to delete mission trains created with [`CREATE_MISSION_TRAIN`](#\_0x63C6CCA8E68AE8C8).
 ---@param train integer
 function DeleteMissionTrain(train) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x22102C9ABFCF125D)  
----This native does not have an official description.
+---Removes a scripted vehicle generator.
 ---@param vehicleGenerator integer
 function DeleteScriptVehicleGenerator(vehicleGenerator) end
 
@@ -443,7 +504,7 @@ function DetachContainerFromHandlerFrame(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAF03011701811146)  
----This native does not have an official description.
+---Detaches the specified entity currently being carried by a Cargobob.
 ---@param vehicle integer
 ---@param entity integer
 ---@return any
@@ -466,9 +527,9 @@ function DetachVehicleFromAnyTowTruck(vehicle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0E21D3DF1051399D)  
 ---This native does not have an official description.
----@param vehicle integer
 ---@param cargobob integer
-function DetachVehicleFromCargobob(vehicle, cargobob) end
+---@param vehicle integer
+function DetachVehicleFromCargobob(cargobob, vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC2DB6B6708350ED8)  
@@ -481,51 +542,35 @@ function DetachVehicleFromTowTruck(towTruck, vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x90532EDF0D2BDD86)  
----```
----Public Sub detatchTrailer(vh1 As Vehicle)  
----Native.Function.Call(Hash.DETACH_VEHICLE_FROM_TRAILER, vh1)  
----		    End Sub  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 function DetachVehicleFromTrailer(vehicle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x6D645D59FB5F5AD3)  
----```
----Detaches the vehicle's windscreen.  
----For further information, see : gtaforums.com/topic/859570-glass/#entry1068894566  
----```
----@param vehicle integer
-function DetachVehicleWindscreen(vehicle) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEF49CF0270307CBE)  
----```
----used for the remote vehicle explode thing with phones  
----```
+---This native does not have an official description.
 function DetonateVehiclePhoneExplosiveDevice() end
 
 ---@deprecated
 RequestVehiclePhoneExplosion = DetonateVehiclePhoneExplosiveDevice
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x500873A45724C863)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param propeller integer
+function DisableIndividualPlanePropeller(vehicle, propeller) end
+
+---@deprecated
+DisablePlanePropeller = DisableIndividualPlanePropeller
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x23428FC53C60919C)  
----```
----Ailerons are responsible for the rolling motion of a plane.  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param p1 boolean
 ---@param p2 boolean
 function DisablePlaneAileron(vehicle, p1, p2) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x500873A45724C863)  
----```
----Disables propeller animation. Used in pilot_school_mp for the Titan's timed engine detonation.
----```
----@param vehicle integer
----@param propeller integer
-function DisablePlanePropeller(vehicle, propeller) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x83F813570FF519DE)  
@@ -550,6 +595,17 @@ function DisableVehicleTurretMovementThisFrame(vehicle) end
 ---@param vehicle integer
 ---@param owner integer
 function DisableVehicleWeapon(disabled, weaponHash, vehicle, owner) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x75627043C6AA90AD)  
+---Disables collision for this vehicle (maybe it also supports other entities, not sure).
+---Only world/building/fixed world objects will have their collisions disabled, props, peds, or any other entity still collides with the vehicle.
+---
+---[Example video](https://streamable.com/6n45d5)
+---
+---Not sure if there is a native (and if so, which one) that resets the collisions.
+---@param vehicle integer
+function DisableVehicleWorldCollision(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6E08BF5B3722BAC9)  
@@ -609,61 +665,38 @@ function DoesVehicleAllowRappel(vehicle) end
 function DoesVehicleExistWithDecorator(decorator) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x645F4B6E8499F632)  
----This native does not have an official description.
----@param vehicle integer
----@param doorIndex integer
----@return boolean
-function DoesVehicleHaveDoor(vehicle, doorIndex) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x9078C0C5EF8C19E9)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE43701C36CAFF1A4)  
 ---```
----Returns true if the vehicle has the FLAG_JUMPING_CAR flag set.
+---NativeDB Introduced: v1180
 ---```
 ---@param vehicle integer
 ---@return boolean
-function DoesVehicleHaveJumpingAbility(vehicle) end
+function DoesVehicleHaveLandingGear(vehicle) end
 
 ---@deprecated
-HasVehicleJumpingAbility = DoesVehicleHaveJumpingAbility
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xBC9CFF381338CB4F)  
----This native does not have an official description.
----@param vehicle integer
----@return boolean
-function DoesVehicleHaveParachute(vehicle) end
-
----@deprecated
-HasVehicleParachute = DoesVehicleHaveParachute
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xDCA174A42133F08C)  
----This native does not have an official description.
----@param vehicle integer
----@return boolean
-function DoesVehicleHaveRetractableWheels(vehicle) end
-
----@deprecated
-GetHasLowerableWheels = DoesVehicleHaveRetractableWheels
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x36D782F68B309BDA)  
----This native does not have an official description.
----@param vehicle integer
----@return boolean
-function DoesVehicleHaveRocketBoost(vehicle) end
-
----@deprecated
-HasVehicleRocketBoost = DoesVehicleHaveRocketBoost
+GetVehicleHasLandingGear = DoesVehicleHaveLandingGear
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8AC862B0B32C5B80)  
----This native does not have an official description.
+---Determines whether a specific vehicle is equipped with a roof.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param vehicle integer
 ---@return boolean
 function DoesVehicleHaveRoof(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x99015ED7DBEA5113)  
+---Determines whether the specified vehicle is equipped with a searchlight.
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param vehicle integer
+---@return boolean
+function DoesVehicleHaveSearchlight(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x57E4C39DE5EE8470)  
@@ -682,6 +715,20 @@ function DoesVehicleHaveStuckVehicleCheck(vehicle) end
 function DoesVehicleHaveWeapons(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x534E36D4DB9ECC5D)  
+---```
+---Checks if vehicle tyre at index exists. Also returns false if tyre was removed.
+---```
+---
+---```
+---NativeDB Introduced: v1493
+---```
+---@param vehicle integer
+---@param tyreIndex integer
+---@return boolean
+function DoesVehicleTyreExist(vehicle, tyreIndex) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE38CB9D7D39FDBCC)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -689,6 +736,16 @@ function DoesVehicleHaveWeapons(vehicle) end
 ---@param y number
 ---@param z number
 function EjectJb700Roof(vehicle, x, y, z) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8AA9180DE2FEDD45)  
+---Will disable a plane or a helicopter's need to swerve around object in its heightmap when using TASK_PLANE_MISSION or other AI / Pilot behavior.  Will ensure plane flys directly to it's destination or die trying! This native does NOT need to be called every frame, but instead, just called once on the vehicle (NOT THE PED) you're trying to disable avoidance for!
+---@param vehicle integer
+---@param avoidObstacles boolean
+function EnableAircraftObstacleAvoidance(vehicle, avoidObstacles) end
+
+---@deprecated
+N_0x8aa9180de2fedd45 = EnableAircraftObstacleAvoidance
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA71116ADF5B514C)  
@@ -715,7 +772,7 @@ function ExplodeVehicleInCutscene(vehicle, p1) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8DC9675797123522)  
 ---Native is significantly more complicated than simply generating a random vector & length.
 ---
----The 'point' is either 400.0 or 250.0 units away from the Ped's current coordinates; and paths into functions like rage::grcViewport\_\_\_IsSphereVisible.
+---The 'point' is either 400.0 or 250.0 units away from the Ped's current coordinates; and paths into functions like rage::grcViewport\_\__IsSphereVisible.
 ---
 ---```
 ---NativeDB Introduced: v1290
@@ -725,31 +782,46 @@ function ExplodeVehicleInCutscene(vehicle, p1) end
 function FindRandomPointInSpace(ped) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x375E7FC44F21C8AB)  
+---```
+---Finds the vehicle that is carrying this entity with a handler frame.
+---The model of the entity must be prop_contr_03b_ld or the function will return 0.
+---```
+---@param entity integer
+---@return integer
+function FindVehicleCarryingThisEntity(entity) end
+
+---@deprecated
+GetVehicleAttachedToEntity = FindVehicleCarryingThisEntity
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x772282EBEB95E682)  
----int index = 0 to 13
+---See eWindowId declared in [`IS_VEHICLE_WINDOW_INTACT`](#\_0x46E571A0E20D01F1).
 ---
----0 = front right window
----1 = front left window
----2 = rear right window
----3 = rear left window
----4 = unsure
----5 = unsure
----6 = windowscreen
----7 = rear windowscreen
----8 = unsure
----9 = unsure
----10 = unsure
----11 = unsure
----12 = unsure
----13 = unsure
----
----Additional information: `FIX_VEHICLE_WINDOW` (0x140D0BB88) references an array of bone vehicle indices (0x141D4B3E0) `{ 2Ah, 2Bh, 2Ch, 2Dh, 2Eh, 2Fh, 28h, 29h }` that correspond to: `window_lf`, `window_rf`, `window_lr`, `window_rr`, `window_lm`, `window_rm`, `windscreen`, `windscreen_r`. This array is used by most vehwindow natives.
----
----Also, this function is coded to not work on vehicles of type: `CBike`, `Bmx`, `CBoat`, `CTrain`, and `CSubmarine`.
+---This function is coded to not work on vehicles of type: `CBike`, `Bmx`, `CBoat`, `CTrain`, and `CSubmarine`.
 ---@param vehicle integer
----@param index integer
----@return any
-function FixVehicleWindow(vehicle, index) end
+---@param windowIndex integer
+function FixVehicleWindow(vehicle, windowIndex) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1F2E4E06DEA8992B)  
+---```
+---Often called after START_PLAYBACK_RECORDED_VEHICLE and SKIP_TIME_IN_PLAYBACK_RECORDED_VEHICLE; similar in use to FORCE_ENTITY_AI_AND_ANIMATION_UPDATE.
+---```
+---@param vehicle integer
+---@param p1 boolean
+function ForcePlaybackRecordedVehicleUpdate(vehicle, p1) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC67DB108A9ADE3BE)  
+---Forces a submarine to maintain neutral buoyancy for a specified duration, preventing it from rising when unoccupied or without a driver.
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param submarine integer
+---@param time integer
+function ForceSubmarineNeurtalBuoyancy(submarine, time) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x33506883545AC0DF)  
@@ -759,11 +831,19 @@ function FixVehicleWindow(vehicle, index) end
 function ForceSubmarineSurfaceMode(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1A2BCC8C636F9226)  
+---```
+---NativeDB Introduced: v3095
+---```
+---
+---Recharges the nitrous system of the specified vehicle to its maximum capacity. This action sets the nitrous charge duration to the maximum limit defined by previous settings applied through [`SET_OVERRIDE_NITROUS_LEVEL`](#\_0xC8E9B6B71B8E660D).
+---@param vehicle integer
+function FullyChargeNitrous(vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9B8E1BF04B51F2E8)  
----```
----NativeDB Parameter 0: int* vehArray
----```
----@return integer, any
+---This native does not have an official description.
+---@return integer, integer
 function GetAllVehicles() end
 
 ---**`VEHICLE` `client`**  
@@ -774,10 +854,52 @@ function GetAllVehicles() end
 function GetBoatBoomPositionRatio(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC1F981A6F74F0C23)  
+---```
+---Same call as VEHICLE::_0x0F3B4D4E43177236
+---```
+---@param vehicle integer
+---@param p1 boolean
+function GetBoatBoomPositionRatio_2(vehicle, p1) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0F3B4D4E43177236)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param p1 boolean
+function GetBoatBoomPositionRatio_3(vehicle, p1) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5AA3F878A178C4FC)  
+---Retrieves the agility for a specific boat model, including any vehicle mods. Unlike other vehicles where Rockstar Games typically assess performance based on traction, boats use agility as a measure. This static value is distinct from the traction metrics used for other vehicle types.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param modelHash integer | string
+---@return number
+function GetBoatVehicleModelAgility(modelHash) end
+
+---@deprecated
+GetVehicleModelMoveResistance = GetBoatVehicleModelAgility
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9078C0C5EF8C19E9)  
+---```
+---Returns true if the vehicle has the FLAG_JUMPING_CAR flag set.
+---```
+---@param vehicle integer
+---@return boolean
+function GetCanVehicleJump(vehicle) end
+
+---@deprecated
+HasVehicleJumpingAbility = GetCanVehicleJump
+---@deprecated
+DoesVehicleHaveJumpingAbility = GetCanVehicleJump
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCBDB9B923CACC92D)  
----```
----Gets the position of the cargobob hook, in world coords.  
----```
+---Gets the position of the cargobob hook, in world coords.
 ---@param cargobob integer
 ---@return vector3
 function GetCargobobHookPosition(cargobob) end
@@ -800,7 +922,8 @@ function GetCargobobHookPosition(cargobob) end
 ---At exactly 16384 which is 0100000000000000 in binary and 4000 in hexadecimal only planes are returned.   
 ---It's probably more convenient to use worldGetAllVehicles(int *arr, int arrSize) and check the shortest distance yourself and sort if you want by checking the vehicle type with for example VEHICLE::IS_THIS_MODEL_A_BOAT  
 ----------------------------------------------------------------------------  
----Conclusion: This native is not worth trying to use. Use something like this instead: pastebin.com/xiFdXa7h  
+---Conclusion: This native is not worth trying to use. Use something like this instead: pastebin.com/xiFdXa7h
+---Use flag 127 to return police cars
 ---```
 ---@param x number
 ---@param y number
@@ -813,18 +936,18 @@ function GetClosestVehicle(x, y, z, radius, modelHash, flags) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF8C397922FC03F41)  
----```
----0 -> up  
----1 -> lowering down  
----2 -> down  
----3 -> raising up  
----enum RoofState  
----{  
----     ROOFSTATE_UP = 0;  
----     ROOFSTATE_LOWERING,  
----     ROOFSTATE_DOWN,  
----     ROOFSTATE_RAISING  
----};  
+---Returns the convertible state of the specified vehicle.
+---
+---```cpp
+---enum eRoofState {
+---    RAISED = 0,
+---    LOWERING = 1,
+---    LOWERED = 2,
+---    RAISING = 3,
+---    CLOSING_BOOT = 4,
+---    ROOF_STUCK_RAISED = 5,
+---    ROOF_STUCK_LOWERED = 6
+---}
 ---```
 ---@param vehicle integer
 ---@return integer
@@ -839,15 +962,7 @@ function GetCurrentPlaybackForVehicle(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB215AAC32D25D019)  
----```
----Returns model name of vehicle in all caps. Needs to be displayed through localizing text natives to get proper display name.  
---------------------------------------------------------------------------------------------------------------------------------------------  
----While often the case, this does not simply return the model name of the vehicle (which could be hashed to return the model hash). Variations of the same vehicle may also use the same display name.  
---------------------------------------------------------------------------------------------------------------------------------------------  
----Returns "CARNOTFOUND" if the hash doesn't match a vehicle hash.  
----Using UI::_GET_LABEL_TEXT, you can get the localized name.  
----For a full list, see here: pastebin.com/wvpyS4kS (pastebin.com/dA3TbkZw)  
----```
+---Returns the display name/text label (`gameName` in `vehicles.meta`) for the specified vehicle model.
 ---@param modelHash integer | string
 ---@return string
 function GetDisplayNameFromVehicleModel(modelHash) end
@@ -860,6 +975,15 @@ function GetDisplayNameFromVehicleModel(modelHash) end
 ---@param vehicle integer
 ---@return boolean
 function GetDoesVehicleHaveTombstone(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2F5A72430E78C8D3)  
+---```
+---NativeDB Introduced: v2372
+---```
+---@param vehicle integer
+---@return boolean
+function GetDriftTyresEnabled(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x99093F60746708CA)  
@@ -877,11 +1001,35 @@ function GetEntityAttachedToTowTruck(towTruck) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC0572928C0ABFDA3)  
----This native does not have an official description.
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param vehicle integer
 ---@param doorIndex integer
 ---@return vector3
 function GetEntryPositionOfDoor(vehicle, doorIndex) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDCA174A42133F08C)  
+---This native does not have an official description.
+---@param vehicle integer
+---@return boolean
+function GetHasRetractableWheels(vehicle) end
+
+---@deprecated
+GetHasLowerableWheels = GetHasRetractableWheels
+---@deprecated
+DoesVehicleHaveRetractableWheels = GetHasRetractableWheels
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x36D782F68B309BDA)  
+---This native does not have an official description.
+---@param vehicle integer
+---@return boolean
+function GetHasRocketBoost(vehicle) end
+
+---@deprecated
+HasVehicleRocketBoost = GetHasRocketBoost
+---@deprecated
+DoesVehicleHaveRocketBoost = GetHasRocketBoost
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE4CB7541F413D2C5)  
@@ -909,12 +1057,39 @@ GetHeliEngineHealth = GetHeliTailBoomHealth
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAE8CE82A4219AC8C)  
 ---```
----Max 1000.  
----At 0 the tail rotor will stall.  
+---NativeDB Introduced: v323
+---```
+---@param heli integer
+---@return number
+function GetHeliTailRotorHealth(heli) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0BB5CBDDD0F25AE3)  
+---```
+---NativeDB Introduced: v2372
 ---```
 ---@param vehicle integer
+---@param wheelId integer
 ---@return number
-function GetHeliTailRotorHealth(vehicle) end
+function GetHydraulicWheelValue(vehicle, wheelId) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBA91D045575699AD)  
+---Checks whether the specified boat vehicle is capsized, meaning it has overturned or is upside down in the water.
+---@param vehicle integer
+---@return boolean
+function GetIsBoatCapsized(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x645F4B6E8499F632)  
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
+---@param vehicle integer
+---@param doorIndex integer
+---@return boolean
+function GetIsDoorValid(vehicle, doorIndex) end
+
+---@deprecated
+DoesVehicleHaveDoor = GetIsDoorValid
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5EF77C9ADD3B11A3)  
@@ -941,13 +1116,15 @@ function GetIsRightVehicleHeadlightDamaged(vehicle) end
 IsHeadlightRBroken = GetIsRightVehicleHeadlightDamaged
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA77DC70BD689A1E5)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1FCB07FE230B6639)  
+---Checks if the vehicle is electric.
+---
 ---```
----NativeDB Introduced: v1290
+---NativeDB Introduced: v3258
 ---```
----@param vehicle integer
+---@param vehicleModel integer | string
 ---@return boolean
-function GetIsSubmarineVehicleTransformed(vehicle) end
+function GetIsVehicleElectric(vehicleModel) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0506ED94363AD905)  
@@ -1012,6 +1189,7 @@ function GetIsWheelsLoweredStateActive(vehicle) end
 ---1: Closing (Retracting)
 ---3: Opening (Deploying)
 ---4: Retracted  
+---5: Broken
 ---```
 ---
 ---Landing gear state 2 is never used.
@@ -1024,14 +1202,7 @@ GetVehicleLandingGear = GetLandingGearState
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB2D06FAEDE65B577)  
----```
----Not exactly sure on this one, but here's a snippet of code:  
----if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), 0)) {  
----    v_2 = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 0);  
----} else {   
----    v_2 = VEHICLE::_B2D06FAEDE65B577();  
----}  
----```
+---This native does not have an official description.
 ---@return integer
 function GetLastDrivenVehicle() end
 
@@ -1082,12 +1253,19 @@ function GetLastRammedVehicle(vehicle) end
 function GetLiveryName(vehicle, liveryIndex) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF7AF4F159FF99F97)  
+---Retrieves the manufacturer's name for a specified vehicle.
+---
+---```
+---NativeDB Introduced: v1868
+---```
+---@param modelHash integer | string
+---@return string
+function GetMakeNameFromVehicleModel(modelHash) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x51F0FEB9F6AE98C0)  
----```
----Returns the name for the type of vehicle mod(Armour, engine etc)  
---------------  
----for some reason this native seems unreliable: sometimes returns NULL, and when retval != NULL the string can be empty  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param modType integer
 ---@return string
@@ -1131,11 +1309,19 @@ function GetNumberOfVehicleNumberPlates() end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA551BE18C11A476D)  
----This native does not have an official description.
----@param p0 integer
+---```
+---paintType:
+---0: Normal
+---1: Metallic
+---2: Pearl
+---3: Matte
+---4: Metal
+---5: Chrome
+---```
+---@param paintType integer
 ---@param p1 boolean
 ---@return integer
-function GetNumModColors(p0, p1) end
+function GetNumModColors(paintType, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x33F2E3FE70EAAE1D)  
@@ -1162,72 +1348,50 @@ function GetNumVehicleWindowTints() end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBB40DD2270B65366)  
----```
----indexes:
-----1 = Driver
----0 = Front Right Passenger
----1 = Back Left Passenger
----2 = Back Right Passenger
----3 = Further Back Left Passenger (vehicles > 4 seats)
----4 = Further Back Right Passenger (vehicles > 4 seats)
+---Gets the ped in the specified seat of the passed vehicle.
 ---
----Can use GET_VEHICLE_MAX_NUMBER_OF_PASSENGERS(vehicle) to help get max index
----```
+---If there is no ped in the seat, and the game considers the vehicle as ambient population, this will create a random occupant ped in the seat, which may be cleaned up by the game fairly soon if not marked as script-owned mission entity.
 ---
----```
----NativeDB Added Parameter 3: Any p2
----```
+---**NativeDB Added Parameter 3**: BOOL p2 (uses a different GetOccupant function)
 ---@param vehicle integer
----@param index integer
+---@param seatIndex integer
 ---@return integer
-function GetPedInVehicleSeat(vehicle, index) end
+function GetPedInVehicleSeat(vehicle, seatIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x218297BF0CFD853B)  
----This native does not have an official description.
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param vehicle integer
 ---@param doorIndex integer
 ---@return integer
 function GetPedUsingVehicleDoor(vehicle, doorIndex) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xDA62027C8BDB326E)  
----A float indicating the percentage of the hover mode. 1.0 = in VTOL mode, 0.0 = in normal flying mode.
----@param aircraft integer
----@return number
-function GetPlaneVtolDirection(aircraft) end
-
----@deprecated
-GetPlaneHoverModePercentage = GetPlaneVtolDirection
----@deprecated
-GetVehicleHoverModePercentage = GetPlaneVtolDirection
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2DACD605FC681475)  
----This native does not have an official description.
----@param p0 any
+---```
+---Distance traveled in the vehicles current recording.
+---```
+---@param vehicle integer
 ---@return number
-function GetPositionInRecording(p0) end
+function GetPositionInRecording(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD242728AA6F0FBA2)  
----```
----p1 is some kind of tolerance  
----```
----@param p0 integer
----@param p1 number
----@param p2 string
+---This native does no interpolation between pathpoints. The same position will be returned for all times up to the next pathpoint in the recording.
+---
+---See [`REQUEST_VEHICLE_RECORDING`](#\_0xAF514CABE74CBF15).
+---@param recording integer
+---@param time number
+---@param script string
 ---@return vector3
-function GetPositionOfVehicleRecordingAtTime(p0, p1, p2) end
+function GetPositionOfVehicleRecordingAtTime(recording, time, script) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x92523B76657A517D)  
----```
----NativeDB Return Type: Vector3
----```
+---This native does not have an official description.
 ---@param id integer
 ---@param time number
----@return integer
+---@return vector3
 function GetPositionOfVehicleRecordingIdAtTime(id, time) end
 
 ---**`VEHICLE` `client`**  
@@ -1282,21 +1446,31 @@ function GetRandomVehicleInSphere(x, y, z, radius, modelHash, flags) end
 ---Not present in the retail version! It's just a nullsub.  
 ---p0 always true (except in one case)  
 ---p1 a random vehicle hash loaded in memory  
----p2 0 if success, -1 if failed  
+---successIndicator: 0 if success, -1 if failed
 ---```
 ---@param p0 boolean
 ---@return integer, integer
 function GetRandomVehicleModelInMemory(p0) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBEC4B8653462450E)  
+---```
+---NativeDB Introduced: 3095
+---```
+---
+---Retrieves the remaining duration of nitrous boost available for the specified vehicle.
+---@param vehicle integer
+---@return number
+function GetRemainingNitrousDuration(vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2058206FBE79A8AD)  
----```
----NativeDB Return Type: Vector3
----```
----@param p0 any
----@param p1 number
----@return integer, any
-function GetRotationOfVehicleRecordingAtTime(p0, p1) end
+---This native does not have an official description.
+---@param recording integer
+---@param time number
+---@param script string
+---@return vector3
+function GetRotationOfVehicleRecordingAtTime(recording, time, script) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF0F2103EFAF8CBA7)  
@@ -1307,28 +1481,56 @@ function GetRotationOfVehicleRecordingAtTime(p0, p1) end
 function GetRotationOfVehicleRecordingIdAtTime(id, time) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3E71D0B300B7AA79)  
+---Determines if the submarine is operating below its designated crush depth.
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param submarine integer
+---@return boolean
+function GetSubmarineIsUnderDesignDepth(submarine) end
+
+---@deprecated
+GetSubmarineIsBelowFirstCrushDepth = GetSubmarineIsUnderDesignDepth
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x093D6DDCA5B8FBAE)  
+---Checks if a Submarine has any air leaks, when there is more than 4 the player will drown.
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param submarine integer
+---@return integer
+function GetSubmarineNumberOfAirLeaks(submarine) end
+
+---@deprecated
+GetSubmarineCrushDepthWarningState = GetSubmarineNumberOfAirLeaks
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5746F3A7AB7FE544)  
----This native does not have an official description.
----@param p0 any
+---```
+---Can be used with GET_TOTAL_DURATION_OF_VEHICLE_RECORDING{_ID} to compute a percentage.
+---```
+---@param vehicle integer
 ---@return number
-function GetTimePositionInRecording(p0) end
+function GetTimePositionInRecording(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0E48D1C262390950)  
----```
----NativeDB Return Type: float
----```
----@param p0 any
----@param p1 any
----@return any
-function GetTotalDurationOfVehicleRecording(p0, p1) end
+---This native does not have an official description.
+---@param recording integer
+---@param script string
+---@return number
+function GetTotalDurationOfVehicleRecording(recording, script) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x102D125411A7B6E6)  
 ---This native does not have an official description.
----@param p0 any
+---@param id integer
 ---@return number
-function GetTotalDurationOfVehicleRecordingId(p0) end
+function GetTotalDurationOfVehicleRecordingId(id) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x08AAFD0814722BC3)  
@@ -1341,9 +1543,31 @@ function GetTotalDurationOfVehicleRecordingId(p0) end
 function GetTrainCarriage(train, trailerNumber) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5DD35C8D074E57AE)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x55EAB010FAEE9380)  
 ---```
----static - max acceleration  
+---NativeDB Introduced: v1868
+---```
+---@param vehicle integer
+---@param wheelIndex integer
+---@return number
+function GetTyreHealth(vehicle, wheelIndex) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x6E387895952F4F71)  
+---```
+---NativeDB Introduced: v2060
+---```
+---@param vehicle integer
+---@param wheelIndex integer
+---@return number
+function GetTyreWearMultiplier(vehicle, wheelIndex) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5DD35C8D074E57AE)  
+---Retrieves a static value representing the maximum drive force of specific a vehicle, including any vehicle mods. This value does not change dynamically during gameplay. This value provides an approximation and should be considered alongside other performance metrics like top speed for a more comprehensive understanding of the vehicle's capabilities.
+---
+---```
+---NativeDB Introduced: v323
 ---```
 ---@param vehicle integer
 ---@return number
@@ -1359,15 +1583,6 @@ function GetVehicleAcceleration(vehicle) end
 function GetVehicleAttachedToCargobob(cargobob) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x375E7FC44F21C8AB)  
----```
----Get the vehicle attached to the object/entity? May also just convert it to a vehicle, but I'm not sure.  
----```
----@param entity integer
----@return integer
-function GetVehicleAttachedToEntity(entity) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF271147EB7B40F12)  
 ---```
 ---Seems related to vehicle health, like the one in IV.  
@@ -1379,45 +1594,12 @@ function GetVehicleAttachedToEntity(entity) end
 function GetVehicleBodyHealth(vehicle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB8EF61207C2393A9)  
----```
----0 min 100 max  
----starts at 100  
----Seams to have health zones  
----Front of vehicle when damaged goes from 100-50 and stops at 50.  
----Rear can be damaged from 100-0  
----Only tested with two cars.  
----any idea how this differs from the first one?  
------  
----May return the vehicle health on a scale of 0.0 - 100.0 (needs to be confirmed)  
----example:  
----v_F = ENTITY::GET_ENTITY_MODEL(v_3);  
----if (((v_F == ${tanker}) || (v_F == ${armytanker})) || (v_F == ${tanker2})) {  
----    if (VEHICLE::_GET_VEHICLE_BODY_HEALTH_2(v_3) <= 1.0) {  
----        NETWORK::NETWORK_EXPLODE_VEHICLE(v_3, 1, 1, -1);  
----    }  
----}  
----```
----
----```
----NativeDB Added Parameter 2: Any p1
----NativeDB Added Parameter 3: Any p2
----NativeDB Added Parameter 4: Any p3
----NativeDB Added Parameter 5: Any p4
----NativeDB Added Parameter 6: Any p5
----NativeDB Added Parameter 7: Any p6
----```
----@param vehicle integer
----@return number
-function GetVehicleBodyHealth_2(vehicle) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEA12BD130D7569A1)  
----Gets the amount of bombs that this vehicle has. As far as I know, this does _not_ impact vehicle weapons or the ammo of those weapons in any way, it is just a way to keep track of the amount of bombs in a specific plane. 
+---Gets the amount of bombs that this vehicle has. As far as I know, this does *not* impact vehicle weapons or the ammo of those weapons in any way, it is just a way to keep track of the amount of bombs in a specific plane.
 ---
----In decompiled scripts this is used to check if the vehicle has enough bombs before a bomb can be dropped (bombs are dropped by using [`_SHOOT_SINGLE_BULLET_BETWEEN_COORDS_WITH_EXTRA_PARAMS`](#_0xBFE5756E7407064A)). 
+---In decompiled scripts this is used to check if the vehicle has enough bombs before a bomb can be dropped (bombs are dropped by using [`_SHOOT_SINGLE_BULLET_BETWEEN_COORDS_WITH_EXTRA_PARAMS`](#\_0xBFE5756E7407064A)).
 ---
----Use [`_SET_AIRCRAFT_BOMB_COUNT`](#_0xF4B2ED59DEB5D774) to set the amount of bombs on that vehicle.
+---Use [`_SET_AIRCRAFT_BOMB_COUNT`](#\_0xF4B2ED59DEB5D774) to set the amount of bombs on that vehicle.
 ---@param aircraft integer
 ---@return integer
 function GetVehicleBombCount(aircraft) end
@@ -1426,15 +1608,18 @@ function GetVehicleBombCount(aircraft) end
 GetAircraftBombCount = GetVehicleBombCount
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA916396DF4154EE3)  
+---This native does not have an official description.
+---@param vehicle integer
+---@return boolean
+function GetVehicleCanActivateParachute(vehicle) end
+
+---@deprecated
+CanVehicleParachuteBeActivated = GetVehicleCanActivateParachute
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE495D1EF4C91FD20)  
----```
----iVar3 = get_vehicle_cause_of_destruction(uLocal_248[iVar2]);  
----if (iVar3 == joaat("weapon_stickybomb"))  
----{  
----     func_171(726);  
----     iLocal_260 = 1;  
----}  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@return integer
 function GetVehicleCauseOfDestruction(vehicle) end
@@ -1466,6 +1651,7 @@ function GetVehicleCauseOfDestruction(vehicle) end
 ---19: Military  
 ---20: Commercial  
 ---21: Trains  
+---22: Open Wheel
 ---char buffer[128];  
 ---std::sprintf(buffer, "VEH_CLASS_%i", VEHICLE::GET_VEHICLE_CLASS(vehicle));  
 ---char* className = UI::_GET_LABEL_TEXT(buffer);  
@@ -1487,10 +1673,10 @@ GetVehicleClassMaxSpeed = GetVehicleClassEstimatedMaxSpeed
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDEDF1C8BD47C2200)  
 ---```
----For a full enum, see here : pastebin.com/i2GGAjY0  
----char buffer[128];  
----std::sprintf(buffer, "VEH_CLASS_%i", VEHICLE::GET_VEHICLE_CLASS_FROM_NAME (hash));  
----char* className = UI::_GET_LABEL_TEXT(buffer);  
+---For a full enum, see here : pastebin.com/i2GGAjY0
+---char buffer[128];
+---std::sprintf(buffer, "VEH_CLASS_%i", VEHICLE::GET_VEHICLE_CLASS_FROM_NAME (hash));
+---const char* className = HUD::_GET_LABEL_TEXT(buffer);
 ---```
 ---@param modelHash integer | string
 ---@return integer
@@ -1526,9 +1712,7 @@ function GetVehicleClassMaxTraction(vehicleClass) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF3CC740D36221548)  
----```
----What's this for? Primary and Secondary RGB have their own natives and this one doesn't seem specific.  
----```
+---See [`SET_VEHICLE_CUSTOM_PRIMARY_COLOUR`](#\_0x7141766F91D15BEA) and [`SET_VEHICLE_CUSTOM_SECONDARY_COLOUR`](#\_0x36CED73BFED89754).
 ---@param vehicle integer
 ---@return integer, integer, integer
 function GetVehicleColor(vehicle) end
@@ -1549,9 +1733,9 @@ function GetVehicleColours(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF846AA63DF56B804)  
----Similar to [`_GET_AIRCRAFT_BOMB_COUNT`](#_0xEA12BD130D7569A1), this gets the amount of countermeasures that are present on this vehicle.
+---Similar to [`_GET_AIRCRAFT_BOMB_COUNT`](#\_0xEA12BD130D7569A1), this gets the amount of countermeasures that are present on this vehicle.
 ---
----Use [`_SET_AIRCRAFT_COUNTERMEASURE_COUNT`](#_0x9BDA23BF666F0855) to set the current amount.
+---Use [`_SET_AIRCRAFT_COUNTERMEASURE_COUNT`](#\_0x9BDA23BF666F0855) to set the current amount.
 ---@param aircraft integer
 ---@return integer
 function GetVehicleCountermeasureCount(aircraft) end
@@ -1562,7 +1746,8 @@ GetAircraftCountermeasureCount = GetVehicleCountermeasureCount
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x36492C2F0D134C56)  
 ---```
----Returns a float value between 0.0 and 3.0 related to its slipstream draft (boost/speedup).  
+---Returns a float value between 0.0 and 3.0 related to its slipstream draft (boost/speedup).
+---GET_VEHICLE_*
 ---```
 ---@param vehicle integer
 ---@return number
@@ -1587,7 +1772,10 @@ function GetVehicleCustomSecondaryColour(vehicle) end
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@return integer
-function GetVehicleDashboardColour(vehicle) end
+function GetVehicleDashboardColor(vehicle) end
+
+---@deprecated
+GetVehicleDashboardColour = GetVehicleDashboardColor
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4EC6CFBC7B2E9536)  
@@ -1607,35 +1795,24 @@ function GetVehicleDeformationAtPos(vehicle, offsetX, offsetY, offsetZ) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8F17BC8BA08DA62B)  
----```
----Dirt level 0..15  
----```
+---A getter for [`SET_VEHICLE_DIRT_LEVEL`](#\_0x79D3B596FE44EE8B).
 ---@param vehicle integer
 ---@return number
 function GetVehicleDirtLevel(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFE3F9C29F7B32BD5)  
----This native does not have an official description.
+---Checks the angle of the door mapped from 0.0 - 1.0 where 0.0 is fully closed and 1.0 is fully open.
+---
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param vehicle integer
----@param door integer
+---@param doorIndex integer
 ---@return number
-function GetVehicleDoorAngleRatio(vehicle, door) end
+function GetVehicleDoorAngleRatio(vehicle, doorIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x25BC98A59C2EA962)  
----```
----enum VehicleLockStatus = {
----    None = 0,
----    Unlocked = 1,
----    Locked = 2,
----    LockedForPlayer = 3,
----    StickPlayerInside = 4, -- Doesn't allow players to exit the vehicle with the exit vehicle key.
----    CanBeBrokenInto = 7, -- Can be broken into the car. If the glass is broken, the value will be set to 1
----    CanBeBrokenIntoPersist = 8, -- Can be broken into persist
----    CannotBeTriedToEnter = 10, -- Cannot be tried to enter (Nothing happens when you press the vehicle enter key).
----}
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@return integer
 function GetVehicleDoorLockStatus(vehicle) end
@@ -1647,6 +1824,32 @@ function GetVehicleDoorLockStatus(vehicle) end
 ---@param player integer
 ---@return boolean
 function GetVehicleDoorsLockedForPlayer(vehicle, player) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1423725069EE1D14)  
+---```
+---NativeDB Introduced: v3258
+---```
+---
+---**Note**: When using this native, the hash of the vehicle needs to be loaded into the client's memory. This can be done by requesting the model with [`REQUEST_MODEL`](#\_0x963D27A58DF860AC) or by simply having the vehicle spawned.
+---
+---```cpp
+------
+---enum eVehicleDrivetrainType---
+---{---
+---    INVALID = 0,---
+---    FWD = 1,---
+---    RWD = 2,---
+---    AWD = 3---
+---};
+---```
+---
+---```
+---NativeDB Introduced: v3258
+---```
+---@param vehicleModel integer | string
+---@return integer
+function GetVehicleDrivetrainType(vehicleModel) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC45D23BAF168AAB8)  
@@ -1666,10 +1869,8 @@ function GetVehicleEngineHealth(vehicle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA82819CAC9C4C403)  
 ---```
----formerly known as _GET_VEHICLE_PAINT_FADE  
----The result is a value from 0-1, where 0 is fresh paint.  
---------------------------------------------------------------------------  
----The actual value isn't stored as a float but as an unsigned char (BYTE).  
+---formerly known as _GET_VEHICLE_PAINT_FADE
+---The result is a value from 0-1, where 0 is fresh paint.
 ---```
 ---@param vehicle integer
 ---@return number
@@ -1680,7 +1881,11 @@ GetVehiclePaintFade = GetVehicleEnveffScale
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x53AF99BAA671CA47)  
----This native does not have an official description.
+---Retrieves a static value representing the estimated max speed of a specific vehicle, including any vehicle mods. This value does not change dynamically during gameplay.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param vehicle integer
 ---@return number
 function GetVehicleEstimatedMaxSpeed(vehicle) end
@@ -1696,6 +1901,20 @@ GetVehicleMaxSpeed = GetVehicleEstimatedMaxSpeed
 function GetVehicleExtraColours(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDA62027C8BDB326E)  
+---This native does not have an official description.
+---@param aircraft integer
+---@return number
+function GetVehicleFlightNozzlePosition(aircraft) end
+
+---@deprecated
+GetPlaneHoverModePercentage = GetVehicleFlightNozzlePosition
+---@deprecated
+GetVehicleHoverModePercentage = GetVehicleFlightNozzlePosition
+---@deprecated
+GetPlaneVtolDirection = GetVehicleFlightNozzlePosition
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x50634E348C8D44EF)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -1706,20 +1925,73 @@ function GetVehicleHasKers(vehicle) end
 HasVehicleKersBoost = GetVehicleHasKers
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE43701C36CAFF1A4)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBC9CFF381338CB4F)  
+---This native does not have an official description.
+---@param vehicle integer
+---@return boolean
+function GetVehicleHasParachute(vehicle) end
+
+---@deprecated
+HasVehicleParachute = GetVehicleHasParachute
+---@deprecated
+DoesVehicleHaveParachute = GetVehicleHasParachute
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB8EF61207C2393A9)  
 ---```
----NativeDB Introduced: v1180
+---NativeDB Added Parameter 2: float maxEngineHealth
+---NativeDB Added Parameter 3: float maxPetrolTankHealth
+---NativeDB Added Parameter 4: float maxBodyHealth
+---NativeDB Added Parameter 5: float maxMainRotorHealth
+---NativeDB Added Parameter 6: float maxTailRotorHealth
+---NativeDB Added Parameter 7: float maxUnkHealth
 ---```
 ---@param vehicle integer
----@return any
-function GetVehicleHasLandingGear(vehicle) end
+---@return number
+function GetVehicleHealthPercentage(vehicle) end
+
+---@deprecated
+GetVehicleBodyHealth_2 = GetVehicleHealthPercentage
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE6B0E8CFC3633BF0)  
+---```
+---Returns a value depending on the lock-on state of vehicle weapons.
+---0: not locked on
+---1: locking on
+---2: locked on
+---```
+---@param vehicle integer
+---@return integer
+function GetVehicleHomingLockonState(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCA4AC3EAAE46EC7B)  
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
+---@param vehicle integer
+---@param doorIndex integer
+---@return integer
+function GetVehicleIndividualDoorLockStatus(vehicle, doorIndex) end
+
+---@deprecated
+GetVehicleDoorDestroyType = GetVehicleIndividualDoorLockStatus
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7D1464D472D32136)  
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@return integer
-function GetVehicleInteriorColour(vehicle) end
+function GetVehicleInteriorColor(vehicle) end
+
+---@deprecated
+GetVehicleInteriorColour = GetVehicleInteriorColor
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD4C4642CB7F50B5D)  
+---Returns whether the specified vehicle is designated as a mercenary vehicle
+---@param vehicle integer
+---@return boolean
+function GetVehicleIsMercenary(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28D37D4F71AC5C58)  
@@ -1740,9 +2012,9 @@ function GetVehicleLightsState(vehicle) end
 ---```
 ----1 = no livery  
 ---```
----@param trailers2 integer
+---@param vehicle integer
 ---@return integer
-function GetVehicleLivery(trailers2) end
+function GetVehicleLivery(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x87B63E25A529D526)  
@@ -1755,11 +2027,7 @@ function GetVehicleLiveryCount(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8F5EBAB1F260CFCE)  
----```
----The resulting entity can be a Vehicle or Ped.  
----=========================  
----on a side note watching changes in memory this will only store your ped's entityPoolAddress if it's your personal vehicle. So seems to be related to personal vehicles or atleast a specific decor of it maybe.  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@return boolean, integer
 function GetVehicleLockOnTarget(vehicle) end
@@ -1790,10 +2058,7 @@ function GetVehicleMaxTraction(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x772960298DA26FDB)  
----```
----In b944, there are 50 (0 - 49) mod types.  
----Returns -1 if the vehicle mod is stock  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param modType integer
 ---@return integer
@@ -1801,10 +2066,7 @@ function GetVehicleMod(vehicle, modType) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE8D65CA700C9A693)  
----```
----p3 seems to be the pearlescent highlight color.  
----Seems redondant with void GET_VEHICLE_EXTRA_COLOURS(Vehicle vehicle, int *pearlescentColor, int *wheelColor)  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@return integer, integer, integer
 function GetVehicleModColor_1(vehicle) end
@@ -1838,10 +2100,7 @@ function GetVehicleModColor_2Name(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8C044C5C84505B6A)  
----```
----Returns the acceleration of the specified model.  
----For a full list, see here: pastebin.com/GaN6vT4R  
----```
+---Returns the acceleration of the specified model.
 ---@param modelHash integer | string
 ---@return number
 function GetVehicleModelAcceleration(modelHash) end
@@ -1849,13 +2108,15 @@ function GetVehicleModelAcceleration(modelHash) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x53409B5163D5B846)  
 ---```
----GET_VEHICLE_MODEL_*  
----9.8 * thrust if air vehicle, else 0.38 + drive force?  
----For a full list, see here: pastebin.com/bJQeDqNd  
+---GET_VEHICLE_MODEL_*
+---9.8 * thrust if air vehicle, else 0.38 + drive force?
 ---```
 ---@param modelHash integer | string
 ---@return number
-function GetVehicleModelDownForce(modelHash) end
+function GetVehicleModelEstimatedAgility(modelHash) end
+
+---@deprecated
+GetVehicleModelDownForce = GetVehicleModelEstimatedAgility
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF417C2502FFFED43)  
@@ -1872,8 +2133,7 @@ GetVehicleModelMaxSpeed = GetVehicleModelEstimatedMaxSpeed
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDC53FD41B4ED944C)  
 ---```
----Returns max braking of the specified vehicle model.  
----For a full list, see here: pastebin.com/3N8DVbpG  
+---Returns max braking of the specified vehicle model.
 ---```
 ---@param modelHash integer | string
 ---@return number
@@ -1881,11 +2141,7 @@ function GetVehicleModelMaxBraking(modelHash) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBFBA3BA79CFF7EBF)  
----```
----max braking if air vehicle, else max braking + 0.1  
-----------------------  
----For a full list, see here: pastebin.com/Cb9L1Cn0  
----```
+---This native does not have an official description.
 ---@param modelHash integer | string
 ---@return number
 function GetVehicleModelMaxBrakingMaxMods(modelHash) end
@@ -1896,9 +2152,8 @@ GetVehicleModelHandBrake = GetVehicleModelMaxBrakingMaxMods
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC6AD107DDC9054CC)  
 ---```
----GET_VEHICLE_MODEL_*  
----Function pertains only to aviation vehicles.  
----For a full list, see here: pastebin.com/JwuGNp2K  
+---GET_VEHICLE_MODEL_*
+---Function pertains only to aviation vehicles.
 ---```
 ---@param modelHash integer | string
 ---@return number
@@ -1907,29 +2162,16 @@ function GetVehicleModelMaxKnots(modelHash) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x539DE94D44FDFD0D)  
 ---```
----Returns max traction of the specified vehicle model.  
----For a full list, see here: pastebin.com/ERnntVjK  
+---Returns max traction of the specified vehicle model.
 ---```
 ---@param modelHash integer | string
 ---@return number
 function GetVehicleModelMaxTraction(modelHash) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5AA3F878A178C4FC)  
----```
----GET_VEHICLE_MODEL_*  
----called if the vehicle is a boat -- returns vecMoveResistanceX?  
----For a full list, see here: pastebin.com/Pyb2RhZ9  
----```
----@param modelHash integer | string
----@return number
-function GetVehicleModelMoveResistance(modelHash) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2AD93716F184EDA4)  
 ---```
----Returns max number of passengers (including the driver) for the specified vehicle model.  
----For a full list, see here: pastebin.com/MdETCS1j  
+---Returns max number of passengers (including the driver) for the specified vehicle model.
 ---```
 ---@param modelHash integer | string
 ---@return integer
@@ -1939,18 +2181,26 @@ function GetVehicleModelNumberOfSeats(modelHash) end
 GetVehicleModelMaxNumberOfPassengers = GetVehicleModelNumberOfSeats
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5873C14A52D74236)  
+---```
+---Returns `nMonetaryValue` from handling.meta for specific model, which is the vehicle's monetary value.
+---```
+---@param vehicleModel integer | string
+---@return integer
+function GetVehicleModelValue(vehicleModel) end
+
+---@deprecated
+GetVehicleModelMonetaryValue = GetVehicleModelValue
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4593CF82AA179706)  
 ---```
----Can be used for IS_DLC_VEHICLE_MOD and _0xC098810437312FFF  
----```
----
----```
----NativeDB Return Type: Hash
+---Can be used for IS_DLC_VEHICLE_MOD and _0xC098810437312FFF
 ---```
 ---@param vehicle integer
 ---@param modType integer
 ---@param modIndex integer
----@return any
+---@return integer
 function GetVehicleModIdentifierHash(vehicle, modType, modIndex) end
 
 ---@deprecated
@@ -1976,13 +2226,13 @@ function GetVehicleModKitType(vehicle) end
 ---@param vehicle integer
 ---@param modType integer
 ---@param modIndex integer
----@return number
+---@return integer
 function GetVehicleModModifierValue(vehicle, modType, modIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB3924ECD70E095DC)  
 ---```
----Returns true if the wheels are custom wheels  
+---Only used for wheels(ModType = 23/24) Returns true if the wheels are custom wheels
 ---```
 ---@param vehicle integer
 ---@param modType integer
@@ -1991,19 +2241,16 @@ function GetVehicleModVariation(vehicle, modType) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7619EEE8C886757F)  
----```
----Gets the color of the neon lights of the specified vehicle.  
----See _SET_VEHICLE_NEON_LIGHTS_COLOUR (0x8E0A582209A62695) for more information  
----```
+---Gets the color of the neon lights of the specified vehicle.
+---
+---See [`_SET_VEHICLE_NEON_LIGHTS_COLOUR`](#\_0x8E0A582209A62695) for more information
 ---@param vehicle integer
 ---@return integer, integer, integer
 function GetVehicleNeonLightsColour(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C8CBFE1EA5FC631)  
----```
----GET_VEHICLE_NUMBER_*
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@return integer
 function GetVehicleNumberOfBrokenBones(vehicle) end
@@ -2011,8 +2258,7 @@ function GetVehicleNumberOfBrokenBones(vehicle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x42A4BEB35D372407)  
 ---```
----GET_VEHICLE_NUMBER_*
----Also includes 'turnOffBones' when vehicle mods are installed.
+---Also includes some "turnOffBones" when vehicle mods are installed.
 ---```
 ---@param vehicle integer
 ---@return integer
@@ -2038,14 +2284,23 @@ function GetVehicleNumberPlateText(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF11BC2DD9A3E7195)  
----```
----Returns the PlateType of a vehicle  
----Blue_on_White_1 = 3,  
----Blue_on_White_2 = 0,  
----Blue_on_White_3 = 4,  
----Yellow_on_Blue = 2,  
----Yellow_on_Black = 1,  
----North_Yankton = 5,  
+---```cpp
+---enum eVehiclePlateIndicies {
+---	SanAndreasCursive = 0,
+---	SanAndreasBlack = 1,
+---	SanAndreasBlue = 2,
+---	SanAndreasPlain = 3,
+---	SRExcept = 4,
+---	NorthYankton = 5,
+---	// All indicies below this require b3095
+---	ECola = 6,
+---	LasVenturas = 7,
+---	LiberyCity = 8,
+---	LSCarMeet = 9,
+---	LSPanic = 10,
+---	LSPounders = 11,
+---	Sprunk = 12,
+---}
 ---```
 ---@param vehicle integer
 ---@return integer
@@ -2063,23 +2318,35 @@ function GetVehiclePetrolTankHealth(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9CCC9525BF2408E0)  
----This native does not have an official description.
+---Returns the plates a vehicle has.
+---
+---```cpp
+---enum eVehiclePlateType
+---{
+---	VPT_FRONT_AND_BACK_PLATES = 0,
+---	VPT_FRONT_PLATES = 1,
+---	VPT_BACK_PLATES = 2,
+---	VPT_NONE = 3,
+---};
+---```
+---
+---Motorcycles with no visible plates will sometimes return a 2 for unknown reasons.
 ---@param vehicle integer
 ---@return integer
 function GetVehiclePlateType(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x21543C612379DB3C)  
----This native does not have an official description.
----@param p0 integer
----@param p1 string
+---See [`REQUEST_VEHICLE_RECORDING`](#\_0xAF514CABE74CBF15).
+---@param recording integer
+---@param script string
 ---@return integer
-function GetVehicleRecordingId(p0, p1) end
+function GetVehicleRecordingId(recording, script) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x60190048C0764A26)  
 ---Returns index of the current vehicle's rooftop livery.
----A getter for [\_SET_VEHICLE_ROOF_LIVERY](#_0xA6D3A8750DC73270).
+---A getter for [\_SET_VEHICLE_ROOF_LIVERY](#\_0xA6D3A8750DC73270).
 ---@param vehicle integer
 ---@return integer
 function GetVehicleRoofLivery(vehicle) end
@@ -2147,18 +2414,28 @@ function GetVehicleWeaponCapacity(vehicle, weaponIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB3ED1BFB4BE636DC)  
----```
----Returns an int  
----Wheel Types:  
----0: Sport  
----1: Muscle  
----2: Lowrider  
----3: SUV  
----4: Offroad  
----5: Tuner  
----6: Bike Wheels  
----7: High End  
----Tested in Los Santos Customs  
+---```cpp
+---enum eVehicleWheelType
+---{
+---    VWT_SPORT = 0,
+---    VWT_MUSCLE = 1,
+---    VWT_LOWRIDER = 2,
+---    VWT_SUV = 3,
+---    VWT_OFFROAD = 4,
+---    VWT_TUNER = 5,
+---    VWT_BIKE = 6,
+---    VWT_HIEND = 7,
+---    // Benny's Original
+---    VWT_SUPERMOD1 = 8,
+---    // Benny's Bespoke
+---    VWT_SUPERMOD2 = 9,
+---    // Open Wheel
+---    VWT_SUPERMOD3 = 10,
+---    // Street
+---    VWT_SUPERMOD4 = 11,
+---    // Track
+---    VWT_SUPERMOD5 = 12,
+---};
 ---```
 ---@param vehicle integer
 ---@return integer
@@ -2173,36 +2450,44 @@ function GetVehicleWindowTint(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3DFF319A831E0CDB)  
----Returns the headlight color index from the vehicle. Value between 0, 12.
----Use [\_SET_VEHICLE_HEADLIGHTS_COLOUR](#_0xE41033B25D003A07) to set the headlights color for the vehicle.
----Must enable xenon headlights before it'll take affect.
+---Use [\_SET_VEHICLE_HEADLIGHTS_COLOUR](#\_0xE41033B25D003A07) to set the headlights color for the vehicle.
 ---
----List of colors and ids:
+---You must enable xenon headlights for this native to work properly.
 ---
----```
----enum headlightColors {
----    Default = -1,
+---```cpp
+---enum eHeadlightColors {
+---    Default = 255,
 ---    White = 0,
 ---    Blue = 1,
----    Electric_Blue = 2,
----    Mint_Green = 3,
----    Lime_Green = 4,
+---    ElectricBlue = 2,
+---    MintGreen = 3,
+---    LimeGreen = 4,
 ---    Yellow = 5,
----    Golden_Shower = 6,
+---    GoldenShower = 6,
 ---    Orange = 7,
 ---    Red = 8,
----    Pony_Pink = 9,
----    Hot_Pink = 10,
+---    PonyPink = 9,
+---    HotPink = 10,
 ---    Purple = 11,
 ---    Blacklight = 12
 ---}
 ---```
 ---@param vehicle integer
 ---@return integer
-function GetVehicleXenonLightsColour(vehicle) end
+function GetVehicleXenonLightsColor(vehicle) end
 
 ---@deprecated
-GetVehicleHeadlightsColour = GetVehicleXenonLightsColour
+GetVehicleHeadlightsColour = GetVehicleXenonLightsColor
+---@deprecated
+GetVehicleXenonLightsColour = GetVehicleXenonLightsColor
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x91D6DD290888CBAB)  
+---```
+---HAS_*
+---```
+---@return boolean
+function HasFilledVehiclePopulation() end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x06F43E5175EB6D96)  
@@ -2227,9 +2512,20 @@ function HasVehiclePhoneExplosiveDevice() end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x300D614A4C785FC4)  
 ---This native does not have an official description.
----@param p0 any
----@return boolean, any
-function HasVehicleRecordingBeenLoaded(p0) end
+---@param recording integer
+---@param script string
+---@return boolean
+function HasVehicleRecordingBeenLoaded(recording, script) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9A83F5F9963775EF)  
+---This native does not have an official description.
+---@param vehicle integer
+---@return boolean
+function HaveVehicleModsStreamedIn(vehicle) end
+
+---@deprecated
+IsVehicleModLoadDone = HaveVehicleModsStreamedIn
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAE71FB656C600587)  
@@ -2241,14 +2537,28 @@ function HasVehicleRecordingBeenLoaded(p0) end
 function HideVehicleTombstone(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x48ADC8A773564670)  
+---This native does not have an official description.
+function InstantlyFillVehiclePopulation() end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x62CA17B74C435651)  
+---This native does not have an official description.
+---@param vehicle integer
+---@return boolean
+function IsAnyEntityAttachedToHandlerFrame(vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x291E373D483E7EE7)  
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@return boolean
-function IsAnyPassengerRappelingFromVehicle(vehicle) end
+function IsAnyPedRappellingFromHeli(vehicle) end
 
 ---@deprecated
-AnyPassengersRappeling = IsAnyPassengerRappelingFromVehicle
+AnyPassengersRappeling = IsAnyPedRappellingFromHeli
+---@deprecated
+IsAnyPassengerRappelingFromVehicle = IsAnyPedRappellingFromHeli
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x61E1DD6125A3EEE6)  
@@ -2269,12 +2579,19 @@ function IsBigVehicle(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB0AD1238A709B1A2)  
+---Checks if a boat is currently anchored.
+---
+---This native is a getter for [SET_BOAT_ANCHOR](#\_0x75DBEC174AEEAD10).
+---
 ---```
----IS_*
+---NativeDB Introduced: v573
 ---```
----@param vehicle integer
+---@param boat integer
 ---@return boolean
-function IsBoatAnchoredAndFrozen(vehicle) end
+function IsBoatAnchored(boat) end
+
+---@deprecated
+IsBoatAnchoredAndFrozen = IsBoatAnchored
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7EEF65D5F153E26A)  
@@ -2333,10 +2650,36 @@ function IsHeliLandingAreaBlocked(vehicle) end
 function IsHeliPartBroken(vehicle, p1, p2, p3) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xAD464F2E18836BFC)  
+---```
+---NativeDB Introduced: v2372
+---```
+---@param vehicle integer
+---@return boolean
+function IsMissionTrain(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x491E822B2C464FE4)  
+---```
+---NativeDB Introduced: 3095
+---```
+---
+---Determines if the nitrous is currently activated in the specified vehicle.
+---@param vehicle integer
+---@return boolean
+function IsNitrousActive(vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB09D25E77C33EB3F)  
+---This native does not have an official description.
+---@param ped integer
+---@param vehicle integer
+---@return boolean, integer
+function IsPedExclusiveDriverOfVehicle(ped, vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4198AB0022B15F87)  
----```
----Vehicle has landing gear?  
----```
+---This native does not have an official description.
 ---@param plane integer
 ---@return boolean
 function IsPlaneLandingGearIntact(plane) end
@@ -2360,11 +2703,9 @@ function IsPlaybackUsingAiGoingOnForVehicle(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF7F203E31F96F6A1)  
----```
----NativeDB Parameter 1: int seatIndex
----```
+---This native does not have an official description.
 ---@param vehicle integer
----@param seatIndex boolean
+---@param seatIndex integer
 ---@return boolean
 function IsSeatWarpOnly(vehicle, seatIndex) end
 
@@ -2384,9 +2725,7 @@ function IsThisModelABicycle(model) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB50C0B0CEDC6CE84)  
----```
----Returns true if the model is motorcycle or bycicle.  
----```
+---This native does not have an official description.
 ---@param model integer | string
 ---@return boolean
 function IsThisModelABike(model) end
@@ -2417,8 +2756,7 @@ function IsThisModelAHeli(model) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9537097412CF75FE)  
 ---```
----Checks if model is a boat, then checks for FLAG_IS_JETSKI.  
----@whoever named this _IS_THIS_MODEL_AN_EMERGENCY_BOAT: please do some tests before naming natives, thanks.  
+---Checks if model is a boat, then checks for FLAG_IS_JETSKI.
 ---```
 ---@param model integer | string
 ---@return boolean
@@ -2438,10 +2776,8 @@ function IsThisModelAnAmphibiousCar(model) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA1A9FC1C76A6730D)  
----```
----NativeDB Parameter 0: Hash model
----```
----@param model any
+---This native does not have an official description.
+---@param model integer | string
 ---@return boolean
 function IsThisModelAnAmphibiousQuadbike(model) end
 
@@ -2484,14 +2820,15 @@ function IsTurretSeat(vehicle, seatIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x52F357A30698BCCE)  
+---Determines if a vehicle is a convertible with an animatable roof. This native checks if the specified vehicle model features a convertible roof that can be lowered or raised through an animation.
+---
 ---```
----p1 is false almost always.  
----However, in launcher_carwash/carwash1/carwash2 scripts, p1 is true and is accompanied by DOES_VEHICLE_HAVE_ROOF  
+---NativeDB Introduced: v323
 ---```
 ---@param vehicle integer
----@param p1 boolean
+---@param checkRoofExtras boolean
 ---@return boolean
-function IsVehicleAConvertible(vehicle, p1) end
+function IsVehicleAConvertible(vehicle, checkRoofExtras) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4319E335B71FFF34)  
@@ -2520,21 +2857,28 @@ function IsVehicleAttachedToTowTruck(towTruck, vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE7CF3C4F9F489F0C)  
----```
----Public Function isVehicleAttachedToTrailer(vh As Vehicle) As Boolean  
----Return Native.Function.Call(Of Boolean)(Hash.IS_VEHICLE_ATTACHED_TO_TRAILER, vh)  
----		    End Function  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleAttachedToTrailer(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC69BB1D832A710EF)  
+---```
+---Returns true if vehicle is halted by BRING_VEHICLE_TO_HALT
+---_IS_VEHICLE_*
+---```
+---
+---```
+---NativeDB Introduced: v1493
+---```
+---@param vehicle integer
+---@return boolean
+function IsVehicleBeingHalted(vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x27B926779DEB502D)  
----```
----IS_VEHICLE_BUMPER_HANGING_OFF  
----Not sure what the actual name is but this checks if the bumper of a vehicle is hanging off. It will return true if it is hanging, false if it falls off and false if it is not hanging off.  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param frontBumper boolean
 ---@return boolean
@@ -2551,7 +2895,8 @@ function IsVehicleBumperBrokenOff(vehicle, front) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBCDC5017D3CE1E9E)  
 ---```
----Appears to return true if the vehicle has any damage, including cosmetically.  
+---Appears to return true if the vehicle has any damage, including cosmetically.
+---GET_*
 ---```
 ---@param vehicle integer
 ---@return boolean
@@ -2559,9 +2904,7 @@ function IsVehicleDamaged(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB8E181E559464527)  
----```
----doorID starts at 0, not seeming to skip any numbers. Four door vehicles intuitively range from 0 to 3.  
----```
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param veh integer
 ---@param doorID integer
 ---@return boolean
@@ -2569,14 +2912,7 @@ function IsVehicleDoorDamaged(veh, doorID) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3E933CFF7B111C22)  
----doorIndex:
----0 = Front Left Door  
----1 = Front Right Door  
----2 = Back Left Door  
----3 = Back Right Door  
----4 = Hood  
----5 = Trunk  
----6 = Trunk2
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param vehicle integer
 ---@param doorIndex integer
 ---@return boolean
@@ -2596,29 +2932,11 @@ function IsVehicleDriveable(vehicle, isOnFireCheck) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEC69ADF931AAE0C3)  
 ---Only ever used once in decompiled scripts: **am_pi_menu**:
----Returns true if the engine is on fire, or if the vehicle engine health is &lt; 0 and it **has been** on fire.
+---Returns true if the engine is on fire, or if the vehicle engine health is < 0 and it **has been** on fire.
 ---
 ---It sometimes doesn't return true when the vehicle engine has been on fire, and has since been fixed. I'm not really sure what the exact conditions are.
 ---
 ---This usually returns true even if there are no visible flames yet (engine health > 0). However if you monitor engine health you'll see that it starts decreasing as soon as this returns true.
----
----```
----if (((ENTITY::DOES_ENTITY_EXIST(Global_1281959) && !ENTITY::IS_ENTITY_DEAD(Global_1281959, 0)) && func_1545(Global_1281959)) && !func_205(PLAYER::PLAYER_ID()))
----{
----    if (VEHICLE::GET_VEHICLE_ENGINE_HEALTH(Global_1281959) > 0f && VEHICLE::GET_IS_VEHICLE_ENGINE_RUNNING(Global_1281959))
----    {
----        bVar0 = true;
----    }
----    else
----    {
----        bVar0 = false;
----    }
----    if (VEHICLE::_0xEC69ADF931AAE0C3(Global_1281959)) // _IS_VEHICLE_ENGINE_ON_FIRE
----    {
----        bVar0 = false;
----    }
----}
----```
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleEngineOnFire(vehicle) end
@@ -2654,13 +2972,24 @@ function IsVehicleInBurnout(vehicle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCEE4490CD57BB3C2)  
 ---```
----garageName example "Michael - Beverly Hills"  
----For a full list, see here: pastebin.com/73VfwsmS  
+---garageName example "Michael - Beverly Hills"
 ---```
 ---@param garageName string
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleInGarageArea(garageName, vehicle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA77DC70BD689A1E5)  
+---```
+---NativeDB Introduced: v1290
+---```
+---@param vehicle integer
+---@return boolean
+function IsVehicleInSubmarineMode(vehicle) end
+
+---@deprecated
+GetIsSubmarineVehicleTransformed = IsVehicleInSubmarineMode
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x423E8DE37D934D89)  
@@ -2671,14 +3000,19 @@ function IsVehicleInGarageArea(garageName, vehicle) end
 function IsVehicleModel(vehicle, model) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x9A83F5F9963775EF)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x00834EAC4A96E010)  
 ---```
----Returns whether or not the vehicle has a CVehicleStreamRequestGfx that's trying to load mods.  
----True if it isn't loading mods, false if it is.  
+---mpsum2_g9ec
+---```
+---
+---```
+---NativeDB Introduced: v2699
 ---```
 ---@param vehicle integer
+---@param modType integer
+---@param modIndex integer
 ---@return boolean
-function IsVehicleModLoadDone(vehicle) end
+function IsVehicleModHswExclusive(vehicle, modType, modIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8C4B92553E4766A5)  
@@ -2706,6 +3040,13 @@ function IsVehicleNeonLightEnabled(vehicle, index) end
 function IsVehicleOnAllWheels(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3DE51E9C80B116CF)  
+---Does not work for vehicle of type: CBike, CBmx, CBoat, CTrain, CSubmarine.
+---@param vehicle integer
+---@return boolean
+function IsVehicleParachuteActive(vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3D34E80EED4AE3BE)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -2722,16 +3063,43 @@ function IsVehicleRocketBoostActive(vehicle) end
 function IsVehicleSearchlightOn(vehicle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x22AC59A870E6A669)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x639431E895B9AA57)  
 ---```
----Has an additional BOOL parameter since version [???].  
----Check if a vehicle seat is free.  
-----1 being the driver seat.  
----Use GET_VEHICLE_MAX_NUMBER_OF_PASSENGERS(vehicle) - 1 for last seat index.  
+---Check if a vehicle seat is accessible. If you park your vehicle near a wall and the ped cannot enter/exit this side, the return value toggles from true (not blocked) to false (blocked).
+---side = only relevant for bikes/motorcycles to check if the left (false)/right (true) side is blocked.
+---onEnter = check if you can enter (true) or exit (false) a vehicle.
+---```
+---@param ped integer
+---@param vehicle integer
+---@param seatIndex integer
+---@param side boolean
+---@param onEnter boolean
+---@return boolean
+function IsVehicleSeatAccessible(ped, vehicle, seatIndex, side, onEnter) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x22AC59A870E6A669)  
+---Seat indices range from -1 to [`GET_VEHICLE_MAX_NUMBER_OF_PASSENGERS`](#\_0xA7C4F2C6E744A550) minus one.
+---
+---```cpp
+---// CTaskExitVehicleSeat::eSeatPosition - 1
+---enum eSeatPosition
+---{
+---    SF_FrontDriverSide = -1,
+---    SF_FrontPassengerSide = 0,
+---    SF_BackDriverSide = 1,
+---    SF_BackPassengerSide = 2,
+---    SF_AltFrontDriverSide = 3,
+---    SF_AltFrontPassengerSide = 4,
+---    SF_AltBackDriverSide = 5,
+---    SF_AltBackPassengerSide = 6,
+---};
 ---```
 ---
 ---```
----NativeDB Added Parameter 3: BOOL p2
+---NativeDB Added Parameter 3: BOOL isTaskRunning
+---
+---isTaskRunning = on true the function returns already false while a task on the target seat is running (TASK_ENTER_VEHICLE/TASK_SHUFFLE_TO_NEXT_VEHICLE_SEAT) - on false only when a ped is finally sitting in the seat.
 ---```
 ---@param vehicle integer
 ---@param seatIndex integer
@@ -2750,7 +3118,7 @@ IsVehicleSirenSoundOn = IsVehicleSirenAudioOn
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4C9BF537BE2634B2)  
----This native does not have an official description.
+---Returns whether the vehicle's lights and sirens are on.
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleSirenOn(vehicle) end
@@ -2765,7 +3133,7 @@ function IsVehicleSlipstreamLeader(vehicle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8D474C8FAEFF6CDE)  
 ---```
----Checks for FLAG_NO_RESPRAY  
+---Returns false if the vehicle has the FLAG_NO_RESPRAY flag set.
 ---```
 ---@param vehicle integer
 ---@return boolean
@@ -2783,16 +3151,17 @@ function IsVehicleStolen(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5721B434AD84D57A)  
----This native does not have an official description.
+---```
+---Returns true if the vehicle's current speed is less than, or equal to 0.0025f.
+---For some vehicles it returns true if the current speed is <= 0.00039999999.
+---```
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleStopped(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2959F696AE390A99)  
----```
----is this for red lights only?  more testing required.  
----```
+---This native checks if the given vehicle is stopped at a red or amber traffic light junction, provided the driver's personality is set to not run amber lights.
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleStoppedAtTrafficLights(vehicle) end
@@ -2817,48 +3186,56 @@ function IsVehicleStuckTimerUp(vehicle, p1, p2) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA291848A0815CA9)  
----```
----wheelID used for 4 wheelers seem to be (0, 1, 4, 5)  
----completely - is to check if tire completely gone from rim.  
----'0 = wheel_lf / bike, plane or jet front  
----'1 = wheel_rf  
----'2 = wheel_lm / in 6 wheels trailer, plane or jet is first one on left  
----'3 = wheel_rm / in 6 wheels trailer, plane or jet is first one on right  
----'4 = wheel_lr / bike rear / in 6 wheels trailer, plane or jet is last one on left  
----'5 = wheel_rr / in 6 wheels trailer, plane or jet is last one on right  
----'45 = 6 wheels trailer mid wheel left  
----'47 = 6 wheels trailer mid wheel right  
+---```cpp
+---enum eVehicleWheels
+---{
+---	WHEEL_LF = 0, // Vehicle Left front
+---	WHEEL_RF = 1, // Vehicle Right front
+---	WHEEL_LM = 2, // Vehicle Left middle
+---	WHEEL_RM = 3, // Vehicle Right middle
+---	WHEEL_LR = 4, // Vehicle Left rear
+---	WHEEL_RR = 5, // Vehicle Right rear
+---	WHEEL_BF = 6, // Bike front
+---	WHEEL_BR = 7, // Bike rear
+---	MAX_WHEELS = 8
+---};
 ---```
 ---@param vehicle integer
 ---@param wheelID integer
----@param completely boolean
+---@param isBurstToRim boolean
 ---@return boolean
-function IsVehicleTyreBurst(vehicle, wheelID, completely) end
+function IsVehicleTyreBurst(vehicle, wheelID, isBurstToRim) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA0A52D24FB98293)  
----```
----must be called after TRACK_VEHICLE_VISIBILITY   
----it's not instant so probabilly must pass an 'update' to see correct result.  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleVisible(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x563B65A643ED072E)  
----```
----NativeDB Parameter 0: Hash weaponHash
----```
----@param weaponHash any
+---This native does not have an official description.
+---@param weaponHash integer | string
 ---@param vehicle integer
 ---@param owner integer
----@return any
+---@return boolean
 function IsVehicleWeaponDisabled(weaponHash, vehicle, owner) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x46E571A0E20D01F1)  
----This native does not have an official description.
+---```cpp
+---enum eWindowId {
+---	VEH_EXT_WINDOW_LF = 0,
+---	VEH_EXT_WINDOW_RF = 1,
+---	VEH_EXT_WINDOW_LR = 2,
+---	VEH_EXT_WINDOW_RR = 3,
+---	VEH_EXT_WINDOW_LM = 4,
+---	VEH_EXT_WINDOW_RM = 5,
+---	VEH_EXT_WINDSCREEN = 6,
+---	VEH_EXT_WINDSCREEN_R = 7,
+---}
+---```
 ---@param vehicle integer
 ---@param windowIndex integer
 ---@return boolean
@@ -2866,7 +3243,13 @@ function IsVehicleWindowIntact(vehicle, windowIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDED51F703D0FA83D)  
----This native does not have an official description.
+---Lowers the roof on a convertible vehicle, utilizing any available animations for the action. This native is particularly useful for creating a realistic interaction with convertible vehicles by animating the process of lowering the roof.
+---
+---You can check if the vehicle has an convertible roof using [`IS_VEHICLE_A_CONVERTIBLE`](#\_0x52F357A30698BCCE).
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param vehicle integer
 ---@param instantlyLower boolean
 function LowerConvertibleRoof(vehicle, instantlyLower) end
@@ -2879,17 +3262,7 @@ function LowerRetractableWheels(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x93A3996368C94158)  
----```
----Vehicle power multiplier.  
----Does not have to be looped each frame. Can be set once.  
----Values lower than 1f don't work.  
----Note: If the value is set with GET_RANDOM_FLOAT_IN_RANGE, the vehicle will have an absurdly high ammount of power, and will become almost undrivable for the player or NPCs. The range doesn't seem to matter.  
----An high value like 10000000000f will visually remove the wheels that apply the power (front wheels for FWD, rear wheels for RWD), but the power multiplier will still apply, and the wheels still work.  
----------  
----value is a percentage bump which affects directly the parameter known as fInitialDriveForce in handling.meta. For example:  
----VEHICLE::_SET_VEHICLE_ENGINE_POWER_MULTIPLIER(myVehicle, 30.0)  
----will have this effect: DriveForce *= 1.3  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param value number
 function ModifyVehicleTopSpeed(vehicle, value) end
@@ -2902,9 +3275,9 @@ SetVehicleEnginePowerMultiplier = ModifyVehicleTopSpeed
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param p0 any
----@param p1 any
-function N_0x0205f5365292d2eb(p0, p1) end
+---@param vehicle integer
+---@param p1 number
+function N_0x0205f5365292d2eb(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0419B167EE128F33)  
@@ -2927,10 +3300,12 @@ function N_0x0581730ab9380412(p0, p1, p2, p3, p4, p5) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x063AE2B2CC273588)  
----This native does not have an official description.
----@param p0 any
+---```
+---A vehicle recording playback flag only used in jewelry_heist
+---```
+---@param vehicle integer
 ---@param p1 boolean
-function N_0x063ae2b2cc273588(p0, p1) end
+function N_0x063ae2b2cc273588(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x065D03A9D6B2C6B5)  
@@ -2940,61 +3315,12 @@ function N_0x063ae2b2cc273588(p0, p1) end
 function N_0x065d03a9d6b2c6b5(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0A3F820A9A9A9AC5)  
----```
----NativeDB Introduced: v1180
----```
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
-function N_0x0a3f820a9a9a9ac5(p0, p1, p2, p3) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0A436B8643716D14)  
----```
----CLEAR_VEHICLE_*
----```
-function N_0x0a436b8643716d14() end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0AD9E8F87FF7C16F)  
----This native does not have an official description.
----@param p0 any
----@param p1 boolean
-function N_0x0ad9e8f87ff7c16f(p0, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0BBB9A7A8FFE931B)  
----```
----NativeDB Introduced: v1290
----```
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0x0bbb9a7a8ffe931b(p0, p1, p2) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0F3B4D4E43177236)  
----This native does not have an official description.
----@param p0 any
----@param p1 boolean
-function N_0x0f3b4d4e43177236(p0, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x107A473D7A6647A9)  
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param p0 any
-function N_0x107a473d7a6647a9(p0) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1093408B4B9D1146)  
----This native does not have an official description.
 ---@param vehicle integer
----@param p1 number
-function N_0x1093408b4b9d1146(vehicle, p1) end
+function N_0x107a473d7a6647a9(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1312DDD8385AEE4E)  
@@ -3011,43 +3337,12 @@ function N_0x1312ddd8385aee4e(p0, p1) end
 function N_0x182f266c2d9e2beb(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1B212B26DD3C04DF)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2310A8F9421EBF43)  
 ---```
----Sets a value that appears to affect door opening behavior when damaged.
----
----SET_*
+---NativeDB Introduced: v2372
 ---```
----@param vehicle integer
----@param toggle boolean
-function N_0x1b212b26dd3c04df(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1F2E4E06DEA8992B)  
----This native does not have an official description.
----@param vehicle integer
----@param p1 boolean
-function N_0x1f2e4e06dea8992b(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1F34B0626C594380)  
----This native does not have an official description.
 ---@param p0 any
----@param p1 any
-function N_0x1f34b0626c594380(p0, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1F9FB66F3A3842D2)  
----This native does not have an official description.
----@param vehicle integer
----@param p1 boolean
-function N_0x1f9fb66f3a3842d2(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x22FECB546C276A30)  
----Probably GET_VEHICLE_SOMETHING
----@param vehicle integer
----@return boolean
-function N_0x22fecb546c276a30(vehicle) end
+function N_0x2310a8f9421ebf43(p0) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2311DD7159F00582)  
@@ -3055,43 +3350,6 @@ function N_0x22fecb546c276a30(vehicle) end
 ---@param vehicle integer
 ---@param p1 boolean
 function N_0x2311dd7159f00582(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2467A2D807D37CA3)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x2467a2d807d37ca3(p0) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x26D99D5A82FD18E8)  
----This native does not have an official description.
----@param p0 any
-function N_0x26d99d5a82fd18e8(p0) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x26E13D440E7F6064)  
----```
----NativeDB Introduced: v1290
----```
----@param vehicle integer
----@param value number
-function N_0x26e13d440e7f6064(vehicle, value) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2A86A0475B6A1434)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x2a86a0475b6a1434(p0, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2C1D8B3B19E517CC)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x2c1d8b3b19e517cc(p0, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C4A1590ABF43E8B)  
@@ -3140,35 +3398,14 @@ function N_0x35e0654f4bad7971(p0) end
 function N_0x36de109527a2c0c4(toggle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x3A9128352EAC9E85)  
----```
----NativeDB Introduced: v1290
----```
----@param p0 any
----@return any
-function N_0x3a9128352eac9e85(p0) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3B458DDB57038F08)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0x3b458ddb57038f08(p0, p1, p2) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x3DE51E9C80B116CF)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x3de51e9c80b116cf(p0) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x4056EA1105F5ABD7)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x4056ea1105f5abd7(p0, p1) end
+---```
+---Usually used alongside other vehicle door natives.
+---```
+---@param vehicle integer
+---@param doorIndex integer
+---@param toggle boolean
+function N_0x3b458ddb57038f08(vehicle, doorIndex, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x407DC5E97DB1A4D3)  
@@ -3214,19 +3451,13 @@ function N_0x430a7631a84c9be7(p0) end
 function N_0x4419966c9936071a(vehicle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x48ADC8A773564670)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4AD280EB48B2D8E6)  
 ---```
----INIT_VISIBLE_LATCH_POPULATION?
+---NativeDB Introduced: v1868
 ---```
-function N_0x48adc8a773564670() end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x4C815EB175086F84)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x4c815eb175086f84(p0, p1) end
+---@param vehicle integer
+---@param togle boolean
+function N_0x4ad280eb48b2d8e6(vehicle, togle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4D9D109F63FEE1D4)  
@@ -3236,13 +3467,6 @@ function N_0x4c815eb175086f84(p0, p1) end
 function N_0x4d9d109f63fee1d4(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x4E74E62E0A97E901)  
----This native does not have an official description.
----@param vehicle integer
----@param p1 boolean
-function N_0x4e74e62e0a97e901(vehicle, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x51DB102F4A3BA5E0)  
 ---This native does not have an official description.
 ---@param toggle boolean
@@ -3250,7 +3474,7 @@ function N_0x51db102f4a3ba5e0(toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x51F30DB60626A20E)  
----Usex in decompiled scripts in combination with [`_GET_VEHICLE_SUSPENSION_BOUNDS`](#_0xDF7E3EEB29642C38).
+---Usex in decompiled scripts in combination with [`_GET_VEHICLE_SUSPENSION_BOUNDS`](#\_0xDF7E3EEB29642C38).
 ---
 ---NativeDB Introduced: v1180
 ---
@@ -3276,29 +3500,10 @@ function N_0x51db102f4a3ba5e0(toggle) end
 ---@param rotX number
 ---@param rotY number
 ---@param rotZ number
----@param p7 any
+---@param p7 integer
 ---@param p8 any
 ---@return boolean
 function N_0x51f30db60626a20e(vehicle, x, y, z, rotX, rotY, rotZ, p7, p8) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x534E36D4DB9ECC5D)  
----```
----NativeDB Introduced: v1493
----```
----@param p0 any
----@param p1 any
----@return any
-function N_0x534e36d4db9ecc5d(p0, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x544996C0081ABDEB)  
----Extends or retracts the wings of an Oppressor.
----
----The extend paremeter is a toggle, so there is no need to loop this native.
----@param vehicle integer
----@param extend boolean
-function N_0x544996c0081abdeb(vehicle, extend) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x56EB5E94318D3FB6)  
@@ -3306,15 +3511,6 @@ function N_0x544996c0081abdeb(vehicle, extend) end
 ---@param vehicle integer
 ---@param p1 boolean
 function N_0x56eb5e94318d3fb6(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x571FEB383F629926)  
----```
----consoel hash 0xAEB29F98  
----```
----@param cargobob integer
----@param p1 boolean
-function N_0x571feb383f629926(cargobob, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5845066D8A1EA7F7)  
@@ -3327,28 +3523,14 @@ function N_0x571feb383f629926(cargobob, p1) end
 function N_0x5845066d8a1ea7f7(vehicle, x, y, z, p4) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5873C14A52D74236)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x5873c14a52d74236(p0) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x59C3757B3B7408E8)  
 ---```
 ---NativeDB Introduced: v1493
 ---```
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0x59c3757b3b7408e8(p0, p1, p2) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5B91B229243351A8)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x5b91b229243351a8(p0, p1) end
+---@param vehicle integer
+---@param toggle boolean
+---@param p2 number
+function N_0x59c3757b3b7408e8(vehicle, toggle, p2) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5BA68A0840D546AC)  
@@ -3383,24 +3565,6 @@ function N_0x5e569ec46ec21cae(vehicle, toggle) end
 function N_0x5ee5632f47ae9695(vehicle, health) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x62CA17B74C435651)  
----This native does not have an official description.
----@param vehicle integer
----@return boolean
-function N_0x62ca17b74c435651(vehicle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x639431E895B9AA57)  
----This native does not have an official description.
----@param ped integer
----@param vehicle integer
----@param p2 boolean
----@param p3 boolean
----@param p4 boolean
----@return boolean
-function N_0x639431e895b9aa57(ped, vehicle, p2, p3, p4) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6501129C9E0FFA05)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -3426,16 +3590,9 @@ function N_0x66e3aaface2d1eb8(p0, p1, p2) end
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param p0 any
----@param p1 any
-function N_0x6a973569ba094650(p0, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x6A98C2ECF57FA5D4)  
----This native does not have an official description.
 ---@param vehicle integer
----@param entity integer
-function N_0x6a98c2ecf57fa5d4(vehicle, entity) end
+---@param p1 any
+function N_0x6a973569ba094650(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6EAAEFC76ACC311F)  
@@ -3453,7 +3610,7 @@ function N_0x6ebfb22d646ffc18(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x725012A415DBA050)  
----Last named native above this one is `TRACK_VEHICLE_VISIBILITY` and first named native below is `UNCUFF_PED`. 
+---Last named native above this one is `TRACK_VEHICLE_VISIBILITY` and first named native below is `UNCUFF_PED`.
 ---Unknown what it does, couldn't find good examples in the decompiled scripts.
 ---@param p0 any
 ---@param p2 any
@@ -3480,19 +3637,6 @@ function N_0x73561d4425a021a2(p0, p1) end
 ---@param vehicle integer
 ---@param toggle boolean
 function N_0x737e398138550fff(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x75627043C6AA90AD)  
----Disables collision for this vehicle (maybe it also supports other entities, not sure).
----Only world/building/fixed world objects will have their collisions disabled, props, peds, or any other entity still collides with the vehicle.
----
----[Example video](https://streamable.com/6n45d5)
----
----Not sure if there is a native (and if so, which one) that resets the collisions.
----
----NativeDB Introduced: v1180
----@param vehicle integer
-function N_0x75627043c6aa90ad(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x76D26A22750E849E)  
@@ -3525,36 +3669,9 @@ function N_0x796a877e459b99ea(p0, p1, p2, p3) end
 function N_0x7bbe7ff626a591fe(p0) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x7C06330BFDDA182E)  
----This native does not have an official description.
----@param p0 any
-function N_0x7c06330bfdda182e(p0) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7D6F9A3EF26136A0)  
 ---```
----what does this native do?  
----Here's some pseudocode of the internal setter function:  
----__int64 __fastcall sub_140CD86B4(signed int vehicle, char a2, char a3)  
----{  
----  char v3; // di@1  
----  char v4; // bl@1  
----  __int64 result; // rax@1  
----  __int16 v6; // cx@3  
----  v3 = a3;  
----  v4 = a2;  
----  result = GetVehicleAddress(vehicle);  
----  if ( result )  
----  {  
----    if ( v3 || (v6 = *(_WORD *)(result + 0xDA), (v6 & 0xFu) - 6 <= 1) )  
----    {  
----      *(_BYTE *)(result + 0x89B) &= 0xDFu;  
----      *(_BYTE *)(result + 0x89B) |= 32 * (v4 & 1);  
----    }  
----  }  
----  return result;  
----}  
----Now it's time for you to find out :P  
+---SET_VEHICLE_AL*
 ---```
 ---@param vehicle integer
 ---@param toggle boolean
@@ -3573,9 +3690,9 @@ function N_0x80e3357fdef45c21(vehicle, toggle) end
 ---```
 ---NativeDB Introduced: v1180
 ---```
----@param p0 any
----@param p1 any
-function N_0x8235f1bead557629(p0, p1) end
+---@param vehicle integer
+---@param toggle boolean
+function N_0x8235f1bead557629(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x82E0AC411E41A5B4)  
@@ -3595,6 +3712,15 @@ function N_0x82e0ac411e41a5b4(toggle) end
 function N_0x8533cafde1f0f336(p0) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8664170EF165C4A6)  
+---```
+---NativeDB Introduced: v2189
+---```
+---@param p0 any
+---@param p1 any
+function N_0x8664170ef165c4a6(p0, p1) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x870B8B7A766615C8)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -3607,17 +3733,17 @@ function N_0x870b8b7a766615c8(p0, p1, p2) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param p0 any
----@param p1 any
-function N_0x8821196d91fa2de5(p0, p1) end
+---@param vehicle integer
+---@param toggle boolean
+function N_0x8821196d91fa2de5(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x887FA38787DE8C72)  
 ---```
 ---NativeDB Introduced: v1365
 ---```
----@param p0 any
-function N_0x887fa38787de8c72(p0) end
+---@param vehicle integer
+function N_0x887fa38787de8c72(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x88BC673CA9E0AE99)  
@@ -3625,13 +3751,6 @@ function N_0x887fa38787de8c72(p0) end
 ---@param vehicle integer
 ---@param p1 boolean
 function N_0x88bc673ca9e0ae99(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x8AA9180DE2FEDD45)  
----This native does not have an official description.
----@param vehicle integer
----@param p1 boolean
-function N_0x8aa9180de2fedd45(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8F0D5BA1C2CC91D7)  
@@ -3642,51 +3761,34 @@ function N_0x8aa9180de2fedd45(vehicle, p1) end
 function N_0x8f0d5ba1c2cc91d7(toggle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x91D6DD290888CBAB)  
----```
----HAS_*
----```
----@return boolean
-function N_0x91d6dd290888cbab() end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x94A68DA412C4007D)  
----```
----NativeDB Introduced: v1180
----```
----@param p0 any
----@param p1 any
-function N_0x94a68da412c4007d(p0, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9640E30A7F395E4B)  
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param p0 any
+---@param vehicle integer
 ---@param p1 any
 ---@param p2 any
 ---@param p3 any
 ---@param p4 any
-function N_0x9640e30a7f395e4b(p0, p1, p2, p3, p4) end
+function N_0x9640e30a7f395e4b(vehicle, p1, p2, p3, p4) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x97841634EF7DF1D6)  
 ---```
 ---NativeDB Introduced: v1180
 ---```
----@param p0 any
----@param p1 any
-function N_0x97841634ef7df1d6(p0, p1) end
+---@param vehicle integer
+---@param toggle boolean
+function N_0x97841634ef7df1d6(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9849DE24FCF23CCC)  
 ---```
 ---NativeDB Introduced: v1604
 ---```
----@param p0 any
----@param p1 any
-function N_0x9849de24fcf23ccc(p0, p1) end
+---@param vehicle integer
+---@param toggle boolean
+function N_0x9849de24fcf23ccc(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x99A05839C46CE316)  
@@ -3705,20 +3807,6 @@ function N_0x99a05839c46ce316(toggle) end
 ---@param p1 number
 ---@param p2 number
 function N_0x99cad8e7afdb60fa(vehicle, p1, p2) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x9A75585FB2E54FAD)  
----```
----Related to car generators & CPlayerSwitchMgrLong: SET_VEHICLE_GENERATORS_EXPECTED_GAMEPLAY_PT ?
----
----Example gotten from chinese2.c4  
----VEHICLE::_9A75585FB2E54FAD(2004.4471435546875, 3076.806640625, 46.60689926147461, 10.0);  
----```
----@param x number
----@param y number
----@param z number
----@param radius number
-function N_0x9a75585fb2e54fad(x, y, z, radius) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9BDDC73CC6A115D4)  
@@ -3750,11 +3838,12 @@ function N_0x9f3f689b814f2599(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA01BC64DD4BFBBAC)  
----This native does not have an official description.
+---Gets hash related to task happening with seat index
+---Native name: GET_I\*
 ---@param vehicle integer
----@param p1 integer
----@return any
-function N_0xa01bc64dd4bfbbac(vehicle, p1) end
+---@param seatIndex integer
+---@return integer
+function N_0xa01bc64dd4bfbbac(vehicle, seatIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA247F9EF01D8082E)  
@@ -3765,15 +3854,14 @@ function N_0xa247f9ef01d8082e(p0) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA4822F1CF23F4810)  
 ---This native does not have an official description.
----@param p1 any
 ---@param p3 any
 ---@param p4 any
 ---@param p5 any
 ---@param p6 any
 ---@param p7 any
 ---@param p8 any
----@return boolean, vector3, vector3
-function N_0xa4822f1cf23f4810(p1, p3, p4, p5, p6, p7, p8) end
+---@return boolean, vector3, vector3, vector3
+function N_0xa4822f1cf23f4810(p3, p4, p5, p6, p7, p8) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA4A9A4C40E615885)  
@@ -3795,9 +3883,9 @@ function N_0xa7dcdf4ded40a8f4(vehicle, p1) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param p0 any
----@param p1 any
-function N_0xaa653ae61924b0a0(p0, p1) end
+---@param vehicle integer
+---@param toggle boolean
+function N_0xaa653ae61924b0a0(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAB04325045427AAE)  
@@ -3828,31 +3916,6 @@ function N_0xae3fee8709b39dcb(vehicle) end
 function N_0xaf60e6a2936f982a(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB088E9A47AE6EDD5)  
----This native does not have an official description.
----@param vehicle integer
----@param p1 boolean
-function N_0xb088e9a47ae6edd5(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB09D25E77C33EB3F)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@return any
-function N_0xb09d25e77c33eb3f(p0, p1, p2) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB264C4D2F2B0A78B)  
----```
----This native doesn't seem to do anything, might be a debug-only native.  
----Confirmed, it is a debug native.  
----```
----@param vehicle integer
-function N_0xb264c4d2f2b0a78b(vehicle) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB2E0C0D6922D31F2)  
 ---```
 ---SET_C*
@@ -3866,9 +3929,9 @@ function N_0xb2e0c0d6922d31f2(vehicle, toggle) end
 ---```
 ---NativeDB Introduced: v1290
 ---```
----@param p0 any
----@param p1 any
-function N_0xb68cfaf83a02768d(p0, p1) end
+---@param vehicle integer
+---@param toggle boolean
+function N_0xb68cfaf83a02768d(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB9562064627FF9DB)  
@@ -3876,13 +3939,6 @@ function N_0xb68cfaf83a02768d(p0, p1) end
 ---@param p0 any
 ---@param p1 any
 function N_0xb9562064627ff9db(p0, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xBA91D045575699AD)  
----This native does not have an official description.
----@param vehicle integer
----@return boolean
-function N_0xba91d045575699ad(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBB2333BB87DDD87F)  
@@ -3907,17 +3963,9 @@ function N_0xbe5c1255a1830ff5(vehicle, toggle) end
 function N_0xc0ed6438e6d39ba8(p0, p1, p2) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xC1F981A6F74F0C23)  
----```
----same call as VEHICLE::_0x0F3B4D4E43177236  
----```
----@param p0 any
----@param p1 boolean
-function N_0xc1f981a6f74f0c23(p0, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC361AA040D6637A8)  
----This native does not have an official description.
+---Vehicle must be a plane.
+---Native name is between SET_VEHICLE_BRAKE_LIGHTS and SET_VEHICLE_BULLDOZER_ARM_POSITION alphabetically.
 ---@param vehicle integer
 ---@param p1 boolean
 function N_0xc361aa040d6637a8(vehicle, p1) end
@@ -3936,49 +3984,6 @@ function N_0xc4b3347bd68bd609(p0) end
 ---@param vehicle integer
 ---@param p1 boolean
 function N_0xc50ce861b55eab8b(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xC60060EB0D8AC7B1)  
----```
----NativeDB Introduced: v1290
----```
----@param p0 any
----@param p1 any
----@param p2 any
-function N_0xc60060eb0d8ac7b1(p0, p1, p2) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xC69BB1D832A710EF)  
----```
----NativeDB Introduced: v1493
----```
----@param p0 any
----@return any
-function N_0xc69bb1d832a710ef(p0) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xCA4AC3EAAE46EC7B)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0xca4ac3eaae46ec7b(p0, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xCAC66558B944DA67)  
----```
----rerere  
----```
----@param vehicle integer
----@param toggle boolean
-function N_0xcac66558b944da67(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xCDA42C4BB9BDE779)  
----Probably SET_VEHICLE_SOMETHING
----@param vehicle integer
----@param p1 boolean
-function N_0xcda42c4bb9bde779(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF9159024555488C)  
@@ -4017,17 +4022,6 @@ function N_0xd3e51c0ab8c26eee(p0, p1) end
 function N_0xd4196117af7bb974(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xD4C4642CB7F50B5D)  
----```
----Only used like this:  
----if (VEHICLE::_D4C4642CB7F50B5D(ENTITY::GET_VEHICLE_INDEX_FROM_ENTITY_INDEX(v_3))) {                                                        sub_157e9c(g_40001._f1868, 0);  
----}  
----```
----@param vehicle integer
----@return boolean
-function N_0xd4c4642cb7f50b5d(vehicle) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD565F438137F0E10)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -4050,7 +4044,7 @@ function N_0xdbc631f109350b8c(vehicle, p1) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDCE97BDF8A0EABC8)  
 ---```
----NativeDB Added Parameter 1: Any p0
+---NativeDB Added Parameter 1: Vehicle vehicle
 ---NativeDB Added Parameter 2: Any p1
 ---```
 function N_0xdce97bdf8a0eabc8() end
@@ -4061,13 +4055,6 @@ function N_0xdce97bdf8a0eabc8() end
 ---@param p0 any
 ---@param p1 boolean
 function N_0xe05dd0e9707003a3(p0, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE16142B94664DEFD)  
----This native does not have an official description.
----@param vehicle integer
----@param p1 boolean
-function N_0xe16142b94664defd(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE2F53F172B45EDE1)  
@@ -4084,15 +4071,6 @@ function N_0xe2f53f172b45ede1() end
 ---@param vehicle integer
 ---@param p1 number
 function N_0xe5810ac70602f2f5(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE6B0E8CFC3633BF0)  
----```
----GET_VEHICLE_*  
----```
----@param vehicle integer
----@return integer
-function N_0xe6b0e8cfc3633bf0(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE851E480B814D4BA)  
@@ -4120,13 +4098,6 @@ function N_0xe8718faf591fd224(vehicle) end
 function N_0xed5ede9e676643c9(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xEDBC8405B3895CC9)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xedbc8405b3895cc9(p0, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEEBFC7A7EFDC35B4)  
 ---```
 ---Some kind of flags.  
@@ -4136,20 +4107,23 @@ function N_0xedbc8405b3895cc9(p0, p1) end
 function N_0xeebfc7a7efdc35b4(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEF9D388F8D377F44)  
+---```
+---Only used in R* Script fm_content_cargo
+---```
+---
+---```
+---NativeDB Introduced: v2699
+---```
+---@param vehicle integer
+---@param p1 boolean
+function N_0xef9d388f8d377f44(vehicle, p1) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF051D9BFB6BA39C0)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0xf051d9bfb6ba39c0(p0) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF0E4BA16D1DB546C)  
----```
----Adds some kind of shadow to the vehicle.  
----```
----@param vehicle integer
----@param p1 integer
----@param p2 integer
-function N_0xf0e4ba16d1db546c(vehicle, p1, p2) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF25E02CB9C5818F8)  
@@ -4165,18 +4139,13 @@ function N_0xf25e02cb9c5818f8() end
 function N_0xf3b0e0aed097a3f5(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF78F94D60248C737)  
----This native does not have an official description.
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF8B49F5BA7F850E7)  
+---```
+---NativeDB Introduced: v2060
+---```
 ---@param vehicle integer
----@param p1 boolean
----@return boolean
-function N_0xf78f94d60248c737(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF87D9F2301F7D206)  
----Remove the weird shadow applied by [0xF0E4BA16D1DB546C](#_0xF0E4BA16D1DB546C).
----@param vehicle integer
-function N_0xf87d9f2301f7d206(vehicle) end
+---@param p1 integer
+function N_0xf8b49f5ba7f850e7(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFAF2A78061FD9EF4)  
@@ -4186,6 +4155,19 @@ function N_0xf87d9f2301f7d206(vehicle) end
 ---@param p2 number
 ---@param p3 number
 function N_0xfaf2a78061fd9ef4(p0, p1, p2, p3) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEC0C1D4922AF9754)  
+---```
+---Implemented only for Trains.
+---```
+---
+---```
+---NativeDB Introduced: v2372
+---```
+---@param vehicle integer
+---@param toggle boolean
+function NetworkUseHighPrecisionVehicleBlending(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x87E7F24270732CB1)  
@@ -4203,6 +4185,15 @@ OpenVehicleBombBay = OpenBombBayDoors
 function PausePlaybackRecordedVehicle(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x6D645D59FB5F5AD3)  
+---Detaches the vehicle's windscreen.
+---@param vehicle integer
+function PopOutVehicleWindscreen(vehicle) end
+
+---@deprecated
+DetachVehicleWindscreen = PopOutVehicleWindscreen
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x758F49C24925568A)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -4212,7 +4203,15 @@ function PreloadVehicleMod(p0, modType, p2) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8F5FB35D7E88FC70)  
----This native does not have an official description.
+---Raises the roof on a convertible vehicle, utilizing any available animations for the action. This native is particularly useful for creating a realistic interaction with convertible vehicles by animating the process of raising the roof.
+---
+---You can check if the vehicle has an convertible roof using [`IS_VEHICLE_A_CONVERTIBLE`](#\_0x52F357A30698BCCE).
+---
+---To lower the convertible roof, you can use [`LOWER_CONVERTIBLE_ROOF`](#\_0xDED51F703D0FA83D).
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param vehicle integer
 ---@param instantlyRaise boolean
 function RaiseConvertibleRoof(vehicle, instantlyRaise) end
@@ -4246,17 +4245,13 @@ RetractCargobobHook = RemovePickUpRopeForCargobob
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1033371FC8E842A7)  
----```
----Used to remove a speedzone.  
----This is the speed zone native.  
----Example usage C#:  
----uint speedZone = Function.Call<uint>((Hash) 0x2CE544C68FB812A0, Game.PlayerPed.Position.X, Game.PlayerPed.Position.Y, Game.PlayerPed.Position.Z, 100.0f, 0.0f, false);  
----bool speedZoneClosed = Function.Call<bool>((Hash) 0x1033371FC8E842A7, speedZone);  
----(Thanks to alexguirre for his help!)  
----```
+---This native does not have an official description.
 ---@param speedzone integer
 ---@return boolean
-function RemoveSpeedZone(speedzone) end
+function RemoveRoadNodeSpeedZone(speedzone) end
+
+---@deprecated
+RemoveSpeedZone = RemoveRoadNodeSpeedZone
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xACE699C71AB9DEB5)  
@@ -4285,10 +4280,10 @@ function RemoveVehicleMod(vehicle, modType) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF1160ACCF98A3FC8)  
----This native does not have an official description.
----@param p0 integer
----@param p1 string
-function RemoveVehicleRecording(p0, p1) end
+---See [REQUEST_VEHICLE_RECORDING](#\_0xAF514CABE74CBF15)
+---@param recording integer
+---@param script string
+function RemoveVehicleRecording(recording, script) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x46A1E1A299EC4BBA)  
@@ -4301,6 +4296,12 @@ function RemoveVehicleRecording(p0, p1) end
 ---@param z2 number
 ---@param unk any
 function RemoveVehiclesFromGeneratorsInArea(x1, y1, z1, x2, y2, z2, unk) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF87D9F2301F7D206)  
+---Remove the weird shadow applied by [\_SET_VEHICLE_SHADOW_EFFECT](#\_0x2A70BAE8883E4C81)
+---@param vehicle integer
+function RemoveVehicleShadowEffect(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8386BFB614D06749)  
@@ -4316,13 +4317,7 @@ function RemoveVehicleUpsidedownCheck(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA711568EEDB43069)  
----```
----windowIndex:  
----0 = Front Right Window  
----1 = Front Left Window  
----2 = Back Right Window  
----3 = Back Left Window  
----```
+---See eWindowId declared in [`IS_VEHICLE_WINDOW_INTACT`](#\_0x46E571A0E20D01F1).
 ---@param vehicle integer
 ---@param windowIndex integer
 function RemoveVehicleWindow(vehicle, windowIndex) end
@@ -4357,11 +4352,13 @@ function RequestVehicleHighDetailModel(vehicle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAF514CABE74CBF15)  
 ---```
----In script files, seen as REQUEST_VEHICLE_RECORDING(1, "FBIs1UBER");  
+---Request the vehicle recording defined by the lowercase format string "%s%03d.yvr". For example, REQUEST_VEHICLE_RECORDING(1, "FBIs1UBER") corresponds to fbis1uber001.yvr.
+---For all vehicle recording/playback natives, "script" is a common prefix that usually corresponds to the script/mission the recording is used in, "recording" is its int suffix, and "id" (e.g., in native GET_TOTAL_DURATION_OF_VEHICLE_RECORDING_ID) corresponds to a unique identifier within the recording streaming module.
+---Note that only 24 recordings (hardcoded in multiple places) can ever active at a given time before clobbering begins.
 ---```
----@param i integer
----@param name string
-function RequestVehicleRecording(i, name) end
+---@param recording integer
+---@param script string
+function RequestVehicleRecording(recording, script) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD7591B0065AFAA7A)  
@@ -4402,20 +4399,9 @@ function ResetVehicleWheels(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7AD9E6CE657D69E3)  
----```
----windowIndex:  
----0 = Front Right Window  
----1 = Front Left Window  
----2 = Back Right Window  
----3 = Back Left Window  
----```
----
----```
----NativeDB Return Type: void
----```
+---See eWindowId declared in [`IS_VEHICLE_WINDOW_INTACT`](#\_0x46E571A0E20D01F1).
 ---@param vehicle integer
 ---@param windowIndex integer
----@return any
 function RollDownWindow(vehicle, windowIndex) end
 
 ---**`VEHICLE` `client`**  
@@ -4428,15 +4414,9 @@ function RollDownWindows(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x602E548F46E24D59)  
----0 = Front Left Window  
----1 = Front Right Window  
----2 = Back Left Window  
----3 = Back Right Window  
----
----NativeDB Return Type: void
+---See eWindowId declared in [`IS_VEHICLE_WINDOW_INTACT`](#\_0x46E571A0E20D01F1).
 ---@param vehicle integer
 ---@param windowIndex integer
----@return any
 function RollUpWindow(vehicle, windowIndex) end
 
 ---**`VEHICLE` `client`**  
@@ -4465,10 +4445,7 @@ function SetAllVehicleGeneratorsActiveInArea(x1, y1, z1, x2, y2, z2, p6, p7) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x90B6DA738A9A25DA)  
----Sets the ambient vehicle spawn range.
----For example, if you set the range to 0.1, the ambient cars will spawn close to your player.
----
----This native needs to be called every frame.
+---This native does not have an official description.
 ---@param range number
 function SetAmbientVehicleRangeMultiplierThisFrame(range) end
 
@@ -4494,21 +4471,16 @@ SetBikeLeanAngle = SetBikeOnStand
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x75DBEC174AEEAD10)  
+---Sets the anchor state for a boat.
+---
 ---```
----Works with boats, submarines, submarine cars, amphibious bikes, and planes that implement CSeaPlaneExtension
+---NativeDB Introduced: v323
 ---```
----@param vehicle integer
+---
+---**Note**: You might want to check if you can use your anchor before with [CAN_ANCHOR_BOAT_HERE](#\_0x26C10ECBDA5D043B).
+---@param boat integer
 ---@param toggle boolean
-function SetBoatAnchor(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE842A9398079BD82)  
----```
----Vehicle must be a boat.  
----```
----@param vehicle integer
----@param value number
-function SetBoatAnchorBuoyancyCoefficient(vehicle, value) end
+function SetBoatAnchor(boat, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF488C566413B4232)  
@@ -4516,7 +4488,7 @@ function SetBoatAnchorBuoyancyCoefficient(vehicle, value) end
 ---
 ---Ratio value is between `0.0` and `1.0`, where `0.0` is 90 degrees to the left of the boat, and `1.0` is just slightly to the right/back of the boat.
 ---
----To get the current boom position ratio, use [GET_BOAT_BOOM_POSITION_RATIO](#_0x6636C535F6CC2725).
+---To get the current boom position ratio, use [GET_BOAT_BOOM_POSITION_RATIO](#\_0x6636C535F6CC2725).
 ---@param vehicle integer
 ---@param ratio number
 function SetBoatBoomPositionRatio(vehicle, ratio) end
@@ -4529,25 +4501,51 @@ function SetBoatBoomPositionRatio(vehicle, ratio) end
 function SetBoatDisableAvoidance(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE3EBAAE484798530)  
----This native does not have an official description.
----@param vehicle integer
----@param toggle boolean
-function SetBoatFrozenWhenAnchored(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBD32E46AA95C1DD2)  
 ---This native does not have an official description.
 ---@param vehicle integer
-function SetBoatSinking(vehicle) end
+function SetBoatIsSinking(vehicle) end
+
+---@deprecated
+SetBoatSinking = SetBoatIsSinking
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE842A9398079BD82)  
+---Sets the distance from the player at which anchored boats switch between high and low LOD (Level of Detail) buoyancy mode.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param boat integer
+---@param value number
+function SetBoatLowLodAnchorDistance(boat, value) end
+
+---@deprecated
+SetBoatAnchorBuoyancyCoefficient = SetBoatLowLodAnchorDistance
+---@deprecated
+SetBoatMovementResistance = SetBoatLowLodAnchorDistance
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE3EBAAE484798530)  
+---Sets whether a boat should remain anchored even when a player is driving it.
+---
+---**Note**: This native is always used with [SET_BOAT_ANCHOR](#\_0x75DBEC174AEEAD10).
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param boat integer
+---@param toggle boolean
+function SetBoatRemainsAnchoredWhilePlayerIsDriver(boat, toggle) end
+
+---@deprecated
+SetBoatFrozenWhenAnchored = SetBoatRemainsAnchoredWhilePlayerIsDriver
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8F719973E1445BA2)  
----```
----NativeDB Parameter 1: BOOL toggle
----```
+---This native does not have an official description.
 ---@param vehicle integer
----@param toggle integer
+---@param toggle boolean
 function SetBoatSinksWhenWrecked(vehicle, toggle) end
 
 ---@deprecated
@@ -4555,9 +4553,7 @@ SetBoatExplodesOnWreckedAction = SetBoatSinksWhenWrecked
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1201E8A3290A3B98)  
----```
----Disables wheel cambering & hydraulics
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param toggle boolean
 function SetCamberedWheelsDisabled(vehicle, toggle) end
@@ -4573,21 +4569,39 @@ function SetCanResprayVehicle(vehicle, state) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFC40CBF7B90CA77C)  
----Opens the trunk of the vehicle. Initially used in Max Payne 3, that's why we know the name.
+---This native does not have an official description.
 ---@param vehicle integer
 function SetCarBootOpen(vehicle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x877C1EAEAC531023)  
----```
----For now, I changed the last one from bool to int.  
----According to scripts specifically 'fm_mission_controller' this last parameter is 'false/0' when its called after the create rope native above is called for the magnet and 'true/1' after the create rope native above is called for the hook.  
----```
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1F34B0626C594380)  
+---Prevents a specified entity from being detached from a Cargobob, even in the event of collisions.
 ---@param cargobob integer
----@param xOffset number
----@param yOffset number
----@param state integer
-function SetCargobobHookPosition(cargobob, xOffset, yOffset, state) end
+---@param entity integer
+function SetCargobobExcludeFromPickupEntity(cargobob, entity) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x571FEB383F629926)  
+---Stops cargobob from being able to detach the attached vehicle.
+---@param cargobob integer
+---@param toggle boolean
+function SetCargobobForceDontDetachVehicle(cargobob, toggle) end
+
+---@deprecated
+SetCargobobHookCanDetach = SetCargobobForceDontDetachVehicle
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x94A68DA412C4007D)  
+---```
+---Stops the cargobob from being able to attach any vehicle
+---```
+---
+---```
+---NativeDB Introduced: v1180
+---```
+---@param vehicle integer
+---@param toggle boolean
+function SetCargobobHookCanAttach(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9A665550F8DA349B)  
@@ -4652,11 +4666,9 @@ function SetCargobobPickupMagnetStrength(cargobob, strength) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF1182F682F65307)  
----```
----NativeDB Parameter 1: float p1
----```
+---This native does not have an official description.
 ---@param cargobob integer
----@param p1 integer
+---@param p1 number
 function SetCargobobPickupRopeDampingMultiplier(cargobob, p1) end
 
 ---**`VEHICLE` `client`**  
@@ -4680,47 +4692,119 @@ function SetCarHighSpeedBumpSeverityMultiplier(multiplier) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF39C4F538B5124C2)  
----This native does not have an official description.
+---Enables or disables the convertible roof on vehicles that support old-style GTA IV roofs, which are not animated. Setting `toggle` to true will apply the roof to the vehicle, and setting it to false will remove the roof, assuming the vehicle has versions with and without a roof.
+---
+---If you want to lock or unlock the roof mechanism, use [`SET_CONVERTIBLE_ROOF_LATCH_STATE`](#\_0x1A78AD3D8240536F).
+---
+---You can check if the vehicle has a roof with [`DOES_VEHICLE_HAVE_ROOF`](#\_0x8AC862B0B32C5B80).
+---
+---```
+---NativeDB Introduced: v323
+---```
+---
+---#### Vehicles with both roofed and roofless versions (others may exist; this list is compiled from decompiled scripts).
+---
+---*   chino
+---*   voltic
+---*   buccaneer
+---*   buccaneer2
+---*   chino2
+---*   faction
+---*   faction2
+---*   mamba
 ---@param vehicle integer
----@param p1 boolean
-function SetConvertibleRoof(vehicle, p1) end
+---@param toggle boolean
+function SetConvertibleRoof(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1A78AD3D8240536F)  
----This native does not have an official description.
+---This native is used to latch or unlatch the convertible roof of a vehicle. It allows for direct control over the roof's mechanism without actually opening or closing the roof. This can be useful for scenarios where you need to prepare a vehicle's roof to be opened or closed by another action or to ensure it remains fixed in its current state regardless of other interactions.
+---
+---```
+---NativeDB Introduced: v323
+---```
 ---@param vehicle integer
----@param state boolean
-function SetConvertibleRoofLatchState(vehicle, state) end
+---@param bLatched boolean
+function SetConvertibleRoofLatchState(vehicle, bLatched) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB251E0B33E58B424)  
----Only used with the "akula" in the decompiled native scripts.
+---Only used with the "akula" and "annihilator2" in the decompiled native scripts.
 ---
 ---```
 ---NativeDB Introduced: v1290
 ---```
 ---@param vehicle integer
----@param p1 boolean
+---@param deploy boolean
 ---@param p2 boolean
-function SetDeployHeliStubWings(vehicle, p1, p2) end
+function SetDeployHeliStubWings(vehicle, deploy, p2) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x26D99D5A82FD18E8)  
+---Disables the additional physics forces applied to BMX bikes that enable them to perform tricks.
+---
+---```
+---NativeDB Introduced: v463
+---```
+---@param disableExtraTrickForces boolean
+function SetDisableBmxExtraTrickForces(disableExtraTrickForces) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x26E13D440E7F6064)  
+---Prevents a vehicle from exploding upon sustaining body damage from physical collisions. This can be used to increase the durability of vehicles in high-impact scenarios, such as races or combat situations, by preventing them from being destroyed due to collision-induced body damage.
+---
+---For helicopters, you might want to check [`SET_DISABLE_HELI_EXPLODE_FROM_BODY_DAMAGE`](#\_0xEDBC8405B3895CC9) instead.
+---
+---```
+---NativeDB Introduced: v1290
+---```
+---@param vehicle integer
+---@param disableExplode boolean
+function SetDisableExplodeFromBodyDamageOnCollision(vehicle, disableExplode) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEDBC8405B3895CC9)  
+---Prevents a helicopter from exploding due to relatively minor body damage.
+---
+---```
+---NativeDB Introduced: v1103
+---```
+---@param helicopter integer
+---@param disableExplode boolean
+function SetDisableHeliExplodeFromBodyDamage(helicopter, disableExplode) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2D55FE374D5FDB91)  
+---Disables wings for `Deluxo` and `Oppressor MK II`. For the Deluxo, it retracts the wings immediately, preventing flight. For the Oppressor Mk II, the wings retract after landing and take-off is not possible, though it can still glide if launched into the air.
+---@param vehicle integer
+---@param toggle boolean
+function SetDisableHoverModeFlight(vehicle, toggle) end
+
+---@deprecated
+SetVehicleHoverTransformActive = SetDisableHoverModeFlight
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x25367DE49D64CF16)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param p1 boolean
-function SetDisablePretendOccupants(vehicle, p1) end
+---@param toggle boolean
+function SetDisablePretendOccupants(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD4B8E3D1917BC86B)  
----```
----SET_*_MULTIPLIER_THIS_FRAME  
----```
+---This native does not have an official description.
 ---@param toggle boolean
 function SetDisableRandomTrainsThisFrame(toggle) end
 
 ---@deprecated
 SetSomethingMultiplierThisFrame = SetDisableRandomTrainsThisFrame
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB088E9A47AE6EDD5)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param p1 boolean
+function SetDisableSuperdummyMode(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE615BB7A7752C76A)  
@@ -4731,14 +4815,33 @@ SetSomethingMultiplierThisFrame = SetDisableRandomTrainsThisFrame
 ---```
 ---@param vehicle integer
 ---@param turretIdx integer
-function SetDisableTurretMovement(vehicle, turretIdx) end
+function SetDisableTurretMovementThisFrame(vehicle, turretIdx) end
+
+---@deprecated
+SetDisableTurretMovement = SetDisableTurretMovementThisFrame
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x91A0BD635321F145)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param p1 boolean
-function SetDisableVehicleEngineFires(vehicle, p1) end
+---@param toggle boolean
+function SetDisableVehicleEngineFires(vehicle, toggle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCE2B43770B655F8F)  
+---```
+---True stops vtols from switching modes. Doesn't stop the sound though.
+---```
+---
+---```
+---NativeDB Introduced: v1290
+---```
+---@param vehicle integer
+---@param direction boolean
+function SetDisableVehicleFlightNozzlePosition(vehicle, direction) end
+
+---@deprecated
+SetPlaneVtolAnimationDisabled = SetDisableVehicleFlightNozzlePosition
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x37C8252A7C92D017)  
@@ -4772,16 +4875,10 @@ function SetDisableVehicleUnk_2(toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1087BC8EC540DAEB)  
----Disables collision for all windows.
----
----This is a toggle, so it does not need to be looped each frame.
----
----This is used for vehicles like the nightshark,
----where there is a vehicle mod option (mod index 5) that adds armor
----plating in front of the windows.
+---R\* used it to "remove" vehicle windows when "nightshark" had some mod, which adding some kind of armored windows. When enabled, you can't break vehicles glass. All your bullets wiil shoot through glass. You also will not able to break the glass with any other way (hitting and etc)
 ---@param vehicle integer
----@param p1 boolean
-function SetDisableVehicleWindowCollisions(vehicle, p1) end
+---@param toggle boolean
+function SetDisableVehicleWindowCollisions(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF796359A959DF65D)  
@@ -4795,26 +4892,25 @@ function SetDistantCarsEnabled(toggle) end
 DisplayDistantVehicles = SetDistantCarsEnabled
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5AC79C98C5C17F05)  
+---```
+---NativeDB Introduced: v2372
+---```
+---@param vehicle integer
+---@param toggle boolean
+function SetDriftTyresEnabled(vehicle, toggle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE6C0C80B8C867537)  
----This native does not have an official description.
----@param p0 boolean
-function SetEnableVehicleSlipstreaming(p0) end
+---Enable/Disables global slipstream physics
+---@param toggle boolean
+function SetEnableVehicleSlipstreaming(toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26324F33423F3CC3)  
 ---This native does not have an official description.
 ---@param toggle boolean
 function SetFarDrawVehicles(toggle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB28B1FE5BFADD7F5)  
----```
----X,Y position of boat is frozen in place when anchored and its engine disabled, only the Z value changes. Requires 0xE3EBAAE484798530 to be set to true.
----SET_FORCED_ZENITH_QUADTREE?
----```
----@param vehicle integer
----@param toggle boolean
-function SetForcedBoatLocationWhenAnchored(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x97CE68CB032583F0)  
@@ -4824,10 +4920,25 @@ function SetForcedBoatLocationWhenAnchored(vehicle, toggle) end
 function SetForceHdVehicle(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB28B1FE5BFADD7F5)  
+---Sets whether a boat should remain in the non-physical, low LOD anchor mode even when a player is driving it.
+---
+---**Note**: This native requires [SET_BOAT_REMAINS_ANCHORED_WHILE_PLAYER_IS_DRIVER](#\_0xE3EBAAE484798530) to be set to `true` to work properly.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param boat integer
+---@param toggle boolean
+function SetForceLowLodAnchorMode(boat, toggle) end
+
+---@deprecated
+SetForcedBoatLocationWhenAnchored = SetForceLowLodAnchorMode
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x37EBBF3117BD6A25)  
 ---```
----Sets some values in a vehicle gadget (tow arm, digger arm, etc.). Don't know which one though.  
----I've tested on the towtruck 1 & 2, Dock Lift (Crate Arm), Dozer, and such have no effect. However when used on a Forklift it sets the height of the forks. 0.0 = Lowest 1.0 = Highest. This is best to be used if you wanna pick-up a car since un-realistically on GTA V forklifts can't pick up much of anything due to vehicle mass. If you put this under a car then set it above 0.0 to a 'lifted-value' it will raise the car with no issue lol  
+---0.0 = Lowest 1.0 = Highest. This is best to be used if you wanna pick-up a car since un-realistically on GTA V forklifts can't pick up much of anything due to vehicle mass. If you put this under a car then set it above 0.0 to a 'lifted-value' it will raise the car with no issue lol
 ---```
 ---@param vehicle integer
 ---@param height number
@@ -4835,11 +4946,8 @@ function SetForkliftForkHeight(vehicle, height) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2AFD795EEAC8D30D)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param toggle boolean
----@return any
 function SetGarbageTrucks(toggle) end
 
 ---**`VEHICLE` `client`**  
@@ -4863,6 +4971,19 @@ function SetHeliBladesFullSpeed(vehicle) end
 function SetHeliBladesSpeed(vehicle, speed) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0A3F820A9A9A9AC5)  
+---Set a specific offset for helis chasing target in combat
+---
+---```
+---NativeDB Introduced: v1180
+---```
+---@param vehicle integer
+---@param x number
+---@param y number
+---@param z number
+function SetHeliCombatOffset(vehicle, x, y, z) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6E0859B530A365CC)  
 ---```
 ---value between 0.0 and 1.0  
@@ -4872,22 +4993,38 @@ function SetHeliBladesSpeed(vehicle, speed) end
 function SetHelicopterRollPitchYawMult(helicopter, multiplier) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x3EC8BF18AA453FE9)  
----```
----If false the tail to the helicopter stays attached to the helicopter on explosion.
----```
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4056EA1105F5ABD7)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param health number
+function SetHeliMainRotorHealth(vehicle, health) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8074CC1886802912)  
+---Makes a helicopter resistant to multiple explosions. When enabled, helicopters can survive two or more explosions.
 ---
 ---```
----NativeDB Parameter 1: BOOL p1
----NativeDB Return Type: void
+---NativeDB Introduced: 2545
 ---```
----@param vehicle integer
----@param p1 boolean
----@return boolean
-function SetHeliTailExplodeThrowDashboard(vehicle, p1) end
+---@param helicopter integer
+---@param bResistToExplosion boolean
+function SetHeliResistToExplosion(helicopter, bResistToExplosion) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3EC8BF18AA453FE9)  
+---Enables or disables the ability for a helicopter's tail boom to break off.
+---
+---```
+---NativeDB Introduced: v323
+---```
+---@param heli integer
+---@param toggle boolean
+function SetHeliTailBoomCanBreakOff(heli, toggle) end
 
 ---@deprecated
-WasCounterActivated = SetHeliTailExplodeThrowDashboard
+SetHeliTailExplodeThrowDashboard = SetHeliTailBoomCanBreakOff
+---@deprecated
+WasCounterActivated = SetHeliTailBoomCanBreakOff
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFE205F38AAA58E5B)  
@@ -4904,21 +5041,21 @@ function SetHeliTailRotorHealth(vehicle, health) end
 function SetHeliTurbulenceScalar(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x70A252F60A3E036B)  
+---This native allows opening or closing the wings of the Deluxo/Oppressor. For the Deluxo, wing deployment depends on sufficient altitude.
+---@param vehicle integer
+---@param ratio number
+function SetHoverModeWingRatio(vehicle, ratio) end
+
+---@deprecated
+SetSpecialflightWingRatio = SetHoverModeWingRatio
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28B18377EB6E25F6)  
----```
----Toggles between raised & lower hydraulics
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param toggle boolean
 function SetHydraulicRaised(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x84EA99C62CB3EF0C)  
----This native does not have an official description.
----@param vehicle integer
----@param wheelID integer
----@param height number
-function SetHydraulicState(vehicle, wheelID, height) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8EA86DF356801C7D)  
@@ -4929,13 +5066,31 @@ function SetHydraulicWheelState(vehicle, state) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC24075310A8B9CD1)  
----This native does not have an official description.
+---```
+---Sets vehicle wheel hydraulic states transition. Known states:
+---0 - reset
+---1 - raise wheel (uses value arg, works just like _SET_VEHICLE_HYDRAULIC_WHEEL_VALUE)
+---2 - jump using wheel
+---```
 ---@param vehicle integer
----@param wheelID integer
----@param p2 any
----@param p3 number
+---@param wheelId integer
+---@param state integer
+---@param value number
 ---@param p4 number
-function SetHydraulicWheelStateTransition(vehicle, wheelID, p2, p3, p4) end
+function SetHydraulicWheelStateTransition(vehicle, wheelId, state, value, p4) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x84EA99C62CB3EF0C)  
+---```
+---Works only on vehicles that support hydraulic.
+---```
+---@param vehicle integer
+---@param wheelId integer
+---@param value number
+function SetHydraulicWheelValue(vehicle, wheelId, value) end
+
+---@deprecated
+SetHydraulicState = SetHydraulicWheelValue
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xACFB2463CC22BED2)  
@@ -4968,19 +5123,128 @@ function SetMissionTrainAsNoLongerNeeded(train, p1) end
 function SetMissionTrainCoords(train, x, y, z) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x465EEA70AF251045)  
+---```
+---NativeDB Introduced: 3095
+---```
+---
+---Activates or deactivates the nitrous system in the specified vehicle, based on the boolean value provided.
+---You can clear the nitrous with [`CLEAR_NITROUS`](#\_0xC889AE921400E1ED), if you want to have more control on the nitrous and those settings, use [`SET_OVERRIDE_NITROUS_LEVEL`](#\_0xC8E9B6B71B8E660D)
+---@param vehicle integer
+---@param isActive boolean
+function SetNitrousIsActive(vehicle, isActive) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCAA15F13EBD417FF)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param value integer
----@return any
 function SetNumberOfParkedVehicles(value) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1B212B26DD3C04DF)  
+---Enables or disables the opening of a vehicle's rear doors in the event of a sticky bomb explosion. This native is effective for armored vehicles, such as the Stockade (Brinks vehicle), allowing the rear doors to be opened through controlled explosions, which might otherwise remain locked due to the vehicle nature.
+---@param vehicle integer
+---@param toggle boolean
+function SetOpenRearDoorsOnExplosion(vehicle, toggle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x544996C0081ABDEB)  
+---Set state to true to extend the wings, false to retract them.
+---@param vehicle integer
+---@param extend boolean
+function SetOppressorTransformState(vehicle, extend) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC8E9B6B71B8E660D)  
+---```
+---NativeDB Introduced: v1604
+---NativeDB Added Parameter 2 (2060): float durationMod : A multiplier applied to the default nitrous duration (default is 3 seconds). 
+---NativeDB Added Parameter 3 (2060): float power : A multiplier applied to the default nitrous power multiplier (default is 3).
+---NativeDB Added Parameter 4 (2060): float rechargeTime : A multiplier applied to the default nitrous recharge rate.
+---NativeDB Added Parameter 5 (2060): BOOL disableSound : A boolean to disable the default nitrous sound when the nitrous is active.
+---```
+---
+---Overrides the default settings of a vehicle's nitrous system, allowing custom control over its performance characteristics.
+---@param vehicle integer
+---@param override boolean
+function SetOverrideNitrousLevel(vehicle, override) end
+
+---@deprecated
+SetVehicleNitroEnabled = SetOverrideNitrousLevel
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEAE6DCC7EEE3DB1D)  
 ---This native does not have an official description.
 ---@param multiplier number
 function SetParkedVehicleDensityMultiplierThisFrame(multiplier) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x877C1EAEAC531023)  
+---```
+---min: 1.9f, max: 100.0f
+---```
+---@param cargobob integer
+---@param length1 number
+---@param length2 number
+---@param state boolean
+function SetPickupRopeLengthForCargobob(cargobob, length1, length2, state) end
+
+---@deprecated
+SetCargobobHookPosition = SetPickupRopeLengthForCargobob
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2A86A0475B6A1434)  
+---```
+---Works just like SET_VEHICLE_ENGINE_HEALTH, didn't saw any difference. But this native works only for planes.
+---```
+---@param vehicle integer
+---@param health number
+function SetPlaneEngineHealth(vehicle, health) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4C815EB175086F84)  
+---This native does not have an official description.
+---@param plane integer
+---@param health number
+function SetPlanePropellersHealth(plane, health) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE16142B94664DEFD)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param toggle boolean
+function SetPlaneResistToExplosion(vehicle, toggle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0BBB9A7A8FFE931B)  
+---Adjusts the scale of damage applied to a specified section of a plane.
+---In the decompiled scripts the `damageScale` is always set to `0f` (maybe to disable damages on the specified section)
+---
+---```cpp
+---enum ePlaneDamageSection {
+---    WING_L = 0,
+---    WING_R = 1,
+---    TAIL = 2,
+---    ENGINE_L = 3,
+---    ENGINE_R = 4,
+---    ELEVATOR_L = 5,
+---    ELEVATOR_R = 6,
+---    AILERON_L = 7,
+---    AILERON_R = 8,
+---    RUDDER = 9,
+---    RUDDER_2 = 10,
+---    AIRBRAKE_L = 11,
+---    AIRBRAKE_R = 12
+---}
+---```
+---
+---```
+---NativeDB Introduced: v1290
+---```
+---@param vehicle integer
+---@param damageSection integer
+---@param damageScale number
+function SetPlaneSectionDamageScale(vehicle, damageSection, damageScale) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAD2D28A1AFDFF131)  
@@ -4994,15 +5258,6 @@ function SetParkedVehicleDensityMultiplierThisFrame(multiplier) end
 function SetPlaneTurbulenceMultiplier(vehicle, multiplier) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xCE2B43770B655F8F)  
----```
----NativeDB Introduced: v1290
----```
----@param vehicle integer
----@param direction number
-function SetPlaneVtolAnimationDisabled(vehicle, direction) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6683AB880E427778)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -5011,41 +5266,54 @@ function SetPlaybackSpeed(vehicle, speed) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA549C3B37EA28131)  
----This native does not have an official description.
+---Identical to SET_PLAYBACK_TO_USE_AI_TRY_TO_REVERT_BACK_LATER with 0 as arguments for p1 and p3.
 ---@param vehicle integer
----@param flag integer
-function SetPlaybackToUseAi(vehicle, flag) end
+---@param drivingStyle integer
+function SetPlaybackToUseAi(vehicle, drivingStyle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6E63860BBB190730)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
+---```
+---Time is number of milliseconds before reverting, zero for indefinitely.
+---```
+---@param vehicle integer
+---@param time integer
+---@param drivingStyle integer
 ---@param p3 boolean
-function SetPlaybackToUseAiTryToRevertBackLater(p0, p1, p2, p3) end
+function SetPlaybackToUseAiTryToRevertBackLater(vehicle, time, drivingStyle, p3) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBCDF8BAF56C87B6A)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param vehicle integer
----@return any
 function SetPlayersLastVehicle(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4E74E62E0A97E901)  
+---Sets flag on vehicle that changes behaviour in relation to when player gets wanted level
+---@param vehicle integer
+---@param p1 boolean
+function SetPoliceFocusWillTrackVehicle(vehicle, p1) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84436EC293B1415F)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param toggle boolean
----@return any
 function SetRandomBoats(toggle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDA5E12F728DB30CA)  
+---```
+---NativeDB Introduced: v2372
+---```
+---@param toggle boolean
+function SetRandomBoatsInMp(toggle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80D9F74197EA47D9)  
----This native does not have an official description.
+---Enables spawning random trains on the preset tracks.
+---
+---Requires [`SWITCH_TRAIN_TRACK`](#\_0xFD813BB7DB977F20) and [`SET_TRAIN_TRACK_SPAWN_FREQUENCY`](#\_0x21973BBF8D17EDFA) to be set.
 ---@param toggle boolean
 function SetRandomTrains(toggle) end
 
@@ -5054,6 +5322,17 @@ function SetRandomTrains(toggle) end
 ---This native does not have an official description.
 ---@param multiplier number
 function SetRandomVehicleDensityMultiplierThisFrame(multiplier) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3A375167F5782A65)  
+---Lowers the vehicle's stance. Only works for vehicles that support this feature.
+---
+---```
+---NativeDB Introduced: v2372
+---```
+---@param vehicle integer
+---@param enable boolean
+function SetReduceDriftVehicleSuspension(vehicle, enable) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x317B11A312DF5534)  
@@ -5074,26 +5353,58 @@ function SetRenderTrainAsDerailed(train, toggle) end
 function SetScriptVehicleGenerator(vehicleGenerator, enabled) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x70A252F60A3E036B)  
----```
----NativeDB Introduced: v1365
----```
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF1211889DF15A763)  
+---Allows locking the hover/non-hover mode of a vehicle, such as the flying mode of the `Deluxo`. In the decompiled scripts, this native is used on `oppressor2` but couldn't get it to work on it.
+---@param vehicle integer
+---@param toggle boolean
+function SetSpecialFlightModeAllowed(vehicle, toggle) end
+
+---@deprecated
+SetVehicleHoverTransformEnabled = SetSpecialFlightModeAllowed
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD138FA15C9776837)  
+---Used alongside [`SET_SPECIAL_FLIGHT_MODE_TARGET_RATIO`](#\_0x438B3D7CA026FE91), this function initiates hover transformation for vehicles with a hover mode, like the `Deluxo`, based on a specified ratio (0.0 to 1.0). Incorrect values can glitch the vehicle. Without pairing, vehicles revert to car mode. Ineffective on the `oppressor2`
 ---@param vehicle integer
 ---@param ratio number
-function SetSpecialflightWingRatio(vehicle, ratio) end
+function SetSpecialFlightModeRatio(vehicle, ratio) end
+
+---@deprecated
+SetVehicleHoverTransformRatio = SetSpecialFlightModeRatio
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x438B3D7CA026FE91)  
+---According to decompiled scripts this should work with the `deluxo` and `oppressor2` vehicles.
+---Does nothing when used on `oppressor2`.
+---
+---For the deluxo:
+---
+---*   Set `state` to `0.0`: Fully transform to a 'road' vehicle (non-hover mode).
+---*   Set `state` to `1.0`: Fully transform to a 'flying' vehicle (hover mode).
+---
+---If you set it to something like 0.5, then something [weird happens](https://streamable.com/p6wmr), you end up in some 50% hover mode, 50% not hover mode.
+---
+---This doesn't need to be called every tick, just once and the vehicle will transform to that state at the usual transform speed. It'll just stop transforming when it reaches the state you provided.
+---
+---Once this native is used then players will just be able to hit the vehicle transform key to toggle the transformation cycle; it won't block users from using the key.
+---@param vehicle integer
+---@param state number
+function SetSpecialFlightModeTargetRatio(vehicle, state) end
+
+---@deprecated
+SetVehicleTransformState = SetSpecialFlightModeTargetRatio
+---@deprecated
+SetVehicleHoverTransformPercentage = SetSpecialFlightModeTargetRatio
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC59872A5134879C7)  
----```
----When I called this with what the script was doing, which was -190f for yaw pitch and roll, all my car did was jitter a little. I also tried 0 and 190f. I altered the p1 variable between TRUE and FALSE and didn't see a difference.  
----This might have something to do with the physbox of the vehicle, but I'm not sure.  
----```
----@param submarine integer
+---This native does not have an official description.
+---@param vehicle integer
 ---@param toggle boolean
----@param crushWarningDepth1 number
----@param crushWarningDepth2 number
----@param crushDepth number
-function SetSubmarineCrushDepths(submarine, toggle, crushWarningDepth1, crushWarningDepth2, crushDepth) end
+---@param depth1 number
+---@param depth2 number
+---@param depth3 number
+function SetSubmarineCrushDepths(vehicle, toggle, depth1, depth2, depth3) end
 
 ---@deprecated
 JitterVehicle = SetSubmarineCrushDepths
@@ -5146,29 +5457,23 @@ function SetTrailerLegsLowered() end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95CF53B3D687F9FA)  
 ---```
----Also related to the attachment strength of the trailer (e.g., only detaching on negative health).
+---in the decompiled scripts, seems to be always called on the vehicle right after being attached to a trailer.
 ---```
 ---@param vehicle integer
 function SetTrailerLegsRaised(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x16469284DB8C62B5)  
----```
----NativeDB Return Type: void
----```
+---Used to control train speed, can be used to start and stop its movement as well.
 ---@param train integer
 ---@param speed number
----@return any
 function SetTrainCruiseSpeed(train, speed) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA0BC91BE0B796E3)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param train integer
 ---@param speed number
----@return any
 function SetTrainSpeed(train, speed) end
 
 ---**`VEHICLE` `client`**  
@@ -5181,22 +5486,98 @@ function SetTrainSpeed(train, speed) end
 function SetTrainTrackSpawnFrequency(trackIndex, frequency) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x41B9FB92EDED32A6)  
----```
----NativeDB Introduced: v1365
----```
+---[Native Documentation](https://docs.fivem.net/natives/?_0x498218259FB7C72D)  
+---Affects the playback speed of the submarine car conversion animations. Does not affect hardcoded animations such as the wheels being retracted. In decompiled scripts the only value used for transformRate is 2.5.
 ---@param vehicle integer
----@param value boolean
-function SetUnkBoolN_0x102ForSubmarineVehicleTask(vehicle, value) end
+---@param transformRate number
+function SetTransformRateForAnimation(vehicle, transformRate) end
+
+---@deprecated
+SetUnkFloatN_0x104ForSubmarineVehicleTask = SetTransformRateForAnimation
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x498218259FB7C72D)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x41B9FB92EDED32A6)  
+---Changes the key used to transform a vehicle into submarine mode. When set to true, the transformation key switches from the default raise/lower convertible roof key (usually 'H') to the special vehicle transformation key (usually 'X').
+---
 ---```
 ---NativeDB Introduced: v1365
 ---```
 ---@param vehicle integer
----@param value number
-function SetUnkFloatN_0x104ForSubmarineVehicleTask(vehicle, value) end
+---@param useAlternateInput boolean
+function SetTransformToSubmarineUsesAlternateInput(vehicle, useAlternateInput) end
+
+---@deprecated
+SetUnkBoolN_0x102ForSubmarineVehicleTask = SetTransformToSubmarineUsesAlternateInput
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x74C68EF97645E79D)  
+---```
+---NativeDB Introduced: v1868
+---```
+---@param vehicle integer
+---@param wheelIndex integer
+---@param health number
+function SetTyreHealth(vehicle, wheelIndex, health) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x392183BB9EA57697)  
+---```
+---Controls how fast the tires wear out.
+---Default values from Rockstar's Open Wheel Race JSON's:
+---"owrtss" (Soft): 2.2
+---"owrtsm" (Medium): 1.7
+---"owrtsh" (Hard): 1.2
+---Usable wheels:
+---0: wheel_lf
+---1: wheel_rf
+---2: wheel_lm1
+---3: wheel_rm1
+---4: wheel_lr
+---5: wheel_rr
+---```
+---
+---```
+---NativeDB Introduced: v2060
+---```
+---@param vehicle integer
+---@param wheelIndex integer
+---@param multiplier number
+function SetTyreSoftnessMultiplier(vehicle, wheelIndex, multiplier) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC970D0E0FC31D768)  
+---```
+---Controls how much traction the wheel loses.
+---Default values from Rockstar's Open Wheel Race JSON's:
+---"owrtds" (Soft): 0.05
+---"owrtdm" (Medium): 0.45
+---"owrtdh" (Hard): 0.8
+---Usable wheels:
+---0: wheel_lf
+---1: wheel_rf
+---2: wheel_lm1
+---3: wheel_rm1
+---4: wheel_lr
+---5: wheel_rr
+---```
+---
+---```
+---NativeDB Introduced: v2060
+---```
+---@param vehicle integer
+---@param wheelIndex integer
+---@param multiplier number
+function SetTyreTractionLossMultiplier(vehicle, wheelIndex, multiplier) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x01894E2EDE923CA2)  
+---```
+---NativeDB Introduced: v1868
+---```
+---@param vehicle integer
+---@param wheelIndex integer
+---@param multiplier number
+function SetTyreWearMultiplier(vehicle, wheelIndex, multiplier) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF06A16CA55D138D8)  
@@ -5206,11 +5587,28 @@ function SetUnkFloatN_0x104ForSubmarineVehicleTask(vehicle, value) end
 function SetUseHigherVehicleJumpForce(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1F9FB66F3A3842D2)  
+---This native is used to simulate a high-speed impact for a vehicle when it collides with a breakable object (frag). It's particularly useful in scripted sequences where a vehicle is required to break through a barrier but might not actually be moving at a sufficient speed to do so realistically. Note that this setting is temporary and will reset after one frame, so it needs to be called every frame for a lasting effect.
+---@param vehicle integer
+---@param actHighSpeed boolean
+function SetVehicleActAsIfHighSpeedForFragSmashing(vehicle, actHighSpeed) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDFFCEF48E511DB48)  
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@param toggle boolean
 function SetVehicleActiveDuringPlayback(vehicle, toggle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x21115BCD6E44656A)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param toggle boolean
+function SetVehicleActiveForPedNavigation(vehicle, toggle) end
+
+---@deprecated
+SetVehicleCloseDoorDeferedAction = SetVehicleActiveForPedNavigation
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCDE5E70C1DDB954C)  
@@ -5230,9 +5628,7 @@ function SetVehicleAllowNoPassengersLockon(veh, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8BA6F76BC53A1493)  
----```
----Please change to void.  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param p1 boolean
 ---@param p2 any
@@ -5250,11 +5646,11 @@ function SetVehicleBodyHealth(vehicle, value) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF4B2ED59DEB5D774)  
----Sets the amount of bombs that this vehicle has. As far as I know, this does _not_ impact vehicle weapons or the ammo of those weapons in any way, it is just a way to keep track of the amount of bombs in a specific plane. 
+---Sets the amount of bombs that this vehicle has. As far as I know, this does *not* impact vehicle weapons or the ammo of those weapons in any way, it is just a way to keep track of the amount of bombs in a specific plane.
 ---
----In decompiled scripts this is used to deduct from or add to the count whenever bombs are dropped or purchased/restocked. 
+---In decompiled scripts this is used to deduct from or add to the count whenever bombs are dropped or purchased/restocked.
 ---
----Use [`_GET_AIRCRAFT_BOMB_COUNT`](#_0xEA12BD130D7569A1) to get the amount of bombs on that vehicle.
+---Use [`_GET_AIRCRAFT_BOMB_COUNT`](#\_0xEA12BD130D7569A1) to get the amount of bombs on that vehicle.
 ---@param aircraft integer
 ---@param bombCount integer
 function SetVehicleBombCount(aircraft, bombCount) end
@@ -5344,9 +5740,7 @@ function SetVehicleCanDeformWheels(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x206BC5DC9D1AC70A)  
----```
----Allows some vehicles (related to "strModelFlags" within handling?) to continue to operate while its engine health (see 0xC45D23BAF168AAB8) is less than zero
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param toggle boolean
 function SetVehicleCanEngineOperateOnFire(vehicle, toggle) end
@@ -5355,30 +5749,19 @@ function SetVehicleCanEngineOperateOnFire(vehicle, toggle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x51BB2D88D31A914B)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param p1 boolean
-function SetVehicleCanLeakOil(vehicle, p1) end
+---@param toggle boolean
+function SetVehicleCanLeakOil(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x192547247864DFDD)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param p1 boolean
-function SetVehicleCanLeakPetrol(vehicle, p1) end
+---@param toggle boolean
+function SetVehicleCanLeakPetrol(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x428BACCDF5E26EAD)  
----```
----if (!ENTITY::DOES_ENTITY_BELONG_TO_THIS_SCRIPT(g_10A5A._f8B[a_0/*1*/], 1)) {  
----sub_20af7("No longer needed: Vehicle owned by other script");  
----if ((((a_0 == 24) && (!sub_3a04(g_10A5A._f8B[a_0/*1*/]))) && (!sub_39c9(g_10A5A._f8B[a_0/*1*/]))) && (ENTITY::GET_ENTITY_MODEL(g_10A5A._f8B[a_0/*1*/]) != ${monster})) {  
----    VEHICLE::_428BACCDF5E26EAD(g_10A5A._f8B[a_0/*1*/], 1);  
----}  
----g_10A5A._f8B[a_0/*1*/] = 0;  
----g_10A5A[a_0/*1*/] = 1;  
----sub_20ada(a_0);  
----return ;  
----		}  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param toggle boolean
 function SetVehicleCanSaveInGarage(vehicle, toggle) end
@@ -5386,8 +5769,9 @@ function SetVehicleCanSaveInGarage(vehicle, toggle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA46413066687A328)  
 ---```
----from Decrypted Scripts I found  
----VEHICLE::SET_VEHICLE_CEILING_HEIGHT(l_BD9[2/*2*/], 420.0);  
+---Previously named GET_VEHICLE_DEFORMATION_GET_TREE (hash collision)
+---from Decrypted Scripts I found
+---VEHICLE::SET_VEHICLE_CEILING_HEIGHT(l_BD9[2/*2*/], 420.0);
 ---```
 ---@param vehicle integer
 ---@param height number
@@ -5414,16 +5798,6 @@ function SetVehicleCheatPowerIncrease(vehicle, value) end
 SetVehicleEngineTorqueMultiplier = SetVehicleCheatPowerIncrease
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x21115BCD6E44656A)  
----```
----If zero, clears the flag that makes the PED check if the door is open prior to ignition.
----SET_VEHICLE_CLOSE_ORDER_IGNORING_POSE?
----```
----@param vehicle integer
----@param p1 boolean
-function SetVehicleCloseDoorDeferedAction(vehicle, p1) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x33E8CD3322E2FE31)  
 ---Sets the selected vehicle's colors to their default value (specific variant specified using the colorCombination parameter).
 ---
@@ -5434,23 +5808,29 @@ function SetVehicleColourCombination(vehicle, colorCombination) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4F1D4BE3A7F24601)  
----```
----colorPrimary & colorSecondary are the paint index for the vehicle.  
----For a list of valid paint indexes, view: pastebin.com/pwHci0xK  
-----------------------------------------------------------------------------  
----Use this to get the number of color indices: pastebin.com/RQEeqTSM  
----Note: minimum color index is 0, maximum color index is (numColorIndices - 1)  
----```
+---colorPrimary & colorSecondary are the paint indexes for the vehicle.
+---
+---For a list of valid paint indexes, view: pastebin.com/pwHci0xK
 ---@param vehicle integer
 ---@param colorPrimary integer
 ---@param colorSecondary integer
 function SetVehicleColours(vehicle, colorPrimary, colorSecondary) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5B91B229243351A8)  
+---```
+---Inverts vehicle's controls. So INPUT_VEH_ACCELERATE will be INPUT_VEH_BRAKE and vise versa (same for A/D controls)
+---Doesn't work for planes/helis.
+---```
+---@param vehicle integer
+---@param state boolean
+function SetVehicleControlsInverted(vehicle, state) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9BDA23BF666F0855)  
----Similar to [`_SET_AIRCRAFT_BOMB_COUNT`](#_0xF4B2ED59DEB5D774), this sets the amount of countermeasures that are present on this vehicle.
+---Similar to [`_SET_AIRCRAFT_BOMB_COUNT`](#\_0xF4B2ED59DEB5D774), this sets the amount of countermeasures that are present on this vehicle.
 ---
----Use [`_GET_AIRCRAFT_COUNTERMEASURE_COUNT`](#_0xF846AA63DF56B804) to get the current amount.
+---Use [`_GET_AIRCRAFT_COUNTERMEASURE_COUNT`](#\_0xF846AA63DF56B804) to get the current amount.
 ---@param aircraft integer
 ---@param count integer
 function SetVehicleCountermeasureCount(aircraft, count) end
@@ -5482,7 +5862,9 @@ function SetVehicleCustomSecondaryColour(vehicle, r, g, b) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA1DD317EA8FD4F29)  
----This native applies damage to a specific point on a vehicle.
+---Apply damage to vehicle at a location. Location is relative to vehicle model (not world).
+---Radius of effect damage applied in a sphere at impact location
+---When `focusOnModel` set to `true`, the damage sphere will travel towards the vehicle from the given point, thus guaranteeing an impact
 ---@param vehicle integer
 ---@param xOffset number
 ---@param yOffset number
@@ -5507,7 +5889,10 @@ function SetVehicleDamageModifier(vehicle, p1) end
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@param color integer
-function SetVehicleDashboardColour(vehicle, color) end
+function SetVehicleDashboardColor(vehicle, color) end
+
+---@deprecated
+SetVehicleDashboardColour = SetVehicleDashboardColor
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x953DA1E1B12C0491)  
@@ -5521,10 +5906,10 @@ function SetVehicleDeformationFixed(vehicle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x245A6883D966D537)  
 ---**Usage:**
 ---
-----   Use this native inside a looped function.
-----   Values:
----    -   `0.0` = no vehicles on streets
----    -   `1.0` = normal vehicles on streets
+---*   Use this native inside a looped function.
+---*   Values:
+---    *   `0.0` = no vehicles on streets
+---    *   `1.0` = normal vehicles on streets
 ---
 ---`1.0` Seems to be the maximum.
 ---@param multiplier number
@@ -5532,11 +5917,7 @@ function SetVehicleDensityMultiplierThisFrame(multiplier) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x79D3B596FE44EE8B)  
----```
----You can't use values greater than 15.0  
----You can see why here: pastebin.com/Wbn34fGD  
----Also, R* does (float)(rand() % 15) to get a random dirt level when generating a vehicle.  
----```
+---Sets the dirt level of the passed vehicle.
 ---@param vehicle integer
 ---@param dirtLevel number
 function SetVehicleDirtLevel(vehicle, dirtLevel) end
@@ -5550,16 +5931,7 @@ function SetVehicleDisableTowing(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD4D4F6A4AB575A33)  
----```
----doorIndex:  
----0 = Front Right Door  
----1 = Front Left Door  
----2 = Back Right Door  
----3 = Back Left Door  
----4 = Hood  
----5 = Trunk  
----Changed last paramater from CreateDoorObject To NoDoorOnTheFloor because when on false, the door object is created,and not created when on true...the former parameter name was counter intuitive...(by Calderon)  
----```
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param vehicle integer
 ---@param doorIndex integer
 ---@param deleteDoor boolean
@@ -5567,9 +5939,7 @@ function SetVehicleDoorBroken(vehicle, doorIndex, deleteDoor) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2FA133A4A9D37ED8)  
----```
----Keeps Vehicle Doors/Hood/Trunk from breaking off  
----```
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param vehicle integer
 ---@param doorIndex integer
 ---@param isBreakable boolean
@@ -5580,16 +5950,7 @@ SetVehicleDoorBreakable = SetVehicleDoorCanBreak
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF2BFA0430F0A0FCB)  
----```
----doorIndex:  
----0 = Front Left Door (driver door)  
----1 = Front Right Door  
----2 = Back Left Door  
----3 = Back Right Door  
----4 = Hood  
----5 = Trunk  
----6 = Trunk2
----```
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param vehicle integer
 ---@param doorIndex integer
 ---@param speed integer
@@ -5597,23 +5958,8 @@ SetVehicleDoorBreakable = SetVehicleDoorCanBreak
 function SetVehicleDoorControl(vehicle, doorIndex, speed, angle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xBE70724027F85BCD)  
----```
----destroyType is 1 for opens on damage, 2 for breaks on damage.  
----```
----@param vehicle integer
----@param doorIndex integer
----@param destroyType integer
-function SetVehicleDoorDestroyType(vehicle, doorIndex, destroyType) end
-
----@deprecated
-SetPedTargettableVehicleDestroy = SetVehicleDoorDestroyType
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA5A9653A8D2CAF48)  
----```
----When lock is false other entities can overwrite it.  
----```
+---See eDoorId declared in [`SET_VEHICLE_DOOR_SHUT`](#\_0x93D9BD300D7789E5)
 ---@param vehicle integer
 ---@param doorIndex integer
 ---@param forceClose boolean
@@ -5623,17 +5969,7 @@ function SetVehicleDoorLatched(vehicle, doorIndex, forceClose, lock, p4) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7C65DAC73C35C862)  
----```
----doorIndex:  
----0 = Front Left Door  
----1 = Front Right Door  
----2 = Back Left Door  
----3 = Back Right Door  
----4 = Hood  
----5 = Trunk  
----6 = Back  
----7 = Back2  
----```
+---Sets the specified door index open on the passed vehicle. See [`IS_VEHICLE_DOOR_FULLY_OPEN`](#\_0x3E933CFF7B111C22).
 ---@param vehicle integer
 ---@param doorIndex integer
 ---@param loose boolean
@@ -5642,15 +5978,19 @@ function SetVehicleDoorOpen(vehicle, doorIndex, loose, openInstantly) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x93D9BD300D7789E5)  
----```
----doorIndex:  
----0 = Front Left Door  
----1 = Front Right Door  
----2 = Back Left Door  
----3 = Back Right Door  
----4 = Hood  
----5 = Trunk  
----6 = Trunk2  
+---Sets the specified door index shut on the passed vehicle.
+---
+---```cpp
+---enum eDoorId
+---{
+---	VEH_EXT_DOOR_DSIDE_F = 0,
+---	VEH_EXT_DOOR_DSIDE_R = 1,
+---	VEH_EXT_DOOR_PSIDE_F = 2,
+---	VEH_EXT_DOOR_PSIDE_R = 3,
+---	VEH_EXT_BONNET = 4,
+---	VEH_EXT_BOOT = 5,
+---	// 0x872E72B8 = 0xFFFFFFFF,
+---}
 ---```
 ---@param vehicle integer
 ---@param doorIndex integer
@@ -5659,17 +5999,38 @@ function SetVehicleDoorShut(vehicle, doorIndex, closeInstantly) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB664292EAECF7FA6)  
+---Locks the doors of a specified vehicle to a defined lock state, affecting how players and NPCs can interact with the vehicle.
+---
 ---```
----1   
----2 - CARLOCK_LOCKED (locked)  
----3   
----4 - CARLOCK_LOCKED_PLAYER_INSIDE (can get in, can't leave)  
----(maybe, these are leftovers from GTA:VC)  
----5   
----6   
----7   
----(source: GTA VC miss2 leak, matching constants for 0/2/4, testing)  
----They use 10 in am_mp_property_int, don't know what it does atm.  
+---NativeDB Introduced: v323
+---```
+---
+---```cpp
+---enum eVehicleLockState {
+---    // No specific lock state, vehicle behaves according to the game's default settings.
+---    VEHICLELOCK_NONE = 0,
+---    // Vehicle is fully unlocked, allowing free entry by players and NPCs.
+---    VEHICLELOCK_UNLOCKED = 1,
+---    // Vehicle is locked, preventing entry by players and NPCs.
+---    VEHICLELOCK_LOCKED = 2,
+---    // Vehicle locks out only players, allowing NPCs to enter.
+---    VEHICLELOCK_LOCKOUT_PLAYER_ONLY = 3,
+---    // Vehicle is locked once a player enters, preventing others from entering.
+---    VEHICLELOCK_LOCKED_PLAYER_INSIDE = 4,
+---    // Vehicle starts in a locked state, but may be unlocked through game events.
+---    VEHICLELOCK_LOCKED_INITIALLY = 5,
+---    // Forces the vehicle's doors to shut and lock.
+---    VEHICLELOCK_FORCE_SHUT_DOORS = 6,
+---    // Vehicle is locked but can still be damaged.
+---    VEHICLELOCK_LOCKED_BUT_CAN_BE_DAMAGED = 7,
+---    // Vehicle is locked, but its trunk/boot remains unlocked.
+---    VEHICLELOCK_LOCKED_BUT_BOOT_UNLOCKED = 8,
+---    // Vehicle is locked and does not allow passengers, except for the driver.
+---    VEHICLELOCK_LOCKED_NO_PASSENGERS = 9,
+---    // Vehicle is completely locked, preventing entry entirely, even if previously inside.
+---    VEHICLELOCK_CANNOT_ENTER = 10 
+---};
+---
 ---```
 ---@param vehicle integer
 ---@param doorLockStatus integer
@@ -5677,13 +6038,7 @@ function SetVehicleDoorsLocked(vehicle, doorLockStatus) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA2F80B8D040727CC)  
----```
----After some analysis, I've decided that these are what the parameters are.  
----We can see this being used in R* scripts such as "am_mp_property_int.ysc.c4":  
----l_11A1 = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), 1);  
----...  
----VEHICLE::SET_VEHICLE_DOORS_LOCKED_FOR_ALL_PLAYERS(l_11A1, 1);  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param toggle boolean
 function SetVehicleDoorsLockedForAllPlayers(vehicle, toggle) end
@@ -5732,13 +6087,9 @@ function SetVehicleDoorsShut(vehicle, closeInstantly) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x068F64F2470F9656)  
 ---```
----Money pickups are created around cars when they explodes. Only works when the vehicle model is a car. A single pickup is between 1 and 18 dollars in size. All car models seems to give the same amount of money.  
----youtu.be/3arlUxzHl5Y   
----i.imgur.com/WrNpYFs.jpg  
----From the scripts:  
----VEHICLE::_068F64F2470F9656(l_36, 0);  
----Found a "correct" name for this :P  
----_dead_vehicle_pickups_dies_when_set_exploded_destroy_it_drops_on_money  
+---Money pickups are created around cars when they explode. Only works when the vehicle model is a car. A single pickup is between 1 and 18 dollars in size. All car models seem to give the same amount of money.
+---youtu.be/3arlUxzHl5Y
+---i.imgur.com/WrNpYFs.jpg
 ---```
 ---@param vehicle integer
 ---@param toggle boolean
@@ -5757,16 +6108,16 @@ function SetVehicleEngineCanDegrade(vehicle, toggle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x45F6D8EEF34ABEF1)  
 ---```
----1000 is max health  
----Begins leaking gas at around 650 health  
-----999.90002441406 appears to be minimum health, although nothing special occurs <- false statement  
-----------------------------  
----Minimum: -4000  
----Maximum: 1000  
-----4000: Engine is destroyed  
----0 and below: Engine catches fire and health rapidly declines  
----300: Engine is smoking and losing functionality  
----1000: Engine is perfect  
+---1000 is max health
+---Begins leaking gas at around 650 health
+----999.90002441406 appears to be minimum health, although nothing special occurs <- false statement
+----------------------------
+---Minimum: -4000
+---Maximum: 1000
+----4000: Engine is destroyed
+---0 and below: Engine catches fire and health rapidly declines
+---300: Engine is smoking and losing functionality
+---1000: Engine is perfect
 ---```
 ---@param vehicle integer
 ---@param health number
@@ -5786,13 +6137,11 @@ function SetVehicleEngineOn(vehicle, value, instantly, disableAutoStart) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3AFDC536C3D01674)  
 ---Examples with a besra:
 ---
-----   [fade value `0.0`](https://i.imgur.com/DXNk63e.jpg)
-----   [fade value `0.5`](https://i.imgur.com/2Vb35fq.jpg)
-----   [fade value `1.0`](https://i.imgur.com/aa8cxaD.jpg)
+---*   [fade value `0.0`](https://i.imgur.com/DXNk63e.jpg)
+---*   [fade value `0.5`](https://i.imgur.com/2Vb35fq.jpg)
+---*   [fade value `1.0`](https://i.imgur.com/aa8cxaD.jpg)
 ---
 ---The parameter fade is a value from 0-1, where 0 is fresh paint.
----
----The actual value isn't stored as a float but as an unsigned char (BYTE).
 ---@param vehicle integer
 ---@param fade number
 function SetVehicleEnveffScale(vehicle, fade) end
@@ -5802,22 +6151,22 @@ SetVehiclePaintFade = SetVehicleEnveffScale
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x41062318F23ED854)  
----```
----Seems according to TU27 X360 Scripts, this has 3 arguments as well.  
----SET_VEHICLE_EXCLUSIVE_DRIVER(vehicle, 0, 0); in freemode.c  
----In case 5 of a switch case, is the only time it shows Arg2 being PLAYER_PED_ID(), otherwise it's 0. Arg3 always seems to be 0.  
----```
+---Incorrectly named `SET_VEHICLE_EXCLUSIVE_DRIVER`; likely `SET_VEHICLE_ALLOW_*`.
+---
+---Toggles a flag related to `SET_VEHICLE_EXCLUSIVE_DRIVER`, however, doesn't enable that feature (or trigger script events related to it).
+---
+---See [`_SET_VEHICLE_EXCLUSIVE_DRIVER_2`](#\_0xB5C51B5502E85E83).
 ---
 ---```
----NativeDB Parameter 1: BOOL toggle
+---NativeDB Removed Parameter 2: int index
 ---```
 ---@param vehicle integer
----@param toggle integer
+---@param toggle boolean
 function SetVehicleExclusiveDriver(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB5C51B5502E85E83)  
----This native does not have an official description.
+---The **actual** [`SET_VEHICLE_EXCLUSIVE_DRIVER`](#\_0x41062318F23ED854) native.
 ---@param vehicle integer
 ---@param ped integer
 ---@param index integer
@@ -5834,7 +6183,9 @@ function SetVehicleExplodesOnHighExplosionDamage(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x79DF7E806202CE01)  
----This native does not have an official description.
+---```
+---Max value is 32767
+---```
 ---@param vehicle integer
 ---@param range integer
 function SetVehicleExtendedRemovalRange(vehicle, range) end
@@ -5869,9 +6220,8 @@ function SetVehicleExtraColours(vehicle, pearlescentColor, wheelColor) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x115722B1B9C14C1C)  
----```
+---Fix a given vehicle.
 ---If the vehicle's engine's broken then you cannot fix it with this native.
----```
 ---@param vehicle integer
 function SetVehicleFixed(vehicle) end
 
@@ -5879,8 +6229,8 @@ function SetVehicleFixed(vehicle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x30D779DE7C4F6DD3)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param direction number
-function SetVehicleFlightNozzlePosition(vehicle, direction) end
+---@param angleRatio number
+function SetVehicleFlightNozzlePosition(vehicle, angleRatio) end
 
 ---@deprecated
 SetDesiredVerticalFlightPhase = SetVehicleFlightNozzlePosition
@@ -5891,8 +6241,8 @@ SetPlaneVtolDesiredDirection = SetVehicleFlightNozzlePosition
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9AA47FFF660CB932)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param direction number
-function SetVehicleFlightNozzlePositionImmediate(vehicle, direction) end
+---@param angle number
+function SetVehicleFlightNozzlePositionImmediate(vehicle, angle) end
 
 ---@deprecated
 SetVerticalFlightPhase = SetVehicleFlightNozzlePositionImmediate
@@ -5903,8 +6253,8 @@ SetPlaneVtolDirection = SetVehicleFlightNozzlePositionImmediate
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB055A34527CB8FD7)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param p1 boolean
-function SetVehicleForceAfterburner(vehicle, p1) end
+---@param toggle boolean
+function SetVehicleForceAfterburner(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAB54A438726D25D5)  
@@ -5947,6 +6297,17 @@ function SetVehicleFullbeam(vehicle, toggle) end
 function SetVehicleGeneratesEngineShockingEvents(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9A75585FB2E54FAD)  
+---Specifies an area of interest where cargens will focus on spawning vehicles
+---
+---You can clear the area of interest with [`CLEAR_VEHICLE_GENERATOR_AREA_OF_INTEREST`](#\_0x0A436B8643716D14)
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+function SetVehicleGeneratorAreaOfInterest(x, y, z, radius) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x89F149B6131E57DA)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -5962,11 +6323,9 @@ function SetVehicleHandbrake(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x10655FAB9915623D)  
----```
----NativeDB Parameter 1: Hash hash
----```
+---This native does not have an official description.
 ---@param vehicle integer
----@param hash any
+---@param hash integer | string
 function SetVehicleHandlingHashForAi(vehicle, hash) end
 
 ---**`VEHICLE` `client`**  
@@ -6005,57 +6364,44 @@ SetDisableVehicleSirenSound = SetVehicleHasMutedSirens
 function SetVehicleHasStrongAxles(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2D55FE374D5FDB91)  
----```
----NativeDB Introduced: v1290
----```
----@param vehicle integer
----@param toggle boolean
-function SetVehicleHoverTransformActive(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF1211889DF15A763)  
----```
----If false, anything related to INPUT_VEH_TRANSFORM are ignored (changing hover state through script natives still possible).
----```
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1AA8A837D2169D94)  
+---Sets whether the vehicle's lights can be broken.
 ---
 ---```
----NativeDB Introduced: v1290
+---NativeDB Introduced: v323
 ---```
 ---@param vehicle integer
 ---@param toggle boolean
-function SetVehicleHoverTransformEnabled(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x438B3D7CA026FE91)  
----According to decompiled scripts this should work with the `deluxo` and `oppressor2` vehicles.
----I've only seen this work for `deluxo` though, can't figure out what it's supposed to do on `oppressor2`.
----
----For the deluxo:
----
-----   Set `state` to `0.0`: Fully transform to a 'road' vehicle (non-hover mode).
-----   Set `state` to `1.0`: Fully transform to a 'flying' vehicle (hover mode).
----
----If you set it to something like 0.5, then something [weird happens](https://streamable.com/p6wmr), you end up in some 50% hover mode, 50% not hover mode.
----
----This doesn't need to be called every tick, just once and the vehicle will transform to that state at the usual transform speed. It'll just stop transforming when it reaches the state you provided.
----
----Once this native is used then players will just be able to hit the vehicle transform key to toggle the transformation cycle; it won't block users from using the key.
----@param vehicle integer
----@param state number
-function SetVehicleHoverTransformPercentage(vehicle, state) end
+function SetVehicleHasUnbreakableLights(vehicle, toggle) end
 
 ---@deprecated
-SetVehicleTransformState = SetVehicleHoverTransformPercentage
+SetVehicleLightsCanBeVisiblyDamaged = SetVehicleHasUnbreakableLights
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xD138FA15C9776837)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1FD09E7390A74D54)  
+---Sets the vehicle headlight shadow flags.
+---
 ---```
----NativeDB Introduced: v1290
+---NativeDB Introduced: v323
+---```
+---
+---```cpp
+---enum eVehicleHeadlightShadowFlags {---
+---    // Default (Lights can be toggled between off, normal and high beams)---
+---    NO_HEADLIGHT_SHADOWS = 0,---
+---    // Lights Disabled (Lights are fully disabled, cannot be toggled)---
+---    HEADLIGHTS_CAST_DYNAMIC_SHADOWS = 1,---
+---    // Always On (Lights can be toggled between normal and high beams)---
+---    HEADLIGHTS_CAST_STATIC_SHADOWS = 2,---
+---    HEADLIGHTS_CAST_FULL_SHADOWS = 3 ---
+---};
 ---```
 ---@param vehicle integer
----@param ratio number
-function SetVehicleHoverTransformRatio(vehicle, ratio) end
+---@param flag integer
+function SetVehicleHeadlightShadows(vehicle, flag) end
+
+---@deprecated
+SetVehicleLightsMode = SetVehicleHeadlightShadows
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x06582AFF74894C75)  
@@ -6076,11 +6422,36 @@ function SetVehicleInactiveDuringPlayback(vehicle, toggle) end
 function SetVehicleIndicatorLights(vehicle, turnSignal, toggle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBE70724027F85BCD)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param doorIndex integer
+---@param doorLockStatus integer
+function SetVehicleIndividualDoorsLocked(vehicle, doorIndex, doorLockStatus) end
+
+---@deprecated
+SetPedTargettableVehicleDestroy = SetVehicleIndividualDoorsLocked
+---@deprecated
+SetVehicleDoorDestroyType = SetVehicleIndividualDoorsLocked
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0AD9E8F87FF7C16F)  
+---This native sets whether a specific vehicle influences the player's wanted level when it is involved in an incident that typically triggers a wanted response, such as being marked as a "victim" vehicle.
+---
+---This is particularly useful when utilizing the wanted system from GTA, and you want to prevent a vehicle from affecting the wanted level when it is stolen. In the decompiled scripts this native is only used to disable the influence of the vehicle on the wanted level.
+---@param vehicle integer
+---@param influenceWantedLevel boolean
+function SetVehicleInfluencesWantedLevel(vehicle, influenceWantedLevel) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF40DD601A65F7F19)  
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@param color integer
-function SetVehicleInteriorColour(vehicle, color) end
+function SetVehicleInteriorColor(vehicle, color) end
+
+---@deprecated
+SetVehicleInteriorColour = SetVehicleInteriorColor
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBC2042F090AF6AD3)  
@@ -6112,12 +6483,9 @@ SteerUnlockBias = SetVehicleIsRacing
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x67B2C79AA7FF5738)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param isStolen boolean
----@return any
 function SetVehicleIsStolen(vehicle, isStolen) end
 
 ---**`VEHICLE` `client`**  
@@ -6131,10 +6499,13 @@ function SetVehicleIsWanted(vehicle, state) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB8FBC8B1330CA9B4)  
----This native does not have an official description.
+---Calling this native will keep a vehicle's engine running after exiting.
 ---@param vehicle integer
 ---@param toggle boolean
-function SetVehicleJetEngineOn(vehicle, toggle) end
+function SetVehicleKeepEngineOnWhenAbandoned(vehicle, toggle) end
+
+---@deprecated
+SetVehicleJetEngineOn = SetVehicleKeepEngineOnWhenAbandoned
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x99C82F8A139F3E4E)  
@@ -6148,54 +6519,39 @@ SetVehicleHudSpecialAbilityBarActive = SetVehicleKersAllowed
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB385454F8791F57C)  
----```
----multiplier = brightness of head lights.  
----this value isn't capped afaik.  
----multiplier = 0.0 no lights  
----multiplier = 1.0 default game value  
----```
+---This multiplier has no limit, by default the game has this set to `1.0`.
 ---@param vehicle integer
 ---@param multiplier number
 function SetVehicleLightMultiplier(vehicle, multiplier) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x34E710FF01247C5A)  
+---Sets the vehicle lights state. Allowing for different lighting modes.
+---
 ---```
----set's if the vehicle has lights or not.  
----not an on off toggle.  
----p1 = 0 ;vehicle normal lights, off then lowbeams, then highbeams  
----p1 = 1 ;vehicle doesn't have lights, always off  
----p1 = 2 ;vehicle has always on lights  
----p1 = 3 ;or even larger like 4,5,... normal lights like =1  
----note1: when using =2 on day it's lowbeam,highbeam  
----but at night it's lowbeam,lowbeam,highbeam  
----note2: when using =0 it's affected by day or night for highbeams don't exist in daytime.  
+---NativeDB Introduced: v323
+---```
+---
+---```cpp
+---enum eVehicleLightSetting {---
+---    // Normal light behavior. Lights cycle through off, then low beams, then high beams.---
+---    // Note: It's affected by day or night; high beams don't exist in daytime.---
+---    NO_VEHICLE_LIGHT_OVERRIDE = 0,---
+---    // Vehicle doesn't have lights, always off.---
+---    FORCE_VEHICLE_LIGHTS_OFF  = 1, ---
+---    // Vehicle has always-on lights.---
+---    // During day: Cycles between low beams and high beams. ---
+---    // At night: Cycles between low beams, low beams, and high beams.---
+---    FORCE_VEHICLE_LIGHTS_ON   = 2,---
+---    // Sets vehicle lights on. Behaves like normal lights (same as 0).---
+---    SET_VEHICLE_LIGHTS_ON     = 3,---
+---    // Sets vehicle lights off. Behaves like normal lights (same as 0).---
+---    SET_VEHICLE_LIGHTS_OFF    = 4 ---
+---};
 ---```
 ---@param vehicle integer
 ---@param state integer
 function SetVehicleLights(vehicle, state) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1AA8A837D2169D94)  
----```
----Must be called each frame
----```
----@param vehicle integer
----@param p1 boolean
-function SetVehicleLightsCanBeVisiblyDamaged(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1FD09E7390A74D54)  
----```
----p1 can be either 0, 1 or 2.  
----Determines how vehicle lights behave when toggled.  
----0 = Default (Lights can be toggled between off, normal and high beams)  
----1 = Lights Disabled (Lights are fully disabled, cannot be toggled)  
----2 = Always On (Lights can be toggled between normal and high beams)  
----```
----@param vehicle integer
----@param p1 integer
-function SetVehicleLightsMode(vehicle, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x60BF608F1B8CD1B6)  
@@ -6213,48 +6569,68 @@ function SetVehicleLodMultiplier(vehicle, multiplier) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBAA045B4E42F3C06)  
----This native sets a maximum speed for a vehicle.
+---To reset the max speed, set the `speed` value to `0.0` or lower.
 ---@param vehicle integer
 ---@param speed number
 function SetVehicleMaxSpeed(vehicle, speed) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6AF0636DDEDCB6DD)  
----```
----In b944, there are 50 (0 - 49) mod types.  
----Sets the vehicle mod.  
----The vehicle must have a mod kit first.  
----Any out of range ModIndex is stock.  
----#Mod Type  
----Spoilers   
----Front Bumper   
----Rear Bumper   
----Side Skirt   
----Exhaust   
----Frame   
----Grille   
----Hood   
----Fender   
----Right Fender   
----Roof   
----Engine   
----Brakes   
----Transmission   
----Horns - 14 (modIndex from 0 to 51)  
----Suspension   
----Armor   
----Front Wheels   
----Back Wheels - 24 //only for motocycles  
----Plate holders   
----Trim Design   
----Ornaments   
----Dial Design   
----Steering Wheel   
----Shifter Leavers   
----Plaques   
----Hydraulics   
----Livery   
----ENUMS: pastebin.com/QzEAn02v  
+---```cpp
+---// eVehicleModType values modified to conform to script native reorganization (see 0x140D25327 in 1604).
+---enum eVehicleModType
+---{
+---	VMT_SPOILER = 0,
+---	VMT_BUMPER_F = 1,
+---	VMT_BUMPER_R = 2,
+---	VMT_SKIRT = 3,
+---	VMT_EXHAUST = 4,
+---	VMT_CHASSIS = 5,
+---	VMT_GRILL = 6,
+---	VMT_BONNET = 7,
+---	VMT_WING_L = 8,
+---	VMT_WING_R = 9,
+---	VMT_ROOF = 10,
+---	VMT_ENGINE = 11,
+---	VMT_BRAKES = 12,
+---	VMT_GEARBOX = 13,
+---	VMT_HORN = 14,
+---	VMT_SUSPENSION = 15,
+---	VMT_ARMOUR = 16,
+---	VMT_NITROUS = 17,
+---	VMT_TURBO = 18,
+---	VMT_SUBWOOFER = 19,
+---	VMT_TYRE_SMOKE = 20,
+---	VMT_HYDRAULICS = 21,
+---	VMT_XENON_LIGHTS = 22,
+---	VMT_WHEELS = 23,
+---	VMT_WHEELS_REAR_OR_HYDRAULICS = 24,
+---	VMT_PLTHOLDER = 25,
+---	VMT_PLTVANITY = 26,
+---	VMT_INTERIOR1 = 27,
+---	VMT_INTERIOR2 = 28,
+---	VMT_INTERIOR3 = 29,
+---	VMT_INTERIOR4 = 30,
+---	VMT_INTERIOR5 = 31,
+---	VMT_SEATS = 32,
+---	VMT_STEERING = 33,
+---	VMT_KNOB = 34,
+---	VMT_PLAQUE = 35,
+---	VMT_ICE = 36,
+---	VMT_TRUNK = 37,
+---	VMT_HYDRO = 38,
+---	VMT_ENGINEBAY1 = 39,
+---	VMT_ENGINEBAY2 = 40,
+---	VMT_ENGINEBAY3 = 41,
+---	VMT_CHASSIS2 = 42,
+---	VMT_CHASSIS3 = 43,
+---	VMT_CHASSIS4 = 44,
+---	VMT_CHASSIS5 = 45,
+---	VMT_DOOR_L = 46,
+---	VMT_DOOR_R = 47,
+---	VMT_LIVERY_MOD = 48,
+---	VMT_LIGHTBAR = 49,
+---};
 ---```
 ---@param vehicle integer
 ---@param modType integer
@@ -6278,8 +6654,8 @@ function SetVehicleMod(vehicle, modType, modIndex, customTires) end
 ---@param vehicle integer
 ---@param paintType integer
 ---@param color integer
----@param p3 integer
-function SetVehicleModColor_1(vehicle, paintType, color, p3) end
+---@param pearlescentColor integer
+function SetVehicleModColor_1(vehicle, paintType, color, pearlescentColor) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x816562BADFDEC83E)  
@@ -6312,9 +6688,7 @@ function SetVehicleModelIsSuppressed(model, suppressed) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1F2AA07F00B3217A)  
 ---```
----Set modKit to 0 if you plan to call SET_VEHICLE_MOD. That's what the game does. Most body modifications through SET_VEHICLE_MOD will not take effect until this is set to 0.  
-------------  
----Setting the modKit to 0 also seems to load some livery related vehicle information. For example, using GET_LIVERY_NAME() will return NULL if you haven't set the modKit to 0 in advance. As soon as you set it to 0, GET_LIVERY_NAME() will work properly.  
+---Set modKit to 0 if you plan to call SET_VEHICLE_MOD. That's what the game does. Most body modifications through SET_VEHICLE_MOD will not take effect until this is set to 0.
 ---```
 ---@param vehicle integer
 ---@param modKit integer
@@ -6322,9 +6696,7 @@ function SetVehicleModKit(vehicle, modKit) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBFDF984E2C22B94F)  
----```
----NOTE: Debugging functions are not present in the retail version of the game.  
----```
+---This method is utilized solely for debugging purposes and is functional only in debug builds of the game. Please note that its functionality may not be available in the retail version.
 ---@param vehicle integer
 ---@param name string
 function SetVehicleNameDebug(vehicle, name) end
@@ -6366,21 +6738,21 @@ function SetVehicleNeonLightsColor_2(vehicle, color) end
 ---
 ---RGB values and colour names taken from the decompiled scripts:
 ---
----| Colour        |  R  |  G  |  B  |
----| ------------- | :-: | :-: | :-: |
+---| Colour         |  R  |  G  |  B  |
+---|---------------|:---:|:---:|:---:|
 ---| White         | 222 | 222 | 255 |
----| Blue          |  2  |  21 | 255 |
----| Electric Blue |  3  |  83 | 255 |
----| Mint Green    |  0  | 255 | 140 |
----| Lime Green    |  94 | 255 |  1  |
----| Yellow        | 255 | 255 |  0  |
----| Golden Shower | 255 | 150 |  0  |
----| Orange        | 255 |  62 |  0  |
----| Red           | 255 |  1  |  1  |
----| Pony Pink     | 255 |  50 | 100 |
----| Hot Pink      | 255 |  5  | 190 |
----| Purple        |  35 |  1  | 255 |
----| Blacklight    |  15 |  3  | 255 |
+---| Blue          | 2   | 21  | 255 |
+---| Electric Blue | 3   | 83  | 255 |
+---| Mint Green    | 0   | 255 | 140 |
+---| Lime Green    | 94  | 255 | 1   |
+---| Yellow        | 255 | 255 | 0   |
+---| Golden Shower | 255 | 150 | 0   |
+---| Orange        | 255 | 62  | 0   |
+---| Red           | 255 | 1   | 1   |
+---| Pony Pink     | 255 | 50  | 100 |
+---| Hot Pink      | 255 | 5   | 190 |
+---| Purple        | 35  | 1   | 255 |
+---| Blacklight    | 15  | 3   | 255 |
 ---@param vehicle integer
 ---@param r integer
 ---@param g integer
@@ -6388,39 +6760,15 @@ function SetVehicleNeonLightsColor_2(vehicle, color) end
 function SetVehicleNeonLightsColour(vehicle, r, g, b) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xC8E9B6B71B8E660D)  
----```
----NativeDB Introduced: v1604
----```
----@param vehicle integer
----@param toggle boolean
-function SetVehicleNitroEnabled(vehicle, toggle) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95A88F0B409CDA47)  
----```
----Sets a vehicle's license plate text.  8 chars maximum.  
----Example:  
----Ped playerPed = PLAYER::PLAYER_PED_ID();  
----Vehicle veh = PED::GET_VEHICLE_PED_IS_USING(playerPed);  
----char *plateText = "KING";  
----VEHICLE::SET_VEHICLE_NUMBER_PLATE_TEXT(veh, plateText);  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param plateText string
 function SetVehicleNumberPlateText(vehicle, plateText) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9088EB5A43FFB0A1)  
----```
----Plates:  
----Blue/White   
----Yellow/black   
----Yellow/Blue   
----Blue/White2   
----Blue/White3   
----Yankton  
----```
+---Please refer to [`GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX`](#\_0xF11BC2DD9A3E7195) for plate indicies.
 ---@param vehicle integer
 ---@param plateIndex integer
 function SetVehicleNumberPlateTextIndex(vehicle, plateIndex) end
@@ -6470,14 +6818,16 @@ VehicleSetCustomParachuteModel = SetVehicleParachuteModel
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA74AD2439468C883)  
 ---```
----colorIndex = 0  
+---colorIndex = 0 - 7
 ---```
 ---@param vehicle integer
 ---@param textureVariation integer
-function SetVehicleParachuteTextureVariatiion(vehicle, textureVariation) end
+function SetVehicleParachuteTextureVariation(vehicle, textureVariation) end
 
 ---@deprecated
-VehicleSetCustomParachuteTexture = SetVehicleParachuteTextureVariatiion
+VehicleSetCustomParachuteTexture = SetVehicleParachuteTextureVariation
+---@deprecated
+SetVehicleParachuteTextureVariatiion = SetVehicleParachuteTextureVariation
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x70DB57649FA8D0D8)  
@@ -6538,14 +6888,14 @@ function SetVehicleReduceGrip(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6DEE944E1EE90CFB)  
----Often used in conjunction with: [SET_VEHICLE_REDUCE_GRIP](#_0x222FF6A823D122E2).
+---Often used in conjunction with: [SET_VEHICLE_REDUCE_GRIP](#\_0x222FF6A823D122E2).
 ---
 ---```
 ---NativeDB Introduced: v1604
 ---```
 ---@param vehicle integer
----@param toggle boolean
-function SetVehicleReduceTraction(vehicle, toggle) end
+---@param val integer
+function SetVehicleReduceTraction(vehicle, val) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x81E1552E35DC3839)  
@@ -6589,13 +6939,24 @@ function SetVehicleRudderBroken(vehicle, toggle) end
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x14E85C5EE7A4D542)  
 ---```
----Only works during nighttime.  
----And only if there is a driver in heli.  
+---Only works during nighttime.
 ---```
 ---@param heli integer
 ---@param toggle boolean
 ---@param canBeUsedByAI boolean
 function SetVehicleSearchlight(heli, toggle, canBeUsedByAI) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF0E4BA16D1DB546C)  
+---```
+---Adds some kind of shadow to the vehicle.
+----1 disables the effect.
+---DISABLE_*
+---```
+---@param vehicle integer
+---@param p1 integer
+---@param p2 integer
+function SetVehicleShadowEffect(vehicle, p1, p2) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x74CD9A9327A282EA)  
@@ -6687,9 +7048,7 @@ function SetVehicleTankTurretPosition(vehicle, position, p2) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2E0A74E1002380B1)  
----```
----VEHICLE::SET_VEHICLE_TIMED_EXPLOSION(v_3, PLAYER::GET_PLAYER_PED(v_5), 1);  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param ped integer
 ---@param toggle boolean
@@ -6708,6 +7067,27 @@ function SetVehicleTowTruckArmPosition(vehicle, position) end
 SetTowTruckCraneRaised = SetVehicleTowTruckArmPosition
 ---@deprecated
 SetTowTruckCraneHeight = SetVehicleTowTruckArmPosition
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1093408B4B9D1146)  
+---This native does not have an official description.
+---@param vehicle integer
+---@param speed number
+function SetVehicleTurretSpeedThisFrame(vehicle, speed) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC60060EB0D8AC7B1)  
+---```
+---Toggles specific flag on turret
+---```
+---
+---```
+---NativeDB Introduced: v1290
+---```
+---@param vehicle integer
+---@param index integer
+---@param toggle boolean
+function SetVehicleTurretUnk(vehicle, index, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEC6A202EE4960385)  
@@ -6775,9 +7155,7 @@ function SetVehicleTyreSmokeColor(vehicle, r, g, b) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8ABA6AF54B942B95)  
----```
----Player won't be able to drive the car or enter it, unless you task him to get into any other seat than the driver one.  
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param toggle boolean
 function SetVehicleUndriveable(vehicle, toggle) end
@@ -6791,12 +7169,10 @@ function SetVehicleUnkDamageMultiplier(vehicle, multiplier) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1D97D1E3A70A649F)  
----```
----Related to Hao races.
----```
+---This native does not have an official description.
 ---@param vehicle integer
----@param p1 boolean
-function SetVehicleUseAlternateHandling(vehicle, p1) end
+---@param toggle boolean
+function SetVehicleUseAlternateHandling(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE023E8AC4EF7C117)  
@@ -6812,11 +7188,31 @@ function SetVehicleUseCutsceneWheelCompression(p0, p1, p2, p3) end
 SetAllVehiclesSpawn = SetVehicleUseCutsceneWheelCompression
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1980F68872CC2C3D)  
+---```
+---NativeDB Introduced: v3095
+---```
+---
+---Enables or disables the use of the vehicle's horn button for activating the nitrous system.
+---@param vehicle integer
+---@param bToggle boolean
+function SetVehicleUseHornButtonForNitrous(vehicle, bToggle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC45C27EF50F36ADC)  
 ---This native does not have an official description.
 ---@param vehicle integer
----@param p1 boolean
-function SetVehicleUsePlayerLightSettings(vehicle, p1) end
+---@param toggle boolean
+function SetVehicleUsePlayerLightSettings(vehicle, toggle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCAC66558B944DA67)  
+---```
+---vehicle must be a plane
+---```
+---@param vehicle integer
+---@param toggle boolean
+function SetVehicleUsesLargeRearRamp(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44CD1F493DB2A0A6)  
@@ -6835,12 +7231,9 @@ function SetVehicleWeaponsDisabled(vehicle, weaponSlot) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x29B18B4FD460CA8F)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param enabled boolean
----@return any
 function SetVehicleWheelsCanBreak(vehicle, enabled) end
 
 ---**`VEHICLE` `client`**  
@@ -6868,32 +7261,23 @@ function SetVehicleWheelsDealDamage(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x487EB21CC7295BA1)  
----```
----0: Sport  
----1: Muscle  
----2: Lowrider  
----3: SUV  
----4: Offroad  
----5: Tuner  
----6: Bike Wheels  
----7: High End  
----```
+---Refer to [GET_VEHICLE_WHEEL_TYPE](#\_0xB3ED1BFB4BE636DC) for wheel types.
 ---@param vehicle integer
----@param WheelType integer
-function SetVehicleWheelType(vehicle, WheelType) end
+---@param wheelType integer
+function SetVehicleWheelType(vehicle, wheelType) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x57C51E6BAD752696)  
----```
+---```cpp
 ---enum WindowTints  
 ---{  
----	WINDOWTINT_NONE,  
----	WINDOWTINT_PURE_BLACK,  
----	WINDOWTINT_DARKSMOKE,  
----	WINDOWTINT_LIGHTSMOKE,  
----	WINDOWTINT_STOCK,  
----	WINDOWTINT_LIMO,  
----	WINDOWTINT_GREEN  
+---	WINDOWTINT_NONE = 0,
+---	WINDOWTINT_PURE_BLACK = 1,
+---	WINDOWTINT_DARKSMOKE = 2,
+---	WINDOWTINT_LIGHTSMOKE = 3,
+---	WINDOWTINT_STOCK = 4,
+---	WINDOWTINT_LIMO = 5,
+---	WINDOWTINT_GREEN = 6
 ---};  
 ---```
 ---@param vehicle integer
@@ -6902,24 +7286,26 @@ function SetVehicleWindowTint(vehicle, tint) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE41033B25D003A07)  
----color is the paint index for the vehicle.
 ---Paint index goes from 0 to 12.
----Be aware that it only works on xenon lights.
 ---
----You can find the list of colors and ids here: [\_GET_VEHICLE_HEADLIGHTS_COLOUR](#_0x3DFF319A831E0CDB)
+---You can find the list of colors and ids here: [\_GET_VEHICLE_HEADLIGHTS_COLOUR](#\_0x3DFF319A831E0CDB)
 ---@param vehicle integer
 ---@param color integer
-function SetVehicleXenonLightsColour(vehicle, color) end
+function SetVehicleXenonLightsColor(vehicle, color) end
 
 ---@deprecated
-SetVehicleHeadlightsColour = SetVehicleXenonLightsColour
+SetVehicleHeadlightsColour = SetVehicleXenonLightsColor
+---@deprecated
+SetVehicleXenonLightsColour = SetVehicleXenonLightsColor
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9438F7AD68771A20)  
----This native does not have an official description.
----@param p0 any
----@param p1 number
-function SkipTimeInPlaybackRecordedVehicle(p0, p1) end
+---```
+---SET_TIME_POSITION_IN_RECORDING can be emulated by: desired_time - GET_TIME_POSITION_IN_RECORDING(vehicle)
+---```
+---@param vehicle integer
+---@param time number
+function SkipTimeInPlaybackRecordedVehicle(vehicle, time) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAB8E2EDA0C0A5883)  
@@ -6929,26 +7315,10 @@ function SkipToEndAndStopPlaybackRecordedVehicle(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9E5B5E4D2CCD2259)  
----int index = 0 to 13
----
----0 = front right window
----1 = front left window
----2 = rear right window
----3 = rear left window
----4 = unsure
----5 = unsure
----6 = windowscreen
----7 = unsure
----8 = rear windowscreen
----9 = unsure
----10 = unsure
----11 = unsure
----12 = unsure
----13 = unsure
+---Smashes a vehicles window. See eWindowId declared in [`IS_VEHICLE_WINDOW_INTACT`](#\_0x46E571A0E20D01F1).
 ---@param vehicle integer
----@param index integer
----@return any
-function SmashVehicleWindow(vehicle, index) end
+---@param windowIndex integer
+function SmashVehicleWindow(vehicle, windowIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x374706271354CB18)  
@@ -6960,52 +7330,52 @@ function StabiliseEntityAttachedToHeli(vehicle, entity, p2) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3F878F92B3A7A071)  
----This native does not have an official description.
+---p3 is some flag related to 'trailers' (invokes CVehicle::GetTrailer).
+---
+---See [`REQUEST_VEHICLE_RECORDING`](#\_0xAF514CABE74CBF15).
 ---@param vehicle integer
----@param p1 integer
----@param playback string
+---@param recording integer
+---@param script string
 ---@param p3 boolean
-function StartPlaybackRecordedVehicle(vehicle, p1, playback, p3) end
+function StartPlaybackRecordedVehicle(vehicle, recording, script, p3) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x29DE5FA52D00428C)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p3 number
----@param p4 any
----@return any
-function StartPlaybackRecordedVehicleUsingAi(p0, p1, p3, p4) end
+---```
+---AI abides by the provided driving style (e.g., stopping at red lights or waiting behind traffic) while executing the specificed vehicle recording.
+---
+---0x1F2E4E06DEA8992B is a related native that deals with the AI physics for such recordings.
+---```
+---@param vehicle integer
+---@param recording integer
+---@param script string
+---@param speed number
+---@param drivingStyle integer
+function StartPlaybackRecordedVehicleUsingAi(vehicle, recording, script, speed, drivingStyle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7D80FD645D4DA346)  
----This native does not have an official description.
+---```
+---flags requires further research, e.g., 0x4/0x8 are related to the AI driving task and 0x20 is internally set and interacts with dynamic entity components.
+---time, often zero and capped at 500, is related to SET_PLAYBACK_TO_USE_AI_TRY_TO_REVERT_BACK_LATER
+---```
 ---@param vehicle integer
----@param p1 any
----@param playback string
----@param p3 any
----@param p4 any
----@param p5 any
-function StartPlaybackRecordedVehicleWithFlags(vehicle, p1, playback, p3, p4, p5) end
+---@param recording integer
+---@param script string
+---@param flags integer
+---@param time integer
+---@param drivingStyle integer
+function StartPlaybackRecordedVehicleWithFlags(vehicle, recording, script, flags, time, drivingStyle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB8FF7AB45305C345)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param vehicle integer
----@return any
 function StartVehicleAlarm(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9C8C6504B5B63D2C)  
----```
----Sounds the horn for the specified vehicle.  
----vehicle: The vehicle to activate the horn for.  
----mode: The hash of "NORMAL" or "HELDDOWN". Can be 0.  
----duration: The duration to sound the horn, in milliseconds.  
----Note: If a player is in the vehicle, it will only sound briefly.  
----```
+---Sounds the horn for the specified vehicle. Note that if a player is in the vehicle, it will only sound briefly.
 ---@param vehicle integer
 ---@param duration integer
 ---@param mode integer | string
@@ -7018,6 +7388,14 @@ function StartVehicleHorn(vehicle, duration, mode, forever) end
 function StopAllGarageActivity() end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7C06330BFDDA182E)  
+---```
+---Stops CTaskBringVehicleToHalt
+---```
+---@param vehicle integer
+function StopBringVehicleToHalt(vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54833611C17ABDEA)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -7025,25 +7403,33 @@ function StopPlaybackRecordedVehicle(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFD813BB7DB977F20)  
----```
----NativeDB Return Type: void
----```
----@param intersectionId integer
+---Toggles whether ambient trains can spawn on the specified track or not.
+---
+---| trackId | File | Description |
+---| --- | --- | --- |
+---| 0 | `trains1.dat` | Main track around SA |
+---| 1 | `trains2.dat` | Davis Quartz Quarry branch |
+---| 2 | `trains3.dat` | Second track alongside live track along Roy Lewenstein Blv. |
+---| 3 | `trains4.dat` | Metro track circuit |
+---| 4 | `trains5.dat` | Branch in Mirror Park Railyard |
+---| 5 | `trains6.dat` | Branch in Mirror Park Railyard |
+---| 6 | `trains7.dat` | LS branch to Mirror Park Railyard |
+---| 7 | `trains8.dat` | Overground part of metro track along Forum Dr. |
+---| 8 | `trains9.dat` | Branch to Mirror Park Railyard |
+---| 9 | `trains10.dat` | Yankton train |
+---| 10 | `trains11.dat` | Part of metro track near mission row |
+---| 11 | `trains12.dat` | Yankton prologue mission train |
+---
+---Tracks IDs `0` and `3` are the main tracks you find trains on during normal gameplay, all the others are used during missions and are not complete tracks.
+---@param trackId integer
 ---@param state boolean
----@return any
-function SwitchTrainTrack(intersectionId, state) end
+function SwitchTrainTrack(trackId, state) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A1F4F37F95BAD08)  
----```
----Toggles:  
----UNK17   
----Turbo   
----UNK19   
----Tire Smoke   
----UNK21   
----Xenon Headlights  
----```
+---Enables or disables a vehicle mod by index (`modType`) for a given vehicle.
+---
+---`eVehicleModType` enum, used for `modType` index can be found under [`SET_VEHICLE_MOD`](#\_0x6AF0636DDEDCB6DD).
 ---@param vehicle integer
 ---@param modType integer
 ---@param toggle boolean
@@ -7061,23 +7447,27 @@ function TrackVehicleVisibility(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A69FFD1B42BFF9E)  
----Transforms the `stormberg` to it's "road vehicle" variant. If the vehicle is already in that state then the vehicle transformation audio will still play, but the vehicle won't change at all.
+---Transforms the `stormberg` to its "road vehicle" variant. If the vehicle is already in that state then the vehicle transformation audio will still play, but the vehicle won't change at all.
 ---@param vehicle integer
 ---@param instantly boolean
-function TransformSubmarineToVehicle(vehicle, instantly) end
+function TransformToCar(vehicle, instantly) end
 
 ---@deprecated
-TransformStormbergToRoadVehicle = TransformSubmarineToVehicle
+TransformStormbergToRoadVehicle = TransformToCar
+---@deprecated
+TransformSubmarineToVehicle = TransformToCar
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBE4C854FFDB6EEBE)  
----Transforms the `stormberg` to it's "water vehicle" variant. If the vehicle is already in that state then the vehicle transformation audio will still play, but the vehicle won't change at all.
+---Transforms the `stormberg` to its "water vehicle" variant. If the vehicle is already in that state then the vehicle transformation audio will still play, but the vehicle won't change at all.
 ---@param vehicle integer
 ---@param instantly boolean
-function TransformVehicleToSubmarine(vehicle, instantly) end
+function TransformToSubmarine(vehicle, instantly) end
 
 ---@deprecated
-TransformStormbergToWaterVehicle = TransformVehicleToSubmarine
+TransformStormbergToWaterVehicle = TransformToSubmarine
+---@deprecated
+TransformVehicleToSubmarine = TransformToSubmarine
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8879EE09268305D5)  

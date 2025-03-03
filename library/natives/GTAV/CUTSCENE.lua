@@ -2,9 +2,13 @@
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB56BBBCC2955D9CB)  
----```
----"Can request assets for cutscene entity"? (found in decompiled scripts)  
----```
+---Returns when it is safe to start applying changes to cutscene entities.
+---
+---Should always be used for applying components.
+---
+---See [`SET_CUTSCENE_PED_COMPONENT_VARIATION_FROM_PED`](#\_0x2A56C06EBEF2B0D9) and [`REGISTER_ENTITY_FOR_CUTSCENE`](#\_0xE40C1C56DF95C2E8) for an example.
+---
+---This will be true before the cutscene is considered loaded
 ---@return boolean
 function CanRequestAssetsForCutsceneEntity() end
 
@@ -20,14 +24,18 @@ function CanSetEnterStateForRegisteredEntity(cutsceneEntName, modelHash) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB2CBCD0930DFB420)  
----This native does not have an official description.
+---Whether or not it is safe to run functions on the camera,
+---as the camera is now no longer being used by the cutscene.
 ---@param p0 boolean
 ---@return boolean
 function CanSetExitStateForCamera(p0) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4C6A6451C79E4662)  
----This native does not have an official description.
+---Returns if the script can begin interacting with the registered entity. Primarly used for lead-outs of cutscenes.
+---Returns on frame after cutscene ends, so you cannot get is while using IsCutsceneActive()
+---
+---Whether it is safe to start doing scripted actions on the entity, like simulating walking out of a cutscene.
 ---@param cutsceneEntName string
 ---@param modelHash integer | string
 ---@return boolean
@@ -43,12 +51,32 @@ function DoesCutsceneEntityExist(cutsceneEntName, modelHash) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0ABC54DE641DC0FC)  
----```
----Jenkins hash probably is 0xFD8B1AC2
----```
+---This native does not have an official description.
 ---@param cutsceneName string
 ---@return integer
 function GetCutFileNumSections(cutsceneName) end
+
+---**`CUTSCENE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x011883f41211432a)  
+---Returns the time of the cutscene's end accounting for [`REQUEST_CUTSCENE_WITH_PLAYBACK_LIST`](#\_0xC23DE0E91C30B58C)
+---
+---If a cutscene is laid out with 10 second sections, and section 0 and 1 are enabled then it would be 20000ms.
+---
+---```
+---NativeDB Introduced: v1734
+---```
+---@return integer
+function GetCutsceneEndTime() end
+
+---**`CUTSCENE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x710286BC5EF4D6E1)  
+---Gets the current time of the cutscene.
+---
+---```
+---NativeDB Introduced: v3258
+---```
+---@return integer
+function GetCutscenePlayTime() end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x49010A6A396553D8)  
@@ -58,19 +86,20 @@ function GetCutsceneSectionPlaying() end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE625BEABBAFFDAB9)  
----This native does not have an official description.
+---Gets the elapsed time of the current cutscene in
 ---@return integer
 function GetCutsceneTime() end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEE53B14A19E480D4)  
----This native does not have an official description.
+---Gets the total length of the cutscene irrespective of playback list in milliseconds
+---To account for sections, see [`_GET_CUTSCENE_END_TIME`](#\_0x971D7B15BCDBEF99)
 ---@return integer
 function GetCutsceneTotalDuration() end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0A2E9FDB9A8C62F6)  
----This native does not have an official description.
+---Returns the handle of a cutscene entity, can be ped
 ---@param cutsceneEntName string
 ---@param modelHash integer | string
 ---@return integer
@@ -87,7 +116,7 @@ function GetEntityIndexOfRegisteredEntity(cutsceneEntName, modelHash) end
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA1C996C2A744262E)  
 ---```
----Checks if the cutscene has loaded and doesn't check via CutSceneManager as opposed to HAS_[THIS]_CUTSCENE_LOADED.
+---Simply checks if the cutscene has loaded and doesn't check via CutSceneManager as opposed to HAS_[THIS]_CUTSCENE_LOADED.
 ---```
 ---@param cutsceneName string
 ---@return boolean
@@ -126,9 +155,7 @@ function IsCutsceneActive() end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x71B74D2AE19338D0)  
----```
----It's 100% an IS_CUTSCENE_* native.  
----```
+---This native does not have an official description.
 ---@param flag integer
 ---@return boolean
 function IsCutscenePlaybackFlagSet(flag) end
@@ -173,12 +200,6 @@ function N_0x20746f7b1032a3c7(p0, p1, p2, p3) end
 function N_0x2f137b508de238f2(p0) end
 
 ---**`CUTSCENE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x41FAA8FB2ECE8720)  
----This native does not have an official description.
----@param p0 boolean
-function N_0x41faa8fb2ece8720(p0) end
-
----**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4CEBC1ED31E8925E)  
 ---```
 ---This function is hard-coded to always return 1.  
@@ -219,9 +240,8 @@ function N_0x7f96f23fa9b73327(modelHash) end
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8D9DF6ECA8768583)  
 ---```
----Example of usage:  
----v_2 = SCRIPT::_30B4FA1C82DD4B9F(); // int _GET_ID_OF_NEXT_SCRIPT_IN_ENUMERATION()  
----CUTSCENE::_8D9DF6ECA8768583(v_2);  
+---SET_SCRIPT_*
+---Sets the cutscene's owning thread ID.
 ---```
 ---@param threadId integer
 function N_0x8d9df6eca8768583(threadId) end
@@ -235,7 +255,8 @@ function N_0xa0fe76168a189ddb() end
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC61B86C9F61EB404)  
 ---```
----Toggles a value (bool) for cutscenes.  
+---Toggles a value (bool) for cutscenes.
+---SET_*
 ---```
 ---@param toggle boolean
 function N_0xc61b86c9f61eb404(toggle) end
@@ -248,23 +269,23 @@ function N_0xe36a98d8ab3d3c66(p0) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE40C1C56DF95C2E8)  
----This native does not have an official description.
----@param cutscenePed integer
+---This can only be run once [`CAN_REQUEST_ASSETS_FOR_CUTSCENE_ENTITY`](#\_0xB56BBBCC2955D9CB) is true, but can be run before [`HAS_CUTSCENE_LOADED`](#\_0xC59F528E9AB9F339)
+---@param cutsceneEntity integer
 ---@param cutsceneEntName string
 ---@param p2 integer
 ---@param modelHash integer | string
 ---@param p4 integer
-function RegisterEntityForCutscene(cutscenePed, cutsceneEntName, p2, modelHash, p4) end
+function RegisterEntityForCutscene(cutsceneEntity, cutsceneEntName, p2, modelHash, p4) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2131046957F31B04)  
----This native does not have an official description.
+---Only used twice in armenian1.c
 function RegisterSynchronisedScriptSpeech() end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD00D76A7DFC9D852)  
 ---```
----Unloads the cutscene and doesn't do extra stuff that REMOVE_CUTSCENE does.
+---Simply unloads the cutscene and doesn't do extra stuff that REMOVE_CUTSCENE does.
 ---```
 ---@param cutsceneName string
 function RemoveCutFile(cutsceneName) end
@@ -277,17 +298,14 @@ function RemoveCutscene() end
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x06A3524161C502BA)  
 ---```
----Loads the cutscene and doesn't do extra stuff that REQUEST_CUTSCENE does.
+---Simply loads the cutscene and doesn't do extra stuff that REQUEST_CUTSCENE does.
 ---```
 ---@param cutsceneName string
 function RequestCutFile(cutsceneName) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7A86743F475D9E09)  
----```
----p1: usually 8  
----Cutscene list: pastebin.com/Bbj7ANpQ  
----```
+---This native does not have an official description.
 ---@param cutsceneName string
 ---@param flags integer
 function RequestCutscene(cutsceneName, flags) end
@@ -295,9 +313,8 @@ function RequestCutscene(cutsceneName, flags) end
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC23DE0E91C30B58C)  
 ---```
----Example:  
----CUTSCENE::_0xC23DE0E91C30B58C("JOSH_1_INT_CONCAT", 13, 8);  
----Cutscene list: pastebin.com/Bbj7ANpQ  
+---playbackFlags: Which scenes should be played.
+---Example: 0x105 (bit 0, 2 and 8 set) will enable scene 1, 3 and 9.
 ---```
 ---@param cutsceneName string
 ---@param playbackFlags integer
@@ -308,8 +325,14 @@ function RequestCutsceneWithPlaybackList(cutsceneName, playbackFlags, flags) end
 RequestCutsceneEx = RequestCutsceneWithPlaybackList
 
 ---**`CUTSCENE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x4C61C75BEE8184C2)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x41FAA8FB2ECE8720)  
 ---This native does not have an official description.
+---@param p0 boolean
+function SetCutsceneCanBeSkipped(p0) end
+
+---**`CUTSCENE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4C61C75BEE8184C2)  
+---Only used in networked environment with MP cutscenes
 ---@param cutsceneEntName string
 ---@param p1 integer
 ---@param p2 integer
@@ -326,29 +349,29 @@ function SetCutsceneFadeValues(p0, p1, p2, p3) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB812B3FD1C01CF27)  
----```
----p3 could be heading. Needs more research.  
----```
+---Sets cutscene location, used for multiplayer apartments/businesses.
 ---@param x number
 ---@param y number
 ---@param z number
----@param p3 number
+---@param heading number
 ---@param p4 integer
-function SetCutsceneOrigin(x, y, z, p3, p4) end
+function SetCutsceneOrigin(x, y, z, heading, p4) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA01E7B6DEEFBBC9)  
----This native does not have an official description.
+---See [`SET_PED_COMPONENT_VARIATION`](#\_0x262B14F48D29DE80)
 ---@param cutsceneEntName string
----@param p1 integer
----@param p2 integer
----@param p3 integer
+---@param componentId integer
+---@param drawableId integer
+---@param textureId integer
 ---@param modelHash integer | string
-function SetCutscenePedComponentVariation(cutsceneEntName, p1, p2, p3, modelHash) end
+function SetCutscenePedComponentVariation(cutsceneEntName, componentId, drawableId, textureId, modelHash) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A56C06EBEF2B0D9)  
----This native does not have an official description.
+---Sets the components for a cutscene ped, this will take precendence over the cutscene's component overrides. This does not require the entity be registered.
+---
+---See
 ---@param cutsceneEntName string
 ---@param ped integer
 ---@param modelHash integer | string
@@ -356,19 +379,13 @@ function SetCutscenePedComponentVariationFromPed(cutsceneEntName, ped, modelHash
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0546524ADE2E9723)  
----```
----Thanks R*! ;)  
----if ((l_161 == 0) || (l_161 == 2)) {  
----    sub_2ea27("Trying to set Jimmy prop variation");  
----    CUTSCENE::_0546524ADE2E9723("Jimmy_Boston", 1, 0, 0, 0);  
----}  
----```
+---See [`SET_PED_PROP_INDEX`](#\_0x93376B65A266EB5F)
 ---@param cutsceneEntName string
----@param p1 integer
----@param p2 integer
----@param p3 integer
+---@param componentId integer
+---@param drawableId integer
+---@param textureId integer
 ---@param modelHash integer | string
-function SetCutscenePedPropVariation(cutsceneEntName, p1, p2, p3, modelHash) end
+function SetCutscenePedPropVariation(cutsceneEntName, componentId, drawableId, textureId, modelHash) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9896CE4721BE84BA)  
@@ -386,16 +403,14 @@ function SetCutsceneTriggerArea(p0, p1, p2, p3, p4, p5) end
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x186D5CB5E7B0FF7B)  
 ---```
----some kind of flag. Usually 0.  
+---flags: Usually 0.
 ---```
 ---@param flags integer
 function StartCutscene(flags) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1C9ADDA3244A1FBF)  
----```
----p3: some kind of flag. Usually 0.  
----```
+---Similar to [`SET_CUTSCENE_ORIGIN`](#\_0xB812B3FD1C01CF27) but without heading and doesn't need [`START_CUTSCENE`](#\_0x186D5CB5E7B0FF7B)
 ---@param x number
 ---@param y number
 ---@param z number
@@ -410,7 +425,7 @@ function StopCutscene(p0) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD220BDD222AC4A1E)  
----This native does not have an official description.
+---Stop cutscene instantly, will dump registered entities right where they were when ran.
 function StopCutsceneImmediately() end
 
 ---**`CUTSCENE` `client`**  

@@ -8,6 +8,26 @@
 function AddModelToCreatorBudget(modelHash) end
 
 ---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8E2A065ABDAE6994)  
+---This native does not have an official description.
+function AllowPlayerSwitchAscent() end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xAD5FDF34B81BFE79)  
+---This native does not have an official description.
+function AllowPlayerSwitchDescent() end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x74DE2E8739086740)  
+---This native does not have an official description.
+function AllowPlayerSwitchOutro() end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x43D1680C6D19A8E9)  
+---This native does not have an official description.
+function AllowPlayerSwitchPan() end
+
+---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9BADDC94EF83B823)  
 ---This native does not have an official description.
 function BeginSrl() end
@@ -41,20 +61,16 @@ function EnableSwitchPauseBeforeDescent() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0A41540E63C9EE17)  
----Clear the current srl and stop rendering the area selected by PrefetchSrl and started with BeginSrl.
+---Clear the current srl and stop rendering the area selected by PREFETCH_SRL and started with BEGIN_SRL.
 function EndSrl() end
 
 ---**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x219C7B8D53E429FD)  
----This native does not have an official description.
----@param x number
----@param y number
----@param z number
----@param rad number
----@param p4 any
----@param p5 any
----@return any
-function FormatFocusHeading(x, y, z, rad, p4, p5) end
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF741BD853611592D)  
+---```
+---NativeDB Introduced: v2189
+---```
+---@return integer
+function GetGlobalWaterType() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB5D7B26B45720E05)  
@@ -72,6 +88,12 @@ function FormatFocusHeading(x, y, z, rad, p4, p5) end
 function GetIdealPlayerSwitchType(x1, y1, z1, x2, y2, z2) end
 
 ---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0C15B0E443B2349D)  
+---This native does not have an official description.
+---@return number
+function GetLodscale() end
+
+---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4060057271CEBC89)  
 ---This native does not have an official description.
 ---@return integer
@@ -82,6 +104,12 @@ function GetNumberOfStreamingRequests() end
 ---This native does not have an official description.
 ---@return integer
 function GetPlayerShortSwitchState() end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5B48A06DD0E792A5)  
+---This native does not have an official description.
+---@return any
+function GetPlayerSwitchInterpOutCurrentTime() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x08C2D6C52A3104BB)  
@@ -132,10 +160,9 @@ function HasAnimDictLoaded(animDict) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC4EA073D86FB29B0)  
----```
----Gets whether the specified animation set has finished loading. An animation set provides movement animations for a ped. See SET_PED_MOVEMENT_CLIPSET.  
----Animation set and clip set are synonymous.  
----```
+---Gets whether the specified animation set has finished loading. An animation set provides movement animations for a ped.
+---
+---Animation set and clip set are synonymous. See [`SET_PED_MOVEMENT_CLIPSET`](#\_0xAF8A94EDE7712BEF).
 ---@param animSet string
 ---@return boolean
 function HasAnimSetLoaded(animSet) end
@@ -158,21 +185,19 @@ function HasCollisionForModelLoaded(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x98A4EB5D89A0C952)  
----```
----Checks if the specified model has loaded into memory.  
----```
+---Returns whether the specified model (archetype) is currently loaded.
+---
+---Note that this will return 'true' even if the model has been requested and loaded by something other than the current script, if you're intending to actually use the model in a later frame, you should call REQUEST_MODEL anyway.
 ---@param model integer | string
 ---@return boolean
 function HasModelLoaded(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8702416E512EC454)  
----```
----assetName = For example "core"  
----```
----@param assetName string
+---This native does not have an official description.
+---@param fxName string
 ---@return boolean
-function HasNamedPtfxAssetLoaded(assetName) end
+function HasNamedPtfxAssetLoaded(fxName) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCA7D9B86ECA7481B)  
@@ -182,9 +207,7 @@ function HasPtfxAssetLoaded() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB5A4DB34FE89B88A)  
----```
----Loads "common:/data/missioncreatordata" data and sets some values.  
----```
+---This native does not have an official description.
 function InitCreatorBudget() end
 
 ---@deprecated
@@ -199,9 +222,7 @@ function IsEntityFocus(entity) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x88A741E44A2B3495)  
----```
----List of all IPLs: pastebin.com/iNGLY32D  
----```
+---This native does not have an official description.
 ---@param iplName string
 ---@return boolean
 function IsIplActive(iplName) end
@@ -269,9 +290,15 @@ function IsPlayerSwitchInProgress() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD0263801A4C5B0BB)  
----Returns true when the srl from BeginSrl is loaded.
+---Returns true when the srl from BEGIN_SRL is loaded.
 ---@return boolean
 function IsSrlLoaded() end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBC9823AB80A3DCAC)  
+---This native does not have an official description.
+---@return boolean
+function IsStreamvolActive() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDFA80CB25D0A19B3)  
@@ -281,10 +308,8 @@ function IsSwitchReadyForDescent() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5B74EA8CFD5E3E7E)  
----```
----NativeDB Return Type: BOOL
----```
----@return any
+---This native does not have an official description.
+---@return boolean
 function IsSwitchSkippingDescent() end
 
 ---@deprecated
@@ -292,10 +317,19 @@ DestroyPlayerInPauseMenu = IsSwitchSkippingDescent
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBD6E84632DD4CB3F)  
----```
----1  
----```
+---This native does not have an official description.
 function LoadAllObjectsNow() end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7E3F55ED251B76D3)  
+---0 - default
+---1 - HeistIsland
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param waterType integer
+function LoadGlobalWaterType(waterType) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4448EB75B4904BDB)  
@@ -311,36 +345,10 @@ function LoadScene(x, y, z) end
 function N_0x03f1a106bda7dd3e() end
 
 ---**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x07C313F94746702C)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x07c313f94746702c(p0) end
-
----**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0811381EF5062FEC)  
 ---This native does not have an official description.
 ---@param p0 integer
 function N_0x0811381ef5062fec(p0) end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0AD9710CEE2F590F)  
----This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 any
----@return any
-function N_0x0ad9710cee2f590f(p0, p1, p2, p3, p4, p5, p6) end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x0C15B0E443B2349D)  
----This native does not have an official description.
----@return number
-function N_0x0c15b0e443b2349d() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1E9057A74FD73E23)  
@@ -348,42 +356,10 @@ function N_0x0c15b0e443b2349d() end
 function N_0x1e9057a74fd73e23() end
 
 ---**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1EE7D8DF4425F053)  
----This native does not have an official description.
----@param p0 any
-function N_0x1ee7d8df4425f053(p0) end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1F3F018BC3AFA77C)  
----This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 any
----@param p8 any
----@return any
-function N_0x1f3f018bc3afa77c(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
-
----**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x20C6C7E4EB082A7F)  
 ---This native does not have an official description.
 ---@param p0 boolean
 function N_0x20c6c7e4eb082a7f(p0) end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x40AEFD1A244741F2)  
----This native does not have an official description.
----@param p0 boolean
-function N_0x40aefd1a244741f2(p0) end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x43D1680C6D19A8E9)  
----This native does not have an official description.
-function N_0x43d1680c6d19a8e9() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x472397322E92A856)  
@@ -403,20 +379,6 @@ function N_0x4e52e752c76e7e7a(p0) end
 function N_0x5068f488ddb54dd8() end
 
 ---**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5B48A06DD0E792A5)  
----This native does not have an official description.
----@return any
-function N_0x5b48a06dd0e792a5() end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x5F2013F8BC24EE69)  
----```
----SET_PLAYERS_*  
----```
----@param p0 integer
-function N_0x5f2013f8bc24ee69(p0) end
-
----**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x63EB2B972A218CAC)  
 ---This native does not have an official description.
 function N_0x63eb2b972a218cac() end
@@ -426,23 +388,6 @@ function N_0x63eb2b972a218cac() end
 ---This native does not have an official description.
 ---@return any
 function N_0x71e7b2e657449aad() end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x74DE2E8739086740)  
----This native does not have an official description.
-function N_0x74de2e8739086740() end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x7D41E9D2D17C5B2D)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x7d41e9d2d17c5b2d(p0) end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x8E2A065ABDAE6994)  
----This native does not have an official description.
-function N_0x8e2a065abdae6994() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x933BBEEB8C61B5F4)  
@@ -458,23 +403,6 @@ function N_0x933bbeeb8c61b5f4() end
 ---@param iplName1 string
 ---@param iplName2 string
 function N_0x95a7dabddbb78ae7(iplName1, iplName2) end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xA76359FC80B2438E)  
----This native does not have an official description.
----@param p0 number
-function N_0xa76359fc80b2438e(p0) end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xAD5FDF34B81BFE79)  
----This native does not have an official description.
-function N_0xad5fdf34b81bfe79() end
-
----**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xBC9823AB80A3DCAC)  
----This native does not have an official description.
----@return any
-function N_0xbc9823ab80a3dcac() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBEB2D9A1D9A8F55A)  
@@ -529,35 +457,38 @@ function NetworkStopLoadScene() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC4582015556D1C46)  
----```
----NativeDB Return Type: BOOL
----```
+---This native does not have an official description.
+---@return boolean
 function NetworkUpdateLoadScene() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x212A8D0D2BABFAC2)  
----This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 any
+---```
+---`radius` value is usually between `3f` and `7000f` in original 1868 scripts.
+---`p7` is 0, 1, 2, 3 or 4 used in decompiled scripts, 0 is by far the most common.
+---Returns True if success, used only 7 times in decompiled scripts of 1868
+---```
+---@param posX number
+---@param posY number
+---@param posZ number
+---@param offsetX number
+---@param offsetY number
+---@param offsetZ number
+---@param radius number
+---@param p7 integer
 ---@return boolean
-function NewLoadSceneStart(p0, p1, p2, p3, p4, p5, p6, p7) end
+function NewLoadSceneStart(posX, posY, posZ, offsetX, offsetY, offsetZ, radius, p7) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xACCFB4ACF53551B0)  
 ---```
----if (!sub_8f12("START LOAD SCENE SAFE")) {  
----if (CUTSCENE::GET_CUTSCENE_TIME() > 4178) {  
----    STREAMING::_ACCFB4ACF53551B0(1973.845458984375, 3818.447265625, 32.43629837036133, 15.0, 2);  
----    sub_8e9e("START LOAD SCENE SAFE", 1);  
----}  
----		}  
----		(Previously known as STREAMING::_NEW_LOAD_SCENE_START_SAFE)  
+---if (!sub_8f12("START LOAD SCENE SAFE")) {
+---    if (CUTSCENE::GET_CUTSCENE_TIME() > 4178) {
+---        STREAMING::_ACCFB4ACF53551B0(1973.845458984375, 3818.447265625, 32.43629837036133, 15.0, 2);
+---        sub_8e9e("START LOAD SCENE SAFE", 1);
+---    }
+---}
+---(Previously known as STREAMING::_NEW_LOAD_SCENE_START_SAFE)
 ---```
 ---@param x number
 ---@param y number
@@ -573,12 +504,22 @@ function NewLoadSceneStartSphere(x, y, z, radius, p4) end
 function NewLoadSceneStop() end
 
 ---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA76359FC80B2438E)  
+---```
+---This allows you to override "extended distance scaling" setting. Needs to be called each frame.
+---Max scaling seems to be 200.0, normal is 1.0
+---See https://gfycat.com/DetailedHauntingIncatern
+---```
+---@param scaling number
+function OverrideLodscaleThisFrame(scaling) end
+
+---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3D245789CE12982C)  
 ---This native is used to attribute the SRL that BeginSrl is going to load. This is usually used for 'in-game' cinematics (not cutscenes but camera stuff) instead of SetFocusArea because it loads a specific area of the map which is pretty useful when the camera moves from distant areas.
 ---For instance, GTA:O opening cutscene.
 ---
----<https://pastebin.com/2EeKVeLA> : a list of SRL found in srllist.meta
----<https://pastebin.com/zd9XYUWY> : here is the content of a SRL file opened with codewalker.
+---https://pastebin.com/2EeKVeLA : a list of SRL found in srllist.meta
+---https://pastebin.com/zd9XYUWY : here is the content of a SRL file opened with codewalker.
 ---@param srl string
 function PrefetchSrl(srl) end
 
@@ -590,10 +531,9 @@ function RemoveAnimDict(animDict) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x16350528F93024B3)  
----```
----Unloads the specified animation set. An animation set provides movement animations for a ped. See SET_PED_MOVEMENT_CLIPSET.  
----Animation set and clip set are synonymous.  
----```
+---Unloads the specified animation set. An animation set provides movement animations for a ped.
+---
+---Animation set and clip set are synonymous. See [`SET_PED_MOVEMENT_CLIPSET`](#\_0xAF8A94EDE7712BEF).
 ---@param animSet string
 function RemoveAnimSet(animSet) end
 
@@ -607,25 +547,19 @@ function RemoveClipSet(clipSet) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEE6C5AD3ECE0A82D)  
----```
----IPL list: pastebin.com/iNGLY32D  
----```
+---IPL list can be found [here](https://gist.github.com/4mmonium/4c8a076b5f712a7cc64666003009a2e7).
 ---@param iplName string
 function RemoveIpl(iplName) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF086AD9354FAC3A3)  
----```
----NativeDB Parameter 0: Hash modelHash
----```
----@param modelHash any
+---This native does not have an official description.
+---@param modelHash integer | string
 function RemoveModelFromCreatorBudget(modelHash) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F61EBBE1A00F96D)  
----```
----assetName = For example "core"  
----```
+---This native does not have an official description.
 ---@param fxName string
 function RemoveNamedPtfxAsset(fxName) end
 
@@ -650,9 +584,7 @@ function RequestAnimDict(animDict) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6EA47DAE7FAD0EED)  
----```
----Starts loading the specified animation set. An animation set provides movement animations for a ped. See SET_PED_MOVEMENT_CLIPSET.  
----```
+---Starts loading the specified animation set. An animation set provides movement animations for a ped. See [`SET_PED_MOVEMENT_CLIPSET`](#\_0xAF8A94EDE7712BEF).
 ---@param animSet string
 function RequestAnimSet(animSet) end
 
@@ -664,13 +596,10 @@ function RequestClipSet(clipSet) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x07503F7948F491A7)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param x number
 ---@param y number
 ---@param z number
----@return any
 function RequestCollisionAtCoord(x, y, z) end
 
 ---**`STREAMING` `client`**  
@@ -682,45 +611,36 @@ function RequestCollisionForModel(model) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x41B4893843BBDB74)  
 ---```
----IPL list: pastebin.com/iNGLY32D  
+---Exemple: REQUEST_IPL("TrevorsTrailerTrash");
 ---```
 ---@param iplName string
 function RequestIpl(iplName) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA0261AEF7ACFC51E)  
----```
----streaming::request_menu_ped_model(joaat("player_zero"));  
----iVar0 = ped::create_ped(25, joaat("player_zero"), cam::_get_gameplay_cam_coords(), 0f, 0, false);  
----entity::freeze_entity_position(iVar0, true);  
----ped::_0x4668d80430d6c299(iVar0);  
----ui::give_ped_to_pause_menu(iVar0, 1);  
----```
+---This native does not have an official description.
 ---@param model integer | string
 function RequestMenuPedModel(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x963D27A58DF860AC)  
----```
----Request a model to be loaded into memory  
----```
+---Request a model (archetype) to be loaded for use by the current script. Use SET_MODEL_AS_NO_LONGER_NEEDED when done using the model in script.
 ---@param model integer | string
 function RequestModel(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8A7A40100EDFEC58)  
 ---```
----Something to do with interiors that have been loaded.  
----STREAMING::_8A7A40100EDFEC58(l_13BC, "V_FIB01_cur_elev");  
----STREAMING::_8A7A40100EDFEC58(l_13BC, "limbo");  
----STREAMING::_8A7A40100EDFEC58(l_13BB, "V_Office_gnd_lifts");  
----STREAMING::_8A7A40100EDFEC58(l_13BB, "limbo");  
----STREAMING::_8A7A40100EDFEC58(l_13BC, "v_fib01_jan_elev");  
----STREAMING::_8A7A40100EDFEC58(l_13BC, "limbo");  
+---STREAMING::REQUEST_MODELS_IN_ROOM(l_13BC, "V_FIB01_cur_elev");
+---STREAMING::REQUEST_MODELS_IN_ROOM(l_13BC, "limbo");
+---STREAMING::REQUEST_MODELS_IN_ROOM(l_13BB, "V_Office_gnd_lifts");
+---STREAMING::REQUEST_MODELS_IN_ROOM(l_13BB, "limbo");
+---STREAMING::REQUEST_MODELS_IN_ROOM(l_13BC, "v_fib01_jan_elev");
+---STREAMING::REQUEST_MODELS_IN_ROOM(l_13BC, "limbo");
 ---```
----@param interiorID integer
+---@param interior integer
 ---@param roomName string
-function RequestModelsInRoom(interiorID, roomName) end
+function RequestModelsInRoom(interior, roomName) end
 
 ---@deprecated
 RequestInteriorRoomByName = RequestModelsInRoom
@@ -728,35 +648,29 @@ RequestInteriorRoomByName = RequestModelsInRoom
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB80D8756B4668AB6)  
 ---```
----assetName = For example "core"   
----From the b678d decompiled scripts:  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("core_snow");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("fm_mission_controler");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("proj_xmas_firework");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_apartment_mp");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_biolab_heist");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_fireworks");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_parachute");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_wheelsmoke");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_cig_plane");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_creator");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_tankbattle");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_ornate_heist");  
---- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_prison_break_heist_station");  
+--- From the b678d decompiled scripts:
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("core_snow");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("fm_mission_controler");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("proj_xmas_firework");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_apartment_mp");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_biolab_heist");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_fireworks");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_parachute");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_indep_wheelsmoke");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_cig_plane");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_creator");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_mp_tankbattle");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_ornate_heist");
+--- STREAMING::REQUEST_NAMED_PTFX_ASSET("scr_prison_break_heist_station");
 ---```
----@param assetName string
-function RequestNamedPtfxAsset(assetName) end
+---@param fxName string
+function RequestNamedPtfxAsset(fxName) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x944955FB2A3935C8)  
 ---```
----maps script name (thread + 0xD0) by lookup via scriptfx.dat - does nothing when script name is empty  
+---maps script name (thread + 0xD0) by lookup via scriptfx.dat - does nothing when script name is empty
 ---```
----
----```
----NativeDB Return Type: void
----```
----@return any
 function RequestPtfxAsset() end
 
 ---**`STREAMING` `client`**  
@@ -800,9 +714,7 @@ function SetGamePausesForStreaming(toggle) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB85F26619073E775)  
----```
----Harcoded limit for radius is 30.0f  
----```
+---This native does not have an official description.
 ---@param x number
 ---@param y number
 ---@param z number
@@ -817,6 +729,20 @@ function SetHdArea(x, y, z, radius) end
 function SetInteriorActive(interiorID, toggle) end
 
 ---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9A9D1BA639675CF1)  
+---Enables the specified island. For more information, see islandhopper.meta
+---
+---```
+---NativeDB Introduced: v2189
+---```
+---@param islandName string
+---@param toggle boolean
+function SetIslandEnabled(islandName, toggle) end
+
+---@deprecated
+SetIslandHopperEnabled = SetIslandEnabled
+
+---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAF12610C644A35C9)  
 ---```
 ---Possible p0 values:  
@@ -829,17 +755,21 @@ function SetMapdatacullboxEnabled(name, toggle) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE532F5D78798DAAB)  
----```
----Unloads model from memory  
----```
+---Releases the script ownership assigned by REQUEST_MODEL. This command should be used when done using a specific model hash in script.
 ---@param model integer | string
 function SetModelAsNoLongerNeeded(model) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8C95333CFC3340F3)  
+---Sets the memory budget level for ped population.
+---@param budgetLevel integer
+function SetPedPopulationBudget(budgetLevel) end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5F2013F8BC24EE69)  
 ---This native does not have an official description.
----@param p0 integer
-function SetPedPopulationBudget(p0) end
+---@param style integer
+function SetPlayerShortSwitchStyle(style) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0FDE9DBFC0A6BC65)  
@@ -852,16 +782,16 @@ function SetPlayerSwitchEstablishingShot(name) end
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC208B673CE446B61)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 number
----@param p8 any
-function SetPlayerSwitchOutro(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
+---@param cameraCoordX number
+---@param cameraCoordY number
+---@param cameraCoordZ number
+---@param camRotationX number
+---@param camRotationY number
+---@param camRotationZ number
+---@param camFov number
+---@param camFarClip number
+---@param rotationOrder integer
+function SetPlayerSwitchOutro(cameraCoordX, cameraCoordY, cameraCoordZ, camRotationX, camRotationY, camRotationZ, camFov, camFarClip, rotationOrder) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x77B5F9A36BF96710)  
@@ -874,6 +804,12 @@ function SetReducePedModelBudget(toggle) end
 ---This native does not have an official description.
 ---@param toggle boolean
 function SetReduceVehicleModelBudget(toggle) end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x40AEFD1A244741F2)  
+---This native does not have an official description.
+---@param toggle boolean
+function SetRenderHdOnly(toggle) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA74A541C6884E7B8)  
@@ -900,25 +836,35 @@ function ShutdownCreatorBudget() end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFAA23F2CBA159D67)  
----```
----// this enum comes directly from R* so don't edit this  
+---```cpp
 ---enum ePlayerSwitchType  
 ---{  
----	SWITCH_TYPE_AUTO,  
----	SWITCH_TYPE_LONG,  
----	SWITCH_TYPE_MEDIUM,  
----	SWITCH_TYPE_SHORT  
+---	SWITCH_TYPE_AUTO = 0,
+---	SWITCH_TYPE_LONG = 1,
+---	SWITCH_TYPE_MEDIUM = 2,
+---	SWITCH_TYPE_SHORT = 3
 ---};  
----Use GET_IDEAL_PLAYER_SWITCH_TYPE for the best switch type. Or just auto, because it calls the same function in executable.  
--------------------------------------------------------  
----Examples from the decompiled scripts:  
----STREAMING::START_PLAYER_SWITCH(l_832._f3, PLAYER::PLAYER_PED_ID(), 0, 3);  
----STREAMING::START_PLAYER_SWITCH(l_832._f3, PLAYER::PLAYER_PED_ID(), 2050, 3);  
----STREAMING::START_PLAYER_SWITCH(PLAYER::PLAYER_PED_ID(), l_832._f3, 1024, 3);  
----STREAMING::START_PLAYER_SWITCH(g_141F27, PLAYER::PLAYER_PED_ID(), 513, v_14);  
----Note: DO NOT, use SWITCH_TYPE_LONG with flag 513. It leaves you stuck in the clouds. You'll have to call STOP_PLAYER_SWITCH() to return to your ped.  
----Flag 8 w/ SWITCH_TYPE_LONG will zoom out 3 steps, then zoom in 2/3 steps and stop on the 3rd and just hang there.  
----Flag 8 w/ SWITCH_TYPE_MEDIUM will zoom out 1 step, and just hang there.  
+---```
+---
+---```cpp
+---enum eSwitchFlags {
+---	SKIP_INTRO = 1,
+---	SKIP_OUTRO = 2,
+---	PAUSE_BEFORE_PAN = 4,
+---	PAUSE_BEFORE_OUTRO = 8,
+---	SKIP_PAN = 16,
+---	UNKNOWN_DEST = 32,
+---	DESCENT_ONLY = 64,
+---	START_FROM_CAMPOS = 128,
+---	PAUSE_BEFORE_ASCENT = 256,
+---	PAUSE_BEFORE_DESCENT = 512,
+---	ALLOW_SNIPER_AIM_INTRO = 1024,
+---	ALLOW_SNIPER_AIM_OUTRO = 2048,
+---	SKIP_TOP_DESCENT = 4096,
+---	SUPPRESS_OUTRO_FX = 8192,
+---	SUPPRESS_INTRO_FX = 16384,
+---	DELAY_ASCENT_FX = 32768
+---}
 ---```
 ---@param from integer
 ---@param to integer
@@ -932,31 +878,93 @@ function StartPlayerSwitch(from, to, flags, switchType) end
 function StopPlayerSwitch() end
 
 ---**`STREAMING` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xD8295AF639FD9CB8)  
----Use after using \_SWITCH_OUT_PLAYER to swoop the camera back down to the player's ped.
----@param ped integer
-function SwitchInPlayer(ped) end
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1F3F018BC3AFA77C)  
+---```
+---Always returns zero.
+---```
+---@param p0 number
+---@param p1 number
+---@param p2 number
+---@param p3 number
+---@param p4 number
+---@param p5 number
+---@param p6 number
+---@param p7 any
+---@param p8 any
+---@return any
+function StreamvolCreateFrustum(p0, p1, p2, p3, p4, p5, p6, p7, p8) end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0AD9710CEE2F590F)  
+---```
+---Always returns zero.
+---```
+---@param p0 number
+---@param p1 number
+---@param p2 number
+---@param p3 number
+---@param p4 number
+---@param p5 number
+---@param p6 any
+---@return any
+function StreamvolCreateLine(p0, p1, p2, p3, p4, p5, p6) end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x219C7B8D53E429FD)  
+---```
+---Always returns zero.
+---```
+---@param x number
+---@param y number
+---@param z number
+---@param rad number
+---@param p4 any
+---@param p5 any
+---@return any
+function StreamvolCreateSphere(x, y, z, rad, p4, p5) end
+
+---@deprecated
+FormatFocusHeading = StreamvolCreateSphere
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1EE7D8DF4425F053)  
+---This native does not have an official description.
+---@param unused any
+function StreamvolDelete(unused) end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7D41E9D2D17C5B2D)  
+---This native does not have an official description.
+---@param unused any
+---@return boolean
+function StreamvolHasLoaded(unused) end
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x07C313F94746702C)  
+---This native does not have an official description.
+---@param unused any
+---@return boolean
+function StreamvolIsValid(unused) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAAB3200ED59016BC)  
----```
----doesn't act normally when used on mount chilliad
+---You can check if the player is in a Switch state with [`IS_PLAYER_SWITCH_IN_PROGRESS`](#\_0xD9D2CFFF49FAB35F).
 ---
----flags:
----
----0: normal
----1: no transition
----255: switch IN
----
----switchType: 0 - 3
----
----0: 1 step towards ped
----1: 3 steps out from ped
----2: 1 step out from ped
----3: 1 step towards ped
----```
+---***Note:** Doesn't act normally when used on Mount Chiliad.*
 ---@param ped integer
 ---@param flags integer
 ---@param switchType integer
-function SwitchOutPlayer(ped, flags, switchType) end
+function SwitchToMultiFirstpart(ped, flags, switchType) end
+
+---@deprecated
+SwitchOutPlayer = SwitchToMultiFirstpart
+
+---**`STREAMING` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD8295AF639FD9CB8)  
+---After using [`SWITCH_TO_MULTI_FIRSTPART`](#\_0xAAB3200ED59016BC) , use this native to smoothly return the camera to the player's character.
+---@param ped integer
+function SwitchToMultiSecondpart(ped) end
+
+---@deprecated
+SwitchInPlayer = SwitchToMultiSecondpart
 

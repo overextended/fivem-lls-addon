@@ -93,7 +93,7 @@ function GetLocalTime() end
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2F8B4D1C595B11DB)  
 ---Returns how many real ms are equal to one game minute.
----A getter for [`SetMillisecondsPerGameMinute`](#_0x36CA2554).
+---A getter for [`SetMillisecondsPerGameMinute`](#\_0x36CA2554).
 ---@return integer
 function GetMillisecondsPerGameMinute() end
 
@@ -116,13 +116,10 @@ function GetPosixTime() end
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8117E09A19EEF4D3)  
 ---```
----gets current UTC time  
+---Gets current UTC time
 ---```
 ---@return integer, integer, integer, integer, integer, integer
 function GetUtcTime() end
-
----@deprecated
-GetLocalTime = GetUtcTime
 
 ---**`CLOCK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4055E40BD2DBEC1D)  

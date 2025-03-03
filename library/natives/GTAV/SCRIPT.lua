@@ -42,19 +42,14 @@ function BgStartContextHash(contextHash) end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFC04745FBE67C19A)  
----```
----For a full list, see here: pastebin.com/yLNWicUi  
----```
+---This native does not have an official description.
 ---@param scriptName string
 ---@return boolean
 function DoesScriptExist(scriptName) end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF86AA3C56BA31381)  
----```
----formerly _IS_STREAMED_SCRIPT_RUNNING  
----Jenkins hash: 0x19EAE282  
----```
+---This native does not have an official description.
 ---@param scriptHash integer | string
 ---@return boolean
 function DoesScriptWithNameHashExist(scriptHash) end
@@ -62,7 +57,7 @@ function DoesScriptWithNameHashExist(scriptHash) end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD8F66A3A60C62153)  
 ---```
----eventGroup: 0 = CEventGroupScriptAI, 1 = CEventGroupScriptNetwork  
+---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
 ---```
 ---@param eventGroup integer
 ---@param eventIndex integer
@@ -72,18 +67,19 @@ function GetEventAtIndex(eventGroup, eventIndex) end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2902843FCD2B2D79)  
 ---```
----eventGroup: 0 = CEventGroupScriptAI, 1 = CEventGroupScriptNetwork  
+---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
+---Note: eventDataSize is NOT the size in bytes, it is the size determined by the SIZE_OF operator (RAGE Script operator, not C/C++ sizeof). That is, the size in bytes divided by 8 (script variables are always 8-byte aligned!).
 ---```
 ---@param eventGroup integer
 ---@param eventIndex integer
----@param argStructSize integer
+---@param eventDataSize integer
 ---@return boolean, integer
-function GetEventData(eventGroup, eventIndex, argStructSize) end
+function GetEventData(eventGroup, eventIndex, eventDataSize) end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x936E6168A9BCEDB5)  
 ---```
----eventGroup: 0 = CEventGroupScriptAI, 1 = CEventGroupScriptNetwork  
+---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
 ---```
 ---@param eventGroup integer
 ---@param eventIndex integer
@@ -107,26 +103,7 @@ function GetIdOfThisThread() end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x05A42BA9FC8DA96B)  
----```
----The reversed code looks like this (Sasuke78200)  
----//  
----char g_szScriptName[64];  
----char* _0xBE7ACD89(int a_iThreadID)  
----{  
----	scrThread* l_pThread;  
----	// Get the script thread  
----	l_pThread = GetThreadByID(a_iThreadID);	  
----	if(l_pThread == 0 || l_pThread->m_iThreadState == 2)  
----	{  
----strncpy(g_szScriptName, "", 64);  
----	}  
----	else  
----	{  
----strncpy(g_szScriptName, l_pThread->m_szScriptName, 64);  
----	}	  
----	return g_szScriptName;  
----}  
----```
+---This native does not have an official description.
 ---@param threadId integer
 ---@return string
 function GetNameOfThread(threadId) end
@@ -143,7 +120,7 @@ function GetNoLoadingScreen() end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F92A689A06620AA)  
 ---```
----eventGroup: 0 = CEventGroupScriptAI, 1 = CEventGroupScriptNetwork  
+---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
 ---```
 ---@param eventGroup integer
 ---@return integer
@@ -152,18 +129,20 @@ function GetNumberOfEvents(eventGroup) end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2C83A9DA6BFFC4F9)  
 ---```
----Gets the number of instances of the specified script is currently running.  
----Actually returns numInstances - 1.  
----if (scriptPtr)  
----    v3 = GetNumberOfInstancesOfScript(scriptPtr) - 1;  
----return v3;  
+---Gets the number of instances of the specified script is currently running.
+---Actually returns numRefs - 1.
+---if (program)
+---	v3 = rage::scrProgram::GetNumRefs(program) - 1;
+---return v3;
 ---```
 ---@param scriptHash integer | string
 ---@return integer
-function GetNumberOfInstancesOfScriptWithNameHash(scriptHash) end
+function GetNumberOfReferencesOfScriptWithNameHash(scriptHash) end
 
 ---@deprecated
-GetNumberOfInstancesOfStreamedScript = GetNumberOfInstancesOfScriptWithNameHash
+GetNumberOfInstancesOfStreamedScript = GetNumberOfReferencesOfScriptWithNameHash
+---@deprecated
+GetNumberOfInstancesOfScriptWithNameHash = GetNumberOfReferencesOfScriptWithNameHash
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x442E0A7EDE4A738A)  
@@ -173,10 +152,7 @@ function GetThisScriptName() end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE6CC9F3BA0FB9EF1)  
----```
----Returns if a script has been loaded into the game. Used to see if a script was loaded after requesting.  
----For a full list, see here: pastebin.com/yLNWicUi  
----```
+---Returns if a script has been loaded into the game. Used to see if a script was loaded after requesting.
 ---@param scriptName string
 ---@return boolean
 function HasScriptLoaded(scriptName) end
@@ -197,6 +173,11 @@ HasStreamedScriptLoaded = HasScriptWithNameHashLoaded
 ---@param threadId integer
 ---@return boolean
 function IsThreadActive(threadId) end
+
+---**`SCRIPT` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB1577667C3708F9B)  
+---Updates the display of the MP/SP loading buttons, and locks the state so that other options are not displayed or changed. This can only be done once.
+function LockLoadingScreenButtons() end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0F6F1EBBC4E1D5E6)  
@@ -257,15 +238,8 @@ function N_0x829cd22e043a2577(p0) end
 function N_0x836b62713e0534ca() end
 
 ---**`SCRIPT` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB1577667C3708F9B)  
----This native does not have an official description.
-function N_0xb1577667c3708f9b() end
-
----**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6EB5F71AA68F2E8E)  
----```
----For a full list, see here: pastebin.com/yLNWicUi  
----```
+---This native does not have an official description.
 ---@param scriptName string
 function RequestScript(scriptName) end
 
@@ -282,7 +256,9 @@ RequestStreamedScript = RequestScriptWithNameHash
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x30B4FA1C82DD4B9F)  
----This native does not have an official description.
+---```
+---If the function returns 0, the end of the iteration has been reached.
+---```
 ---@return integer
 function ScriptThreadIteratorGetNextThreadId() end
 
@@ -291,7 +267,8 @@ GetIdOfNextThreadInEnumeration = ScriptThreadIteratorGetNextThreadId
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDADFADA5A20143A8)  
----This native does not have an official description.
+---Starts a new iteration of the current threads.
+---Call this first, then SCRIPT_THREAD_ITERATOR_GET_NEXT_THREAD_ID (0x30B4FA1C82DD4B9F)
 function ScriptThreadIteratorReset() end
 
 ---@deprecated
@@ -305,9 +282,7 @@ function SetNoLoadingScreen(toggle) end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC90D2DCACD56184C)  
----```
----For a full list, see here: pastebin.com/yLNWicUi  
----```
+---This native does not have an official description.
 ---@param scriptName string
 function SetScriptAsNoLongerNeeded(scriptName) end
 
@@ -339,24 +314,24 @@ function TerminateThread(threadId) end
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5AE99C571D5BBE5D)  
 ---```
----yis  
----eventGroup: 0 = CEventGroupScriptAI, 1 = CEventGroupScriptNetwork  
----^^ I'm assuming it's like the rest with this parameter.  
+---eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork)
+---Note: eventDataSize is NOT the size in bytes, it is the size determined by the SIZE_OF operator (RAGE Script operator, not C/C++ sizeof). That is, the size in bytes divided by 8 (script variables are always 8-byte aligned!).
+---playerBits (also known as playersToBroadcastTo) is a bitset that indicates which players this event should be sent to. In order to send the event to specific players only, use (1 << playerIndex). Set all bits if it should be broadcast to all players.
 ---```
 ---@param eventGroup integer
----@param argCount integer
----@param bit integer
+---@param eventDataSize integer
+---@param playerBits integer
 ---@return integer
-function TriggerScriptEvent(eventGroup, argCount, bit) end
+function TriggerScriptEvent(eventGroup, eventDataSize, playerBits) end
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA40CC53DF8E50837)  
 ---```
----NativeDB Parameter 0: int eventGroup
+---See TRIGGER_SCRIPT_EVENT
 ---```
----@param eventGroup boolean
----@param argCount integer
----@param bit integer
+---@param eventGroup integer
+---@param eventDataSize integer
+---@param playerBits integer
 ---@return integer
-function TriggerScriptEvent_2(eventGroup, argCount, bit) end
+function TriggerScriptEvent_2(eventGroup, eventDataSize, playerBits) end
 

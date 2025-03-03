@@ -4,10 +4,8 @@
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC5F68BE9613E2D18)  
 ---Applies a force to the specified entity.
 ---
----**List of force types (p1)**:
----
----```
----public enum ForceType
+---```cpp
+---enum eForceType
 ---{
 ---    MinForce = 0,
 ---    MaxForceRot = 1,
@@ -73,15 +71,7 @@ function AttachEntityBoneToEntityBonePhysically(entity1, entity2, entityBone, en
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6B9BBD38AB0796DF)  
----```
----Attaches entity1 to bone (boneIndex) of entity2.  
----boneIndex - this is different to boneID, use GET_PED_BONE_INDEX to get the index from the ID. use the index for attaching to specific bones. entity1 will be attached to entity2's centre if bone index given doesn't correspond to bone indexes for that entity type.  
----useSoftPinning - when 2 entities with collision collide and form into a ball they will break the attachment of the entity that they were attached to. Or when an entity is attached far away and then the resets.  
----collision - controls collision between the two entities (FALSE disables collision).  
----isPed - pitch doesnt work when false and roll will only work on negative numbers (only peds)  
----vertexIndex - position of vertex  
----fixedRot - if false it ignores entity vector  
----```
+---Attach an entity to the specified entity.
 ---@param entity1 integer
 ---@param entity2 integer
 ---@param boneIndex integer
@@ -95,25 +85,19 @@ function AttachEntityBoneToEntityBonePhysically(entity1, entity2, entityBone, en
 ---@param useSoftPinning boolean
 ---@param collision boolean
 ---@param isPed boolean
----@param vertexIndex integer
----@param fixedRot boolean
-function AttachEntityToEntity(entity1, entity2, boneIndex, xPos, yPos, zPos, xRot, yRot, zRot, p9, useSoftPinning, collision, isPed, vertexIndex, fixedRot) end
+---@param rotationOrder integer
+---@param syncRot boolean
+function AttachEntityToEntity(entity1, entity2, boneIndex, xPos, yPos, zPos, xRot, yRot, zRot, p9, useSoftPinning, collision, isPed, rotationOrder, syncRot) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC3675780C92F90F9)  
 ---```
----breakForce is the amount of force required to break the bond.  
----fixedRot - if false it ignores entity vector  
----p15 - is 1 or 0 in scripts - unknoun what it does  
----collision - controls collision between the two entities (FALSE disables collision).  
----teleport - do not teleport entity to be attached to the position of the bone Index of the target entity (if 1, entity will not be teleported to target bone)  
----p18 - is always 2 in scripts.  
-----------------------------  
----teleport is not exactly "doNotTeleport". What it actually does is the following:  
----if true, entities will be attached as if loosely tethered, up to the maximum offset position specified. Almost as if attached by an invisible rope.  
----if false, entities will be attached in a fixed position as specified in the offset position.  
----When p15 = true, it seems to force teleport to false.  
----It also lets the Rotation params actually work.  
+---breakForce is the amount of force required to break the bond.
+---p14 - is always 1 in scripts
+---p15 - is 1 or 0 in scripts - unknown what it does
+---p16 - controls collision between the two entities (FALSE disables collision).
+---p17 - do not teleport entity to be attached to the position of the bone Index of the target entity (if 1, entity will not be teleported to target bone)
+---p18 - is always 2 in scripts.
 ---```
 ---@param entity1 integer
 ---@param entity2 integer
@@ -138,11 +122,8 @@ function AttachEntityToEntityPhysically(entity1, entity2, boneIndex1, boneIndex2
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA72CD9CA74A5ECBA)  
----```
----NativeDB Return Type: void
----```
+---This native **could affect** the arguments of the `CEventNetworkEntityDamage` game event, by clearing the damaging entity before the event is fired.
 ---@param entity integer
----@return any
 function ClearEntityLastDamageEntity(entity) end
 
 ---**`ENTITY` `client`**  
@@ -199,9 +180,8 @@ function CreateModelSwap(x, y, z, radius, originalModel, newModel, p6) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAE3CBE5BF394C9C9)  
----```
----Deletes the specified entity, then sets the handle pointed to by the pointer to NULL.
----```
+---Delete the specified entity, and invalidate the passed handle (i.e., the in/out argument).
+---You might want to check if the entity exists before with [DOES_ENTITY_EXIST](#\_0x7239B21A38F536BA).
 ---@param entity integer
 function DeleteEntity(entity) end
 
@@ -209,9 +189,9 @@ function DeleteEntity(entity) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x961AC54BF0613F5D)  
 ---This native does not have an official description.
 ---@param entity integer
----@param p1 boolean
+---@param dynamic boolean
 ---@param collision boolean
-function DetachEntity(entity, p1, collision) end
+function DetachEntity(entity, dynamic, collision) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDDE6DF5AE89981D2)  
@@ -229,6 +209,15 @@ function DoesEntityBelongToThisScript(entity, p2) end
 function DoesEntityExist(entity) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2158E81A6AF65EA9)  
+---```
+---NativeDB Introduced: v2699
+---```
+---@param entity integer
+---@return boolean
+function DoesEntityHaveAnimDirector(entity) end
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x060D6E96F8B8E48D)  
 ---This native does not have an official description.
 ---@param entity integer
@@ -241,6 +230,15 @@ function DoesEntityHaveDrawable(entity) end
 ---@param entity integer
 ---@return boolean
 function DoesEntityHavePhysics(entity) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x764EB96874EFFDC1)  
+---```
+---NativeDB Introduced: v2699
+---```
+---@param entity integer
+---@return boolean
+function DoesEntityHaveSkeletonData(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6CE177D014502E8A)  
@@ -281,12 +279,7 @@ function ForceEntityAiAndAnimationUpdate(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x428CA6DBD1094446)  
----```
----No, this should be called SET_ENTITY_KINEMATIC. It does more than just "freeze" it's position.
----^Rockstar Devs named it like that, Now cry about it.
----```
----
----Freezes or unfreezes an entity preventing its coordinates to change by the player if set to `true`. You can still change the entity position using SET_ENTITY_COORDS.
+---Freezes or unfreezes an entity preventing its coordinates to change by the player if set to `true`. You can still change the entity position using [`SET_ENTITY_COORDS`](#\_0x06843DA7060A026B).
 ---@param entity integer
 ---@param toggle boolean
 function FreezeEntityPosition(entity, toggle) end
@@ -354,6 +347,13 @@ function GetEntityAnimTotalTime(entity, animDict, animName) end
 function GetEntityAttachedTo(entity) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB328DCC3A3AA401B)  
+---This native does not have an official description.
+---@param entity integer
+---@return integer
+function GetEntityBoneCount(entity) end
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFB71170B7E76ACBA)  
 ---```
 ---Returns the index of the bone. If the bone was not found, -1 will be returned.   
@@ -408,6 +408,45 @@ function GetEntityAttachedTo(entity) end
 function GetEntityBoneIndexByName(entity, boneName) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x46F8696933A63C9B)  
+---```
+---Gets the world rotation of the specified bone of the specified entity.
+---This native is used in casinoroulette.c but I don't know yet what is the difference with _GET_ENTITY_BONE_ROTATION
+---```
+---@param entity integer
+---@param boneIndex integer
+---@return vector3
+function GetEntityBonePosition_2(entity, boneIndex) end
+
+---@deprecated
+GetWorldPositionOfEntityBone_2 = GetEntityBonePosition_2
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCE6294A232D03786)  
+---```
+---Gets the world rotation of the specified bone of the specified entity.
+---```
+---@param entity integer
+---@param boneIndex integer
+---@return vector3
+function GetEntityBoneRotation(entity, boneIndex) end
+
+---@deprecated
+GetWorldRotationOfEntityBone = GetEntityBoneRotation
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBD8D32550E5CEBFE)  
+---Gets the local rotation of the specified bone of the specified entity.
+---
+---```
+---NativeDB Introduced: v1734
+---```
+---@param entity integer
+---@param boneIndex integer
+---@return vector3
+function GetEntityBoneRotationLocal(entity, boneIndex) end
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD95CC5D2AB15A09F)  
 ---This native does not have an official description.
 ---@param entity integer
@@ -426,7 +465,7 @@ GetEntityCollisonDisabled = GetEntityCollisionDisabled
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3FEF770D40960D5A)  
----Gets the current coordinates for a specified entity.
+---Gets the current coordinates (world position) for a specified entity.
 ---@param entity integer
 ---@param alive boolean
 ---@return vector3
@@ -467,6 +506,16 @@ function GetEntityForwardY(entity) end
 ---@param entity integer
 ---@return number
 function GetEntityHeading(entity) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x846BF6291198A71E)  
+---Gets the heading of the entity physics in degrees, which tends to be more accurate than just [`GET_ENTITY_HEADING`](#\_0xE83D4F9BA2A38914). This can be clearly seen while, for example, ragdolling a ped/player.
+---@param entity integer
+---@return number
+function GetEntityHeadingFromEulers(entity) end
+
+---@deprecated
+GetEntityPhysicsHeading = GetEntityHeadingFromEulers
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEEF059FAD016D209)  
@@ -538,23 +587,10 @@ function GetEntityMaxHealth(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9F47B058362C84B5)  
----```
----Returns the model hash from the entity
----Sometimes throws an exception, idk what causes it though.
----```
+---Returns the model hash from an entity.
 ---@param entity integer
 ---@return integer
 function GetEntityModel(entity) end
-
----**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x846BF6291198A71E)  
----```
----Gets the heading of the entity physics in degrees, which tends to be more accurate than just "GET_ENTITY_HEADING". This can be clearly seen while, for example, ragdolling a ped/player.  
----NOTE: The name and description of this native are based on independent research. If you find this native to be more suitable under a different name and/or described differently, please feel free to do so.  
----```
----@param entity integer
----@return number
-function GetEntityPhysicsHeading(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1F922734E259BD26)  
@@ -579,26 +615,7 @@ function GetEntityPitch(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF6F5161F4534EDFF)  
----Gets an entity's population type.
----
----**Valid population types:**
----
----```cpp
----enum ePopulationType
----{
----	POPTYPE_UNKNOWN = 0,
----	POPTYPE_RANDOM_PERMANENT,
----	POPTYPE_RANDOM_PARKED,
----	POPTYPE_RANDOM_PATROL,
----	POPTYPE_RANDOM_SCENARIO,
----	POPTYPE_RANDOM_AMBIENT,
----	POPTYPE_PERMANENT,
----	POPTYPE_MISSION,
----	POPTYPE_REPLAY,
----	POPTYPE_CACHE,
----	POPTYPE_TOOL
----};
----```
+---A population type, from the following enum: https://alloc8or.re/gta5/doc/enums/ePopulationType.txt
 ---@param entity integer
 ---@return integer
 function GetEntityPopulationType(entity) end
@@ -633,23 +650,24 @@ function GetEntityRoll(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAFBD61CC738D9EB9)  
+---**NOTE**: What you use for rotationOrder when getting must be the same as rotationOrder when setting the rotation.
+---
+---```cpp
+---enum eRotationOrder {
+---    // Rotate around the z-axis, then the y-axis and finally the x-axis.
+---    ROT_ZYX = 0,
+---    // Rotate around the y-axis, then the z-axis and finally the x-axis.
+---    ROT_YZX = 1,
+---    // Rotate around the z-axis, then the x-axis and finally the y-axis.
+---    ROT_ZXY = 2,
+---    // Rotate around the x-axis, then the z-axis and finally the y-axis.
+---    ROT_XZY = 3,
+---    // Rotate around the y-axis, then the x-axis and finally the z-axis.
+---    ROT_YXZ = 4,
+---    // Rotate around the x-axis, then the y-axis and finally the z-axis.
+---    ROT_XYZ = 5,
+---}
 ---```
----rotationOrder refers to the order yaw pitch roll is applied; value ranges from 0 to 5 and is usually *2* in scripts.
----
----What you use for rotationOrder when getting must be the same as rotationOrder when setting the rotation.
----
----What it returns is the yaw on the z part of the vector, which makes sense considering R* considers z as vertical. Here's a picture for those of you who don't understand pitch, yaw, and roll:
----www.allstar.fiu.edu/aero/images/pic5-1.gif
----```
----
----### Rotation Orders
----
----**0**: ZYX - Rotate around the z-axis, then the y-axis and finally the x-axis.
----**1**: YZX - Rotate around the y-axis, then the z-axis and finally the x-axis.
----**2**: ZXY - Rotate around the z-axis, then the x-axis and finally the y-axis.
----**3**: XZY - Rotate around the x-axis, then the z-axis and finally the y-axis.
----**4**: YXZ - Rotate around the y-axis, then the x-axis and finally the z-axis.
----**5**: XYZ - Rotate around the x-axis, then the y-axis and finally the z-axis.
 ---@param entity integer
 ---@param rotationOrder integer
 ---@return vector3
@@ -673,14 +691,7 @@ function GetEntityScript(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD5037BA82E12416F)  
----```
----result is in meters per second  
----------------------------------------------------------------  
----So would the conversion to mph and km/h, be along the lines of this.  
----float speed = GET_ENTITY_SPEED(veh);  
----float kmh = (speed * 3.6);  
----float mph = (speed * 2.236936);  
----```
+---Get the speed of a entity.
 ---@param entity integer
 ---@return number
 function GetEntitySpeed(entity) end
@@ -707,16 +718,11 @@ function GetEntitySubmergedLevel(entity) end
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8ACD366038D14505)  
 ---```
----Returns:  
----0 = no entity  
----1 = ped  
----2 = vehicle  
----3 = object  
----This is weird, because in memory atleast on xbox360 it stores it from testing with a variety of (ped, vehicle, and objects).  
----03   
----04   
----05   
----The above is more then likely true for the native's return, but if you were to skip using the native it's a bit weird it returns different results.  
+---Returns:
+---0 = no entity
+---1 = ped
+---2 = vehicle
+---3 = object
 ---```
 ---@param entity integer
 ---@return integer
@@ -731,10 +737,7 @@ function GetEntityUprightValue(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4805D2B1D8CF94A9)  
----```
----the unit is m/s along each axis  
----GET_ENTITY_VELOCITY(aEntity) is the same as GET_ENTITY_SPEED_VECTOR(aEntity,false)  
----```
+---This native does not have an official description.
 ---@param entity integer
 ---@return vector3
 function GetEntityVelocity(entity) end
@@ -832,25 +835,9 @@ function GetVehicleIndexFromEntityIndex(entity) end
 function GetWorldPositionOfEntityBone(entity, boneIndex) end
 
 ---**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x46F8696933A63C9B)  
----This native does not have an official description.
----@param entity integer
----@param boneIndex integer
----@return vector3
-function GetWorldPositionOfEntityBone_2(entity, boneIndex) end
-
----**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xCE6294A232D03786)  
----This native does not have an official description.
----@param entity integer
----@param boneIndex integer
----@return vector3
-function GetWorldRotationOfEntityBone(entity, boneIndex) end
-
----**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEAF4CD9EA3E7E922)  
 ---```
----if (ENTITY::HAS_ANIM_EVENT_FIRED(PLAYER::PLAYER_PED_ID(), GAMEPLAY::GET_HASH_KEY("CreateObject")))  
+---if (ENTITY::HAS_ANIM_EVENT_FIRED(PLAYER::PLAYER_PED_ID(), MISC::GET_HASH_KEY("CreateObject")))
 ---```
 ---@param entity integer
 ---@param actionHash integer | string
@@ -901,31 +888,34 @@ function HasEntityBeenDamagedByAnyVehicle(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC86D67D52A707CF8)  
----```
----Entity 1 = Victim  
----Entity 2 = Attacker  
----p2 seems to always be 1  
----```
----@param entity1 integer
----@param entity2 integer
----@param p2 boolean
+---This native does not have an official description.
+---@param entity integer
+---@param damager integer
+---@param bCheckDamagerVehicle boolean
 ---@return boolean
-function HasEntityBeenDamagedByEntity(entity1, entity2, p2) end
+function HasEntityBeenDamagedByEntity(entity, damager, bCheckDamagerVehicle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFCDFF7B72D23A1AC)  
+---Checks if entity1 has a clear line of sight to entity2. So a simple raycast which if it collides with any of the given colliderTypes returns false.
+---
+---The direction of the check matters with for example bushes, so checking from inside to outside a bush with traceType 256 returns true, but the other way around returns false.
+---@param entity1 integer
+---@param entity2 integer
+---@param flags integer
+---@return boolean
+function HasEntityClearLosToEntity(entity1, entity2, flags) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x394BDE2A7BBA031E)  
 ---```
----traceType is always 17 in the scripts.  
----There is other codes used for traceType:  
----19 - in jewelry_prep1a  
----126 - in am_hunt_the_beast  
----256 & 287 - in fm_mission_controller  
+---NativeDB Introduced: v1868
 ---```
 ---@param entity1 integer
 ---@param entity2 integer
 ---@param traceType integer
----@return boolean
-function HasEntityClearLosToEntity(entity1, entity2, traceType) end
+---@return any
+function HasEntityClearLosToEntity_2(entity1, entity2, traceType) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0267D00AF114F17A)  
@@ -1074,9 +1064,9 @@ function IsEntityInAir(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x51210CED3DA1C78A)  
----p10 is some entity flag check, also used in `IS_ENTITY_AT_ENTITY`, `IS_ENTITY_IN_AREA`, and `IS_ENTITY_AT_COORD`.
+---p10 is some entity flag check, also used in [`IS_ENTITY_AT_ENTITY`](#\_0x751B70C3D034E187), [`IS_ENTITY_IN_AREA`](#\_0x54736AA40E271165) and [`IS_ENTITY_AT_COORD`](#\_0x20B60995556D004F).
 ---
----See [IS_POINT_IN_ANGLED_AREA](#_0x2A70BAE8883E4C81) for the definition of an angled area.
+---See [`IS_POINT_IN_ANGLED_AREA`](#\_0x2A70BAE8883E4C81) for the definition of an angled area.
 ---@param entity integer
 ---@param x1 number
 ---@param y1 number
@@ -1085,11 +1075,11 @@ function IsEntityInAir(entity) end
 ---@param y2 number
 ---@param z2 number
 ---@param width number
----@param p8 boolean
+---@param debug boolean
 ---@param includez boolean
 ---@param p10 any
 ---@return boolean
-function IsEntityInAngledArea(entity, x1, y1, z1, x2, y2, z2, width, p8, includez, p10) end
+function IsEntityInAngledArea(entity, x1, y1, z1, x2, y2, z2, width, debug, includez, p10) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54736AA40E271165)  
@@ -1131,19 +1121,18 @@ function IsEntityOccluded(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE659E47AF827484B)  
----```
----Returns true if the entity is in between the minimum and maximum values for the 2d screen coords.   
----This means that it will return true even if the entity is behind a wall for example, as long as you're looking at their location.   
----Chipping  
----```
+---Determines whether the screen position of the specified entity is within the 2D bounds of the screen.
+---
+---This native will not check if the entity is not visible due to being occluded (for example, behind a wall). To check if a entity is on screen and is not occluded, use [IS_ENTITY_OCCLUDED](#\_0xE31C2C72B8692B64).
 ---@param entity integer
 ---@return boolean
 function IsEntityOnScreen(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1F0B79228E461EC9)  
+---See also [`IS_SCRIPTED_SCENARIO_PED_USING_CONDITIONAL_ANIM`](#\_0x6EC47A344923E1ED)
+---
 ---```
----See also PED::IS_SCRIPTED_SCENARIO_PED_USING_CONDITIONAL_ANIM 0x6EC47A344923E1ED 0x3C30B447  
 ---Taken from ENTITY::IS_ENTITY_PLAYING_ANIM(PLAYER::PLAYER_PED_ID(), "creatures@shark@move", "attack_player", 3)  
 ---p4 is always 3 in the scripts.  
 ---taskFlag:  
@@ -1186,22 +1175,7 @@ function IsEntityTouchingModel(entity, modelHash) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5333F526F6AB19AA)  
----```
----// add this to your CSS to view code with formatting intact.  
----// pre + hr + p { white-space: pre; } // -  
----bool isEntityUpright(Entity e, float angle) {  
----    bool bIsUpright; // bl@1  
----    CDynamicEntity* pEntity; // rdi@1  
----    bIsUpright = 0;  
----    pEntity = getEntityAddressIfPhysical(e);  
----    if (pEntity) {  
----        bIsUpright = 0;  
----        if (pEntity->Matrix.up.z >= cosf(angle * 0.017453292)) // radians(angle)  
----            bIsUpright = 1;  
----    }  
----    return bIsUpright;  
----}  
----```
+---This native does not have an official description.
 ---@param entity integer
 ---@param angle number
 ---@return boolean
@@ -1245,15 +1219,6 @@ function IsEntityWaitingForWorldCollision(entity) end
 function N_0x1a092bb0c3808b96(entity, p1) end
 
 ---**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2C2E3DC128F44309)  
----```
----SET_ENTITY_*  
----```
----@param entity integer
----@param p1 boolean
-function N_0x2c2e3dc128f44309(entity, p1) end
-
----**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x352E2B5CF420BF3B)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1295,18 +1260,10 @@ function N_0x5c3b791d580e0bc2(entity, p1) end
 function N_0x68b562e124cc0aef(p0, p1) end
 
 ---**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x694E00132F2823ED)  
----```
----what does it do?  
----```
----@param entity integer
----@param toggle boolean
-function N_0x694e00132f2823ed(entity, toggle) end
-
----**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x78E8E3A640178255)  
 ---```
----Related to cutscene entities. Unsure about the use.  
+---Related to cutscene entities. Unsure about the use.
+---SET_ENTITY_*
 ---```
 ---@param entity integer
 function N_0x78e8e3a640178255(entity) end
@@ -1317,13 +1274,6 @@ function N_0x78e8e3a640178255(entity) end
 ---@param p0 any
 ---@param p1 any
 function N_0xb17bc6453f6cf5ac(p0, p1) end
-
----**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB328DCC3A3AA401B)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xb328dcc3a3aa401b(p0) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC34BC448DA29F5E9)  
@@ -1342,27 +1292,15 @@ function N_0xc34bc448da29f5e9(entity, toggle) end
 function N_0xcea7c8e1b48ff68c(p0, p1) end
 
 ---**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xD7B80E7C3BEFC396)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE66377CDDADA4810)  
+---SET_ENTITY_M\*
+---
 ---```
----NativeDB Introduced: v1180
----```
----@param p0 any
----@param p1 any
-function N_0xd7b80e7c3befc396(p0, p1) end
-
----**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xDC6F8601FAF2E893)  
----```
----SET_ENTITY_*  
----x360 Hash: 0xA0466A69  
----Only called within 1 script for x360. 'fm_mission_controller' and it used on an object.   
----Ran after these 2 natives,  
----set_object_targettable(uParam0, 0);  
----set_entity_invincible(uParam0, 1);  
+---NativeDB Introduced: v1734
 ---```
 ---@param entity integer
----@param toggle boolean
-function N_0xdc6f8601faf2e893(entity, toggle) end
+---@param p1 boolean
+function N_0xe66377cddada4810(entity, p1) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7FB218262B810701)  
@@ -1421,8 +1359,7 @@ function PlaySynchronizedMapEntityAnim(p0, p1, p2, p3, p4, p5, p8, p9, p10, p11)
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF4080490ADC51C6F)  
 ---```
----Called to update entity attachments.  
----When using ATTACH_ENTITY_TO_ENTITY and using bone '0' then you set the first entity invisible. The attachments will mess up, use bone '-1' to fix that issue  
+---Called to update entity attachments.
 ---```
 ---@param entity integer
 function ProcessEntityAttachments(entity) end
@@ -1439,14 +1376,16 @@ function RemoveForcedObject(p0, p1, p2, p3, p4) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD9E3006FB3CBD765)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
-function RemoveModelHide(p0, p1, p2, p3, p4, p5) end
+---p5 requires more research. See also [`CREATE_MODEL_HIDE`](#\_0x8A97BCA30A0CE478) and [`CREATE_MODEL_SWAP`](#\_0x92C47782FDA8B2A3).
+---
+---Network players do not see changes done with this.
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@param model integer | string
+---@param p5 boolean
+function RemoveModelHide(x, y, z, radius, model, p5) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x033C0F9A64E229AE)  
@@ -1462,35 +1401,30 @@ function RemoveModelSwap(x, y, z, radius, originalModel, newModel, p6) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9B1E824FFBB7027A)  
----```
----NativeDB Return Type: void
----```
+---This native does not have an official description.
 ---@param entity integer
----@return any
 function ResetEntityAlpha(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE12ABE5E3A389A6C)  
 ---This native does not have an official description.
 ---@param entity integer
----@param p1 boolean
-function SetCanAutoVaultOnEntity(entity, p1) end
+---@param toggle boolean
+function SetCanAutoVaultOnEntity(entity, toggle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA80AE305E0A3044F)  
 ---This native does not have an official description.
 ---@param entity integer
----@param p1 boolean
-function SetCanClimbOnEntity(entity, p1) end
+---@param toggle boolean
+function SetCanClimbOnEntity(entity, toggle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44A0870B7E92D7C0)  
 ---This native sets the entity's alpha level.
----
----The skin parameter is actually a BOOL, but can't be changed due to backwards compatibility issues for C# scripts.
 ---@param entity integer
 ---@param alphaLevel integer
----@param skin integer
+---@param skin boolean
 function SetEntityAlpha(entity, alphaLevel, skin) end
 
 ---**`ENTITY` `client`**  
@@ -1499,6 +1433,17 @@ function SetEntityAlpha(entity, alphaLevel, skin) end
 ---@param entity integer
 ---@param toggle boolean
 function SetEntityAlwaysPrerender(entity, toggle) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8339643499D1222E)  
+---```
+---NativeDB Introduced: v2372
+---```
+---@param entity integer
+---@param x number
+---@param y number
+---@param z number
+function SetEntityAngularVelocity(entity, x, y, z) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4487C259F0F70977)  
@@ -1511,7 +1456,7 @@ function SetEntityAnimCurrentTime(entity, animDictionary, animName, time) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28D1A16553C51776)  
----[Animations list](https://alexguirre.github.io/animations-list/)
+---This native does not have an official description.
 ---@param entity integer
 ---@param animDictionary string
 ---@param animName string
@@ -1520,17 +1465,13 @@ function SetEntityAnimSpeed(entity, animDictionary, animName, speedMultiplier) e
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAD738C3085FE7E11)  
----```
----Makes the specified entity (ped, vehicle or object) persistent. Persistent entities will not automatically be removed by the engine.  
----p1 has no effect when either its on or off   
----maybe a quick disassembly will tell us what it does  
----p2 has no effect when either its on or off   
----maybe a quick disassembly will tell us what it does  
----```
+---Assigns an existing entity to be owned by the current script. If the entity was not owned by a script yet, this also means the entity will remain persistent until released.
+---
+---Note that this is not needed right after creating an entity as a script-created entity will automatically be assigned.
 ---@param entity integer
----@param p1 boolean
----@param p2 boolean
-function SetEntityAsMissionEntity(entity, p1, p2) end
+---@param scriptHostObject boolean
+---@param bGrabFromOtherScript boolean
+function SetEntityAsMissionEntity(entity, scriptHostObject, bGrabFromOtherScript) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB736A491E64A32CF)  
@@ -1566,6 +1507,20 @@ function SetEntityCanBeDamagedByRelationshipGroup(entity, bCanBeDamaged, relGrou
 function SetEntityCanBeTargetedWithoutLos(entity, toggle) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3910051CCECDB00C)  
+---```
+---True means it can be deleted by the engine when switching lobbies/missions/etc, false means the script is expected to clean it up.
+---```
+---@param entity integer
+---@param toggle boolean
+function SetEntityCleanupByEngine(entity, toggle) end
+
+---@deprecated
+SetEntityRegister = SetEntityCleanupByEngine
+---@deprecated
+SetEntitySomething = SetEntityCleanupByEngine
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1A9205C1B9EE827F)  
 ---This native does not have an official description.
 ---@param entity integer
@@ -1575,76 +1530,70 @@ function SetEntityCollision(entity, toggle, keepPhysics) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9EBC85ED0FFFE51C)  
----```
----internally it calls the same function as 'SET_ENTITY_COLLISION'. but uses a hard coded parameter that only activates when p1 is set to true   
----=============================  
----Weirdly enough in the 3 scripts it's used in on PC,  
----- director_mode (2 hits)  
----- re_duel (2 hits)  
----- re_seaplane (1 hit)  
----Most of the time in the hits its actually used after the normal SET_ENTITY_COLLISION. Example from re_seaplane,  
----Local_49[iParam0 /*6*/] = create_ped(26, iVar4, vVar0, fVar3, 1, true);  
----set_entity_collision(Local_49[iParam0 /*6*/], iVar42, 0);  
----_0x9EBC85ED0FFFE51C(Local_49[iParam0 /*6*/], !iVar66, 0); (_SET_ENTITY_COLLISION_2)  
----iVar42 being true so the normal collision native is true, 0  
----iVar66 being false so !false so it's true, 0  
----Gonna ignore the 'vars' for the create_ped no point in defining them.  
----```
+---This native does not have an official description.
 ---@param entity integer
----@param p1 boolean
----@param p2 boolean
-function SetEntityCompletelyDisableCollision(entity, p1, p2) end
+---@param toggle boolean
+---@param keepPhysics boolean
+function SetEntityCompletelyDisableCollision(entity, toggle, keepPhysics) end
 
 ---@deprecated
 SetEntityCollision_2 = SetEntityCompletelyDisableCollision
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x06843DA7060A026B)  
----```
----p7 is always 1 in the scripts. Set to 1, an area around the destination coords for the moved entity is cleared from other entities.
----Often ends with 1, 0, 0, 1); in the scripts. It works.
----Axis - Invert Axis Flags
----```
----
----Sets an entity's coordinates in world space.
+---Sets the coordinates (world position) for a specified entity, offset by the radius of the entity on the Z axis.
 ---@param entity integer
 ---@param xPos number
 ---@param yPos number
 ---@param zPos number
----@param xAxis boolean
----@param yAxis boolean
----@param zAxis boolean
+---@param alive boolean
+---@param deadFlag boolean
+---@param ragdollFlag boolean
 ---@param clearArea boolean
-function SetEntityCoords(entity, xPos, yPos, zPos, xAxis, yAxis, zAxis, clearArea) end
-
----**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x621873ECE1178967)  
----```
----does the same as SET_ENTITY_COORDS.  
----```
----@param entity integer
----@param xPos number
----@param yPos number
----@param zPos number
----@param xAxis boolean
----@param yAxis boolean
----@param zAxis boolean
----@param clearArea boolean
-function SetEntityCoords_2(entity, xPos, yPos, zPos, xAxis, yAxis, zAxis, clearArea) end
+function SetEntityCoords(entity, xPos, yPos, zPos, alive, deadFlag, ragdollFlag, clearArea) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x239A3351AC1DA385)  
----```
----Axis - Invert Axis Flags  
----```
+---Teleports an entity to specified coordinates directly, with options to maintain certain behaviors post-teleportation.
+---
+---**Note**:
+---
+---*   This native allows precise placement of entities without the usual adjustments for collision or interaction with the environment that may occur with other teleportation natives.
+---*   The `keepTasks` and `keepIK` parameters are specifically useful for maintaining the current state of a ped, ensuring actions or animations are not abruptly stopped due to the teleportation.
+---*   Setting `doWarp` to `false` is useful when simulating continuous movement or when the entity should interact with its immediate surroundings upon arrival.
+---@param entity integer
+---@param x number
+---@param y number
+---@param z number
+---@param keepTasks boolean
+---@param keepIK boolean
+---@param doWarp boolean
+function SetEntityCoordsNoOffset(entity, x, y, z, keepTasks, keepIK, doWarp) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x621873ECE1178967)  
+---This native does not have an official description.
 ---@param entity integer
 ---@param xPos number
 ---@param yPos number
 ---@param zPos number
----@param xAxis boolean
----@param yAxis boolean
----@param zAxis boolean
-function SetEntityCoordsNoOffset(entity, xPos, yPos, zPos, xAxis, yAxis, zAxis) end
+---@param alive boolean
+---@param deadFlag boolean
+---@param ragdollFlag boolean
+---@param clearArea boolean
+function SetEntityCoordsWithoutPlantsReset(entity, xPos, yPos, zPos, alive, deadFlag, ragdollFlag, clearArea) end
+
+---@deprecated
+SetEntityCoords_2 = SetEntityCoordsWithoutPlantsReset
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2C2E3DC128F44309)  
+---```
+---SET_ENTITY_*
+---```
+---@param entity integer
+---@param p1 boolean
+function SetEntityDecalsDisabled(entity, p1) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1718DE8E3F2823CA)  
@@ -1669,13 +1618,15 @@ function SetEntityHeading(entity, heading) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6B76DC1F3AE6E6A3)  
----health >= 0
+---When setting health for a player ped, the game will clamp the health value to ensure it does not exceed the maximum health. This maximum health can be retrieved by calling [`GET_PED_MAX_HEALTH`](#\_0x4700A416E8324EF3). It can also be modified by calling [`SET_PED_MAX_HEALTH`](#\_0xF5F6378C4F3419D3).
 ---
----male ped ~= 100 - 200
+---When setting the health for non-player peds or entities, the maximum health will be increased if the new health value exceeds the current maximum.
 ---
----female ped ~= 0 - 100
+---Default health for male peds is `200`, for female peds it is `175`.
 ---
----because something.
+---### Added parameters
+---
+---*   **inflictor**: The handle for the entity that caused the damage.
 ---@param entity integer
 ---@param health integer
 function SetEntityHealth(entity, health) end
@@ -1719,9 +1670,9 @@ function SetEntityLights(entity, toggle) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0DC7CABAB1E9B67E)  
----```
----Certainly not the main usage of this native but when set to true for a Vehicle, it will prevent the vehicle to explode if it is spawned far away from the player.  
----```
+---Loads collision grid for an entity spawned outside of a player's loaded area. This allows peds to execute tasks rather than sit dormant because of a lack of a physics grid.
+---
+---Certainly not the main usage of this native but when set to true for a Vehicle, it will prevent the vehicle to explode if it is spawned far away from the player.
 ---
 ---```
 ---NativeDB Added Parameter 3: Any p2
@@ -1802,10 +1753,10 @@ function SetEntityOnlyDamagedByRelationshipGroup(entity, p1, relationshipHash) e
 ---@param explosionProof boolean
 ---@param collisionProof boolean
 ---@param meleeProof boolean
----@param p6 boolean
+---@param steamProof boolean
 ---@param p7 boolean
 ---@param drownProof boolean
-function SetEntityProofs(entity, bulletProof, fireProof, explosionProof, collisionProof, meleeProof, p6, p7, drownProof) end
+function SetEntityProofs(entity, bulletProof, fireProof, explosionProof, collisionProof, meleeProof, steamProof, p7, drownProof) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x77B21BE7AC540F07)  
@@ -1834,53 +1785,41 @@ function SetEntityRecordsCollisions(entity, toggle) end
 function SetEntityRenderScorched(entity, toggle) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x694E00132F2823ED)  
+---This native does not have an official description.
+---@param entity integer
+---@param toggle boolean
+function SetEntityRequiresMoreExpensiveRiverCheck(entity, toggle) end
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8524A8B0171D5E07)  
----```
----rotationOrder refers to the order yaw pitch roll is applied, see [GET_ENTITY_ROTATION](#_0xAFBD61CC738D9EB9)
+---Sets the rotation of a specified entity in the game world.
 ---
----p5 is usually set as true
+---```
+---NativeDB Introduced: v323
 ---```
 ---@param entity integer
 ---@param pitch number
 ---@param roll number
 ---@param yaw number
 ---@param rotationOrder integer
----@param p5 boolean
-function SetEntityRotation(entity, pitch, roll, yaw, rotationOrder, p5) end
-
----**`ENTITY` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x3910051CCECDB00C)  
----```
----what does this native do?  
----bool IsEntitySomething(Entity entity)  
----{  
----	auto addr = getScriptHandleBaseAddress(entity);  
----	printf("addr: 0x%X \n", addr);  
----	if (addr)  
----	{  
----DWORD flag = *(DWORD *)(addr + 0x48D);  
----printf("flag: 0x%X \n", flag);  
----return ((flag & (1 << 3)) != 0) || ((flag & (1 << 30)) != 0);  
----	}  
----	return false;  
----}  
----wot ?  
----```
----@param entity integer
----@param toggle boolean
-function SetEntitySomething(entity, toggle) end
-
----@deprecated
-SetEntityRegister = SetEntitySomething
+---@param bDeadCheck boolean
+function SetEntityRotation(entity, pitch, roll, yaw, rotationOrder, bDeadCheck) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x57C5DB656185EAC4)  
----```
----Example here: www.gtaforums.com/topic/830463-help-with-turning-lights-green-and-causing-peds-to-crash-into-each-other/#entry1068211340  
----0 = green  
----1 = red  
----2 = yellow  
----changing lights may not change the behavior of vehicles  
+---Changing traffic-lights will not change the behavior of NPCs.
+---
+---Example: [here](https://www.gtaforums.com/topic/830463-help-with-turning-lights-green-and-causing-peds-to-crash-into-each-other/#entry1068211340)
+---
+---```cpp
+---enum eTrafficlightOverrideMode
+---{
+---    TLO_RED = 0,
+---    TLO_AMBER = 1,
+---    TLO_GREEN = 2,
+---    TLO_NONE = 3
+---}
 ---```
 ---@param entity integer
 ---@param state integer
@@ -1889,7 +1828,7 @@ function SetEntityTrafficlightOverride(entity, state) end
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1C99BB7B6E96D16F)  
 ---```
----Note that the third parameter(denoted as z) is "up and down" with positive ment.  
+---Note that the third parameter(denoted as z) is "up and down" with positive numbers encouraging upwards movement.
 ---```
 ---@param entity integer
 ---@param x number
@@ -1899,9 +1838,7 @@ function SetEntityVelocity(entity, x, y, z) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEA1C610A04DB6BBB)  
----```
----unk was always 0.  
----```
+---Toggle the visibility of a given entity.
 ---@param entity integer
 ---@param toggle boolean
 ---@param unk boolean
@@ -1924,6 +1861,17 @@ function SetObjectAsNoLongerNeeded(object) end
 function SetPedAsNoLongerNeeded(ped) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD7B80E7C3BEFC396)  
+---Configures an entity to either allow or prevent it from being picked up by Cargobobs.
+---
+---```
+---NativeDB Introduced: v1180
+---```
+---@param entity integer
+---@param toggle boolean
+function SetPickUpByCargobobDisabled(entity, toggle) end
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x629BFA74418D6239)  
 ---```
 ---This is an alias of SET_ENTITY_AS_NO_LONGER_NEEDED.  
@@ -1932,12 +1880,23 @@ function SetPedAsNoLongerNeeded(ped) end
 function SetVehicleAsNoLongerNeeded(vehicle) end
 
 ---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDC6F8601FAF2E893)  
+---```
+---SET_*
+---Only called within 1 script for x360. 'fm_mission_controller' and it used on an object.
+---Ran after these 2 natives,
+---set_object_targettable(uParam0, 0);
+---set_entity_invincible(uParam0, 1);
+---```
+---@param entity integer
+---@param toggle boolean
+function SetWaitForCollisionsBeforeProbe(entity, toggle) end
+
+---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28004F88151E03E0)  
 ---```
----RAGEPluginHook list: docs.ragepluginhook.net/html/62951c37-a440-478c-b389-c471230ddfc5.htm  
+---RAGEPluginHook list: docs.ragepluginhook.net/html/62951c37-a440-478c-b389-c471230ddfc5.htm
 ---```
----
----[Animations list](https://alexguirre.github.io/animations-list/)
 ---@param entity integer
 ---@param animation string
 ---@param animGroup string
@@ -1970,9 +1929,7 @@ function StopSynchronizedMapEntityAnim(p0, p1, p2, p3, p4, p5) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEE5D2A122E09EC42)  
----```
----First parameter was previously an Entity but after further research it is definitely a hash.  
----```
+---This native does not have an official description.
 ---@param entityModelHash integer | string
 ---@param x number
 ---@param y number
