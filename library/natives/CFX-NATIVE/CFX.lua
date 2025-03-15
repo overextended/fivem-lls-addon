@@ -12,6 +12,18 @@ function ActivateTimecycleEditor() end
 ---@param outputSubmixId integer
 function AddAudioSubmixOutput(submixId, outputSubmixId) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8AC7AE9)  
+---Adds the given model name hash to the list of valid models for the player ped's parachute.
+---@param modelNameHash integer
+function AddAuthorizedParachuteModel(modelNameHash) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2E86DEA5)  
+---Adds the given model name hash to the list of valid models for the player ped's parachute pack.
+---@param modelNameHash integer
+function AddAuthorizedParachutePackModel(modelNameHash) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6228F159)  
 ---Adds a rectangular blip for the specified coordinates/area.---
@@ -670,6 +682,28 @@ function DoorSystemGetSize() end
 function DrawBox(x1, y1, z1, x2, y2, z2, red, green, blue, alpha) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFF44780E)  
+---Allows drawing advanced light effects, known as coronas, which support flares, volumetric lighting, and customizable glow properties.
+---@param posX number
+---@param posY number
+---@param posZ number
+---@param size number
+---@param red integer
+---@param green integer
+---@param blue integer
+---@param alpha integer
+---@param intensity number
+---@param zBias number
+---@param dirX number
+---@param dirY number
+---@param dirZ number
+---@param viewThreshold number
+---@param innerAngle number
+---@param outerAngle number
+---@param flags integer
+function DrawCorona(posX, posY, posZ, size, red, green, blue, alpha, intensity, zBias, dirX, dirY, dirZ, viewThreshold, innerAngle, outerAngle, flags) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEB2EDCA2)  
 ---Draws a gizmo. This function supports SDK infrastructure and is not intended to be used directly from your code.
 ---
@@ -1075,6 +1109,14 @@ function GetCalmingQuadDampening(waterQuad) end
 ---@param camera integer
 ---@return vector3, vector3, vector3, vector3
 function GetCamMatrix(camera) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x59FC24A7)  
+---Get all track nodes and their track ids within the radius of the specified coordinates.
+---@param position vector3
+---@param radius number
+---@return table
+function GetClosestTrackNodes(position, radius) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE57429FA)  
@@ -2169,6 +2211,13 @@ function GetPedPropCollectionName(ped, anchorPoint) end
 function GetPedPropGlobalIndexFromCollection(ped, anchorPoint, collection, propIndex) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x354F283C)  
+---Gets the current relationship group hash of a ped.
+---@param ped integer
+---@return integer
+function GetPedRelationshipGroupHash(ped) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84FE084)  
 ---Gets the script task command currently assigned to the ped.
 ---@param ped integer
@@ -2239,6 +2288,13 @@ function GetPlayerEndpoint(playerSrc) end
 ---@param playerSrc string
 ---@return integer
 function GetPlayerFakeWantedLevel(playerSrc) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x586F80FF)  
+---Gets the focus position (i.e. the position of the active camera in the game world) of a player.
+---@param playerSrc string
+---@return vector3
+function GetPlayerFocusPos(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC8A9CE08)  
@@ -2491,10 +2547,14 @@ function GetRandomVehicleDensityMultiplier() end
 ---```
 ---[---
 ---{---
----"name": "cmdlist"---
+---"name": "cmdlist",---
+---"resource": "resource",---
+---"arity" = -1,---
 ---},---
 ---{---
 ---"name": "command1"---
+---"resource": "resource_2",---
+---"arity" = -1,---
 ---}---
 ---]
 ---```
@@ -2507,6 +2567,29 @@ function GetRegisteredCommands() end
 ---@param findIndex integer
 ---@return string
 function GetResourceByFindIndex(findIndex) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x97628584)  
+---Returns all commands registered by the specified resource.---
+---The data returned adheres to the following layout:
+---
+---```
+---[---
+---{---
+---"name": "cmdlist",---
+---"resource": "example_resource",---
+---"arity" = -1,---
+---},---
+---{---
+---"name": "command1"---
+---"resource": "example_resource2",---
+---"arity" = -1,---
+---}---
+---]
+---```
+---@param resource string
+---@return table
+function GetResourceCommands(resource) end
 
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x35BDCEEA)  
@@ -2747,6 +2830,21 @@ function GetTrackBrakingDistance(track) end
 ---@param track integer
 ---@return number
 function GetTrackMaxSpeed(track) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1628548E)  
+---Gets the coordinates of a specific track node.
+---@param trackIndex integer
+---@param trackNode integer
+---@return boolean, vector3
+function GetTrackNodeCoords(trackIndex, trackNode) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x896A0C11)  
+---Gets the specified tracks node count.
+---@param trackIndex integer
+---@return integer
+function GetTrackNodeCount(trackIndex) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95070FA)  
@@ -3098,6 +3196,16 @@ function GetVehicleHandlingInt(vehicle, class_, fieldName) end
 ---@param fieldName string
 ---@return vector3
 function GetVehicleHandlingVector(vehicle, class_, fieldName) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD85C9F57)  
+---**Note**: Flags are not the same based on your `gamebuild`. Please see [here](https://docs.fivem.net/docs/game-references/vehicle-references/vehicle-flags) to see a complete list of all vehicle flags.
+---
+---Get vehicle.meta flag by index. Useful examples include `FLAG_LAW_ENFORCEMENT` (31), `FLAG_RICH_CAR` (36), `FLAG_IS_ELECTRIC` (43), `FLAG_IS_OFFROAD_VEHICLE` (48).
+---@param vehicle integer
+---@param flagIndex integer
+---@return boolean
+function GetVehicleHasFlag(vehicle, flagIndex) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD7147656)  
@@ -4016,6 +4124,13 @@ function IsPlayerCommerceInfoLoadedExt(playerSrc) end
 function IsPlayerEvadingWantedLevel(playerSrc) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1F14F2AC)  
+---This native does not have an official description.
+---@param playerSrc string
+---@return boolean
+function IsPlayerInFreeCamMode(playerSrc) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC7D2C20C)  
 ---This native does not have an official description.
 ---@param playerSrc string
@@ -4381,6 +4496,8 @@ function MumbleSetPlayerMuted(playerSrc, toggle) end
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE6EB2CD8)  
 ---Changes the Mumble server address to connect to, and reconnects to the new address.
+---
+---Setting the address to an empty string and the port to -1 will reset to the built in FXServer Mumble Implementation.
 ---@param address string
 ---@param port integer
 function MumbleSetServerAddress(address, port) end
@@ -4657,6 +4774,26 @@ function RegisterResourceAsset(resourceName, fileName) end
 function RegisterResourceBuildTaskFactory(factoryId, factoryFn) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF213AE8D)  
+---Registers a custom rope data with the game. For guidance on what these values should be use common:/data/ropedata.xml as a reference.---
+---Returns a rope type which can be passed into [ADD_ROPE](?\_0xE832D760399EB220) to use a custom rope design.---
+---Once a rope data is registered it can be used indefinitely and you should take caution not too register too many as to exceed the games limit.
+---@param numSections integer
+---@param radius number
+---@param diffuseTextureName string
+---@param normalMapName string
+---@param distanceMappingScale number
+---@param uvScaleX number
+---@param uvScaleY number
+---@param specularFresnel number
+---@param specularFalloff number
+---@param specularIntensity number
+---@param bumpiness number
+---@param color integer
+---@return integer
+function RegisterRopeData(numSections, radius, diffuseTextureName, normalMapName, distanceMappingScale, uvScaleX, uvScaleY, specularFresnel, specularFalloff, specularIntensity, bumpiness, color) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCEAD2D4B)  
 ---**Experimental**: This native may be altered or removed in future versions of CitizenFX without warning.
 ---
@@ -4684,6 +4821,17 @@ function RegisterStreamingFileFromKvs(kvsKey) end
 ---@param registerAs string
 ---@param url string
 function RegisterStreamingFileFromUrl(registerAs, url) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x35F743B5)  
+---Registers a track junction that when enabled will cause a train on the defined trackIndex, node and direction to change its current track index and begin traveling on the new node
+---@param trackIndex integer
+---@param trackNode integer
+---@param newIndex integer
+---@param newNode integer
+---@param direction boolean
+---@return integer
+function RegisterTrackJunction(trackIndex, trackNode, newIndex, newNode, direction) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA44CE817)  
@@ -4744,6 +4892,13 @@ function RemoveTimecycleModifier(modifierName) end
 ---@param modifierName string
 ---@param varName string
 function RemoveTimecycleModifierVar(modifierName, varName) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4F3D2B2A)  
+---Removes the specified track junction.
+---@param junctionIndex integer
+---@return boolean
+function RemoveTrackJunction(junctionIndex) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x412AA00D)  
@@ -6921,6 +7076,14 @@ function SetTrackBrakingDistance(track, brakingDistance) end
 function SetTrackEnabled(track, enabled) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x537B449D)  
+---Sets the state of a track junction.
+---@param junctionIndex integer
+---@param state boolean
+---@return boolean
+function SetTrackJunctionActive(junctionIndex, state) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x37BFC732)  
 ---Sets the max speed for the train tracks. Used by ambient trains and for station calculations
 ---@param track integer
@@ -7122,6 +7285,15 @@ function SetVehicleDoorsLocked(vehicle, doorLockStatus) end
 ---@param vehicle integer
 ---@param temperature number
 function SetVehicleEngineTemperature(vehicle, temperature) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x63AE1A34)  
+---This native is a setter for [`GET_VEHICLE_HAS_FLAG`](#\_0xD85C9F57).
+---@param vehicle integer
+---@param flagIndex integer
+---@param value boolean
+---@return boolean
+function SetVehicleFlag(vehicle, flagIndex, value) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA970511)  
