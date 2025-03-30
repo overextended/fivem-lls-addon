@@ -43,19 +43,22 @@ function ClearPedLastWeaponDamage(ped) end
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9DA58CDBF6BDBC08)  
 ---This native does not have an official description.
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 number
----@param p5 number
----@param p6 number
----@param p7 number
----@param p8 number
----@param p9 number
+---@param srcCoord1X number
+---@param srcCoord1Y number
+---@param srcCoord1Z number
+---@param srcCoord2X number
+---@param srcCoord2Y number
+---@param srcCoord2Z number
+---@param fWidth number
+---@param weaponPositionX number
+---@param weaponPositionY number
+---@param weaponPositionZ number
 ---@param weaponHash integer | string
 ---@return integer
-function CreateAirDefenseArea(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, weaponHash) end
+function CreateAirDefenceAngledArea(srcCoord1X, srcCoord1Y, srcCoord1Z, srcCoord2X, srcCoord2Y, srcCoord2Z, fWidth, weaponPositionX, weaponPositionY, weaponPositionZ, weaponHash) end
+
+---@deprecated
+CreateAirDefenseArea = CreateAirDefenceAngledArea
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x91EF34584710BE99)  
@@ -66,12 +69,15 @@ function CreateAirDefenseArea(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, weaponHash
 ---@param y number
 ---@param z number
 ---@param radius number
----@param p4 number
----@param p5 number
----@param p6 number
+---@param weaponPositionX number
+---@param weaponPositionY number
+---@param weaponPositionZ number
 ---@param weaponHash integer | string
 ---@return integer
-function CreateAirDefenseSphere(x, y, z, radius, p4, p5, p6, weaponHash) end
+function CreateAirDefenceSphere(x, y, z, radius, weaponPositionX, weaponPositionY, weaponPositionZ, weaponHash) end
+
+---@deprecated
+CreateAirDefenseSphere = CreateAirDefenceSphere
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9541D3CF0D398F36)  
@@ -156,6 +162,17 @@ function GetAmmoInClip(ped, weaponHash) end
 ---@param weaponhash integer | string
 ---@return integer
 function GetAmmoInPedWeapon(ped, weaponhash) end
+
+---**`WEAPON` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2857938C5D407AFA)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param vehicle integer
+---@param seat integer
+---@param ammo integer
+---@return boolean
+function GetAmmoInVehicleWeaponClip(vehicle, seat, ammo) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8483E98E8B888AE2)  
@@ -328,6 +345,26 @@ function GetPedWeapontypeInSlot(ped, weaponSlot) end
 ---@param ped integer
 ---@return integer
 function GetSelectedPedWeapon(ped) end
+
+---**`WEAPON` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC8C6F4B1CDEB40EF)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param vehicle integer
+---@param seat integer
+---@return integer
+function GetTimeBeforeVehicleWeaponReloadFinishes(vehicle, seat) end
+
+---**`WEAPON` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD0AD348FFD7A6868)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param vehicle integer
+---@param seat integer
+---@return number
+function GetVehicleWeaponReloadTime(vehicle, seat) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x583BE370B1EC6EB4)  
@@ -679,6 +716,16 @@ function HasWeaponAssetLoaded(weaponHash) end
 function HasWeaponGotWeaponComponent(weapon, addonHash) end
 
 ---**`WEAPON` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8062F07153F4446F)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param vehicle integer
+---@param seat integer
+---@return boolean
+function HasWeaponReloadingInVehicle(vehicle, seat) end
+
+---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6F6981D2253C208F)  
 ---```
 ---Hides the players weapon during a cutscene.  
@@ -774,18 +821,6 @@ function MakePedReload(ped) end
 ---@param p0 any
 ---@param p1 any
 function N_0x24c024ba8379a70a(p0, p1) end
-
----**`WEAPON` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x50276EF8172F5F12)  
----Related to the ped's weapon - flag used when disabling ped vehicle weapon
----
----SET_PED_\*
----
----```
----NativeDB Introduced: v1734
----```
----@param ped integer
-function N_0x50276ef8172f5f12(ped) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x977CA98939E82E4B)  
@@ -920,6 +955,17 @@ function RequestWeaponHighDetailModel(weaponObject) end
 function SetAmmoInClip(ped, weaponHash, ammo) end
 
 ---**`WEAPON` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x873906720EE842C3)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param vehicle integer
+---@param seat integer
+---@param ammo integer
+---@return boolean
+function SetAmmoInVehicleWeaponClip(vehicle, seat, ammo) end
+
+---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEFF296097FF1E509)  
 ---Does the same as [`_SET_CAN_PED_SELECT_WEAPON`](#\_0xB4771B9AAF4E68E4) except for all weapons.
 ---@param ped integer
@@ -1015,6 +1061,12 @@ function SetPedChanceOfFiringBlanks(ped, xBias, yBias) end
 ---@param p3 boolean
 ---@param p4 boolean
 function SetPedCurrentWeaponVisible(ped, visible, deselectWeapon, p3, p4) end
+
+---**`WEAPON` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x50276EF8172F5F12)  
+---Restricts weapon selection when cycling through weapons, to select only vehicle weapons.
+---@param ped integer
+function SetPedCycleVehicleWeaponsOnly(ped) end
 
 ---**`WEAPON` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x208A1888007FC0E6)  
@@ -1234,4 +1286,17 @@ function SetWeaponObjectLiveryColor(weaponObject, camoComponentHash, colorIndex)
 ---@param weapon integer
 ---@param tintIndex integer
 function SetWeaponObjectTintIndex(weapon, tintIndex) end
+
+---**`WEAPON` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5B1513F27F279A44)  
+---Start a reload for a vehicle's weapon.
+---
+---```
+---NativeDB Introduced: v3407
+---```
+---@param vehicle integer
+---@param seat integer
+---@param ped integer
+---@return boolean
+function TriggerVehicleWeaponReload(vehicle, seat, ped) end
 

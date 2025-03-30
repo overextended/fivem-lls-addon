@@ -997,7 +997,7 @@ function GetModelDimensions(modelHash) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x711327CD09C8F162)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Refer to [`SET_WEATHER_TYPE_NOW`](#\_0x29B487C359E19889) for weather types.
 ---@return integer
 function GetNextWeatherTypeHashName() end
 
@@ -1048,7 +1048,7 @@ function GetPowerSavingModeDuration() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x564B884A05EC45A3)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Refer to [`SET_WEATHER_TYPE_NOW`](#\_0x29B487C359E19889) for weather types.
 ---@return integer
 function GetPrevWeatherTypeHashName() end
 
@@ -1163,7 +1163,7 @@ function GetTotalSuccessfulStuntJumps() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF3BBE884A14BB413)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Refer to [`SET_WEATHER_TYPE_NOW`](#\_0x29B487C359E19889) for weather types.
 ---@return integer, integer, number
 function GetWeatherTypeTransition() end
 
@@ -1422,7 +1422,7 @@ function IsMinigameInProgress() end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2FAA3A30BEC0F25D)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Refer to [`SET_WEATHER_TYPE_NOW`](#\_0x29B487C359E19889) for weather types.
 ---@param weatherType string
 ---@return boolean
 function IsNextWeatherType(weatherType) end
@@ -1480,7 +1480,7 @@ function IsPositionOccupied(x, y, z, range, p4, checkVehicles, checkPeds, p7, p8
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44F28F86433B10A9)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Refer to [`SET_WEATHER_TYPE_NOW`](#\_0x29B487C359E19889) for weather types.
 ---@param weatherType string
 ---@return boolean
 function IsPrevWeatherType(weatherType) end
@@ -2545,7 +2545,7 @@ function SetMissionFlag(toggle) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA43D5C6FE51ADBEF)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Refer to [`SET_WEATHER_TYPE_NOW`](#\_0x29B487C359E19889) for weather types.
 ---@param weatherType string
 function SetOverrideWeather(weatherType) end
 
@@ -2710,6 +2710,8 @@ function SetTimeScale(timeScale) end
 ---*   BLIZZARD
 ---*   HALLOWEEN
 ---*   NEUTRAL
+---*   RAIN_HALLOWEEN
+---*   SNOW_HALLOWEEN
 ---@param weatherType string
 function SetWeatherTypeNow(weatherType) end
 
@@ -2721,7 +2723,7 @@ function SetWeatherTypeNowPersist(weatherType) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFB5045B7C42B75BF)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Refer to [`SET_WEATHER_TYPE_NOW`](#\_0x29B487C359E19889) for weather types.
 ---@param weatherType string
 ---@param time number
 function SetWeatherTypeOvertimePersist(weatherType, time) end
@@ -2743,7 +2745,7 @@ function SetWeatherTypePersist(weatherType) end
 
 ---**`MISC` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x578C752848ECFA0C)  
----Refer to [`SET_WEATHER_TYPE_NOW_PERSIST`](#\_0xED712CA327900C8A) for weather types.
+---Refer to [`SET_WEATHER_TYPE_NOW`](#\_0x29B487C359E19889) for weather types.
 ---
 ---```
 ---Mixes two weather types. If percentWeather2 is set to 0.0f, then the weather will be entirely of weatherType1, if it is set to 1.0f it will be entirely of weatherType2. If it's set somewhere in between, there will be a mixture of weather behaviors. To test, try this in the RPH console, and change the float to different values between 0 and 1:  

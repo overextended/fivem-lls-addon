@@ -2734,6 +2734,19 @@ function IsPedInModel(ped, modelHash) end
 function IsPedInParachuteFreeFall(ped) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x082D79E15302F0C2)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param ped integer
+---@param x number
+---@param y number
+---@param z number
+---@param range number
+---@return boolean
+function IsPedInSphereAreaOfAnyEnemyPeds(ped, x, y, z, range) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA3EE4A07279BB9DB)  
 ---```
 ---Gets a value indicating whether the specified ped is in the specified vehicle.  
@@ -4066,9 +4079,9 @@ function SetEnableBoundAnkles(ped, toggle) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDF1AF8B5D56542FA)  
----```
----ped can not pull out a weapon when true  
----```
+---Sets the IsHandCuffed (120) config flag on the ped. This blocks the ped from switching weapons (with the exception of switching to `weapon_unarmed`), makes the ped ragdoll on getting punched and forces a different get-up animation after ragdolling. The ped can also not vault over or climb on top of objects.
+---
+---Used in combination with [SET_ENABLE_BOUND_ANKLES](#\_0xC52E0F855C58FC2E) in decompiled scripts.
 ---@param ped integer
 ---@param toggle boolean
 function SetEnableHandcuffs(ped, toggle) end
@@ -6512,6 +6525,18 @@ function SetPedStrafeClipset(ped, clipSet) end
 function SetPedSuffersCriticalHits(ped, toggle) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x100CD221F572F6E1)  
+---Allows marine animals to survive outside of water (R\* is using it for sharks).
+---
+---```
+---NativeDB Introduced: v3407
+---```
+---@param ped integer
+---@param toggle boolean
+---@return boolean
+function SetPedSurvivesBeingOutOfWater(ped, toggle) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x27B0405F59637D1F)  
 ---```
 ---Sweat is set to 100.0 or 0.0 in the decompiled scripts.  
@@ -6554,17 +6579,29 @@ function SetPedToLoadCover(ped, toggle) end
 ---**1**: CTaskNMScriptControl: Hardcoded not to work in networked environments.
 ---**Else**: CTaskNMBalance
 ---@param ped integer
----@param time1 integer
----@param time2 integer
+---@param minTime integer
+---@param maxTime integer
 ---@param ragdollType integer
----@param p4 boolean
----@param p5 boolean
----@param p6 boolean
+---@param bAbortIfInjured boolean
+---@param bAbortIfDead boolean
+---@param bForceScriptControl boolean
 ---@return boolean
-function SetPedToRagdoll(ped, time1, time2, ragdollType, p4, p5, p6) end
+function SetPedToRagdoll(ped, minTime, maxTime, ragdollType, bAbortIfInjured, bAbortIfDead, bForceScriptControl) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD76632D99E4966C8)  
+---```cpp
+---enum eNMFallType {
+---    TYPE_FROM_HIGH = 0,
+---    TYPE_OVER_WALL = 1,
+---    TYPE_DOWN_STAIRS = 2,
+---    TYPE_DIE_TYPES = 3,
+---    TYPE_DIE_FROM_HIGH = 4,
+---    TYPE_DIE_OVER_WALL = 5,
+---    TYPE_DIE_DOWN_STAIRS = 6
+---}
+---```
+---
 ---```
 ---Return variable is never used in R*'s scripts.  
 ---Not sure what p2 does. It seems like it would be a time judging by it's usage in R*'s scripts, but didn't seem to affect anything in my testings.  
@@ -6575,21 +6612,21 @@ function SetPedToRagdoll(ped, time1, time2, ragdollType, p4, p5, p6) end
 ---ped::set_ped_to_ragdoll_with_fall(ped, 1500, 2000, 1, -entity::get_entity_forward_vector(ped), 1f, 0f, 0f, 0f, 0f, 0f, 0f);  
 ---```
 ---@param ped integer
----@param time integer
----@param p2 integer
----@param ragdollType integer
----@param x number
----@param y number
----@param z number
----@param p7 number
----@param p8 number
----@param p9 number
----@param p10 number
----@param p11 number
----@param p12 number
----@param p13 number
+---@param minTime integer
+---@param maxTime integer
+---@param nFallType integer
+---@param dirX number
+---@param dirY number
+---@param dirZ number
+---@param fGroundHeight number
+---@param grab1X number
+---@param grab1Y number
+---@param grab1Z number
+---@param grab2X number
+---@param grab2Y number
+---@param grab2Z number
 ---@return boolean
-function SetPedToRagdollWithFall(ped, time, p2, ragdollType, x, y, z, p7, p8, p9, p10, p11, p12, p13) end
+function SetPedToRagdollWithFall(ped, minTime, maxTime, nFallType, dirX, dirY, dirZ, fGroundHeight, grab1X, grab1Y, grab1Z, grab2X, grab2Y, grab2Z) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD75ACCF5E0FB5367)  

@@ -182,11 +182,12 @@ function GetLocalPlayerAimState() end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x59B9A7AF4C95133C)  
----```
----Same behavior as GET_LOCAL_PLAYER_AIM_STATE but only used on the PC version.  
----```
+---Same behavior as [`GET_LOCAL_PLAYER_AIM_STATE`](#\_0xBB41AFBBBC0A0287) but will also return if player using a keyboard.
 ---@return integer
-function GetLocalPlayerAimState_2() end
+function GetLocalPlayerGamepadAimState() end
+
+---@deprecated
+GetLocalPlayerAimState_2 = GetLocalPlayerGamepadAimState
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD7D22F5592AED8BA)  

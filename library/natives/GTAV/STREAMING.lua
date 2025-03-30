@@ -618,7 +618,7 @@ function RequestIpl(iplName) end
 
 ---**`STREAMING` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA0261AEF7ACFC51E)  
----This native does not have an official description.
+---Calls [`REQUEST_MODEL`](#\_0x963D27A58DF860AC) with the `STRFLAG_PRIORITY_LOAD` and `STRFLAG_FORCE_LOAD` set.
 ---@param model integer | string
 function RequestMenuPedModel(model) end
 

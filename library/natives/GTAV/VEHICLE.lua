@@ -556,7 +556,9 @@ RequestVehiclePhoneExplosion = DetonateVehiclePhoneExplosiveDevice
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x500873A45724C863)  
----This native does not have an official description.
+---```
+---NativeDB Introduced: v323
+---```
 ---@param vehicle integer
 ---@param propeller integer
 function DisableIndividualPlanePropeller(vehicle, propeller) end
@@ -746,6 +748,17 @@ function EnableAircraftObstacleAvoidance(vehicle, avoidObstacles) end
 
 ---@deprecated
 N_0x8aa9180de2fedd45 = EnableAircraftObstacleAvoidance
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDC05D2777F855F44)  
+---Enables individual propeller on a propeller plane. This native is the inverse of [`DISABLE_INDIVIDUAL_PLANE_PROPELLER`](#\_0x500873A45724C863).
+---
+---```
+---NativeDB Introduced: v3407
+---```
+---@param plane integer
+---@param propeller integer
+function EnableIndividualPlanePropeller(plane, propeller) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA71116ADF5B514C)  
@@ -1732,6 +1745,21 @@ function GetVehicleColourCombination(vehicle) end
 function GetVehicleColours(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEEBFC7A7EFDC35B4)  
+---```cpp
+---enum eColourBitField {
+---    HAS_BODY_COLOUR1 = 1,
+---    HAS_BODY_COLOUR2 = 2,
+---    HAS_BODY_COLOUR3 = 4,
+---    HAS_BODY_COLOUR4 = 8,
+---    HAS_BODY_COLOUR5 = 16
+---}
+---```
+---@param vehicle integer
+---@return integer
+function GetVehicleColoursWhichCanBeSet(vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF846AA63DF56B804)  
 ---Similar to [`_GET_AIRCRAFT_BOMB_COUNT`](#\_0xEA12BD130D7569A1), this gets the amount of countermeasures that are present on this vehicle.
 ---
@@ -2410,7 +2438,10 @@ function GetVehicleTyreSmokeColor(vehicle) end
 ---@param vehicle integer
 ---@param weaponIndex integer
 ---@return integer
-function GetVehicleWeaponCapacity(vehicle, weaponIndex) end
+function GetVehicleWeaponRestrictedAmmo(vehicle, weaponIndex) end
+
+---@deprecated
+GetVehicleWeaponCapacity = GetVehicleWeaponRestrictedAmmo
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB3ED1BFB4BE636DC)  
@@ -2623,6 +2654,23 @@ function IsEntityAttachedToHandlerFrame(vehicle, entity) end
 SetPedEnabledBikeRingtone = IsEntityAttachedToHandlerFrame
 ---@deprecated
 IsVehicleNearEntity = IsEntityAttachedToHandlerFrame
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x639431E895B9AA57)  
+---Check if a entry point for a certain seat is clear, useful for checking if a vehicle seat is accesible.
+---If you park your vehicle near a wall and the ped cannot enter/exit this side, the return value toggles from true (not blocked) to false (blocked).
+---
+---Keep in mind, with checkSide set to true, that only certain vehicles have entry points on both sides for the same seat, like motorcycles, most normal vehicles don't have this and if the native doesn't find a entry point with the given parameters it will always return false. So for most normal usecases leaving checkSide set to false would result in the expected behavior.
+---@param ped integer
+---@param vehicle integer
+---@param seatIndex integer
+---@param checkSide boolean
+---@param leftSide boolean
+---@return boolean
+function IsEntryPointForSeatClear(ped, vehicle, seatIndex, checkSide, leftSide) end
+
+---@deprecated
+IsVehicleSeatAccessible = IsEntryPointForSeatClear
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x89D630CF5EA96D23)  
@@ -3001,18 +3049,15 @@ function IsVehicleModel(vehicle, model) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x00834EAC4A96E010)  
----```
----mpsum2_g9ec
----```
----
----```
----NativeDB Introduced: v2699
----```
+---This native does not have an official description.
 ---@param vehicle integer
 ---@param modType integer
 ---@param modIndex integer
 ---@return boolean
-function IsVehicleModHswExclusive(vehicle, modType, modIndex) end
+function IsVehicleModGen9Exclusive(vehicle, modType, modIndex) end
+
+---@deprecated
+IsVehicleModHswExclusive = IsVehicleModGen9Exclusive
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8C4B92553E4766A5)  
@@ -3061,21 +3106,6 @@ function IsVehicleRocketBoostActive(vehicle) end
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleSearchlightOn(vehicle) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x639431E895B9AA57)  
----```
----Check if a vehicle seat is accessible. If you park your vehicle near a wall and the ped cannot enter/exit this side, the return value toggles from true (not blocked) to false (blocked).
----side = only relevant for bikes/motorcycles to check if the left (false)/right (true) side is blocked.
----onEnter = check if you can enter (true) or exit (false) a vehicle.
----```
----@param ped integer
----@param vehicle integer
----@param seatIndex integer
----@param side boolean
----@param onEnter boolean
----@return boolean
-function IsVehicleSeatAccessible(ped, vehicle, seatIndex, side, onEnter) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x22AC59A870E6A669)  
@@ -3359,13 +3389,6 @@ function N_0x2311dd7159f00582(vehicle, p1) end
 ---@param vehicle integer
 ---@param p1 boolean
 function N_0x2c4a1590abf43e8b(vehicle, p1) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2FA2494B47FDD009)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x2fa2494b47fdd009(p0, p1) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3441CAD2F2231923)  
@@ -4098,15 +4121,6 @@ function N_0xe8718faf591fd224(vehicle) end
 function N_0xed5ede9e676643c9(p0, p1) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xEEBFC7A7EFDC35B4)  
----```
----Some kind of flags.  
----```
----@param vehicle integer
----@return integer
-function N_0xeebfc7a7efdc35b4(vehicle) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEF9D388F8D377F44)  
 ---```
 ---Only used in R* Script fm_content_cargo
@@ -4568,12 +4582,6 @@ function SetCamberedWheelsDisabled(vehicle, toggle) end
 function SetCanResprayVehicle(vehicle, state) end
 
 ---**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xFC40CBF7B90CA77C)  
----This native does not have an official description.
----@param vehicle integer
-function SetCarBootOpen(vehicle) end
-
----**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1F34B0626C594380)  
 ---Prevents a specified entity from being detached from a Cargobob, even in the event of collisions.
 ---@param cargobob integer
@@ -4751,7 +4759,9 @@ function SetDisableBmxExtraTrickForces(disableExtraTrickForces) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26E13D440E7F6064)  
----Prevents a vehicle from exploding upon sustaining body damage from physical collisions. This can be used to increase the durability of vehicles in high-impact scenarios, such as races or combat situations, by preventing them from being destroyed due to collision-induced body damage.
+---This only works for planes.
+---
+---Prevents a vehicle from exploding upon sustaining body damage from physical collisions.
 ---
 ---For helicopters, you might want to check [`SET_DISABLE_HELI_EXPLODE_FROM_BODY_DAMAGE`](#\_0xEDBC8405B3895CC9) instead.
 ---
@@ -4763,7 +4773,20 @@ function SetDisableBmxExtraTrickForces(disableExtraTrickForces) end
 function SetDisableExplodeFromBodyDamageOnCollision(vehicle, disableExplode) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB0B7DF5CB876FF5E)  
+---```
+---NativeDB Introduced: v3407
+---```
+---
+---Prevents the plane from exploding when taking body damage if the inflictor is an AI-controlled vehicle. Only works for planes.
+---@param plane integer
+---@param disable boolean
+function SetDisableExplodeFromBodyDamageReceivedByAiVehicle(plane, disable) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEDBC8405B3895CC9)  
+---This works on helicopters and planes.
+---
 ---Prevents a helicopter from exploding due to relatively minor body damage.
 ---
 ---```
@@ -4952,20 +4975,19 @@ function SetGarbageTrucks(toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA178472EBB8AE60D)  
----```
----Equivalent of SET_HELI_BLADES_SPEED(vehicleHandle, 1.0f);  
----this native works on planes to?  
----```
+---Despite its name, this works on Helicopters and Planes.
+---
+---Sets the speed of the helicopter blades to full speed.
+---
+---This is equivalent to calling `SetHeliBladesSpeed(vehicleHandle, 1.0);`
 ---@param vehicle integer
 function SetHeliBladesFullSpeed(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFD280B4D7F3ABC4D)  
----```
----Sets the speed of the helicopter blades in percentage of the full speed.  
----vehicleHandle: The helicopter.  
----speed: The speed in percentage, 0.0f being 0% and 1.0f being 100%.  
----```
+---Despite its name, this works on Helicopters and Planes.
+---
+---Sets the speed of the helicopter blades in percentage of the full speed.
 ---@param vehicle integer
 ---@param speed number
 function SetHeliBladesSpeed(vehicle, speed) end
@@ -5191,6 +5213,24 @@ function SetPickupRopeLengthForCargobob(cargobob, length1, length2, state) end
 
 ---@deprecated
 SetCargobobHookPosition = SetPickupRopeLengthForCargobob
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFC40CBF7B90CA77C)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param plane integer
+---@param toggle boolean
+function SetPlaneAvoidsOthers(plane, toggle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDD8A2D3337F04196)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param plane integer
+---@param toggle boolean
+function SetPlaneControlSectionsShouldBreakOffFromExplosions(plane, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A86A0475B6A1434)  
@@ -5435,6 +5475,13 @@ SetPlaneMinHeightAboveTerrain = SetTaskVehicleGotoPlaneMinHeightAboveTerrain
 ---@param vehicle integer
 ---@param state boolean
 function SetTaxiLights(vehicle, state) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2FA2494B47FDD009)  
+---Sets whether the trailer can attach to vehicles
+---@param vehicle integer
+---@param enabled boolean
+function SetTrailerAttachmentEnabled(vehicle, enabled) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A8F319B392E7B3F)  
@@ -6180,6 +6227,16 @@ function SetVehicleExclusiveDriver_2(vehicle, ped, index) end
 ---@param vehicle integer
 ---@param toggle boolean
 function SetVehicleExplodesOnHighExplosionDamage(vehicle, toggle) end
+
+---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x84D7FFD223CAAFFD)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param vehicle integer
+---@param scale number
+---@return any
+function SetVehicleExplosiveDamageScale(vehicle, scale) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x79DF7E806202CE01)  
@@ -7216,11 +7273,26 @@ function SetVehicleUsesLargeRearRamp(vehicle, toggle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44CD1F493DB2A0A6)  
----This native does not have an official description.
+---Sets a limited number of ammo for a particular vehicle weapon index on a vehicle.
+---
+---Information about weapon indexes can be found in `handling.meta`.
+---
+---In the example given below, `uWeaponHash` defines weapon hashes for the vehicle. Each `<Item>` corresponds to an index starting from `0`.
+---
+---```
+---<uWeaponHash>
+---    <Item>VEHICLE_WEAPON_PLAYER_BUZZARD</Item>  <!-- Index: 0 -->
+---    <Item>VEHICLE_WEAPON_SPACE_ROCKET</Item>    <!-- Index: 1 -->
+---    <Item>VEHICLE_WEAPON_SEARCHLIGHT</Item>     <!-- Index: 2 -->
+---</uWeaponHash>
+---```
 ---@param vehicle integer
 ---@param weaponIndex integer
----@param capacity integer
-function SetVehicleWeaponCapacity(vehicle, weaponIndex, capacity) end
+---@param ammoCount integer
+function SetVehicleWeaponRestrictedAmmo(vehicle, weaponIndex, ammoCount) end
+
+---@deprecated
+SetVehicleWeaponCapacity = SetVehicleWeaponRestrictedAmmo
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x86B4B6212CB8B627)  

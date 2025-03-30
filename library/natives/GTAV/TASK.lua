@@ -111,6 +111,14 @@ function AssistedMovementSetRouteProperties(route, props) end
 function ClearDrivebyTaskUnderneathDrivingTask(ped) end
 
 ---**`TASK` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF6DC48E56BE1243A)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param ped integer
+function ClearPedScriptTaskIfRunningThreatResponseNonTempTask(ped) end
+
+---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x176CECF6F920D707)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -2063,28 +2071,35 @@ function TaskGotoEntityAiming(ped, target, distanceToStopAt, StartAimingDist) en
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE39B4FF4FDEBDE27)  
----This native does not have an official description.
----@param ped integer
----@param p1 any
----@param p2 any
----@param x number
----@param y number
----@param z number
----@param duration integer
-function TaskGotoEntityOffset(ped, p1, p2, x, y, z, duration) end
-
----**`TASK` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x338E7EF52B6095A9)  
----This native does not have an official description.
+---Instructs the ped to go to the entity with the given offset.
+---
+---```cpp
+---enum eSeekEntityOffsetFlags {
+---    ESEEK_OFFSET_ORIENTATES_WITH_ENTITY = 1,
+---    ESEEK_KEEP_TO_PAVEMENTS = 2
+---};
+---```
 ---@param ped integer
 ---@param entity integer
 ---@param duration integer
----@param xOffset number
----@param yOffset number
----@param zOffset number
+---@param seekRadius number
+---@param seekAngleDeg number
 ---@param moveBlendRatio number
----@param useNavmesh boolean
-function TaskGotoEntityOffsetXy(ped, entity, duration, xOffset, yOffset, zOffset, moveBlendRatio, useNavmesh) end
+---@param gotoEntityOffsetFlags integer
+function TaskGotoEntityOffset(ped, entity, duration, seekRadius, seekAngleDeg, moveBlendRatio, gotoEntityOffsetFlags) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x338E7EF52B6095A9)  
+---Instructs the ped to go to the entity with the given offset.
+---@param ped integer
+---@param entity integer
+---@param duration integer
+---@param targetRadius number
+---@param offsetX number
+---@param offsetY number
+---@param moveBlendRatio number
+---@param gotoEntityOffsetFlags integer
+function TaskGotoEntityOffsetXy(ped, entity, duration, targetRadius, offsetX, offsetY, moveBlendRatio, gotoEntityOffsetFlags) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x04701832B739DCE5)  
@@ -2552,67 +2567,51 @@ function TaskPlaneLand(pilot, plane, runwayStartX, runwayStartY, runwayStartZ, r
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x23703CD154E83B88)  
----```
----EDITED (7/13/2017)  
----NOTE: If you want air combat, AI::TASK_COMBAT_PED (while your pilot is in an aircraft) also does the same thing as this native.  
----DESCRIPTION:  
----Ever wish your buddy could shoot down one of your enemies for you? Ever wanted an auto-pilot? Well look no further! This is the native for you! (Ped intelligence may vary)  
----USAGE:  
------ REQUIRED --  
----• pilot = The ped flying the aircraft.  
----• aircraft = The aircraft the pilot is flying  
------ OPTIONAL -- [atleast 1 must be assigned]  
----• targetVehicle = The vehicle the pilot will target.  
----• targetPed = The ped the pilot will target.  
----• destinationX, destinationY, destinationZ = The location the pilot will target.  
------ LOGIC --  
----• missionFlag = The type of mission. pastebin.com/R8x73dbv  
----• angularDrag = The higher the value, the slower the plane will rotate. Value ranges from 0 - Infinity.  
----• unk = Set to 0, and you'll be fine.  
----• targetHeading = The target angle (from world space north) that the pilot will try to acheive before executing an attack/landing.  
----• maxZ = Maximum Z coordinate height for flying.  
----• minZ = Minimum Z coordinate height for flying.  
----Z: 2,700 is the default max height a pilot will be able to fly. Anything greater and he will fly downward until reaching 2,700 again.  
----Mission Types (incase you don't like links..):  
----0 = None  
----1 = Unk  
----2 = CTaskVehicleRam  
----3 = CTaskVehicleBlock  
----4 = CTaskVehicleGoToPlane  
----5 = CTaskVehicleStop  
----6 = CTaskVehicleAttack  
----7 = CTaskVehicleFollow  
----8 = CTaskVehicleFleeAirborne  
----9 = CTaskVehicleCircle  
----10 = CTaskVehicleEscort  
----15 = CTaskVehicleFollowRecording  
----16 = CTaskVehiclePoliceBehaviour  
----17 = CTaskVehicleCrash  
----Example C#:  
----Function.Call(Hash.TASK_PLANE_MISSION, pilot, vehicle, 0, Game.Player.Character, 0, 0, 0, 6, 0f, 0f, 0f, 2500.0f, -1500f);  
----Example C++  
----AI::TASK_PLANE_MISSION(pilot, vehicle, 0, PLAYER::GET_PLAYER_PED(PLAYER::GET_PLAYER_INDEX()), 0, 0, 0, 6, 0.0, 0.0, 0.0, 2500.0, -1500.0);  
----[DEPRECATED] EXAMPLE USAGE:  
----pastebin.com/gx7Finsk  
----```
+---Gives the plane a mission (purpose or objective), the mission is passed onto the `iMissionIndex` parameter.
 ---
+---```cpp
+---enum eVehicleMission {
+---    MISSION_NONE = 0,
+---    MISSION_CRUISE, // 1
+---    MISSION_RAM, // 2
+---    MISSION_BLOCK, // 3
+---    MISSION_GOTO, // 4
+---    MISSION_STOP, // 5
+---    MISSION_ATTACK, // 6
+---    MISSION_FOLLOW, // 7
+---    MISSION_FLEE, // 8
+---    MISSION_CIRCLE, // 9
+---    MISSION_ESCORT_LEFT, // 10
+---    MISSION_ESCORT_RIGHT, // 11
+---    MISSION_ESCORT_REAR, // 12
+---    MISSION_ESCORT_FRONT, // 13
+---    MISSION_GOTO_RACING, // 14
+---    MISSION_FOLLOW_RECORDING, // 15
+---    MISSION_POLICE_BEHAVIOUR, // 16
+---    MISSION_PARK_PERPENDICULAR, // 17
+---    MISSION_PARK_PARALLEL, // 18
+---    MISSION_LAND, // 19
+---    MISSION_LAND_AND_WAIT, // 20
+---    MISSION_CRASH, // 21
+---    MISSION_PULL_OVER, // 22
+---    MISSION_PROTECT // 23
+---};
 ---```
----NativeDB Added Parameter 14: Any p13
----```
----@param pilot integer
----@param aircraft integer
+---@param ped integer
+---@param vehicle integer
 ---@param targetVehicle integer
 ---@param targetPed integer
----@param destinationX number
----@param destinationY number
----@param destinationZ number
----@param missionFlag integer
----@param angularDrag number
----@param unk number
----@param targetHeading number
----@param maxZ number
----@param minZ number
-function TaskPlaneMission(pilot, aircraft, targetVehicle, targetPed, destinationX, destinationY, destinationZ, missionFlag, angularDrag, unk, targetHeading, maxZ, minZ) end
+---@param fTargetCoordX number
+---@param fTargetCoordY number
+---@param fTargetCoordZ number
+---@param iMissionIndex integer
+---@param fCruiseSpeed number
+---@param fTargetReachedDist number
+---@param fOrientation number
+---@param iFlightHeight integer
+---@param iMinHeightAboveTerrain integer
+---@param bPrecise boolean
+function TaskPlaneMission(ped, vehicle, targetVehicle, targetPed, fTargetCoordX, fTargetCoordY, fTargetCoordZ, iMissionIndex, fCruiseSpeed, fTargetReachedDist, fOrientation, iFlightHeight, iMinHeightAboveTerrain, bPrecise) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x92C360B5F15D2302)  
@@ -2948,6 +2947,21 @@ function TaskSetDecisionMaker(ped, p1) end
 ---@param p3 number
 ---@param p4 number
 function TaskSetSphereDefensiveArea(p0, p1, p2, p3, p4) end
+
+---**`TASK` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x60A19CF85FF4CEFA)  
+---Makes a shark ped circle around specified coordinates.
+---
+---```
+---NativeDB Introduced: v3407
+---```
+---@param ped integer
+---@param x number
+---@param y number
+---@param z number
+---@param moveBlendRatio number
+---@param radius number
+function TaskSharkCircleCoord(ped, x, y, z, moveBlendRatio, radius) end
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x452419CBD838065B)  

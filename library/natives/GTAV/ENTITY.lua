@@ -2,21 +2,16 @@
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC5F68BE9613E2D18)  
----Applies a force to the specified entity.
----
 ---```cpp
----enum eForceType
----{
----    MinForce = 0,
----    MaxForceRot = 1,
----    MinForce2 = 2,
----    MaxForceRot2 = 3,
----    ForceNoRot = 4,
----    ForceRotPlusForce = 5
+---enum eApplyForceTypes {
+---    APPLY_TYPE_FORCE = 0,
+---    APPLY_TYPE_IMPULSE = 1,
+---    APPLY_TYPE_EXTERNAL_FORCE = 2,
+---    APPLY_TYPE_EXTERNAL_IMPULSE = 3,
+---    APPLY_TYPE_TORQUE = 4,
+---    APPLY_TYPE_ANGULAR_IMPULSE = 5
 ---}
 ---```
----
----Research/documentation on the gtaforums can be found [here](https://gtaforums.com/topic/885669-precisely-define-object-physics/) and [here](https://gtaforums.com/topic/887362-apply-forces-and-momentums-to-entityobject/).
 ---@param entity integer
 ---@param forceType integer
 ---@param x number
@@ -25,27 +20,27 @@
 ---@param offX number
 ---@param offY number
 ---@param offZ number
----@param boneIndex integer
----@param isDirectionRel boolean
----@param ignoreUpVec boolean
----@param isForceRel boolean
----@param p12 boolean
----@param p13 boolean
-function ApplyForceToEntity(entity, forceType, x, y, z, offX, offY, offZ, boneIndex, isDirectionRel, ignoreUpVec, isForceRel, p12, p13) end
+---@param nComponent integer
+---@param bLocalForce boolean
+---@param bLocalOffset boolean
+---@param bScaleByMass boolean
+---@param bPlayAudio boolean
+---@param bScaleByTimeWarp boolean
+function ApplyForceToEntity(entity, forceType, x, y, z, offX, offY, offZ, nComponent, bLocalForce, bLocalOffset, bScaleByMass, bPlayAudio, bScaleByTimeWarp) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x18FF00FC7EFF559E)  
----This native does not have an official description.
+---Apply a force to an entities center of mass.
 ---@param entity integer
 ---@param forceType integer
 ---@param x number
 ---@param y number
 ---@param z number
----@param p5 boolean
----@param isDirectionRel boolean
----@param isForceRel boolean
----@param p8 boolean
-function ApplyForceToEntityCenterOfMass(entity, forceType, x, y, z, p5, isDirectionRel, isForceRel, p8) end
+---@param nComponent integer
+---@param bLocalForce boolean
+---@param bScaleByMass boolean
+---@param bApplyToChildren boolean
+function ApplyForceToEntityCenterOfMass(entity, forceType, x, y, z, nComponent, bLocalForce, bScaleByMass, bApplyToChildren) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5C48B75732C8456C)  
@@ -175,8 +170,8 @@ function CreateModelHideExcludingScriptObjects(x, y, z, radius, model, p5) end
 ---@param radius number
 ---@param originalModel integer | string
 ---@param newModel integer | string
----@param p6 boolean
-function CreateModelSwap(x, y, z, radius, originalModel, newModel, p6) end
+---@param bSurviveMapReload boolean
+function CreateModelSwap(x, y, z, radius, originalModel, newModel, bSurviveMapReload) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAE3CBE5BF394C9C9)  
@@ -969,10 +964,13 @@ function IsEntityAPed(entity) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x20B60995556D004F)  
----```
----Checks if entity is within x/y/zSize distance of x/y/z.   
----Last three are unknown ints, almost always p7 = 0, p8 = 1, p9 = 0  
----```
+---Checks if the entity is within the given square of size xSize, ySize, zSize centered around the given coordinates.
+---
+---The sizes given are the apothem (half of side) of the square, so a size of 5 would result in a square of 10x10, not 5x5.
+---
+---For the highlightArea, if do3dCheck is true, the marker will be drawn at the bottom of the target area. So if the square is centered on the ground with a zSize larger than 0, the marker will appear under the ground.
+---The marker also doesn't scale, so it is always the same size (around half a meter).
+---So unfortunately the marker isn't that useful as it doesn't convey the correct information about the area (the marker doesn't reflect when the player is actually in the marker or not)
 ---@param entity integer
 ---@param xPos number
 ---@param yPos number
@@ -980,28 +978,33 @@ function IsEntityAPed(entity) end
 ---@param xSize number
 ---@param ySize number
 ---@param zSize number
----@param p7 boolean
----@param p8 boolean
----@param p9 integer
+---@param highlightArea boolean
+---@param do3dCheck boolean
+---@param transportMode integer
 ---@return boolean
-function IsEntityAtCoord(entity, xPos, yPos, zPos, xSize, ySize, zSize, p7, p8, p9) end
+function IsEntityAtCoord(entity, xPos, yPos, zPos, xSize, ySize, zSize, highlightArea, do3dCheck, transportMode) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x751B70C3D034E187)  
+---Checks if entity is within the specified axis aligned box around the target entity.
+---
+---```cpp
+---enum eTransportMode {
+---    SCRIPT_TM_ANY = 0,
+---    SCRIPT_TM_ON_FOOT = 1,
+---    SCRIPT_TM_IN_VEHICLE = 2
+---};
 ---```
----Checks if entity1 is within the box defined by x/y/zSize of entity2.  
----Last three parameters are almost alwasy p5 = 0, p6 = 1, p7 = 0  
----```
----@param entity1 integer
----@param entity2 integer
+---@param entity integer
+---@param target integer
 ---@param xSize number
 ---@param ySize number
 ---@param zSize number
----@param p5 boolean
----@param p6 boolean
----@param p7 integer
+---@param highlightArea boolean
+---@param do3dCheck boolean
+---@param transportMode integer
 ---@return boolean
-function IsEntityAtEntity(entity1, entity2, xSize, ySize, zSize, p5, p6, p7) end
+function IsEntityAtEntity(entity, target, xSize, ySize, zSize, highlightArea, do3dCheck, transportMode) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB346476EF1A64897)  
@@ -1304,57 +1307,50 @@ function N_0xe66377cddada4810(entity, p1) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7FB218262B810701)  
----```
----delta and bitset are guessed fields. They are based on the fact that most of the calls have 0 or nil field types passed in.  
----The only time bitset has a value is 0x4000 and the only time delta has a value is during stealth with usually <1.0f values.  
----```
----
 ---[Animations list](https://alexguirre.github.io/animations-list/)
 ---@param entity integer
 ---@param animName string
 ---@param animDict string
----@param p3 number
----@param loop boolean
----@param stayInAnim boolean
----@param p6 boolean
----@param delta number
----@param bitset any
+---@param fBlendDelta number
+---@param bLoop boolean
+---@param bHoldLastFrame boolean
+---@param bDriveToPose boolean
+---@param fStartPhase number
+---@param iFlags integer
 ---@return boolean
-function PlayEntityAnim(entity, animName, animDict, p3, loop, stayInAnim, p6, delta, bitset) end
+function PlayEntityAnim(entity, animName, animDict, fBlendDelta, bLoop, bHoldLastFrame, bDriveToPose, fStartPhase, iFlags) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC77720A12FE14A86)  
----```
----p4 and p7 are usually 1000.0f.  
----```
----
 ---[Animations list](https://alexguirre.github.io/animations-list/)
 ---@param entity integer
 ---@param syncedScene integer
----@param animation string
----@param propName string
----@param p4 number
----@param p5 number
----@param p6 any
----@param p7 number
+---@param animName string
+---@param animDictName string
+---@param fBlendInDelta number
+---@param fBlendOutDelta number
+---@param iFlags integer
+---@param fMoverBlendInDelta number
 ---@return boolean
-function PlaySynchronizedEntityAnim(entity, syncedScene, animation, propName, p4, p5, p6, p7) end
+function PlaySynchronizedEntityAnim(entity, syncedScene, animName, animDictName, fBlendInDelta, fBlendOutDelta, iFlags, fMoverBlendInDelta) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB9C54555ED30FBC4)  
 ---[Animations list](https://alexguirre.github.io/animations-list/)
----@param p0 number
----@param p1 number
----@param p2 number
----@param p3 number
----@param p4 any
----@param p5 any
----@param p8 number
----@param p9 number
----@param p10 any
----@param p11 number
----@return boolean, any, any
-function PlaySynchronizedMapEntityAnim(p0, p1, p2, p3, p4, p5, p8, p9, p10, p11) end
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@param objectModelHash integer | string
+---@param sceneId integer
+---@param pAnimName string
+---@param pAnimDictName string
+---@param fBlendDelta number
+---@param fBlendOutDelta number
+---@param flags integer
+---@param fMoverBlendInDelta number
+---@return boolean
+function PlaySynchronizedMapEntityAnim(x, y, z, radius, objectModelHash, sceneId, pAnimName, pAnimDictName, fBlendDelta, fBlendOutDelta, flags, fMoverBlendInDelta) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF4080490ADC51C6F)  
@@ -1394,10 +1390,10 @@ function RemoveModelHide(x, y, z, radius, model, p5) end
 ---@param y number
 ---@param z number
 ---@param radius number
----@param originalModel integer | string
----@param newModel integer | string
----@param p6 boolean
-function RemoveModelSwap(x, y, z, radius, originalModel, newModel, p6) end
+---@param oldModelHash integer | string
+---@param newModelHash integer | string
+---@param bLazy boolean
+function RemoveModelSwap(x, y, z, radius, oldModelHash, newModelHash, bLazy) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9B1E824FFBB7027A)  
@@ -1724,6 +1720,15 @@ function SetEntityMotionBlur(entity, toggle) end
 ---@param entity2 integer
 ---@param thisFrameOnly boolean
 function SetEntityNoCollisionEntity(entity1, entity2, thisFrameOnly) end
+
+---**`ENTITY` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x0A27A7827347B3B1)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param entity1 integer
+---@param entity2 integer
+function SetEntityNoCollisionWithNetworkedEntity(entity1, entity2) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x79F020FF9EDC0748)  

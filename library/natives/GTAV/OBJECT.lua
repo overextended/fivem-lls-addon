@@ -1267,18 +1267,21 @@ function N_0xf92099527db8e2a7(p0, p1) end
 function N_0xfdc07c58e8aab715(pickupHash) end
 
 ---**`OBJECT` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD76EEEF746057FD6)  
+---Casts a ray downward from the object's position and places the object on the surface it hits (including world surface and objects). Use [`PLACE_OBJECT_ON_GROUND_PROPERLY`](#\_0x58A850EAEE20FAA3) to not include objects when determining the surface.
+---@param object integer
+---@return boolean
+function PlaceObjectOnGroundOrObjectProperly(object) end
+
+---@deprecated
+PlaceObjectOnGroundProperly_2 = PlaceObjectOnGroundOrObjectProperly
+
+---**`OBJECT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x58A850EAEE20FAA3)  
 ---This native does not have an official description.
 ---@param object integer
 ---@return boolean
 function PlaceObjectOnGroundProperly(object) end
-
----**`OBJECT` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xD76EEEF746057FD6)  
----This native does not have an official description.
----@param object integer
----@return boolean
-function PlaceObjectOnGroundProperly_2(object) end
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x92AEFB5F6E294023)  

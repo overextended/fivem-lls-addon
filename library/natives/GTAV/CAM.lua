@@ -301,19 +301,20 @@ function DisableCamCollisionForEntity(entity) end
 function DisableCamCollisionForObject(entity) end
 
 ---**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xDE2EF5DA284CC8DF)  
----```
----Disables first person camera for the current frame.  
----Found in decompiled scripts:  
----GRAPHICS::DRAW_DEBUG_TEXT_2D("Disabling First Person Cam", 0.5, 0.8, 0.0, 0, 0, 255, 255);  
----CAM::_DE2EF5DA284CC8DF();  
----```
-function DisableFirstPersonCamThisFrame() end
+---[Native Documentation](https://docs.fivem.net/natives/?_0xADFF1B2A555F5FBA)  
+---Disables first person camera while in a vehicle for the current tick.
+function DisableCinematicBonnetCameraThisUpdate() end
+
+---@deprecated
+DisableVehicleFirstPersonCamThisFrame = DisableCinematicBonnetCameraThisUpdate
 
 ---**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xADFF1B2A555F5FBA)  
----This native does not have an official description.
-function DisableVehicleFirstPersonCamThisFrame() end
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDE2EF5DA284CC8DF)  
+---Disables first person camera while on foot for the current tick.
+function DisableOnFootFirstPersonViewThisUpdate() end
+
+---@deprecated
+DisableFirstPersonCamThisFrame = DisableOnFootFirstPersonViewThisUpdate
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA7A932170592B50E)  

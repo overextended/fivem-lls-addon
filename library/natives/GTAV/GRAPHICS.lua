@@ -928,12 +928,12 @@ function DrawLowQualityPhotoToPhone(p0, p1) end
 ---@param alpha integer
 ---@param bobUpAndDown boolean
 ---@param faceCamera boolean
----@param p19 integer
+---@param rotationOrder integer
 ---@param rotate boolean
 ---@param textureDict string
 ---@param textureName string
 ---@param drawOnEnts boolean
-function DrawMarker(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, red, green, blue, alpha, bobUpAndDown, faceCamera, p19, rotate, textureDict, textureName, drawOnEnts) end
+function DrawMarker(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, red, green, blue, alpha, bobUpAndDown, faceCamera, rotationOrder, rotate, textureDict, textureName, drawOnEnts) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE82728F0DE75D13A)  
@@ -959,13 +959,13 @@ function DrawMarker(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, 
 ---@param alpha integer
 ---@param bobUpAndDown boolean
 ---@param faceCamera boolean
----@param p19 integer
+---@param rotationOrder integer
 ---@param rotate boolean
 ---@param textureDict string
 ---@param textureName string
 ---@param drawOnEnts boolean
 ---@param p24 boolean
-function DrawMarker_2(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, red, green, blue, alpha, bobUpAndDown, faceCamera, p19, rotate, textureDict, textureName, drawOnEnts, p24) end
+function DrawMarker_2(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, red, green, blue, alpha, bobUpAndDown, faceCamera, rotationOrder, rotate, textureDict, textureName, drawOnEnts, p24) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAC26716048436851)  
@@ -1998,6 +1998,17 @@ HasNamedScaleformMovieLoaded = HasScaleformMovieFilenameLoaded
 function HasScaleformMovieLoaded(scaleformHandle) end
 
 ---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9743BCCF7CD6E1F6)  
+---Check if a Scaleform movie with the given name has been loaded.
+---
+---```
+---NativeDB Introduced: v3407
+---```
+---@param scaleformName string
+---@return boolean, integer
+function HasScaleformMovieNamedLoaded(scaleformName) end
+
+---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDF6E5987D2B4D140)  
 ---This native does not have an official description.
 ---@param hudComponent integer
@@ -2628,14 +2639,6 @@ function N_0xdb1ea9411c8911ec(checkpointHandle) end
 function N_0xe2892e7e55d7073a(p0) end
 
 ---**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE3E2C1B4C59DBC77)  
----```
----Sets an unknown value related to timecycles.  
----```
----@param unk integer
-function N_0xe3e2c1b4c59dbc77(unk) end
-
----**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE59343E9E96529E7)  
 ---```
 ---Getter for 0xB3C641F3630BF6DA
@@ -2974,6 +2977,12 @@ RequestHudScaleform = RequestScaleformScriptHudMovie
 ---@param textureDict string
 ---@param p1 boolean
 function RequestStreamedTextureDict(textureDict, p1) end
+
+---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE3E2C1B4C59DBC77)  
+---Resets AnimPostFX adaptation.
+---@param numFrames integer
+function ResetAdaptation(numFrames) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x89C8553DD3274AAE)  

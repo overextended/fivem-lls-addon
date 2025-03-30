@@ -155,6 +155,16 @@ function DoesRopeExist(ropeId) end
 function GetCgoffset(entity) end
 
 ---**`PHYSICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8C520A929415BCD2)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param entity integer
+---@param type integer
+---@return vector3
+function GetDamping(entity, type) end
+
+---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0C112765300C7E1E)  
 ---```
 ---GET_*

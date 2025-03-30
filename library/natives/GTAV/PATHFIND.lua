@@ -126,16 +126,14 @@ function GenerateDirectionsToCoord(x, y, z, p3) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2EABE3B06F58C1BE)  
----```
----Get the closest vehicle node to a given position, unknown1 = 3.0, unknown2 = 0  
----```
+---Same as [`GET_CLOSEST_VEHICLE_NODE`](#\_0x240A18690AE96513), but with the node flag `GCNF_INCLUDE_SWITCHED_OFF_NODES` set.
 ---@param x number
 ---@param y number
 ---@param z number
----@param unknown1 number
----@param unknown2 integer
+---@param zMeasureMult number
+---@param zTolerance integer
 ---@return boolean, vector3
-function GetClosestMajorVehicleNode(x, y, z, unknown1, unknown2) end
+function GetClosestMajorVehicleNode(x, y, z, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x132F52BBA570FE92)  
@@ -151,62 +149,36 @@ function GetClosestRoad(x, y, z, minimumEdgeLength, minimumLaneCount, onlyMajorR
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x240A18690AE96513)  
----```
----FYI: When falling through the map (or however you got under it) you will respawn when your player ped's height is <= -200.0 meters (I think you all know this) and when in a vehicle you will actually respawn at the closest vehicle node.
--------------
----Vector3 nodePos;
----GET_CLOSEST_VEHICLE_NODE(x,y,z,&nodePos,...)
----p4 is either 0, 1 or 8. 1 means any path/road. 0 means node in the middle of the closest main (asphalt) road.
----p5, p6 are always the same:
----0x40400000 (3.0), 0
----p5 can also be 100.0 and p6 can be 2.5:
----PATHFIND::GET_CLOSEST_VEHICLE_NODE(a_0, &v_5, v_9, 100.0, 2.5)
----Known node types: simple path/asphalt road, only asphalt road, water, under the map at always the same coords.
----The node types follows a pattern. For example, every fourth node is of the type water i.e. 3, 7, 11, 15, 19, 23, 27, 31, 35, 39... 239. Could not see any difference between nodes within certain types.
----Starting at 2, every fourth node is under the map, always same coords.
----Same with only asphalt road (0, 4, 8, etc) and simple path/asphalt road (1, 5, 9, etc).
----gtaforums.com/topic/843561-pathfind-node-types
+---```cpp
+---enum eGetClosestNodeFlags {
+---    GCNF_INCLUDE_SWITCHED_OFF_NODES = 1,
+---    GCNF_INCLUDE_BOAT_NODES = 2,
+---    GCNF_IGNORE_SLIPLANES = 4,
+---    GCNF_IGNORE_SWITCHED_OFF_DEADENDS = 8,
+---    GCNF_GET_HEADING = 256,
+---    GCNF_FAVOUR_FACING = 512
+---}
 ---```
 ---@param x number
 ---@param y number
 ---@param z number
----@param nodeType integer
----@param p5 number
----@param p6 number
+---@param nodeFlags integer
+---@param zMeasureMult number
+---@param zTolerance number
 ---@return boolean, vector3
-function GetClosestVehicleNode(x, y, z, nodeType, p5, p6) end
+function GetClosestVehicleNode(x, y, z, nodeFlags, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF071FB798B803B0)  
----```
----p5, p6 and p7 seems to be about the same as p4, p5 and p6 for GET_CLOSEST_VEHICLE_NODE. p6 and/or p7 has something to do with finding a node on the same path/road and same direction(at least for this native, something to do with the heading maybe). Edit this when you find out more.  
----p5 is either 1 or 12. 1 means any path/road. 12, 8, 0 means node in the middle of the closest main (asphalt) road.  
----p6 is always 3.0  
----p7 is always 0.  
----Known node types: simple path/asphalt road, only asphalt road, water, under the map at always the same coords.   
----The node types follows a pattern. For example, every fourth node is of the type water i.e. 3, 7, 11, 15, 19, 23, 27, 31, 35, 39... 239. Could not see any difference between nodes within certain types.   
----Starting at 2, every fourth node is under the map, always same coords.  
----Same with only asphalt road (0, 4, 8, etc) and simple path/asphalt road (1, 5, 9, etc).  
----gtaforums.com/topic/843561-pathfind-node-types  
----Example of usage, moving vehicle to closest path/road:  
----Vector3 coords = ENTITY::GET_ENTITY_COORDS(playerVeh, true);  
----Vector3 closestVehicleNodeCoords;   
----float roadHeading;   
----PATHFIND::GET_CLOSEST_VEHICLE_NODE_WITH_HEADING(coords.x, coords.y, coords.z, &closestVehicleNodeCoords, &roadHeading, 1, 3, 0);   
----ENTITY::SET_ENTITY_HEADING(playerVeh, roadHeading);  
----ENTITY::SET_ENTITY_COORDS(playerVeh, closestVehicleNodeCoords.x, closestVehicleNodeCoords.y, closestVehicleNodeCoords.z, 1, 0, 0, 1);  
----VEHICLE::SET_VEHICLE_ON_GROUND_PROPERLY(playerVeh);  
----------------------------------------------------------------------  
----C# Example (ins1de) : pastebin.com/fxtMWAHD  
----```
+---Same as [`GET_CLOSEST_VEHICLE_NODE`](#\_0x240A18690AE96513), but with the node flag `GCNF_GET_HEADING` set, causing the native to also return the heading.
 ---@param x number
 ---@param y number
 ---@param z number
----@param nodeType integer
----@param p6 number
----@param p7 integer
+---@param nodeFlags integer
+---@param zMeasureMult number
+---@param zTolerance integer
 ---@return boolean, vector3, number
-function GetClosestVehicleNodeWithHeading(x, y, z, nodeType, p6, p7) end
+function GetClosestVehicleNodeWithHeading(x, y, z, nodeFlags, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x869DAACBBE9FA006)  
@@ -277,24 +249,20 @@ function GetNextGpsDisabledZoneIndex(index) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE50E52416CCF948B)  
----This native does not have an official description.
+---Same as [`GET_CLOSEST_VEHICLE_NODE`](#\_0x240A18690AE96513), but returns the nth closest node instead of the first.
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param nthClosest integer
----@param unknown1 any
----@param unknown2 any
----@param unknown3 any
+---@param nodeFlags integer
+---@param zMeasureMult number
+---@param zTolerance number
 ---@return boolean, vector3
-function GetNthClosestVehicleNode(x, y, z, nthClosest, unknown1, unknown2, unknown3) end
+function GetNthClosestVehicleNode(x, y, z, nthClosest, nodeFlags, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x45905BE8654AE067)  
----```
----See gtaforums.com/topic/843561-pathfind-node-types for node type info. 0 = paved road only, 1 = any road, 3 = water  
----p10 always equal 0x40400000  
----p11 always equal 0  
----```
+---Like [`GET_CLOSEST_VEHICLE_NODE_WITH_HEADING`](#\_0xFF071FB798B803B0), but returns the nth closest node instead of the first.
 ---@param x number
 ---@param y number
 ---@param z number
@@ -302,26 +270,24 @@ function GetNthClosestVehicleNode(x, y, z, nthClosest, unknown1, unknown2, unkno
 ---@param desiredY number
 ---@param desiredZ number
 ---@param nthClosest integer
----@param nodetype integer
----@param p10 number
----@param p11 any
+---@param nodeFlags integer
+---@param zMeasureMult number
+---@param zTolerance number
 ---@return boolean, vector3, number
-function GetNthClosestVehicleNodeFavourDirection(x, y, z, desiredX, desiredY, desiredZ, nthClosest, nodetype, p10, p11) end
+function GetNthClosestVehicleNodeFavourDirection(x, y, z, desiredX, desiredY, desiredZ, nthClosest, nodeFlags, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x22D7275A79FE8215)  
----```
----Returns the id.  
----```
+---This native does not have an official description.
 ---@param x number
 ---@param y number
 ---@param z number
----@param nth integer
----@param nodetype integer
----@param p5 number
----@param p6 number
+---@param nthClosest integer
+---@param nodeFlags integer
+---@param zMeasureMult number
+---@param zTolerance number
 ---@return integer
-function GetNthClosestVehicleNodeId(x, y, z, nth, nodetype, p5, p6) end
+function GetNthClosestVehicleNodeId(x, y, z, nthClosest, nodeFlags, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6448050E9C2A7207)  
@@ -330,35 +296,24 @@ function GetNthClosestVehicleNodeId(x, y, z, nth, nodetype, p5, p6) end
 ---@param y number
 ---@param z number
 ---@param nthClosest integer
----@param p6 any
----@param p7 number
----@param p8 number
+---@param nodeFlags integer
+---@param zMeasureMult number
+---@param zTolerance number
 ---@return integer, vector3, number
-function GetNthClosestVehicleNodeIdWithHeading(x, y, z, nthClosest, p6, p7, p8) end
+function GetNthClosestVehicleNodeIdWithHeading(x, y, z, nthClosest, nodeFlags, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80CA6A8B6C094CC4)  
----Get the nth closest vehicle node with its heading and total lane count.
----If you need specific forward and backward lane counts use [GET_CLOSEST_ROAD](#\_0x132F52BBA570FE92)
----
----```cpp
----enum eNodeFlags {
----	NONE = 0,
----	INCLUDE_SWITCHED_OFF_NODES = 1,
----	INCLUDE_BOAT_NODES = 2,
----	IGNORE_SLIPLANES = 4,
----	IGNORE_SWITCHED_OFF_DEAD_ENDS = 8,
----}
----```
+---Get the nth closest vehicle node with its heading and total lane count. If you need specific forward and backward lane counts use [`GET_CLOSEST_ROAD`](#\_0x132F52BBA570FE92).
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param nthClosest integer
----@param searchFlags integer
+---@param nodeFlags integer
 ---@param zMeasureMult number
 ---@param zTolerance number
 ---@return boolean, vector3, number, integer
-function GetNthClosestVehicleNodeWithHeading(x, y, z, nthClosest, searchFlags, zMeasureMult, zTolerance) end
+function GetNthClosestVehicleNodeWithHeading(x, y, z, nthClosest, nodeFlags, zMeasureMult, zTolerance) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x01708E8DD3FF8C65)  
@@ -431,25 +386,29 @@ GetRoadSidePointWithHeading = GetRoadBoundaryUsingHeading
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB61C8E878A4199CA)  
----```
----Flags are:
----1 = 1 = B02_IsFootpath
----2 = 4 = !B15_InteractionUnk
----4 = 0x20 = !B14_IsInterior
----8 = 0x40 = !B07_IsWater
----16 = 0x200 = B17_IsFlatGround
----When onGround == true outPosition is a position located on the nearest pavement.
----When a safe coord could not be found the result of a function is false and outPosition == Vector3.Zero.
----In the scripts these flags are used: 0, 14, 12, 16, 20, 21, 28. 0 is most commonly used, then 16.
----16 works for me, 0 crashed the script.
+---```cpp
+---enum eSafePositionFlags {
+---    // Only navmesh polygons marked as pavement
+---    GSC_FLAG_ONLY_PAVEMENT = 1,
+---    // Only navmesh polygons not marked as "isolated"
+---    GSC_FLAG_NOT_ISOLATED = 2,
+---    // No navmesh polygons created from interiors
+---    GSC_FLAG_NOT_INTERIOR = 4,
+---    // No navmesh polygons marked as water
+---    GSC_FLAG_NOT_WATER = 8,
+---    // Only navmesh polygons marked as "network spawn candidate"
+---    GSC_FLAG_ONLY_NETWORK_SPAWN = 16,
+---    // Specify whether to use a flood-fill from the starting position, as opposed to scanning all polygons within the search volume
+---    GSC_FLAG_USE_FLOOD_FILL = 32
+---}
 ---```
 ---@param x number
 ---@param y number
 ---@param z number
----@param onGround boolean
+---@param onlyOnPavement boolean
 ---@param flags integer
 ---@return boolean, vector3
-function GetSafeCoordForPed(x, y, z, onGround, flags) end
+function GetSafeCoordForPed(x, y, z, onlyOnPavement, flags) end
 
 ---**`PATHFIND` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2EB41072B4C1E4C0)  

@@ -2397,17 +2397,17 @@ function IsSubtitlePreferenceSwitchedOn() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEB709A36958ABE0D)  
----```
----IS_*
----```
----@param gamerTagId integer
+---When this native returns true, do not call [`SET_MP_GAMER_TAG_NAME`](#\_0xDEA2B8283BAA3944).
+---@param playerId integer
 ---@return boolean
-function IsValidMpGamerTagMovie(gamerTagId) end
+function IsUpdatingMpGamerTagNameAndCrewDetails(playerId) end
 
 ---@deprecated
-HasMpGamerTag_2 = IsValidMpGamerTagMovie
+HasMpGamerTag_2 = IsUpdatingMpGamerTagNameAndCrewDetails
 ---@deprecated
-HasMpGamerTagCrewFlagsSet = IsValidMpGamerTagMovie
+HasMpGamerTagCrewFlagsSet = IsUpdatingMpGamerTagNameAndCrewDetails
+---@deprecated
+IsValidMpGamerTagMovie = IsUpdatingMpGamerTagNameAndCrewDetails
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE18B138FABC53103)  
@@ -5043,6 +5043,14 @@ function ShowOutlineIndicatorOnBlip(blip, toggle) end
 
 ---@deprecated
 SetBlipFriendly = ShowOutlineIndicatorOnBlip
+
+---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF6865E26067B708C)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param toggle boolean
+function ShowPurchaseInstructionalButton(toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4F38DCA127DAAEA2)  

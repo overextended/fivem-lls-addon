@@ -947,31 +947,6 @@ function N_0xbef34b1d9624d5dd(p0) end
 function N_0xc1805d05e6d4fe10(vehicle) end
 
 ---**`AUDIO` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xDD6BCF9E94425DF9)  
----```
----Tune Backwards... ?
----SET_RADIO_*
----```
-function N_0xdd6bcf9e94425df9() end
-
----**`AUDIO` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xF3365489E0DD50F9)  
----```
----SET_VEHICLE_*
----```
----@param vehicle integer
----@param toggle boolean
-function N_0xf3365489e0dd50f9(vehicle, toggle) end
-
----**`AUDIO` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xFF266D1D0EB1195D)  
----```
----Tune Forward... ?
----SET_RADIO_*
----```
-function N_0xff266d1d0eb1195d() end
-
----**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x75773E11BA459E90)  
 ---Sets audio flag "OverrideMicrophoneSettings"
 ---
@@ -2074,6 +2049,16 @@ function SetRadioAutoUnfreeze(toggle) end
 function SetRadioFrontendFadeTime(fadeTime) end
 
 ---**`AUDIO` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDD6BCF9E94425DF9)  
+---Sets radio to tune down. (Changes radio station)
+function SetRadioRetuneDown() end
+
+---**`AUDIO` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFF266D1D0EB1195D)  
+---Sets the radio to tune up. (changes radio station)
+function SetRadioRetuneUp() end
+
+---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4CAFEBFA21EC188D)  
 ---Doesn't have an effect in Story Mode.
 ---
@@ -2254,6 +2239,13 @@ function SetVehicleBoostActive(vehicle, toggle) end
 ---@param vehicle integer
 ---@param value integer
 function SetVehicleHornVariation(vehicle, value) end
+
+---**`AUDIO` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF3365489E0DD50F9)  
+---Toggles the incoming missile warning system for specified vehicle.
+---@param vehicle integer
+---@param toggle boolean
+function SetVehicleMissileWarningEnabled(vehicle, toggle) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3B988190C0AA6C0B)  
