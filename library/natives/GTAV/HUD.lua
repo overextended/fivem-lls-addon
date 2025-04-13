@@ -629,8 +629,11 @@ CreateMpGamerTagForNetPlayer = CreateMpGamerTagWithCrewColor
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD8E694757BCEA8E9)  
----This native does not have an official description.
-function DeleteWaypoint() end
+---Same as [`SET_WAYPOINT_OFF`](#\_0xA7E4E2D361C2627F), except it checks if the local player is the owner of the waypoint.
+function DeleteWaypointsFromThisPlayer() end
+
+---@deprecated
+DeleteWaypoint = DeleteWaypointsFromThisPlayer
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6D3465A73092F0E6)  
@@ -766,6 +769,11 @@ function DontTiltMinimapThisFrame() end
 
 ---@deprecated
 CenterPlayerOnRadarThisFrame = DontTiltMinimapThisFrame
+
+---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBF4F34A85CA2970C)  
+---Allows HUD to be drawn over screen fade every frame this function is called.
+function DrawHudOverFadeThisFrame() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBD12F8228410D9B4)  
@@ -1722,6 +1730,40 @@ function GetMinimapFowDiscoveryRatio() end
 GetMinimapRevealPercentage = GetMinimapFowDiscoveryRatio
 
 ---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x632B2940C67F4EA9)  
+---Gets mouse event data from scaleforms with mouse support. Must be checked every frame.
+---Returns item index if using the COLOUR_SWITCHER\_02 scaleform.
+---Selection types, found in MOUSE_EVENTS.as:
+---MOUSE_DRAG_OUT = 0;
+---MOUSE_DRAG_OVER = 1;
+---MOUSE_DOWN = 2;
+---MOUSE_MOVE = 3;
+---MOUSE_UP = 4;
+---MOUSE_PRESS = 5;
+---MOUSE_RELEASE = 6;
+---MOUSE_RELEASE_OUTSIDE = 7;
+---MOUSE_ROLL_OUT = 8;
+---MOUSE_ROLL_OVER = 9;
+---MOUSE_WHEEL_UP = 10;
+---MOUSE_WHEEL_DOWN = 11;
+---
+---Scaleforms that this works with:
+---
+---*   COLOUR_SWITCHER\_02
+---*   MP_RESULTS_PANEL
+---*   MP_NEXT_JOB_SELECTION
+---*   SC_LEADERBOARD
+---    Probably works with other scaleforms, needs more research.
+---    In order to use this Native you MUST have controls 239, 240, 237, 238 enabled!
+---    This native, due to its erroneous redundancy of the returned boolean value, works differently in C#: shifting the parameters (where `received` becomes `selectionType` and so on making the fourth parameter unused and always 0).
+---@param scaleformHandle integer
+---@return boolean, boolean, integer, integer, integer
+function GetMouseEvent(scaleformHandle) end
+
+---@deprecated
+GetScaleformMovieCursorSelection = GetMouseEvent
+
+---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1A6478B61C6BDC3B)  
 ---This native does not have an official description.
 ---@param name string
@@ -1821,37 +1863,6 @@ function GetRenderedCharacterHeight(size, font) end
 
 ---@deprecated
 GetTextScaleHeight = GetRenderedCharacterHeight
-
----**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x632B2940C67F4EA9)  
----Gets mouse selection data from scaleforms with mouse support. Must be checked every frame.
----Returns item index if using the COLOUR_SWITCHER\_02 scaleform.
----Selection types, found in MOUSE_EVENTS.as:
----MOUSE_DRAG_OUT = 0;
----MOUSE_DRAG_OVER = 1;
----MOUSE_DOWN = 2;
----MOUSE_MOVE = 3;
----MOUSE_UP = 4;
----MOUSE_PRESS = 5;
----MOUSE_RELEASE = 6;
----MOUSE_RELEASE_OUTSIDE = 7;
----MOUSE_ROLL_OUT = 8;
----MOUSE_ROLL_OVER = 9;
----MOUSE_WHEEL_UP = 10;
----MOUSE_WHEEL_DOWN = 11;
----
----Scaleforms that this works with:
----
----*   COLOUR_SWITCHER\_02
----*   MP_RESULTS_PANEL
----*   MP_NEXT_JOB_SELECTION
----*   SC_LEADERBOARD
----    Probably works with other scaleforms, needs more research.
----    In order to use this Native you MUST have controls 239, 240, 237, 238 enabled!
----    This native, due to its erroneous redundancy of the returned boolean value, works differently in C#: shifting the parameters (where `received` becomes `selectionType` and so on making the fourth parameter unused and always 0).
----@param scaleformHandle integer
----@return boolean, boolean, integer, integer, integer
-function GetScaleformMovieCursorSelection(scaleformHandle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4A9923385BDB9DAD)  
@@ -2706,11 +2717,6 @@ function N_0xb7b873520c84c118() end
 function N_0xba8d65c1c65702e5(toggle) end
 
 ---**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xBF4F34A85CA2970C)  
----This native does not have an official description.
-function N_0xbf4f34a85ca2970c() end
-
----**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC2D2AD9EAAE265B8)  
 ---```
 ---Getter for 0xCD74233600C4EA6B
@@ -3269,11 +3275,13 @@ function SetBlipBright(blip, toggle) end
 ---7 = "Other Players" category, also shows distance in legend
 ---10 = "Property" category
 ---11 = "Owned Property" category
+---12 - 133 = Custom named categories
+---134 - 254 = Custom unnamed categories
 ---```
 ---
----Any other value behaves like `index = 1`, `index` wraps around after 255
+---`index` wraps around after 255.
 ---
----Blips with categories `7`, `10` or `11` will all show under the specific categories listing in the map legend, regardless of sprite or name.
+---Blips with categories `7`, `10`, `11` or `12 - 254` (custom categories) will all show under the specific categories listing in the map legend, regardless of sprite or name.
 ---
 ---**Legend entries**
 ---
@@ -3282,6 +3290,8 @@ function SetBlipBright(blip, toggle) end
 ---| 7 | Other Players | `BLIP_OTHPLYR` |
 ---| 10 | Property | `BLIP_PROPCAT` |
 ---| 11 | Owned Property | `BLIP_APARTCAT` |
+---| 12 - 133 | Custom categories (Named) | `BLIP_CAT_` + `index` |
+---| 134 - 254 | Custom categories (Unnamed) | `-` |
 ---@param blip integer
 ---@param index integer
 function SetBlipCategory(blip, index) end
@@ -4758,9 +4768,7 @@ function SetWarningMessage(entryLine1, instructionalKey, entryLine2, p3, p4, bac
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x0C5A80A9E096D529)  
----```
----Param names copied from the corresponding scaleform function "SET_LIST_ROW"
----```
+---This native does not have an official description.
 ---@param index integer
 ---@param name string
 ---@param cash integer
@@ -4768,7 +4776,10 @@ function SetWarningMessage(entryLine1, instructionalKey, entryLine2, p3, p4, bac
 ---@param lvl integer
 ---@param colour integer
 ---@return boolean
-function SetWarningMessageListRow(index, name, cash, rp, lvl, colour) end
+function SetWarningMessageOptionItems(index, name, cash, rp, lvl, colour) end
+
+---@deprecated
+SetWarningMessageListRow = SetWarningMessageOptionItems
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x15803FEC3B9A872B)  

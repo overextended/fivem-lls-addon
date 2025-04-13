@@ -129,11 +129,24 @@ Cast_3dRayPointToPoint = StartShapeTestCapsule
 ---  IntersectPeds = 4,
 ---  IntersectRagdolls = 8,
 ---  IntersectObjects = 16,
----  IntersectWater = 32,
+---  IntersectPickup = 32,
 ---  IntersectGlass = 64,
 ---  IntersectRiver = 128,
 ---  IntersectFoliage = 256,
----  IntersectEverything = -1
+---
+---  IntersectEverything = 511
+---}
+---```
+---
+---```cpp
+---enum eTraceOptionFlags
+---{
+---  None = 0,
+---  OptionIgnoreGlass = 1,
+---  OptionIgnoreSeeThrough = 2,
+---  OptionIgnoreNoCollision = 4,
+---
+---  OptionDefault = 7
 ---}
 ---```
 ---
@@ -148,9 +161,9 @@ Cast_3dRayPointToPoint = StartShapeTestCapsule
 ---@param z2 number
 ---@param traceFlags integer
 ---@param entity integer
----@param options integer
+---@param optionFlags integer
 ---@return integer
-function StartShapeTestLosProbe(x1, y1, z1, x2, y2, z2, traceFlags, entity, options) end
+function StartShapeTestLosProbe(x1, y1, z1, x2, y2, z2, traceFlags, entity, optionFlags) end
 
 ---**`SHAPETEST` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF6BE494C7987F34)  
