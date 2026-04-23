@@ -1,14 +1,14 @@
 ---@meta
 
----**`QUEUE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x402B5D7D269FF796)  
+---**`QUEUE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x402B5D7D269FF796)  
 ---This native does not have an official description.
 ---@param hash integer | string
 ---@return boolean
 function EventQueueIsEmpty(hash) end
 
----**`QUEUE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD87DF294B049211D)  
+---**`QUEUE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD87DF294B049211D)  
 ---This native does not have an official description.
 ---@param hash integer | string
 function EventQueuePop(hash) end

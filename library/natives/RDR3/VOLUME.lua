@@ -1,14 +1,14 @@
 ---@meta
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6E0D3C3F828DA773)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x6E0D3C3F828DA773)  
 ---_ADD_R* - _ADD_V(OLUME?)*
 ---@param volume integer
 ---@param aggregate integer
 function AddBoundsToAggregateVolume(volume, aggregate) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x39816F6F94F385AD)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x39816F6F94F385AD)  
 ---This native does not have an official description.
 ---@param aggregate integer
 ---@param p1 number
@@ -22,8 +22,8 @@ function AddBoundsToAggregateVolume(volume, aggregate) end
 ---@param p9 number
 function AddBoxVolumeToVolumeAggregate(aggregate, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBCE668AAF83608BE)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xBCE668AAF83608BE)  
 ---This native does not have an official description.
 ---@param aggregate integer
 ---@param p1 number
@@ -37,14 +37,14 @@ function AddBoxVolumeToVolumeAggregate(aggregate, p1, p2, p3, p4, p5, p6, p7, p8
 ---@param p9 number
 function AddCylinderVolumeToVolumeAggregate(aggregate, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x58D3803FA639A3BB)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x58D3803FA639A3BB)  
 ---This native does not have an official description.
 ---@return boolean, any
 function AddEntryVolumeLock() end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5B7D7BF36D2DE18B)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5B7D7BF36D2DE18B)  
 ---This native does not have an official description.
 ---@param aggregate integer
 ---@param p1 number
@@ -58,8 +58,8 @@ function AddEntryVolumeLock() end
 ---@param p9 number
 function AddSphereVolumeToVolumeAggregate(aggregate, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x12FCAA23F2320422)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x12FCAA23F2320422)  
 ---This native does not have an official description.
 ---@param aggregate integer
 ---@param typeHash integer | string
@@ -74,8 +74,8 @@ function AddSphereVolumeToVolumeAggregate(aggregate, p1, p2, p3, p4, p5, p6, p7,
 ---@param scaleZ number
 function AddVolumeToVolumeAggregate(aggregate, typeHash, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0EB78C2B156635B1)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x0EB78C2B156635B1)  
 ---This native does not have an official description.
 ---@param volumeType integer | string
 ---@param x number
@@ -90,8 +90,8 @@ function AddVolumeToVolumeAggregate(aggregate, typeHash, x, y, z, rotX, rotY, ro
 ---@return integer
 function CreateAntiGriefVolume(volumeType, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBBE768E3AE76E07C)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xBBE768E3AE76E07C)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -111,21 +111,21 @@ function CreateAntiGriefVolume(volumeType, x, y, z, rotX, rotY, rotZ, scaleX, sc
 ---@return integer
 function CreateSpeedVolume(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x59F6F5C1D129F106)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x59F6F5C1D129F106)  
 ---This native does not have an official description.
 ---@return integer
 function CreateVolumeAggregate() end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5D580DE6398BB162)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5D580DE6398BB162)  
 ---This native does not have an official description.
 ---@param name string
 ---@return integer
 function CreateVolumeAggregateWithCustomName(name) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDF85637F22706891)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xDF85637F22706891)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -139,8 +139,8 @@ function CreateVolumeAggregateWithCustomName(name) end
 ---@return integer
 function CreateVolumeBox(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF68485C7495D848E)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF68485C7495D848E)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -155,8 +155,8 @@ function CreateVolumeBox(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 ---@return integer
 function CreateVolumeBoxWithCustomName(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, name) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x502022FA1AF9DC86)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x502022FA1AF9DC86)  
 ---This native does not have an official description.
 ---@param volumeType integer | string
 ---@param x number
@@ -171,8 +171,8 @@ function CreateVolumeBoxWithCustomName(x, y, z, rotX, rotY, rotZ, scaleX, scaleY
 ---@return integer
 function CreateVolumeByHash(volumeType, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1F85E4AC774A201E)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x1F85E4AC774A201E)  
 ---This native does not have an official description.
 ---@param volumeType integer | string
 ---@param x number
@@ -188,8 +188,8 @@ function CreateVolumeByHash(volumeType, x, y, z, rotX, rotY, rotZ, scaleX, scale
 ---@return integer
 function CreateVolumeByHashWithCustomName(volumeType, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, name) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x0522D4774B82E3E6)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x0522D4774B82E3E6)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -203,8 +203,8 @@ function CreateVolumeByHashWithCustomName(volumeType, x, y, z, rotX, rotY, rotZ,
 ---@return integer
 function CreateVolumeCylinder(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDF1E350EDDF06E59)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xDF1E350EDDF06E59)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -219,8 +219,8 @@ function CreateVolumeCylinder(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ)
 ---@return integer
 function CreateVolumeCylinderWithCustomName(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, name) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x00BBF7CEAE8C666A)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x00BBF7CEAE8C666A)  
 ---Params: p5 is always 0
 ---@param x number
 ---@param y number
@@ -231,8 +231,8 @@ function CreateVolumeCylinderWithCustomName(x, y, z, rotX, rotY, rotZ, scaleX, s
 ---@return integer
 function CreateVolumeLock(x, y, z, radius, flag, p5) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF383E96C4904DF0C)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF383E96C4904DF0C)  
 ---Params: p3 is always 0
 ---@param entity integer
 ---@param radius number
@@ -241,8 +241,8 @@ function CreateVolumeLock(x, y, z, radius, flag, p5) end
 ---@return integer
 function CreateVolumeLockAttachedToEntity(entity, radius, flag, p3) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB3FB80A32BAE3065)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB3FB80A32BAE3065)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -256,8 +256,8 @@ function CreateVolumeLockAttachedToEntity(entity, radius, flag, p3) end
 ---@return integer
 function CreateVolumeSphere(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x10157BC3247FF3BA)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x10157BC3247FF3BA)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -272,8 +272,8 @@ function CreateVolumeSphere(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) e
 ---@return integer
 function CreateVolumeSphereWithCustomName(x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, name) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFD0E389CD44434B6)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xFD0E389CD44434B6)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -291,14 +291,14 @@ function CreateVolumeSphereWithCustomName(x, y, z, rotX, rotY, rotZ, scaleX, sca
 ---@return integer
 function CreateWalkAndTalkVolume(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x43F867EF5C463A53)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x43F867EF5C463A53)  
 ---This native does not have an official description.
 ---@param volume integer
 function DeleteVolume(volume) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x397769175A7DBB30)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x397769175A7DBB30)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -310,21 +310,21 @@ function DeleteVolume(volume) end
 ---@return boolean
 function DoesVolumeCollideWithAnyVolumeLock(x, y, z, radius, p4, p5, p6) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x92A78D0BEDB332A3)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x92A78D0BEDB332A3)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@return boolean
 function DoesVolumeExist(volume) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x77A6E4AD0C496F81)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x77A6E4AD0C496F81)  
 ---This native does not have an official description.
 ---@return integer, any
 function FindVolumeLockRequestIdWithArgs() end
 
 ---**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x2B32B11520626229)  
+---[Native Documentation](https://rdr3natives.com/?_0x2B32B11520626229)  
 ---Indexes items (including entyties and peds) in a set volume
 ---Counts up as its the return value of how many items it writes to given itemSet
 ---@param x number
@@ -335,22 +335,22 @@ function FindVolumeLockRequestIdWithArgs() end
 ---@return integer
 function GetVolumeAmountOfIndexedItems(x, y, z, radius, itemSet) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5737199AF2DC609F)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5737199AF2DC609F)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@return vector3, vector3
 function GetVolumeBounds(volume) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF70F00013A62F866)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF70F00013A62F866)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@return vector3
 function GetVolumeCoords(volume) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB33A604345F58202)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB33A604345F58202)  
 ---enum eVolumeLockRequestStatus
 ---{
 ---	VOLUME_LOCK_REQUEST_STATUS_INVALID,
@@ -363,36 +363,36 @@ function GetVolumeCoords(volume) end
 ---@return integer
 function GetVolumeLockRequestStatus(volLockRequestId) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x666C2F53ABEFC952)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x666C2F53ABEFC952)  
 ---Returns relationshipGroup Hash
 ---@param volume integer
 ---@return integer
 function GetVolumeRelationship(volume) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x18675BC914891122)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x18675BC914891122)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@return vector3
 function GetVolumeRotation(volume) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3E2A25B2416DD67E)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x3E2A25B2416DD67E)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@return vector3
 function GetVolumeScale(volume) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFEFF01B5725BCD22)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xFEFF01B5725BCD22)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@return boolean
 function IsAggregateVolume(volume) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF256A75210C5C0EB)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF256A75210C5C0EB)  
 ---Old name: _IS_POSITION_INSIDE_VOLUME
 ---@param volume integer
 ---@param x number
@@ -401,8 +401,8 @@ function IsAggregateVolume(volume) end
 ---@return boolean
 function IsPointInVolume(volume, x, y, z) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x769BB7626B8CDB06)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x769BB7626B8CDB06)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -414,22 +414,22 @@ function IsPointInVolume(volume, x, y, z) end
 ---@return boolean
 function IsPointNearVolumeLockCenter(x, y, z, radius, p4, p5, flags) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA4A4359320345B34)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xA4A4359320345B34)  
 ---This native does not have an official description.
 ---@param volLockRequestId integer
 ---@return boolean
 function IsVolumeLockRequestValid(volLockRequestId) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF6A8A652A6B186CD)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF6A8A652A6B186CD)  
 ---This native does not have an official description.
 ---@param volLockRequestId integer
 ---@return boolean
 function IsVolumeLockRequestValid_2(volLockRequestId) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEC43C2FFB70E3F30)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xEC43C2FFB70E3F30)  
 ---This native does not have an official description.
 ---@param volLock integer
 ---@param x number
@@ -437,45 +437,45 @@ function IsVolumeLockRequestValid_2(volLockRequestId) end
 ---@param z number
 function ModifyVolumeLockLocation(volLock, x, y, z) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x128FC3A893BF853A)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x128FC3A893BF853A)  
 ---nullsub, doesn't do anything
 ---@param p0 any
 function N_0x128fc3a893bf853a(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x351D71B8B72B858B)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x351D71B8B72B858B)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@return any
 function N_0x351d71b8b72b858b(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3EFABB21E14A6BD1)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x3EFABB21E14A6BD1)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 ---@param p2 any
 function N_0x3efabb21e14a6bd1(p0, p1, p2) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x40F769D31A00D5A0)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x40F769D31A00D5A0)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 ---@return any
 function N_0x40f769d31a00d5a0(p0, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x4A8FEFC43FD8AC9B)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x4A8FEFC43FD8AC9B)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 ---@param p2 any
 function N_0x4a8fefc43fd8ac9b(p0, p1, p2) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x51E52C9687FCDEEC)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x51E52C9687FCDEEC)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -487,16 +487,16 @@ function N_0x4a8fefc43fd8ac9b(p0, p1, p2) end
 ---@return any
 function N_0x51e52c9687fcdeec(p0, p1, p2, p3, p4, p5, p6) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x52572B331E693AED)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x52572B331E693AED)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 ---@param p2 any
 function N_0x52572b331e693aed(p0, p1, p2) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x53D05D60E5F5B40C)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x53D05D60E5F5B40C)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -504,34 +504,34 @@ function N_0x52572b331e693aed(p0, p1, p2) end
 ---@param p3 any
 function N_0x53d05d60e5f5b40c(p0, p1, p2, p3) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x695DAC2DB928F308)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x695DAC2DB928F308)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 function N_0x695dac2db928f308(p0, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6D5F9E69BA1BE783)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x6D5F9E69BA1BE783)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x6d5f9e69ba1be783(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x748C5F51A18CB8F0)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x748C5F51A18CB8F0)  
 ---nullsub, doesn't do anything
 ---@param p0 boolean
 function N_0x748c5f51a18cb8f0(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7FD78DFD0C5D7B9B)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x7FD78DFD0C5D7B9B)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@return any
 function N_0x7fd78dfd0c5d7b9b(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x870E9981ED27C815)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x870E9981ED27C815)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -542,14 +542,14 @@ function N_0x7fd78dfd0c5d7b9b(p0) end
 ---@return any
 function N_0x870e9981ed27c815(p0, p1, p2, p3, p4, p5) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x998202B206872672)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x998202B206872672)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x998202b206872672(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAA9EE2AAFC717623)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xAA9EE2AAFC717623)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -560,70 +560,70 @@ function N_0x998202b206872672(p0) end
 ---@return any
 function N_0xaa9ee2aafc717623(p0, p1, p2, p3, p4, p5) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAC355980681A7F89)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xAC355980681A7F89)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0xac355980681a7f89(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB440F4E35393FC39)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB440F4E35393FC39)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param p1 any
 function N_0xb440f4e35393fc39(volume, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB469CFD9E065EB99)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB469CFD9E065EB99)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 function N_0xb469cfd9e065eb99(p0, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC4019CF9AE8E931A)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC4019CF9AE8E931A)  
 ---This native does not have an official description.
 ---@param volLockRequestId integer
 ---@return vector3
 function N_0xc4019cf9ae8e931a(volLockRequestId) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC61E2FD926DBB406)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC61E2FD926DBB406)  
 ---This native does not have an official description.
 function N_0xc61e2fd926dbb406() end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCA5C90D40665D5CE)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xCA5C90D40665D5CE)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 ---@return any
 function N_0xca5c90d40665d5ce(p0, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD460135C98940274)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD460135C98940274)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param p1 any
 function N_0xd460135c98940274(volume, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD4FA73FE628FEC63)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD4FA73FE628FEC63)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 function N_0xd4fa73fe628fec63(p0, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD52DF30355EA7C8E)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD52DF30355EA7C8E)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 ---@param p2 any
 function N_0xd52df30355ea7c8e(p0, p1, p2) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD882C5B3991575B7)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD882C5B3991575B7)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -633,23 +633,23 @@ function N_0xd52df30355ea7c8e(p0, p1, p2) end
 ---@return vector3
 function N_0xd882c5b3991575b7(p0, p1, p2, p3, p4) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEBA87B9273835CF3)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xEBA87B9273835CF3)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 function N_0xeba87b9273835cf3(p0, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xEE1D6FF54CAF7714)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xEE1D6FF54CAF7714)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 ---@return any
 function N_0xee1d6ff54caf7714(p0, p1) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF3A2FBA5985C8CD5)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF3A2FBA5985C8CD5)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -657,40 +657,40 @@ function N_0xee1d6ff54caf7714(p0, p1) end
 ---@param p3 any
 function N_0xf3a2fba5985c8cd5(p0, p1, p2, p3) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF6CE6F9C3897804E)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF6CE6F9C3897804E)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@return any
 function N_0xf6ce6f9c3897804e(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF6F5447D418DAA82)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF6F5447D418DAA82)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@return any
 function N_0xf6f5447d418daa82(p0) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFA15C9A320E707B0)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xFA15C9A320E707B0)  
 ---nullsub, doesn't do anything
 function N_0xfa15c9a320e707b0() end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFDFECC6EE4491E11)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xFDFECC6EE4491E11)  
 ---This native does not have an official description.
 ---@param volLockRequestId integer
 function ReleaseLockVolume(volLockRequestId) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF92FA8890DECECF6)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF92FA8890DECECF6)  
 ---_REMOVE_E* - _REMOVE_R*
 ---@param volume integer
 ---@param aggregate integer
 function RemoveBoundsFromAggregateVolume(volume, aggregate) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF14BCEF290F869E1)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF14BCEF290F869E1)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -701,28 +701,28 @@ function RemoveBoundsFromAggregateVolume(volume, aggregate) end
 ---@return integer
 function RequestVolumeLock(x, y, z, radius, p4, p5) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x183C0B6CFEFFCAE4)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x183C0B6CFEFFCAE4)  
 ---This native does not have an official description.
 ---@return integer, any
 function RequestVolumeLockWithArgs() end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xBE551C2CC421185D)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xBE551C2CC421185D)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param toggle boolean
 function SetAntiGriefVolumeBlocksHorse(volume, toggle) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5B23DFF8E0948BB2)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5B23DFF8E0948BB2)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param toggle boolean
 function SetAntiGriefVolumeBlocksPlayer(volume, toggle) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x541B8576615C33DE)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x541B8576615C33DE)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param posX number
@@ -731,23 +731,23 @@ function SetAntiGriefVolumeBlocksPlayer(volume, toggle) end
 ---@return boolean
 function SetVolumeCoords(volume, posX, posY, posZ) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE2BE6FFA4A13CBB0)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xE2BE6FFA4A13CBB0)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param persChar integer
 ---@param p2 boolean
 function SetVolumeOwnerPersistentCharacter(volume, persChar, p2) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xFD010A2154B40676)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xFD010A2154B40676)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param relationshipGroup integer | string
 function SetVolumeRelationship(volume, relationshipGroup) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA07CF1B21B56F041)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xA07CF1B21B56F041)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param rotX number
@@ -756,8 +756,8 @@ function SetVolumeRelationship(volume, relationshipGroup) end
 ---@return boolean
 function SetVolumeRotation(volume, rotX, rotY, rotZ) end
 
----**`VOLUME` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA46E98BDC407E23D)  
+---**`VOLUME` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xA46E98BDC407E23D)  
 ---This native does not have an official description.
 ---@param volume integer
 ---@param scaleX number

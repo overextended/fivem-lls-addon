@@ -1,25 +1,25 @@
 ---@meta
 
----**`GOOGLE_ANALYTICS` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x87BBCC4360A9BDE3)  
+---**`GOOGLE_ANALYTICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x87BBCC4360A9BDE3)  
 ---This native does not have an official description.
 ---@return boolean
 function GoogleAnalyticsEndEvent() end
 
----**`GOOGLE_ANALYTICS` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC6DE040378364798)  
+---**`GOOGLE_ANALYTICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC6DE040378364798)  
 ---This native does not have an official description.
 ---@param pageName string
 function GoogleAnalyticsPopPage(pageName) end
 
----**`GOOGLE_ANALYTICS` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD43A616AE3AC4EF6)  
+---**`GOOGLE_ANALYTICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD43A616AE3AC4EF6)  
 ---This native does not have an official description.
 ---@param pageName string
 function GoogleAnalyticsPushPage(pageName) end
 
----**`GOOGLE_ANALYTICS` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1C54F031D7C0F7AC)  
+---**`GOOGLE_ANALYTICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x1C54F031D7C0F7AC)  
 ---This native does not have an official description.
 ---@param eventCategory string
 ---@param eventAction string

@@ -1,7 +1,7 @@
 ---@meta
 
----**`UIPINNING` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3138582E0A13BFAB)  
+---**`UIPINNING` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x3138582E0A13BFAB)  
 ---This native does not have an official description.
 ---@param hash integer | string
 ---@return any

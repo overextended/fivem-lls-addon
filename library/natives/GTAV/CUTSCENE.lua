@@ -57,7 +57,7 @@ function DoesCutsceneEntityExist(cutsceneEntName, modelHash) end
 function GetCutFileNumSections(cutsceneName) end
 
 ---**`CUTSCENE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x011883f41211432a)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x971D7B15BCDBEF99)  
 ---Returns the time of the cutscene's end accounting for [`REQUEST_CUTSCENE_WITH_PLAYBACK_LIST`](#\_0xC23DE0E91C30B58C)
 ---
 ---If a cutscene is laid out with 10 second sections, and section 0 and 1 are enabled then it would be 20000ms.
@@ -93,7 +93,7 @@ function GetCutsceneTime() end
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEE53B14A19E480D4)  
 ---Gets the total length of the cutscene irrespective of playback list in milliseconds
----To account for sections, see [`_GET_CUTSCENE_END_TIME`](#\_0x971D7B15BCDBEF99)
+---To account for sections, see [`GET_CUTSCENE_END_TIME`](#\_0x971D7B15BCDBEF99)
 ---@return integer
 function GetCutsceneTotalDuration() end
 
@@ -165,18 +165,6 @@ function IsCutscenePlaybackFlagSet(flag) end
 ---This native does not have an official description.
 ---@return boolean
 function IsCutscenePlaying() end
-
----**`CUTSCENE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x011883F41211432A)  
----This native does not have an official description.
----@param x1 number
----@param y1 number
----@param z1 number
----@param x2 number
----@param y2 number
----@param z2 number
----@param p6 integer
-function N_0x011883f41211432a(x1, y1, z1, x2, y2, z2, p6) end
 
 ---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x06EE9048FD080382)  
@@ -358,6 +346,18 @@ function SetCutsceneFadeValues(p0, p1, p2, p3) end
 function SetCutsceneOrigin(x, y, z, heading, p4) end
 
 ---**`CUTSCENE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x011883F41211432A)  
+---This native does not have an official description.
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param p6 integer
+function SetCutsceneOriginAndOrientation(x1, y1, z1, x2, y2, z2, p6) end
+
+---**`CUTSCENE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA01E7B6DEEFBBC9)  
 ---See [`SET_PED_COMPONENT_VARIATION`](#\_0x262B14F48D29DE80)
 ---@param cutsceneEntName string
@@ -371,7 +371,7 @@ function SetCutscenePedComponentVariation(cutsceneEntName, componentId, drawable
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A56C06EBEF2B0D9)  
 ---Sets the components for a cutscene ped, this will take precendence over the cutscene's component overrides. This does not require the entity be registered.
 ---
----See
+---See [`REGISTER_ENTITY_FOR_CUTSCENE`](#\_0xE40C1C56DF95C2E8) for an example.
 ---@param cutsceneEntName string
 ---@param ped integer
 ---@param modelHash integer | string

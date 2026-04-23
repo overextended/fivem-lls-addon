@@ -100,6 +100,23 @@ function AddBlipForRadius(posX, posY, posZ, radius) end
 function AddConvarChangeListener(conVarFilter, handler) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9CBFD5C1)  
+---Adds new health config.
+---@param configName string
+---@param defaultHealth number
+---@param defaultArmor number
+---@param defaultEndurance number
+---@param fatiguedHealthThreshold number
+---@param injuredHealthThreshold number
+---@param dyingHealthThreshold number
+---@param hurtHealthThreshold number
+---@param dogTakedownThreshold number
+---@param writheFromBulletThreshold number
+---@param meleeCardinalFatalAttack boolean
+---@param invincible boolean
+function AddHealthConfig(configName, defaultHealth, defaultArmor, defaultEndurance, fatiguedHealthThreshold, injuredHealthThreshold, dyingHealthThreshold, hurtHealthThreshold, dogTakedownThreshold, writheFromBulletThreshold, meleeCardinalFatalAttack, invincible) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4AFD2499)  
 ---Loads a minimap overlay from a GFx file in the current resource.
 ---
@@ -182,8 +199,8 @@ function AddReplaceTexture(origTxd, origTxn, newTxd, newTxn) end
 ---
 ---At this time, the change handler can't opt to reject changes.
 ---
----If bagName refers to an entity, use [GET_ENTITY_FROM_STATE_BAG_NAME](?\_0x4BDF1868) to get the entity handle---
----If bagName refers to a player, use [GET_PLAYER_FROM_STATE_BAG_NAME](?\_0xA56135E0) to get the player handle
+---If bagName refers to an entity, use [GET_ENTITY_FROM_STATE_BAG_NAME](#\_0x4BDF1867) to get the entity handle---
+---If bagName refers to a player, use [GET_PLAYER_FROM_STATE_BAG_NAME](#\_0xA56135E0) to get the player handle
 ---@param keyFilter string
 ---@param bagFilter string
 ---@param handler function
@@ -206,21 +223,16 @@ function AddTextEntryByHash(entryKey, entryText) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC1C0855A)  
----Applies a force to the specified entity.
----
 ---```cpp
----enum eForceType---
----{---
----MinForce = 0,---
----MaxForceRot = 1,---
----MinForce2 = 2,---
----MaxForceRot2 = 3,---
----ForceNoRot = 4,---
----ForceRotPlusForce = 5---
+---enum eApplyForceTypes {---
+---APPLY_TYPE_FORCE = 0,---
+---APPLY_TYPE_IMPULSE = 1,---
+---APPLY_TYPE_EXTERNAL_FORCE = 2,---
+---APPLY_TYPE_EXTERNAL_IMPULSE = 3,---
+---APPLY_TYPE_TORQUE = 4,---
+---APPLY_TYPE_ANGULAR_IMPULSE = 5---
 ---}
 ---```
----
----Research/documentation on the gtaforums can be found [here](https://gtaforums.com/topic/885669-precisely-define-object-physics/) and [here](https://gtaforums.com/topic/887362-apply-forces-and-momentums-to-entityobject/).
 ---
 ---**This is the server-side RPC native equivalent of the client native [APPLY_FORCE_TO_ENTITY](?\_0xC5F68BE9613E2D18).**
 ---@param entity integer
@@ -231,13 +243,13 @@ function AddTextEntryByHash(entryKey, entryText) end
 ---@param offX number
 ---@param offY number
 ---@param offZ number
----@param boneIndex integer
----@param isDirectionRel boolean
----@param ignoreUpVec boolean
----@param isForceRel boolean
----@param p12 boolean
----@param p13 boolean
-function ApplyForceToEntity(entity, forceType, x, y, z, offX, offY, offZ, boneIndex, isDirectionRel, ignoreUpVec, isForceRel, p12, p13) end
+---@param nComponent integer
+---@param bLocalForce boolean
+---@param bLocalOffset boolean
+---@param bScaleByMass boolean
+---@param bPlayAudio boolean
+---@param bScaleByTimeWarp boolean
+function ApplyForceToEntity(entity, forceType, x, y, z, offX, offY, offZ, nComponent, bLocalForce, bLocalOffset, bScaleByMass, bPlayAudio, bScaleByTimeWarp) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3422291C)  
@@ -544,7 +556,7 @@ function DeleteFunctionReference(referenceIdentity) end
 ---@param key string
 function DeleteResourceKvp(key) end
 
----**`CFX` `server`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4152C90)  
 ---Nonsynchronous [DELETE_RESOURCE_KVP](#\_0x7389B5DF) operation; see [FLUSH_RESOURCE_KVP](#\_0x5240DA5A).
 ---@param key string
@@ -573,6 +585,15 @@ function DisableEditorRuntime() end
 ---Disables the game's afk camera that starts panning around after 30 seconds of inactivity.
 ---@param state boolean
 function DisableIdleCamera(state) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8BCF0014)  
+---Disables the specified `rawKeyIndex`, making it not trigger the regular `IS_RAW_KEY_*` natives.
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function DisableRawKeyThisFrame(rawKeyIndex) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5C140555)  
@@ -625,6 +646,13 @@ function DoesPlayerOwnSku(playerSrc, skuId) end
 function DoesPlayerOwnSkuExt(playerSrc, skuId) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8B25BC20)  
+---In compare to `0x31DC8D3F216D8509` return true if texture its created when `0x31DC8D3F216D8509` return true if you put there any id in valid range
+---@param textureId integer
+---@return boolean
+function DoesTextureExist(textureId) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC53BB6D3)  
 ---This native does not have an official description.
 ---@param modifierName string
@@ -632,7 +660,7 @@ function DoesPlayerOwnSkuExt(playerSrc, skuId) end
 ---@return boolean
 function DoesTimecycleModifierHasVar(modifierName, varName) end
 
----**`CFX` `client`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x77CC80DC)  
 ---This native does not have an official description.
 ---@param train integer
@@ -867,7 +895,7 @@ function EnterCursorMode() end
 
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x561C060B)  
----This native does not have an official description.
+---Depending on your use case you may need to use `add_acl resource.<your_resource_name> command.<command_name> allow` to use this native in your resource.
 ---@param commandString string
 function ExecuteCommand(commandString) end
 
@@ -979,6 +1007,13 @@ function FlushResourceKvp() end
 ---@param enabled boolean
 function ForceSnowPass(enabled) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD70C3BCA)  
+---An internal function for converting a stack trace object to a string.
+---@param traceData table
+---@return string
+function FormatStackTrace(traceData) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x65C16D57)  
 ---Freezes or unfreezes an entity preventing its coordinates to change by the player if set to `true`. You can still change the entity position using [`SET_ENTITY_COORDS`](#\_0x06843DA7060A026B).
@@ -1039,6 +1074,17 @@ function GetAllPeds() end
 function GetAllRopes() end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x81A08523)  
+---Returns all track junctions on the client---
+---The data returned adheres to the following structure:
+---
+---```
+---[1, 2, 4, 6, 69, 420]
+---```
+---@return table
+function GetAllTrackJunctions() end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD7531645)  
 ---Returns all registered vehicle model names, including non-dlc vehicles and custom vehicles in no particular order.
 ---
@@ -1074,6 +1120,17 @@ function GetAmbientPedRangeMultiplier() end
 ---A getter for [SET_AMBIENT_VEHICLE_RANGE_MULTIPLIER_THIS_FRAME](#\_0x90B6DA738A9A25DA).
 ---@return number
 function GetAmbientVehicleRangeMultiplier() end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2CA8F641)  
+---Gets the current aspect ratio
+---
+---```lua
+---local ratio = GetAspectRatio()---
+---print(string.format("%.2f", ratio))
+---```
+---@return number
+function GetAspectRatio() end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x870E8B40)  
@@ -1176,6 +1233,18 @@ function GetCurrentPedWeapon(ped) end
 function GetCurrentResourceName() end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x337F0116)  
+---Gets the current screen resolution.
+---
+---```lua
+---local  width, height = GetCurrentScreenResolution()---
+---print(string.format("Current screen resolution: %dx%d", width, height))---
+---
+---```
+---@return integer, integer
+function GetCurrentScreenResolution() end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEA11BFBA)  
 ---Returns the peer address of the remote game server that the user is currently connected to.
 ---@return string
@@ -1187,6 +1256,46 @@ function GetCurrentServerEndpoint() end
 ---@param duiObject integer
 ---@return string
 function GetDuiHandle(duiObject) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDFFBA12F)  
+---### Supported types
+---
+---*   \[1] : Peds (including animals) and players.
+---*   \[2] : Vehicles.
+---*   \[3] : Objects (props), doors, and projectiles.
+---
+---### Coordinates need to be send unpacked (x,y,z)
+---
+---```lua
+------
+----- Define the allowed model hashes---
+---local allowedModelHashes = { GetHashKey("p_crate03x"), GetHashKey("p_crate22x") }---
+------
+----- Get the player's current coordinates---
+---local playerCoords = GetEntityCoords(PlayerPedId())---
+------
+----- Retrieve all entities of type Object (type 3) within a radius of 10.0 units---
+----- that match the allowed model hashes---
+----- and sort output entities by distance---
+---local entities = GetEntitiesInRadius(playerCoords.x, playerCoords.y, playerCoords.z, 10.0, 3, true, allowedModelHashes)---
+------
+----- Iterate through the list of entities and print their ids---
+---for i = 1, #entities do---
+---    local entity = entities[i]---
+---    print(entity)---
+---end---
+---
+---```
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@param entityType integer
+---@param sortByDistance boolean
+---@param models table
+---@return table
+function GetEntitiesInRadius(x, y, z, radius, entityType, sortByDistance, models) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9A3144BC)  
@@ -1231,7 +1340,7 @@ function GetEntityCoords(entity) end
 
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4BDF1867)  
----Returns the entity handle for the specified state bag name. For use with [ADD_STATE_BAG_CHANGE_HANDLER](?\_0x5BA35AAF).
+---Returns the entity handle for the specified state bag name. For use with [ADD_STATE_BAG_CHANGE_HANDLER](#\_0x5BA35AAF).
 ---@param bagName string
 ---@return integer
 function GetEntityFromStateBagName(bagName) end
@@ -1294,6 +1403,13 @@ function GetEntityOrphanMode(entity) end
 ---@param entity integer
 ---@return integer
 function GetEntityPopulationType(entity) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x91B38FB6)  
+---This native does not have an official description.
+---@param entity integer
+---@return boolean
+function GetEntityRemoteSyncedScenesAllowed(entity) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8FF45B04)  
@@ -1434,6 +1550,7 @@ function GetFuelConsumptionState() end
 ---    *   3258
 ---    *   3323
 ---    *   3407
+---    *   3570
 ---*   RedM
 ---    *   1311
 ---    *   1355
@@ -1489,7 +1606,7 @@ function GetGameTimer() end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x78951816)  
----A getter for [SET_GLOBAL_PASSENGER_MASS_MULTIPLIER](#\_0x1c47f6ac).
+---A getter for [SET_GLOBAL_PASSENGER_MASS_MULTIPLIER](#\_0x3422291C).
 ---@return number
 function GetGlobalPassengerMassMultiplier() end
 
@@ -1876,6 +1993,86 @@ function GetMapdataFromHashKey(mapdataHandle) end
 function GetMapZoomDataLevel(index) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA6FF71C9)  
+---Get the minimap type:
+---
+---```
+---0 = Off,---
+---1 = Regular,---
+---2 = Expanded,---
+---3 = Simple,
+---```
+---@return integer
+function GetMinimapType() end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x23B2A641)  
+---Gets the specific entity type (as an integer), which can be one of the following defined down below:
+---
+---#### FiveM:
+---
+---```cpp
+---enum eNetObjEntityType---
+---{---
+---    Automobile = 0,---
+---    Bike = 1,---
+---    Boat = 2,---
+---    Door = 3,---
+---    Heli = 4,---
+---    Object = 5,---
+---    Ped = 6,---
+---    Pickup = 7,---
+---    PickupPlacement = 8,---
+---    Plane = 9,---
+---    Submarine = 10,---
+---    Player = 11,---
+---    Trailer = 12,---
+---    Train = 13---
+---};
+---```
+---
+---#### RedM:
+---
+---```cpp
+---enum eNetObjEntityType---
+---{---
+---    Animal = 0,---
+---    Automobile = 1,---
+---    Bike = 2,---
+---    Boat = 3,---
+---    Door = 4,---
+---    Heli = 5,---
+---    Object = 6,---
+---    Ped = 7,---
+---    Pickup = 8,---
+---    PickupPlacement = 9,---
+---    Plane = 10,---
+---    Submarine = 11,---
+---    Player = 12,---
+---    Trailer = 13,---
+---    Train = 14,---
+---    DraftVeh = 15,---
+---    StatsTracker = 16,---
+---    PropSet = 17,---
+---    AnimScene = 18,---
+---    GroupScenario = 19,---
+---    Herd = 20,---
+---    Horse = 21,---
+---    WorldState = 22,---
+---    WorldProjectile = 23,---
+---    Incident = 24,---
+---    Guardzone = 25,---
+---    PedGroup = 26,---
+---    CombatDirector = 27,---
+---    PedSharedTargeting = 28,---
+---    Persistent = 29---
+---};
+---```
+---@param entity integer
+---@return integer
+function GetNetTypeFromEntity(entity) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2CAFD5E9)  
 ---This native does not have an official description.
 ---@return boolean
@@ -1948,7 +2145,7 @@ function GetNumPlayerTokens(playerSrc) end
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x776E864)  
 ---Gets the amount of metadata values with the specified key existing in the specified resource's manifest.---
----See also: [Resource manifest](https://docs.fivem.net/resources/manifest/)
+---See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
 ---@param resourceName string
 ---@param metadataKey string
 ---@return integer
@@ -1985,6 +2182,14 @@ function GetPauseMapPointerWorldPosition() end
 ---@param ped integer
 ---@return integer
 function GetPedArmour(ped) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9C5E7C9C)  
+---Returns the bone matrix of the specified bone id. usefull for entity attachment
+---@param ped integer
+---@param boneId integer
+---@return vector3, vector3, vector3, vector3
+function GetPedBoneMatrix(ped, boneId) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x63458C27)  
@@ -2165,6 +2370,13 @@ function GetPedInVehicleSeat(vehicle, seatIndex) end
 function GetPedMaxHealth(ped) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF71542F7)  
+---Gets a ped model's health config.
+---@param modelHash integer | string
+---@return integer
+function GetPedModelHealthConfig(modelHash) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFE08CAD6)  
 ---Gets a ped model's personality type.
 ---@param modelHash integer | string
@@ -2330,9 +2542,9 @@ function GetPlayerGuid(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7302DBCF)  
----To get the number of identifiers, use [GET_NUM_PLAYER_IDENTIFIERS](?\_0xFF7F66AB)
+---To get the number of identifiers, use [GET_NUM_PLAYER_IDENTIFIERS](#\_0xFF7F66AB)
 ---
----To get a specific type of identifier, use [GET_PLAYER_IDENTIFIER_BY_TYPE](?\_0xA61C8FC6)
+---To get a specific type of identifier, use [GET_PLAYER_IDENTIFIER_BY_TYPE](#\_0xA61C8FC6)
 ---@param playerSrc string
 ---@param identiferIndex integer
 ---@return string
@@ -2418,8 +2630,44 @@ function GetPlayerName(playerSrc) end
 function GetPlayerPed(playerSrc) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9A928294)  
+---```cpp
+---const int ENET_PACKET_LOSS_SCALE = 65536;---
+------
+---enum PeerStatistics---
+---{---
+---	// PacketLoss will only update once every 10 seconds, use PacketLossEpoch if you want the time---
+---	// since the last time the packet loss was updated.---
+------
+---	// the amount of packet loss the player has, needs to be scaled with PACKET_LOSS_SCALE---
+---	PacketLoss = 0,---
+---	// The variance in the packet loss---
+---	PacketLossVariance = 1,---
+---	// The time since the last packet update in ms, relative to the peers connection time---
+---	PacketLossEpoch = 2,---
+---	// The mean amount of time it takes for a packet to get to the client (ping)---
+---	RoundTripTime = 3,---
+---	// The variance in the round trip time---
+---	RoundTripTimeVariance = 4,---
+---	// Despite their name, these are only updated once every 5 seconds, you can get the last time this was updated with PacketThrottleEpoch---
+---	// The last recorded round trip time of a packet---
+---	LastRoundTripTime = 5,---
+---	// The last round trip time variance---
+---	LastRoundTripTimeVariance = 6,---
+---	// The time since the last packet throttle update, relative to the peers connection time---
+---	PacketThrottleEpoch = 7,---
+---};
+---```
+---
+---These statistics only update once every 10 seconds.
+---@param playerSrc string
+---@param peerStatistic integer
+---@return integer
+function GetPlayerPeerStatistics(playerSrc, peerStatistic) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF1290D4)  
----This native does not have an official description.
+---See [GET_PLAYER_PEER_STATISTICS](#\_0x9A928294) if you want more detailed information, like packet loss, and packet/rtt variance
 ---@param playerSrc string
 ---@return integer
 function GetPlayerPing(playerSrc) end
@@ -2615,7 +2863,7 @@ function GetResourceKvpString(key) end
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x964BAB1D)  
 ---Gets the metadata value at a specified key/index from a resource's manifest.---
----See also: [Resource manifest](https://docs.fivem.net/resources/manifest/)
+---See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
 ---@param resourceName string
 ---@param metadataKey string
 ---@param index integer
@@ -2847,6 +3095,13 @@ function GetTrackNodeCoords(trackIndex, trackNode) end
 function GetTrackNodeCount(trackIndex) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x456E34A)  
+---This native does not have an official description.
+---@param train integer
+---@return integer
+function GetTrainBackwardCarriage(train) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95070FA)  
 ---This native does not have an official description.
 ---@param train integer
@@ -2860,7 +3115,7 @@ function GetTrainCarriageEngine(train) end
 ---@return integer
 function GetTrainCarriageIndex(train) end
 
----**`CFX` `client`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA4921EF5)  
 ---Gets the trains desired speed.
 ---@param train integer
@@ -2874,7 +3129,7 @@ function GetTrainCruiseSpeed(train) end
 ---@return integer
 function GetTrainCurrentTrackNode(train) end
 
----**`CFX` `client`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8DAF79B6)  
 ---Gets the direction the train is facing
 ---@param train integer
@@ -2896,6 +3151,13 @@ function GetTrainDoorCount(train) end
 ---@return number
 function GetTrainDoorOpenRatio(train, doorIndex) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x24DC88D9)  
+---This native does not have an official description.
+---@param train integer
+---@return integer
+function GetTrainForwardCarriage(train) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x428668B7)  
 ---Gets the speed the train is currently going.
@@ -2903,12 +3165,19 @@ function GetTrainDoorOpenRatio(train, doorIndex) end
 ---@return number
 function GetTrainSpeed(train) end
 
----**`CFX` `client`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x81B50033)  
 ---This native does not have an official description.
 ---@param train integer
 ---@return integer
 function GetTrainState(train) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9AA339D)  
+---This native does not have an official description.
+---@param train integer
+---@return integer
+function GetTrainTrackIndex(train) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC62AAC98)  
@@ -3230,7 +3499,7 @@ function GetVehicleHomingLockonState(vehicle) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDEA49773)  
----This is a getter for the client-side native [`START_VEHICLE_HORN`](https://docs.fivem.net/natives/?\_0x9C8C6504B5B63D2C), which allows you to return the horn type of the vehicle.
+---This is a getter for the client-side native [`START_VEHICLE_HORN`](#\_0x9C8C6504B5B63D2C), which allows you to return the horn type of the vehicle.
 ---
 ---**Note**: This native only gets the hash value set with `START_VEHICLE_HORN`. If a wrong hash is passed into `START_VEHICLE_HORN`, it will return this wrong hash.
 ---
@@ -3675,9 +3944,16 @@ function GetVehicleXenonLightsCustomColor(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x16605B30)  
----A getter for [SET_VEHICLE_XMAS_SNOW_FACTOR](#\_80cc4c9e).
+---A getter for [SET_VEHICLE_XMAS_SNOW_FACTOR](#\_0x80CC4C9E).
 ---@return number
 function GetVehicleXmasSnowFactor() end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x15346B4D)  
+---A getter for [SET_VISUAL_SETTING_FLOAT](#\_0xD1D31681).
+---@param name string
+---@return number
+function GetVisualSettingFloat(name) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x14088095)  
@@ -3793,6 +4069,13 @@ function GetWaveQuadCount() end
 ---@param waveQuad integer
 ---@return boolean, number, number
 function GetWaveQuadDirection(waveQuad) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5343721)  
+---A getter for the accuracy spread of a weapon.
+---@param weaponHash integer | string
+---@return number
+function GetWeaponAccuracySpread(weaponHash) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x63ED2E7)  
@@ -3955,6 +4238,42 @@ function IsBoatAnchoredAndFrozen(vehicle) end
 ---@param vehicle integer
 ---@return boolean
 function IsBoatWrecked(vehicle) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x36366EC3)  
+---Gets if the specified `rawKeyIndex` is pressed down, even if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014).
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function IsDisabledRawKeyDown(rawKeyIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1F7CBBAA)  
+---Gets if the specified `rawKeyIndex` is pressed, even if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014).
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function IsDisabledRawKeyPressed(rawKeyIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x72B66C09)  
+---Gets if the specified `rawKeyIndex` was released, even if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014).
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function IsDisabledRawKeyReleased(rawKeyIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2C033875)  
+---Gets if the specified `rawKeyIndex` is up, even if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014).
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param rawKeyIndex integer
+---@return boolean
+function IsDisabledRawKeyUp(rawKeyIndex) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7AAC3B4C)  
@@ -4147,7 +4466,9 @@ function IsPrincipalAceAllowed(principal, object) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD95A7387)  
----Can be used to get state of raw key on keyboard.
+---Gets if the specified `rawKeyIndex` is pressed down on the keyboard.
+---
+---This will not be triggered if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014)
 ---
 ---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
 ---@param rawKeyIndex integer
@@ -4156,7 +4477,9 @@ function IsRawKeyDown(rawKeyIndex) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x69F7C29E)  
----Can be used to get state of raw key on keyboard.
+---Gets if the specified `rawKeyIndex` is pressed on the keyboard.
+---
+---This will not be triggered if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014)
 ---
 ---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
 ---@param rawKeyIndex integer
@@ -4165,7 +4488,9 @@ function IsRawKeyPressed(rawKeyIndex) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEAA50861)  
----Can be used to get release state of raw key on keyboard.
+---Gets if the specified `rawKeyIndex` was just released on the keyboard.
+---
+---This will not be triggered if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014)
 ---
 ---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
 ---@param rawKeyIndex integer
@@ -4174,7 +4499,9 @@ function IsRawKeyReleased(rawKeyIndex) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x36F4E505)  
----Can be used to get state of raw key on keyboard.
+---Gets if the specified `rawKeyIndex` is up  on the keyboard.
+---
+---This will not be triggered if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014)
 ---
 ---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
 ---@param rawKeyIndex integer
@@ -4192,17 +4519,24 @@ function IsStreamingFileReady(registerAs) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x31E695CB)  
----Getter for [SET_TRACK_ENABLED](?\_0x4b41e84c)
+---Getter for [SET_TRACK_ENABLED](#\_0x4B41E84C)
 ---@param track integer
 ---@return boolean
 function IsTrackEnabled(track) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE0C53765)  
----Getter for [SWITCH_TRAIN_TRACK](?\_0xFD813BB7DB977F20). Determines if ambient trains are able to spawn on this track.
+---Getter for [SWITCH_TRAIN_TRACK](#\_0xFD813BB7DB977F20). Determines if ambient trains are able to spawn on this track.
 ---@param track integer
 ---@return boolean
 function IsTrackSwitchedOff(track) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFA9336E5)  
+---This native does not have an official description.
+---@param train integer
+---@return boolean
+function IsTrainCaboose(train) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDC921211)  
@@ -4270,9 +4604,17 @@ function IsVehicleTyreBurst(vehicle, wheelID, completely) end
 ---@return boolean
 function IsVehicleWanted(vehicle) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCF1BC668)  
+---Getter for [BREAK_OFF_VEHICLE_WHEEL](?\_0xA274CADB).
+---@param vehicle integer
+---@param wheelIndex integer
+---@return boolean
+function IsVehicleWheelBrokenOff(vehicle, wheelIndex) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAC4EF23D)  
----See the client-side [IS_VEHICLE_WINDOW_INTACT](https://docs.fivem.net/natives/?\_0x46E571A0E20D01F1) for a window indexes list.
+---See the client-side [IS_VEHICLE_WINDOW_INTACT](#\_0x46E571A0E20D01F1) for a window indexes list.
 ---@param vehicle integer
 ---@param windowIndex integer
 ---@return boolean
@@ -4614,6 +4956,21 @@ function OverridePedsUseDefaultDriveByClipset(flag) end
 function OverridePopGroups(path) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3F3EB3F7)  
+---Setting the state to true and a value between 0 and 2 will cause pedestrian vehicles to react accordingly to sirens.
+---
+---```cpp
+---enum Reactions {---
+---    Left = 0,---
+---    Right = 1,---
+---    Stop = 2---
+---}
+---```
+---@param state boolean
+---@param reaction integer
+function OverrideReactionToVehicleSiren(state, reaction) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7FA03E76)  
 ---Overrides whether or not peds can stand on top of the specified vehicle.
 ---
@@ -4732,6 +5089,22 @@ function RegisterNuiCallback(callbackType, callback) end
 function RegisterNuiCallbackType(callbackType) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x49C1F6DC)  
+---Registers a keymap that will be triggered whenever `rawKeyIndex` is pressed or released.
+---
+---`onKeyUp` and `onKeyDown` will not provide any arguments.
+---
+---```ts
+---function onStateChange();
+---```
+---@param keymapName string
+---@param onKeyDown function
+---@param onKeyUp function
+---@param rawKeyIndex integer
+---@param canBeDisabled boolean
+function RegisterRawKeymap(keymapName, onKeyDown, onKeyUp, rawKeyIndex, canBeDisabled) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA8AE9C2F)  
 ---This native does not have an official description.
 ---@param callbackType string
@@ -4776,7 +5149,7 @@ function RegisterResourceBuildTaskFactory(factoryId, factoryFn) end
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF213AE8D)  
 ---Registers a custom rope data with the game. For guidance on what these values should be use common:/data/ropedata.xml as a reference.---
----Returns a rope type which can be passed into [ADD_ROPE](?\_0xE832D760399EB220) to use a custom rope design.---
+---Returns a rope type which can be passed into [ADD_ROPE](#\_0xE832D760399EB220) to use a custom rope design.---
 ---Once a rope data is registered it can be used indefinitely and you should take caution not too register too many as to exceed the games limit.
 ---@param numSections integer
 ---@param radius number
@@ -4833,6 +5206,15 @@ function RegisterStreamingFileFromUrl(registerAs, url) end
 ---@return integer
 function RegisterTrackJunction(trackIndex, trackNode, newIndex, newNode, direction) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x6E38C1B9)  
+---Remaps the keymap bound to `keymapName` to `newRawKeyIndex`
+---
+---Virtual key codes can be found [here](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
+---@param keymapName string
+---@param newRawKeyIndex integer
+function RemapRawKeymap(keymapName, newRawKeyIndex) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA44CE817)  
 ---Parameter `p1` does not seem to be used or referenced in game binaries.\
@@ -4866,6 +5248,12 @@ function RemoveConvarChangeListener(cookie) end
 function RemoveDryVolume(handle) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE0ED5FB)  
+---Removes health config.
+---@param configName string
+function RemoveHealthConfig(configName) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA896B20A)  
 ---Experimental natives, please do not use in a live environment.
 ---@param origTxd string
@@ -4879,6 +5267,20 @@ function RemoveReplaceTexture(origTxd, origTxn) end
 ---Removes a handler for changes to a state bag.
 ---@param cookie integer
 function RemoveStateBagChangeHandler(cookie) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1582C7F2)  
+---Removes the specified texture and remove it from the ped.---
+---Unlike `0x6BEFAA907B076859` which only marks the texture as "can be reused" (and keeps it until will be reused), this function deletes it right away. Can fix some sync issues. `DOES_TEXTURE_EXIST` can be use to wait until fully unloaded by game
+---
+---```lua
+---RemoveTexture(textureId)---
+---while DoesTextureExist(textureId) do ---
+---    Wait(0)---
+---end
+---```
+---@param textureId integer
+function RemoveTexture(textureId) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x36DF8612)  
@@ -4953,6 +5355,11 @@ function RequestPlayerCommerceSession(playerSrc, skuId) end
 ---@param setName string
 ---@return boolean
 function RequestResourceFileSet(setName) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8EB6EC38)  
+---This function undoes changes made by [`SET_ENTITY_DRAW_OUTLINE_RENDER_TECHNIQUE`](#\_0x68DFF2DD), restoring the original outline rendering behavior. The default render technique group is `unlit`.
+function ResetEntityDrawOutlineRenderTechnique() end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6D712937)  
@@ -5351,6 +5758,63 @@ function SetEntityDrawOutline(entity, enabled) end
 function SetEntityDrawOutlineColor(red, green, blue, alpha) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x68DFF2DD)  
+---Sets the render technique for drawing an entity's outline. This function allows you to specify a technique group name to control how the entity's outline is rendered in the game.
+---
+---List of known technique group's:
+---
+---```
+---alt0---
+---alt1---
+---alt2---
+---alt3---
+---alt4---
+---alt5---
+---alt6---
+---alt7---
+---alt8---
+---blit---
+---cube---
+---default---
+---geometry---
+---imposter---
+---imposterdeferred---
+---lightweight0---
+---lightweight0CutOut---
+---lightweight0CutOutTint---
+---lightweight0WaterRefractionAlpha---
+---lightweight4---
+---lightweight4CutOut---
+---lightweight4CutOutTint---
+---lightweight4WaterRefractionAlpha---
+---lightweight8---
+---lightweight8CutOut---
+---lightweight8CutOutTint---
+---lightweight8WaterRefractionAlpha---
+---lightweightHighQuality0---
+---lightweightHighQuality0CutOut---
+---lightweightHighQuality0WaterRefractionAlpha---
+---lightweightHighQuality4---
+---lightweightHighQuality4CutOut---
+---lightweightHighQuality4WaterRefractionAlpha---
+---lightweightHighQuality8---
+---lightweightHighQuality8CutOut---
+---lightweightHighQuality8WaterRefractionAlpha---
+---lightweightNoCapsule4---
+---lightweightNoCapsule8---
+---multilight---
+---tessellate---
+---ui---
+---unlit---
+---waterreflection---
+---waterreflectionalphaclip---
+---waterreflectionalphacliptint---
+---wdcascade
+---```
+---@param techniqueGroup string
+function SetEntityDrawOutlineRenderTechnique(techniqueGroup) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5261A01A)  
 ---Sets variant of shader that will be used to draw entity outline.
 ---
@@ -5413,12 +5877,23 @@ function SetEntityMatrix(entity, forwardX, forwardY, forwardZ, rightX, rightY, r
 ---}
 ---```
 ---
----Sets what happens when the entity is orphaned and no longer has its original owner.
+---Sets what the server will do when the entity no longer has its original owner. By default the server will cleanup entities that it considers "no longer relevant".
 ---
----**NOTE**: This native doesn't guarantee the persistence of the entity.
+---When used on trains, this native will recursively call onto all attached carriages.
+---
+---**NOTE**: When used with `KeepEntity` (2) this native only guarantees that the ***server*** will not delete the entity, client requests to delete the entity will still work perfectly fine.
 ---@param entity integer
 ---@param orphanMode integer
 function SetEntityOrphanMode(entity, orphanMode) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD3FC9D88)  
+---Enables or disables the owner check for the specified entity in network-synchronized scenes. When set to `false`, the entity cannot participate in synced scenes initiated by clients that do not own the entity.
+---
+---By default, this is `false` for all entities, meaning only the entity's owner can include it in networked synchronized scenes.
+---@param entity integer
+---@param allow boolean
+function SetEntityRemoteSyncedScenesAllowed(entity, allow) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA345EFE)  
@@ -5474,6 +5949,12 @@ function SetFlashLightKeepOnWhileMoving(state) end
 ---@param minDamage number
 ---@return boolean
 function SetFlyThroughWindscreenParams(vehMinSpeed, unkMinSpeed, unkModifier, minDamage) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFBC64DA3)  
+---This completely disables rendering of fog volumes (vfxfogvolumeinfo.ymt).
+---@param state boolean
+function SetFogVolumeRenderDisabled(state) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x845F3E5C)  
@@ -5543,6 +6024,83 @@ function SetHandlingInt(vehicle, class_, fieldName, value) end
 ---@param fieldName string
 ---@param value vector3
 function SetHandlingVector(vehicle, class_, fieldName, value) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x20A1E6A2)  
+---Sets default armor value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigDefaultArmor(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x60F20B81)  
+---Sets default endurance value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigDefaultEndurance(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC705C778)  
+---Sets default health value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigDefaultHealth(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9A995E96)  
+---Sets default dog takedown threshold value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigDogTakedownThreshold(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9B00FD77)  
+---Sets default dying health threshold value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigDyingThreshold(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC58953FD)  
+---Sets default fatigued health threshold value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigFatiguedThreshold(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x98DF1A83)  
+---Sets default hurt health threshold value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigHurtThreshold(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF9D9B647)  
+---Sets default injured health threshold value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigInjuredThreshold(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4A9EEDE6)  
+---Sets default invincible value for specific health config.
+---@param configName string
+---@param newValue boolean
+function SetHealthConfigInvincible(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDD443E53)  
+---Sets default melee cardinal fatal attack value for specific health config.
+---@param configName string
+---@param newValue boolean
+function SetHealthConfigMeleeFatalAttack(configName, newValue) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE97633CB)  
+---Sets default writhe from bullet threshold value for specific health config.
+---@param configName string
+---@param newValue number
+function SetHealthConfigWritheFromBulletThreshold(configName, newValue) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF5C6330C)  
@@ -5888,7 +6446,7 @@ function SetPedCollectionPreloadPropData(ped, anchorPoint, collection, propIndex
 ---
 ---The local / collection relative indexing is useful because the global index may get shifted after Title Update. While local index will remain the same which simplifies migration to the newer game version.
 ---
----Collection name and local index inside the collection can be obtained from the global index using [GET_PED_COLLECTION_NAME_FROM_DRAWABLE](#\_0x5C612867) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_DRAWABLE](#\_0x94EB1FE4) natives.
+---Collection name and local index inside the collection can be obtained from the global index using [GET_PED_COLLECTION_NAME_FROM_DRAWABLE](#\_0xD6BBA48B) and [GET_PED_COLLECTION_LOCAL_INDEX_FROM_DRAWABLE](#\_0x94EB1FE4) natives.
 ---@param ped integer
 ---@param componentId integer
 ---@param collection string
@@ -6548,7 +7106,7 @@ SetPedHairColor = SetPedHairTint
 ---IDs start at zero and go Male Non-DLC, Female Non-DLC, Male DLC, and Female DLC.</br>---
 ---This native function is often called prior to calling natives such as:
 ---
----*   [`SetPedHairColor`](#\_0xBB43F090)
+---*   [`SetPedHairColor`](#\_0xA23FE32C)
 ---*   [`SetPedHeadOverlayColor`](#\_0x78935A27)
 ---*   [`SetPedHeadOverlay`](#\_0xD28DBA90)
 ---*   [`SetPedFaceFeature`](#\_0x6C8D4458)
@@ -6634,6 +7192,14 @@ function SetPedIntoVehicle(ped, vehicle, seatIndex) end
 ---@param secondaryCount integer
 ---@param populationPedCount integer
 function SetPedMeleeCombatLimits(primaryCount, secondaryCount, populationPedCount) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xAF12A05D)  
+---Sets a ped model's health config.---
+---Takes effect only after setting player model with `SET_PLAYER_MODEL`.
+---@param modelHash integer | string
+---@param configName string
+function SetPedModelHealthConfig(modelHash, configName) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x46F6B38B)  
@@ -6725,16 +7291,28 @@ function SetPedResetFlag(ped, flagId, doReset) end
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PED_TO_RAGDOLL](?\_0xAE99FB955581844A).**
 ---@param ped integer
----@param time1 integer
----@param time2 integer
+---@param minTime integer
+---@param maxTime integer
 ---@param ragdollType integer
----@param p4 boolean
----@param p5 boolean
----@param p6 boolean
-function SetPedToRagdoll(ped, time1, time2, ragdollType, p4, p5, p6) end
+---@param bAbortIfInjured boolean
+---@param bAbortIfDead boolean
+---@param bForceScriptControl boolean
+function SetPedToRagdoll(ped, minTime, maxTime, ragdollType, bAbortIfInjured, bAbortIfDead, bForceScriptControl) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFA12E286)  
+---```cpp
+---enum eNMFallType {---
+---TYPE_FROM_HIGH = 0,---
+---TYPE_OVER_WALL = 1,---
+---TYPE_DOWN_STAIRS = 2,---
+---TYPE_DIE_TYPES = 3,---
+---TYPE_DIE_FROM_HIGH = 4,---
+---TYPE_DIE_OVER_WALL = 5,---
+---TYPE_DIE_DOWN_STAIRS = 6---
+---}
+---```
+---
 ---```
 ---Return variable is never used in R*'s scripts.---
 ---Not sure what p2 does. It seems like it would be a time judging by it's usage in R*'s scripts, but didn't seem to affect anything in my testings.---
@@ -6747,20 +7325,20 @@ function SetPedToRagdoll(ped, time1, time2, ragdollType, p4, p5, p6) end
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_PED_TO_RAGDOLL_WITH_FALL](?\_0xD76632D99E4966C8).**
 ---@param ped integer
----@param time integer
----@param p2 integer
----@param ragdollType integer
----@param x number
----@param y number
----@param z number
----@param p7 number
----@param p8 number
----@param p9 number
----@param p10 number
----@param p11 number
----@param p12 number
----@param p13 number
-function SetPedToRagdollWithFall(ped, time, p2, ragdollType, x, y, z, p7, p8, p9, p10, p11, p12, p13) end
+---@param minTime integer
+---@param maxTime integer
+---@param nFallType integer
+---@param dirX number
+---@param dirY number
+---@param dirZ number
+---@param fGroundHeight number
+---@param grab1X number
+---@param grab1Y number
+---@param grab1Z number
+---@param grab2X number
+---@param grab2Y number
+---@param grab2Z number
+function SetPedToRagdollWithFall(ped, minTime, maxTime, nFallType, dirX, dirY, dirZ, fGroundHeight, grab1X, grab1Y, grab1Z, grab2X, grab2Y, grab2Z) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB300F03)  
@@ -6892,6 +7470,12 @@ function SetPlayerTalkingOverride(player, state) end
 ---@param delayedResponse boolean
 function SetPlayerWantedLevel(player, wantedLevel, delayedResponse) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB90BBC6E)  
+---This completely disables pedestrian vehicles from reacting to sirens. They will not try to do any maneuver to evade.
+---@param state boolean
+function SetReactionToVehicleWithSirenDisabled(state) end
+
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x21C7A35B)  
 ---A setter for [GET_RESOURCE_KVP_STRING](#\_0x5240DA5A).
@@ -6906,7 +7490,7 @@ function SetResourceKvp(key, value) end
 ---@param value number
 function SetResourceKvpFloat(key, value) end
 
----**`CFX` `server`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3517BFBE)  
 ---Nonsynchronous [SET_RESOURCE_KVP_FLOAT](#\_0x9ADD2938) operation; see [FLUSH_RESOURCE_KVP](#\_0x5240DA5A).
 ---@param key string
@@ -6920,14 +7504,14 @@ function SetResourceKvpFloatNoSync(key, value) end
 ---@param value integer
 function SetResourceKvpInt(key, value) end
 
----**`CFX` `server`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x26AEB707)  
 ---Nonsynchronous [SET_RESOURCE_KVP_INT](#\_0x6A2B1E8) operation; see [FLUSH_RESOURCE_KVP](#\_0x5240DA5A).
 ---@param key string
 ---@param value integer
 function SetResourceKvpIntNoSync(key, value) end
 
----**`CFX` `server`**  
+---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF9A2FF)  
 ---Nonsynchronous [SET_RESOURCE_KVP](#\_0x21C7A35B) operation; see [FLUSH_RESOURCE_KVP](#\_0x5240DA5A).
 ---@param key string
@@ -7723,6 +8307,13 @@ function SetWaveQuadBounds(waveQuad, minX, minY, maxX, maxY) end
 function SetWaveQuadDirection(waveQuad, directionX, directionY) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x598DD6AE)  
+---A setter for the accuracy spread of a weapon.
+---@param weaponHash integer | string
+---@param spread number
+function SetWeaponAccuracySpread(weaponHash, spread) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9864312F)  
 ---A setter for the recoil shake amplitude of a weapon.
 ---@param weaponHash integer | string
@@ -7764,6 +8355,13 @@ function SetWeatherCycleEntry(index, typeName, timeMult) end
 ---To be able to use [\_SET_WEATHER_TYPE_TRANSITION](#\_0x578C752848ECFA0C), this has to be set to false.
 ---@param network boolean
 function SetWeatherOwnedByNetwork(network) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF1BD2CEF)  
+---Modifies the radius scale used in the simulation of wet cloth physics.---
+---This affects how cloth behaves when wet, changing how it sticks or reacts to movement.
+---@param scale number
+function SetWetClothPinRadiusScale(scale) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB9234AFB)  

@@ -1,7 +1,7 @@
 ---@meta
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x7D6F58F69DA92530)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x7D6F58F69DA92530)  
 ---https://github.com/femga/rdr3_discoveries/tree/master/graphics/explosions
 ---
 ---explosionType:
@@ -56,10 +56,9 @@
 function AddExplosion(x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake) end
 
 ---**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB7DF150605EEDC9B)  
----Adds an explosion with entity as damage causer.
----explosionType: see ADD_EXPLOSION
----_A* - _ADD_D*
+---[Native Documentation](https://rdr3natives.com/?_0xB7DF150605EEDC9B)  
+---Add explosion with and assign an entity as damage causer.
+---explosionType: https://github.com/femga/rdr3_discoveries/blob/master/graphics/explosions/README.md
 ---@param entity integer
 ---@param p1 integer
 ---@param x number
@@ -72,11 +71,10 @@ function AddExplosion(x, y, z, explosionType, damageScale, isAudible, isInvisibl
 ---@param cameraShake number
 function AddExplosionWithDamageCauser(entity, p1, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x53BA259F3A67A99E)  
----Changes explosionFx (Visual Effect) for specified explosionType
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x53BA259F3A67A99E)  
 ---explosionType: see ADD_EXPLOSION
----explosionFx: https://github.com/femga/rdr3_discoveries/blob/master/graphics/explosions/explosion_vfxTags.lua
+---Change explosionFx (Visual Effect) for specified explosionType
 ---@param x number
 ---@param y number
 ---@param z number
@@ -89,10 +87,10 @@ function AddExplosionWithDamageCauser(entity, p1, x, y, z, explosionType, damage
 function AddExplosionWithUserVfx(x, y, z, explosionType, explosionFx, damageScale, isAudible, isInvisible, cameraShake) end
 
 ---**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x34AE85C7CA4857AA)  
----Adds an explosion with vfx and entity as damage causer.
----explosionFx: see ADD_EXPLOSION_WITH_USER_VFX
----_A* - _ADD_D*
+---[Native Documentation](https://rdr3natives.com/?_0x34AE85C7CA4857AA)  
+---Add explosion with vfx and assign an entity as damage causer.
+---explosionType: https://github.com/femga/rdr3_discoveries/blob/master/graphics/explosions/README.md
+---explosionFx: https://github.com/femga/rdr3_discoveries/blob/master/graphics/explosions/explosion_vfxTags.lua
 ---@param entity integer
 ---@param p1 boolean
 ---@param x number
@@ -106,8 +104,8 @@ function AddExplosionWithUserVfx(x, y, z, explosionType, explosionFx, damageScal
 ---@param cameraShake number
 function AddExplosionWithUserVfxAndDamageCauser(entity, p1, x, y, z, explosionType, explosionFx, damageScale, isAudible, isInvisible, cameraShake) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD84A917A64D4D016)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD84A917A64D4D016)  
 ---explosionType: see ADD_EXPLOSION
 ---@param ped integer
 ---@param x number
@@ -120,8 +118,8 @@ function AddExplosionWithUserVfxAndDamageCauser(entity, p1, x, y, z, explosionTy
 ---@param cameraShake number
 function AddOwnedExplosion(ped, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB646FB657F448261)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB646FB657F448261)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -130,7 +128,7 @@ function AddOwnedExplosion(ped, x, y, z, explosionType, damageScale, isAudible, 
 function GetClosestFirePos(x, y, z) end
 
 ---**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x559FC1D310813031)  
+---[Native Documentation](https://rdr3natives.com/?_0x559FC1D310813031)  
 ---This native does not have an official description.
 ---@param posX number
 ---@param posY number
@@ -144,8 +142,8 @@ function GetClosestFirePos(x, y, z) end
 ---@return boolean, vector3
 function GetClosestFirePosInVolume(posX, posY, posZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xF9617BC6FAE61E08)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF9617BC6FAE61E08)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -154,8 +152,8 @@ function GetClosestFirePosInVolume(posX, posY, posZ, rotX, rotY, rotZ, scaleX, s
 ---@return integer
 function GetNumberOfFiresInRange(x, y, z, radius) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8002DDAB58594D78)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x8002DDAB58594D78)  
 ---explosionType: see ADD_EXPLOSION
 ---@param explosionType integer
 ---@param x1 number
@@ -168,29 +166,29 @@ function GetNumberOfFiresInRange(x, y, z, radius) end
 ---@return integer
 function GetOwnerOfExplosionInAngledArea(explosionType, x1, y1, z1, x2, y2, z2, radius) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xA4454592DCF7C992)  
----Returns true if entity is being damaged by fire, once damage caused to entity by fire (like burned appearance) has cleared over time, the native returns false.
----@param entity integer
----@return boolean
-function IsEntityBeingDamagedByFire(entity) end
-
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xCDC25355C0D65963)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xCDC25355C0D65963)  
 ---This native does not have an official description.
 ---@param entity integer
 ---@return boolean
 function IsEntityConsumedByFire(entity) end
 
 ---**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x1BD7C371CE257C3E)  
+---[Native Documentation](https://rdr3natives.com/?_0xA4454592DCF7C992)  
+---this natives only returns true if entity is damaged by fire , once damaged caused to entity by fire (like burned appearance) has cleared (they clear over time) then returns false
+---@param entity integer
+---@return boolean
+function IsEntityDamagedByFire(entity) end
+
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x1BD7C371CE257C3E)  
 ---This native does not have an official description.
 ---@param entity integer
 ---@return boolean
 function IsEntityOnFire(entity) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD96E82AEBFFAAFF0)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD96E82AEBFFAAFF0)  
 ---explosionType: see ADD_EXPLOSION
 ---@param explosionType integer
 ---@param x1 number
@@ -202,8 +200,8 @@ function IsEntityOnFire(entity) end
 ---@return boolean
 function IsExplosionActiveInArea(explosionType, x1, y1, z1, x2, y2, z2) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x5AE661ECD18524C9)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5AE661ECD18524C9)  
 ---explosionType: see ADD_EXPLOSION
 ---@param explosionType integer
 ---@param x1 number
@@ -216,8 +214,8 @@ function IsExplosionActiveInArea(explosionType, x1, y1, z1, x2, y2, z2) end
 ---@return boolean
 function IsExplosionInAngledArea(explosionType, x1, y1, z1, x2, y2, z2, angle) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8391BA4313A25AD3)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x8391BA4313A25AD3)  
 ---explosionType: see ADD_EXPLOSION
 ---@param explosionType integer
 ---@param x1 number
@@ -229,8 +227,8 @@ function IsExplosionInAngledArea(explosionType, x1, y1, z1, x2, y2, z2, angle) e
 ---@return boolean
 function IsExplosionInArea(explosionType, x1, y1, z1, x2, y2, z2) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xD62DD846D82CBB90)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD62DD846D82CBB90)  
 ---explosionType: see ADD_EXPLOSION
 ---@param explosionType integer
 ---@param x number
@@ -240,30 +238,30 @@ function IsExplosionInArea(explosionType, x1, y1, z1, x2, y2, z2) end
 ---@return boolean
 function IsExplosionInSphere(explosionType, x, y, z, radius) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xE24822A4CFC9107A)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xE24822A4CFC9107A)  
 ---explosionType: see ADD_EXPLOSION
 ---@param explosionType integer
 ---@param volume integer
 ---@return boolean
 function IsExplosionInVolume(explosionType, volume) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xAB7993BA61A4674F)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xAB7993BA61A4674F)  
 ---Tested with fire & dynamite. Only returns true using value p1 = 1 and when the ped is affected by fire.
 ---@param ped integer
 ---@param p1 integer
 ---@return boolean
 function IsPedShockingEventActive(ped, p1) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x24DB6B9F2B719043)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x24DB6B9F2B719043)  
 ---Only used in R* SP Related Camp Scripts
 ---@param p0 number
 function N_0x24db6b9f2b719043(p0) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x41B87A6495EE13DD)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x41B87A6495EE13DD)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -278,8 +276,8 @@ function N_0x24db6b9f2b719043(p0) end
 ---@return any
 function N_0x41b87a6495ee13dd(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x68F6A75FDF5A70D6)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x68F6A75FDF5A70D6)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number
@@ -287,20 +285,20 @@ function N_0x41b87a6495ee13dd(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) end
 ---@param p3 number
 function N_0x68f6a75fdf5a70d6(x, y, z, p3) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x754937C28271BC65)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x754937C28271BC65)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x754937c28271bc65(p0) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x790125C36E194069)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x790125C36E194069)  
 ---This native does not have an official description.
 ---@param fireHandle integer
 function RemoveScriptFire(fireHandle) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xC4DC7418A44D6822)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC4DC7418A44D6822)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
@@ -308,8 +306,8 @@ function RemoveScriptFire(fireHandle) end
 ---@param p3 any
 function StartEntityFire(p0, p1, p2, p3) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x6B83617E04503888)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x6B83617E04503888)  
 ---Starts a fire:
 ---
 ---xyz: Location of fire
@@ -327,15 +325,15 @@ function StartEntityFire(p0, p1, p2, p3) end
 ---@return integer
 function StartScriptFire(x, y, z, p3, p4, p5, soundsetName, p7, p8) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x8390751DC40C1E98)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x8390751DC40C1E98)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 function StopEntityFire(p0, p1) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xB7C7BDC375AEA9A4)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB7C7BDC375AEA9A4)  
 ---This native does not have an official description.
 ---@param posX number
 ---@param posY number
@@ -348,8 +346,8 @@ function StopEntityFire(p0, p1) end
 ---@param scaleZ number
 function StopFireInBox(posX, posY, posZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ) end
 
----**`FIRE` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDB38F247BD421708)  
+---**`FIRE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xDB38F247BD421708)  
 ---This native does not have an official description.
 ---@param x number
 ---@param y number

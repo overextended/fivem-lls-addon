@@ -1,14 +1,14 @@
 ---@meta
 
----**`LOCALIZATION` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x45D50415E4D885FF)  
+---**`LOCALIZATION` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x45D50415E4D885FF)  
 ---Returns true if the current language is american, french, german, italian, spanish, brazilian or mexican.
 ---_DOES_*
 ---@return boolean
 function DoesCurrentLanguageSupportCondensedStyle() end
 
----**`LOCALIZATION` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0xDB917DA5C6835FCC)  
+---**`LOCALIZATION` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xDB917DA5C6835FCC)  
 ---0 = american (en-US)
 ---1 = french (fr-FR)
 ---2 = german (de-DE)
@@ -25,8 +25,8 @@ function DoesCurrentLanguageSupportCondensedStyle() end
 ---@return integer
 function GetCurrentLanguage() end
 
----**`LOCALIZATION` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x76E30B799EBEEA0F)  
+---**`LOCALIZATION` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x76E30B799EBEEA0F)  
 ---0 = DATE_FORMAT_DMY
 ---1 = DATE_FORMAT_MDY
 ---2 = DATE_FORMAT_YMD
@@ -35,8 +35,8 @@ function GetCurrentLanguage() end
 ---@return integer
 function LocalizationGetSystemDateType() end
 
----**`LOCALIZATION` `client`**  
----[Native Documentation](https://alloc8or.re/rdr3/nativedb/?n=0x3C1A05F86AE6ACB5)  
+---**`LOCALIZATION` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x3C1A05F86AE6ACB5)  
 ---Same return values as GET_CURRENT_LANGUAGE
 ---@return integer
 function LocalizationGetSystemLanguage() end

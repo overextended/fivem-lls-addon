@@ -134,29 +134,30 @@ function CreateForcedObject(x, y, z, p3, modelHash, p5) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8A97BCA30A0CE478)  
----```
----p5 = sets as true in scripts  
----Same as the comment for CREATE_MODEL_SWAP unless for some reason p5 affects it this only works with objects as well.  
----Network players do not see changes done with this.  
----```
+---Hides all objects of the specified model intersecting a sphere centered at (x, y, z) with the given radius.
+---Network players do not see changes done with this.
+---Use [`CREATE_MODEL_HIDE_EXCLUDING_SCRIPT_OBJECTS`](#\_0x3A52AE588830BF7F) if you only want to hide map objects and exclude those created by scripts.
+---Use [`REMOVE_MODEL_HIDE`](#\_0xD9E3006FB3CBD765) to make hidden objects visible again.
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param radius number
 ---@param model integer | string
----@param p5 boolean
-function CreateModelHide(x, y, z, radius, model, p5) end
+---@param surviveMapReload boolean
+function CreateModelHide(x, y, z, radius, model, surviveMapReload) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3A52AE588830BF7F)  
----This native does not have an official description.
+---Hides all objects of the specified model intersecting a sphere centered at (x, y, z) with the given radius, excluding objects created by scripts.
+---Network players do not see changes done with this.
+---Use [`REMOVE_MODEL_HIDE`](#\_0xD9E3006FB3CBD765) to make hidden objects visible again.
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param radius number
 ---@param model integer | string
----@param p5 boolean
-function CreateModelHideExcludingScriptObjects(x, y, z, radius, model, p5) end
+---@param surviveMapReload boolean
+function CreateModelHideExcludingScriptObjects(x, y, z, radius, model, surviveMapReload) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x92C47782FDA8B2A3)  
@@ -1372,16 +1373,17 @@ function RemoveForcedObject(p0, p1, p2, p3, p4) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD9E3006FB3CBD765)  
----p5 requires more research. See also [`CREATE_MODEL_HIDE`](#\_0x8A97BCA30A0CE478) and [`CREATE_MODEL_SWAP`](#\_0x92C47782FDA8B2A3).
+---Makes all objects of the specified model that were hidden using [`CREATE_MODEL_HIDE`](#\_0x8A97BCA30A0CE478) or [`CREATE_MODEL_HIDE_EXCLUDING_SCRIPT_OBJECTS`](#\_0x3A52AE588830BF7F) visible again.
 ---
----Network players do not see changes done with this.
+---If lazy is false, all matching objects currently in scope are restored immediately.
+---If lazy is true, objects will only reappear when their map is reloaded.
 ---@param x number
 ---@param y number
 ---@param z number
 ---@param radius number
 ---@param model integer | string
----@param p5 boolean
-function RemoveModelHide(x, y, z, radius, model, p5) end
+---@param lazy boolean
+function RemoveModelHide(x, y, z, radius, model, lazy) end
 
 ---**`ENTITY` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x033C0F9A64E229AE)  

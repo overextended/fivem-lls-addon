@@ -212,12 +212,34 @@ function AddTextComponentSubstringTextLabelHashKey(gxtEntryHash) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1115F16B8AB9E8BF)  
----```
----Adds a timer (e.g. "00:00:00:000"). The appearance of the timer depends on the flags, which needs more research.  
+---Takes a time in milliseconds and converts it to a string. Use `~a~` to mark the position in your line of text where you want this substring inserted.
+---
+---```cpp
+---enum eTimeFormat {
+---    TEXT_FORMAT_MILLISECONDS = 1,
+---    TEXT_FORMAT_SECONDS = 2,
+---    TEXT_FORMAT_MINUTES = 4,
+---    TEXT_FORMAT_HOURS = 8,
+---    TEXT_FORMAT_DAYS = 16,
+---    // e.g. show 12:20 not 00:12:20
+---    TEXT_FORMAT_HIDE_LEADING_UNITS_EQUAL_TO_ZERO = 32,
+---    // e.g. show 1:14 not 01:14
+---    TEXT_FORMAT_HIDE_LEADING_ZEROS_ON_LEADING_UNITS = 64,
+---    // e.g. show 3m24s not 3:24
+---    TEXT_FORMAT_SHOW_UNIT_DIVIDERS_AS_LETTERS = 128,
+---    // e.g. show 3m24 not 3m24s
+---    TEXT_FORMAT_HIDE_UNIT_LETTER_FOR_SMALLEST_UNITS = 256,
+---    // e.g. show 05:51 not 05:519
+---    TEXT_FORMAT_HIDE_MILLISECONDS_UNITS_DIGIT = 512,
+---    // e.g. show 05:5 not 05:519
+---    TEXT_FORMAT_HIDE_MILLISECONDS_TENS_DIGIT = 1024,
+---    // e.g. show 12.345 not 12:345
+---    TEXT_FORMAT_USE_DOT_FOR_MILLISECOND_DIVIDER = 2048
+---}
 ---```
 ---@param timestamp integer
----@param flags integer
-function AddTextComponentSubstringTime(timestamp, flags) end
+---@param format integer
+function AddTextComponentSubstringTime(timestamp, format) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x94CF4AC034C9C986)  
@@ -477,7 +499,7 @@ function ClearAdditionalText(p0, p1) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD12882D3FF82BF11)  
----Clears all active blip routes that have been set with [`SetBlipRoute`](#\_0x3E160C90).
+---Clears all active blip routes that have been set with [`SetBlipRoute`](#\_0x4F7D8A9BFB0B43E9).
 function ClearAllBlipRoutes() end
 
 ---**`HUD` `client`**  

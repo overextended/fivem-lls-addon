@@ -711,11 +711,12 @@ function FinalizeHeadBlend(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2208438012482A1A)  
----This native does not have an official description.
+---Forces an instant ped AI and Animation update. Use this if your transitions between animations (especially secondary upper body animations) are janky or not smooth.
+---Do note this is an expensive function.
 ---@param ped integer
----@param p1 boolean
----@param p2 boolean
-function ForcePedAiAndAnimationUpdate(ped, p1, p2) end
+---@param forceAiPreCameraUpdate boolean
+---@param forceZeroTimestep boolean
+function ForcePedAiAndAnimationUpdate(ped, forceAiPreCameraUpdate, forceZeroTimestep) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF28965D04F570DCA)  
@@ -3694,7 +3695,7 @@ SetTimeExclusiveDisplayTexture = N_0xfd325494792302d7
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFEC9A3B1820F3331)  
----Native to check whether [`_SET_PED_SCUBA_GEAR_VARIATION`](#\_0x36c6984c3ed0c911) is enabled/actived.
+---Native to check whether [`_SET_PED_SCUBA_GEAR_VARIATION`](#\_0x36C6984C3ED0C911) is enabled/actived.
 ---@param ped integer
 ---@return boolean
 function N_0xfec9a3b1820f3331(ped) end
@@ -5823,7 +5824,7 @@ SetPedHairColor = SetPedHairTint
 ---
 ---This native function is often called prior to calling natives such as:
 ---
----*   [`SetPedHairColor`](#\_0xBB43F090)
+---*   [`SetPedHairColor`](#\_0xA23FE32C)
 ---*   [`SetPedHeadOverlayColor`](#\_0x78935A27)
 ---*   [`SetPedHeadOverlay`](#\_0xD28DBA90)
 ---*   [`SetPedFaceFeature`](#\_0x6C8D4458)

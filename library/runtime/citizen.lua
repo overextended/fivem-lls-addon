@@ -4,7 +4,9 @@ Citizen = {}
 
 ---Creates a coroutine to handle code asynchronously. The coroutine will be executed on the next tick.
 ---@param threadFunction fun(threadId?: integer) The function to run in the coroutine. ``threadId`` is the id of the thread.
+---@return integer clearId Used to clear the coroutine before it gets executed.
 ---@see Citizen.CreateThreadNow if you want to execute the coroutine immediately.
+---@see Citizen.ClearTimeout if you want to clear the coroutine before it gets executed.
 function Citizen.CreateThread(threadFunction) end
 
 CreateThread = Citizen.CreateThread
@@ -18,9 +20,18 @@ function Citizen.CreateThreadNow(threadFunction) end
 ---Executes a coroutine after the given time has passed in milliseconds.
 ---@param msec number The time in milliseconds after which the callback should be executed.
 ---@param callback fun(threadId?: integer) The callback function to execute after the timeout in a new coroutine. The threadId is the id of the thread.
+---@return integer clearId Used to clear the coroutine before it gets executed.
+---@see Citizen.ClearTimeout if you want to clear the coroutine before it gets executed.
 function Citizen.SetTimeout(msec, callback) end
 
 SetTimeout = Citizen.SetTimeout
+
+---Cancels a coroutine before it gets executed.
+---@param id integer The time in milliseconds after which the callback should be executed.
+---@return boolean removed Returns true if the coroutine was cancelled.
+function Citizen.ClearTimeout(id) end
+
+ClearTimeout = Citizen.ClearTimeout
 
 ---Yields a coroutine, pausing execution for the given time in milliseconds
 ---@param msec number The number of milliseconds to wait.

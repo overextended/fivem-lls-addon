@@ -180,6 +180,15 @@ function GetAchievementProgress(achievement) end
 GetAchievementProgression = GetAchievementProgress
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7C814D2FB49F40C0)  
+---This native does not have an official description.
+---@return boolean
+function GetAreCameraControlsDisabled() end
+
+---@deprecated
+IsPlayerCamControlDisabled = GetAreCameraControlsDisabled
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9A41CF4674A12272)  
 ---This native does not have an official description.
 ---@return integer
@@ -276,22 +285,9 @@ function GetPlayerIndex() end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB721981B2B939E07)  
----```
----Returns the Player's Invincible status.  
----This function will always return false if 0x733A643B5B0C53C1 is used to set the invincibility status. To always get the correct result, use this:  
----	bool IsPlayerInvincible(Player player)  
----	{  
----auto addr = getScriptHandleBaseAddress(GET_PLAYER_PED(player));	  
----if (addr)  
----{  
----	DWORD flag = *(DWORD *)(addr + 0x188);  
----	return ((flag & (1 << 8)) != 0) || ((flag & (1 << 9)) != 0);  
----}  
----return false;  
----	}  
----============================================================  
----This has bothered me for too long, whoever may come across this, where did anyone ever come up with this made up hash? 0x733A643B5B0C53C1 I've looked all over old hash list, and this nativedb I can not find that PC hash anywhere. What native name is it now or was it?  
----```
+---This native will only return true if a player was made invincible with [`SET_PLAYER_INVINCIBLE`](#\_0x239528EACDC3E7DE).
+---
+---You should use [`GET_PLAYER_INVINCIBLE_2`](#\_0xF2E3912B) to get both [`SET_PLAYER_INVINCIBLE`](#\_0x239528EACDC3E7DE) and [`SET_PLAYER_INVINCIBLE_KEEP_RAGDOLL_ENABLED`](#\_0x6BC97F4F4BB3C04B) invincibility state.
 ---@param player integer
 ---@return boolean
 function GetPlayerInvincible(player) end
@@ -360,6 +356,8 @@ function GetPlayerParachuteTintIndex(player) end
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x43A66C31C68491C0)  
 ---Gets the ped for a specified player index.
+---
+---Note: For performance reasons, usage of [`PLAYER_PED_ID`](#\_0xD80958FC74E988A6) is recommended over the use of `GetPlayerPed(-1)` when wanting to acquire your local player ped. For more information, please refer to [this](https://forum.cfx.re/t/question-difference-between-getplayerped-1-and-playerpedid/539437/2) forum post.
 ---@param playerId integer
 ---@return integer
 function GetPlayerPed(playerId) end
@@ -673,15 +671,6 @@ function IsPlayerBeingArrested(player, atArresting) end
 ---@param player integer
 ---@return boolean
 function IsPlayerBluetoothEnable(player) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x7C814D2FB49F40C0)  
----```
----Returns true when the player is not able to control the cam i.e. when running a benchmark test, switching the player or viewing a cutscene.  
----Note: I am not 100% sure if the native actually checks if the cam control is disabled but it seems promising.  
----```
----@return boolean
-function IsPlayerCamControlDisabled() end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x95E8F73DC65EFB9C)  

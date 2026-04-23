@@ -350,9 +350,9 @@ function EnableCrosshairThisFrame() end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA41BCD7213805AAC)  
----This native does not have an official description.
----@param p0 boolean
-function ForceCinematicRenderingThisUpdate(p0) end
+---Forces the camera to be in cinematic mode while the player is in a car. This has to be called every frame, e.g. in a `Wait(0)` loop.
+---@param enable boolean
+function ForceCinematicRenderingThisUpdate(enable) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x19CAFA3C87F7C2FF)  
@@ -706,6 +706,11 @@ function HardAttachCamToPedBone(cam, ped, boneIndex, xRot, yRot, zRot, xOffset, 
 AttachCamToPedBone_2 = HardAttachCamToPedBone
 
 ---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7B8A361C1813FBEF)  
+---This native does not have an official description.
+function IgnoreMenuPreferenceForBonnetCameraThisUpdate() end
+
+---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDDA77EE33C005AAF)  
 ---Interpolates the camera to specified parameters over a set duration using various curve types for position, rotation, and fov.
 ---
@@ -750,6 +755,12 @@ function IsAimCamActive() end
 ---```
 ---@return boolean
 function IsAimCamThirdPersonActive() end
+
+---**`CAM` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEAF0FA793D05C592)  
+---This native does not have an official description.
+---@return boolean
+function IsAllowedIndependentCameraModes() end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD7360051C885628B)  
@@ -1108,11 +1119,6 @@ function N_0x705a276ebff3133d() end
 function N_0x7295c203dd659dfe() end
 
 ---**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x7B8A361C1813FBEF)  
----This native does not have an official description.
-function N_0x7b8a361c1813fbef() end
-
----**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x91EF6EE6419E5B97)  
 ---This native does not have an official description.
 ---@param p0 boolean
@@ -1216,12 +1222,6 @@ function N_0xdd79df9f4d26e1c9() end
 ---@param p0 any
 ---@param p1 number
 function N_0xe111a7c0d200cbc5(p0, p1) end
-
----**`CAM` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xEAF0FA793D05C592)  
----This native does not have an official description.
----@return any
-function N_0xeaf0fa793d05c592() end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF55E4046F6F831DC)  
@@ -2108,49 +2108,112 @@ function SetWidescreenBorders(p0, p1) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6A25241C340D3822)  
----```
----Possible shake types (updated b617d):  
----DEATH_FAIL_IN_EFFECT_SHAKE  
----DRUNK_SHAKE  
----FAMILY5_DRUG_TRIP_SHAKE  
----HAND_SHAKE  
----JOLT_SHAKE  
----LARGE_EXPLOSION_SHAKE  
----MEDIUM_EXPLOSION_SHAKE  
----SMALL_EXPLOSION_SHAKE  
----ROAD_VIBRATION_SHAKE  
----SKY_DIVING_SHAKE  
----VIBRATE_SHAKE  
----```
+---See [`SHAKE_GAMEPLAY_CAM`](#\_0xFD55E49555E017CF) for a full list of camera shakes.
 ---@param cam integer
----@param type string
----@param amplitude number
-function ShakeCam(cam, type, amplitude) end
+---@param shakeName string
+---@param intensity number
+function ShakeCam(cam, shakeName, intensity) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDCE214D9ED58F3CF)  
----```
----p0 argument found in the b617d scripts: "DRUNK_SHAKE"  
----```
----@param p0 string
----@param p1 number
-function ShakeCinematicCam(p0, p1) end
+---See [`SHAKE_GAMEPLAY_CAM`](#\_0xFD55E49555E017CF) for a full list of camera shakes.
+---@param shakeName string
+---@param intensity number
+function ShakeCinematicCam(shakeName, intensity) end
 
 ---**`CAM` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFD55E49555E017CF)  
+---Shakes the gameplay cam with the specified shake name and intensity.
+---
+---List of camera shake names:
+---
 ---```
----Possible shake types (updated b617d):  
----DEATH_FAIL_IN_EFFECT_SHAKE  
----DRUNK_SHAKE  
----FAMILY5_DRUG_TRIP_SHAKE  
----HAND_SHAKE  
----JOLT_SHAKE  
----LARGE_EXPLOSION_SHAKE  
----MEDIUM_EXPLOSION_SHAKE  
----SMALL_EXPLOSION_SHAKE  
----ROAD_VIBRATION_SHAKE  
----SKY_DIVING_SHAKE  
----VIBRATE_SHAKE  
+---ASSAULT_RIFLE_RECOIL_SHAKE
+---BOAT_WATER_ENTRY_SHAKE
+---CAMERA_OPERATOR_SHAKE_X
+---CAMERA_OPERATOR_SHAKE_Z
+---CAMERA_OPERATOR_TURBULENCE_SHAKE
+---CARBINE_RIFLE_ACCURACY_OFFSET_SHAKE
+---CARBINE_RIFLE_RECOIL_SHAKE
+---CINEMATIC_SHOOTING_RUN_SHAKE
+---DAMPED_HAND_SHAKE
+---DEATH_FAIL_IN_EFFECT_SHAKE
+---DEATH_FAIL_OUT_EFFECT_SHAKE
+---DEFAULT_DEPLOY_PARACHUTE_SHAKE
+---DEFAULT_FIRST_PERSON_RECOIL_SHAKE
+---DEFAULT_KILL_EFFECT_SHAKE
+---DEFAULT_THIRD_PERSON_ACCURACY_OFFSET_SHAKE
+---DEFAULT_THIRD_PERSON_RECOIL_SHAKE
+---DRUNK_SHAKE
+---FAMILY5_DRUG_TRIP_SHAKE
+---FIRST_PERSON_AIM_SHAKE
+---FIRST_PERSON_DEPLOY_PARACHUTE_SHAKE
+---FOLLOW_RUN_SHAKE
+---FOLLOW_SWIM_SHAKE
+---FPS_ASSAULT_RIFLE_RECOIL_SHAKE
+---FPS_BOLT_RELOAD_SHAKE
+---FPS_BULLET_HIT_SHAKE
+---FPS_DEATH_SHAKE
+---FPS_GRENADE_LAUNCHER_RECOIL_SHAKE
+---FPS_MAG_DROP_SHAKE
+---FPS_MAG_RELOAD_SHAKE
+---FPS_MELEE_HIT_SHAKE
+---FPS_MG_RECOIL_SHAKE
+---FPS_MINIGUN_RECOIL_SHAKE
+---FPS_PISTOL_RECOIL_SHAKE
+---FPS_RPG_RECOIL_SHAKE
+---FPS_SHOTGUN_PUMP_SHAKE
+---FPS_SHOTGUN_RECOIL_SHAKE
+---FPS_SMG_RECOIL_SHAKE
+---FPS_STEERING_WHEEL_HIT_SHAKE
+---FPS_TANK_RECOIL_SHAKE
+---FPS_THROW_SHAKE
+---FPS_VEHICLE_HIT_SHAKE
+---FPS_ZOOM_IN_SHAKE
+---GAMEPLAY_EXPLOSION_SHAKE
+---GRENADE_EXPLOSION_SHAKE
+---GRENADE_LAUNCHER_RECOIL_SHAKE
+---HAND_SHAKE
+---HAND_SHAKE_ROLL
+---HIGH_DIVE_SHAKE
+---HIGH_FALL_SHAKE
+---HIGH_SPEED_BOAT_SHAKE
+---HIGH_SPEED_POV_SHAKE
+---HIGH_SPEED_VEHICLE_SHAKE
+---HIGH_SPEED_VIBRATION_POV_SHAKE
+---IDLE_HAND_SHAKE
+---JOLT_SHAKE
+---KILL_SHOT_SHAKE
+---LARGE_EXPLOSION_SHAKE
+---LOW_ORBIT_HIGH_SPEED_CAMERA_SHAKE
+---LOW_ORBIT_INACCURACY_CAMERA_SHAKE
+---MEDIUM_EXPLOSION_SHAKE
+---MG_RECOIL_SHAKE
+---MINIGUN_RECOIL_SHAKE
+---PARACHUTING_SHAKE
+---PISTOL_RECOIL_SHAKE
+---PLANE_PART_SPEED_SHAKE
+---POV_IDLE_SHAKE
+---REPLAY_DRUNK_SHAKE
+---REPLAY_EXPLOSION_SHAKE
+---REPLAY_HAND_SHAKE
+---REPLAY_HIGH_SPEED_VEHICLE_SHAKE
+---REPLAY_SKY_DIVING_SHAKE
+---ROAD_VIBRATION_SHAKE
+---RPG_RECOIL_SHAKE
+---SHOTGUN_RECOIL_SHAKE
+---SKY_DIVING_SHAKE
+---SMALL_EXPLOSION_SHAKE
+---SMG_RECOIL_SHAKE
+---STUNT_HAND_SHAKE
+---SWITCH_HAND_SHAKE
+---TANK_RECOIL_SHAKE
+---VEH_IMPACT_HEADING_SHAKE
+---VEH_IMPACT_PITCH_HEADING_SHAKE_FPS
+---VEH_IMPACT_PITCH_SHAKE
+---VIBRATE_SHAKE
+---WATER_BOB_SHAKE
+---WOBBLY_SHAKE
 ---```
 ---@param shakeName string
 ---@param intensity number

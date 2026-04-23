@@ -1992,6 +1992,7 @@ function NetworkAddMapEntityToSynchronisedScene(netScene, modelHash, x, y, z, an
 ---Adds a ped to a networked synchronised scene.
 ---
 ---Synchronized scene playback flags (Also works in other `NETWORK_ADD_*_TO_SYNCHRONISED_SCENE` natives):
+---
 ---| Value     |                  Name                     |                                                             Notes                                                                |
 ---| :-------: | :---------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: |
 ---| `0`       |  None                                     | No flag set.                                                                                                                     |
