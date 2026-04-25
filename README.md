@@ -22,8 +22,8 @@ git clone https://github.com/overextended/fivem-lls-addon.git
 }
 ```
 
-[!TIP]
-You can use global or workspace settings, rather than per-project if you prefer.
+> [!TIP]
+> You can use global or workspace settings, rather than per-project if you prefer.
 
 <details>
     <summary>Zed</summary>
