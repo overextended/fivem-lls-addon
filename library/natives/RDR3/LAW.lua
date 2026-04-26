@@ -140,6 +140,13 @@ function GetBountyHunterGlobalCooldown(p0) end
 function GetCrimeBountyAmountByType(crimeType) end
 
 ---**`LAW` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x148E7AC8141C9E64)  
+---This native does not have an official description.
+---@param player integer
+---@return integer
+function GetCrimeDispatchTypeForPlayer(player) end
+
+---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x259CE340A8738814)  
 ---See _REPORT_CRIME
 ---@param player integer
@@ -148,11 +155,11 @@ function GetHudPlayerCrimeType(player) end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x532C5FDDB986EE5C)  
----This native does not have an official description.
+---Returns the player registed crime data at the index
 ---@param player integer
----@param p1 integer
----@return boolean, integer
-function GetPlayerRegisteredCrime(player, p1) end
+---@param index integer
+---@return boolean, any
+function GetPlayerRegisteredCrime(player, index) end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x717DA2281DF90855)  
@@ -254,13 +261,6 @@ function N_0x0eaf918f751f27ba(ped) end
 ---@param player integer
 ---@return boolean
 function N_0x0f230de0ddbe3649(player) end
-
----**`LAW` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x148E7AC8141C9E64)  
----This native does not have an official description.
----@param player integer
----@return integer
-function N_0x148e7ac8141c9e64(player) end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x15ABD5004CAD2D99)  

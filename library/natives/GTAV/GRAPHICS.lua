@@ -165,6 +165,11 @@ function AddVehicleCrewEmblem(vehicle, ped, boneIndex, x1, x2, x3, y1, y2, y3, z
 AddClanDecalToVehicle = AddVehicleCrewEmblem
 
 ---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEFABC7722293DA7C)  
+---Must call this every frame, will adjust the next drawn scaleform movie size values to normalized 16:9
+function AdjustNextPosSizeAsNormalized_16_9() end
+
+---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE35B38A27E8E7179)  
 ---See [`ANIMPOSTFX_PLAY`](#\_0x2206BF9A37B7F724)
 ---@param effectName string
@@ -609,7 +614,7 @@ ResetExtraTimecycleModifierStrength = DisableMoonCycleOverride
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3669F1B198DCAA4F)  
----This native does not have an official description.
+---This disables all occluders that cause the 'flickering' rendering under the map and inside buildings with no interiors, note that this may impact performance on lower end systems.
 function DisableOcclusionThisFrame() end
 
 ---**`GRAPHICS` `client`**  
@@ -1132,7 +1137,8 @@ function DrawShowroom(p0, ped, p2, posX, posY, posZ) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x799017F9E3B10112)  
 ---Draws a 3D sphere, typically seen in the GTA:O freemode event "Penned In".
 ---
----Example [image](https://imgur.com/nCbtS4H):
+---Example:
+---![](https://i.imgur.com/nCbtS4H.png)
 ---
 ---```lua
 ---DrawSphere(35.45, 172.66, 126.22, 1.0, 0, 0, 255, 0.2)
@@ -1158,7 +1164,7 @@ function DrawSphere(x, y, z, radius, r, g, b, opacity) end
 ---* brightness - the brightness of the light  
 ---* roundness - "smoothness" of the circle edge  
 ---* radius - the radius size of the spotlight  
----* falloff - the falloff size of the light's edge (example: www.i.imgur.com/DemAWeO.jpg)  
+---* falloff - the falloff size of the light's edge
 ---Example in C# (spotlight aims at the closest vehicle):  
 ---Vector3 myPos = Game.Player.Character.Position;  
 ---Vehicle nearest = World.GetClosestVehicle(myPos , 1000f);  
@@ -2167,14 +2173,6 @@ function N_0x1612c45f9e3e0d44() end
 function N_0x1bbc135a4d25edde(p0) end
 
 ---**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x1CBA05AE7BD7EE05)  
----```
----SET_TRA*
----```
----@param p0 number
-function N_0x1cba05ae7bd7ee05(p0) end
-
----**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x259BA6D4E6F808F1)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -2679,13 +2677,6 @@ function N_0xec72c258667be5ea(p0) end
 ---This native does not have an official description.
 ---@param p0 boolean
 function N_0xef398beee4ef45f9(p0) end
-
----**`GRAPHICS` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xEFABC7722293DA7C)  
----```
----AD*
----```
-function N_0xefabc7722293da7c() end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF3F776ADA161E47D)  
@@ -3762,6 +3753,12 @@ function SetTimecycleModifierStrength(strength) end
 function SetTrackedPointInfo(point, x, y, z, radius) end
 
 ---**`GRAPHICS` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1CBA05AE7BD7EE05)  
+---Transitions current timecycle modifier out.
+---@param transitionTime number
+function SetTransitionOutOfTimecycleModifier(transitionTime) end
+
+---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3BCF567485E1971C)  
 ---This native doesn't work like [`SetWeatherTypeTransition`](#\_0x578C752848ECFA0C).
 ---@param modifierName string
@@ -3893,7 +3890,7 @@ StartParticleFxLoopedOnEntityBone_2 = StartNetworkedParticleFxLoopedOnEntityBone
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF56B8137DF10135D)  
 ---NOTE: the [USE_PARTICLE_FX_ASSET](#\_0x6C38AF3693A69A91) needs to be called before EVERY StartNetworkedParticleFxNonLoopedAtCoord(....) call!
 ---
----List with lots of particle effects: https://vespura.com/fivem/particle-list/
+---List with lots of particle effects: https://gist.githubusercontent.com/alexguirre/af70f0122957f005a5c12bef2618a786/raw/899e93c5611ba58138c56873bb6f56664a776af4/Particles%2520Effects%2520Dump.txt
 ---
 ---Note: Not all particles on this list are for non looped and vice versa, neither are all of them suited/meant to have SetParticleFxNonLoopedColour(....) called on them.
 ---
@@ -4163,7 +4160,7 @@ function StopParticleFxLooped(ptfxHandle, p1) end
 
 ---**`GRAPHICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA356990E161C9E65)  
----This native enables/disables the gold putting grid display (https://i.imgur.com/TC6cku6.png).
+---This native enables/disables the gold putting grid display (https://i.imgur.com/slYthff.png).
 ---This requires these two natives to be called as well to configure the grid: [`TERRAINGRID_SET_PARAMS`](#\_0x1C4FC5752BCD8E48) and [`TERRAINGRID_SET_COLOURS`](#\_0x5CE62918F8D703C7).
 ---@param toggle boolean
 function TerraingridActivate(toggle) end
@@ -4172,7 +4169,8 @@ function TerraingridActivate(toggle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5CE62918F8D703C7)  
 ---This native is used along with these two natives: [`TERRAINGRID_ACTIVATE`](#\_0xA356990E161C9E65) and [`TERRAINGRID_SET_PARAMS`](#\_0x1C4FC5752BCD8E48).
 ---This native sets the colors for the golf putting grid. the 'min...' values are for the lower areas that the grid covers, the 'max...' values are for the higher areas that the grid covers, all remaining values are for the 'normal' ground height.
----All those natives combined they will output something like this: https://i.imgur.com/TC6cku6.png
+---All those natives combined they will output something like this:
+---![](https://i.imgur.com/slYthff.png)
 ---
 ---Old description:
 ---Only called in golf and golf_mp\
@@ -4198,7 +4196,8 @@ function TerraingridSetColours(lowR, lowG, lowB, lowAlpha, R, G, B, Alpha, highR
 ---
 ---This native configures the location, size, rotation, normal height, and the difference ratio between min, normal and max.
 ---
----All those natives combined they will output something like this: https://i.imgur.com/TC6cku6.png
+---All those natives combined they will output something like this:
+---![](https://i.imgur.com/slYthff.png)
 ---@param x number
 ---@param y number
 ---@param z number

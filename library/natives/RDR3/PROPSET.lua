@@ -245,7 +245,7 @@ function IsVehiclePropSetLoadedAdditional(vehicle) end
 ---@param posZ number
 ---@param onGroundProperly boolean
 ---@param heading number
-function ModifyPropsetCoordsAndHeading(propset, posX, posY, posZ, onGroundProperly, heading) end
+function MovePropsetCoordsAndHeading(propset, posX, posY, posZ, onGroundProperly, heading) end
 
 ---**`PROPSET` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x58E0B01D45CA7357)  

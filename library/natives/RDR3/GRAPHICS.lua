@@ -161,10 +161,10 @@ function AnimpostfxGetStackhash(effectName) end
 ---[Native Documentation](https://rdr3natives.com/?_0x9AB192A9EF980EED)  
 ---This native does not have an official description.
 ---@param effectNameHash integer | string
----@param p1 integer
----@param p2 boolean
+---@param eventType integer
+---@param peekOnly boolean
 ---@return boolean, boolean
-function AnimpostfxHasEventTriggeredByStackhash(effectNameHash, p1, p2) end
+function AnimpostfxHasEventTriggeredByStackhash(effectNameHash, eventType, peekOnly) end
 
 ---**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xBF2DD155B2ADCD0A)  
@@ -1225,13 +1225,6 @@ function N_0xd543487a1f12828f(p0, p1, p2, p3) end
 function N_0xd9bc98b55bcfaa9b(p0) end
 
 ---**`GRAPHICS` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xDFE332A5DA6FE7C9)  
----Returns iNumPixels, iPixelsVisible
----@param iTrackedPoint integer
----@return integer
-function N_0xdfe332a5da6fe7c9(iTrackedPoint) end
-
----**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xE63D68F455CA0B47)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1321,6 +1314,13 @@ function N_0xff584f097c17fa8f() end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0xff8018c778349234(p0) end
+
+---**`GRAPHICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xDFE332A5DA6FE7C9)  
+---Returns iNumPixels, iPixelsVisible
+---@param iTrackedPoint integer
+---@return integer
+function NumPixelsVisibleAtTrackedPoint(iTrackedPoint) end
 
 ---**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC2B8164C3BE871A4)  
@@ -2037,11 +2037,11 @@ function StartParticleFxLoopedOnPedBone(effectName, ped, xOffset, yOffset, zOffs
 ---@param yRot number
 ---@param zRot number
 ---@param scale number
----@param eventType integer
----@param bPeekOnly boolean
----@param bIsRegistered boolean
+---@param xAxis integer
+---@param yAxis boolean
+---@param zAxis boolean
 ---@return boolean
-function StartParticleFxNonLoopedAtCoord(effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, eventType, bPeekOnly, bIsRegistered) end
+function StartParticleFxNonLoopedAtCoord(effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis) end
 
 ---**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xFF4C64C513388C12)  

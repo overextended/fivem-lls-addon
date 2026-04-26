@@ -209,7 +209,7 @@ function N_0x43f35ddb2905d945(p0, p1) end
 ---@param p0 any
 function N_0x52c68e92d6e23add(p0) end
 
----**`PAD` ``**  
+---**`PAD` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0x5F217BC1190503D8)  
 ---rumbleCurve: common_0/data/rumblecurves.meta
 ---@param rumbleCurve string

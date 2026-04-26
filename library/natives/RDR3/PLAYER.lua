@@ -78,7 +78,7 @@ function ClearBountyTarget(player) end
 ---Clears the intensity of aura effects applied to entities for a specific player in Deadeye mode based on a flag parameter. This function is used to reset any intensity modifications set by `_SET_DEADEYE_ENTITY_AURA_INTENSITY_WITH_FLAG - 0x131E294EF60160DF`, restoring affected entities' aura intensity to their default state.
 ---@param player integer
 ---@param bitflag integer
-function ClearDeadeyeAuraIntensityWithFlag(player, bitflag) end
+function ClearDeadeyeAuraIntensity(player, bitflag) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0361096D6CE4372C)  
@@ -124,8 +124,8 @@ function DisablePlayerInteractiveFocusPreset(player, name) end
 ---@param entity1 integer
 ---@param entity2 integer
 ---@param p2 integer
----@param p3 integer
-function EagleEyeAddParticleEffectToEntity(entity1, entity2, p2, p3) end
+---@param heading integer
+function EagleEyeAddParticleEffectToEntity(entity1, entity2, p2, heading) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0xA62BBAAE67A05BB0)  
@@ -926,12 +926,12 @@ function IsPlayerTargettingAnything(player) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x27F89FDC16688A7A)  
----This native does not have an official description.
+---p2 will return true if player is targetting entity with a weapon if false will return true if player is targetting entity without a weapon
 ---@param player integer
 ---@param entity integer
----@param p2 boolean
+---@param withWeapon boolean
 ---@return boolean
-function IsPlayerTargettingEntity(player, entity, p2) end
+function IsPlayerTargettingEntity(player, entity, withWeapon) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x085EEAEB8783FEB5)  
@@ -1982,7 +1982,7 @@ function ReportPoliceSpottedPlayer(player) end
 
 ---**`PLAYER` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0xE910932F4B30BE23)  
----Resets any aura effects applied to entities for a specific player in Deadeye mode, returning all aura-related visuals to their default state. This function is primarily used to remove any highlighting or aura effects set by `_SET_DEADEYE_ENTITY_AURA_WITH_FLAG - 0x2B12B6FC8B8772AB` and `_SET_DEADEYE_ENTITY_AURA_INTENSITY_WITH_FLAG - 0x131E294EF60160DF`
+---Resets any aura effects applied to entities for a specific player in Deadeye mode, returning all aura-related visuals to their default state. This function is primarily used to remove any highlighting or aura effects set by `_SET_DEADEYE_ENTITY_AURA - 0x2B12B6FC8B8772AB` and `_SET_DEADEYE_ENTITY_AURA_INTENSITY - 0x131E294EF60160DF`
 ---@param player integer
 function ResetDeadeyeAuraEffect(player) end
 
@@ -2136,6 +2136,14 @@ function SetDeadeyeAbilityLevel(player, level) end
 function SetDeadeyeAbilityLocked(player, abilityType, toggle) end
 
 ---**`PLAYER` `client`**  
+---[Native Documentation](https://rdr3natives.com/?_0x2B12B6FC8B8772AB)  
+---Applies a aura effect to nearby entities when Deadeye is active, based on a flag parameter. This includes humans, animals, vehicles, and horses pulling those vehicles. Additionally, depending on the flag value, the player's appearance may change (e.g., turning gray).
+---- flag (int): A flag that determines the behavior of the aura effect. 2 means people 4 means animal etc.
+---@param player integer
+---@param flag integer
+function SetDeadeyeEntityAura(player, flag) end
+
+---**`PLAYER` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0x131E294EF60160DF)  
 ---Applies a customizable aura effect to nearby entities when Deadeye is active, with control over aura intensity and additional behavior based on a flag parameter.
 ---- flag (int): A flag that determines the behavior of the aura effect and which entities are affected. 2: Applies aura to humans. 4: Applies aura to animals.
@@ -2146,14 +2154,6 @@ function SetDeadeyeAbilityLocked(player, abilityType, toggle) end
 ---@param intensity number
 ---@param flag integer
 function SetDeadeyeEntityAuraIntensityWithFlag(player, p1, p2, p3, intensity, flag) end
-
----**`PLAYER` `client`**  
----[Native Documentation](https://rdr3natives.com/?_0x2B12B6FC8B8772AB)  
----Applies a aura effect to nearby entities when Deadeye is active, based on a flag parameter. This includes humans, animals, vehicles, and horses pulling those vehicles. Additionally, depending on the flag value, the player's appearance may change (e.g., turning gray).
----- flag (int): A flag that determines the behavior of the aura effect. 2 means people 4 means animal etc.
----@param player integer
----@param flag integer
-function SetDeadeyeEntityAuraWithFlag(player, flag) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x83FCD6921FC8FD05)  
@@ -2295,8 +2295,8 @@ function SetPedAsTempPlayerHorse(player, horse) end
 ---Sets the weapon that the specified player will aim with. The weapon must already be assigned to the PED. This also determines the weapon order, specifying which weapon the player will automatically switch to when the current weapon runs out of ammo.
 ---@param player integer
 ---@param weapon integer | string
----@param attachSlotId integer
-function SetPlayerAimWeapon(player, weapon, attachSlotId) end
+---@param weaponDrawOrder integer
+function SetPlayerAimWeapon(player, weapon, weaponDrawOrder) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC7FE774412046825)  
@@ -2636,9 +2636,9 @@ function SetPlayerSimulateAiming(player, toggle) end
 ---AddTextEntry("sit_custom", "Take a seat")
 ---this native must be invoked
 ---https://imgur.com/gallery/0x988c9045531b9fce-9bTHgkv
----@param playerID integer
+---@param player integer
 ---@param label string
-function SetPlayerSitPromptText(playerID, label) end
+function SetPlayerSitPromptText(player, label) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x4DE44FA389DCA565)  
@@ -2919,9 +2919,9 @@ function SpecialAbilitySetEagleEyeDisabled(player) end
 ---[Native Documentation](https://rdr3natives.com/?_0x1D77B47AFA584E90)  
 ---Params: p1 = -1 in R* Scripts
 ---@param player integer
----@param p1 integer
+---@param abilityType integer
 ---@param p2 boolean
-function SpecialAbilityStartRestore(player, p1, p2) end
+function SpecialAbilityStartRestore(player, abilityType, p2) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xDF8822C55EDDA65B)  

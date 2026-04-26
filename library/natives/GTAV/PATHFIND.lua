@@ -621,9 +621,13 @@ function SetGpsDisabledZone(x1, y1, z1, x2, y2, z2) end
 ---
 ---**Setting a waypoint at the same coordinate:**
 ---
----Disabled Zone: <https://i.imgur.com/P9VUuxM.png>
+---Disabled Zone:
 ---
----Enabled Zone (normal): <https://i.imgur.com/BPi24aw.png>
+---![](https://i.imgur.com/vsxkvjC.png)
+---
+---Enabled Zone (normal):
+---
+---![](https://i.imgur.com/OUZYLWL.png)
 ---@param x1 number
 ---@param y1 number
 ---@param z1 number

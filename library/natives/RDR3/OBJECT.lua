@@ -61,14 +61,14 @@ function ConvertOldPickupTypeToNew(pickupHash) end
 ---@param y number
 ---@param z number
 ---@param flags integer
----@param value integer
+---@param amount integer
 ---@param modelHash integer | string
----@param p7 boolean
----@param p8 boolean
----@param p9 integer
+---@param createAsScriptObject boolean
+---@param scriptHostObject boolean
+---@param customAmmoType integer
 ---@param p10 number
 ---@return integer
-function CreateAmbientPickup(pickupHash, x, y, z, flags, value, modelHash, p7, p8, p9, p10) end
+function CreateAmbientPickup(pickupHash, x, y, z, flags, amount, modelHash, createAsScriptObject, scriptHostObject, customAmmoType, p10) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x509D5878EB39E842)  
@@ -495,6 +495,13 @@ function IsDoorRegisteredWithOwner(doorHash) end
 function IsDoorRegisteredWithSystem(doorHash) end
 
 ---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x20135AF9C10D2A3D)  
+---returns true if the model hash is a portable pickup its used before creating a portable pick up for example
+---@param modelHash integer | string
+---@return boolean
+function IsModelAPortablePickup(modelHash) end
+
+---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0378C08504160D0D)  
 ---This native does not have an official description.
 ---@param object integer
@@ -565,13 +572,6 @@ function N_0x0c0a373d181bf900(doorHash) end
 ---_SET_A(MBIENT_PICKUP_?)*
 ---@param p0 boolean
 function N_0x1f5e07e14a86fafc(p0) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x20135AF9C10D2A3D)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x20135af9c10d2a3d(p0) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x22031584496CFB70)  
@@ -766,13 +766,6 @@ function N_0xb3b1546d23df8de1(p0, p1, p2, p3, p4) end
 ---@param p0 any
 ---@param p1 any
 function N_0xc07b91b996c1de89(p0, p1) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xCAAF2BCCFEF37F77)  
----_SET_OBJECT_*
----@param object integer
----@param p1 any
-function N_0xcaaf2bccfef37f77(object, p1) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xCBFBD38F2E0A263B)  
@@ -1030,6 +1023,13 @@ function SetObjectBurnOpacity(object, opacity) end
 ---@param speed number
 ---@param p2 number
 function SetObjectBurnSpeed(object, speed, p2) end
+
+---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xCAAF2BCCFEF37F77)  
+---This native does not have an official description.
+---@param object integer
+---@param presetFlags integer
+function SetObjectInteractionPreset(object, presetFlags) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB7017DA4D498269F)  

@@ -50,7 +50,7 @@ function ApplyForceToEntityCenterOfMass(entity, forceType, x, y, z, component, i
 ---@param offsetx number
 ---@param offsety number
 ---@param offsetz number
----@param p7 number
+---@param timer number
 ---@param p8 boolean
 ---@param p9 integer
 ---@param p10 integer
@@ -58,7 +58,7 @@ function ApplyForceToEntityCenterOfMass(entity, forceType, x, y, z, component, i
 ---@param p12 integer
 ---@param p13 integer
 ---@param p14 integer
-function AttachEntityToCoordsPhysically(entity, x, y, z, offsetx, offsety, offsetz, p7, p8, p9, p10, p11, p12, p13, p14) end
+function AttachEntityToCoordsPhysically(entity, x, y, z, offsetx, offsety, offsetz, timer, p8, p9, p10, p11, p12, p13, p14) end
 
 ---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x6B9BBD38AB0796DF)  
@@ -275,6 +275,21 @@ function FindAnimEventPhase(animDictionary, animName, p2) end
 ---@param entity integer
 ---@param p1 boolean
 function ForceEntityAiAndAnimationUpdate(entity, p1) end
+
+---**`ENTITY` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x119A5714578F4E05)  
+---Enables or disables automatic passenger population on a specific train wagon (carriage).
+---
+---When toggle == true, the game keeps this wagon filled with ambient passengers.
+---If a passenger ped is deleted or removed from the wagon, a new ped is spawned almost
+---immediately to occupy that seat.
+---
+---When toggle == false, the engine stops auto-filling this wagon. After you delete or
+---remove the existing passengers, no new peds will spawn for that wagon until you enable
+---it again with true.
+---@param carriage integer
+---@param force boolean
+function ForceTrainWagonPopulation(carriage, force) end
 
 ---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7D9EFB7AD6B19754)  
@@ -704,6 +719,14 @@ function GetNearestPlayerToEntityOnTeam(entity, team, playerPedToIgnore, flags) 
 function GetObjectIndexFromEntityIndex(entity) end
 
 ---**`ENTITY` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5E214112806591EA)  
+---Return the offset from the entity for the selected bone index
+---@param entity integer
+---@param boneIndex integer
+---@return vector3
+function GetOffsetFromEntityBone(entity, boneIndex) end
+
+---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x497C6B1A2C9AE69C)  
 ---This native does not have an official description.
 ---@param entity integer
@@ -751,6 +774,24 @@ function GetPedAnimalType(ped) end
 ---@param entity integer
 ---@return integer
 function GetPedIndexFromEntityIndex(entity) end
+
+---**`ENTITY` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5744562E973E33CD)  
+---Get the pelt TXDs by the animal albedo hash, returns: normal map hash, material hash and albedo hash, this native needs dataview to be passed in, then use it to get the pelt TXDs
+---@param albedoHash integer | string
+---@param txdAlbedoDV any
+---@param txdNormalMapDV any
+---@param txdMaterialDV any
+---@param p4 integer
+---@return boolean
+function GetPeltTexture(albedoHash, txdAlbedoDV, txdNormalMapDV, txdMaterialDV, p4) end
+
+---**`ENTITY` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x120376C23F019C6C)  
+---returns the albedo hash by carriable hash, use Citizen.pointerValueInt() as last parameter
+---@param carriableHash integer | string
+---@return boolean, integer
+function GetPeltTextureByCarriable(carriableHash) end
 
 ---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x4735E2A4BB83D9DA)  
@@ -1246,21 +1287,6 @@ function N_0x0db41d59e0f1502b(p0) end
 function N_0x0fd7d7c232876e72(p0) end
 
 ---**`ENTITY` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x119A5714578F4E05)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x119a5714578f4e05(p0, p1) end
-
----**`ENTITY` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x120376C23F019C6C)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x120376c23f019c6c(p0, p1) end
-
----**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x16908E859C3AB698)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1370,17 +1396,6 @@ function N_0x3f08c6163a4ab1d6(p0) end
 function N_0x56e0735d6273b227(p0, p1) end
 
 ---**`ENTITY` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x5744562E973E33CD)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@return any
-function N_0x5744562e973e33cd(p0, p1, p2, p3, p4) end
-
----**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x5826EFD6D73C4DE5)  
 ---_REMOVE_DECALS_* - _REMOVE_FORCED*
 ---@param entity integer
@@ -1394,15 +1409,6 @@ function N_0x5826efd6d73c4de5(entity) end
 ---@param p2 any
 ---@return any
 function N_0x582f73acfe969571(p0, p1, p2) end
-
----**`ENTITY` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x5E214112806591EA)  
----Attaches scenario to bone with an offset
----_GET_I* - _GET_M*
----@param entity integer
----@param boneIndex integer
----@return vector3
-function N_0x5e214112806591ea(entity, boneIndex) end
 
 ---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x6C31B06E91518269)  
@@ -1632,15 +1638,6 @@ function N_0xd4636c2edb0dea8a(p0) end
 ---@param p3 any
 ---@return any
 function N_0xd46bf94c4c66fab0(p0, p1, p2, p3) end
-
----**`ENTITY` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xDD03FC2089AD093C)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
-function N_0xdd03fc2089ad093c(p0, p1, p2, p3) end
 
 ---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xDF8E49EA89A01DB1)  
@@ -1885,9 +1882,9 @@ function SetEntityAnimSpeed(entity, animDict, animName, speedMultiplier) end
 ---[Native Documentation](https://rdr3natives.com/?_0xDC19C288082E586E)  
 ---Makes the specified entity (ped, vehicle or object) persistent. Persistent entities will not automatically be removed by the engine.
 ---@param entity integer
----@param p1 boolean
----@param p2 boolean
-function SetEntityAsMissionEntity(entity, p1, p2) end
+---@param scriptHostObject boolean
+---@param grabFromOtherScript boolean
+function SetEntityAsMissionEntity(entity, scriptHostObject, grabFromOtherScript) end
 
 ---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x4971D2F8162B9674)  
@@ -2235,10 +2232,10 @@ function SetEntityVisible(entity, toggle) end
 ---heres some of the labels/names found 
 ---tumbler_fill, Canvas, Stew_Fill, from Chip01_Ctrl to Chip10_Ctrl, from empty_jug01_Ctrl to empty_jug20_Ctrl, from full_jug01_Ctrl to full_jug20_Ctrl, CTRL_cupFill, Food_DOF_Fill, from WhiteChip_Ctrl_0 to WhiteChip_Ctrl_10, from BlueChip_Ctrl_0 to BlueChip_Ctrl_10, from BlackChip_Ctrl_0 to BlackChip_Ctrl_10, from RedChip_Ctrl_0 to RedChip_Ctrl_10,
 ---@param entity integer
----@param p1 integer
----@param p2 string
----@param fill number
-function SetFillInStateForEntity(entity, p1, p2, fill) end
+---@param expressionType integer
+---@param dofName string
+---@param fillState number
+function SetMaterialFillLevelForEntity(entity, expressionType, dofName, fillState) end
 
 ---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x3AE22DEB5BA5A3E6)  
@@ -2251,6 +2248,16 @@ function SetObjectAsNoLongerNeeded(object) end
 ---This is an alias of SET_ENTITY_AS_NO_LONGER_NEEDED.
 ---@param ped integer
 function SetPedAsNoLongerNeeded(ped) end
+
+---**`ENTITY` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xDD03FC2089AD093C)  
+---Set the pelt texture to the object, by albedo hash and inventory item hash
+---Examples: object: P_CS_PELT_MEDLARGE  albedo: a_c_boar_01_head_000_c0_000_ab, inventoryItem: PROVISION_BOAR_HIDE_POOR
+---@param object integer
+---@param inventoryItem integer | string
+---@param albedo integer | string
+---@param p3 integer
+function SetPeltTexture(object, inventoryItem, albedo, p3) end
 
 ---**`ENTITY` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x629BFA74418D6239)  

@@ -417,7 +417,17 @@ function SetEntityProofUnk(entity, toggle) end
 
 ---**`PHYSICS` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA6A6098851C396F)  
----Related to the lower-end of a vehicles fTractionCurve, e.g., from standing starts and acceleration from low/zero speeds.
+---Toggles "Arena Mode", a global flag that affects physics, damage, and handling for all vehicles.
+---
+---When enabled:
+---
+---*   fTractionLossMult is multiplied by 0.25, increasing grip significantly.
+---*   Mid-air vehicle control rotation force is increased by 50%.
+---*   Vehicles explode immediately when body health reaches 0.
+---*   Disables chain-reaction explosions for nearby vehicles.
+---*   Prevents engine damage from colliding with Ramp Cars.
+---*   Overrides the Stunt Mode ([`N_0x9ebd751e5787baf2`](#\_0x9EBD751E5787BAF2)) collision protection.
+---*   Reduces the chance of falling off bikes/quads.
 ---
 ---```
 ---NativeDB Introduced: v1604

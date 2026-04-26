@@ -17,12 +17,12 @@ function CanLaunchUiappByHashWithEntry(appNameHash, entryHash) end
 
 ---**`UIAPPS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xAD7B70F7230C5A12)  
----This native does not have an official description.
+---Closes All UI Apps with transition
 function CloseAllUiapps() end
 
 ---**`UIAPPS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x12769EEB8DBD7A7B)  
----This native does not have an official description.
+---Immediately Closes all Native UI Apps
 function CloseAllUiappsImmediate() end
 
 ---**`UIAPPS` ``**  
@@ -33,13 +33,13 @@ function CloseUiapp(appName) end
 
 ---**`UIAPPS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x2FF10C9C3F92277E)  
----This native does not have an official description.
+---Closes Ui App by hash
 ---@param appNameHash integer | string
 function CloseUiappByHash(appNameHash) end
 
 ---**`UIAPPS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x04428420A248A354)  
----This native does not have an official description.
+---Immediately closes the specified UI app by its hash.
 ---@param appNameHash integer | string
 function CloseUiappByHashImmediate(appNameHash) end
 
@@ -77,14 +77,14 @@ function IsUiappActiveByHash(appNameHash) end
 
 ---**`UIAPPS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xDE4A9B35D028979F)  
----This native does not have an official description.
+---Returns true if the Native UI Application is running. 
 ---@param appName string
 ---@return boolean
 function IsUiappRunning(appName) end
 
 ---**`UIAPPS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x4E511D093A86AD49)  
----This native does not have an official description.
+---Checks to see if the specified UI app is currently running by its hash.
 ---@param appNameHash integer | string
 ---@return boolean
 function IsUiappRunningByHash(appNameHash) end
@@ -98,7 +98,7 @@ function IsUiappTransitioningByHash(appNameHash) end
 
 ---**`UIAPPS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC8FC7F4E4CF4F581)  
----This native does not have an official description.
+---Lauches the specified UI app by its hash.
 ---@param appNameHash integer | string
 ---@return integer
 function LaunchUiappByHash(appNameHash) end

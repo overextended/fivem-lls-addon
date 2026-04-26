@@ -78,6 +78,16 @@ function ClearConversationHistoryForScriptedConversation(convoRoot) end
 function CreateNewScriptedConversation(convoRoot) end
 
 ---**`AUDIO` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x72E4D1C4639BC465)  
+---Create a scripted speech to control speech. If handle is less than 0, it's invalid.
+---params struct for ScriptedSpeechParams see: PLAY_PED_AMBIENT_SPEECH_NATIVE
+---Returns scriptedSpeech handle.
+---@param ped integer
+---@param params any
+---@return integer
+function CreateNewScriptedSpeech(ped, params) end
+
+---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xA9A41C1E940FB0E8)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -143,9 +153,9 @@ function GetMusicPlaytime() end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x2DBBF0C5E19383EE)  
----This native does not have an official description.
+--- seems to be used for  0xE9694B2D6CB87B06
 ---@param ped integer
----@return any
+---@return integer
 function GetPedSongIndexHost(ped) end
 
 ---**`AUDIO` ``**  
@@ -305,10 +315,10 @@ function N_0x017492b2201e3428(p0, p1, p2, p3) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x018ABE833CA64D2A)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x018abe833ca64d2a(p0, p1) end
+---_RESET_PED_* hash used is MOONSHINE_BAND used along side 0xBC07CA8FD710E7FD
+---@param ped integer
+---@param hash integer | string
+function N_0x018abe833ca64d2a(ped, hash) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x06C5DF5EE444BC6B)  
@@ -364,10 +374,10 @@ function N_0x138adb94f8b90616() end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x139A4B9DF2D26CBF)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x139a4b9df2d26cbf(p0, p1) end
+---p1 is an int seems to be a duration returned from 0x886657C5B3D8EDE3
+---@param ped integer
+---@param p1 integer
+function N_0x139a4b9df2d26cbf(ped, p1) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x152ED1B56E8F1F50)  
@@ -500,13 +510,14 @@ function N_0x43037abfe214a851() end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x448F2647DD6F2E27)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
-function N_0x448f2647dd6f2e27(p0, p1, p2, p3, p4) end
+---_SET_PED_PLAY_GESTURE_ANIMS? p2 seems to be a flag string used example 
+--- AI_GESTURES@INSTRUMENTS@FIDDLE@STANDING@MALE@NORMAL
+---@param ped integer
+---@param hash integer | string
+---@param p2 integer
+---@param gestureAnim string
+---@param p4 integer
+function N_0x448f2647dd6f2e27(ped, hash, p2, gestureAnim, p4) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x44A5EEF54F62E823)  
@@ -517,10 +528,10 @@ function N_0x44a5eef54f62e823(p0) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x4A98E228A936DBCC)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x4a98e228a936dbcc(p0) end
+---Gets the hash for the currently playing speech line.
+---@param ped integer
+---@return integer
+function N_0x4a98e228a936dbcc(ped) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x4BE3EC91C01F0FE8)  
@@ -626,14 +637,6 @@ function N_0x6b7a88a61b41e589(p0) end
 function N_0x6da15746d5cc1a92(p0, p1, p2, p3, p4, p5) end
 
 ---**`AUDIO` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x72E4D1C4639BC465)  
----This native does not have an official description.
----@param p0 integer
----@param p1 any
----@return any
-function N_0x72e4d1c4639bc465(p0, p1) end
-
----**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7455CD705F7E933E)  
 ---_AUDIO_IS_* - _AUDIO_TRIGGER*
 function N_0x7455cd705f7e933e() end
@@ -694,10 +697,10 @@ function N_0x864a842b86993851(ped) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x886657C5B3D8EDE3)  
----This native does not have an official description.
----@param entity integer
----@return any
-function N_0x886657c5b3d8ede3(entity) end
+---seems to return a duration to be used in 0x139A4B9DF2D26CBF
+---@param ped integer
+---@return integer
+function N_0x886657c5b3d8ede3(ped) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x8D29FDF565DED9AE)  
@@ -723,13 +726,13 @@ function N_0x935dbd96d4a3da1f(p0, currentScriptedConvoLine) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9D6DEC9791A4E501)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@return any
-function N_0x9d6dec9791a4e501(p0, p1, p2, p3) end
+---Returns true or false if the ped can say a specific speech line with PLAY_PED_AMBIENT_SPEECH_NATIVE, similar to DOES_CONTEXT_EXIST_FOR_THIS_PED
+---@param ped integer
+---@param speechName string
+---@param p2 boolean
+---@param p3 boolean
+---@return boolean
+function N_0x9d6dec9791a4e501(ped, speechName, p2, p3) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9EB779765E68C52E)  
@@ -775,32 +778,26 @@ function N_0xa6a3a3f96b8b030e() end
 function N_0xabdb4863d3d72021(entity, p1, p2, p3, p4) end
 
 ---**`AUDIO` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xB18FEC133C7C6C69)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xb18fec133c7c6c69(p0) end
-
----**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB93A769B8B726950)  
----Used in Script Function NET_CAMP_CLIENT_UPDATE_PED_ROLE_STATE_SHOP: hash exists! Playing hash
+---seems to be for moonshine_band stuff heres some hashes it accepts
+---1949731019, -1542215752, 978192019 == moonshine_band, 533120, 1180906091, 1260094407, 1057811885, -1044357807,487746791,51469403
 ---@param ped integer
 ---@param p1 integer | string
 function N_0xb93a769b8b726950(ped, p1) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xBC07CA8FD710E7FD)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xbc07ca8fd710e7fd(p0, p1) end
+---_RESET_PED_* hash used is MOONSHINE_BAND used along side 0x018ABE833CA64D2A
+---@param ped integer
+---@param hash integer | string
+function N_0xbc07ca8fd710e7fd(ped, hash) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xBE28DB99556FF8D9)  
----Checks for MOONSHINE_BAND
----@param entity integer
+---Checks if ped  has moonshine_band _GET_PED_*
+---@param ped integer
 ---@return integer
-function N_0xbe28db99556ff8d9(entity) end
+function N_0xbe28db99556ff8d9(ped) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC369E2234E34A0CA)  
@@ -919,10 +916,10 @@ function N_0xe891504b2f0e2dba(p0, p1) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xE9694B2D6CB87B06)  
----This native does not have an official description.
----@param entity integer
----@param p1 any
-function N_0xe9694b2d6cb87b06(entity, p1) end
+---seems to be a _SET_PED_* that accepts p1 from GET_PED_SONG_INDEX_HOST
+---@param ped integer
+---@param p1 integer
+function N_0xe9694b2d6cb87b06(ped, p1) end
 
 ---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xEA546C31FD45F8CD)  
@@ -1168,8 +1165,20 @@ function PlaySoundFromItem(item, soundSet, p2) end
 function PlaySoundFromPositionWithId(soundId, soundName, x, y, z, soundsetName, p6, p7, p8) end
 
 ---**`AUDIO` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB18FEC133C7C6C69)  
+---Play/advance a scripted speech created via _CREATE_NEW_SCRIPTED_PED_AMBIENT_SPEECH and return a status code.
+---Return values:
+---  0 = not ready/invalid/failed
+---  1 = started/playing
+---  2 = finished/consumed (you can drop the handle)
+---Typical usage: poll this in a tick after creating the speech; when it returns 2, clear your handle.
+---@param scriptedSpeech integer
+---@return any
+function PlaySoundFromScriptedSpeech(scriptedSpeech) end
+
+---**`AUDIO` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x67C540AA08E4A6F5)  
----https://github.com/femga/rdr3_discoveries/tree/master/audio/frontend_soundsets
+---see a list of frontend sounds here: https://github.com/femga/rdr3_discoveries/tree/master/audio/frontend_soundsets
 ---@param audioName string
 ---@param audioRef string
 ---@param p2 boolean

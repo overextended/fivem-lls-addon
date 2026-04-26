@@ -276,7 +276,7 @@ BeginEnumeratingThreads = ScriptThreadIteratorReset
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5262CC1995D07E09)  
----This native does not have an official description.
+---Doesn't seem to do anything. Set value can be retrieved using [`GET_NO_LOADING_SCREEN`](#\_0x18C1270EA7F199BC).
 ---@param toggle boolean
 function SetNoLoadingScreen(toggle) end
 
@@ -297,7 +297,9 @@ SetStreamedScriptAsNoLongerNeeded = SetScriptWithNameHashAsNoLongerNeeded
 
 ---**`SCRIPT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x078EBE9809CCD637)  
----This native does not have an official description.
+---Shuts down the loading screen and switches to normal game view. Should only be used by [spawnmanager](https://docs.fivem.net/docs/resources/spawnmanager/) or similar resources after loading and spawning the player ped. If no script does this, the game is stuck in the infamous bridge screen with the "Awaiting scripts" text and loading circle at the bottom right corner.
+---
+---![](https://i.imgur.com/WULopNH.jpeg)
 function ShutdownLoadingScreen() end
 
 ---**`SCRIPT` `client`**  

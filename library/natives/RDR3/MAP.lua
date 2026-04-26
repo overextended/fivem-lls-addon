@@ -149,16 +149,16 @@ function BlipSetStyle(blip, styleHash) end
 ---**`MAP` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0x01B928CA2E198B01)  
 ---Clear blip data. It must be used before RemoveBlip I'm pretty sure that blips are handled internally with databinding. This function should then allow you to clear blip container and therefore free up memory?.
----@param blipid integer
+---@param blip integer
 ---@return any
-function ClearBlip(blipid) end
+function ClearBlip(blip) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0x44813684F72B563C)  
----will remove the blip icon from the entity lockon prompt, use 0 for p1
+---will remove the blip icon from the entity lockon prompt,p1 = GET_BLIP_FROM_ENTITY
 ---@param entity integer
----@param p1 integer
-function ClearBlipIconFromLockonEntityPrompt(entity, p1) end
+---@param blip integer
+function ClearBlipIconFromLockonEntityPrompt(entity, blip) end
 
 ---**`MAP` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x1EAA5674B4D181C5)  
@@ -268,9 +268,9 @@ function IsBlipAttachedToAnyEntity(blip) end
 ---[Native Documentation](https://rdr3natives.com/?_0x3CB8859F04763C78)  
 ---checks if the entity lockon prompt contains an icon
 ---@param entity integer
----@param blipId integer
+---@param blip integer
 ---@return boolean
-function IsBlipIconOnLockonEntityPrompt(entity, blipId) end
+function IsBlipIconOnLockonEntityPrompt(entity, blip) end
 
 ---**`MAP` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x46534526B9CD2D17)  

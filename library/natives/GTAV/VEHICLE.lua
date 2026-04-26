@@ -3084,6 +3084,15 @@ function IsVehicleNeonLightEnabled(vehicle, index) end
 function IsVehicleOnAllWheels(vehicle) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x71C6302CBCA6CA35)  
+---```
+---NativeDB Introduced: v3407
+---```
+---@param vehicle integer
+---@return boolean
+function IsVehicleOnBoostPad(vehicle) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3DE51E9C80B116CF)  
 ---Does not work for vehicle of type: CBike, CBmx, CBoat, CTrain, CSubmarine.
 ---@param vehicle integer
@@ -4467,13 +4476,13 @@ SetSomeVehicleDensityMultiplierThisFrame = SetAmbientVehicleRangeMultiplierThisF
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9CFA4896C3A53CBB)  
----```
 ---Only works on bikes, both X and Y work in the -1 - 1 range.
 ---X forces the bike to turn left or right (-1, 1)
 ---Y forces the bike to lean to the left or to the right (-1, 1)
----Example with X -1/Y 1
----http://i.imgur.com/TgIuAPJ.jpg
----```
+---
+---Example with X -1/Y 1:
+---
+---![](https://i.imgur.com/91sAMD5.png)
 ---@param vehicle integer
 ---@param x number
 ---@param y number
@@ -6138,11 +6147,12 @@ function SetVehicleDoorsShut(vehicle, closeInstantly) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x068F64F2470F9656)  
----```
 ---Money pickups are created around cars when they explode. Only works when the vehicle model is a car. A single pickup is between 1 and 18 dollars in size. All car models seem to give the same amount of money.
----youtu.be/3arlUxzHl5Y
----i.imgur.com/WrNpYFs.jpg
----```
+---
+---Preview:
+---
+---https://youtu.be/3arlUxzHl5Y
+---![](https://i.imgur.com/KsaWO6E.png)
 ---@param vehicle integer
 ---@param toggle boolean
 function SetVehicleDropsMoneyWhenBlownUp(vehicle, toggle) end
@@ -6189,9 +6199,9 @@ function SetVehicleEngineOn(vehicle, value, instantly, disableAutoStart) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3AFDC536C3D01674)  
 ---Examples with a besra:
 ---
----*   [fade value `0.0`](https://i.imgur.com/DXNk63e.jpg)
----*   [fade value `0.5`](https://i.imgur.com/2Vb35fq.jpg)
----*   [fade value `1.0`](https://i.imgur.com/aa8cxaD.jpg)
+---*   Fade value `0.0`:![](https://i.imgur.com/dlWnhgZ.png)
+---*   Fade value `0.5`:![](https://i.imgur.com/rbzMfh6.png)
+---*   Fade value `1.0`:![](https://i.imgur.com/pRqLnSP.png)
 ---
 ---The parameter fade is a value from 0-1, where 0 is fresh paint.
 ---@param vehicle integer

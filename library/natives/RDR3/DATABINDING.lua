@@ -364,6 +364,13 @@ function DatabindingRemoveBindingArrayItemByDataContextId(p0, entryId) end
 function DatabindingRemoveDataEntry(entryId) end
 
 ---**`DATABINDING` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x6318FB3BE37E11B3)  
+---Removes a UI item from it's list by index
+---@param entryId integer | string
+---@param index integer
+function DatabindingRemoveUiItemFromListByIndex(entryId, index) end
+
+---**`DATABINDING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0AE7138D0541F2DE)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -538,13 +545,6 @@ function N_0x3bf0767cf33fcc88(entryId) end
 ---@param p0 any
 ---@return any
 function N_0x422179c7f6ad9304(p0) end
-
----**`DATABINDING` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x6318FB3BE37E11B3)  
----This native does not have an official description.
----@param entryId integer | string
----@param index integer
-function N_0x6318fb3be37e11b3(entryId, index) end
 
 ---**`DATABINDING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x6329C34BEE5BFF4B)  

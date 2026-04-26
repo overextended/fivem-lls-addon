@@ -823,8 +823,8 @@ function IsPlayerPartiallyInsideGarage(garageHash, player, p2) end
 ---
 ---The oriented rectangle can then be derived from the direction of the two points (`norm(origin - extent)`), its orthonormal, and the width, e.g:
 ---
----1.  [golf_mp](https://i.imgur.com/JhsQAK9.png)
----2.  [am_taxi](https://i.imgur.com/TJWCZaT.jpg)
+---1.  ![golf_mp](https://i.imgur.com/WoIozPt.png)
+---2.  ![am_taxi](https://i.imgur.com/lipbffH.png)
 ---@param xPos number
 ---@param yPos number
 ---@param zPos number
@@ -1507,7 +1507,11 @@ function SetObjectTargettable(object, targettable) end
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB39F03368DB0CAA2)  
----This native does not have an official description.
+---Sets the 34th and 35th object flags related to player peds.
+---
+---```
+---NativeDB Introduced: v3258
+---```
 ---@param object integer
 ---@param setFlag34 boolean
 ---@param setFlag35 boolean
@@ -1643,7 +1647,7 @@ function SetUnkGlobalBoolRelatedToDamage(value) end
 ---```
 ---Returns true if the object has finished moving.  
 ---If false, moves the object towards the specified X, Y and Z coordinates with the specified X, Y and Z speed.  
----See also: https://gtagmodding.com/opcode-database/opcode/034E/
+---See also: https://gtag.sannybuilder.com/opcode-database/opcode/034E/
 ---Has to be looped until it returns true.   
 ---```
 ---@param object integer

@@ -93,8 +93,8 @@ function ResetGuarmaWaterState() end
 ---@param p5 number
 ---@param waveSpeed number
 ---@param wavesStrength number
----@param p8 integer
-function SetOceanGuarmaWaterQuadrant(wavesHeight, p1, waveDirection, p3, waveAmmount, p5, waveSpeed, wavesStrength, p8) end
+---@param ignoreHeight integer
+function SetOceanGuarmaWaterQuadrant(wavesHeight, p1, waveDirection, p3, waveAmmount, p5, waveSpeed, wavesStrength, ignoreHeight) end
 
 ---**`WATER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xE8770EE02AEE45C2)  

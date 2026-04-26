@@ -38,7 +38,7 @@ function DecorGetInt(entity, propertyName) end
 ---@param entity integer
 ---@param propertyName string
 ---@return integer
-function DecorGetUint8(entity, propertyName) end
+function DecorGetPlayerIndex(entity, propertyName) end
 
 ---**`DECORATOR` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x72355278C069F272)  
@@ -57,11 +57,11 @@ function DecorRegister(propertyName, type) end
 
 ---**`DECORATOR` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x4587374F88B7F6C2)  
----This native does not have an official description.
+---Old Name: _DECOR_REGISTER_2
 ---@param propertyName string
 ---@param type integer
----@param p2 boolean
-function DecorRegister_2(propertyName, type, p2) end
+---@param isNetworked boolean
+function DecorRegisterNetworked(propertyName, type, isNetworked) end
 
 ---**`DECORATOR` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x2BA7F5877A088A1D)  
@@ -107,6 +107,15 @@ function DecorSetFloat(entity, propertyName, value) end
 function DecorSetInt(entity, propertyName, value) end
 
 ---**`DECORATOR` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x4BDC83150D43772D)  
+---Old name: _DECOR_SET_UINT8
+---@param entity integer
+---@param propertyName string
+---@param value integer
+---@return boolean
+function DecorSetPlayerIndex(entity, propertyName, value) end
+
+---**`DECORATOR` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0671C1A3FF7AFDFC)  
 ---This native does not have an official description.
 ---@param entity integer
@@ -114,13 +123,4 @@ function DecorSetInt(entity, propertyName, value) end
 ---@param value string
 ---@return boolean
 function DecorSetString(entity, propertyName, value) end
-
----**`DECORATOR` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x4BDC83150D43772D)  
----This native does not have an official description.
----@param entity integer
----@param propertyName string
----@param value integer
----@return boolean
-function DecorSetUint8(entity, propertyName, value) end
 

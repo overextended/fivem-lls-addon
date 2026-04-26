@@ -3747,7 +3747,8 @@ function RegisterPedheadshot_3(ped) end
 ---Similar to REGISTER_PEDHEADSHOT but creates a transparent background instead of black.
 ---
 ---**Result of the example code:**
----<https://i.imgur.com/iHz8ztn.png>
+---
+---![](https://i.imgur.com/TDV7XMx.png)
 ---@param ped integer
 ---@return integer
 function RegisterPedheadshotTransparent(ped) end
@@ -5816,11 +5817,11 @@ SetPedHairColor = SetPedHairTint
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9414E18B9434C2FE)  
----For more info please refer to [this](https://gtaforums.com/topic/858970-all-gtao-face-ids-pedset-ped-head-blend-data-explained) topic.
+---For more info and the list of faceIDs please refer to [this](https://gtaforums.com/topic/858970-all-gtao-face-ids-pedset-ped-head-blend-data-explained) topic. Note that the Skin and Shape IDs are shared. This native will use this same list for both Skin and Shape IDs.
 ---
 ---**Other information:**
 ---
----IDs start at zero and go Male Non-DLC, Female Non-DLC, Male DLC, and Female DLC.</br>
+---IDs start at zero and go Male Non-DLC, Female Non-DLC, Male DLC, and Female DLC.
 ---
 ---This native function is often called prior to calling natives such as:
 ---

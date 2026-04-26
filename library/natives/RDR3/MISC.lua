@@ -606,6 +606,14 @@ function GetGameTimer() end
 function GetGameTimerNonScaledClipped() end
 
 ---**`MISC` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xBBE5B63EFFB08E68)  
+---Outputs the ground Z axis, its material and flags.Input flags are 17, 129 or 3423 in R* scripts.similar to flags of shapes test native
+---@param coords any
+---@param flags integer
+---@return boolean, number, integer, integer
+function GetGroundZAndMaterialFor_3dCoord(coords, flags) end
+
+---**`MISC` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x2A29CA9A6319E6AB)  
 ---This native does not have an official description.
 ---@param x number
@@ -1579,19 +1587,6 @@ function N_0xb711eb4bc8d06013() end
 ---@param p0 any
 ---@param p1 any
 function N_0xbb282cf5d2333fb8(p0, p1) end
-
----**`MISC` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xBBE5B63EFFB08E68)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
----@return any
-function N_0xbbe5b63effb08e68(p0, p1, p2, p3, p4, p5, p6) end
 
 ---**`MISC` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xCC1BAF72D571DB8D)  

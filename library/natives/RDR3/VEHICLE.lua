@@ -68,6 +68,15 @@ function BreakOffDraftWheel(vehicle, wheelIndex, destroyingForce) end
 function BreakOffVehicleWheel(vehicle, wheelIndex) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xD1EFA8D68BF5D63D)  
+---Only used to break draft vehicle log straps. Coords is always equal to the vehicle coords.
+---@param vehicle integer
+---@param x number
+---@param y number
+---@param z number
+function BreakVehicleStraps(vehicle, x, y, z) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x260BE8F09E326A20)  
 ---This native makes the vehicle stop immediately
 ---
@@ -260,6 +269,35 @@ function FadeAndDestroyVehicle() end
 function ForcePlaybackRecordedVehicleUpdate(vehicle, p1) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x0E558D3A49D759D6)  
+---Collects all passenger peds (excluding the driver) from the specified wagon-type vehicle and adds them as indexed items to the provided itemset.
+---Notes:
+---- Always clear the itemset before calling.
+---- Returns 0 if the wagon is empty or auto-population is disabled
+---  (ENTITY::_0x119A5714578F4E05(wagon, false)).
+---- Itemset may contain dead peds; filter with IS_ENTITY_DEAD if needed.
+---- Often used alongside wagon auto-population management.
+---@param train integer
+---@param itemset integer
+---@return integer
+function GetAllTrainWagonPassengers(train, itemset) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x0BA4250D20007C2E)  
+---Returns the balloon object attached to a hot air balloon vehicle. 
+---
+---If the input vehicle is a hot air balloon, the native returns the object entity
+---that represents the balloon itself (the inflated top part). 
+---If the vehicle is not balloon-type or the balloon object does not exist,the function returns 0. 
+---Always validate the returned handle with ENTITY::DOES_ENTITY_EXIST.
+---Notes:
+---- Only useful for hot air balloon vehicles.
+---- The returned handle is typically an OBJECT, not a PED or VEHICLE.
+---@param vehicle integer
+---@return integer
+function GetBalloonObjectFromVehicle(vehicle) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x58F2244C1286D09A)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -334,6 +372,14 @@ function GetDraftVehicleDesiredSpeed(vehicle) end
 function GetDriverOfVehicle(vehicle) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x785639D89F8451AB)  
+---Returns the world coordinates of a junction node for the given train track configuration. trainTrack: see _RETURN_TRAIN_INFO_FROM_HANDLE.
+---@param trainTrack integer | string
+---@param junctionIndex integer
+---@return vector3
+function GetJunctionCoordsForTrainTrack(trainTrack, junctionIndex) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xA94F3E0AB9695E19)  
 ---This native does not have an official description.
 ---@return integer
@@ -376,6 +422,20 @@ function GetNumCarsFromTrainConfig(trainConfig) end
 ---@param modelHash integer | string
 ---@return integer
 function GetNumDraftVehicleHarnessPed(modelHash) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x288CBB414C3C2FBB)  
+---Return the number of logs on a draft vehicle.
+---@param vehicle integer
+---@return integer
+function GetNumDraftVehicleLogs(vehicle) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x1121B07088ED3013)  
+---Return the number of straps that hold the logs of a draft vehicle.
+---@param vehicle integer
+---@return integer
+function GetNumDraftVehicleStraps(vehicle) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xA8BA0BAE0173457B)  
@@ -442,11 +502,28 @@ function GetRowingOars(vehicle) end
 function GetStationCoordsFromTrainStationData(trackIndex, stationIndex) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x9CC94A948EAF5372)  
+---Returns the station hash for a track and station index.
+---- trackIndex: int — From 0 to 24
+---- stationIndex: int — From 0 to 7
+---@param trackIndex integer
+---@param stationIndex integer
+---@return integer
+function GetStationFromTrainStationIndex(trackIndex, stationIndex) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x233B51C7913FA031)  
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@return number
 function GetTimePositionInRecording(vehicle) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x13C190302369308B)  
+---Requires a visibility tracker on the vehicle (TRACK_VEHICLE_VISIBILITY)
+---@param vehicle integer
+---@return integer
+function GetTrackAmountOfVisiblePixels(vehicle) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x85D39F5E3B6D7EB0)  
@@ -989,20 +1066,6 @@ function N_0x06a09a6e0c6d2a84(train, p1) end
 function N_0x0794199b25e499e1(wagon, p1) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x07E2E21E799080A0)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x07e2e21e799080a0(p0, p1) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x0BA4250D20007C2E)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x0ba4250d20007c2e(p0) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0CD7914D17A970AB)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1014,14 +1077,6 @@ function N_0x0cd7914d17a970ab(p0, p1) end
 ---This native does not have an official description.
 ---@param trackIndex integer
 function N_0x0d5fdf0d36fa10cd(trackIndex) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x0E558D3A49D759D6)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x0e558d3a49d759d6(p0, p1) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0F7F603BDE08C4D3)  
@@ -1044,13 +1099,6 @@ function N_0x0fddee66e3465726(p0) end
 function N_0x104d9a7b1c0d0783(vehicle, p1) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x1121B07088ED3013)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x1121b07088ed3013(p0) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x1180A2974D251B7B)  
 ---Returns p1 for 0xBA958F68031DDBFC (stationIndex)
 ---_GET_N* (NEAREST_STATION_FOR_TRAIN?)
@@ -1067,13 +1115,6 @@ function N_0x1180a2974d251b7b(train) end
 ---@param y number
 ---@param z number
 function N_0x12f6c6ed3eff42de(vehicle, x, y, z) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x13C190302369308B)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x13c190302369308b(p0) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x13EB275BF81636D1)  
@@ -1135,13 +1176,6 @@ function N_0x172e9dd35858dcd7(p0) end
 function N_0x1a861f899ebbe17c(train, p1) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x1BFBAFCC6760FF02)  
----This native does not have an official description.
----@param train integer
----@param p1 boolean
-function N_0x1bfbafcc6760ff02(train, p1) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x2045429505158D1A)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1172,13 +1206,6 @@ function N_0x23f66c36f8e5eaab(p0, p1) end
 ---@param p0 any
 ---@param p1 any
 function N_0x27e3f2b57209fa54(p0, p1) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x288CBB414C3C2FBB)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x288cbb414c3c2fbb(p0) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x2A7413168F6CD5A8)  
@@ -1275,13 +1302,6 @@ function N_0x41365db586cd9e8e(trackIndex, p1) end
 ---_H*
 ---@param wagon integer
 function N_0x41f0b254ddf71473(wagon) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x42404D57D621601A)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x42404d57d621601a(p0) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x427C919E9809E370)  
@@ -1479,14 +1499,6 @@ function N_0x762fdc4c19e5a981(trainCarriage, p1) end
 function N_0x7840576c50a13dba(train, p1) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x785639D89F8451AB)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return vector3
-function N_0x785639d89f8451ab(p0, p1) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7BE0746539DEF0C8)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1555,14 +1567,6 @@ function N_0x9868c0d0134855f7(p0) end
 ---@param p1 any
 ---@param p2 any
 function N_0x98a7598c579ee871(p0, p1, p2) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x9CC94A948EAF5372)  
----_GET_P - _GET_T*
----@param trackIndex integer
----@param stationIndex integer
----@return integer
-function N_0x9cc94a948eaf5372(trackIndex, stationIndex) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9D12796EF4BF9EA9)  
@@ -1640,18 +1644,6 @@ function N_0xb42c87521d1bdd2f(vehicle, x, y, z) end
 ---[Native Documentation](https://rdr3natives.com/?_0xB961DD799A837BD7)  
 ---This native does not have an official description.
 function N_0xb961dd799a837bd7() end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xC2E62678D602853C)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@param p6 any
-function N_0xc2e62678d602853c(p0, p1, p2, p3, p4, p5, p6) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC325A6BAA62CF8A2)  
@@ -1763,15 +1755,6 @@ function N_0xd0ba1853d76683c8(trackIndex, x, y, z, p4) end
 ---@param p6 any
 ---@return any
 function N_0xd1df5e54f4acbe1a(p0, p1, p2, p3, p4, p5, p6) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xD1EFA8D68BF5D63D)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
-function N_0xd1efa8d68bf5d63d(p0, p1, p2, p3) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xD21A3D421E7F09F7)  
@@ -1942,6 +1925,13 @@ function N_0xff2b1f59fb892f14(p0) end
 ---@param p1 any
 ---@param p2 any
 function N_0xfffe15b433300b8c(p0, p1, p2) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x42404D57D621601A)  
+---Returns the log prop entity that is currently detaching/falling from a draft (log) wagon. Returns 0 if no log is in the falling phase. R* scripts call this repeatedly to fetch each fallen piece, then apply forces to it.
+---@param vehicle integer
+---@return any
+function RecoverDraftVehicleFallingLog(vehicle) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xFE9AB3354ACE6C9C)  
@@ -2317,6 +2307,13 @@ function SetRandomBoats(toggle) end
 function SetRandomTrains(toggle) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x1BFBAFCC6760FF02)  
+---This native does not have an official description.
+---@param train integer
+---@param enabled boolean
+function SetRandomTrainsWhistleEnabled(train, enabled) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x1F91D44490E1EA0C)  
 ---This native does not have an official description.
 ---@param multiplier number
@@ -2328,6 +2325,13 @@ function SetRandomVehicleDensityMultiplierThisFrame(multiplier) end
 ---@param train integer
 ---@param speed number
 function SetTrainCruiseSpeed(train, speed) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x07E2E21E799080A0)  
+---Enables/disables damage/explosion flags on the engine and all attached cars; typically set true before EXPLODE_VEHICLE.
+---@param train integer
+---@param enabled boolean
+function SetTrainDestructionEnabled(train, enabled) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x3660BCAB3A6BB734)  
@@ -2843,6 +2847,18 @@ function SetVehicleProvidesCover(vehicle, toggle) end
 ---@param vehicle integer
 ---@param p1 boolean
 function SetVehicleRespectsLocksWhenHasDriver(vehicle, p1) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC2E62678D602853C)  
+---Picks the road/path link nearest (start to end) and stores it on the vehicle's driving component (used by R* Scripts to choose an exit link).
+---@param vehicle integer
+---@param startX number
+---@param startY number
+---@param startZ number
+---@param endX number
+---@param endY number
+---@param endZ number
+function SetVehicleRoadLinkForced(vehicle, startX, startY, startZ, endX, endY, endZ) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB79BE78C665B3E6D)  

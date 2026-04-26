@@ -300,11 +300,11 @@ function RemoveScriptFire(fireHandle) end
 ---**`FIRE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC4DC7418A44D6822)  
 ---This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
-function StartEntityFire(p0, p1, p2, p3) end
+---@param entity integer
+---@param intensity number
+---@param boneIndex integer
+---@param fireFlags integer
+function StartEntityFire(entity, intensity, boneIndex, fireFlags) end
 
 ---**`FIRE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x6B83617E04503888)  

@@ -1,5 +1,11 @@
 ---@meta
 
+---**`AICOVERPOINT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x64340DC208D671D5)  
+---activates a cover layer, these seem to be for specifc scenes in SP for example where a table is flipped using "grand_korr_poker_table_flipped" see more in levels\rdr3\coverlayers.rpf 
+---@param coverLayer string
+function ActivateCoverLayer(coverLayer) end
+
 ---**`AICOVERPOINT` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0x733077295AB51304)  
 ---args: f_0 = Volume Handle
@@ -22,6 +28,12 @@ function AddScriptedCoverPoint() end
 function AreLoadCoverAnimsLoaded(ped) end
 
 ---**`AICOVERPOINT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x7A1FDCF35EAA140F)  
+---deactivates a cover layer activated with 0x64340DC208D671D5 coverLayer: see levels_0/levels/rdr3/coverlayers
+---@param coverLayer string
+function DeactivateCoverLayer(coverLayer) end
+
+---**`AICOVERPOINT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC276FE69DDA22BAD)  
 ---This native does not have an official description.
 ---@param handle integer
@@ -38,11 +50,30 @@ function DoesCoverPointExist(handle) end
 function GetCoverPointStateFromPed(ped) end
 
 ---**`AICOVERPOINT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x140B3CB1D424A945)  
----weaponHash can also be -1
+---[Native Documentation](https://rdr3natives.com/?_0x957D7E750216D74B)  
+---returns the active transition state of a cover point for about 2 seconds unless its peeking
+--- 1 - transition from pointing a gun to not pointing a gun
+---2 - transition to pointing a gun
+---3 - broke the window 
+---4 - when opening a door while in cover (a prompt will show and once pressed state is changed to 4)
+---5 - cover transition like from one corner of a house to the other corner
+---6 - changing cover to cover like crossing from one side of the door to the other
+---7 - when the ped is facing foward with the camera, might be to detect when going from left to right
+---8 - when the ped is peeking through a door window etc (this will return 8 while is in peek)
+---9 - when a ped is aiming in crouch and enters cover (it doesnt always trigger)
+---10 - enters cover
+---12 - leaves cover
+---16 - changed to crouch or to standing up position
 ---@param ped integer
----@param weaponHash integer | string
-function N_0x140b3cb1d424a945(ped, weaponHash) end
+---@return integer
+function GetPedCoverPointTransitionState(ped) end
+
+---**`AICOVERPOINT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x140B3CB1D424A945)  
+---returns the ped that is using this cover point created by ADD_COVER_POINT and adding the ped using tasks like `TASK_PUT_PED_DIRECTLY_(*`
+---@param coverpoint integer
+---@return integer
+function GetPedFromCoverPoint(coverpoint) end
 
 ---**`AICOVERPOINT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x3C7A9C2C953128FE)  
@@ -56,25 +87,6 @@ function N_0x3c7a9c2c953128fe(ped) end
 ---@param handle integer
 ---@return integer
 function N_0x53e4d0c079ca6855(handle) end
-
----**`AICOVERPOINT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x64340DC208D671D5)  
----coverLayer: see levels_0/levels/rdr3/coverlayers
----@param coverLayer string
-function N_0x64340dc208d671d5(coverLayer) end
-
----**`AICOVERPOINT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x7A1FDCF35EAA140F)  
----coverLayer: see levels_0/levels/rdr3/coverlayers
----@param coverLayer string
-function N_0x7a1fdcf35eaa140f(coverLayer) end
-
----**`AICOVERPOINT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x957D7E750216D74B)  
----This native does not have an official description.
----@param ped integer
----@return integer
-function N_0x957d7e750216d74b(ped) end
 
 ---**`AICOVERPOINT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xEBA51A294C73292E)  

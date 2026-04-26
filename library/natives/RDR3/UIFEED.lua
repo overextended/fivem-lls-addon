@@ -9,14 +9,6 @@
 function N_0x0fd07141ad048aae(p1) end
 
 ---**`UIFEED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x18D6869FBFFEC0F8)  
----Only used in R* SP Scripts
----@param p2 boolean
----@param p3 boolean
----@return integer, any, any
-function N_0x18d6869fbffec0f8(p2, p3) end
-
----**`UIFEED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x4E88A65968A55C78)  
 ---Returns feedMessage
 ---@param p1 boolean
@@ -30,15 +22,6 @@ function N_0x4e88a65968a55c78(p1) end
 ---@param p1 integer
 ---@param p2 boolean
 function N_0x6d85126f6ccf02c9(feedChannel, p1, p2) end
-
----**`UIFEED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xAFF5BE9BA496CE40)  
----This native does not have an official description.
----@param p2 boolean
----@param p3 boolean
----@param collectableCategory integer | string
----@return integer, any, any
-function N_0xaff5be9ba496ce40(p2, p3, collectableCategory) end
 
 ---**`UIFEED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB7223B91CD6B7E07)  
@@ -83,6 +66,15 @@ function UiFeedGetCurrentMessage(feedChannel) end
 function UiFeedGetMessageState(feedMessage) end
 
 ---**`UIFEED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xAFF5BE9BA496CE40)  
+---notification you need dataview
+---@param p2 boolean
+---@param p3 boolean
+---@param collectableCategory integer | string
+---@return integer, any, any
+function UiFeedPostCollectorToast(p2, p3, collectableCategory) end
+
+---**`UIFEED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB2920B9760F0F36B)  
 ---Display text on right of the screen, Example : https://pastebin.com/n1YmNe25
 ---@param p2 boolean
@@ -102,6 +94,14 @@ function UiFeedPostGameUpdateShard(p2) end
 ---@param p2 boolean
 ---@return integer, any, any
 function UiFeedPostHelpText(p2) end
+
+---**`UIFEED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x18D6869FBFFEC0F8)  
+---notification you need dataview
+---@param p2 boolean
+---@param p3 boolean
+---@return integer, any, any
+function UiFeedPostInteractiveToast(p2, p3) end
 
 ---**`UIFEED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xD05590C1AB38F068)  

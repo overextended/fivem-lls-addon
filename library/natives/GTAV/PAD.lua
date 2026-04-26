@@ -405,7 +405,8 @@ function SetControlNormal(padIndex, control, amount) end
 
 ---**`PAD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFC695459D4D0E219)  
----This native does not have an official description.
+---Sets the position of the mouse cursor within the current UI context (e.g., NUI menu or pause menu).\
+---Coordinates must be in the range 0.0 to 1.0, where (0.5, 0.5) represents the center of the screen.
 ---@param x number
 ---@param y number
 ---@return boolean

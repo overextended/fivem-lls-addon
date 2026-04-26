@@ -54,10 +54,6 @@ function ActivateFrontendMenu(menuhash, togglePause, component) end
 ---
 ---By default, the blip will show as a *regular* blip with the specified color/sprite if it is outside of the minimap view.
 ---
----Example image:
----![minimap](https://i.imgur.com/qLbXWcQ.png)
----![big map](https://i.imgur.com/0j7O7Rh.png)
----
 ---(Native name is *likely* to actually be ADD_BLIP_FOR_AREA, but due to the usual reasons this can't be confirmed)
 ---@param x number
 ---@param y number
@@ -82,9 +78,9 @@ function AddBlipForCoord(x, y, z) end
 ---Can be used for objects, vehicles and peds.
 ---
 ---Example of enemy:
----![enemy](https://i.imgur.com/fl78svv.png)
+---![enemy](https://i.imgur.com/LIizV6S.png)
 ---Example of friend:
----![friend](https://i.imgur.com/Q16ho5d.png)
+---![friend](https://i.imgur.com/XrCuvZP.png)
 ---@param entity integer
 ---@return integer
 function AddBlipForEntity(entity) end
@@ -101,7 +97,7 @@ function AddBlipForPickup(pickup) end
 ---Create a blip with a radius for the specified coordinates (it doesnt create the blip sprite, so you need to use [AddBlipCoords](#\_0xC6F43D0E))
 ---
 ---Example image:
----![example](https://i.imgur.com/9hQl3DB.png)
+---![example](https://i.imgur.com/fDCmHVD.png)
 ---@param posX number
 ---@param posY number
 ---@param posZ number
@@ -251,6 +247,15 @@ function AddTextComponentSubstringWebsite(website) end
 
 ---@deprecated
 AddTextComponentString2 = AddTextComponentSubstringWebsite
+
+---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE67C6DFD386EA5E7)  
+---Before:
+---![](https://imgur.com/a/RF1JHOS)
+---After:
+---![](https://imgur.com/a/Z8LnHHc)
+---@param allow boolean
+function AllowDisplayOfMultiplayerCashText(allow) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCC3FDDED67BCFC63)  
@@ -722,7 +727,6 @@ function DisplayHudWhenPausedThisFrame() end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x82CEDC33687E1F50)  
 ---Toggles whether or not name labels are shown on the expanded minimap next to player blips, like in GTA:O.
 ---Doesn't need to be called every frame.
----Preview: https://i.imgur.com/DfqKWfJ.png
 ---Make sure to call SET_BLIP_CATEGORY with index 7 for this to work on the desired blip.
 ---@param toggle boolean
 function DisplayPlayerNameTagsOnBlips(toggle) end
@@ -944,7 +948,7 @@ function EndTextCommandSetBlipName(blip) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAA295B6F28BD587D)  
 ---Shows an "award" notification above the minimap, lua example result:
 ---
----![](https://i.imgur.com/e2DNaKX.png)
+---![](https://i.imgur.com/9U2x4ek.png)
 ---
 ---Old description:
 ---
@@ -1079,7 +1083,7 @@ DrawNotificationClanInvite = EndTextCommandThefeedPostCrewtagWithGameName
 ---
 ---Example result:
 ---
----![](https://i.imgur.com/LviutDl.png)
+---![](https://i.imgur.com/c2P5KBn.png)
 ---
 ---Old description with list of possible icons and texture names:
 ---
@@ -1140,7 +1144,8 @@ EndTextCommandThefeedPostMessagetextEntry = EndTextCommandThefeedPostMessagetext
 ---```
 ---
 ---Example result:
----![](https://i.imgur.com/YrN4Bcm.png)
+---
+---![](https://i.imgur.com/Qrf486G.png)
 ---@param picTxd string
 ---@param picTxn string
 ---@param flash boolean
@@ -1234,11 +1239,11 @@ SetNotificationMessageClanTag_2 = EndTextCommandThefeedPostMessagetextWithCrewTa
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF020C96915705B3A)  
----This native does not have an official description.
----@param blink boolean
----@param bHasTokens boolean
+---Exactly the same as [`END_TEXT_COMMAND_THEFEED_POST_TICKER`](#\_0x2ED7843F8F801023).
+---@param isImportant boolean
+---@param showInBrief boolean
 ---@return integer
-function EndTextCommandThefeedPostMpticker(blink, bHasTokens) end
+function EndTextCommandThefeedPostMpticker(isImportant, showInBrief) end
 
 ---@deprecated
 DrawNotification_4 = EndTextCommandThefeedPostMpticker
@@ -1269,13 +1274,15 @@ DrawNotificationWithIcon = EndTextCommandThefeedPostReplayIcon
 ---if you set type to 1, button accepts "~INPUT_SOMETHING~"
 ---example:
 ---HUD::_0xDD6CB2CCE7C2735C(1, "~INPUT_TALK~", "Who you trynna get crazy with, ese? Don't you know I'm LOCO?!");
----- imgur.com/UPy0Ial
 ---Examples from the scripts:
 ---l_D1[1/*1*/]=HUD::_DD6CB2CCE7C2735C(1,"~INPUT_REPLAY_START_STOP_RECORDING~","");
 ---l_D1[2/*1*/]=HUD::_DD6CB2CCE7C2735C(1,"~INPUT_SAVE_REPLAY_CLIP~","");
 ---l_D1[1/*1*/]=HUD::_DD6CB2CCE7C2735C(1,"~INPUT_REPLAY_START_STOP_RECORDING~","");
 ---l_D1[2/*1*/]=HUD::_DD6CB2CCE7C2735C(1,"~INPUT_REPLAY_START_STOP_RECORDING_SECONDARY~","");
 ---```
+---
+---Preview:
+---![](https://i.imgur.com/gw6kWOe.jpeg)
 ---@param type integer
 ---@param button string
 ---@param text string
@@ -1291,7 +1298,7 @@ DrawNotificationWithButton = EndTextCommandThefeedPostReplayInput
 ---
 ---Example result:
 ---
----![](https://i.imgur.com/SdEZ22m.png)
+---![](https://i.imgur.com/eyXFAyN.png)
 ---@param statTitle string
 ---@param iconEnum integer
 ---@param stepVal boolean
@@ -1307,35 +1314,35 @@ SetNotificationMessage_2 = EndTextCommandThefeedPostStats
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2ED7843F8F801023)  
----Example output preview:
+---Posts a generic feed notification:
 ---
----![](https://i.imgur.com/TJvqkYq.png)
+---![](https://i.ibb.co/GkHcFvf/image.png)
 ---@param isImportant boolean
----@param bHasTokens boolean
+---@param showInBrief boolean
 ---@return integer
-function EndTextCommandThefeedPostTicker(isImportant, bHasTokens) end
+function EndTextCommandThefeedPostTicker(isImportant, showInBrief) end
 
 ---@deprecated
 DrawNotification = EndTextCommandThefeedPostTicker
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x44FA03975424A0EE)  
----This native does not have an official description.
----@param blink boolean
----@param bHasTokens boolean
+---Posts an above minimap feed notification that is forced (Previous messages will be cleared).
+---@param isImportant boolean
+---@param showInBrief boolean
 ---@return integer
-function EndTextCommandThefeedPostTickerForced(blink, bHasTokens) end
+function EndTextCommandThefeedPostTickerForced(isImportant, showInBrief) end
 
 ---@deprecated
 DrawNotification_2 = EndTextCommandThefeedPostTickerForced
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x378E809BF61EC840)  
----This native does not have an official description.
+---Posts an above minimap feed message with tokens support (blips, input keys, etc...)
 ---@param isImportant boolean
----@param bHasTokens boolean
+---@param showInBrief boolean
 ---@return integer
-function EndTextCommandThefeedPostTickerWithTokens(isImportant, bHasTokens) end
+function EndTextCommandThefeedPostTickerWithTokens(isImportant, showInBrief) end
 
 ---@deprecated
 DrawNotification_3 = EndTextCommandThefeedPostTickerWithTokens
@@ -1696,6 +1703,18 @@ function GetLengthOfStringWithThisTextLabel(gxt) end
 function GetMainPlayerBlipId() end
 
 ---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7E17BE53E1AAABAF)  
+---Returns details of a layout changed event.
+---Be sure this is called only when [`HAS_MENU_LAYOUT_CHANGED_EVENT_OCCURRED`](#\_0x2E22FEFA0100275E) returns true in a frame.
+---Can only be called by one script at a time.
+---Layout changed events become active whenever the menu is navigated up or down.
+---@return integer, integer, integer
+function GetMenuLayoutChangedEventDetails() end
+
+---@deprecated
+GetPauseMenuSelectionData = GetMenuLayoutChangedEventDetails
+
+---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x052991E59076E4E4)  
 ---```
 ---p0 was always 0xAE2602A3.
@@ -1822,37 +1841,18 @@ function GetNumberOfActiveBlips() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5BFF36D6ED83E0AE)  
----Name between `GET_ONSCREEN_KEYBOARD_RESULT` and `GET_PAUSE_MENU_STATE`. Likely, `GET_PAUSE_MENU_*`.
+---This native does not have an official description.
 ---@return vector3
-function GetPauseMenuCursorPosition() end
+function GetPauseMenuPosition() end
+
+---@deprecated
+GetPauseMenuCursorPosition = GetPauseMenuPosition
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x36C1451A88A09630)  
 ---This native does not have an official description.
 ---@return integer, integer
 function GetPauseMenuSelection() end
-
----**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x7E17BE53E1AAABAF)  
----```
----lastItemMenuId: this is the menuID of the last selected item minus 1000 (lastItem.menuID - 1000)
----selectedItemMenuId: same as lastItemMenuId except for the currently selected menu item
----selectedItemUniqueId: this is uniqueID of the currently selected menu item
----when the pausemenu is closed:
----lastItemMenuId = -1
----selectedItemMenuId = -1
----selectedItemUniqueId = 0
----when the header gains focus:
----lastItemMenuId updates as normal or 0 if the pausemenu was just opened
----selectedItemMenuId becomes a unique id for the pausemenu page that focus was taken from (?) or 0 if the pausemenu was just opened
----selectedItemUniqueId = -1
----when focus is moved from the header to a pausemenu page:
----lastItemMenuId becomes a unique id for the pausemenu page that focus was moved to (?)
----selectedItemMenuId = -1
----selectedItemUniqueId updates as normal
----```
----@return integer, integer, integer
-function GetPauseMenuSelectionData() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x272ACD84970869C5)  
@@ -2004,6 +2004,12 @@ function HasAdditionalTextLoaded(slot) end
 function HasDirectorModeBeenTriggered() end
 
 ---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2E22FEFA0100275E)  
+---Make sure to use [`GET_MENU_LAYOUT_CHANGED_EVENT_DETAILS`](#\_0x7E17BE53E1AAABAF) when this function returns true in a frame.
+---@return boolean
+function HasMenuLayoutChangedEventOccurred() end
+
+---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xADBF060E2B30C5BC)  
 ---```
 ---Checks if the specified gxt has loaded into the passed slot.  
@@ -2099,7 +2105,13 @@ function HideScriptedHudComponentThisFrame(id) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x488043841BBE156F)  
----Displays loading screen tips, requires `_0x56C8B608CFD49854` to be called beforehand.
+---Displays loading screen tips.
+---Seems to do the same as [`_THEFEED_DISPLAY_LOADING_SCREEN_TIPS`](#\_0x15CFA549788D35EF).
+---Requires [`THEFEED_AUTO_POST_GAMETIPS_ON`](#0\_x56C8B608CFD49854) to be called beforehand.
+---Call [`_THEFEED_DISABLE_LOADING_SCREEN_TIPS`](#\_0x32888337579A5970) to disable immediately, or [`THEFEED_AUTO_POST_GAMETIPS_OFF`](#\_0xADED7F5748ACAFE6) to disable after the current tip.
+---
+---Example result:
+---![](https://i.imgur.com/hzaHuPb.png)
 function HudDisplayLoadingScreenTips() end
 
 ---**`HUD` `client`**  
@@ -2453,11 +2465,12 @@ IsMedicalDisabled = IsWarningMessageActive
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAF42195A42C63BBA)  
----```
----IS_WARNING_MESSAGE_*
----```
+---This native does not have an official description.
 ---@return boolean
-function IsWarningMessageActive_2() end
+function IsWarningMessageReadyForControl() end
+
+---@deprecated
+IsWarningMessageActive_2 = IsWarningMessageReadyForControl
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1DD1F58F493F1DA5)  
@@ -2574,12 +2587,6 @@ function N_0x2c173ae2bdb9385e(blip) end
 function N_0x2c9f302398e13141(blip, p1) end
 
 ---**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x2E22FEFA0100275E)  
----This native does not have an official description.
----@return boolean
-function N_0x2e22fefa0100275e() end
-
----**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2F057596F2BD0061)  
 ---```
 ---Appears to return whether the player is using the pause menu store. Can't be sure though.  
@@ -2594,12 +2601,6 @@ function N_0x2f057596f2bd0061() end
 ---```
 ---@param blip integer
 function N_0x35a3cd97b2c0a6d2(blip) end
-
----**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x41350B4FC28E3941)  
----This native does not have an official description.
----@param p0 boolean
-function N_0x41350b4fc28e3941(p0) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4B5B620C9B59ED34)  
@@ -2811,12 +2812,6 @@ function N_0xde03620f8703a9df() end
 function N_0xe4c3b169876d33d7(p0) end
 
 ---**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xE67C6DFD386EA5E7)  
----This native does not have an official description.
----@param p0 boolean
-function N_0xe67c6dfd386ea5e7(p0) end
-
----**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEB81A3DADD503187)  
 ---```
 ---NativeDB Introduced: v1290
@@ -2971,15 +2966,21 @@ function PauseMenuDisableBusyspinner(toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x359AF31A4B52F5ED)  
----If mouse is hovering on a slot, it returns the slot's index, else it returns -1.
+---This native does not have an official description.
 ---@return integer
-function PauseMenuGetIndexOfMouseHoveredSlot() end
+function PauseMenuGetMouseHoverIndex() end
+
+---@deprecated
+PauseMenuGetIndexOfMouseHoveredSlot = PauseMenuGetMouseHoverIndex
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x13C4B962653A5280)  
----If mouse is hovering on a slot, it returns uniqueid of that slot, else it returns -1.
+---This native does not have an official description.
 ---@return integer
-function PauseMenuGetUniqueIdOfMouseHoveredSlot() end
+function PauseMenuGetMouseHoverUniqueId() end
+
+---@deprecated
+PauseMenuGetUniqueIdOfMouseHoveredSlot = PauseMenuGetMouseHoverUniqueId
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84698AB38D0C6636)  
@@ -3013,7 +3014,8 @@ function PauseMenuSetBusySpinner(bVisible, iColumnID, iSpinnerIndex) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF06EBB91A81E09E3)  
----Shows this warning message when trying to switch pause menu header tabs: https://i.imgur.com/8qmfztu.png
+---Shows this warning message when trying to switch pause menu header tabs:
+---![](https://imgur.com/a/5jugFi9)
 ---@param setWarn boolean
 function PauseMenuSetWarnOnTabChange(setWarn) end
 
@@ -3101,7 +3103,7 @@ function ReloadMapMenu() end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x86A652570E5F25DD)  
 ---Removes the blip from your map.
 ---
----**Note:** This function only works on the script that created the blip, if you wish to remove blips created by other scripts, see [`SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT`](#\_0x86A652570E5F25DD).
+---**Note:** This function only works on the script that created the blip, if you wish to remove blips created by other scripts, see [`SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT`](#\_0xB98236CAAECEF897).
 ---@param blip integer
 function RemoveBlip(blip) end
 
@@ -3287,7 +3289,7 @@ function SetBlipBright(blip, toggle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x234CDD44D996FD9A)  
 ---Examples result:
 ---
----![](https://i.imgur.com/skY6vAJ.png)
+---![](https://i.imgur.com/8MrVdmB.png)
 ---
 ---**index:**
 ---
@@ -3477,7 +3479,8 @@ function SetBlipScale(blip, scale) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCD6524439909C979)  
----See https://imgur.com/a/lLkEsMN
+---Preview:
+---![](https://i.imgur.com/jH2JMUl.png)
 ---
 ---```
 ---NativeDB Introduced: v1734
@@ -4302,9 +4305,9 @@ function SetMpGamerTagWantedLevel(gamerTagId, wantedlvl) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDD21B55DF695CD0A)  
----Preview image:
+---Preview:
 ---
----![](https://i.imgur.com/1BTmdyv.png)
+---![](https://i.imgur.com/b7lU2nl.png)
 ---
 ---To change the bank balance use [`STAT_SET_INT`](#\_0xB3271D7AB655B441) with "BANK_BALANCE" to whatever value you need to.
 function SetMultiplayerBankCash() end
@@ -4318,9 +4321,9 @@ function SetMultiplayerHudCash(p0, p1) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC2D15BEF167E27BC)  
----Preview image:
+---Preview:
 ---
----![](https://i.imgur.com/1BTmdyv.png)
+---![](https://i.imgur.com/b7lU2nl.png)
 ---
 ---To change money value use [`STAT_SET_INT`](#\_0xB3271D7AB655B441) with "MP0\_WALLET_BALANCE" to whatever value you need to.
 function SetMultiplayerWalletCash() end
@@ -4451,6 +4454,14 @@ function SetPlayerIsInDirectorMode(toggle) end
 SetDirectorMode = SetPlayerIsInDirectorMode
 
 ---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x41350B4FC28E3941)  
+---Doesn't seem to change anything visual and input-wise. Scripts use this in conjuction with the [`SHOW_WARNING_MESSAGE`](#\_0xAB58C27C2E6123C6) scaleform function.
+---Example of a "Pause Menu Warning Screen":
+---![](https://imgur.com/a/LJERmPC)
+---@param isActive boolean
+function SetPmWarningscreenActive(isActive) end
+
+---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1EAC5F91BCBC5073)  
 ---This native does not have an official description.
 ---@param toggle boolean
@@ -4511,9 +4522,6 @@ SetRadarZoomLevelThisFrame = SetRadarZoomToDistance
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x25615540D894B814)  
 ---Enabling this on a radius blip will make it outline only.\
 ---Please note that this only works on a **radius** blip (i.e. one generated using [`ADD_BLIP_FOR_RADIUS`](#\_0x46818D79B1F7499A)), not a normal blip.
----
----**Example result:**\
----![example-image](https://i.imgur.com/hS6ki7p.png)
 ---@param blip integer
 ---@param toggle boolean
 function SetRadiusBlipEdge(blip, toggle) end
@@ -4776,7 +4784,7 @@ function SetUseWaypointAsDestination(toggle) end
 ---Note: this list is definitely NOT complete, but these are the ones I've been able to find before giving up because it's such a boring thing to look for 'good' combinations.
 ---
 ---**Result of the example code:**
----<https://i.imgur.com/imwoimm.png>
+---![](https://i.imgur.com/aG6ROkP.png)
 ---@param entryLine1 string
 ---@param instructionalKey integer
 ---@param entryLine2 string
@@ -4852,7 +4860,8 @@ SetWarningMessageListRow = SetWarningMessageOptionItems
 ---}
 ---```
 ---
----**Result of the example code:** <https://i.imgur.com/TvmNF4k.png>
+---**Result of the example code:**
+---![](https://i.imgur.com/Cw5GoGs.png)
 ---@param labelTitle string
 ---@param labelMsg string
 ---@param p2 integer
@@ -4970,12 +4979,13 @@ function ShowContactInstructionalButton(toggle) end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDCFB5D4DB8BF367E)  
----Enables or disables the blue half circle ![](https://i.imgur.com/iZes9Ec.png) around the specified blip on the left side of the blip. This is used to indicate that the player is in your crew in GTA:O. Color is changeable by using [`SET_BLIP_SECONDARY_COLOUR`](#\_0x14892474891E09EB).
+---Enables or disables the blue half circle around the specified blip on the left side of the blip. This is used to indicate that the player is in your crew in GTA:O. Color is changeable by using [`SET_BLIP_SECONDARY_COLOUR`](#\_0x14892474891E09EB).
+---
+---Preview:
+---
+---![](https://i.imgur.com/JgRMbHb.png)
 ---
 ---To toggle the right side of the circle use: [`SHOW_FRIEND_INDICATOR_ON_BLIP`](#\_0x23C3EB807312F01A).
----
----Example code result:
----![](https://i.imgur.com/iZ9tNWl.png)
 ---@param blip integer
 ---@param toggle boolean
 function ShowCrewIndicatorOnBlip(blip, toggle) end
@@ -4985,7 +4995,11 @@ SetBlipCrew = ShowCrewIndicatorOnBlip
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x23C3EB807312F01A)  
----Highlights a blip by a half cyan circle on the right side of the blip. ![](https://i.imgur.com/FrV9M4e.png) Indicating that that player is a friend (in GTA:O). This color can not be changed.
+---Highlights a blip by a half cyan circle on the right side of the blip, indicating that that player is a friend (in GTA:O). This color can not be changed.
+---
+---Preview:
+---
+---![](https://i.imgur.com/v9FsjYl.png)
 ---
 ---To toggle the left side (crew member indicator) of the half circle around the blip, use: [`SHOW_CREW_INDICATOR_ON_BLIP`](#\_0xDCFB5D4DB8BF367E).
 ---@param blip integer
@@ -4997,8 +5011,13 @@ SetBlipFriend = ShowFriendIndicatorOnBlip
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCAC2031EBF79B1A8)  
+---Adds a orange checkmark on top of a given blip handle.
+---
+---Preview:
+---
+---![](https://i.imgur.com/KG9k6Fk.png)
+---
 ---```
----Adds a orange checkmark on top of a given blip handle: https://imgur.com/a/aw5OTMF
 ---_SHOW_FRIEND_INDICATOR_ON_BLIP* - _SHOW_HEADING_INDICATOR_ON_BLIP*
 ---```
 ---
@@ -5126,7 +5145,7 @@ SetBlipChecked = ShowTickOnBlip
 ---
 ---**Example result:**
 ---
----![](https://i.imgur.com/BDm5pzt.png)
+---![](https://i.imgur.com/DqmZyp2.png)
 ---@param hudColor integer
 ---@param displayOnFoot boolean
 ---@param followPlayer boolean
@@ -5142,7 +5161,7 @@ function StartGpsCustomRoute(hudColor, displayOnFoot, followPlayer) end
 ---
 ---**Example result:**
 ---
----![](https://i.imgur.com/ZZHQatX.png)
+---![](https://i.imgur.com/xIuEhwA.png)
 ---@param hudColor integer
 ---@param routeFromPlayer boolean
 ---@param displayOnFoot boolean
@@ -5161,29 +5180,34 @@ function SuppressFrontendRenderingThisFrame() end
 function TakeControlOfFrontend() end
 
 ---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xADED7F5748ACAFE6)  
+---Disables tip notifications enabled by [`THEFEED_AUTO_POST_GAMETIPS_ON`](#\_0x56C8B608CFD49854)
+function ThefeedAutoPostGametipsOff() end
+
+---@deprecated
+ThefeedShowGtaoTooltips = ThefeedAutoPostGametipsOff
+---@deprecated
+ThefeedCommentTeleportPoolOff = ThefeedAutoPostGametipsOff
+
+---**`HUD` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x56C8B608CFD49854)  
+---Enables loading screen tips to be be shown, blocks other kinds of notifications from being displayed.
+---Call [`THEFEED_AUTO_POST_GAMETIPS_OFF`](#\_0xADED7F5748ACAFE6) to disable.
+---
+---Example result:
+---![](https://i.imgur.com/GdRa0kw.png)
+function ThefeedAutoPostGametipsOn() end
+
+---@deprecated
+ThefeedCommentTeleportPoolOn = ThefeedAutoPostGametipsOn
+
+---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80FE4F3AB4E1B62A)  
 ---This native does not have an official description.
 function ThefeedClearFrozenPost() end
 
 ---@deprecated
 ThefeedFlushPersistent = ThefeedClearFrozenPost
-
----**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xADED7F5748ACAFE6)  
----```
----Displays "normal" notifications again after calling `_0x56C8B608CFD49854` (those that were drawn before calling this native too), though those will have a weird offset and stay on screen forever (tested with notifications created from same script).
----```
-function ThefeedCommentTeleportPoolOff() end
-
----@deprecated
-ThefeedShowGtaoTooltips = ThefeedCommentTeleportPoolOff
-
----**`HUD` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x56C8B608CFD49854)  
----```
----Enables loading screen tips to be be shown (`_0x15CFA549788D35EF` and `_0x488043841BBE156F`), blocks other kinds of notifications from being displayed (at least from current script). Call `0xADED7F5748ACAFE6` to display those again.
----```
-function ThefeedCommentTeleportPoolOn() end
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x32888337579A5970)  
@@ -5195,7 +5219,13 @@ ThefeedDisable = ThefeedDisableLoadingScreenTips
 
 ---**`HUD` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x15CFA549788D35EF)  
----Displays loading screen tips, requires `0x56C8B608CFD49854` to be called beforehand.
+---Displays loading screen tips.
+---Seems to do the same as [`_HUD_DISPLAY_LOADING_SCREEN_TIPS`](#\_0x488043841BBE156F).
+---Requires [`THEFEED_AUTO_POST_GAMETIPS_ON`](#\_0x56C8B608CFD49854) to be called beforehand.
+---Call [`_THEFEED_DISABLE_LOADING_SCREEN_TIPS`](#\_0x32888337579A5970) to disable immediately, or [`THEFEED_AUTO_POST_GAMETIPS_OFF`](#\_0xADED7F5748ACAFE6) to disable after the current tip.
+---
+---Example result:
+---![](https://i.imgur.com/hzaHuPb.png)
 function ThefeedDisplayLoadingScreenTips() end
 
 ---@deprecated

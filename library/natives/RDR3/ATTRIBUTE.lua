@@ -111,13 +111,13 @@ function GetDefaultAttributePointsNeededForRank(modelHash, attributeIndex, rank)
 ---@return integer
 function GetDefaultAttributeRank(ped, attributeIndex) end
 
----**`ATTRIBUTE` ``**  
+---**`ATTRIBUTE` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7C059C55AD940CB4)  
 ---attributeIndex: see SET_ATTRIBUTE_BASE_RANK
----@param ped integer
+---@param modelHash integer | string
 ---@param attributeIndex integer
 ---@return integer
-function GetDefaultMaxAttributeRank(ped, attributeIndex) end
+function GetDefaultMaxAttributeRank(modelHash, attributeIndex) end
 
 ---**`ATTRIBUTE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x223BF310F854871C)  

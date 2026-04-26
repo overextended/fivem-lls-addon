@@ -62,6 +62,13 @@ function HasAnimDictLoaded(animDict) end
 function HasClipSetLoaded(clipSet) end
 
 ---**`STREAMING` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x85B8F04555AB49B8)  
+---This native does not have an official description.
+---@param clipset string
+---@return boolean
+function HasClipSetLoaded_2(clipset) end
+
+---**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x210A79C9EC89778F)  
 ---This native does not have an official description.
 ---@param model integer | string
@@ -103,6 +110,13 @@ function HasNamedPtfxAssetLoaded(fxNameHash) end
 ---This native does not have an official description.
 ---@return boolean
 function HasPtfxAssetLoaded() end
+
+---**`STREAMING` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xA0AE7653E8181725)  
+---returns 1 if the scenario type for ped is loaded using the id returned by `_REQUEST_SCENARIO_TYPE_FOR_PED` or false
+---@param scenarioTypeId integer
+---@return boolean
+function HasScenarioTypeForPedLoaded(scenarioTypeId) end
 
 ---**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9427C94D2E4094A4)  
@@ -274,12 +288,6 @@ function LoadSceneStop() end
 function N_0x032a14d082a9b269(p0) end
 
 ---**`STREAMING` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x03DDBF2D73799F9E)  
----This native does not have an official description.
----@param p0 any
-function N_0x03ddbf2d73799f9e(p0) end
-
----**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x05DD384F39DE1C8C)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -364,13 +372,6 @@ function N_0x5d5e2102b174b8d2() end
 function N_0x62d5f0588915b277() end
 
 ---**`STREAMING` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x66BC28E50E85270E)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x66bc28e50e85270e(p0) end
-
----**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x6A6E79FBE8678C98)  
 ---This native does not have an official description.
 function N_0x6a6e79fbe8678c98() end
@@ -387,13 +388,6 @@ function N_0x7b8c2b846c05e5ad() end
 function N_0x80b3e0597366adf1() end
 
 ---**`STREAMING` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x85B8F04555AB49B8)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x85b8f04555ab49b8(p0) end
-
----**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x8D56BDA343D9519F)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -407,19 +401,6 @@ function N_0x8d56bda343d9519f(p0) end
 function N_0x99f92061efe908ba() end
 
 ---**`STREAMING` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x9F348DE670423460)  
----This native does not have an official description.
----@param p0 any
-function N_0x9f348de670423460(p0) end
-
----**`STREAMING` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xA0AE7653E8181725)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xa0ae7653e8181725(p0) end
-
----**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xAE00387E53B1E9FC)  
 ---This native does not have an official description.
 function N_0xae00387e53b1e9fc() end
@@ -429,16 +410,6 @@ function N_0xae00387e53b1e9fc() end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0xafa87a7d41ee346a(p0) end
-
----**`STREAMING` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xB223249B7798EEED)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@return any
-function N_0xb223249b7798eeed(p0, p1, p2, p3) end
 
 ---**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB9B9E47EDB9D63DB)  
@@ -540,6 +511,12 @@ function RemoveAnimDict(animDict) end
 function RemoveClipSet(clipSet) end
 
 ---**`STREAMING` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x9F348DE670423460)  
+---This native does not have an official description.
+---@param clipset string
+function RemoveClipSet_2(clipset) end
+
+---**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x431E3AB760629B34)  
 ---Old name: _REMOVE_IMAP_2
 ---@param iplHash integer | string
@@ -576,6 +553,12 @@ function RemovePtfxAsset() end
 function RemoveScenarioAsset(scenarioType) end
 
 ---**`STREAMING` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x66BC28E50E85270E)  
+---removes the requested scenario type for ped using the id returned by `_REQUEST_SCENARIO_TYPE_FOR_PED`
+---@param scenarioTypeId integer
+function RemoveScenarioTypeForPed(scenarioTypeId) end
+
+---**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x83A8D71650D1894F)  
 ---This native does not have an official description.
 ---@param x number
@@ -594,6 +577,12 @@ function RequestAnimDict(animDict) end
 ---This native does not have an official description.
 ---@param clipSet string
 function RequestClipSet(clipSet) end
+
+---**`STREAMING` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x03DDBF2D73799F9E)  
+---This native does not have an official description.
+---@param clipset string
+function RequestClipSet_2(clipset) end
 
 ---**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xAC37644A538F7524)  
@@ -668,6 +657,16 @@ function RequestPtfxAsset() end
 ---@param conditionalAnim integer | string
 ---@return integer
 function RequestScenarioType(scenarioType, p1, entityModel, conditionalAnim) end
+
+---**`STREAMING` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB223249B7798EEED)  
+---requests a scenario type just like _REQUEST_SCENARIO_TYPE but for a specifc ped p2 is a flag unknown
+---@param ped integer
+---@param scenarioType integer | string
+---@param flag integer
+---@param consitionalAnim integer | string
+---@return integer
+function RequestScenarioTypeForPed(ped, scenarioType, flag, consitionalAnim) end
 
 ---**`STREAMING` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x19ABCC581D28E6F9)  
