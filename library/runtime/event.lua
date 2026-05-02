@@ -7,7 +7,7 @@ source = nil
 ---@field name string
 ---@field key integer
 
----@overload fun(name: string, method: fun(...): any)
+---@overload fun(name: string, method: fun(...): ...)
 exports = {}
 
 --- Trigger a coroutine when the event is called.
