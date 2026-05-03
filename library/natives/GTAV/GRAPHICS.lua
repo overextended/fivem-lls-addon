@@ -913,7 +913,7 @@ function DrawLowQualityPhotoToPhone(p0, p1) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x28477EC23D892089)  
 ---Draws a marker with the specified appearance at the target location. This has to be called every frame, e.g. in a `Wait(0)` loop.
 ---
----There's a [list of markers](https://docs.fivem.net/game-references/markers/) on the FiveM documentation site.
+---There's a [list of markers](https://docs.fivem.net/docs/game-references/markers/) on the FiveM documentation site.
 ---@param type integer
 ---@param posX number
 ---@param posY number

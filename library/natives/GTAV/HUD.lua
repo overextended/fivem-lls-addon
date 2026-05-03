@@ -3522,7 +3522,7 @@ function SetBlipShrink(blip, toggle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDF735600A4696DAF)  
 ---Sets the displayed sprite for a specific blip.
 ---
----There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+---There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
 ---@param blip integer
 ---@param spriteId integer
 function SetBlipSprite(blip, spriteId) end

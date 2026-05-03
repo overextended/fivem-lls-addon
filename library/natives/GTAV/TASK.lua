@@ -2520,7 +2520,7 @@ function TaskPerformSequenceFromProgress(ped, taskIndex, progress1, progress2) e
 
 ---**`TASK` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8C33220C8D78CA0D)  
----For an example on how to use this please refer to \[OPEN_SEQUENCE_TASK]\(#\_0xE8854A4326B9E12B
+---For an example on how to use this please refer to [OPEN_SEQUENCE_TASK](#\_0xE8854A4326B9E12B)
 ---@param ped integer
 ---@param taskSequenceId integer
 function TaskPerformSequenceLocally(ped, taskSequenceId) end
