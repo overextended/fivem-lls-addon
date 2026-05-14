@@ -25,37 +25,64 @@ function OnSetText(uri, text)
 		}
 	end
 
+	-- Identify "dead" ranges (comments and strings) to avoid mangling them
+	local dead = {}
+	local deadCount = 0
+
+	local function addDead(s, e)
+		deadCount = deadCount + 1
+		dead[deadCount] = { s, e }
+	end
+
+	-- Block comments /* */
+	for s, e in str_gmatch(text, '()/%*.-%*/()') do addDead(s, e) end
+	-- Block comments [[ ]]
+	for s, e in str_gmatch(text, '()%[%[.-%]%]()') do addDead(s, e) end
+	-- Line comments --
+	for s, e in str_gmatch(text, '()%-%-[^\n]*()') do addDead(s, e) end
+	-- Double quoted strings
+	for s, e in str_gmatch(text, '()"[^"\n]*"()') do addDead(s, e) end
+	-- Single quoted strings
+	for s, e in str_gmatch(text, "()'[^'\n]*'()") do addDead(s, e) end
+
+	local function isDead(pos)
+		for i = 1, deadCount do
+			local range = dead[i]
+			if pos >= range[1] and pos < range[2] then
+				return true
+			end
+		end
+		return false
+	end
+
 	-- prevent diagnostic errors from safe navigation (foo?.bar and foo?[bar])
 	for safeNav in str_gmatch(text, '()%?[%.%[]+') do
-		count = count + 1
-		diffs[count] = {
-			start  = safeNav,
-			finish = safeNav,
-			text   = '',
-		}
+		if not isDead(safeNav) then
+			count = count + 1
+			diffs[count] = {
+				start  = safeNav,
+				finish = safeNav,
+				text   = '',
+			}
+		end
 	end
 
 	-- prevent "need-check-nil" diagnostic when using safe navigation
 	-- only works for the first index, and requires dot notation (i.e. mytable.index, not mytable["index"])
 	for pre, whitespace, tableStart, tableName, tableEnd in str_gmatch(text, '([=,;%s])([%s]*)()([_%w]+)()%?[%.%[]+') do
-		count = count + 1
-		diffs[count] = {
-			start  = tableStart - 1,
-			finish = tableEnd - 1,
-			text = ('%s(%s or {})'):format(whitespace == '' and pre or '', tableName)
-		}
+		if not isDead(tableStart) then
+			count = count + 1
+			diffs[count] = {
+				start  = tableStart - 1,
+				finish = tableEnd - 1,
+				text = ('%s(%s or {})'):format(whitespace == '' and pre or '', tableName)
+			}
+		end
 	end
 
 	-- prevent diagnostic errors from "in" unpacking (local a, b in t)
-	-- only matches if "local" is at the start of the line or preceded by whitespace/semicolon
 	for start, pre, vars, tableName, finish in str_gmatch(text, '()([%s;]*)local%s+([%w%s,_]+)%s+in%s+([%w%._]+)()') do
-		-- check if we are in a comment
-		local lineStart = 1
-		local lastNewline = str_find(str_sub(text, 1, start), '\n[^\n]*$')
-		if lastNewline then lineStart = lastNewline + 1 end
-		local lineToMatch = str_sub(text, lineStart, start)
-		
-		if not str_find(lineToMatch, '%-%-') then
+		if not isDead(start) then
 			local newVars = {}
 			for var in str_gmatch(vars, '([_%w]+)') do
 				newVars[#newVars + 1] = tableName .. '.' .. var
@@ -71,13 +98,7 @@ function OnSetText(uri, text)
 
 	-- prevent diagnostic errors from "set" constructors (t = { .a, .b })
 	for start, pre, keyName, finish in str_gmatch(text, '()([,{]%s*)%.([_%w]+)()') do
-		-- check if we are in a comment
-		local lineStart = 1
-		local lastNewline = str_find(str_sub(text, 1, start), '\n[^\n]*$')
-		if lastNewline then lineStart = lastNewline + 1 end
-		local lineToMatch = str_sub(text, lineStart, start)
-
-		if not str_find(lineToMatch, '%-%-') then
+		if not isDead(start) then
 			count = count + 1
 			diffs[count] = {
 				start = start + #pre,
@@ -89,13 +110,7 @@ function OnSetText(uri, text)
 
 	-- prevent diagnostic errors from "defer" keyword
 	for start, finish in str_gmatch(text, '()defer()') do
-		-- check if we are in a comment
-		local lineStart = 1
-		local lastNewline = str_find(str_sub(text, 1, start), '\n[^\n]*$')
-		if lastNewline then lineStart = lastNewline + 1 end
-		local lineToMatch = str_sub(text, lineStart, start)
-
-		if not str_find(lineToMatch, '%-%-') then
+		if not isDead(start) then
 			count = count + 1
 			diffs[count] = {
 				start = start,
