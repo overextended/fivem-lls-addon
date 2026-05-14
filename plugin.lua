@@ -46,5 +46,64 @@ function OnSetText(uri, text)
 		}
 	end
 
+	-- prevent diagnostic errors from "in" unpacking (local a, b in t)
+	-- only matches if "local" is at the start of the line or preceded by whitespace/semicolon
+	for start, pre, vars, tableName, finish in str_gmatch(text, '()([%s;]*)local%s+([%w%s,_]+)%s+in%s+([%w%._]+)()') do
+		-- check if we are in a comment
+		local lineStart = 1
+		local lastNewline = str_find(str_sub(text, 1, start), '\n[^\n]*$')
+		if lastNewline then lineStart = lastNewline + 1 end
+		local lineToMatch = str_sub(text, lineStart, start)
+		
+		if not str_find(lineToMatch, '%-%-') then
+			local newVars = {}
+			for var in str_gmatch(vars, '([_%w]+)') do
+				newVars[#newVars + 1] = tableName .. '.' .. var
+			end
+			count = count + 1
+			diffs[count] = {
+				start = start + #pre,
+				finish = finish - 1,
+				text = ('local %s = %s'):format(vars, table.concat(newVars, ', '))
+			}
+		end
+	end
+
+	-- prevent diagnostic errors from "set" constructors (t = { .a, .b })
+	for start, pre, keyName, finish in str_gmatch(text, '()([,{]%s*)%.([_%w]+)()') do
+		-- check if we are in a comment
+		local lineStart = 1
+		local lastNewline = str_find(str_sub(text, 1, start), '\n[^\n]*$')
+		if lastNewline then lineStart = lastNewline + 1 end
+		local lineToMatch = str_sub(text, lineStart, start)
+
+		if not str_find(lineToMatch, '%-%-') then
+			count = count + 1
+			diffs[count] = {
+				start = start + #pre,
+				finish = finish - 1,
+				text = keyName .. ' = true'
+			}
+		end
+	end
+
+	-- prevent diagnostic errors from "defer" keyword
+	for start, finish in str_gmatch(text, '()defer()') do
+		-- check if we are in a comment
+		local lineStart = 1
+		local lastNewline = str_find(str_sub(text, 1, start), '\n[^\n]*$')
+		if lastNewline then lineStart = lastNewline + 1 end
+		local lineToMatch = str_sub(text, lineStart, start)
+
+		if not str_find(lineToMatch, '%-%-') then
+			count = count + 1
+			diffs[count] = {
+				start = start,
+				finish = finish - 1,
+				text = 'do'
+			}
+		end
+	end
+
 	return diffs
 end
