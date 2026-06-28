@@ -721,6 +721,27 @@ function GetModelDimensions(modelHash) end
 function GetNextWeatherTypeHashName() end
 
 ---**`MISC` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x970339EFA4FDE518)  
+---returns the number of bullets that hit the entity
+---@param entity integer
+---@param p1 boolean
+---@param p2 boolean
+---@return integer
+function GetNumberOfBulletsImpactedEntity(entity, p1, p2) end
+
+---**`MISC` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xDC416CA762BC4F43)  
+---returns the number of bullets that were shot in the area
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@param p4 boolean
+---@param p5 boolean
+---@return integer
+function GetNumberOfBulletsInArea(x, y, z, radius, p4, p5) end
+
+---**`MISC` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x40DC2907A9697EF7)  
 ---This native does not have an official description.
 ---@param stackSize integer
@@ -912,6 +933,15 @@ function GetWindDirection() end
 ---This native does not have an official description.
 ---@return number
 function GetWindSpeed() end
+
+---**`MISC` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x7A76104CC2CC69E8)  
+---returns true if a bullet impacted the entity
+---@param entity integer
+---@param p1 boolean
+---@param p2 boolean
+---@return boolean
+function HasBulletImpactedEntity(entity, p1, p2) end
 
 ---**`MISC` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC153E5BCCF411814)  
@@ -1430,15 +1460,6 @@ function N_0x745808bb01cec6b9(p0) end
 function N_0x74aca66484cebaf0(p0) end
 
 ---**`MISC` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x7A76104CC2CC69E8)  
----This native does not have an official description.
----@param entity integer
----@param p1 integer
----@param p2 integer
----@return any
-function N_0x7a76104cc2cc69e8(entity, p1, p2) end
-
----**`MISC` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7CF96F1250EF3221)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1496,15 +1517,6 @@ function N_0x94fcadcf9f0c368e(p0) end
 ---@param p0 any
 ---@param p1 any
 function N_0x96282005c5c6801f(p0, p1) end
-
----**`MISC` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x970339EFA4FDE518)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@return any
-function N_0x970339efa4fde518(p0, p1, p2) end
 
 ---**`MISC` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9A252AA23D7098F2)  
@@ -1625,18 +1637,6 @@ function N_0xdbda48ec456ed908() end
 ---Hardcoded to return one/true.
 ---@return any
 function N_0xdc057b86fc157031() end
-
----**`MISC` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xDC416CA762BC4F43)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
----@param p5 any
----@return any
-function N_0xdc416ca762bc4f43(p0, p1, p2, p3, p4, p5) end
 
 ---**`MISC` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xDE2C3B74D2B3705C)  

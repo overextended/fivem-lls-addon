@@ -220,7 +220,7 @@ CanPedSpeak = DoesContextExistForThisPed
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x109697E2FFBAC8A1)  
----This native does not have an official description.
+---Checks if the vehicle the local player is currently in has a radio.
 ---@return boolean
 function DoesPlayerVehHaveRadio() end
 
@@ -916,15 +916,6 @@ function N_0x9ac92eed5e4793ab() end
 ---@param p1 any
 ---@param p2 any
 function N_0x9bd7bd55e4533183(p0, p1, p2) end
-
----**`AUDIO` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x9D3AF56E94C9AE98)  
----```
----SET_H*
----```
----@param vehicle integer
----@param p1 number
-function N_0x9d3af56e94c9ae98(vehicle, p1) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB542DE8C3D1CB210)  
@@ -1871,6 +1862,17 @@ function SetGpsActive(active) end
 ---@param vehicle integer
 ---@param toggle boolean
 function SetHornEnabled(vehicle, toggle) end
+
+---**`AUDIO` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9D3AF56E94C9AE98)  
+---Sounds the vehicle's horn for a specified duration. The behavior of this native changes significantly depending on the occupancy of the driver's seat:
+---
+---*   **Empty Driver Seat:** The horn will sound continuously for the entire duration specified in the `time` parameter.
+---*   **Occupied Driver Seat:** The `time` parameter is entirely ignored. The horn will only sound very briefly, simulating a quick tap of the horn button.
+---*   **Interruption:** If a ped enters the driver seat while the horn is actively sounding (triggered by this native), the horn will stop immediately.
+---@param vehicle integer
+---@param time number
+function SetHornPermanentlyOnTime(vehicle, time) end
 
 ---**`AUDIO` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x88795F13FACDA88D)  

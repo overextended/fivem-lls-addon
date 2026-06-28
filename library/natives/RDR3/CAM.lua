@@ -992,14 +992,6 @@ function N_0xc3742f1fdf0a6824() end
 function N_0xc3aebb276825a359(dictionary, shotName, duration) end
 
 ---**`CAM` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xC3E9E5D4F413B773)  
----shakeName: REINFORCED_LASSO_STRUGGLE_SHAKE
----_RES*
----@param shakeName string
----@param intensity number
-function N_0xc3e9e5d4f413b773(shakeName, intensity) end
-
----**`CAM` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xCF69EA05CD9C33C9)  
 ---This native does not have an official description.
 function N_0xcf69ea05cd9c33c9() end
@@ -1588,6 +1580,14 @@ function ShakeCam(cam, type, amplitude) end
 ---@param shakeName string
 ---@param intensity number
 function ShakeGameplayCam(shakeName, intensity) end
+
+---**`CAM` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC3E9E5D4F413B773)  
+---shakeName: REINFORCED_LASSO_STRUGGLE_SHAKE
+---_RES*
+---@param shakeName string
+---@param intensity number
+function ShakeGameplayCamWithName(shakeName, intensity) end
 
 ---**`CAM` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x65B205BF30C13DDB)  

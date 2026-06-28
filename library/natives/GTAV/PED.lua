@@ -2954,6 +2954,14 @@ function IsPedRunningRagdollTask(ped) end
 function IsPedShaderEffectValid(ped) end
 
 ---**`PED` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB8B52E498014F5B0)  
+---Returns whether the specified ped is currently sheltered.
+---A ped is considered sheltered if they are under a **roof**, a **bridge**, inside a **tunnel**, or within a **vehicle with a solid roof**, meaning they are not directly exposed to the open sky.
+---@param ped integer
+---@return boolean
+function IsPedSheltered(ped) end
+
+---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x34616828CD07F1A1)  
 ---```
 ---Returns whether the specified ped is shooting.  
@@ -3552,13 +3560,6 @@ function N_0xb282749d5e028163(p0, p1) end
 ---```
 ---@param toggle boolean
 function N_0xb3352e018d6f89df(toggle) end
-
----**`PED` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB8B52E498014F5B0)  
----This native does not have an official description.
----@param ped integer
----@return boolean
-function N_0xb8b52e498014f5b0(ped) end
 
 ---**`PED` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC2EE020F5FB4DB53)  

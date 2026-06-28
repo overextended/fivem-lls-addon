@@ -389,18 +389,21 @@ function SetBlipCoords(blip, posX, posY, posZ) end
 
 ---**`MAP` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0DF2B55F717DDB10)  
----This native does not have an official description.
+---_GET_BLIP_MAP_CARD_INFO this should be the name there is no flash timer for blips
+---
 ---@param blip integer
 ---@return boolean, integer, integer
 function SetBlipFlashes(blip) end
 
 ---**`MAP` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x02FF4CF43B7209D1)  
----This native does not have an official description.
+---_SET_BLIP_MAP_CARD_INFO this should be the name there is no flash timer for blips
+---blipType can be any number, but you can use blipTypes
+---mapCardId joaat("SHOP_MOONSHINE_STILL") possibly to get the card info by this hash
 ---@param blip integer
 ---@param blipType integer
----@param blipHash integer | string
-function SetBlipFlashTimer(blip, blipType, blipHash) end
+---@param mapCardId integer | string
+function SetBlipFlashTimer(blip, blipType, mapCardId) end
 
 ---**`MAP` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0x1726963E6049DB53)  

@@ -483,6 +483,20 @@ function ComputeSatchelItemForPedDamage(p0, pedAttached, damageCleanliness) end
 function ComputeSpeedForPedMoveBlendRatio(ped, speed) end
 
 ---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF4860514AD354226)  
+---Only used in SP Scripts
+---counts how many peds that the ADD_SHOCKING_EVENT_FOR_ENTITY were add to based on position and radius, p0 is handleId from ADD_SHOCKING_EVENT_FOR_ENTITY
+---p3 is a collection of entities where max is 15 (in source code), its using itemSet to get them from a volume
+---this count seems to be used to add a task reactions etc to these peds
+---@param shockingEvent integer
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@return integer, integer
+function CountPedsAwareOfEvent(shockingEvent, x, y, z, radius) end
+
+---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x5407B7288D0478B7)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -1569,6 +1583,13 @@ function GetPedGroupIndex(ped) end
 function GetPedHasSimplePlayerMemoryChanged(ped, memoryType, ms) end
 
 ---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x900CA00CE703E1E2)  
+---Returns the hearing range of a ped. To use with SET_PED_HEARING_RANGE
+---@param ped integer
+---@return number
+function GetPedHearingRange(ped) end
+
+---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x1D491CCF7211FB74)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -1817,6 +1838,13 @@ function GetPedRemainingRevivalTime(ped, normalized) end
 ---@param flagId integer
 ---@return boolean
 function GetPedResetFlag(ped, flagId) end
+
+---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x2BA9D7BF629F920C)  
+---Returns the seeing range of a ped. To use with SET_PED_SEEING_RANGE
+---@param ped integer
+---@return number
+function GetPedSeeingRange(ped) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7BE607DAFF382FD2)  
@@ -2222,6 +2250,16 @@ function HasPedEmotionalPresetLoaded(ped, name) end
 function HasPedInteractedWithPlayerRecently(ped, player, flag, ms) end
 
 ---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xFA8C10DCE0706D43)  
+---Checks whether the specified ped has performed a door knocking interaction
+---This is typically used together with SET_DOOR_KNOCKING_WHEN_LOCKED.
+---If a door is configured to use knocking behavior when locked, and the player interacts
+---with it, this native returns true AFTER the knocking interaction/animation has completed 
+---@param ped integer
+---@return boolean
+function HasPedKnockedOnDoor(ped) end
+
+---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB7DBB2986B87E230)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -2236,6 +2274,12 @@ function HasPedShotRecently(ped, seconds) end
 ---@param limb integer
 ---@return boolean
 function HasPedTakenGoreDamage(ped, limb) end
+
+---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xCAC43D060099EA72)  
+---Hides the reins of the mount
+---@param mount integer
+function HideMountReins(mount) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xBAE08F00021BFFB2)  
@@ -3550,14 +3594,6 @@ function N_0x29924eb8ee9db926(ped, p1) end
 function N_0x29f3539189d3e277(p0, p1) end
 
 ---**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x2BA9D7BF629F920C)  
----Used in Script Function CHECK_IS_PLAYER_SEEN
----_GET_PED_*
----@param ped integer
----@return number
-function N_0x2ba9d7bf629f920c(ped) end
-
----**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x2D976DBDC731DF80)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -4437,14 +4473,6 @@ function N_0x8cb2553c559102c1(ped, p1, p2) end
 function N_0x8d9db115fba8e23d(p0) end
 
 ---**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x900CA00CE703E1E2)  
----Used in Script Function AGGRO_SHOULD_PED_HEAR_DEATH
----_GET_PED_*
----@param ped integer
----@return number
-function N_0x900ca00ce703e1e2(ped) end
-
----**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9078FB0557364099)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -4896,16 +4924,6 @@ function N_0xbf567df2bef211a6(p0, p1) end
 function N_0xbfa6b7731c3baf02() end
 
 ---**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xC17A94CC8FC3C61A)  
----_SET_PED_P* - _SET_PED_R*
----@param entity integer
----@param boneId integer
----@param p2 number
----@param p3 number
----@param p4 number
-function N_0xc17a94cc8fc3c61a(entity, boneId, p2, p3, p4) end
-
----**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC2722B252C79E641)  
 ---_FORCE_PED_*
 ---@param ped integer
@@ -4920,14 +4938,6 @@ function N_0xc2722b252c79e641(ped, p1, p2, p3) end
 ---@param p0 any
 ---@return any
 function N_0xc2ef407645beecdc(p0) end
-
----**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xC48AF420371C7407)  
----_SET_PED_M*
----@param ped integer
----@param grapple integer | string
----@return any
-function N_0xc48af420371c7407(ped, grapple) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC5B78E41DCF8227C)  
@@ -4981,12 +4991,6 @@ function N_0xc99f104bdf8c7f5a(ped, p1) end
 ---@param p0 any
 ---@param p1 any
 function N_0xca95c156c14b2054(p0, p1) end
-
----**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xCAC43D060099EA72)  
----This native does not have an official description.
----@param ped integer
-function N_0xcac43d060099ea72(ped) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xCB1A3864C524F784)  
@@ -5157,16 +5161,6 @@ function N_0xd8ceeed54c672b5d(p0, p1, p2, p3, p4, p5, p6) end
 ---@param p3 any
 ---@return any
 function N_0xd97bc27ac039f681(p0, p1, p2, p3) end
-
----**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xDD9540E7B1C9714F)  
----This native does not have an official description.
----@param ped integer
----@param p1 integer | string
----@param r number
----@param g number
----@param b number
-function N_0xdd9540e7b1c9714f(ped, p1, r, g, b) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xDDFAD4DEAA7FA362)  
@@ -5353,9 +5347,9 @@ function N_0xec60d1d225bc50aa(ped, p1) end
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xED1C764997A86D5A)  
 ---Only used in R* Script nb_stalking_hunter
----@param ped1 integer
----@param ped2 integer
-function N_0xed1c764997a86d5a(ped1, ped2) end
+---@param ped integer
+---@param mount integer
+function N_0xed1c764997a86d5a(ped, mount) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xEEDC9B29314B2733)  
@@ -5384,19 +5378,6 @@ function N_0xef371232bc6053e1(ped) end
 ---@param ped integer
 ---@param danceIntensity integer
 function N_0xf47d54b986f0a346(ped, danceIntensity) end
-
----**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xF4860514AD354226)  
----Only used in SP Scripts
----Returns count / index
----_C*
----@param shockingEvent integer
----@param x number
----@param y number
----@param z number
----@param p4 number
----@return integer, integer
-function N_0xf4860514ad354226(shockingEvent, x, y, z, p4) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF634E2892220EF34)  
@@ -5473,13 +5454,6 @@ function N_0xfa0d206b489a6846(p0, p1, p2, p3, p4) end
 function N_0xfa742b82d093d848(p0, p1, p2) end
 
 ---**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xFA8C10DCE0706D43)  
----_HAS_PED_*
----@param ped integer
----@return boolean
-function N_0xfa8c10dce0706d43(ped) end
-
----**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xFC23348F0F4E245F)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -5509,13 +5483,6 @@ function N_0xfd8e853f0bc2e942(p0, p1) end
 ---@param ped integer
 ---@param p1 boolean
 function N_0xfea6126c34df2532(ped, p1) end
-
----**`PED` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xFFA1594703ED27CA)  
----This native does not have an official description.
----@param ped integer
----@param p1 integer
-function N_0xffa1594703ed27ca(ped, p1) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xFFDE295662405B25)  
@@ -7422,6 +7389,14 @@ function SetPedMoveRateOverride(ped, value) end
 function SetPedNameDebug(ped, name) end
 
 ---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC48AF420371C7407)  
+---Sets the next melee attack of a ped eg AR_ATTACK_HAYMAKER_TO_HEAD_RIGHT_HAND_DIST_MED_V01 AR_GRAPPLE_MOUNT_FACEDOWN_FROM_FRONT
+---@param ped integer
+---@param actionHash integer | string
+---@return any
+function SetPedNextMeleeAttack(ped, actionHash) end
+
+---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xEE01041D559983EA)  
 ---The distance between these points, is the diagonal of a box (remember it's 3D).
 ---@param x1 number
@@ -7442,8 +7417,15 @@ function SetPedNonCreationArea(x1, y1, z1, x2, y2, z2) end
 function SetPedOntoMount(ped, mount, seatIndex, p3) end
 
 ---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xFFA1594703ED27CA)  
+---doesnt seem to work on story characters possibly need to uese the metaped natives for those
+---@param ped integer
+---@param index integer
+function SetPedOutfitPreset(ped, index) end
+
+---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x931B241409216C1F)  
----This native does not have an official description.
+---enables horse items wheel
 ---@param ped integer
 ---@param animal integer
 ---@param p2 boolean
@@ -7501,6 +7483,16 @@ function SetPedPromptNameFromGxtEntry_2(ped, gxtEntryHash) end
 ---@param ped integer
 ---@param quality integer
 function SetPedQuality(ped, quality) end
+
+---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC17A94CC8FC3C61A)  
+---seems to modify the size/scale of the collision capsule (hitbox) for a specific ped bone
+---@param entity integer
+---@param boneId integer
+---@param p2 number
+---@param p3 number
+---@param p4 number
+function SetPedRagdollBoneScale(entity, boneId, p2, p3, p4) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x01F6594B923B9251)  
@@ -7758,6 +7750,18 @@ function SetPedToRagdoll(ped, timeMin, timeMax, ragdollType, abortIfInjured, abo
 ---@param p13 number
 ---@return boolean
 function SetPedToRagdollWithFall(ped, timeMin, timeMax, ragdollType, falldirX, falldirY, falldirZ, p7, p8, p9, p10, p11, p12, p13) end
+
+---**`PED` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xDD9540E7B1C9714F)  
+---The native WILL NOT WORK if the specific component containing the VFX node is not equipped on the ped (e.g., the torch outfit -368114487 must be equipped first via _EQUIP_META_PED_OUTFIT).
+---It only colors the smoke/volumetrics, leaving the core fire sprites untouched.
+---Values greater than 1.0f are clamped to 1.0f by the engine. To achieve specific RGB shades, you MUST normalize 0-255 values by dividing them by 255.0f (e.g., 128 becomes 0.5f)
+---@param ped integer
+---@param vfxNodeHash integer | string
+---@param r number
+---@param g number
+---@param b number
+function SetPedTorchVfxColor(ped, vfxNodeHash, r, g, b) end
 
 ---**`PED` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xA5950E16B8F31052)  

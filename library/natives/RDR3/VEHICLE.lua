@@ -60,6 +60,12 @@ function AttachDraftVehicleHarnessPed(mount, draft, harnessId) end
 function BreakOffDraftWheel(vehicle, wheelIndex, destroyingForce) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x9D12796EF4BF9EA9)  
+---Breaks off the padlock of a vehicle if the vehicle contains the closed compartment to be looted
+---@param vehicle integer
+function BreakOffVehiclePadlock(vehicle) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xD4F5EFB55769D272)  
 ---wheelIndex 0: left, wheelIndex 1: right, 4 & 5: unknown
 ---@param vehicle integer
@@ -214,6 +220,19 @@ function DetachDraftVehicleHarnessPed(draft, ped) end
 ---_C* - _DEL*
 ---@param entity integer
 function DetachWagonEntityFromTrain(entity) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x877EA24EB1614495)  
+--- Determines the interaction/storage state of a vehicle rear compartment or storage area.
+---Returns whether the query was successful and writes a state value to outState
+---Observed states:
+---* 1  = Compartment available / unopened
+---* 57 = Vehicle has no valid compartment/storage
+---* 72 = Compartment opened, resolved or depleted
+---@param vehicle integer
+---@param ped integer
+---@return boolean, any
+function DetermineVehicleCompartmentState(vehicle, ped) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x94B1E71B144356A5)  
@@ -847,6 +866,18 @@ function IsPlaybackUsingAiGoingOnForVehicle(vehicle) end
 function IsSeatWarpOnly(vehicle, seatIndex) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF05DFAF1ADFEF2CD)  
+---Return true if the specified train can be spawned at the location (automatically snap to the nearest track from coords) with the direction.
+---@param trainConfig integer | string
+---@param x number
+---@param y number
+---@param z number
+---@param direction boolean
+---@param p5 boolean
+---@return boolean
+function IsSpawnPositionValidForTrain(trainConfig, x, y, z, direction, p5) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x799CFC7C5B743B15)  
 ---This native does not have an official description.
 ---@param model integer | string
@@ -880,6 +911,13 @@ function IsTrainWaitingAtStation(train) end
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleBroughtToHalt(vehicle) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x51C7694E140FAE43)  
+---true if the vehicle is colliding with vegetation/bushes, false if it is in the clear.
+---@param vehicle integer
+---@return boolean
+function IsVehicleCollidingWithVegetation(vehicle) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xE979BB5602AD3402)  
@@ -1052,13 +1090,6 @@ function N_0x04f0579dbdd32f34(vehicle) end
 function N_0x0516fae561276efc(trackIndex) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x06A09A6E0C6D2A84)  
----_SET_TRAIN_*
----@param train integer
----@param p1 boolean
-function N_0x06a09a6e0c6d2a84(train, p1) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0794199B25E499E1)  
 ---_SET_VEHICLE_S*
 ---@param wagon integer
@@ -1181,17 +1212,6 @@ function N_0x1a861f899ebbe17c(train, p1) end
 ---@param p0 any
 ---@return any
 function N_0x2045429505158d1a(p0) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x2200AB13CBD10F4E)  
----This native does not have an official description.
----@param vehicle integer
----@param x number
----@param y number
----@param z number
----@param p4 boolean
----@param p5 number
-function N_0x2200ab13cbd10f4e(vehicle, x, y, z, p4, p5) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x23F66C36F8E5EAAB)  
@@ -1331,13 +1351,6 @@ function N_0x4c05b42a8d937796() end
 function N_0x4c60c333f9cca2b6(vehicle, p1) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x51C7694E140FAE43)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x51c7694e140fae43(p0) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x5AADC7BBBB1BCEEB)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1374,13 +1387,6 @@ function N_0x6355602c02edc6df(entity, p1) end
 ---@param p0 any
 ---@param p1 any
 function N_0x6703872ec09bc158(p0, p1) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x6835AFEA10E186F4)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x6835afea10e186f4(p0, p1) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x68830738A6BFB370)  
@@ -1525,15 +1531,6 @@ function N_0x850ce59dec2028f3(vehicle, p1) end
 function N_0x873aaf600cc36dac(p0) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x877EA24EB1614495)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@return any
-function N_0x877ea24eb1614495(p0, p1, p2) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x87B974E54C71BA7B)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -1569,25 +1566,12 @@ function N_0x9868c0d0134855f7(p0) end
 function N_0x98a7598c579ee871(p0, p1, p2) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x9D12796EF4BF9EA9)  
----This native does not have an official description.
----@param p0 any
-function N_0x9d12796ef4bf9ea9(p0) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9E8711C81AA17876)  
 ---Forcing high LOD buoyancy for vehicle: p1 = false
 ---_SET_A*
 ---@param vehicle integer
 ---@param p1 boolean
 function N_0x9e8711c81aa17876(vehicle, p1) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xA13028E22564A1BD)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xa13028e22564a1bd(p0, p1) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xA230A5DDE12ED374)  
@@ -1630,15 +1614,6 @@ function N_0xae7e66a61e7c17a5(train, p1) end
 ---@param trackIndex integer
 ---@return boolean
 function N_0xb4241ad8f5aee9ed(trackIndex) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xB42C87521D1BDD2F)  
----This native does not have an official description.
----@param vehicle integer
----@param x number
----@param y number
----@param z number
-function N_0xb42c87521d1bdd2f(vehicle, x, y, z) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB961DD799A837BD7)  
@@ -1837,13 +1812,6 @@ function N_0xe1c0f8781bf130c2(wagon, p1) end
 function N_0xe682002db1f30669(p0) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xE6BD7DD3FD474415)  
----This native does not have an official description.
----@param train integer
----@param p1 boolean
-function N_0xe6bd7dd3fd474415(train, p1) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xE777DDF3E78397E8)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1864,18 +1832,6 @@ function N_0xe78993ff9022c064(p0) end
 function N_0xef28a614b4b264b8(train, p1) end
 
 ---**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xF05DFAF1ADFEF2CD)  
----_IS_* (related to CREATE_MISSION_TRAIN)
----@param trainConfig integer | string
----@param x number
----@param y number
----@param z number
----@param direction boolean
----@param p5 boolean
----@return boolean
-function N_0xf05dfaf1adfef2cd(trainConfig, x, y, z, direction, p5) end
-
----**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF57DB8E83DCD8349)  
 ---This native does not have an official description.
 ---@param p0 any
@@ -1891,12 +1847,6 @@ function N_0xf57db8e83dcd8349(p0) end
 ---@param p3 any
 ---@return any
 function N_0xf5ea41c1408695fb(p0, p1, p2, p3) end
-
----**`VEHICLE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xF6E3D38869D0F7AD)  
----This native does not have an official description.
----@param p0 any
-function N_0xf6e3d38869d0f7ad(p0) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF8F7DA13CFBD4532)  
@@ -2058,11 +2008,31 @@ function SetAllVehicleGeneratorsActiveInArea(x1, y1, z1, x2, y2, z2, p6, p7) end
 function SetAllVehicleGeneratorsDisabledForVolume(volume, toggle) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB42C87521D1BDD2F)  
+---Makes the balloon face the specified direction to fly towards it must be called every frame until it reaches destination
+---@param vehicle integer
+---@param x number
+---@param y number
+---@param z number
+function SetBalloonFaceDirectionThisFrame(vehicle, x, y, z) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7C9E45A4CED2E8DA)  
 ---Params: 1.0f will make balloon hover
 ---@param balloon integer
 ---@param p1 number
 function SetBalloonHoverState(balloon, p1) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x2200AB13CBD10F4E)  
+---Makes the balloon go to the specified coordinates must be called every frame until it reaches destination if autoDrive is false,other wise player must drive it manually
+---@param vehicle integer
+---@param x number
+---@param y number
+---@param z number
+---@param autoDrive boolean
+---@param speedMultiplier number
+function SetBalloonRoute(vehicle, x, y, z, autoDrive, speedMultiplier) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x31F343383F19C987)  
@@ -2275,6 +2245,13 @@ function SetMissionTrainCoords(train, x, y, z) end
 function SetMissionTrainWarpToCoords(train, x, y, z, direction) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x6835AFEA10E186F4)  
+---3 speeds (1-3), higher it is faster it will be
+---@param vehicle integer
+---@param speed integer
+function SetOarsRowingSpeed(vehicle, speed) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xFEDFA97638D61D4A)  
 ---This native does not have an official description.
 ---@param multiplier number
@@ -2320,6 +2297,17 @@ function SetRandomTrainsWhistleEnabled(train, enabled) end
 function SetRandomVehicleDensityMultiplierThisFrame(multiplier) end
 
 ---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xE6BD7DD3FD474415)  
+---Enables or disables collision avoidance behavior for AI-controlled trains.
+---
+---When enabled, the train will automatically stop if an obstacle or possible
+---collision is detected ahead on the track. When disabled, the train will
+---continue moving without reacting to obstacles
+---@param train integer
+---@param enabled boolean
+function SetTrainCollisionAvoidanceEnabled(train, enabled) end
+
+---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x01021EB2E96B793C)  
 ---This native does not have an official description.
 ---@param train integer
@@ -2332,6 +2320,13 @@ function SetTrainCruiseSpeed(train, speed) end
 ---@param train integer
 ---@param enabled boolean
 function SetTrainDestructionEnabled(train, enabled) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x06A09A6E0C6D2A84)  
+---true to enable train reversing moving backwards, false to not allow reversing
+---@param train integer
+---@param enabled boolean
+function SetTrainEnableReversing(train, enabled) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x3660BCAB3A6BB734)  
@@ -2459,6 +2454,12 @@ function SetVehicleCanBreak(vehicle, toggle) end
 ---@param vehicle integer
 ---@param p1 boolean
 function SetVehicleCanEjectPassengersIfLocked(vehicle, p1) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF6E3D38869D0F7AD)  
+---Opens the compartment door of a vehicle if it has one, dropping the tailgate, opening a built-in lockbox, or revealing a hidden smuggler compartment
+---@param vehicle integer
+function SetVehicleCompartmentDoorOpen(vehicle) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x1D7678F81452BB41)  
@@ -2898,6 +2899,13 @@ function SetVehicleStaysFrozenWhenCleanedUp(vehicle, toggle) end
 ---@param vehicle integer
 ---@param value number
 function SetVehicleSteerBias(vehicle, value) end
+
+---**`VEHICLE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xA13028E22564A1BD)  
+---Sets the stop distance of a vehicle when there something in it's way that forces it to stop or sets the view distance of the vehicle making it stop at a distance
+---@param vehicle integer
+---@param distance number
+function SetVehicleStopDistance(vehicle, distance) end
 
 ---**`VEHICLE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC84E138448507567)  

@@ -103,7 +103,9 @@ function DisableGuardZone(name) end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC805EB785824F712)  
----This native does not have an official description.
+---despite their names this doesn't disable the dispatch system. if you shoot a lawman when is disabled, the dispatch is still enabled because the law will  come after you.
+---this seems to disable/enable the create witnesses, if disabled it you can shoot npcs and they wont witness anything or report
+---EnableDispatchLaw_2 called toghether
 ---@param toggle boolean
 function EnableDispatchLaw(toggle) end
 
@@ -117,6 +119,16 @@ function EnableDispatchLaw_2(toggle) end
 ---[Native Documentation](https://rdr3natives.com/?_0x956510F8C36B5C64)  
 ---This native does not have an official description.
 function ForceLawOnLocalPlayerImmediately() end
+
+---**`LAW` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x7803436E68C32B26)  
+---This native does not have an official description.
+function ForceLawSearch() end
+
+---**`LAW` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC310239ACCCF5579)  
+---forces law to search player must be called every frame
+function ForceLawSearchThisFrame() end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x54310AAB97B92816)  
@@ -176,6 +188,13 @@ function GetTimeSinceLastSeenByLaw(player) end
 function GetWantedScore(player) end
 
 ---**`LAW` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x9945A3E2528A02E8)  
+---returns true when law finds player after searching for player for the first time , false when player evades or dies.Note: must use SET_LAW_REGION for law to get aware of crimes.
+---@param player integer
+---@return boolean
+function HasPlayerBeenFoundByLawActiveSearch(player) end
+
+---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xD743C4293F47AFAD)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -188,6 +207,12 @@ function IsGuardPedInvestigating(ped) end
 ---@param player integer
 ---@return boolean
 function IsLawIncidentActive(player) end
+
+---**`LAW` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xF46108C50A22B029)  
+---returns true if law is searching player
+---@return boolean
+function IsLawSearchActive() end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF0B67BAD53C35BD9)  
@@ -305,11 +330,6 @@ function N_0x26934083d3f2579c(player) end
 function N_0x292ad61a33a7a485() end
 
 ---**`LAW` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x29CD4896ECB66C12)  
----This native does not have an official description.
-function N_0x29cd4896ecb66c12() end
-
----**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x318F0F9A4426CFA2)  
 ---Only used in R* SP Script av_amb_camp_robbery
 ---@param ped integer
@@ -393,11 +413,6 @@ function N_0x6abc50979655bee7(player, p2) end
 function N_0x7351da734f989f4e(entity) end
 
 ---**`LAW` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x7803436E68C32B26)  
----This native does not have an official description.
-function N_0x7803436e68c32b26() end
-
----**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7EF2A2FE38D74456)  
 ---_SET_DISPATCH_*
 ---@param flag integer
@@ -461,13 +476,6 @@ function N_0x9772395cc73e8d1f(ped, name) end
 function N_0x987be590fb9d41e5(p0) end
 
 ---**`LAW` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x9945A3E2528A02E8)  
----This native does not have an official description.
----@param player integer
----@return boolean
-function N_0x9945a3e2528a02e8(player) end
-
----**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9B4C564BFA7CFF37)  
 ---This native does not have an official description.
 ---@param p0 number
@@ -518,11 +526,6 @@ function N_0xbd944a3d36e992de() end
 ---@param ped integer
 ---@return boolean
 function N_0xc0df161950fb101e(ped) end
-
----**`LAW` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xC310239ACCCF5579)  
----This native does not have an official description.
-function N_0xc310239acccf5579() end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC5EB2755FA25F1E9)  
@@ -643,12 +646,6 @@ function N_0xe9eb79cbf9c0f58a(player) end
 ---@param p7 number
 ---@param p8 any
 function N_0xedfc6c1fd1c964f5(player, crimeType, bounty, p3, p4, p5, p6, p7, p8) end
-
----**`LAW` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xF46108C50A22B029)  
----This native does not have an official description.
----@return boolean
-function N_0xf46108c50a22b029() end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF611DE44AEB36A1D)  
@@ -878,7 +875,8 @@ function SetGuardZoneVolumeWarning(name, volume) end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x8DE82BC774F3B862)  
----This native does not have an official description.
+---This native is what temporary disables the dispatch, even if witnesses report it the lawman will not come also disables temporarily the GetCrimeDispatchTypeForPlayer native from returning any crime dispatch
+---if you enable it at any time , when before a report was done by witness, the dispatch will resume ,lawman will be looking for you.
 ---@param toggle boolean
 function SetLawDisabled(toggle) end
 
@@ -990,6 +988,11 @@ function SetPostponeDisturbanceCrimesDuringCombat(player, p1) end
 ---@param player integer
 ---@param intensity integer
 function SetWantedScore(player, intensity) end
+
+---**`LAW` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x29CD4896ECB66C12)  
+---stops law from searching player
+function StopLawSearch() end
 
 ---**`LAW` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x785177E4D57D7389)  

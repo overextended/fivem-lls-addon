@@ -158,6 +158,15 @@ function AnimpostfxClearEffect(effectName) end
 function AnimpostfxGetStackhash(effectName) end
 
 ---**`GRAPHICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xFBF161FCFEC8589E)  
+---Return true if the event have just been triggered. Literaly the same system of ANIMPOSTFX_HAS_EVENT_TRIGGERED_BY_STACKHASH, but works with a string.
+---@param effectName string
+---@param eventType integer
+---@param peekOnly boolean
+---@return boolean, boolean
+function AnimpostfxHasEventTriggered(effectName, eventType, peekOnly) end
+
+---**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9AB192A9EF980EED)  
 ---This native does not have an official description.
 ---@param effectNameHash integer | string
@@ -901,13 +910,6 @@ function N_0x1c6306e5bc25c29c() end
 function N_0x1ff8731be1dfc0c0(p0, p1) end
 
 ---**`GRAPHICS` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x21F00E08CBB5F37B)  
----Params: component - used in odriscolls1 and sean1 R* SP Script: COMPONENT_BINOCULARS_SCOPE01
----Triggers the binocular scaleform
----@param component string
-function N_0x21f00e08cbb5f37b(component) end
-
----**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x26DD2FB0A88CC412)  
 ---effectName2, p2 and p3 are unused
 ---
@@ -1011,11 +1013,6 @@ function N_0x503941f65dba24ec(p0) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x519928df02eb5101(p0) end
-
----**`GRAPHICS` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x5AC6E0FA028369DE)  
----Closes the the binocular scaleform
-function N_0x5ac6e0fa028369de() end
 
 ---**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x5C674EB487891F6B)  
@@ -1280,15 +1277,6 @@ function N_0xf5793bb386e1ff9c(p0) end
 function N_0xfb680a9b33d0edbe(p0) end
 
 ---**`GRAPHICS` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xFBF161FCFEC8589E)  
----ANIMPOSTFX_*
----@param effectName string
----@param p1 integer
----@param p2 boolean
----@return boolean, boolean
-function N_0xfbf161fcfec8589e(effectName, p1, p2) end
-
----**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xFC9B53C072F418E0)  
 ---This native does not have an official description.
 ---@return any
@@ -1396,6 +1384,11 @@ function RemoveEntityFromEntityMask(entity) end
 ---This native does not have an official description.
 ---@param handle integer
 function RemoveGrassCullSphere(handle) end
+
+---**`GRAPHICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5AC6E0FA028369DE)  
+---Removes the mask overlay that was set with SET_MASK_OVERLAY
+function RemoveMaskOverlay() end
 
 ---**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x459598F579C98929)  
@@ -1594,6 +1587,12 @@ function SetLightsIntensityForEntity(entity, intensity) end
 ---@param entity integer
 ---@param type integer
 function SetLightsTypeForEntity(entity, type) end
+
+---**`GRAPHICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x21F00E08CBB5F37B)  
+---Params: COMPONENT_BINOCULARS_SCOPE01
+---@param overlay string
+function SetMaskOverlay(overlay) end
 
 ---**`GRAPHICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x3C61B52B00848C26)  

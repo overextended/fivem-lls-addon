@@ -7,13 +7,6 @@
 function N_0x08797a8c03868cb8(threshold) end
 
 ---**`VOICE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x0DED260A1958A82E)  
----This native does not have an official description.
----@param player integer
----@return boolean
-function N_0x0ded260a1958a82e(player) end
-
----**`VOICE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x1C38C3577901AF1F)  
 ---This native does not have an official description.
 function N_0x1c38c3577901af1f() end
@@ -95,13 +88,6 @@ function N_0x8e462db1eaa9c47c(player) end
 function N_0x919af2d93e9aa89d(player) end
 
 ---**`VOICE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xAA35FD9ABAB490A3)  
----This native does not have an official description.
----@param player integer
----@return boolean
-function N_0xaa35fd9abab490a3(player) end
-
----**`VOICE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB3E8841F6BDAF83E)  
 ---This native does not have an official description.
 function N_0xb3e8841f6bdaf83e() end
@@ -144,15 +130,29 @@ function N_0xdc9b361cb7776673(player) end
 function N_0xec8703e4536a9952() end
 
 ---**`VOICE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xEF6F2A35FAAF2ED7)  
----This native does not have an official description.
----@param player integer
----@return boolean
-function N_0xef6f2a35faaf2ed7(player) end
-
----**`VOICE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF8938CF3984092A5)  
 ---This native does not have an official description.
 ---@param player integer
 function N_0xf8938cf3984092a5(player) end
+
+---**`VOICE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x0DED260A1958A82E)  
+---This native does not have an official description.
+---@param player integer
+---@return boolean
+function NetworkAmIMutedByPlayer(player) end
+
+---**`VOICE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xEF6F2A35FAAF2ED7)  
+---This native does not have an official description.
+---@param player integer
+---@return boolean
+function NetworkIsPlayerTalking(player) end
+
+---**`VOICE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xAA35FD9ABAB490A3)  
+---This native does not have an official description.
+---@param player integer
+---@return boolean
+function NetworkPlayerHasHeadset(player) end
 

@@ -1,6 +1,21 @@
 ---@meta
 
 ---**`IK` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x6098139150DCC745)  
+---Get the ped ik activity state.
+---@param ped integer
+---@param ik integer
+---@return boolean
+function InverseKinematicsIsActive(ped, ik) end
+
+---**`IK` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x0B9F7A01EC50448D)  
+---Make the ped point at with arms, must be called every frame.
+---@param ped integer
+---@return any
+function InverseKinematicsPointAt(ped) end
+
+---**`IK` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x66F9EB44342BB4C5)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -14,21 +29,6 @@ function InverseKinematicsRequestLookAt(ped) end
 ---@param p1 integer
 ---@param p2 boolean
 function InverseKinematicsSetDisabledForPed(ped, p1, p2) end
-
----**`IK` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x0B9F7A01EC50448D)  
----This native does not have an official description.
----@param ped integer
----@return any
-function N_0x0b9f7a01ec50448d(ped) end
-
----**`IK` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x6098139150DCC745)  
----This native does not have an official description.
----@param ped integer
----@param p1 integer
----@return boolean
-function N_0x6098139150dcc745(ped, p1) end
 
 ---**`IK` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x873C792E07A32C8B)  

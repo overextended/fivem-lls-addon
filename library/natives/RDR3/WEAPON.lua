@@ -486,6 +486,13 @@ function GetPedHogtieWeapon(ped) end
 function GetPedLastWeaponImpactCoord(ped) end
 
 ---**`WEAPON` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x4823F13A21F51964)  
+---returns the full amount of ammo that the ped has for the weapon by guid
+---@param ped integer
+---@return integer, any
+function GetPedWeaponAmmoFromGuid(ped) end
+
+---**`WEAPON` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x6929E22158E52265)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -908,6 +915,14 @@ function IsAmmoValid(ammoHash) end
 function IsPedArmed(ped, flags) end
 
 ---**`WEAPON` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x486C96A0DCD2BC92)  
+---true if there is a back up ped weapon get it using GET_PED_BACKUP_WEAPON
+---@param ped integer
+---@param attachPoint integer
+---@return boolean
+function IsPedCarryingBackupWeapon(ped, attachPoint) end
+
+---**`WEAPON` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF29A186ED428B552)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -1190,22 +1205,6 @@ function N_0x457b16951ad77c1b(p0) end
 ---@param ped integer
 ---@param toggle boolean
 function N_0x45e57fdd531c9477(ped, toggle) end
-
----**`WEAPON` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x4823F13A21F51964)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x4823f13a21f51964(p0, p1) end
-
----**`WEAPON` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x486C96A0DCD2BC92)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x486c96a0dcd2bc92(p0, p1) end
 
 ---**`WEAPON` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x63B83A526329AFBC)  

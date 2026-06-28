@@ -72,9 +72,9 @@ function AreAllVehicleWindowsIntact(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2D34FC3BC4ADB780)  
----```
----Returns false if every seat is occupied.  
----```
+---Dead peds still count as occupying a seat until the body is removed, so a vehicle full of corpses returns `false`. Peds tasked to enter the vehicle but not yet inserted do not occupy their target seat.
+---
+---For per-seat queries use [IS_VEHICLE_SEAT_FREE](#\_0x22AC59A870E6A669), to find which ped is in a specific seat use [GET_PED_IN_VEHICLE_SEAT](#\_0xBB40BBB9B9A067B).
 ---@param vehicle integer
 ---@return boolean
 function AreAnyVehicleSeatsFree(vehicle) end
@@ -589,9 +589,7 @@ function DisableVehicleTurretMovementThisFrame(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF4FC6A6F67D8D856)  
----```
----how does this work?  
----```
+---Disables or enables a specific weapon on a vehicle for a designated ped.
 ---@param disabled boolean
 ---@param weaponHash integer | string
 ---@param vehicle integer
@@ -3146,7 +3144,9 @@ function IsVehicleSeatFree(vehicle, seatIndex) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB5CC40FBCB586380)  
----This native does not have an official description.
+---Checks if the siren audio is currently playing on the given vehicle.
+---
+---This only checks the sound not the lights. A vehicle can have its siren lights active while the audio is silent, for example when [`SET_VEHICLE_HAS_MUTED_SIRENS`](#\_0xD8050E0EB60CF274) has been used to suppress the sound.
 ---@param vehicle integer
 ---@return boolean
 function IsVehicleSirenAudioOn(vehicle) end
@@ -3300,10 +3300,14 @@ function LowerRetractableWheels(vehicle) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x93A3996368C94158)  
----This native does not have an official description.
+---Modifies a vehicle's top speed.
+---
+---This is the native you have to call when trying to apply handling changes related to `fInitialDriveForce` and `fInitialDriveMaxFlatVel` via the [`SET_VEHICLE_HANDLING_FLOAT`](#\_0x488C86D2) native, otherwise your changes won't apply.
+---
+---Calling this native will initiate transmission setup for the given vehicle so any transmission related changes apply, it will also update the drag coefficient on the vehicle based on the percentage change.
 ---@param vehicle integer
----@param value number
-function ModifyVehicleTopSpeed(vehicle, value) end
+---@param percentChange number
+function ModifyVehicleTopSpeed(vehicle, percentChange) end
 
 ---@deprecated
 SetVehicleEnginePowerMultiplier = ModifyVehicleTopSpeed
@@ -3698,16 +3702,6 @@ function N_0x796a877e459b99ea(p0, p1, p2, p3) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x7bbe7ff626a591fe(p0) end
-
----**`VEHICLE` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0x7D6F9A3EF26136A0)  
----```
----SET_VEHICLE_AL*
----```
----@param vehicle integer
----@param toggle boolean
----@param p2 boolean
-function N_0x7d6f9a3ef26136a0(vehicle, toggle, p2) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80E3357FDEF45C21)  
@@ -5679,6 +5673,15 @@ SetVehicleCloseDoorDeferedAction = SetVehicleActiveForPedNavigation
 function SetVehicleAlarm(vehicle, state) end
 
 ---**`VEHICLE` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7D6F9A3EF26136A0)  
+---Sets whether homing missiles can lock onto the specified vehicle.
+---When set to `false`, players using a Homing Launcher or vehicles with homing missiles will not be able to lock onto the target vehicle.
+---@param vehicle integer
+---@param toggle boolean
+---@param p2 boolean
+function SetVehicleAllowHomingMissleLockon(vehicle, toggle, p2) end
+
+---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5D14D4154BFE7B2C)  
 ---```
 ---Makes the vehicle accept no passengers.  
@@ -7227,7 +7230,19 @@ function SetVehicleTyreSmokeColor(vehicle, r, g, b) end
 
 ---**`VEHICLE` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8ABA6AF54B942B95)  
----This native does not have an official description.
+---Marks a vehicle as undriveable. While this is set, the engine cannot be started by anyone. Peds can still open the door, sit in the driver seat and close the door and try to start the car, but it will only turn over.
+---
+---When set to `true`, the engine is forced off instantly even if it was running. A moving vehicle will coast, brakes and steering still respond.
+---
+---Toggling this to `false` will not restart the engine. The driver must start it again, or you must call [SET_VEHICLE_ENGINE_ON](#\_0x2497C4717C8B881E).
+---
+---The state is local to each client and is not synced via the network. Every client that has the vehicle in scope needs to apply it.
+---
+---This flag persists across damage and repair; [SET_VEHICLE_FIXED](#\_0x115722B1B9C14C1C) does not clear it. If you set it, you are expected to clear it.
+---
+---Pair with [SET_VEHICLE_DOORS_LOCKED](#\_0xB664292EAECF7FA6) to keep peds out entirely.
+---
+---Bicycles accept the flag but have no engine to shut off, so the call has no meaningful effect on them.
 ---@param vehicle integer
 ---@param toggle boolean
 function SetVehicleUndriveable(vehicle, toggle) end

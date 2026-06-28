@@ -47,6 +47,18 @@ function BreakAllObjectFragmentBones(object) end
 function BreakObjectFragmentChild(object, p1, p2) end
 
 ---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x0943113E02322164)  
+---Checks whether a specific door-related action/state flag is active for the given door object.
+---Observed behavior:
+---- flag 32: returns true when the door is being kicked (kick action event)
+---- flag 23: returns true if the door has been previously opened by kicking (post-kick state)
+---- flag 8:  returns true when attempting to open the door while it is locked
+---@param object integer
+---@param p1 integer
+---@return any
+function CheckDoorActionFlag(object, p1) end
+
+---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x5EAAD83F8CFB4575)  
 ---Old name: _GET_PICKUP_HASH
 ---@param pickupHash integer | string
@@ -165,6 +177,15 @@ function CreatePortablePickup(pickupHash, x, y, z, placeOnGround, modelHash) end
 function DamageBoneOnProp(object, bone) end
 
 ---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xAAACF33CBF9B990A)  
+---Damages or breaks a specific predefined fragment/section of an object using the provided fragment index.
+---Unlike generic damage systems, this native appears to directly target one of the object's internal fracture sections. The index parameter determines which part of the object is damaged or broken.
+---Different index values cause different fragments of the object to detach or break.
+---@param object integer
+---@param fragmentIndex integer
+function DamageObjectFragmentByIndex(object, fragmentIndex) end
+
+---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x931914268722C263)  
 ---Deletes the specified object, then sets the handle pointed to by the pointer to NULL.
 ---@param object integer
@@ -227,6 +248,25 @@ function DoesRayfireMapObjectExist(object) end
 function DoorSystemChangeScriptOwner(doorHash) end
 
 ---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x6E2AA80BB0C03728)  
+---Checks whether a specific door action/state flag is active for the given door hash.
+---- flag 32: returns true while the door is being kicked
+---- flag 23: returns true after the door has been opened by kicking
+---- flag 8:  returns true when trying to open a locked door
+---@param doorHash integer | string
+---@param flag integer
+---@return boolean
+function DoorSystemCheckActionFlag(doorHash, flag) end
+
+---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x5230BF34EB0EC645)  
+---Clears the stored player ID for a door that was force-opened via physical interaction
+---(e.g. kick or shoulder bash).
+---This resets the value returned by:_DOOR_SYSTEM_GET_FORCED_OPEN_PLAYER
+---@param doorHash integer | string
+function DoorSystemClearForcedOpenPlayer(doorHash) end
+
+---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x276AAF0F1C7F2494)  
 ---This native does not have an official description.
 ---@param doorHash integer | string
@@ -246,6 +286,15 @@ function DoorSystemGetAutomaticRate(doorHash) end
 ---@param doorHash integer | string
 ---@return integer
 function DoorSystemGetDoorState(doorHash) end
+
+---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xEBA314768FB35D58)  
+---Returns the player who forced the specified door open using physical interaction
+---(e.g. kicking or shoulder bashing).
+---If a player breaks or forces the door open, this native returns the Player ID directly.
+---@param doorHash integer | string
+---@return integer
+function DoorSystemGetForcedOpenPlayer(doorHash) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x65499865FCA6E5EC)  
@@ -308,6 +357,18 @@ function DoorSystemSetDoorState(doorHash, state) end
 function DoorSystemSetOpenRatio(doorHash, ajar, forceUpdate) end
 
 ---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xB3B1546D23DF8DE1)  
+---swing door open between 2 points
+---Requires DOOR_SYSTEM_SET_DOOR_STATE(hash, 0) beforehand
+---- If door is locked (state=1), the impulse is ignored
+---@param doorHash integer | string
+---@param dirX number
+---@param dirY number
+---@param dirZ number
+---@param reverse boolean
+function DoorSystemSwingOpen(doorHash, dirX, dirY, dirZ, reverse) end
+
+---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF9C1681347C8BD15)  
 ---This native does not have an official description.
 ---@param object integer
@@ -341,11 +402,26 @@ function GetAmmoTypeFromPickupType(pickupHash) end
 function GetClosestObjectOfType(x, y, z, radius, modelHash, missionScriptObject, scriptHostObject, networkObject) end
 
 ---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x4D8611DFE1126478)  
+---Checks whether the specified door has the "knocking when locked" interaction enabled
+---@param doorHash integer | string
+---@return boolean
+function GetDoorKnockingWhenLocked(doorHash) end
+
+---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xFA3B61EC249B4674)  
 ---This native does not have an official description.
 ---@param object integer
 ---@return number
 function GetLightIntensityFromObject(object) end
+
+---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x58DE624FA7FB0E7F)  
+---Returns the number of breakable fragments (indexed sections) defined for the specified object.
+---These fragments can be triggered individually using natives that target object fracture indices. eg: a box of bottles can have multiple fragments that can be broken individually.
+---@param object integer
+---@return integer
+function GetObjectFragmentCount(object) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB6FBFD079B8D0596)  
@@ -516,6 +592,14 @@ function IsObjectAPortablePickup(object) end
 function IsObjectVisible(object) end
 
 ---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x9F52AD67D1A91BAD)  
+---This native does not have an official description.
+---@param pickupObject integer
+---@param teamId integer
+---@return boolean
+function IsPickupPickableForTeam(pickupObject, teamId) end
+
+---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x007BD043587F7C82)  
 ---This native does not have an official description.
 ---@param pickupHash integer | string
@@ -552,14 +636,6 @@ function MakeItemCarriable(object) end
 ---@param p0 any
 ---@return any
 function N_0x08c5825a2932ea7b(p0) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x0943113E02322164)  
----Params: p1 = 23 in R* Scripts
----@param object integer
----@param p1 integer
----@return any
-function N_0x0943113e02322164(object, p1) end
 
 ---**`OBJECT` `client`**  
 ---[Native Documentation](https://rdr3natives.com/?_0x0C0A373D181BF900)  
@@ -645,31 +721,11 @@ function N_0x491439aef410a2fc(p0) end
 function N_0x4ae07eba3462c5d5(p0, p1) end
 
 ---**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x4D8611DFE1126478)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x4d8611dfe1126478(p0) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x5230BF34EB0EC645)  
----This native does not have an official description.
----@param p0 any
-function N_0x5230bf34eb0ec645(p0) end
-
----**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x57C242543B7B8FB9)  
 ---This native does not have an official description.
 ---@param p0 any
 ---@param p1 any
 function N_0x57c242543b7b8fb9(p0, p1) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x58DE624FA7FB0E7F)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0x58de624fa7fb0e7f(p0) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x614D0B4533F842D3)  
@@ -684,14 +740,6 @@ function N_0x614d0b4533f842d3(p0) end
 ---@param p0 any
 ---@param p1 any
 function N_0x6579860a5558524a(p0, p1) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x6E2AA80BB0C03728)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x6e2aa80bb0c03728(p0, p1) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x7D4411D6736CD295)  
@@ -709,39 +757,10 @@ function N_0x7d4411d6736cd295(p0, p1) end
 function N_0x7f458b543006c8fe(doorHash, p1) end
 
 ---**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x7FCD49388BC9B775)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0x7fcd49388bc9b775(p0, p1) end
-
----**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x9A74A9CADFA8A598)  
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x9a74a9cadfa8a598(p0) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x9F52AD67D1A91BAD)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@return any
-function N_0x9f52ad67d1a91bad(p0, p1) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xA93F925F1942E434)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xa93f925f1942e434(p0, p1) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xAAACF33CBF9B990A)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xaaacf33cbf9b990a(p0, p1) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xACD4F9831DFAD7F5)  
@@ -749,23 +768,6 @@ function N_0xaaacf33cbf9b990a(p0, p1) end
 ---@param p0 any
 ---@return any
 function N_0xacd4f9831dfad7f5(p0) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xB3B1546D23DF8DE1)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@param p3 any
----@param p4 any
-function N_0xb3b1546d23df8de1(p0, p1, p2, p3, p4) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xC07B91B996C1DE89)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xc07b91b996c1de89(p0, p1) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xCBFBD38F2E0A263B)  
@@ -802,20 +804,6 @@ function N_0xde116ecffdd4b997(p0, p1) end
 ---@param p0 any
 ---@param p1 any
 function N_0xdfa1237f5228263f(p0, p1) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xE157A8A336C7F04A)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
-function N_0xe157a8a336c7f04a(p0, p1) end
-
----**`OBJECT` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xEBA314768FB35D58)  
----This native does not have an official description.
----@param p0 any
----@return any
-function N_0xeba314768fb35d58(p0) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF65EDE5D02A7A760)  
@@ -912,6 +900,25 @@ function SetAutoJumpableByHorse(object, p1) end
 ---@param p2 any
 ---@param p3 any
 function SetCustomTexturesOnObject(object, txdHash, p2, p3) end
+
+---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xC07B91B996C1DE89)  
+---Enables the kick prompt for a door
+---@param doorHash integer | string
+---@param enable boolean
+function SetDoorEnableKickPrompt(doorHash, enable) end
+
+---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xA93F925F1942E434)  
+---Changes the interaction behavior for a locked door.
+---Normally, when interacting with a locked door, the character tries the handle. When this native is enabled, that behavior is replaced with a knocking/tapping interaction for the specified door.
+---With toggle enabled:
+---- pressing the interact button on a locked door makes the character knock/tap on the door instead of trying the handle
+---- this does not unlock the door
+---- if the door is in a breakable/force-open state, it may still be opened by physically forcing it (e.g. sprinting into it), but normal interaction still uses the knocking behavior
+---@param doorHash integer | string
+---@param enable boolean
+function SetDoorKnockingWhenLocked(doorHash, enable) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF538081986E49E9D)  
@@ -1025,6 +1032,13 @@ function SetObjectBurnOpacity(object, opacity) end
 function SetObjectBurnSpeed(object, speed, p2) end
 
 ---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xE157A8A336C7F04A)  
+---Sets if the object can be tagged while using Dead Eye
+---@param object integer
+---@param canBeTagged boolean
+function SetObjectCanBeTagged(object, canBeTagged) end
+
+---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xCAAF2BCCFEF37F77)  
 ---This native does not have an official description.
 ---@param object integer
@@ -1037,6 +1051,14 @@ function SetObjectInteractionPreset(object, presetFlags) end
 ---@param object integer
 ---@param kickable boolean
 function SetObjectKickable(object, kickable) end
+
+---**`OBJECT` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x7FCD49388BC9B775)  
+---Primarily used on lantern weapon entities after they have been dropped.
+---This native does NOT affect lanterns while they are being held by a ped
+---@param object integer
+---@param disable boolean
+function SetObjectLanternDisableLight(object, disable) end
 
 ---**`OBJECT` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xF6DF6E90DE7DF90F)  

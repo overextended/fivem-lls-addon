@@ -232,13 +232,6 @@ function N_0x0cb16d05e03fb525(p0) end
 function N_0x1d97da8acb5d2582(ropeId, p1) end
 
 ---**`PHYSICS` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x1FC92BDBA1106BD2)  
----This native does not have an official description.
----@param ropeId integer
----@param p1 number
-function N_0x1fc92bdba1106bd2(ropeId, p1) end
-
----**`PHYSICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x21D0890D88DFB0B0)  
 ---This native does not have an official description.
 ---@param ropeId integer
@@ -534,6 +527,13 @@ function RopeChangeVisibility(visible) end
 ---@param toggle boolean
 ---@return integer
 function RopeDrawShadowEnabled(toggle) end
+
+---**`PHYSICS` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x1FC92BDBA1106BD2)  
+---This native does not have an official description.
+---@param ropeId integer
+---@param length number
+function RopeForceLenght(ropeId, length) end
 
 ---**`PHYSICS` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xD009F759A723DB1B)  

@@ -726,10 +726,10 @@ function GetWantedLevelMultiplier() end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x80B00EB26D9521C7)  
----This native does not have an official description.
----@param p0 integer
+---level 0 60.0 level 1 75.0 level 2 90.0 max level is 5 200.0 radius
+---@param wantedLevel integer
 ---@return number
-function GetWantedLevelRadius(p0) end
+function GetWantedLevelRadius(wantedLevel) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x1B1A3B358F7D8F07)  
@@ -1225,12 +1225,6 @@ function N_0x325434c68358d282(toggle) end
 ---This native does not have an official description.
 ---@param p0 any
 function N_0x35a33783ec3c3448(p0) end
-
----**`PLAYER` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x39D8D7082BC34B72)  
----This native does not have an official description.
----@param p0 any
-function N_0x39d8d7082bc34b72(p0) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x3A8611BD7BDE84F7)  
@@ -2156,13 +2150,6 @@ function SetDeadeyeEntityAura(player, flag) end
 function SetDeadeyeEntityAuraIntensityWithFlag(player, p1, p2, p3, intensity, flag) end
 
 ---**`PLAYER` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x83FCD6921FC8FD05)  
----This native does not have an official description.
----@param player integer
----@param filter integer
-function SetDeadeyeTaggingConfig(player, filter) end
-
----**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x6B5DDFB967E5073D)  
 ---This native does not have an official description.
 ---@param player integer
@@ -2369,6 +2356,15 @@ function SetPlayerDamageInfoOverride(player, damageInfo) end
 ---@param player integer
 ---@param auraColorHash integer | string
 function SetPlayerDeadEyeAuraByHash(player, auraColorHash) end
+
+---**`PLAYER` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x83FCD6921FC8FD05)  
+---old name _SET_DEADEYE_TAGGING_CONFIG 
+---FILTER_RESTRICTED = 6, Dead Eye Tagging is currently restricted to AI and Animals only...
+---FILTER_UNRESTRICTED = 7, Dead Eye Tagging is enabled and not restricted...
+---@param player integer
+---@param filter integer
+function SetPlayerDeadeyeTaggingConfig(player, filter) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x497A6539BB0E8787)  
@@ -2696,6 +2692,13 @@ function SetPlayerTotalAccuracyModifier(player, accuracy) end
 ---@param player integer
 ---@param modifier number
 function SetPlayerTrampleDamageModifier(player, modifier) end
+
+---**`PLAYER` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x39D8D7082BC34B72)  
+---sets the player evasion cooldown timer 10000 short 35000 long
+---@param player integer
+---@param cooldown integer
+function SetPlayerWantedCooldown(player, cooldown) end
 
 ---**`PLAYER` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x384D4765395E006C)  

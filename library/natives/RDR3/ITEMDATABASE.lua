@@ -60,13 +60,21 @@ function ItemdatabaseFilloutAwardAcquireCost(award, costtype, index) end
 function ItemdatabaseFilloutAwardItemInfo(award, index) end
 
 ---**`ITEMDATABASE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x8D029948CA29409B)  
+---This native does not have an official description.
+---@param award integer | string
+---@param index integer
+---@return boolean, any
+function ItemdatabaseFilloutAwardUnlockFlag(award, index) end
+
+---**`ITEMDATABASE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xB542632693D53408)  
 ---This native does not have an official description.
 ---@param bundle integer | string
----@param costtype integer | string
+---@param cost integer | string
 ---@param index integer
 ---@return boolean, any
-function ItemdatabaseFilloutBundle(bundle, costtype, index) end
+function ItemdatabaseFilloutBundle(bundle, cost, index) end
 
 ---**`ITEMDATABASE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x74C3B1093728D263)  
@@ -240,11 +248,43 @@ function ItemdatabaseGetAwardInfo(award) end
 function ItemdatabaseGetAwardItemCount(award) end
 
 ---**`ITEMDATABASE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x48229CE0C7938237)  
+---hash eg: AWARD_DEBUG_HIDE_LEGENDARY_BOUNTY_00
+---@param award integer | string
+---@return integer
+function ItemdatabaseGetAwardUnlockFlagCount(award) end
+
+---**`ITEMDATABASE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x3A0B667ABFF87F6E)  
+---eg: BUNDLE_CLOTHING_ITEM_F_OFFHAND_000_TINT_001 index: To use with 0x7A35A72A692BE9DB
+---@param bundle integer | string
+---@param index integer
+---@return boolean, any
+function ItemdatabaseGetBundleAcquireCost(bundle, index) end
+
+---**`ITEMDATABASE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xA97EE5E4589FCF5A)  
 ---This native does not have an official description.
 ---@param bundle integer | string
 ---@return boolean, any
 function ItemdatabaseGetBundleAcquireCostModifiers(bundle) end
+
+---**`ITEMDATABASE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x7A35A72A692BE9DB)  
+---eg: BUNDLE_CLOTHING_ITEM_F_OFFHAND_000_TINT_001
+---@param bundle integer | string
+---@return integer
+function ItemdatabaseGetBundleAcquireCostsCount(bundle) end
+
+---**`ITEMDATABASE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0x388088BFF3681189)  
+---Return the number of currencies available for a bundle. To use with _ITEMDATABASE_FILLOUT_BUNDLE
+---bundle: Hash — e.g: BUNDLE_CLOTHING_ITEM_F_OFFHAND_000_TINT_001
+---cost: Hash — e.g: COST_GOLD, COST_CRAFTING_MP...
+---@param bundle integer | string
+---@param cost integer | string
+---@return integer
+function ItemdatabaseGetBundleAcquireCostsCountFromCost(bundle, cost) end
 
 ---**`ITEMDATABASE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x891A45960B6B768A)  
@@ -267,6 +307,15 @@ function ItemdatabaseGetBundleItemCount(bundleId) end
 ---@param index integer
 ---@return boolean, any, integer
 function ItemdatabaseGetBundleItemInfo(bundleId, index) end
+
+---**`ITEMDATABASE` ``**  
+---[Native Documentation](https://rdr3natives.com/?_0xAA29A5F13B2C20B2)  
+---Returns Pathset Hash catalogItemCategory: Hash — e.g: CI_CATEGORY_AMMO, CI_CATEGORY_CAMP_TENT...
+---Default: Hash — Always DEFAULT in R* scripts.
+---@param catalogItemCategory integer | string
+---@param p1 integer | string
+---@return integer
+function ItemdatabaseGetCatalogItemCategoryPathset(catalogItemCategory, p1) end
 
 ---**`ITEMDATABASE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xD389A2549C4EFB30)  
@@ -582,30 +631,6 @@ function ItemdatabaseReleaseItemCollection(collectionId) end
 function N_0x17721003a66c72bf(shopType, key) end
 
 ---**`ITEMDATABASE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x388088BFF3681189)  
----This native does not have an official description.
----@param bundle integer | string
----@param costtype integer | string
----@return integer
-function N_0x388088bff3681189(bundle, costtype) end
-
----**`ITEMDATABASE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x3A0B667ABFF87F6E)  
----This native does not have an official description.
----@param p0 any
----@param p1 any
----@param p2 any
----@return boolean
-function N_0x3a0b667abff87f6e(p0, p1, p2) end
-
----**`ITEMDATABASE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x48229CE0C7938237)  
----_ITEMDATABASE_GET_(A)* - _ITEMDATABASE_GET_(B)*
----@param award integer | string
----@return integer
-function N_0x48229ce0c7938237(award) end
-
----**`ITEMDATABASE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0x537A0555F62CA01A)  
 ---This native does not have an official description.
 ---@param key integer | string
@@ -620,29 +645,6 @@ function N_0x537a0555f62ca01a(key, p1) end
 ---@param p1 any
 ---@return integer
 function N_0x799fcd53358ed5fa(bundle, p1) end
-
----**`ITEMDATABASE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x7A35A72A692BE9DB)  
----This native does not have an official description.
----@param p0 any
----@return integer
-function N_0x7a35a72a692be9db(p0) end
-
----**`ITEMDATABASE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0x8D029948CA29409B)  
----_ITEMDATABASE_FILLOUT_(A)* - _ITEMDATABASE_FILLOUT_(B)*
----@param award integer | string
----@param index integer
----@return boolean, any
-function N_0x8d029948ca29409b(award, index) end
-
----**`ITEMDATABASE` ``**  
----[Native Documentation](https://rdr3natives.com/?_0xAA29A5F13B2C20B2)  
----Returns Pathset Hash
----@param p0 any
----@param p1 integer | string
----@return integer
-function N_0xaa29a5f13b2c20b2(p0, p1) end
 
 ---**`ITEMDATABASE` ``**  
 ---[Native Documentation](https://rdr3natives.com/?_0xC4146375D8A0B374)  
