@@ -29,9 +29,6 @@ function AddAuthorizedParachutePackModel(modelNameHash) end
 ---Adds a rectangular blip for the specified coordinates/area.---
 ---It is recommended to use [SET_BLIP_ROTATION](#\_0xF87683CDF73C3F6E) and [SET_BLIP_COLOUR](#\_0x03D7FB09E75D6B7E) to make the blip not rotate along with the camera.---
 ---By default, the blip will show as a *regular* blip with the specified color/sprite if it is outside of the minimap view.---
----Example image:---
----![minimap](https://i.imgur.com/qLbXWcQ.png)---
----![big map](https://i.imgur.com/0j7O7Rh.png)---
 ---(Native name is *likely* to actually be ADD_BLIP_FOR_AREA, but due to the usual reasons this can't be confirmed)
 ---
 ---**This is the server-side RPC native equivalent of the client native [\_ADD_BLIP_FOR_AREA](?\_0xCE5D0E5E315DB238).**
@@ -59,9 +56,9 @@ function AddBlipForCoord(x, y, z) end
 ---Create a blip that by default is red (enemy), you can use [SET_BLIP_AS_FRIENDLY](#\_0xC6F43D0E) to make it blue (friend).\
 ---Can be used for objects, vehicles and peds.---
 ---Example of enemy:---
----![enemy](https://i.imgur.com/fl78svv.png)---
+---![enemy](https://i.imgur.com/LIizV6S.png)---
 ---Example of friend:---
----![friend](https://i.imgur.com/Q16ho5d.png)
+---![friend](https://i.imgur.com/XrCuvZP.png)
 ---
 ---**This is the server-side RPC native equivalent of the client native [ADD_BLIP_FOR_ENTITY](?\_0x5CDE92C702A8FCE7).**
 ---@param entity integer
@@ -72,7 +69,7 @@ function AddBlipForEntity(entity) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x4626756C)  
 ---Create a blip with a radius for the specified coordinates (it doesnt create the blip sprite, so you need to use [AddBlipCoords](#\_0xC6F43D0E))---
 ---Example image:---
----![example](https://i.imgur.com/9hQl3DB.png)
+---![example](https://i.imgur.com/fDCmHVD.png)
 ---
 ---**This is the server-side RPC native equivalent of the client native [ADD_BLIP_FOR_RADIUS](?\_0x46818D79B1F7499A).**
 ---@param posX number
@@ -285,6 +282,8 @@ function CancelEvent() end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x429461C3)  
+---> This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+---
 ---Returns whether or not the specified player has enough information to start a commerce session for.
 ---@param playerSrc string
 ---@return boolean
@@ -631,6 +630,8 @@ function DoesPlayerExist(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x167ABA27)  
+---> This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
+---
 ---Requests whether or not the player owns the specified SKU.
 ---@param playerSrc string
 ---@param skuId integer
@@ -716,10 +717,10 @@ function DrawBox(x1, y1, z1, x2, y2, z2, red, green, blue, alpha) end
 ---@param posY number
 ---@param posZ number
 ---@param size number
+---@param alpha integer
 ---@param red integer
 ---@param green integer
 ---@param blue integer
----@param alpha integer
 ---@param intensity number
 ---@param zBias number
 ---@param dirX number
@@ -729,7 +730,7 @@ function DrawBox(x1, y1, z1, x2, y2, z2, red, green, blue, alpha) end
 ---@param innerAngle number
 ---@param outerAngle number
 ---@param flags integer
-function DrawCorona(posX, posY, posZ, size, red, green, blue, alpha, intensity, zBias, dirX, dirY, dirZ, viewThreshold, innerAngle, outerAngle, flags) end
+function DrawCorona(posX, posY, posZ, size, alpha, red, green, blue, intensity, zBias, dirX, dirY, dirZ, viewThreshold, innerAngle, outerAngle, flags) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEB2EDCA2)  
@@ -763,6 +764,11 @@ function DrawGizmo(matrixPtr, id) end
 ---@param invert boolean
 ---@param marker boolean
 function DrawGlowSphere(posX, posY, posZ, radius, colorR, colorG, colorB, intensity, invert, marker) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x374E5298)  
+---Draw the prepared light.
+function DrawLight() end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB3426BCC)  
@@ -1168,6 +1174,14 @@ function GetCalmingQuadDampening(waterQuad) end
 function GetCamMatrix(camera) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xADA7DB9D)  
+---Returns whether a specific client configuration flag is currently enabled.---
+---You can find a list of configuration flags in [`SET_CLIENT_CONFIG_BOOL`](#\_0xD174EF7E).
+---@param flagIndex integer
+---@return boolean
+function GetClientConfigBool(flagIndex) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x59FC24A7)  
 ---Get all track nodes and their track ids within the radius of the specified coordinates.
 ---@param position vector3
@@ -1519,6 +1533,18 @@ function GetExternalKvpInt(resource, key) end
 function GetExternalKvpString(resource, key) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2C048945)  
+---A getter for [SET_FALL_DAMAGE_LAND_ON_FOOT_MULTIPLIER](#\_0x164A08C9).
+---@return number
+function GetFallDamageLandOnFootMultiplier() end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7C46A6F0)  
+---A getter for [SET_FALL_DAMAGE_MULTIPLIER](#\_0xF2E1A531).
+---@return number
+function GetFallDamageMultiplier() end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5550BF9F)  
 ---This native does not have an official description.
 ---@return number
@@ -1551,6 +1577,9 @@ function GetFuelConsumptionState() end
 ---    *   3323
 ---    *   3407
 ---    *   3570
+---    *   3751
+---    *   3788
+---    *   3889
 ---*   RedM
 ---    *   1311
 ---    *   1355
@@ -1934,6 +1963,12 @@ function GetIsVehiclePrimaryColourCustom(vehicle) end
 ---@return boolean
 function GetIsVehicleSecondaryColourCustom(vehicle) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x57888D4C)  
+---A getter for [SET_KILL_FALL_HEIGHT](#\_0x7E8D83E4).
+---@return number
+function GetKillFallHeight() end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA6F02670)  
 ---See the client-side [GET_LANDING_GEAR_STATE](#\_0x9B0F3DCA3DB0F4CD) native for a description of landing gear states.
@@ -2004,6 +2039,13 @@ function GetMapZoomDataLevel(index) end
 ---```
 ---@return integer
 function GetMinimapType() end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDD31EC4E)  
+---This native does not have an official description.
+---@param ped integer
+---@return integer
+function GetMount(ped) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x23B2A641)  
@@ -2145,7 +2187,7 @@ function GetNumPlayerTokens(playerSrc) end
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x776E864)  
 ---Gets the amount of metadata values with the specified key existing in the specified resource's manifest.---
----See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+---See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
 ---@param resourceName string
 ---@param metadataKey string
 ---@return integer
@@ -2429,6 +2471,13 @@ function GetPedPropGlobalIndexFromCollection(ped, anchorPoint, collection, propI
 ---@return integer
 function GetPedRelationshipGroupHash(ped) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA0F3B420)  
+---This native does not have an official description.
+---@param ped integer
+---@return number
+function GetPedScale(ped) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x84FE084)  
 ---Gets the script task command currently assigned to the ped.
@@ -2479,6 +2528,20 @@ function GetPedStealthMovement(ped) end
 ---@param ped integer
 ---@return number
 function GetPedSweat(ped) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF402C171)  
+---This native does not have an official description.
+---@param ped integer
+---@return number
+function GetPedWetness(ped) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2545ADE0)  
+---This native does not have an official description.
+---@param ped integer
+---@return number
+function GetPedWetnessHeight(ped) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x433C765D)  
@@ -2572,6 +2635,12 @@ function GetPlayerInvincible(playerSrc) end
 ---@param player integer
 ---@return boolean
 function GetPlayerInvincible_2(player) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBFB2990C)  
+---A getter for [SET_PLAYER_KILL_FALL_HEIGHT](#\_0xAEF2C6A4).
+---@return number
+function GetPlayerKillFallHeight() end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x427E8E6A)  
@@ -2863,7 +2932,7 @@ function GetResourceKvpString(key) end
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x964BAB1D)  
 ---Gets the metadata value at a specified key/index from a resource's manifest.---
----See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+---See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
 ---@param resourceName string
 ---@param metadataKey string
 ---@param index integer
@@ -2946,6 +3015,13 @@ function GetRuntimeTextureWidth(tex) end
 ---A getter for [SET_SCENARIO_PED_DENSITY_MULTIPLIER_THIS_FRAME](#\_0x7A556143A1C03898).
 ---@return number
 function GetScenarioPedDensityMultiplier() end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x57B78C17)  
+---This native does not have an official description.
+---@param ped integer
+---@return integer
+function GetSeatPedIsUsing(ped) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD240123E)  
@@ -4309,6 +4385,12 @@ function IsEntityVisible(entity) end
 ---@return boolean
 function IsFlashLightOn(ped) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4DD998F6)  
+---This native does not have an official description.
+---@return boolean
+function IsGameEnhancedVersion() end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x23E46BD7)  
 ---This is a getter for [SET_HELI_TAIL_EXPLODE_THROW_DASHBOARD](#\_0x3EC8BF18AA453FE9)
@@ -4388,6 +4470,28 @@ function IsPedComponentVariationGen9Exclusive(ped, componentId, drawableId) end
 function IsPedHandcuffed(ped) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3B0171EE)  
+---This native does not have an official description.
+---@param ped integer
+---@return boolean
+function IsPedInAnyVehicle(ped) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7DA6BC83)  
+---This native does not have an official description.
+---@param ped integer
+---@param vehicle integer
+---@return boolean
+function IsPedInVehicle(ped, vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x43103006)  
+---This native does not have an official description.
+---@param ped integer
+---@return boolean
+function IsPedOnMount(ped) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC833BBE1)  
 ---This native does not have an official description.
 ---@param ped integer
@@ -4418,6 +4522,8 @@ function IsPlayerAceAllowed(playerSrc, object) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBEFE93F4)  
+---> This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
+---
 ---Requests whether or not the commerce data for the specified player has loaded.
 ---@param playerSrc string
 ---@return boolean
@@ -4627,6 +4733,8 @@ function LeaveCursorMode() end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA8F63EAB)  
+---> This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
+---
 ---Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
 ---@param playerSrc string
 function LoadPlayerCommerceData(playerSrc) end
@@ -4994,6 +5102,20 @@ function PerformHttpRequestInternal(requestData, requestDataLength) end
 ---@return integer
 function PerformHttpRequestInternalEx(requestData) end
 
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x584B4C99)  
+---Create a new light with specified type, flags, position, color, and intensity.
+---@param lightType integer
+---@param flags integer
+---@param x number
+---@param y number
+---@param z number
+---@param r integer
+---@param g integer
+---@param b integer
+---@param intensity number
+function PrepareLight(lightType, flags, x, y, z, r, g, b, intensity) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x90892DED)  
 ---Prints 'structured trace' data to the server `file descriptor 3` channel. This is not generally useful outside of---
@@ -5228,7 +5350,7 @@ function RemoveAllPedWeapons(ped, p1) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD8C3C1CD)  
 ---Removes the blip from your map.---
----**Note:** This function only works on the script that created the blip, if you wish to remove blips created by other scripts, see [`SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT`](#\_0x86A652570E5F25DD).
+---**Note:** This function only works on the script that created the blip, if you wish to remove blips created by other scripts, see [`SET_THIS_SCRIPT_CAN_REMOVE_BLIPS_CREATED_BY_ANY_SCRIPT`](#\_0xB98236CAAECEF897).
 ---
 ---**This is the server-side RPC native equivalent of the client native [REMOVE_BLIP](?\_0x86A652570E5F25DD).**
 ---@param blip integer
@@ -5332,6 +5454,8 @@ function RemoveWeaponFromPed(ped, weaponHash) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x96F93CCE)  
+---> This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
+---
 ---Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance---
 ---will open the browser prompting further purchase details.
 ---@param playerSrc string
@@ -5566,7 +5690,7 @@ function SetBackfaceculling(toggle) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8DBBB0B9)  
 ---Sets the displayed sprite for a specific blip.---
----There's a [list of sprites](https://docs.fivem.net/game-references/blips/) on the FiveM documentation site.
+---There's a [list of sprites](https://docs.fivem.net/docs/game-references/blips/) on the FiveM documentation site.
 ---
 ---**This is the server-side RPC native equivalent of the client native [SET_BLIP_SPRITE](?\_0xDF735600A4696DAF).**
 ---@param blip integer
@@ -5591,6 +5715,24 @@ function SetCalmingQuadBounds(waterQuad, minX, minY, maxX, maxY) end
 ---@param dampening number
 ---@return boolean
 function SetCalmingQuadDampening(calmingQuad, dampening) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD174EF7E)  
+---```cpp
+---enum ClientConfigFlag---
+---{---
+---    WeaponsNoAutoReload = 0,---
+---	UIVisibleWhenDead = 1,---
+---	DisableDeathAudioScene = 2,---
+---	DisableRemoteAttachments = 3---
+---}
+---```
+---
+---Sets the value of a client configuration flag.---
+---This native allows enabling or disabling specific one-time client-side features.
+---@param flagIndex integer
+---@param enabled boolean
+function SetClientConfigBool(flagIndex, enabled) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x341B16D2)  
@@ -5935,6 +6077,18 @@ function SetEntityRoutingBucket(entity, bucket) end
 function SetEntityVelocity(entity, x, y, z) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA9EC9A79)  
+---A setter for [GET_FALL_DAMAGE_LAND_ON_FOOT_MULTIPLIER](#\_0x3C8A1C92).
+---@param multiplier number
+function SetFallDamageLandOnFootMultiplier(multiplier) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB43B621B)  
+---A setter for [GET_FALL_DAMAGE_MULTIPLIER](#\_0x2D6A0A83).
+---@param multiplier number
+function SetFallDamageMultiplier(multiplier) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7635B349)  
 ---Allows Weapon-Flashlight beams to stay visible while moving. Normally it only stays on while aiming.
 ---@param state boolean
@@ -6259,9 +6413,191 @@ function SetInteriorRoomTimecycle(interiorId, roomIndex, timecycleHash) end
 function SetKeyMappingHideResources(hide) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x24091E09)  
+---A setter for [GET_KILL_FALL_HEIGHT](#\_0x884C8B5A).
+---@param height number
+function SetKillFallHeight(height) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC0EBC38)  
+---Set the alpha transparency of the light.
+---@param alpha number
+function SetLightAlpha(alpha) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE155B53B)  
+---Set ambient occlusion (AO) parameters for a specified light.
+---@param intensity number
+---@param radius number
+---@param bias number
+---@param intensity2 number
+function SetLightAo(intensity, radius, bias, intensity2) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA3881271)  
+---Set the capsule size of a specified light.
+---@param size number
+function SetLightCapsuleSize(size) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xD9DD0717)  
+---Set the clip rectangle for a created light.
+---@param x integer
+---@param y integer
+---@param width integer
+---@param height integer
+function SetLightClipRect(x, y, width, height) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x65FE5132)  
+---Set the color of a specified light.
+---@param r integer
+---@param g integer
+---@param b integer
+function SetLightColor(r, g, b) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9FE89EF5)  
+---Set the inner and outer cone angles of a specified light.
+---@param innerConeAngle number
+---@param outerConeAngle number
+function SetLightCone(innerConeAngle, outerConeAngle) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8950BD08)  
+---Set the world coordinates of a specified light.
+---@param x number
+---@param y number
+---@param z number
+function SetLightCoords(x, y, z) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA6FE1977)  
+---Set the forward and tangent direction vectors for an existing light, allowing control over its orientation (useful for spotlights and directional lights).
+---@param xDir number
+---@param yDir number
+---@param zDir number
+---@param xTanDir number
+---@param yTanDir number
+---@param zTanDir number
+function SetLightDirection(xDir, yDir, zDir, xTanDir, yTanDir, zTanDir) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB2D37E97)  
+---Set additional configuration flags for an existing light
+---@param extraFlags integer
+function SetLightExtraflags(extraFlags) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFA46714D)  
+---Set the fade distance.
+---@param fadeDistance integer
+function SetLightFadeDistance(fadeDistance) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4D7F6E03)  
+---Adjust the falloff parameter for an existing light, affecting how light intensity decreases over distance.
+---@param falloff number
+function SetLightFalloff(falloff) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x28B22733)  
+---Set or update specific flags for a created light to control its behavior or properties.
+---@param flags integer
+function SetLightFlags(flags) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFF44D502)  
+---Set the headlight properties of a created light, adjusting its intensity and range.
+---@param intensity number
+---@param range number
+function SetLightHeadlight(intensity, range) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2CC9A71C)  
+---Set the intensity of an existing light.
+---@param intensity number
+function SetLightIntensity(intensity) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1CC72443)  
+---Set the interior and room where the light should be active.
+---@param interiorId integer
+---@param isPortal boolean
+---@param roomIndex integer
+function SetLightInterior(interiorId, isPortal, roomIndex) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE46E0CDF)  
+---Set the plane parameters for a light.
+---@param x number
+---@param y number
+---@param z number
+---@param w number
+function SetLightPlane(x, y, z, w) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4A4B5CBE)  
+---Set the radius of a created light.
+---@param radius number
+function SetLightRadius(radius) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA40EAC1A)  
+---Set the shadow details for a created light.
+---@param shadowFlags integer
+---@param shadowDistance number
+---@param shadowFade number
+---@param shadowDepthBiasScale number
+function SetLightShadowDetails(shadowFlags, shadowDistance, shadowFade, shadowDepthBiasScale) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3C54C2A8)  
+---Set the fade distance for the shadows of a created light.
+---@param fadeDistance integer
+function SetLightShadowFadeDistance(fadeDistance) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC3A35A50)  
+---Set the specular fade distance for a created light.
+---@param fadeDistance integer
+function SetLightSpecularFadeDistance(fadeDistance) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x55A50736)  
+---Assign a texture to an existing light source, allowing custom light shapes or patterns using textures from streaming assets.
+---@param textureDict string
+---@param textureHash integer
+function SetLightTexture(textureDict, textureHash) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCB58679D)  
+---Change the light type of a already created light.---
+---Certain light type needs more configurations to work properly (Like direction, flags or size)
+---@param lightType integer
+function SetLightType(lightType) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x2F731AE7)  
+---Set volumetric light properties for an existing light, enabling custom volumetric effects such as fog-like glow.
+---@param volIntensity number
+---@param volSizeScale number
+---@param r number
+---@param g number
+---@param b number
+---@param i number
+---@param outerExponent number
+function SetLightVolumeDetails(volIntensity, volSizeScale, r, g, b, i, outerExponent) end
+
+---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE1F41605)  
+---Set the fade distance for volumetric lightingn.
+---@param volumetricFadeDistance integer
+function SetLightVolumetricFadeDistance(volumetricFadeDistance) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1722C938)  
----Sets whether or not `SHUTDOWN_LOADING_SCREEN` automatically shuts down the NUI frame for the loading screen. If this is enabled,---
----you will have to manually invoke `SHUTDOWN_LOADING_SCREEN_NUI` whenever you want to hide the NUI loading screen.
+---**Note**: This native is deprecated and doesn't work anymore. Use [loadscreen_manual_shutdown](https://docs.fivem.net/docs/scripting-reference/resource-manifest/#loadscreen_manual_shutdown) in the fxmanifest.lua instead.
 ---@param manualShutdown boolean
 function SetManualShutdownLoadingScreenNui(manualShutdown) end
 
@@ -7101,9 +7437,9 @@ SetPedHairColor = SetPedHairTint
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x60746B88)  
----For more info please refer to [this](https://gtaforums.com/topic/858970-all-gtao-face-ids-pedset-ped-head-blend-data-explained) topic.---
+---For more info and the list of faceIDs please refer to [this](https://gtaforums.com/topic/858970-all-gtao-face-ids-pedset-ped-head-blend-data-explained) topic. Note that the Skin and Shape IDs are shared. This native will use this same list for both Skin and Shape IDs.---
 ---**Other information:**---
----IDs start at zero and go Male Non-DLC, Female Non-DLC, Male DLC, and Female DLC.</br>---
+---IDs start at zero and go Male Non-DLC, Female Non-DLC, Male DLC, and Female DLC.---
 ---This native function is often called prior to calling natives such as:
 ---
 ---*   [`SetPedHairColor`](#\_0xA23FE32C)
@@ -7418,6 +7754,12 @@ function SetPlayerCullingRadius(playerSrc, radius) end
 function SetPlayerInvincible(player, bInvincible) end
 
 ---**`CFX` `client`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x86BD5722)  
+---A setter for [GET_PLAYER_KILL_FALL_HEIGHT](#\_0x13BC2C63).
+---@param height number
+function SetPlayerKillFallHeight(height) end
+
+---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x35594F67)  
 ---This native does not have an official description.
 ---@param playerId integer
@@ -7471,10 +7813,13 @@ function SetPlayerTalkingOverride(player, state) end
 function SetPlayerWantedLevel(player, wantedLevel, delayedResponse) end
 
 ---**`CFX` `client`**  
----[Native Documentation](https://docs.fivem.net/natives/?_0xB90BBC6E)  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8C3EC64F)  
 ---This completely disables pedestrian vehicles from reacting to sirens. They will not try to do any maneuver to evade.
 ---@param state boolean
-function SetReactionToVehicleWithSirenDisabled(state) end
+function SetReactionToVehicleSirenDisabled(state) end
+
+---@deprecated
+SetReactionToVehicleWithSirenDisabled = SetReactionToVehicleSirenDisabled
 
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x21C7A35B)  
