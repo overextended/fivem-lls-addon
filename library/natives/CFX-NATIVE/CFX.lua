@@ -365,6 +365,93 @@ function CommitRuntimeTexture(tex) end
 ---@return integer
 function CreateAudioSubmix(name) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB9C5AC6D)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Creates a circle collision shape at the specified 2D position with the given radius.---
+------
+---When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+---@param x number
+---@param y number
+---@param radius number
+---@return integer
+function CreateColshapeCircle(x, y, radius) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x79AE8777)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Creates a cuboid (axis-aligned box) collision shape at the specified 3D position.---
+------
+---When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+---@param x number
+---@param y number
+---@param z number
+---@param width number
+---@param depth number
+---@param height number
+---@return integer
+function CreateColshapeCuboid(x, y, z, width, depth, height) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x59AD59AC)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Creates a cylinder collision shape at the specified 3D position.---
+------
+---When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@param height number
+---@return integer
+function CreateColshapeCylinder(x, y, z, radius, height) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1B055F04)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Creates a polygon collision shape defined by a set of 2D points extruded between `minZ` and `maxZ`. Requires at least 3 points.---
+------
+---When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+---@param minZ number
+---@param maxZ number
+---@param points table
+---@return integer
+function CreateColshapePolygon(minZ, maxZ, points) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x58C3F669)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Creates a rotated rectangle collision shape at the specified 3D position.---
+------
+---When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+---@param x number
+---@param y number
+---@param z number
+---@param width number
+---@param depth number
+---@param heading number
+---@return integer
+function CreateColshapeRectangle(x, y, z, width, depth, heading) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB6710ACB)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Creates a sphere collision shape at the specified 3D position with the given radius.---
+------
+---When an entity enters or leaves a collision shape, the `onColshapeEnter` and `onColshapeExit` events are triggered. Both events are called with the entity handle that triggered them and the collision shape ID.
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@return integer
+function CreateColshapeSphere(x, y, z, radius) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEB1C6DD)  
 ---Creates a volume where water effects do not apply.---
@@ -535,6 +622,14 @@ function CreateVehicle(modelHash, x, y, z, heading, isNetwork, netMissionEntity)
 ---@return integer
 function CreateVehicleServerSetter(modelHash, type, x, y, z, heading) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x16B9F12B)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Deletes an existing collision shape by its ID.
+---@param colShapeId integer
+function DeleteColshape(colShapeId) end
+
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFAA3D236)  
 ---Deletes the specified entity.
@@ -613,6 +708,15 @@ function DisableWorldhorizonRendering(state) end
 ---@param vehicle integer
 ---@return boolean
 function DoesBoatSinkWhenWrecked(vehicle) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9A2EC46D)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether a collision shape with the given ID exists.
+---@param colShapeId integer
+---@return boolean
+function DoesColshapeExist(colShapeId) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3AC90869)  
@@ -1188,6 +1292,69 @@ function GetClientConfigBool(flagIndex) end
 ---@param radius number
 ---@return table
 function GetClosestTrackNodes(position, radius) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1DC0D547)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Gets the circle collision shape data.
+---@param colShapeId integer
+---@return boolean, number, number, number
+function GetColshapeCircleData(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9D0BC07C)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Gets the cuboid collision shape data.
+---@param colShapeId integer
+---@return boolean, number, number, number, number, number, number
+function GetColshapeCuboidData(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x83B79CDA)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Gets the cylinder collision shape data.
+---@param colShapeId integer
+---@return boolean, number, number, number, number, number
+function GetColshapeCylinderData(colShapeId) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8B7A9C14)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns the dimension (routing bucket) of the collision shape.
+---@param colShapeId integer
+---@return integer
+function GetColshapeDimension(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCD8BFE8D)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Gets the polygon collision shape data. Returns an empty array if the ID is invalid or the shape is not a polygon.
+---@param colShapeId integer
+---@return table, number, number
+function GetColshapePolygonData(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xED8B05DF)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Gets the rectangle collision shape data.
+---@param colShapeId integer
+---@return boolean, number, number, number, number, number, number
+function GetColshapeRectangleData(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xFF94C6DB)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Gets the sphere collision shape data.
+---@param colShapeId integer
+---@return boolean, number, number, number, number
+function GetColshapeSphereData(colShapeId) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE57429FA)  
@@ -4315,6 +4482,70 @@ function IsBoatAnchoredAndFrozen(vehicle) end
 ---@return boolean
 function IsBoatWrecked(vehicle) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xAAEB581A)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the collision shape is a circle type.
+---@param colShapeId integer
+---@return boolean
+function IsColshapeCircle(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x80A7B8DF)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the collision shape is a cuboid type.
+---@param colShapeId integer
+---@return boolean
+function IsColshapeCuboid(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA9CC9F3D)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the collision shape is a cylinder type.
+---@param colShapeId integer
+---@return boolean
+function IsColshapeCylinder(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB5B22C62)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the collision shape has a specific entity type enabled for detection.
+---@param colShapeId integer
+---@param entityType integer
+---@return boolean
+function IsColshapeEntityTypeSet(colShapeId, entityType) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x91E01B1E)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the collision shape is a polygon type.
+---@param colShapeId integer
+---@return boolean
+function IsColshapePolygon(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xAE0F25EA)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the collision shape is a rectangle type.
+---@param colShapeId integer
+---@return boolean
+function IsColshapeRectangle(colShapeId) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC53E0758)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the collision shape is a sphere type.
+---@param colShapeId integer
+---@return boolean
+function IsColshapeSphere(colShapeId) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x36366EC3)  
 ---Gets if the specified `rawKeyIndex` is pressed down, even if the key is disabled with [DISABLE_RAW_KEY_THIS_FRAME](#\_0x8BCF0014).
@@ -4561,6 +4792,18 @@ function IsPlayerInFreeCamMode(playerSrc) end
 ---@param playerSrc string
 ---@return boolean
 function IsPlayerUsingSuperJump(playerSrc) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x324DCFA6)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Tests whether a 3D point is inside the specified collision shape.
+---@param colShapeId integer
+---@param x number
+---@param y number
+---@param z number
+---@return boolean
+function IsPointInsideColshape(colShapeId, x, y, z) end
 
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x37CF52CE)  
@@ -5139,6 +5382,46 @@ function ProfilerExitScope() end
 ---Returns true if the profiler is active.
 ---@return boolean
 function ProfilerIsRecording() end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA966E104)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Starts recording the network sync of the entity with the given network ID to a file.
+---@param netId integer
+---@param compressed boolean
+---@param fileName string
+function RecorderStartRecording(netId, compressed, fileName) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xACD27A01)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Starts replaying a previously recorded file. The `mode` argument controls playback behavior:---
+------
+---* `0`: Once. Play the recording a single time.---
+---* `1`: Loop. Repeat the recording continuously.---
+---* `2`: Perfect loop. Repeat the recording seamlessly.
+---@param fileName string
+---@param mode integer
+---@return integer
+function RecorderStartReplay(fileName, mode) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA124422F)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Stops the recording in progress for the entity with the given network ID.
+---@param netId integer
+function RecorderStopRecording(netId) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x31A548AC)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Stops the replay with the given replay ID.
+---@param replayId integer
+function RecorderStopReplay(replayId) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3C2F9037)  
@@ -5733,6 +6016,25 @@ function SetCalmingQuadDampening(calmingQuad, dampening) end
 ---@param flagIndex integer
 ---@param enabled boolean
 function SetClientConfigBool(flagIndex, enabled) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x38482191)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Sets the dimension (routing bucket) of the collision shape. Only entities in the same dimension will trigger enter/exit events.
+---@param colShapeId integer
+---@param dimension integer
+function SetColshapeDimension(colShapeId, dimension) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB3A4D128)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Sets whether the collision shape should detect a specific entity type.
+---@param colShapeId integer
+---@param entityType integer
+---@param value boolean
+function SetColshapeEntityType(colShapeId, entityType, value) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x341B16D2)  
@@ -9149,6 +9451,14 @@ function TriggerLatentServerEventInternal(eventName, eventPayload, payloadLength
 ---@param eventPayload string
 ---@param payloadLength integer
 function TriggerServerEventInternal(eventName, eventPayload, payloadLength) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9F73FDC)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Unregisters a command that was previously registered with `REGISTER_COMMAND`, using the command ID returned by that native.
+---@param commandId integer
+function UnregisterCommand(commandId) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7FB46432)  
