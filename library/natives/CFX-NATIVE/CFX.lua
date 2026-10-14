@@ -285,7 +285,7 @@ function CancelEvent() end
 ---> This native is deprecated and may be removed in a future version. Use the [Tebex API](https://docs.tebex.io/) instead.
 ---
 ---Returns whether or not the specified player has enough information to start a commerce session for.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return boolean
 function CanPlayerStartCommerceSession(playerSrc) end
 
@@ -728,7 +728,7 @@ function DoesEntityExist(entity) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x12038599)  
 ---Returns whether or not the player exists
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return boolean
 function DoesPlayerExist(playerSrc) end
 
@@ -737,7 +737,7 @@ function DoesPlayerExist(playerSrc) end
 ---> This native is deprecated and may be removed in a future version. Use [`DOES_PLAYER_OWN_SKU_EXT`](#\_0xDEF0480B) instead.
 ---
 ---Requests whether or not the player owns the specified SKU.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param skuId integer
 ---@return boolean
 function DoesPlayerOwnSku(playerSrc, skuId) end
@@ -745,7 +745,7 @@ function DoesPlayerOwnSku(playerSrc, skuId) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDEF0480B)  
 ---Requests whether or not the player owns the specified package.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param skuId integer
 ---@return boolean
 function DoesPlayerOwnSkuExt(playerSrc, skuId) end
@@ -938,7 +938,7 @@ function DrawRectRotated(x, y, width, height, rotation, r, g, b, a) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBA0613E1)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param reason string
 function DropPlayer(playerSrc, reason) end
 
@@ -1147,7 +1147,7 @@ function GetActivePlayers() end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x62FC38D0)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return number
 function GetAirDragMultiplierForPlayersVehicle(playerSrc) end
 
@@ -2334,7 +2334,7 @@ function GetNumberOfPedCollectionTextureVariations(ped, componentId, collection,
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF7F66AB)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetNumPlayerIdentifiers(playerSrc) end
 
@@ -2347,7 +2347,7 @@ function GetNumPlayerIndices() end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x619E4A3D)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetNumPlayerTokens(playerSrc) end
 
@@ -2713,28 +2713,28 @@ function GetPedWetnessHeight(ped) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x433C765D)  
 ---Gets the current camera rotation for a specified player. This native is used server side when using OneSync.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return vector3
 function GetPlayerCameraRotation(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFEE404F9)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return string
 function GetPlayerEndpoint(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x98D244)  
 ---Gets the current fake wanted level for a specified player. This native is used server side when using OneSync.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerFakeWantedLevel(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x586F80FF)  
 ---Gets the focus position (i.e. the position of the active camera in the game world) of a player.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return vector3
 function GetPlayerFocusPos(playerSrc) end
 
@@ -2766,7 +2766,7 @@ function GetPlayerFromStateBagName(bagName) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE52D9680)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return string
 function GetPlayerGuid(playerSrc) end
 
@@ -2775,7 +2775,7 @@ function GetPlayerGuid(playerSrc) end
 ---To get the number of identifiers, use [GET_NUM_PLAYER_IDENTIFIERS](#\_0xFF7F66AB)
 ---
 ---To get a specific type of identifier, use [GET_PLAYER_IDENTIFIER_BY_TYPE](#\_0xA61C8FC6)
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param identiferIndex integer
 ---@return string
 function GetPlayerIdentifier(playerSrc, identiferIndex) end
@@ -2784,7 +2784,7 @@ function GetPlayerIdentifier(playerSrc, identiferIndex) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA61C8FC6)  
 ---Get an identifier from a player by the type of the identifier.---
 ---Known [Identifiers](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/functions/GetPlayerIdentifiers/#identifier-types)
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param identifierType string
 ---@return string
 function GetPlayerIdentifierByType(playerSrc, identifierType) end
@@ -2792,7 +2792,7 @@ function GetPlayerIdentifierByType(playerSrc, identifierType) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x680C90EE)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return boolean
 function GetPlayerInvincible(playerSrc) end
 
@@ -2812,21 +2812,21 @@ function GetPlayerKillFallHeight() end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x427E8E6A)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerLastMsg(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A50657)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerMaxArmour(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8154E470)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerMaxHealth(playerSrc) end
 
@@ -2854,14 +2854,14 @@ function GetPlayerMeleeWeaponDefenseModifier(playerId) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x406B4B20)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return string
 function GetPlayerName(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6E31E993)  
 ---Used to get the player's Ped Entity ID when a valid `playerSrc` is passed.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerPed(playerSrc) end
 
@@ -2896,7 +2896,7 @@ function GetPlayerPed(playerSrc) end
 ---```
 ---
 ---These statistics only update once every 10 seconds.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param peerStatistic integer
 ---@return integer
 function GetPlayerPeerStatistics(playerSrc, peerStatistic) end
@@ -2904,7 +2904,7 @@ function GetPlayerPeerStatistics(playerSrc, peerStatistic) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFF1290D4)  
 ---See [GET_PLAYER_PEER_STATISTICS](#\_0x9A928294) if you want more detailed information, like packet loss, and packet/rtt variance
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerPing(playerSrc) end
 
@@ -2913,7 +2913,7 @@ function GetPlayerPing(playerSrc) end
 ---Gets the routing bucket for the specified player.
 ---
 ---Routing buckets are also known as 'dimensions' or 'virtual worlds' in past echoes, however they are population-aware.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerRoutingBucket(playerSrc) end
 
@@ -2934,7 +2934,7 @@ function GetPlayerStamina(playerId) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9873E404)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerTeam(playerSrc) end
 
@@ -2945,7 +2945,7 @@ function GetPlayerTeam(playerSrc) end
 ---Counter starts and increments only when cops are chasing the player.---
 ---If the player is evading, the timer will pause.
 ---```
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param lastPursuit boolean
 ---@return integer
 function GetPlayerTimeInPursuit(playerSrc, lastPursuit) end
@@ -2953,14 +2953,14 @@ function GetPlayerTimeInPursuit(playerSrc, lastPursuit) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x67D2E605)  
 ---Gets the current time online for a specified player.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerTimeOnline(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x54C06897)  
 ---Gets a player's token. Tokens can be used to enhance banning logic, however are specific to a server.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param index integer
 ---@return string
 function GetPlayerToken(playerSrc, index) end
@@ -2982,7 +2982,7 @@ function GetPlayerVehicleDefenseModifier(playerId) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x821F2D2C)  
 ---Gets the current known coordinates for the specified player from cops perspective. This native is used server side when using OneSync.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return vector3
 function GetPlayerWantedCentrePosition(playerSrc) end
 
@@ -2991,7 +2991,7 @@ function GetPlayerWantedCentrePosition(playerSrc) end
 ---```
 ---Returns given players wanted level server-side.
 ---```
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return integer
 function GetPlayerWantedLevel(playerSrc) end
 
@@ -3102,7 +3102,7 @@ function GetResourceKvpString(key) end
 ---See also: [Resource manifest](https://docs.fivem.net/docs/scripting-reference/resource-manifest/)
 ---@param resourceName string
 ---@param metadataKey string
----@param index integer
+---@param index? integer [default: 0]
 ---@return string
 function GetResourceMetadata(resourceName, metadataKey, index) end
 
@@ -3864,7 +3864,7 @@ function GetVehicleOilLevel(vehicle) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAFE92319)  
 ---Gets the vehicle the specified Ped is/was in depending on bool value. This native is used server side when using OneSync.
 ---@param ped integer
----@param lastVehicle boolean
+---@param lastVehicle? boolean [default: false]
 ---@return integer
 function GetVehiclePedIsIn(ped, lastVehicle) end
 
@@ -4746,7 +4746,7 @@ function IsPedUsingActionMode(ped) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xDEDAE23D)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param object string
 ---@return boolean
 function IsPlayerAceAllowed(playerSrc, object) end
@@ -4756,14 +4756,14 @@ function IsPlayerAceAllowed(playerSrc, object) end
 ---> This native is deprecated and may be removed in a future version. Use [`IS_PLAYER_COMMERCE_INFO_LOADED_EXT`](#\_0x1D14F4FE) instead.
 ---
 ---Requests whether or not the commerce data for the specified player has loaded.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return boolean
 function IsPlayerCommerceInfoLoaded(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1D14F4FE)  
 ---Requests whether or not the commerce data for the specified player has loaded from Tebex.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return boolean
 function IsPlayerCommerceInfoLoadedExt(playerSrc) end
 
@@ -4775,21 +4775,21 @@ function IsPlayerCommerceInfoLoadedExt(playerSrc) end
 ------
 ---If the player is not wanted, it simply returns false.
 ---```
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return boolean
 function IsPlayerEvadingWantedLevel(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1F14F2AC)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return boolean
 function IsPlayerInFreeCamMode(playerSrc) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC7D2C20C)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return boolean
 function IsPlayerUsingSuperJump(playerSrc) end
 
@@ -4979,7 +4979,7 @@ function LeaveCursorMode() end
 ---> This native is deprecated and may be removed in a future version. Use [`LOAD_PLAYER_COMMERCE_DATA_EXT`](#\_0x7995539E) instead.
 ---
 ---Requests the commerce data for the specified player, including the owned SKUs. Use `IS_PLAYER_COMMERCE_INFO_LOADED` to check if it has loaded.
----@param playerSrc string
+---@param playerSrc integer|string
 function LoadPlayerCommerceData(playerSrc) end
 
 ---**`CFX` `server`**  
@@ -4991,7 +4991,7 @@ function LoadPlayerCommerceData(playerSrc) end
 ---This will not automatically update whenever a client purchases a package, if you want to fetch new purchases you will need to call this native again.
 ---
 ---This native will temporarily cache the players commerce data for 10 seconds, a call to this native after 10 seconds will re-fetch the players commerce data.
----@param playerSrc string
+---@param playerSrc integer|string
 function LoadPlayerCommerceDataExt(playerSrc) end
 
 ---**`CFX` `shared`**  
@@ -5104,7 +5104,7 @@ function MumbleIsConnected() end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1D5D50C2)  
 ---Checks if the player is currently muted
----@param playerSrc integer
+---@param playerSrc integer|string
 ---@return boolean
 function MumbleIsPlayerMuted(playerSrc) end
 
@@ -5182,7 +5182,7 @@ function MumbleSetAudioOutputDistance(distance) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCC6C2EB1)  
 ---Mutes or unmutes the specified player
----@param playerSrc integer
+---@param playerSrc integer|string
 ---@param toggle boolean
 function MumbleSetPlayerMuted(playerSrc, toggle) end
 
@@ -5274,7 +5274,7 @@ function NetworkGetNetworkIdFromEntity(entity) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFFEEF513)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@return vector3
 function NetworkGetVoiceProximityOverrideForPlayer(playerSrc) end
 
@@ -5741,7 +5741,7 @@ function RemoveWeaponFromPed(ped, weaponHash) end
 ---
 ---Requests the specified player to buy the passed SKU. This'll pop up a prompt on the client, which upon acceptance---
 ---will open the browser prompting further purchase details.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param skuId integer
 function RequestPlayerCommerceSession(playerSrc, skuId) end
 
@@ -8042,7 +8042,7 @@ function SetPlayerControl(player, bHasControl, flags) end
 ---Set to `0.0` to reset.
 ---
 ---**WARNING**: Culling natives are deprecated and have known, [unfixable issues](https://forum.cfx.re/t/issue-with-culling-radius-and-server-side-entities/4900677/4)
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param radius number
 function SetPlayerCullingRadius(playerSrc, radius) end
 
@@ -8084,7 +8084,7 @@ function SetPlayerModel(player, model) end
 ---Sets the routing bucket for the specified player.
 ---
 ---Routing buckets are also known as 'dimensions' or 'virtual worlds' in past echoes, however they are population-aware.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param bucket integer
 function SetPlayerRoutingBucket(playerSrc, bucket) end
 
@@ -9404,7 +9404,7 @@ function TaskWarpPedIntoVehicle(ped, vehicle, seatIndex) end
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1E35DBBA)  
 ---This native does not have an official description.
----@param playerSrc string
+---@param playerSrc integer|string
 ---@param reason string
 function TempBanPlayer(playerSrc, reason) end
 

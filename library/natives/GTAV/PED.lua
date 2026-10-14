@@ -2078,7 +2078,7 @@ SetExclusivePhoneRelationships = GetVehiclePedIsEntering
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9A9112A0FE9A4713)  
 ---Retrieves the vehicle the specified ped is currently in, or the last vehicle they were in.
 ---@param ped integer
----@param lastVehicle boolean
+---@param lastVehicle? boolean [default: false]
 ---@return integer
 function GetVehiclePedIsIn(ped, lastVehicle) end
 
@@ -2637,7 +2637,7 @@ function IsPedInAnyTrain(ped) end
 ---Returns whether the specified ped is in any vehicle. If `atGetIn` is set to true, also returns true if the ped is
 ---currently in the process of entering a vehicle (a specific stage check for `CTaskEnterVehicle`).
 ---@param ped integer
----@param atGetIn boolean
+---@param atGetIn? boolean [default: false]
 ---@return boolean
 function IsPedInAnyVehicle(ped, atGetIn) end
 

@@ -2129,7 +2129,7 @@ function GetVehiclePedIsEntering(ped) end
 ---
 ---If the Ped is not in a vehicle and includeLastVehicle is true, the vehicle they were last in is returned.
 ---@param ped integer
----@param lastVehicle boolean
+---@param lastVehicle? boolean [default: false]
 ---@return integer
 function GetVehiclePedIsIn(ped, lastVehicle) end
 
@@ -2784,7 +2784,7 @@ function IsPedInAnyTrain(ped) end
 ---[Native Documentation](https://rdr3natives.com/?_0x997ABD671D25CA0B)  
 ---Gets a value indicating whether the specified ped is in any vehicle.
 ---@param ped integer
----@param atGetIn boolean
+---@param atGetIn? boolean [default: false]
 ---@return boolean
 function IsPedInAnyVehicle(ped, atGetIn) end
 
