@@ -1,0 +1,52 @@
+---@meta
+
+-- Resource manifest directives (fxmanifest.lua / __resource.lua).
+-- These are not globals: plugin.lua binds each field to a local at the top of manifest files only,
+-- so they never leak into runtime scripts (and `exports` keeps its runtime signature elsewhere).
+-- [Documentation](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)
+
+---Directives may be chained to pass extra values, e.g. `data_file 'TYPE' 'path'`.
+---@alias CfxManifestChain fun(value: any): CfxManifestChain
+
+---@class CfxManifest
+---@field fx_version fun(version: 'cerulean' | 'bodacious' | 'adamant'): CfxManifestChain
+---@field game fun(game: 'gta5' | 'rdr3' | 'common'): CfxManifestChain
+---@field games fun(games: ('gta5' | 'rdr3' | 'common')[]): CfxManifestChain
+---@field rdr3_warning fun(text: string): CfxManifestChain
+---@field lua54 fun(enabled: 'yes' | 'no'): CfxManifestChain
+---@field use_experimental_fxv2_oal fun(enabled: 'yes' | 'no'): CfxManifestChain
+---@field node_version fun(version: string): CfxManifestChain
+---@field clr_disable_task_scheduler fun(enabled: 'yes' | 'no'): CfxManifestChain
+---@field author fun(author: string): CfxManifestChain
+---@field description fun(description: string): CfxManifestChain
+---@field version fun(version: string): CfxManifestChain
+---@field repository fun(url: string): CfxManifestChain
+---@field client_script fun(path: string): CfxManifestChain
+---@field client_scripts fun(paths: string[]): CfxManifestChain
+---@field server_script fun(path: string): CfxManifestChain
+---@field server_scripts fun(paths: string[]): CfxManifestChain
+---@field shared_script fun(path: string): CfxManifestChain
+---@field shared_scripts fun(paths: string[]): CfxManifestChain
+---@field file fun(path: string): CfxManifestChain
+---@field files fun(paths: string[]): CfxManifestChain
+---@field ui_page fun(path: string): CfxManifestChain
+---@field loadscreen fun(path: string): CfxManifestChain
+---@field loadscreen_manual_shutdown fun(enabled: 'yes' | 'no'): CfxManifestChain
+---@field loadscreen_cursor fun(enabled: 'yes' | 'no'): CfxManifestChain
+---@field export fun(name: string): CfxManifestChain
+---@field exports fun(names: string[]): CfxManifestChain
+---@field server_export fun(name: string): CfxManifestChain
+---@field server_exports fun(names: string[]): CfxManifestChain
+---@field dependency fun(resource: string): CfxManifestChain
+---@field dependencies fun(resources: string[]): CfxManifestChain
+---@field provide fun(resource: string): CfxManifestChain
+---@field data_file fun(type: string): CfxManifestChain
+---@field this_is_a_map fun(enabled: 'yes' | 'no'): CfxManifestChain
+---@field server_only fun(enabled: 'yes' | 'no'): CfxManifestChain
+---@field before_level_meta fun(path: string): CfxManifestChain
+---@field after_level_meta fun(path: string): CfxManifestChain
+---@field replace_level_meta fun(path: string): CfxManifestChain
+---@field convar_category fun(category: string): CfxManifestChain
+
+---@type CfxManifest
+__cfx_manifest = nil
