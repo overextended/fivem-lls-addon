@@ -1,7 +1,4 @@
 local workspace = require 'workspace'
-local files = require 'files'
-
-local str_find = string.find
 
 -- must match the fields of CfxManifest in library/runtime/manifest.lua
 local manifestDirectives = {
@@ -15,18 +12,24 @@ local manifestDirectives = {
 }
 
 -- binds each directive to a local, so the types only apply inside manifest files
-local manifestLocals
+local fxmanifest
 
 do
-	local bindings = {}
+	local bindings = {
+		'---@diagnostic disable: undefined-global, unused-local'
+	}
 
 	for i = 1, #manifestDirectives do
 		local name = manifestDirectives[i]
 		bindings[i] = ('local %s = __cfx_manifest.%s;'):format(name, name)
 	end
 
-	manifestLocals = table.concat(bindings, ' ') .. '\n'
+	table.insert(bindings, '\n')
+
+	fxmanifest = table.concat(bindings, ' ')
 end
+
+local str_find = string.find
 
 ---@param uri string # The uri of file
 ---@param text string # The content of file
@@ -48,7 +51,7 @@ function OnSetText(uri, text)
 		diffs[count] = {
 			start = 1,
 			finish = 0,
-			text = '---@diagnostic disable: undefined-global, unused-local\n' .. manifestLocals
+			text = fxmanifest
 		}
 	end
 
