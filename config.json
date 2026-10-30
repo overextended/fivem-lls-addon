@@ -1,7 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
   "name": "CfxLua",
-  "files": ["fxmanifest.lua"],
+  "files": [
+    "fxmanifest.lua"
+  ],
   "settings": {
     "Lua.runtime.version": "Lua 5.4",
     "Lua.runtime.nonstandardSymbol": [
@@ -15,7 +17,9 @@
       ">>=",
       "&=",
       "|=",
-      "^="
+      "^=",
+      "?.",
+      "?["
     ],
     "Lua.workspace.ignoreDir": [
       ".vscode",
