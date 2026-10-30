@@ -1,6 +1,7 @@
+local workspace = require 'workspace'
+local files = require 'files'
+
 local str_find = string.find
-local str_sub = string.sub
-local str_gmatch = string.gmatch
 
 -- must match the fields of CfxManifest in library/runtime/manifest.lua
 local manifestDirectives = {
@@ -31,11 +32,11 @@ end
 ---@param text string # The content of file
 ---@return { start: integer, finish: integer, text: string }[] | string | nil
 function OnSetText(uri, text)
-	-- ignore .vscode dir, extension files (i.e. natives), and other meta files
-	if str_find(uri, '[\\/]%.vscode[\\/]') or str_sub(text, 1, 8) == '---@meta' then return end
+	-- Disable plugin for ignored files
+	if workspace.isIgnored(uri) then return end
 
-	-- ignore files using fx asset protection
-	if str_sub(text, 1, 4) == 'FXAP' then return '' end
+	-- Prevent errors and disable diagnostics in escrowed files
+	if text:match('^FXAP') then return '---@diagnostic disable' end
 
 	local diffs = {}
 	local count = 0
