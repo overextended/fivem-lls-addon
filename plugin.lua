@@ -16,17 +16,17 @@ local fxmanifest
 
 do
 	local bindings = {
-		'---@diagnostic disable: undefined-global, unused-local'
+        '---@diagnostic disable: undefined-global, unused-local'
 	}
 
 	for i = 1, #manifestDirectives do
 		local name = manifestDirectives[i]
-		bindings[i] = ('local %s = __cfx_manifest.%s;'):format(name, name)
+        table.insert(bindings, ('local %s = __cfx_manifest.%s'):format(name, name))
 	end
 
 	table.insert(bindings, '\n')
 
-	fxmanifest = table.concat(bindings, ' ')
+    fxmanifest = table.concat(bindings, '\n')
 end
 
 local str_find = string.find
@@ -44,9 +44,9 @@ function OnSetText(uri, text)
 	local diffs = {}
 	local count = 0
 
-	-- type known directives in fxmanifest.lua and __resource.lua files (see library/runtime/manifest.lua)
+    -- type known directives in fxmanifest.lua files (see library/runtime/manifest.lua)
 	-- and allow unknown/custom directives without diagnostic errors
-	if str_find(uri, 'fxmanifest%.lua$') or str_find(uri, '__resource%.lua$') then
+    if str_find(uri, 'fxmanifest%.lua$') then
 		count = count + 1
 		diffs[count] = {
 			start = 1,
