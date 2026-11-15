@@ -256,9 +256,20 @@ function ApplyForceToEntity(entity, forceType, x, y, z, offX, offY, offZ, nCompo
 ---@return boolean
 function ApplyWeatherCycles(numEntries, msPerCycle) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBB619744)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SMASH_VEHICLE_WINDOW`](#_0x9E5B5E4D2CCD2259) and [`FIX_VEHICLE_WINDOW`](#_0x772282EBEB95E682).
+---@param vehicle integer
+---@return boolean
+function AreAllVehicleWindowsIntact(vehicle) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xA274CADB)  
----Break off vehicle wheel by index. The `leaveDebrisTrail` flag requires `putOnFire` to be true.
+---Break off vehicle wheel by index. The `leaveDebrisTrail` flag requires `putOnFire` to be true.---
+------
+---**NOTE**: In FiveM for GTAV Enhanced, this native is also available on the server. A broken off wheel can only be repaired with [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C). With server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, the server writes the synced vehicle health data and only uses `vehicle` and `wheelIndex`. Otherwise it is sent as an RPC to the owner of the vehicle.
 ---@param vehicle integer
 ---@param wheelIndex integer
 ---@param leaveDebrisTrail boolean
@@ -338,6 +349,16 @@ function ClearPedTasksImmediately(ped) end
 ---@param player integer
 function ClearPlayerWantedLevel(player) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x34056BB6)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Cancels a pending timed explosion set with [`SET_VEHICLE_TIMED_EXPLOSION`](#_0xDB8CB8E2). This has no effect once the vehicle has exploded.---
+------
+---**This is a server-side only native, there is no client equivalent.**
+---@param vehicle integer
+function ClearVehicleTimedExplosion(vehicle) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2867ED8C)  
 ---Removes vehicle xenon lights custom RGB color.
@@ -357,6 +378,17 @@ function CloneTimecycleModifier(sourceModifierName, clonedModifierName) end
 ---Commits the backing pixels to the specified runtime texture.
 ---@param tex integer
 function CommitRuntimeTexture(tex) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xBAE491C7)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Copies the damage (deformation, bumpers, windows, lights, sirens, weapon impacts, armoured glass) of the source vehicle to the target vehicle. The damage is added to the damage the target already has, repair the target first with [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C) for an exact copy. The armoured glass state is only copied when both vehicles have bullet resistant glass.---
+------
+---**This is the server-side equivalent of the client native [`COPY_VEHICLE_DAMAGES`](#_0xE44A982368A4AF23).**
+---@param sourceVehicle integer
+---@param targetVehicle integer
+function CopyVehicleDamages(sourceVehicle, targetVehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x658D2BC8)  
@@ -1099,6 +1131,17 @@ function FindNextPickup(findHandle) end
 function FindNextVehicle(findHandle) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x6B8E990D)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Fixes a vehicles window.---
+------
+---**This is the server-side equivalent of the client native [`FIX_VEHICLE_WINDOW`](#_0x772282EBEB95E682).**
+---@param vehicle integer
+---@param windowIndex integer
+function FixVehicleWindow(vehicle, windowIndex) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x13B6855D)  
 ---This native does not have an official description.
 ---@param private_ boolean
@@ -1241,6 +1284,15 @@ function GetAmbientVehicleRangeMultiplier() end
 ---```
 ---@return number
 function GetAspectRatio() end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xEE053B10)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns true when both headlights are broken. This does not include extralights.
+---@param vehicle integer
+---@return boolean
+function GetBothVehicleHeadlightsDamaged(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x870E8B40)  
@@ -2110,6 +2162,24 @@ function GetInvokingResource() end
 function GetIsHeliEngineRunning(heli) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA0777943)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---From the driver's perspective, is the left headlight broken.
+---@param vehicle integer
+---@return boolean
+function GetIsLeftVehicleHeadlightDamaged(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF178390B)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---From the driver's perspective, is the right headlight broken.
+---@param vehicle integer
+---@return boolean
+function GetIsRightVehicleHeadlightDamaged(vehicle) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7DC6D022)  
 ---This native does not have an official description.
 ---@param vehicle integer
@@ -2292,6 +2362,13 @@ function GetNetworkWalkMode() end
 ---This native does not have an official description.
 ---@return integer, integer
 function GetNuiCursorPosition() end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x889C0FFD)  
+---> This native only works in FiveM for GTAV Enhanced.
+---@param vehicle integer
+---@return integer
+function GetNumberOfDamagedVehicleHeadlights(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x310D0271)  
@@ -3422,6 +3499,18 @@ function GetTrainState(train) end
 ---@return integer
 function GetTrainTrackIndex(train) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB22B8F78)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_TYRE_WEAR_RATE`](#_0xC212205D).---
+------
+---**This is the server-side equivalent of the client native [`GET_TYRE_WEAR_RATE`](#_0x6E387895952F4F71).**
+---@param vehicle integer
+---@param wheelIndex integer
+---@return number
+function GetTyreWearRate(vehicle, wheelIndex) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC62AAC98)  
 ---This native does not have an official description.
@@ -3430,11 +3519,41 @@ function GetTrainTrackIndex(train) end
 function GetVehicleAlarmTimeLeft(vehicle) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xAF4D6B9F)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_ARMOURED_WINDOW_HEALTH`](#_0xB2F6BD8A).
+---@param vehicle integer
+---@param windowIndex integer
+---@return number
+function GetVehicleArmouredWindowHealth(vehicle, windowIndex) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC56379DB)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_ARMOURED_WINDOW_PENETRATION_DECALS_COUNT`](#_0x8993C2F).
+---@param vehicle integer
+---@param windowIndex integer
+---@return integer
+function GetVehicleArmouredWindowPenetrationDecalsCount(vehicle, windowIndex) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B2FCC28)  
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@return number
 function GetVehicleBodyHealth(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x67C9FAA3)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_BUMPER_STATE`](#_0x4716182C).
+---@param vehicle integer
+---@param front boolean
+---@return integer
+function GetVehicleBumperState(vehicle, front) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC3C93F28)  
@@ -3566,6 +3685,16 @@ function GetVehicleDashboardTemp() end
 ---@return number
 function GetVehicleDashboardVacuum() end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x745A5000)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_DEFORMATION_LEVEL`](#_0xCE5DA6C6) and [`SET_VEHICLE_DEFORMATION_FIXED`](#_0x953DA1E1B12C0491).
+---@param vehicle integer
+---@param zone integer
+---@return integer
+function GetVehicleDeformationLevel(vehicle, zone) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEF7C6538)  
 ---A getter for [SET_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME](#\_0x245A6883D966D537).
@@ -3635,6 +3764,15 @@ function GetVehicleEngineHealth(vehicle) end
 ---@param vehicle integer
 ---@return number
 function GetVehicleEngineTemperature(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x86142437)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns the number of fires on the vehicle that were extinguished.
+---@param vehicle integer
+---@return integer
+function GetVehicleExtinguishedFireCount(vehicle) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x80E4659B)  
@@ -3709,6 +3847,13 @@ function GetVehicleHandlingInt(vehicle, class_, fieldName) end
 ---@return vector3
 function GetVehicleHandlingVector(vehicle, class_, fieldName) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x9FDA8733)  
+---> This native only works in FiveM for GTAV Enhanced.
+---@param vehicle integer
+---@return boolean
+function GetVehicleHasBulletResistantGlass(vehicle) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD85C9F57)  
 ---**Note**: Flags are not the same based on your `gamebuild`. Please see [here](https://docs.fivem.net/docs/game-references/vehicle-references/vehicle-flags) to see a complete list of all vehicle flags.
@@ -3772,6 +3917,33 @@ function GetVehicleIndicatorLights(vehicle) end
 ---@return integer
 function GetVehicleInteriorColour(vehicle) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x42D4DAAB)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns the ID of the material the vehicle was last damaged on. The ID is a 64-bit number, so it is returned as a string.
+---@param vehicle integer
+---@return string
+function GetVehicleLastDamagedMaterial(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x963EBB52)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns the entity that last damaged the vehicle with a weapon. Use [`GET_VEHICLE_LAST_DAMAGE_WEAPON`](#_0x4A270AD4) to get the weapon.
+---@param vehicle integer
+---@return integer
+function GetVehicleLastDamageSource(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4A270AD4)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns the weapon the vehicle was last damaged with. Use [`GET_VEHICLE_LAST_DAMAGE_SOURCE`](#_0x963EBB52) to get the entity that used it.
+---@param vehicle integer
+---@return integer
+function GetVehicleLastDamageWeapon(vehicle) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7E6E219C)  
 ---This native does not have an official description.
@@ -3834,7 +4006,9 @@ function GetVehicleNextGear(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xEDF4B0FC)  
----This native does not have an official description.
+---Returns the number of wheels of the vehicle.---
+------
+---**NOTE**: In FiveM for GTAV Enhanced, this native is also available on the server, where it returns the number of wheels reported by the owner of the vehicle.
 ---@param vehicle integer
 ---@return integer
 function GetVehicleNumberOfWheels(vehicle) end
@@ -3903,6 +4077,16 @@ function GetVehicleSteeringAngle(vehicle) end
 ---@return number
 function GetVehicleSteeringScale(vehicle) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x5F867DC)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_SUSPENSION_HEALTH`](#_0x1E99D55E). On the server, this returns the synced suspension health.
+---@param vehicle integer
+---@param wheelIndex integer
+---@return number
+function GetVehicleSuspensionHealth(vehicle, wheelIndex) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xD1D07351)  
 ---This native does not have an official description.
@@ -3912,6 +4096,24 @@ function GetVehicleThrottleOffset(vehicle) end
 
 ---@deprecated
 GetVehicleCurrentAcceleration = GetVehicleThrottleOffset
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x6395DDA6)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns the entity the pending timed explosion of the vehicle is attributed to, see [`SET_VEHICLE_TIMED_EXPLOSION`](#_0xDB8CB8E2).
+---@param vehicle integer
+---@return integer
+function GetVehicleTimedExplosionCulprit(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1289F86D)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns the time until the pending timed explosion of the vehicle, see [`SET_VEHICLE_TIMED_EXPLOSION`](#_0xDB8CB8E2).
+---@param vehicle integer
+---@return integer
+function GetVehicleTimedExplosionTimeLeft(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x998B7FEE)  
@@ -3990,6 +4192,16 @@ function GetVehicleTypeRaw(vehicle) end
 ---@param vehicle integer
 ---@return integer, integer, integer
 function GetVehicleTyreSmokeColor(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x43A0C59B)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_WEAPON_IMPACT_POINT_COUNT`](#_0x521A448).
+---@param vehicle integer
+---@param direction integer
+---@return integer
+function GetVehicleWeaponImpactPointCount(vehicle, direction) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x70FE2EFF)  
@@ -4448,6 +4660,15 @@ function HasVehicleBeenDamagedByBullets(vehicle) end
 ---@return boolean
 function HasVehicleBeenOwnedByPlayer(vehicle) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8D88E886)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether a timed explosion is pending for the vehicle, see [`SET_VEHICLE_TIMED_EXPLOSION`](#_0xDB8CB8E2).
+---@param vehicle integer
+---@return boolean
+function HasVehicleTimedExplosion(vehicle) end
+
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x7EBB9929)  
 ---This native does not have an official description.
@@ -4894,6 +5115,31 @@ function IsTrainCaboose(train) end
 ---@return boolean
 function IsVehicleAlarmSet(vehicle) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x3FDE5771)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the vehicle is synced as blown up (exploded). See also [`IS_VEHICLE_WRECKED`](#_0xA067F5AD).
+---@param vehicle integer
+---@return boolean
+function IsVehicleBlownUp(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB3A2CC4F)  
+---> This native only works in FiveM for GTAV Enhanced.
+---@param vehicle integer
+---@param front boolean
+---@return boolean
+function IsVehicleBumperBouncing(vehicle, front) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xAF25C027)  
+---> This native only works in FiveM for GTAV Enhanced.
+---@param vehicle integer
+---@param front boolean
+---@return boolean
+function IsVehicleBumperBrokenOff(vehicle, front) end
+
 ---**`CFX` `shared`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xBB340D04)  
 ---This native does not have an official description.
@@ -4916,6 +5162,16 @@ function IsVehicleExtraTurnedOn(vehicle, extraId) end
 ---@return boolean
 function IsVehicleInteriorLightOn(vehicle) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x7AFC9DF5)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_LIGHT_BROKEN`](#_0x611A3234).
+---@param vehicle integer
+---@param lightIndex integer
+---@return boolean
+function IsVehicleLightBroken(vehicle, lightIndex) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xF9933BF4)  
 ---This native does not have an official description.
@@ -4929,6 +5185,16 @@ function IsVehicleNeedsToBeHotwired(vehicle) end
 ---@param vehicle integer
 ---@return boolean
 function IsVehiclePreviouslyOwnedByPlayer(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC2FD0CDF)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_SIREN_BROKEN`](#_0xCA955101).
+---@param vehicle integer
+---@param sirenIndex integer
+---@return boolean
+function IsVehicleSirenBroken(vehicle, sirenIndex) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x25EB5873)  
@@ -4955,11 +5221,23 @@ function IsVehicleWanted(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xCF1BC668)  
----Getter for [BREAK_OFF_VEHICLE_WHEEL](?\_0xA274CADB).
+---Getter for [`BREAK_OFF_VEHICLE_WHEEL`](#_0xA274CADB).---
+------
+---**NOTE**: In FiveM for GTAV Enhanced, this native is also available on the server, where it returns whether the wheel is synced as broken off.
 ---@param vehicle integer
 ---@param wheelIndex integer
 ---@return boolean
 function IsVehicleWheelBrokenOff(vehicle, wheelIndex) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xF9E9CF37)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Getter for [`SET_VEHICLE_WHEEL_ON_FIRE`](#_0xC3E1F461). On the server, this returns whether the tyre is synced as burning.
+---@param vehicle integer
+---@param wheelIndex integer
+---@return boolean
+function IsVehicleWheelOnFire(vehicle, wheelIndex) end
 
 ---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xAC4EF23D)  
@@ -4968,6 +5246,15 @@ function IsVehicleWheelBrokenOff(vehicle, wheelIndex) end
 ---@param windowIndex integer
 ---@return boolean
 function IsVehicleWindowIntact(vehicle, windowIndex) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA067F5AD)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Returns whether the vehicle is synced as wrecked. See also [`SET_VEHICLE_WRECKED`](#_0xCBBF47AC) and [`IS_VEHICLE_BLOWN_UP`](#_0x3FDE5771).
+---@param vehicle integer
+---@return boolean
+function IsVehicleWrecked(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xADECF19E)  
@@ -6317,15 +6604,20 @@ function SetEntityMatrix(entity, forwardX, forwardY, forwardZ, rightX, rightY, r
 ---    DeleteOnOwnerDisconnect = 1,---
 ---    // The entity will never be deleted by the server when it does relevancy checks---
 ---    // you should only use this on entities that need to be relatively persistent---
----    KeepEntity = 2---
----}
----```
----
----Sets what the server will do when the entity no longer has its original owner. By default the server will cleanup entities that it considers "no longer relevant".
----
----When used on trains, this native will recursively call onto all attached carriages.
----
----**NOTE**: When used with `KeepEntity` (2) this native only guarantees that the ***server*** will not delete the entity, client requests to delete the entity will still work perfectly fine.
+---    KeepEntity = 2,---
+---    // Same as KeepEntity, but the client is also unable to delete the entity.---
+---    // This mode is exclusive to FiveM for GTAV Enhanced.---
+---    ServerProtected = 3---
+---}---
+---```---
+------
+---Sets what the server will do when the entity no longer has its original owner. By default the server will cleanup entities that it considers "no longer relevant".---
+------
+---When used on trains, this native will recursively call onto all attached carriages.---
+------
+---**NOTE**: When used with `KeepEntity` (2) this native only guarantees that the ***server*** will not delete the entity, client requests to delete the entity will still work perfectly fine.---
+------
+---**NOTE**: The `ServerProtected` (3) mode is exclusive to FiveM for GTAV Enhanced. It behaves like `KeepEntity`, except client requests to delete the entity are also blocked.
 ---@param entity integer
 ---@param orphanMode integer
 function SetEntityOrphanMode(entity, orphanMode) end
@@ -8105,6 +8397,20 @@ function SetPlayerStamina(playerId, stamina) end
 function SetPlayerTalkingOverride(player, state) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xE7AC6D1B)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Sets how far the player can be heard in spatial voice channels. This does not affect how far the player can hear others.---
+------
+---The range can only shorten the distance: in each spatial channel, the player is heard within the smaller of this range and the `maxDistance` of the channel. A range of 0 uses the maximum distance of the channel.---
+------
+---**This is a server-side only native. It sets the same range as the deprecated client native [`MUMBLE_SET_TALKER_PROXIMITY`](#_0x74E927B0).**
+---@param playerSrc integer|string
+---@param proximityRange number
+---@return boolean
+function SetPlayerVoiceProximityRange(playerSrc, proximityRange) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB7A0914B)  
 ---SET_PLAYER_WANTED_LEVEL
 ---
@@ -8350,6 +8656,20 @@ function SetTrainState(train, state) end
 function SetTrainStopAtStations(train, state) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC212205D)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Sets the wear rate of a tyre. The owner of the vehicle applies it, worn tyres lose grip over time. The owner wears the tyre down at this rate, so a high rate bursts it quickly.---
+------
+---With server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, this writes the synced vehicle health data. Otherwise it is sent as an RPC to the owner of the vehicle.---
+------
+---**This is the server-side equivalent of the client native [`SET_TYRE_WEAR_RATE`](#_0x01894E2EDE923CA2). Use [`GET_TYRE_WEAR_RATE`](#_0xB22B8F78) to read it.**
+---@param vehicle integer
+---@param wheelIndex integer
+---@param wearRate number
+function SetTyreWearRate(vehicle, wheelIndex, wearRate) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x24877D84)  
 ---SET_VEHICLE_ALARM
 ---
@@ -8364,6 +8684,30 @@ function SetVehicleAlarm(vehicle, state) end
 ---@param vehicle integer
 ---@param time integer
 function SetVehicleAlarmTimeLeft(vehicle, time) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xB2F6BD8A)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Damages an armoured (bullet resistant) window of the vehicle. Only works for vehicles with bullet resistant glass, see [`GET_VEHICLE_HAS_BULLET_RESISTANT_GLASS`](#_0x9FDA8733). The health can only be lowered, use [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C) to repair it.---
+------
+---**This is a server-side only native, there is no client equivalent. Use [`GET_VEHICLE_ARMOURED_WINDOW_HEALTH`](#_0xAF4D6B9F) to read it.**
+---@param vehicle integer
+---@param windowIndex integer
+---@param health number
+function SetVehicleArmouredWindowHealth(vehicle, windowIndex, health) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x8993C2F)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Raises the number of bullet penetration decals of an armoured (bullet resistant) window of the vehicle. Only synced while the window is damaged (health below 100.0), see [`SET_VEHICLE_ARMOURED_WINDOW_HEALTH`](#_0xB2F6BD8A). Clients only add decals, use [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C) to remove them.---
+------
+---**This is a server-side only native, there is no client equivalent. Use [`GET_VEHICLE_ARMOURED_WINDOW_PENETRATION_DECALS_COUNT`](#_0xC56379DB) to read it.**
+---@param vehicle integer
+---@param windowIndex integer
+---@param count integer
+function SetVehicleArmouredWindowPenetrationDecalsCount(vehicle, windowIndex, count) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x5F3A3574)  
@@ -8382,6 +8726,18 @@ function SetVehicleAutoRepairDisabled(vehicle, value) end
 ---@param vehicle integer
 ---@param value number
 function SetVehicleBodyHealth(vehicle, value) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x4716182C)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Breaks the front or rear bumper of the vehicle. The state can only get worse (intact -> bouncing -> broken off), use [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C) to repair it.---
+------
+---**This is a server-side only native, there is no client equivalent. Use [`IS_VEHICLE_BUMPER_BOUNCING`](#_0x27B926779DEB502D), [`IS_VEHICLE_BUMPER_BROKEN_OFF`](#_0x468056A6BB6F3846) or [`GET_VEHICLE_BUMPER_STATE`](#_0x67C9FAA3) to read it.**
+---@param vehicle integer
+---@param front boolean
+---@param state integer
+function SetVehicleBumperState(vehicle, front, state) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2F70ACED)  
@@ -8452,6 +8808,28 @@ function SetVehicleCustomPrimaryColour(vehicle, r, g, b) end
 function SetVehicleCustomSecondaryColour(vehicle, r, g, b) end
 
 ---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDD2920C8)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Fixes the deformation of a vehicle, the vehicle health is not changed. Runs on the owner of the vehicle, the server state is updated once the owner reports the repaired vehicle.---
+------
+---**This is the server-side RPC native equivalent of the client native [`SET_VEHICLE_DEFORMATION_FIXED`](#_0x953DA1E1B12C0491).**
+---@param vehicle integer
+function SetVehicleDeformationFixed(vehicle) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCE5DA6C6)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Deforms one zone of the vehicle. The level can only be raised, use [`SET_VEHICLE_DEFORMATION_FIXED`](#_0x953DA1E1B12C0491) or [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C) to repair it.---
+------
+---**This is a server-side only native, there is no client equivalent. Use [`GET_VEHICLE_DEFORMATION_LEVEL`](#_0x745A5000) to read it.**
+---@param vehicle integer
+---@param zone integer
+---@param level integer
+function SetVehicleDeformationLevel(vehicle, zone, level) end
+
+---**`CFX` `server`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2B39128B)  
 ---Sets the dirt level of the passed vehicle.
 ---
@@ -8510,12 +8888,35 @@ function SetVehicleDoorBroken(vehicle, doorIndex, deleteDoor) end
 ---@param doorLockStatus integer
 function SetVehicleDoorsLocked(vehicle, doorLockStatus) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1B760FB5)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Sets the engine health of the vehicle. It is stored as a whole number in the synced vehicle health data.---
+------
+---With server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, this writes the synced vehicle health data. Otherwise it is sent as an RPC to the owner of the vehicle.---
+------
+---**This is the server-side equivalent of the client native [`SET_VEHICLE_ENGINE_HEALTH`](#_0x45F6D8EEF34ABEF1). Use [`GET_VEHICLE_ENGINE_HEALTH`](#_0x8880038A) to read it.**
+---@param vehicle integer
+---@param health number
+function SetVehicleEngineHealth(vehicle, health) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6C93C4A9)  
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@param temperature number
 function SetVehicleEngineTemperature(vehicle, temperature) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x17469AA1)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Fixes the vehicle: deformation, bumpers, windows, lights, sirens and weapon impacts. Runs on the owner of the vehicle, the server state is updated once the owner reports the repaired vehicle.---
+------
+---**This is the server-side RPC native equivalent of the client native [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C).**
+---@param vehicle integer
+function SetVehicleFixed(vehicle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x63AE1A34)  
@@ -8593,6 +8994,20 @@ function SetVehicleHandlingVector(vehicle, class_, fieldName, value) end
 ---@param gear integer
 function SetVehicleHighGear(vehicle, gear) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x611A3234)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Breaks or fixes a light of the vehicle.---
+------
+---**This is a server-side only native, there is no client equivalent. Use [`IS_VEHICLE_LIGHT_BROKEN`](#_0x7AFC9DF5) to read it.**---
+------
+---**NOTE**: The game doesn't allow you to repair lights once they've been broken, even when you're within range.
+---@param vehicle integer
+---@param lightIndex integer
+---@param broken boolean
+function SetVehicleLightBroken(vehicle, lightIndex, broken) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x3A4566F4)  
 ---This native does not have an official description.
@@ -8622,6 +9037,19 @@ function SetVehicleNumberPlateText(vehicle, plateText) end
 ---@param level number
 function SetVehicleOilLevel(vehicle, level) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x660A3692)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Sets the petrol tank health of the vehicle. It is stored as a whole number in the synced vehicle health data.---
+------
+---With server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, this writes the synced vehicle health data. Otherwise it is sent as an RPC to the owner of the vehicle.---
+------
+---**This is the server-side equivalent of the client native [`SET_VEHICLE_PETROL_TANK_HEALTH`](#_0x70DB57649FA8D0D8). Use [`GET_VEHICLE_PETROL_TANK_HEALTH`](#_0xE41595CE) to read it.**
+---@param vehicle integer
+---@param health number
+function SetVehiclePetrolTankHealth(vehicle, health) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x2A6CC9F2)  
 ---Set the vehicle's pitch bias. Only works on planes.
@@ -8635,6 +9063,18 @@ function SetVehiclePitchBias(vehicle, value) end
 ---@param vehicle integer
 ---@param value number
 function SetVehicleRollBias(vehicle, value) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCA955101)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Breaks or fixes a siren light of the vehicle.---
+------
+---**This is a server-side only native, there is no client equivalent. Use [`IS_VEHICLE_SIREN_BROKEN`](#_0xC2FD0CDF) to read it.**
+---@param vehicle integer
+---@param sirenIndex integer
+---@param broken boolean
+function SetVehicleSirenBroken(vehicle, sirenIndex, broken) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xFFCCC2EA)  
@@ -8650,6 +9090,18 @@ function SetVehicleSteeringAngle(vehicle, angle) end
 ---@param scale number
 function SetVehicleSteeringScale(vehicle, scale) end
 
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x1E99D55E)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Sets the suspension health of a wheel. Damaged suspension sags and reduces handling.---
+------
+---On the server, with server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, this writes the synced vehicle health data and the clients apply it. Otherwise it is sent as an RPC to the owner of the vehicle.
+---@param vehicle integer
+---@param wheelIndex integer
+---@param health number
+function SetVehicleSuspensionHealth(vehicle, wheelIndex, health) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB3439A01)  
 ---Sets the height of the vehicle's suspension.---
@@ -8661,12 +9113,66 @@ function SetVehicleSteeringScale(vehicle, scale) end
 ---@param newHeight number
 function SetVehicleSuspensionHeight(vehicle, newHeight) end
 
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDB8CB8E2)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Arms a timed explosion: the vehicle blows up `timeFromNow` milliseconds from now, and the explosion is attributed to `culprit`. The time is converted to the shared network clock, so every client explodes the vehicle at the same time.---
+------
+---With server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, this writes the synced vehicle game state. Otherwise it is sent as an RPC to the owner of the vehicle.---
+------
+---**This is the server-side equivalent of the client native [`SET_VEHICLE_TIMED_EXPLOSION`](#_0x2E0A74E1002380B1). Use [`HAS_VEHICLE_TIMED_EXPLOSION`](#_0x8D88E886) and [`GET_VEHICLE_TIMED_EXPLOSION_TIME_LEFT`](#_0x1289F86D) to read it, and [`CLEAR_VEHICLE_TIMED_EXPLOSION`](#_0x34056BB6) to cancel it.**
+---@param vehicle integer
+---@param culprit integer
+---@param timeFromNow integer
+function SetVehicleTimedExplosion(vehicle, culprit, timeFromNow) end
+
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x6485615E)  
 ---This native does not have an official description.
 ---@param vehicle integer
 ---@param pressure number
 function SetVehicleTurboPressure(vehicle, pressure) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x89D28068)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Bursts a tyre of the vehicle. The `tyresCanBurst` setting of the vehicle is not checked, because it is not synced.---
+------
+---With server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, this writes the synced vehicle health data. Otherwise it is sent as an RPC to the owner of the vehicle.---
+------
+---**This is the server-side equivalent of the client native [`SET_VEHICLE_TYRE_BURST`](#_0xEC6A202EE4960385). Use [`IS_VEHICLE_TYRE_BURST`](#_0x48C80210) to read it.**
+---@param vehicle integer
+---@param tyreIndex integer
+---@param onRim boolean
+---@param damage number
+function SetVehicleTyreBurst(vehicle, tyreIndex, onRim, damage) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xA42EFA6B)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Fixes a burst tyre of the vehicle. The clients repair tyres that are no longer damaged in the synced vehicle health data. A broken off wheel or a burning tyre stays, use [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C) to repair those.---
+------
+---With server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, this writes the synced vehicle health data. Otherwise it is sent as an RPC to the owner of the vehicle.---
+------
+---**This is the server-side equivalent of the client native [`SET_VEHICLE_TYRE_FIXED`](#_0x6E13FC662B882D1D). Use [`IS_VEHICLE_TYRE_BURST`](#_0x48C80210) to read it.**
+---@param vehicle integer
+---@param tyreIndex integer
+function SetVehicleTyreFixed(vehicle, tyreIndex) end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0x521A448)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Raises the number of weapon impacts (bullet holes) synced for one side of the vehicle. Clients only add new impacts, so the count can only be raised, use [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C) to remove them.---
+------
+---**This is a server-side only native, there is no client equivalent. Use [`GET_VEHICLE_WEAPON_IMPACT_POINT_COUNT`](#_0x43A0C59B) or [`HAS_VEHICLE_BEEN_DAMAGED_BY_BULLETS`](#_0xB8AF3137) to read it.**
+---@param vehicle integer
+---@param direction integer
+---@param count integer
+function SetVehicleWeaponImpactPointCount(vehicle, direction, count) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xE80F4E31)  
@@ -8720,6 +9226,18 @@ function SetVehicleWheelieState(vehicle, state) end
 ---@param wheelIndex integer
 ---@param powered boolean
 function SetVehicleWheelIsPowered(vehicle, wheelIndex, powered) end
+
+---**`CFX` `shared`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xC3E1F461)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Sets a tyre of the vehicle on fire or extinguishes it. The fire burns the tyre down to the rim. A burst, burnt or broken off tyre can't be set on fire, only [`SET_VEHICLE_FIXED`](#_0x115722B1B9C14C1C) restores it.---
+------
+---On the server, with server setters (the `server_setters` ConVar, enabled by default) or server authority (`server_authority`) enabled, this writes the synced vehicle health data. Otherwise it is sent as an RPC to the owner of the vehicle. The owner burns the tyre down and reports it as usual: the tyre ends up burst on the rim and stops burning. Setting a burst or broken off tyre on fire raises a warning.
+---@param vehicle integer
+---@param wheelIndex integer
+---@param toggle boolean
+function SetVehicleWheelOnFire(vehicle, wheelIndex, toggle) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xC6146043)  
@@ -8819,6 +9337,19 @@ function SetVehicleWheelYRotation(vehicle, wheelIndex, value) end
 
 ---@deprecated
 SetVehicleWheelXrot = SetVehicleWheelYRotation
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xCBBF47AC)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Wrecks the vehicle on every client, including the owner. With `blowUp`, the clients blow it up (explosion, fire and the burnt look). Otherwise it is only marked as wrecked, like a sunk vehicle. A wrecked vehicle can't be restored, recreate it instead.---
+------
+---This always writes the synced vehicle health data, there is no RPC. Calling it on a vehicle that is already wrecked raises a warning, the kind of wreck can't be changed afterwards.---
+------
+---**This is a server-side only native. Use [`IS_VEHICLE_WRECKED`](#_0xA067F5AD) and [`IS_VEHICLE_BLOWN_UP`](#_0x3FDE5771) to read it.**
+---@param vehicle integer
+---@param blowUp boolean
+function SetVehicleWrecked(vehicle, blowUp) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x1683E7F0)  
@@ -9014,6 +9545,17 @@ function SetWetClothPinRadiusScale(scale) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0xB9234AFB)  
 ---Shuts down the `loadingScreen` NUI frame, similarly to `SHUTDOWN_LOADING_SCREEN`.
 function ShutdownLoadingScreenNui() end
+
+---**`CFX` `server`**  
+---[Native Documentation](https://docs.fivem.net/natives/?_0xDDD9A8C2)  
+---> This native only works in FiveM for GTAV Enhanced.---
+------
+---Smashes a vehicles window.---
+------
+---**This is the server-side equivalent of the client native [`SMASH_VEHICLE_WINDOW`](#_0x9E5B5E4D2CCD2259).**
+---@param vehicle integer
+---@param windowIndex integer
+function SmashVehicleWindow(vehicle, windowIndex) end
 
 ---**`CFX` `client`**  
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x8F2EECC3)  
@@ -9456,7 +9998,7 @@ function TriggerServerEventInternal(eventName, eventPayload, payloadLength) end
 ---[Native Documentation](https://docs.fivem.net/natives/?_0x9F73FDC)  
 ---> This native only works in FiveM for GTAV Enhanced.---
 ------
----Unregisters a command that was previously registered with `REGISTER_COMMAND`, using the command ID returned by that native.
+---Unregisters a command that was previously registered with [`REGISTER_COMMAND`](#_0x5FA79B0F), using the command ID returned by that native.
 ---@param commandId integer
 function UnregisterCommand(commandId) end
 
